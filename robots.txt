@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://retrofitplanner.co.uk/sitemap.xml
+Sitemap: https://www.retrofitplanner.co.uk/sitemap.xml
