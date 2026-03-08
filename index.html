@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrofit Planner | Free Home Energy Calculators for UK Homeowners</title>
+    <meta name="description" content="Free calculators to plan your home energy upgrade. Estimate heat pump costs, insulation savings, EPC improvements, and check your grant eligibility. All data from official UK sources.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://retrofitplanner.co.uk/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Retrofit Planner",
+        "url": "https://retrofitplanner.co.uk/",
+        "description": "Free home energy calculators for UK homeowners. Plan heat pumps, insulation, EPC improvements, and find government grants.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Retrofit Planner",
+            "url": "https://retrofitplanner.co.uk"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAFAF7;
+            --color-surface: #FFFFFF;
+            --color-surface-alt: #F3F1EC;
+            --color-border: #E2DFD6;
+            --color-text: #1A1A17;
+            --color-text-secondary: #6B6960;
+            --color-text-tertiary: #9C9888;
+            --color-accent: #2D6A4F;
+            --color-accent-light: #40916C;
+            --color-accent-bg: #EDF6F0;
+            --color-accent-border: #B7E4C7;
+            --color-highlight: #D4A843;
+            --color-highlight-bg: #FFF8E7;
+            --color-highlight-border: #F0D78C;
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        .nav {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+        }
+        .nav-links a:hover { color: var(--color-accent); }
+
+        .hero {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-accent-bg);
+            color: var(--color-accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+            border: 1px solid var(--color-accent-border);
+            margin-bottom: 24px;
+        }
+        .hero-badge svg { width: 14px; height: 14px; }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--color-text-secondary);
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .tools-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+            display: flex;
+            flex-direction: column;
+        }
+        .tool-card:hover {
+            border-color: var(--color-accent-border);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .tool-card .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-accent-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tool-card .icon svg { width: 24px; height: 24px; color: var(--color-accent); }
+        .tool-card.featured .icon { background: var(--color-accent); }
+        .tool-card.featured .icon svg { color: white; }
+        .tool-card h2 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .tool-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .tool-card .tag {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            background: var(--color-accent-bg);
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+        .tool-card.coming-soon { opacity: 0.6; pointer-events: none; }
+        .tool-card.coming-soon .tag {
+            color: var(--color-text-tertiary);
+            background: var(--color-surface-alt);
+        }
+
+        .trust-section {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            text-align: center;
+        }
+        .trust-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            text-align: left;
+        }
+        .trust-item { display: flex; gap: 12px; align-items: start; }
+        .trust-item .trust-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .trust-item .trust-icon svg { width: 20px; height: 20px; color: var(--color-accent); }
+        .trust-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .trust-item p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+
+        .footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: 48px 24px;
+        }
+        .footer-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--color-accent);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .footer-about { font-size: 0.82rem; color: var(--color-text-tertiary); line-height: 1.6; }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+        .footer-col a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: 4px 0;
+        }
+        .footer-col a:hover { color: var(--color-accent); }
+        .footer .attribution {
+            max-width: 1080px;
+            margin: 24px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.72rem;
+            color: var(--color-text-tertiary);
+            text-align: center;
+            line-height: 1.6;
+        }
+        @media (max-width: 800px) {
+            .nav-links { display: none; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 500px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Retrofit Planner</a>
+            <ul class="nav-links">
+                <li><a href="/heat-pump-calculator/">Heat Pump</a></li>
+                <li><a href="/insulation-calculator/">Insulation</a></li>
+                <li><a href="/epc-calculator/">EPC Rating</a></li>
+                <li><a href="/solar-calculator/">Solar Panels</a></li>
+                <li><a href="/grants/">Grants</a></li>
+                <li><a href="/guides/">Guides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            100% free, no sign-up required
+        </div>
+        <h1>Plan your home energy upgrade with confidence</h1>
+        <p>Free calculators powered by official UK data. See real costs, savings, and grants for heat pumps, insulation, and more.</p>
+    </header>
+
+    <section class="tools-grid">
+        <a href="/heat-pump-calculator/" class="tool-card featured">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+            </div>
+            <h2>Heat Pump Cost Calculator</h2>
+            <p>See the real cost of a heat pump for your home, including the £7,500 government grant, running costs vs gas, and your payback period.</p>
+            <span class="tag">Available now</span>
+        </a>
+
+        <div class="tool-card coming-soon">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h2>Insulation Savings Calculator</h2>
+            <p>Find out how much you could save with loft, cavity wall, or solid wall insulation. Includes grant eligibility for free installation.</p>
+            <span class="tag">Coming soon</span>
+        </div>
+
+        <div class="tool-card coming-soon">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <h2>EPC Improvement Planner</h2>
+            <p>Find the cheapest path to a better EPC rating. Essential for landlords meeting minimum efficiency standards.</p>
+            <span class="tag">Coming soon</span>
+        </div>
+
+        <div class="tool-card coming-soon">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h2>Solar Panel ROI Calculator</h2>
+            <p>Calculate generation, savings, export income, and payback for solar panels based on your roof and location.</p>
+            <span class="tag">Coming soon</span>
+        </div>
+
+        <div class="tool-card coming-soon">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h2>Grant Eligibility Checker</h2>
+            <p>Check which energy grants you qualify for: Boiler Upgrade Scheme, ECO4, GB Energy Scheme, and local authority grants.</p>
+            <span class="tag">Coming soon</span>
+        </div>
+
+        <div class="tool-card coming-soon">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h2>Home Energy Assessment</h2>
+            <p>Answer 10 questions and get a complete retrofit plan: what to do first, what it costs, and what grants are available.</p>
+            <span class="tag">Coming soon</span>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <h2>Built on official data you can trust</h2>
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                    <h3>Ofgem energy prices</h3>
+                    <p>Running costs use the latest quarterly price cap rates, updated as soon as Ofgem publishes new figures.</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h3>Energy Saving Trust data</h3>
+                    <p>Installation costs and savings estimates based on EST published research for UK property types.</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div>
+                    <h3>Government grant details</h3>
+                    <p>Grant amounts and eligibility criteria taken directly from GOV.UK scheme documentation.</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                    <h3>No sign-up, no fees</h3>
+                    <p>Every calculator is completely free. We earn through recommendations to vetted installers and energy products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">Retrofit Planner</div>
+                <p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements. Built on published data from the Energy Saving Trust, Ofgem, and BEIS.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a>
+                <a href="/insulation-calculator/">Insulation Savings Calculator</a>
+                <a href="/epc-calculator/">EPC Improvement Planner</a>
+                <a href="/solar-calculator/">Solar Panel ROI Calculator</a>
+                <a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a>
+                <a href="/grants/">Grant Eligibility Checker</a>
+            </div>
+            <div class="footer-col">
+                <h4>Guides</h4>
+                <a href="/guides/heat-pump-guide/">Complete Heat Pump Guide</a>
+                <a href="/guides/insulation-guide/">Home Insulation Guide</a>
+                <a href="/guides/epc-explained/">EPC Ratings Explained</a>
+                <a href="/guides/boiler-upgrade-scheme/">Boiler Upgrade Scheme Guide</a>
+                <a href="/guides/average-energy-bills/">Average Energy Bills UK</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/about/">About Us</a>
+                <a href="/methodology/">Our Methodology</a>
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/terms/">Terms of Use</a>
+                <a href="/contact/">Contact</a>
+            </div>
+        </div>
+        <div class="attribution">
+            Contains public sector information licensed under the Open Government Licence v3.0. Energy prices from Ofgem (Q1 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes.
+        </div>
+    </footer>
+</body>
+</html>
