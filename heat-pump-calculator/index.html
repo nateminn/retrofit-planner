@@ -1,1 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Pump Cost Calculator UK 2026 | Free Estimate with Grant Deduction</title>
+    <meta name="description" content="Calculate the true cost of a heat pump for your home. See installation costs, the £7,500 government grant, annual running costs vs gas, and your payback period. Free, instant results.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://retrofitplanner.co.uk/heat-pump-calculator/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Heat Pump Cost Calculator UK",
+        "description": "Calculate heat pump installation costs, government grant savings, and annual running costs for your UK home.",
+        "url": "https://retrofitplanner.co.uk/heat-pump-calculator/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GBP"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Retrofit Planner",
+            "url": "https://retrofitplanner.co.uk"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAFAF7;
+            --color-surface: #FFFFFF;
+            --color-surface-alt: #F3F1EC;
+            --color-border: #E2DFD6;
+            --color-text: #1A1A17;
+            --color-text-secondary: #6B6960;
+            --color-text-tertiary: #9C9888;
+            --color-accent: #2D6A4F;
+            --color-accent-light: #40916C;
+            --color-accent-bg: #EDF6F0;
+            --color-accent-border: #B7E4C7;
+            --color-highlight: #D4A843;
+            --color-highlight-bg: #FFF8E7;
+            --color-highlight-border: #F0D78C;
+            --color-danger: #C1453B;
+            --color-danger-bg: #FFF0EE;
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 32px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Icons */
+        .icon-svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        .icon-svg-lg {
+            width: 24px;
+            height: 24px;
+        }
+        .icon-svg-xl {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 16px 24px 0;
+            font-size: 0.8rem;
+            color: var(--color-text-tertiary);
+        }
+        .breadcrumbs a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover { color: var(--color-accent); }
+        .breadcrumbs span { margin: 0 6px; }
+
+        /* Hero */
+        .hero {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 32px 24px 40px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-accent-bg);
+            color: var(--color-accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+            border: 1px solid var(--color-accent-border);
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+        .hero-badge svg { width: 14px; height: 14px; }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.18;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            margin-bottom: 16px;
+            max-width: 680px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 620px;
+            line-height: 1.7;
+        }
+        .hero p a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* Main layout */
+        .main {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Calculator card */
+        .calc-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+        }
+        .calc-card h2 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .calc-card .subtitle {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 28px;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+        .form-group .helper {
+            font-size: 0.8rem;
+            color: var(--color-text-tertiary);
+            margin-top: 4px;
+        }
+        .form-group .helper a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--color-text);
+            background: var(--color-surface);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B6960' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+        select:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px var(--color-accent-bg);
+        }
+        input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--color-accent);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 8px;
+        }
+        .btn-calculate:hover { background: var(--color-accent-light); }
+        .btn-calculate:active { transform: scale(0.99); }
+
+        /* Results */
+        .results {
+            display: none;
+            margin-top: 36px;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-border);
+        }
+        .results.visible { display: block; }
+        .results h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .result-item {
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+        }
+        .result-item.highlight {
+            background: var(--color-accent-bg);
+            border: 1px solid var(--color-accent-border);
+        }
+        .result-item.saving {
+            background: var(--color-highlight-bg);
+            border: 1px solid var(--color-highlight-border);
+        }
+        .result-item .label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .result-item .value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+        }
+        .result-item.highlight .value { color: var(--color-accent); }
+        .result-item.saving .value { color: var(--color-highlight); }
+        .result-item .detail {
+            font-size: 0.78rem;
+            color: var(--color-text-tertiary);
+            margin-top: 2px;
+        }
+        .result-full {
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .result-full .label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .cost-bar-container {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .cost-bar-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            width: 90px;
+            flex-shrink: 0;
+        }
+        .cost-bar-wrap {
+            flex: 1;
+            background: var(--color-border);
+            height: 28px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .cost-bar {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.6s ease;
+        }
+        .cost-bar.gas { background: var(--color-danger); }
+        .cost-bar.hp { background: var(--color-accent); }
+        .cost-bar-amount {
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: 80px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        /* Next steps box */
+        .next-steps {
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-top: 28px;
+        }
+        .next-steps h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .next-step-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            transition: border-color 0.2s;
+        }
+        .next-step-link:last-child { margin-bottom: 0; }
+        .next-step-link:hover { border-color: var(--color-accent-border); }
+        .next-step-link .step-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--color-accent-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .next-step-link .step-icon svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-accent);
+        }
+        .next-step-link .step-text {
+            flex: 1;
+        }
+        .next-step-link .step-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .next-step-link .step-desc {
+            font-size: 0.78rem;
+            color: var(--color-text-tertiary);
+        }
+        .next-step-link .step-arrow {
+            color: var(--color-text-tertiary);
+        }
+        .next-step-link .step-arrow svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* CTA box */
+        .cta-box {
+            background: var(--color-accent);
+            color: white;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-top: 16px;
+            text-align: center;
+        }
+        .cta-box h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .cta-box p {
+            font-size: 0.88rem;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .cta-box a {
+            display: inline-block;
+            background: white;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 12px 28px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+        .cta-box a:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 80px;
+        }
+        .sidebar-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        .sidebar-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        .sidebar-card p, .sidebar-card li {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+        }
+        .sidebar-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-surface-alt);
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .sidebar-card ul li:last-child { border-bottom: none; }
+        .sidebar-card ul li svg {
+            width: 14px;
+            height: 14px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .sidebar-card.grant {
+            background: var(--color-highlight-bg);
+            border-color: var(--color-highlight-border);
+        }
+        .sidebar-card.grant h3 { color: var(--color-highlight); }
+        .grant-amount {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-highlight);
+            letter-spacing: -0.03em;
+        }
+        .grant-detail {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            margin-top: 4px;
+        }
+        .grant-detail a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .tool-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--color-text);
+            transition: background 0.2s;
+            margin-bottom: 8px;
+        }
+        .tool-link:last-child { margin-bottom: 0; }
+        .tool-link:hover { background: var(--color-accent-bg); }
+        .tool-link .t-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--color-accent-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .tool-link .t-icon svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-accent);
+        }
+        .tool-link .tool-info { flex: 1; }
+        .tool-link .tool-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .tool-link .tool-desc {
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+        }
+
+        /* Content section */
+        .content-section {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        .content-section article {
+            max-width: 720px;
+        }
+        .content-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            margin-top: 40px;
+        }
+        .content-section h2:first-child { margin-top: 0; }
+        .content-section p {
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+        .content-section a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .content-section a:hover {
+            color: var(--color-accent-light);
+        }
+
+        /* In-content link cards */
+        .related-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 32px 0;
+        }
+        .related-link-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--color-text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .related-link-card:hover {
+            border-color: var(--color-accent-border);
+            box-shadow: var(--shadow-sm);
+        }
+        .related-link-card .rl-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-accent-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .related-link-card .rl-icon svg { width: 20px; height: 20px; color: var(--color-accent); }
+        .related-link-card .rl-text { flex: 1; }
+        .related-link-card .rl-name { font-size: 0.88rem; font-weight: 600; }
+        .related-link-card .rl-desc { font-size: 0.75rem; color: var(--color-text-tertiary); }
+
+        /* Footer */
+        .footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: 48px 24px;
+        }
+        .footer-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--color-accent);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .footer-about {
+            font-size: 0.82rem;
+            color: var(--color-text-tertiary);
+            line-height: 1.6;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+        .footer-col a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: 4px 0;
+        }
+        .footer-col a:hover { color: var(--color-accent); }
+        .footer .attribution {
+            max-width: 1080px;
+            margin: 24px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.72rem;
+            color: var(--color-text-tertiary);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 800px) {
+            .main { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .nav-links { display: none; }
+            .calc-card { padding: 24px; }
+            .result-grid { grid-template-columns: 1fr; }
+            .related-links { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 500px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Retrofit Planner</a>
+            <ul class="nav-links">
+                <li><a href="/heat-pump-calculator/" class="active">Heat Pump</a></li>
+                <li><a href="/insulation-calculator/">Insulation</a></li>
+                <li><a href="/epc-calculator/">EPC Rating</a></li>
+                <li><a href="/solar-calculator/">Solar Panels</a></li>
+                <li><a href="/grants/">Grants</a></li>
+                <li><a href="/guides/">Guides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/heat-pump-calculator/">Calculators</a>
+        <span>/</span>
+        Heat Pump Cost Calculator
+    </div>
+
+    <header class="hero">
+        <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Updated March 2026 with latest Ofgem rates
+        </div>
+        <h1>Heat Pump Cost Calculator</h1>
+        <p>Find out what a heat pump would really cost for your home, including the <a href="/grants/">£7,500 government grant</a>, running costs compared to gas, and your payback period. Not sure about your <a href="/insulation-calculator/">insulation level</a>? Check that first.</p>
+    </header>
+
+    <main class="main">
+        <div class="calc-card">
+            <h2>Your property details</h2>
+            <p class="subtitle">Answer a few questions and we'll estimate your costs in seconds.</p>
+
+            <div class="form-group">
+                <label for="propertyType">Property type</label>
+                <select id="propertyType">
+                    <option value="">Select your property type</option>
+                    <option value="detached">Detached house</option>
+                    <option value="semi">Semi-detached house</option>
+                    <option value="mid-terrace">Mid-terrace house</option>
+                    <option value="end-terrace">End-terrace house</option>
+                    <option value="bungalow">Bungalow</option>
+                    <option value="flat">Flat or maisonette</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bedrooms">Number of bedrooms</label>
+                <select id="bedrooms">
+                    <option value="">Select bedrooms</option>
+                    <option value="1">1 bedroom</option>
+                    <option value="2">2 bedrooms</option>
+                    <option value="3">3 bedrooms</option>
+                    <option value="4">4 bedrooms</option>
+                    <option value="5">5+ bedrooms</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="currentHeating">Current heating system</label>
+                <select id="currentHeating">
+                    <option value="">Select current system</option>
+                    <option value="gas-boiler">Gas boiler</option>
+                    <option value="oil-boiler">Oil boiler</option>
+                    <option value="lpg-boiler">LPG boiler</option>
+                    <option value="electric-storage">Electric storage heaters</option>
+                    <option value="electric-direct">Direct electric heating</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="insulation">Insulation level</label>
+                <select id="insulation">
+                    <option value="">How well insulated is your home?</option>
+                    <option value="good">Good (cavity wall + loft + double glazing)</option>
+                    <option value="average">Average (some insulation, double glazing)</option>
+                    <option value="poor">Poor (little or no insulation, single glazing)</option>
+                </select>
+                <p class="helper">Not sure? Most homes built after 1990 have "good" insulation. Pre-1930s homes are typically "poor." Use our <a href="/insulation-calculator/">insulation savings calculator</a> to find out more.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="annualBill">Current annual heating bill (optional)</label>
+                <input type="number" id="annualBill" placeholder="e.g. 1200" min="0" max="10000">
+                <p class="helper">If you know your annual gas or heating spend, enter it for a more accurate comparison. Leave blank and we'll estimate based on <a href="/guides/average-energy-bills/">average energy bills by property type</a>.</p>
+            </div>
+
+            <button class="btn-calculate" onclick="calculate()">Calculate my heat pump costs</button>
+
+            <div class="results" id="results">
+                <h3>Your estimated costs</h3>
+
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="label">Installation cost</div>
+                        <div class="value" id="installCost">—</div>
+                        <div class="detail">Before grant</div>
+                    </div>
+                    <div class="result-item highlight">
+                        <div class="label">Cost after grant</div>
+                        <div class="value" id="afterGrant">—</div>
+                        <div class="detail">With <a href="/grants/" style="color: inherit; text-decoration: underline;">£7,500 BUS grant</a></div>
+                    </div>
+                    <div class="result-item saving">
+                        <div class="label">Annual saving</div>
+                        <div class="value" id="annualSaving">—</div>
+                        <div class="detail" id="savingDetail">vs current system</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="label">Payback period</div>
+                        <div class="value" id="payback">—</div>
+                        <div class="detail">After grant</div>
+                    </div>
+                </div>
+
+                <div class="result-full">
+                    <div class="label">Annual running cost comparison</div>
+                    <div class="cost-bar-container" style="margin-top: 12px;">
+                        <span class="cost-bar-label">Current</span>
+                        <div class="cost-bar-wrap">
+                            <div class="cost-bar gas" id="gasBar" style="width: 0%"></div>
+                        </div>
+                        <span class="cost-bar-amount" id="gasCost">—</span>
+                    </div>
+                    <div class="cost-bar-container" style="margin-top: 8px;">
+                        <span class="cost-bar-label">Heat pump</span>
+                        <div class="cost-bar-wrap">
+                            <div class="cost-bar hp" id="hpBar" style="width: 0%"></div>
+                        </div>
+                        <span class="cost-bar-amount" id="hpCost">—</span>
+                    </div>
+                </div>
+
+                <div class="result-full">
+                    <div class="label">CO2 emissions reduction</div>
+                    <div style="margin-top: 8px; font-size: 0.95rem;">
+                        <span id="co2Saving" style="font-weight: 700; color: var(--color-accent);">—</span>
+                        <span style="color: var(--color-text-secondary);"> fewer kg of CO2 per year</span>
+                    </div>
+                </div>
+
+                <div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);">
+                    <div class="label">Recommended system</div>
+                    <div style="margin-top: 8px; font-size: 0.95rem; font-weight: 600;" id="recommendation">—</div>
+                    <div style="font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 4px;" id="recommendationDetail">—</div>
+                </div>
+
+                <div class="next-steps">
+                    <h4>Recommended next steps</h4>
+                    <a href="/insulation-calculator/" class="next-step-link">
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <div class="step-text">
+                            <div class="step-name">Check your insulation first</div>
+                            <div class="step-desc">Better insulation means a smaller, cheaper heat pump</div>
+                        </div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                    <a href="/epc-calculator/" class="next-step-link">
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </div>
+                        <div class="step-text">
+                            <div class="step-name">Plan your EPC improvement</div>
+                            <div class="step-desc">A heat pump can boost your EPC by 10 to 15 points</div>
+                        </div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                    <a href="/grants/" class="next-step-link">
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div class="step-text">
+                            <div class="step-name">Check all available grants</div>
+                            <div class="step-desc">You may qualify for additional funding beyond the BUS</div>
+                        </div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                </div>
+
+                <div class="cta-box">
+                    <h4>Get accurate quotes for your home</h4>
+                    <p>Our calculator gives estimates based on national averages. For an accurate price, get free quotes from MCS-certified installers in your area.</p>
+                    <a href="#" id="ctaLink">Compare local installer quotes</a>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-card grant">
+                <h3>Government grant</h3>
+                <div class="grant-amount">£7,500</div>
+                <p class="grant-detail">The <a href="/grants/">Boiler Upgrade Scheme</a> covers air source heat pumps. £6,000 for ground source. Available until March 2028. Applied automatically by your installer.</p>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>What's included in the cost?</h3>
+                <ul>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Heat pump unit and controls</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Hot water cylinder</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Installation labour</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Radiator upgrades if needed</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Electrical work</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> MCS certification</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Commissioning and handover</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Related calculators</h3>
+                <a href="/insulation-calculator/" class="tool-link">
+                    <div class="t-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <div class="tool-info">
+                        <div class="tool-name">Insulation Savings Calculator</div>
+                        <div class="tool-desc">See how much you could save</div>
+                    </div>
+                </a>
+                <a href="/epc-calculator/" class="tool-link">
+                    <div class="t-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div class="tool-info">
+                        <div class="tool-name">EPC Improvement Planner</div>
+                        <div class="tool-desc">Cheapest path to a better rating</div>
+                    </div>
+                </a>
+                <a href="/solar-calculator/" class="tool-link">
+                    <div class="t-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    </div>
+                    <div class="tool-info">
+                        <div class="tool-name">Solar Panel ROI Calculator</div>
+                        <div class="tool-desc">Calculate generation and payback</div>
+                    </div>
+                </a>
+                <a href="/grants/" class="tool-link">
+                    <div class="t-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="tool-info">
+                        <div class="tool-name">Grant Eligibility Checker</div>
+                        <div class="tool-desc">Find grants you qualify for</div>
+                    </div>
+                </a>
+                <a href="/boiler-vs-heat-pump/" class="tool-link">
+                    <div class="t-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <div class="tool-info">
+                        <div class="tool-name">Boiler vs Heat Pump Comparison</div>
+                        <div class="tool-desc">Side-by-side lifetime costs</div>
+                    </div>
+                </a>
+            </div>
+        </aside>
+    </main>
+
+    <section class="content-section">
+        <article>
+            <h2>How much does a heat pump cost in 2026?</h2>
+            <p>The total cost of installing an air source heat pump in a typical UK home ranges from £7,000 to £13,000 before the government grant. After the <a href="/grants/">£7,500 Boiler Upgrade Scheme grant</a>, most homeowners pay between £500 and £5,500 out of pocket. Ground source heat pumps cost more — typically £15,000 to £35,000 before grants — but deliver higher efficiency.</p>
+            <p>The exact cost depends on your property size, how well <a href="/insulation-calculator/">insulated your home</a> is, whether your radiators need upgrading, and the complexity of the installation. Our calculator uses data from the Energy Saving Trust and current Ofgem energy prices to give you a realistic estimate.</p>
+
+            <h2>Heat pump running costs vs gas boiler</h2>
+            <p>Heat pumps are more efficient than gas boilers because they transfer heat rather than generating it by burning fuel. A typical air source heat pump achieves a coefficient of performance (COP) of 2.8 to 3.5, meaning it produces 2.8 to 3.5 units of heat for every unit of electricity consumed.</p>
+            <p>However, electricity costs more per unit than gas. At current Ofgem rates (24.5p/kWh electricity vs 6.76p/kWh gas as of Q1 2026), a heat pump with a COP of 3.0 costs roughly 8.2p per kWh of heat — compared to around 7.5p per kWh from a gas boiler operating at 90% efficiency. The savings are modest for gas users but substantial for anyone on oil, LPG, or electric heating. For a detailed side-by-side analysis, see our <a href="/boiler-vs-heat-pump/">boiler vs heat pump comparison tool</a>.</p>
+
+            <h2>Is a heat pump worth it?</h2>
+            <p>For homes currently heated by oil or LPG, a heat pump almost always saves money from year one. For homes on mains gas, the financial case is tighter — the savings come primarily from the <a href="/grants/">government grant</a> reducing the upfront cost, and from the expectation that gas prices will rise relative to electricity as the UK decarbonises. The environmental case is clear: a heat pump in a well-insulated home typically reduces CO2 emissions by 50% to 70% compared to a gas boiler.</p>
+            <p>The best candidates for heat pumps are homes with good <a href="/insulation-calculator/">insulation</a>, adequate space for the outdoor unit, and a willingness to accept slightly lower flow temperatures (which means larger radiators may be needed in some rooms). If your home's <a href="/epc-calculator/">EPC rating</a> is D or below, you should consider insulating first — this reduces the heat pump size needed and improves efficiency.</p>
+
+            <h2>The Boiler Upgrade Scheme explained</h2>
+            <p>The Boiler Upgrade Scheme (BUS) provides grants of £7,500 for air source heat pumps and £6,000 for ground source heat pumps in England and Wales. The scheme runs until March 2028. Your installer applies for the grant on your behalf, and it's deducted from your invoice — you never have to pay the full amount and claim back.</p>
+            <p>To qualify, your property must have a valid EPC (less than 10 years old), and the installation must be carried out by an MCS-certified installer. There is no income test or means test — the grant is available to all eligible homeowners. Check our <a href="/grants/">full grant eligibility checker</a> to see if you qualify for this and other energy efficiency grants, including <a href="/grants/">ECO4</a> and the <a href="/grants/">GB Energy Scheme</a>.</p>
+
+            <div class="related-links">
+                <a href="/insulation-calculator/" class="related-link-card">
+                    <div class="rl-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <div class="rl-text">
+                        <div class="rl-name">Insulation Savings Calculator</div>
+                        <div class="rl-desc">Check if you should insulate before installing a heat pump</div>
+                    </div>
+                </a>
+                <a href="/epc-calculator/" class="related-link-card">
+                    <div class="rl-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div class="rl-text">
+                        <div class="rl-name">EPC Improvement Planner</div>
+                        <div class="rl-desc">See how a heat pump affects your EPC rating</div>
+                    </div>
+                </a>
+                <a href="/boiler-vs-heat-pump/" class="related-link-card">
+                    <div class="rl-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <div class="rl-text">
+                        <div class="rl-name">Boiler vs Heat Pump</div>
+                        <div class="rl-desc">Compare lifetime costs side by side</div>
+                    </div>
+                </a>
+                <a href="/grants/" class="related-link-card">
+                    <div class="rl-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="rl-text">
+                        <div class="rl-name">Grant Eligibility Checker</div>
+                        <div class="rl-desc">Check all grants you may qualify for</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <h3 style="font-size: 1.1rem; margin-top: 24px; margin-bottom: 8px;">How long does a heat pump last?</h3>
+            <p>Air source heat pumps typically last 20 to 25 years with proper servicing — roughly double the lifespan of a gas boiler. This longer lifespan is factored into the <a href="/boiler-vs-heat-pump/">lifetime cost comparison with a new gas boiler</a>.</p>
+
+            <h3 style="font-size: 1.1rem; margin-top: 24px; margin-bottom: 8px;">Do I need planning permission for a heat pump?</h3>
+            <p>Most air source heat pump installations fall under permitted development rights and don't require planning permission, provided the unit meets noise limits and is positioned appropriately. Listed buildings and conservation areas may have additional restrictions.</p>
+
+            <h3 style="font-size: 1.1rem; margin-top: 24px; margin-bottom: 8px;">Should I insulate my home before getting a heat pump?</h3>
+            <p>Yes, in most cases. Better <a href="/insulation-calculator/">insulation</a> reduces your heat demand, which means you can install a smaller and cheaper heat pump. It also improves the heat pump's efficiency and comfort levels. Our <a href="/epc-calculator/">EPC improvement planner</a> can show you the most cost-effective order of improvements.</p>
+
+            <h3 style="font-size: 1.1rem; margin-top: 24px; margin-bottom: 8px;">Can I combine a heat pump with solar panels?</h3>
+            <p>Yes, and it's a highly effective combination. <a href="/solar-calculator/">Solar panels</a> can generate electricity to power your heat pump during daylight hours, further reducing running costs. Some homeowners pair solar panels with a battery to maximise self-consumption.</p>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">Retrofit Planner</div>
+                <p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements. Built on published data from the Energy Saving Trust, Ofgem, and BEIS.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a>
+                <a href="/insulation-calculator/">Insulation Savings Calculator</a>
+                <a href="/epc-calculator/">EPC Improvement Planner</a>
+                <a href="/solar-calculator/">Solar Panel ROI Calculator</a>
+                <a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a>
+                <a href="/grants/">Grant Eligibility Checker</a>
+            </div>
+            <div class="footer-col">
+                <h4>Guides</h4>
+                <a href="/guides/heat-pump-guide/">Complete Heat Pump Guide</a>
+                <a href="/guides/insulation-guide/">Home Insulation Guide</a>
+                <a href="/guides/epc-explained/">EPC Ratings Explained</a>
+                <a href="/guides/boiler-upgrade-scheme/">Boiler Upgrade Scheme Guide</a>
+                <a href="/guides/average-energy-bills/">Average Energy Bills UK</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/about/">About Us</a>
+                <a href="/methodology/">Our Methodology</a>
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/terms/">Terms of Use</a>
+                <a href="/contact/">Contact</a>
+            </div>
+        </div>
+        <div class="attribution">
+            Contains public sector information licensed under the Open Government Licence v3.0. Energy prices from Ofgem (Q1 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes. Always obtain professional quotes before proceeding with installation.
+        </div>
+    </footer>
+
+    <script>
+        const DATA = {
+            energyPrices: { electricity: 0.245, gas: 0.0676, oil: 0.068, lpg: 0.095 },
+            heatDemand: {
+                'detached':    { 1: 10000, 2: 13000, 3: 16000, 4: 20000, 5: 24000 },
+                'semi':        { 1: 8000,  2: 10000, 3: 13000, 4: 16000, 5: 19000 },
+                'mid-terrace': { 1: 6500,  2: 8500,  3: 11000, 4: 13500, 5: 16000 },
+                'end-terrace': { 1: 7000,  2: 9500,  3: 12000, 4: 15000, 5: 18000 },
+                'bungalow':    { 1: 8000,  2: 10500, 3: 13000, 4: 16000, 5: 19000 },
+                'flat':        { 1: 5000,  2: 6500,  3: 8500,  4: 10000, 5: 12000 },
+            },
+            insulationMultiplier: { 'good': 1.0, 'average': 1.2, 'poor': 1.5 },
+            installCost: {
+                'detached':    { base: 11000, range: 2000 },
+                'semi':        { base: 10000, range: 1500 },
+                'mid-terrace': { base: 9000,  range: 1500 },
+                'end-terrace': { base: 9500,  range: 1500 },
+                'bungalow':    { base: 10000, range: 1500 },
+                'flat':        { base: 8000,  range: 1500 },
+            },
+            cop: { 'good': 3.2, 'average': 2.9, 'poor': 2.6 },
+            boilerEfficiency: {
+                'gas-boiler': 0.90, 'oil-boiler': 0.85, 'lpg-boiler': 0.85,
+                'electric-storage': 1.0, 'electric-direct': 1.0,
+            },
+            fuelType: {
+                'gas-boiler': 'gas', 'oil-boiler': 'oil', 'lpg-boiler': 'lpg',
+                'electric-storage': 'electricity', 'electric-direct': 'electricity',
+            },
+            co2Factors: { 'gas': 0.182, 'oil': 0.247, 'lpg': 0.214, 'electricity': 0.136 },
+            busGrant: 7500
+        };
+
+        function calculate() {
+            const propType = document.getElementById('propertyType').value;
+            const bedrooms = document.getElementById('bedrooms').value;
+            const heating = document.getElementById('currentHeating').value;
+            const insulation = document.getElementById('insulation').value;
+            const annualBillInput = document.getElementById('annualBill').value;
+
+            if (!propType || !bedrooms || !heating || !insulation) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const baseHeatDemand = DATA.heatDemand[propType][bedrooms];
+            const heatDemand = baseHeatDemand * DATA.insulationMultiplier[insulation];
+            const fuelType = DATA.fuelType[heating];
+            const fuelPrice = DATA.energyPrices[fuelType];
+            const boilerEff = DATA.boilerEfficiency[heating];
+            const estimatedCurrentCost = (heatDemand / boilerEff) * fuelPrice;
+            const currentCost = annualBillInput ? parseFloat(annualBillInput) : estimatedCurrentCost;
+            const cop = DATA.cop[insulation];
+            const hpRunningCost = (heatDemand / cop) * DATA.energyPrices.electricity;
+            const installData = DATA.installCost[propType];
+            const bedroomMultiplier = 1 + (parseInt(bedrooms) - 3) * 0.08;
+            const insulationCostMultiplier = insulation === 'poor' ? 1.15 : insulation === 'average' ? 1.05 : 1.0;
+            let installCost = Math.round(installData.base * bedroomMultiplier * insulationCostMultiplier / 100) * 100;
+            installCost = Math.max(7000, Math.min(installCost, 15000));
+            const afterGrant = installCost - DATA.busGrant;
+            const annualSaving = currentCost - hpRunningCost;
+            const paybackYears = annualSaving > 0 ? afterGrant / annualSaving : null;
+            const currentCO2 = (heatDemand / boilerEff) * DATA.co2Factors[fuelType];
+            const hpCO2 = (heatDemand / cop) * DATA.co2Factors.electricity;
+            const co2Saving = currentCO2 - hpCO2;
+
+            document.getElementById('installCost').textContent = '£' + installCost.toLocaleString();
+            document.getElementById('afterGrant').textContent = '£' + Math.max(0, afterGrant).toLocaleString();
+            document.getElementById('annualSaving').textContent = annualSaving > 0 ? '£' + Math.round(annualSaving).toLocaleString() : '—';
+            document.getElementById('savingDetail').textContent = annualSaving > 0 ? 'per year vs ' + heating.replace(/-/g, ' ') : 'Running costs are similar';
+
+            if (paybackYears && paybackYears > 0 && paybackYears < 50) {
+                document.getElementById('payback').textContent = Math.round(paybackYears) + ' years';
+            } else if (annualSaving <= 0) {
+                document.getElementById('payback').textContent = 'N/A';
+            } else {
+                document.getElementById('payback').textContent = '< 1 year';
+            }
+
+            const maxCost = Math.max(currentCost, hpRunningCost);
+            document.getElementById('gasBar').style.width = (currentCost / maxCost * 100) + '%';
+            document.getElementById('hpBar').style.width = (hpRunningCost / maxCost * 100) + '%';
+            document.getElementById('gasCost').textContent = '£' + Math.round(currentCost).toLocaleString() + '/yr';
+            document.getElementById('hpCost').textContent = '£' + Math.round(hpRunningCost).toLocaleString() + '/yr';
+            document.getElementById('co2Saving').textContent = Math.round(co2Saving).toLocaleString();
+
+            const recEl = document.getElementById('recommendation');
+            const recDetail = document.getElementById('recommendationDetail');
+            if (insulation === 'poor') {
+                recEl.textContent = 'Insulate first, then install a heat pump';
+                recDetail.innerHTML = 'Your home would benefit significantly from improved insulation before a heat pump installation. <a href="/insulation-calculator/" style="color: var(--color-accent);">Check your insulation savings</a> to see the most cost-effective improvements.';
+            } else if (propType === 'flat') {
+                recEl.textContent = 'Air source heat pump (compact unit)';
+                recDetail.textContent = 'Flats typically need a smaller, quieter unit. Check with your freeholder or management company before proceeding.';
+            } else {
+                recEl.textContent = 'Air source heat pump';
+                recDetail.innerHTML = 'For most UK homes, an air source heat pump offers the best balance of cost and performance. <a href="/boiler-vs-heat-pump/" style="color: var(--color-accent);">See the full comparison with a new gas boiler</a>.';
+            }
+
+            document.getElementById('results').classList.add('visible');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+
+</body>
+</html>
