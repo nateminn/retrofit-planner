@@ -3,285 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retrofit Planner | Free Home Energy Calculators for UK Homeowners</title>
-    <meta name="description" content="Free calculators to plan your home energy upgrade. Estimate heat pump costs, insulation savings, EPC improvements, and check your grant eligibility. All data from official UK sources.">
+    <title>Insulation Savings Calculator UK 2026 | How Much Could You Save?</title>
+    <meta name="description" content="Calculate how much you could save with loft, cavity wall, or solid wall insulation. See costs, grant eligibility, and payback period for your home. Free instant results.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://retrofitplanner.co.uk/">
+    <link rel="canonical" href="https://www.retrofitplanner.co.uk/insulation-calculator/">
+    <meta property="og:title" content="Insulation Savings Calculator UK 2026">
+    <meta property="og:description" content="Calculate insulation savings for your UK home. See costs, grants, and payback period.">
+    <meta property="og:url" content="https://www.retrofitplanner.co.uk/insulation-calculator/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Retrofit Planner">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/style.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Retrofit Planner",
-        "url": "https://retrofitplanner.co.uk/",
-        "description": "Free home energy calculators for UK homeowners. Plan heat pumps, insulation, EPC improvements, and find government grants.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Retrofit Planner",
-            "url": "https://retrofitplanner.co.uk"
-        }
+        "@type": "WebApplication",
+        "name": "Insulation Savings Calculator UK",
+        "description": "Calculate how much you could save with home insulation. Covers loft, cavity wall, solid wall, and floor insulation with grant eligibility.",
+        "url": "https://www.retrofitplanner.co.uk/insulation-calculator/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+        "publisher": { "@type": "Organization", "name": "Retrofit Planner", "url": "https://www.retrofitplanner.co.uk" }
     }
     </script>
-
-    <style>
-        :root {
-            --color-bg: #FAFAF7;
-            --color-surface: #FFFFFF;
-            --color-surface-alt: #F3F1EC;
-            --color-border: #E2DFD6;
-            --color-text: #1A1A17;
-            --color-text-secondary: #6B6960;
-            --color-text-tertiary: #9C9888;
-            --color-accent: #2D6A4F;
-            --color-accent-light: #40916C;
-            --color-accent-bg: #EDF6F0;
-            --color-accent-border: #B7E4C7;
-            --color-highlight: #D4A843;
-            --color-highlight-bg: #FFF8E7;
-            --color-highlight-border: #F0D78C;
-            --font-display: 'Fraunces', Georgia, serif;
-            --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.65;
-            -webkit-font-smoothing: antialiased;
-        }
-        .nav {
-            background: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            padding: 0 24px;
-        }
-        .nav-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-        }
-        .nav-logo {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--color-accent);
-            text-decoration: none;
-        }
-        .nav-links { display: flex; gap: 28px; list-style: none; }
-        .nav-links a {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-        }
-        .nav-links a:hover { color: var(--color-accent); }
-
-        .hero {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 80px 24px 60px;
-            text-align: center;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--color-accent-bg);
-            color: var(--color-accent);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 100px;
-            border: 1px solid var(--color-accent-border);
-            margin-bottom: 24px;
-        }
-        .hero-badge svg { width: 14px; height: 14px; }
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--color-text-secondary);
-            max-width: 580px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .tools-grid {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 24px 80px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .tool-card {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            text-decoration: none;
-            color: var(--color-text);
-            transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-            display: flex;
-            flex-direction: column;
-        }
-        .tool-card:hover {
-            border-color: var(--color-accent-border);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        .tool-card .icon {
-            width: 48px;
-            height: 48px;
-            background: var(--color-accent-bg);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .tool-card .icon svg { width: 24px; height: 24px; color: var(--color-accent); }
-        .tool-card.featured .icon { background: var(--color-accent); }
-        .tool-card.featured .icon svg { color: white; }
-        .tool-card h2 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
-        }
-        .tool-card p {
-            font-size: 0.9rem;
-            color: var(--color-text-secondary);
-            line-height: 1.6;
-            flex: 1;
-        }
-        .tool-card .tag {
-            display: inline-block;
-            margin-top: 16px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--color-accent);
-            background: var(--color-accent-bg);
-            padding: 4px 10px;
-            border-radius: 100px;
-        }
-        .tool-card.coming-soon { opacity: 0.6; pointer-events: none; }
-        .tool-card.coming-soon .tag {
-            color: var(--color-text-tertiary);
-            background: var(--color-surface-alt);
-        }
-
-        .trust-section {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 24px 80px;
-            text-align: center;
-        }
-        .trust-section h2 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 32px;
-            letter-spacing: -0.02em;
-        }
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            text-align: left;
-        }
-        .trust-item { display: flex; gap: 12px; align-items: start; }
-        .trust-item .trust-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .trust-item .trust-icon svg { width: 20px; height: 20px; color: var(--color-accent); }
-        .trust-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
-        .trust-item p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
-
-        .footer {
-            background: var(--color-surface);
-            border-top: 1px solid var(--color-border);
-            padding: 48px 24px;
-        }
-        .footer-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-        .footer-brand {
-            font-family: var(--font-display);
-            font-weight: 700;
-            color: var(--color-accent);
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-        .footer-about { font-size: 0.82rem; color: var(--color-text-tertiary); line-height: 1.6; }
-        .footer-col h4 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--color-text-secondary);
-            margin-bottom: 12px;
-        }
-        .footer-col a {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            padding: 4px 0;
-        }
-        .footer-col a:hover { color: var(--color-accent); }
-        .footer .attribution {
-            max-width: 1080px;
-            margin: 24px auto 0;
-            padding-top: 24px;
-            border-top: 1px solid var(--color-border);
-            font-size: 0.72rem;
-            color: var(--color-text-tertiary);
-            text-align: center;
-            line-height: 1.6;
-        }
-        @media (max-width: 800px) {
-            .nav-links { display: none; }
-            .tools-grid { grid-template-columns: 1fr; }
-            .footer-inner { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 500px) {
-            .footer-inner { grid-template-columns: 1fr; }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.retrofitplanner.co.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.retrofitplanner.co.uk/" },
+            { "@type": "ListItem", "position": 3, "name": "Insulation Savings Calculator" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does loft insulation cost in 2026?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Professional loft insulation typically costs £300 to £600 for a standard home. Many households qualify for free installation through the ECO4 scheme or GB Energy Scheme." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is cavity wall insulation worth it?",
+                "acceptedAnswer": { "@type": "Answer", "text": "For most homes, cavity wall insulation saves £200 to £500 per year on heating bills, with a typical payback period of 2 to 4 years. It is one of the most cost-effective home improvements available." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I get free insulation in the UK?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. The ECO4 scheme and GB Energy Scheme provide free or heavily subsidised insulation to qualifying households, particularly those on low incomes or receiving certain benefits." }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <nav class="nav">
@@ -289,7 +70,7 @@
             <a href="/" class="nav-logo">Retrofit Planner</a>
             <ul class="nav-links">
                 <li><a href="/heat-pump-calculator/">Heat Pump</a></li>
-                <li><a href="/insulation-calculator/">Insulation</a></li>
+                <li><a href="/insulation-calculator/" class="active">Insulation</a></li>
                 <li><a href="/epc-calculator/">EPC Rating</a></li>
                 <li><a href="/solar-calculator/">Solar Panels</a></li>
                 <li><a href="/grants/">Grants</a></li>
@@ -298,111 +79,231 @@
         </div>
     </nav>
 
+    <div class="breadcrumbs">
+        <a href="/">Home</a><span>/</span>
+        <a href="/">Calculators</a><span>/</span>
+        Insulation Savings Calculator
+    </div>
+
     <header class="hero">
         <div class="hero-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            100% free, no sign-up required
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Updated March 2026 with latest Ofgem rates
         </div>
-        <h1>Plan your home energy upgrade with confidence</h1>
-        <p>Free calculators powered by official UK data. See real costs, savings, and grants for heat pumps, insulation, and more.</p>
+        <h1>Insulation Savings Calculator</h1>
+        <p>Find out how much you could save by insulating your home. See costs for loft, cavity wall, and solid wall insulation, check if you qualify for <a href="/grants/">free installation through government schemes</a>, and calculate your payback period.</p>
     </header>
 
-    <section class="tools-grid">
-        <a href="/heat-pump-calculator/" class="tool-card featured">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
-            </div>
-            <h2>Heat Pump Cost Calculator</h2>
-            <p>See the real cost of a heat pump for your home, including the £7,500 government grant, running costs vs gas, and your payback period.</p>
-            <span class="tag">Available now</span>
-        </a>
+    <main class="main">
+        <div class="calc-card">
+            <h2>Your property details</h2>
+            <p class="subtitle">Tell us about your home and we'll estimate your potential savings.</p>
 
-        <div class="tool-card coming-soon">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div class="form-group">
+                <label for="propertyType">Property type</label>
+                <select id="propertyType">
+                    <option value="">Select your property type</option>
+                    <option value="detached">Detached house</option>
+                    <option value="semi">Semi-detached house</option>
+                    <option value="mid-terrace">Mid-terrace house</option>
+                    <option value="end-terrace">End-terrace house</option>
+                    <option value="bungalow">Bungalow</option>
+                    <option value="flat">Flat or maisonette</option>
+                </select>
             </div>
-            <h2>Insulation Savings Calculator</h2>
-            <p>Find out how much you could save with loft, cavity wall, or solid wall insulation. Includes grant eligibility for free installation.</p>
-            <span class="tag">Coming soon</span>
+
+            <div class="form-group">
+                <label for="bedrooms">Number of bedrooms</label>
+                <select id="bedrooms">
+                    <option value="">Select bedrooms</option>
+                    <option value="1">1 bedroom</option>
+                    <option value="2">2 bedrooms</option>
+                    <option value="3">3 bedrooms</option>
+                    <option value="4">4 bedrooms</option>
+                    <option value="5">5+ bedrooms</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="heatingFuel">Heating fuel</label>
+                <select id="heatingFuel">
+                    <option value="">What fuel heats your home?</option>
+                    <option value="gas">Mains gas</option>
+                    <option value="oil">Oil</option>
+                    <option value="lpg">LPG</option>
+                    <option value="electricity">Electric heating</option>
+                </select>
+                <p class="helper">This affects your potential savings. Gas is cheapest per unit, so savings from insulation are lower than for oil or electric. Considering switching to a <a href="/heat-pump-calculator/">heat pump</a>? Insulate first for the best results.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="loftInsulation">Current loft insulation</label>
+                <select id="loftInsulation">
+                    <option value="">Select loft insulation status</option>
+                    <option value="none">None or less than 50mm</option>
+                    <option value="partial">50mm to 100mm</option>
+                    <option value="good">100mm or more</option>
+                    <option value="na">No loft (flat or top-floor flat)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="wallType">Wall type</label>
+                <select id="wallType">
+                    <option value="">Select your wall type</option>
+                    <option value="cavity-uninsulated">Cavity walls, not insulated</option>
+                    <option value="cavity-insulated">Cavity walls, already insulated</option>
+                    <option value="solid">Solid walls, not insulated</option>
+                    <option value="solid-insulated">Solid walls, already insulated</option>
+                    <option value="unsure">Not sure</option>
+                </select>
+                <p class="helper">Homes built after 1930 usually have cavity walls. Pre-1930 homes typically have solid walls. Check for a pattern of alternating long and short bricks — that indicates solid walls.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="benefits">Do you receive means-tested benefits?</label>
+                <select id="benefits">
+                    <option value="">Select</option>
+                    <option value="yes">Yes (Universal Credit, Pension Credit, etc.)</option>
+                    <option value="no">No</option>
+                </select>
+                <p class="helper">This determines if you qualify for <a href="/grants/">free insulation through the ECO4 or GB Energy Scheme</a>.</p>
+            </div>
+
+            <button class="btn-calculate" onclick="calculate()">Calculate my insulation savings</button>
+
+            <div class="results" id="results">
+                <h3>Your insulation opportunities</h3>
+                <div id="resultsContent"></div>
+
+                <div class="next-steps" style="margin-top: 28px;">
+                    <h4>What to do next</h4>
+                    <a href="/heat-pump-calculator/" class="next-step-link">
+                        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                        <div class="step-text">
+                            <div class="step-name">Calculate heat pump costs</div>
+                            <div class="step-desc">Insulate first, then see how much a heat pump would cost</div>
+                        </div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                    <a href="/epc-calculator/" class="next-step-link">
+                        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                        <div class="step-text">
+                            <div class="step-name">See your EPC improvement</div>
+                            <div class="step-desc">Insulation can boost your EPC by one or two bands</div>
+                        </div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                    <a href="/grants/" class="next-step-link">
+                        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div class="step-text">
+                            <div class="step-name">Check all available grants</div>
+                            <div class="step-desc">You may qualify for free or subsidised installation</div>
+                        </div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                </div>
+
+                <div class="cta-box">
+                    <h4>Get free insulation quotes</h4>
+                    <p>Our estimates are based on national averages. Get accurate quotes from certified installers in your area, and find out if you qualify for free installation.</p>
+                    <a href="#">Compare local installer quotes</a>
+                </div>
+            </div>
         </div>
 
-        <div class="tool-card coming-soon">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <aside class="sidebar">
+            <div class="sidebar-card grant">
+                <h3>Free insulation available</h3>
+                <div class="grant-amount">£0</div>
+                <p class="grant-detail">Many households qualify for completely free insulation through the <a href="/grants/">ECO4 scheme</a> or the <a href="/grants/">GB Energy Scheme</a>. Check your eligibility with our <a href="/grants/">grant checker</a>.</p>
             </div>
-            <h2>EPC Improvement Planner</h2>
-            <p>Find the cheapest path to a better EPC rating. Essential for landlords meeting minimum efficiency standards.</p>
-            <span class="tag">Coming soon</span>
-        </div>
 
-        <div class="tool-card coming-soon">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <div class="sidebar-card">
+                <h3>Typical annual savings</h3>
+                <ul>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Loft insulation: £100 to £355/yr</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cavity wall: £100 to £395/yr</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Solid wall (internal): £200 to £590/yr</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Solid wall (external): £200 to £590/yr</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Floor insulation: £40 to £70/yr</li>
+                </ul>
+                <p style="font-size: 0.78rem; color: var(--color-text-tertiary); margin-top: 8px;">Source: Energy Saving Trust, 2025 data</p>
             </div>
-            <h2>Solar Panel ROI Calculator</h2>
-            <p>Calculate generation, savings, export income, and payback for solar panels based on your roof and location.</p>
-            <span class="tag">Coming soon</span>
-        </div>
 
-        <div class="tool-card coming-soon">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <div class="sidebar-card">
+                <h3>Related calculators</h3>
+                <a href="/heat-pump-calculator/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">Heat Pump Cost Calculator</div><div class="tool-desc">Insulate first, then install a heat pump</div></div>
+                </a>
+                <a href="/epc-calculator/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">EPC Improvement Planner</div><div class="tool-desc">See how insulation affects your EPC</div></div>
+                </a>
+                <a href="/grants/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">Grant Eligibility Checker</div><div class="tool-desc">Check for free insulation schemes</div></div>
+                </a>
+                <a href="/solar-calculator/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">Solar Panel ROI Calculator</div><div class="tool-desc">Combine insulation with solar for maximum savings</div></div>
+                </a>
             </div>
-            <h2>Grant Eligibility Checker</h2>
-            <p>Check which energy grants you qualify for: Boiler Upgrade Scheme, ECO4, GB Energy Scheme, and local authority grants.</p>
-            <span class="tag">Coming soon</span>
-        </div>
+        </aside>
+    </main>
 
-        <div class="tool-card coming-soon">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-            <h2>Home Energy Assessment</h2>
-            <p>Answer 10 questions and get a complete retrofit plan: what to do first, what it costs, and what grants are available.</p>
-            <span class="tag">Coming soon</span>
-        </div>
-    </section>
+    <section class="content-section">
+        <article>
+            <h2>How much does insulation cost in 2026?</h2>
+            <p>Insulation costs vary significantly by type and property. Loft insulation is the cheapest at £300 to £600 for a typical home. Cavity wall insulation costs £400 to £1,500. Solid wall insulation is the most expensive at £4,500 to £13,000 for internal or external options. However, many households can get insulation installed for free through the <a href="/grants/">ECO4 scheme or GB Energy Scheme</a>.</p>
+            <p>The savings also vary. A detached house saves more than a mid-terrace because it has more exposed wall and roof area. Homes heated by oil or LPG see larger savings than those on mains gas because their fuel costs more per unit. Our calculator factors in your property type and fuel to give you a personalised estimate.</p>
 
-    <section class="trust-section">
-        <h2>Built on official data you can trust</h2>
-        <div class="trust-grid">
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <div>
-                    <h3>Ofgem energy prices</h3>
-                    <p>Running costs use the latest quarterly price cap rates, updated as soon as Ofgem publishes new figures.</p>
-                </div>
+            <h2>Should I insulate before installing a heat pump?</h2>
+            <p>Yes, almost always. <a href="/heat-pump-calculator/">Heat pumps</a> work best in well-insulated homes because they operate at lower temperatures than gas boilers. Better insulation means you need a smaller heat pump (lower cost), the heat pump runs more efficiently (lower bills), and your home stays comfortable at the lower flow temperatures. Our <a href="/epc-calculator/">EPC improvement planner</a> can show you the most cost-effective order of improvements for your home.</p>
+
+            <h2>Types of insulation explained</h2>
+            <h3>Loft insulation</h3>
+            <p>The simplest and most cost-effective upgrade. The recommended depth is 270mm of mineral wool. If your loft is easy to access and you are comfortable working at height, this is a common DIY project. Professional installation takes a few hours for a typical home.</p>
+
+            <h3>Cavity wall insulation</h3>
+            <p>Suitable for homes built after 1930 with unfilled cavity walls. An installer drills small holes in the outer wall, injects insulation material, and seals the holes. The process typically takes two to three hours for a whole house with minimal disruption.</p>
+
+            <h3>Solid wall insulation</h3>
+            <p>For homes built before 1930 with solid walls (no cavity). Available as internal insulation (boards fitted to interior walls, reducing room size slightly) or external insulation (cladding applied to the outside of the building). Both are effective but significantly more expensive and disruptive than cavity or loft insulation.</p>
+
+            <div class="related-links">
+                <a href="/heat-pump-calculator/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">Heat Pump Calculator</div><div class="rl-desc">See costs after insulating your home</div></div>
+                </a>
+                <a href="/epc-calculator/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">EPC Improvement Planner</div><div class="rl-desc">How insulation affects your EPC band</div></div>
+                </a>
+                <a href="/grants/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">Grant Eligibility Checker</div><div class="rl-desc">Check if you qualify for free insulation</div></div>
+                </a>
+                <a href="/boiler-vs-heat-pump/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">Boiler vs Heat Pump</div><div class="rl-desc">Compare options after insulating</div></div>
+                </a>
             </div>
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                    <h3>Energy Saving Trust data</h3>
-                    <p>Installation costs and savings estimates based on EST published research for UK property types.</p>
-                </div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                </div>
-                <div>
-                    <h3>Government grant details</h3>
-                    <p>Grant amounts and eligibility criteria taken directly from GOV.UK scheme documentation.</p>
-                </div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <div>
-                    <h3>No sign-up, no fees</h3>
-                    <p>Every calculator is completely free. We earn through recommendations to vetted installers and energy products.</p>
-                </div>
-            </div>
-        </div>
+
+            <h2>Frequently asked questions</h2>
+            <h3>How much does loft insulation cost in 2026?</h3>
+            <p>Professional loft insulation typically costs £300 to £600 for a standard home. Many households qualify for free installation through the <a href="/grants/">ECO4 scheme or GB Energy Scheme</a>. DIY loft insulation using mineral wool rolls costs around £5 to £8 per square metre from builders' merchants.</p>
+
+            <h3>Is cavity wall insulation worth it?</h3>
+            <p>For most homes, cavity wall insulation saves £200 to £500 per year on heating bills, with a typical payback period of 2 to 4 years. It is one of the most cost-effective home improvements available. However, some homes have issues with damp penetration after cavity fill — get a survey from a reputable installer before proceeding.</p>
+
+            <h3>Can I get free insulation in the UK?</h3>
+            <p>Yes. The ECO4 scheme and GB Energy Scheme provide free or heavily subsidised insulation to qualifying households, particularly those on low incomes or receiving certain benefits. Check our <a href="/grants/">grant eligibility checker</a> to see if you qualify.</p>
+
+            <h3>Does insulation improve my EPC rating?</h3>
+            <p>Yes, significantly. Loft insulation can improve your <a href="/epc-calculator/">EPC rating</a> by 5 to 10 points. Cavity wall insulation can add 10 to 15 points. Solid wall insulation can add 15 to 25 points. For landlords who need to meet minimum EPC standards, insulation is often the cheapest way to improve their rating.</p>
+        </article>
     </section>
 
     <footer class="footer">
@@ -438,8 +339,130 @@
             </div>
         </div>
         <div class="attribution">
-            Contains public sector information licensed under the Open Government Licence v3.0. Energy prices from Ofgem (Q1 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes.
+            Contains public sector information licensed under the Open Government Licence v3.0. Energy prices from Ofgem (Q1 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes. Always obtain professional quotes before proceeding with installation.
         </div>
     </footer>
+
+    <script>
+    // Source: Energy Saving Trust typical savings by property type and insulation measure (2025 data)
+    // Fuel prices: Ofgem Q1 2026 price cap
+    const DATA = {
+        fuelPrices: { gas: 0.0676, oil: 0.068, lpg: 0.095, electricity: 0.245 },
+        fuelMultiplier: { gas: 1.0, oil: 1.01, lpg: 1.41, electricity: 3.63 },
+        // Annual savings in £ for gas heating (multiply by fuelMultiplier for others)
+        // Source: EST typical savings data
+        loftSavings: {
+            'none':    { detached: 355, semi: 215, 'mid-terrace': 135, 'end-terrace': 175, bungalow: 280, flat: 100 },
+            'partial': { detached: 200, semi: 120, 'mid-terrace': 75,  'end-terrace': 100, bungalow: 160, flat: 55 },
+        },
+        cavitySavings: {
+            detached: 395, semi: 215, 'mid-terrace': 105, 'end-terrace': 160, bungalow: 250, flat: 100
+        },
+        solidWallSavings: {
+            detached: 590, semi: 340, 'mid-terrace': 200, 'end-terrace': 270, bungalow: 370, flat: 160
+        },
+        // Installation costs
+        loftCost: { none: { min: 300, max: 600 }, partial: { min: 250, max: 400 } },
+        cavityCost: { min: 400, max: 1500 },
+        solidWallCost: { internal: { min: 4500, max: 8000 }, external: { min: 8000, max: 13000 } },
+    };
+
+    function calculate() {
+        const prop = document.getElementById('propertyType').value;
+        const beds = parseInt(document.getElementById('bedrooms').value);
+        const fuel = document.getElementById('heatingFuel').value;
+        const loft = document.getElementById('loftInsulation').value;
+        const wall = document.getElementById('wallType').value;
+        const benefits = document.getElementById('benefits').value;
+
+        if (!prop || !beds || !fuel || !loft || !wall || !benefits) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        const fm = DATA.fuelMultiplier[fuel];
+        const bedsMultiplier = 1 + (beds - 3) * 0.1;
+        let html = '';
+        let totalSaving = 0;
+        let opportunities = [];
+
+        // Loft insulation
+        if (loft === 'none' || loft === 'partial') {
+            const saving = Math.round(DATA.loftSavings[loft][prop] * fm * bedsMultiplier);
+            const costRange = DATA.loftCost[loft];
+            const cost = benefits === 'yes' ? 0 : Math.round((costRange.min + costRange.max) / 2);
+            const payback = cost > 0 ? Math.round(cost / saving * 10) / 10 : 0;
+            totalSaving += saving;
+            opportunities.push({
+                name: loft === 'none' ? 'Loft insulation (new)' : 'Loft insulation (top-up)',
+                saving, cost, payback,
+                freeEligible: benefits === 'yes',
+                priority: 'high'
+            });
+        }
+
+        // Wall insulation
+        if (wall === 'cavity-uninsulated') {
+            const saving = Math.round(DATA.cavitySavings[prop] * fm * bedsMultiplier);
+            const cost = benefits === 'yes' ? 0 : Math.round((DATA.cavityCost.min + DATA.cavityCost.max) / 2);
+            const payback = cost > 0 ? Math.round(cost / saving * 10) / 10 : 0;
+            totalSaving += saving;
+            opportunities.push({
+                name: 'Cavity wall insulation',
+                saving, cost, payback,
+                freeEligible: benefits === 'yes',
+                priority: 'high'
+            });
+        } else if (wall === 'solid') {
+            const saving = Math.round(DATA.solidWallSavings[prop] * fm * bedsMultiplier);
+            const costInternal = Math.round((DATA.solidWallCost.internal.min + DATA.solidWallCost.internal.max) / 2);
+            const costExternal = Math.round((DATA.solidWallCost.external.min + DATA.solidWallCost.external.max) / 2);
+            const cost = benefits === 'yes' ? 0 : costInternal;
+            const payback = cost > 0 ? Math.round(costInternal / saving * 10) / 10 : 0;
+            totalSaving += saving;
+            opportunities.push({
+                name: 'Solid wall insulation (internal)',
+                saving, cost, payback,
+                freeEligible: benefits === 'yes',
+                priority: 'medium',
+                note: 'External option costs £' + costExternal.toLocaleString() + ' but avoids losing room space.'
+            });
+        }
+
+        if (opportunities.length === 0) {
+            html = '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);">';
+            html += '<div style="font-weight: 600;">Your home is already well insulated</div>';
+            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Consider a <a href="/heat-pump-calculator/">heat pump</a> or <a href="/solar-calculator/">solar panels</a> as your next upgrade.</div>';
+            html += '</div>';
+        } else {
+            // Summary
+            html += '<div class="result-grid">';
+            html += '<div class="result-item saving"><div class="label">Total annual saving</div><div class="value">£' + totalSaving.toLocaleString() + '</div><div class="detail">across all measures</div></div>';
+            const totalCost = opportunities.reduce((s, o) => s + o.cost, 0);
+            html += '<div class="result-item highlight"><div class="label">Total cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (benefits === 'yes' ? 'Free through grant schemes' : 'Before any grants') + '</div></div>';
+            html += '</div>';
+
+            // Individual measures
+            opportunities.forEach(o => {
+                html += '<div class="result-full">';
+                html += '<div style="display: flex; justify-content: space-between; align-items: start;">';
+                html += '<div><div class="label">' + o.name + '</div>';
+                html += '<div style="font-size: 0.95rem; margin-top: 4px;">Save <strong style="color: var(--color-accent);">£' + o.saving + '/year</strong>';
+                if (o.cost > 0) {
+                    html += ' — costs £' + o.cost.toLocaleString() + ' — payback in ' + o.payback + ' years';
+                } else {
+                    html += ' — <strong style="color: var(--color-accent);">likely free</strong> through <a href="/grants/">grant schemes</a>';
+                }
+                html += '</div>';
+                if (o.note) html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">' + o.note + '</div>';
+                html += '</div></div></div>';
+            });
+        }
+
+        document.getElementById('resultsContent').innerHTML = html;
+        document.getElementById('results').classList.add('visible');
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    </script>
 </body>
 </html>
