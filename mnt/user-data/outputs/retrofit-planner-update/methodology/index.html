@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Methodology | How Retrofit Planner Calculators Work</title>
+    <meta name="description" content="How our calculators work. See the data sources, calculation methods, and assumptions behind every Retrofit Planner tool. Built on official UK government and Energy Saving Trust data.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.retrofitplanner.co.uk/methodology/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/">EPC Rating</a></li><li><a href="/solar-calculator/">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
+
+    <div class="page-content">
+        <h1>Our Methodology</h1>
+        <p class="lead">Every number on Retrofit Planner comes from a published, verifiable source. Here's exactly how our calculators work, what data they use, and where we make assumptions.</p>
+
+        <h2>Energy prices</h2>
+        <p>We use Ofgem's quarterly price cap announcements as the basis for all energy cost calculations. Our current rates are from the Q1 2026 price cap:</p>
+        <ul>
+            <li>Electricity: 24.5p per kWh</li>
+            <li>Gas: 6.76p per kWh</li>
+        </ul>
+        <p>We update our calculators within one week of each new price cap taking effect (January, April, July, October). We do not account for future price changes in our calculations because these are unpredictable. All estimates reflect current prices only.</p>
+
+        <h2>Installation costs</h2>
+        <p>Installation costs are sourced from the Energy Saving Trust (EST) and cross-referenced with MCS-certified installer quotes and trade body publications. We present cost ranges (min to max) rather than single figures because actual costs vary by property, location, and installer. Our "typical" cost used in payback calculations is the midpoint of the published range.</p>
+
+        <h2>Heat pump calculations</h2>
+        <p>Our <a href="/heat-pump-calculator/">heat pump calculator</a> uses the following methodology:</p>
+        <ul>
+            <li><strong>Heat demand:</strong> estimated from BEIS National Energy Efficiency Data-Framework (NEED) data, categorised by property type, size, and insulation level.</li>
+            <li><strong>Coefficient of Performance (COP):</strong> based on field data from the Electrification of Heat Demonstration Project. We use seasonal COP values of 2.5 to 3.5 depending on insulation level, which are conservative relative to manufacturer claims.</li>
+            <li><strong>Grant deduction:</strong> the £7,500 Boiler Upgrade Scheme grant is applied to air source heat pump costs for eligible properties.</li>
+            <li><strong>Running cost comparison:</strong> calculated as heat demand divided by COP, multiplied by the electricity rate, compared against heat demand divided by boiler efficiency (92% for modern condensing boilers) multiplied by the gas rate.</li>
+        </ul>
+
+        <h2>Insulation savings</h2>
+        <p>Our <a href="/insulation-calculator/">insulation calculator</a> uses Energy Saving Trust published typical savings data, broken down by property type and insulation measure. We adjust for heating fuel type using a multiplier based on relative fuel costs. The EST data represents median savings for each property type based on monitored installations.</p>
+
+        <h2>Solar panel calculations</h2>
+        <p>Our <a href="/solar-calculator/">solar calculator</a> uses:</p>
+        <ul>
+            <li><strong>Generation:</strong> PVGIS (Photovoltaic Geographical Information System) data from the European Commission Joint Research Centre, adjusted by UK region and roof orientation.</li>
+            <li><strong>Self-use ratio:</strong> 45% without battery, 80% with battery. These are conservative estimates based on monitored UK installations.</li>
+            <li><strong>Smart Export Guarantee:</strong> we use 8p per kWh as a conservative average. Actual rates range from 3p to 15p depending on supplier.</li>
+            <li><strong>Panel degradation:</strong> 0.5% per year, which is the industry standard warranty assumption.</li>
+        </ul>
+
+        <h2>EPC calculations</h2>
+        <p>Our <a href="/epc-calculator/">EPC improvement planner</a> estimates EPC point improvements based on BRE's Standard Assessment Procedure (SAP) methodology. We use typical point improvements per measure as published by accredited energy assessors and cross-referenced with EPC lodgement data. Actual EPC improvements vary by property — our estimates should be treated as indicative.</p>
+
+        <h2>Grant eligibility</h2>
+        <p>Our <a href="/grants/">grant checker</a> uses published eligibility criteria from GOV.UK and scheme administrators. Grant schemes change frequently — we review and update criteria monthly. However, we always recommend verifying eligibility directly with the scheme administrator before making decisions.</p>
+
+        <h2>Limitations and disclaimers</h2>
+        <p>Our calculators provide estimates based on national averages and published data. They are not substitutes for professional assessments. Key limitations include:</p>
+        <ul>
+            <li>Actual costs vary by location, installer, property condition, and access difficulty.</li>
+            <li>Energy prices change quarterly and we cannot predict future prices.</li>
+            <li>EPC improvements depend on the specific property and assessor methodology.</li>
+            <li>Grant eligibility rules change and may vary by local authority area.</li>
+            <li>All calculations run in your browser — we do not store or transmit your data.</li>
+        </ul>
+        <p>Always obtain professional quotes and assessments before proceeding with any installation.</p>
+
+        <h2>Data licensing</h2>
+        <p>This site contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy price data from Ofgem. Energy efficiency data from BEIS/DESNZ. Grant information from GOV.UK. Solar irradiance data from PVGIS (European Commission JRC).</p>
+
+        <h2>Corrections and updates</h2>
+        <p>If you spot an error in our calculations or data, please email <a href="mailto:hello@retrofitplanner.co.uk">hello@retrofitplanner.co.uk</a>. We take accuracy seriously and will investigate and correct any verified errors promptly.</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div>
+            <div class="footer-col"><h4>Calculators</h4><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel ROI Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div>
+            <div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-guide/">Complete Heat Pump Guide</a><a href="/guides/insulation-guide/">Home Insulation Guide</a><a href="/guides/epc-explained/">EPC Ratings Explained</a><a href="/guides/boiler-upgrade-scheme/">Boiler Upgrade Scheme Guide</a><a href="/guides/average-energy-bills/">Average Energy Bills UK</a></div>
+            <div class="footer-col"><h4>Company</h4><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/contact/">Contact</a></div>
+        </div>
+        <div class="attribution">Contains public sector information licensed under the Open Government Licence v3.0.</div>
+    </footer>
+</body>
+</html>

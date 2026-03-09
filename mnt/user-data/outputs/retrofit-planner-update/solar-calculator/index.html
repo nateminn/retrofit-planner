@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Calculator UK 2026 | Cost, Savings and Payback Period</title>
+    <meta name="description" content="Calculate solar panel costs, savings, and payback period for your UK home. See how much you could save with solar PV based on your roof, location, and energy usage.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.retrofitplanner.co.uk/solar-calculator/">
+    <meta property="og:title" content="Solar Panel Calculator UK 2026 | Cost, Savings and Payback">
+    <meta property="og:description" content="Calculate solar panel costs and payback for your UK home.">
+    <meta property="og:url" content="https://www.retrofitplanner.co.uk/solar-calculator/">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Solar Panel Calculator UK","description":"Calculate solar panel costs, annual generation, bill savings, export income, and payback period for UK homes.","url":"https://www.retrofitplanner.co.uk/solar-calculator/","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@type":"Organization","name":"Retrofit Planner","url":"https://www.retrofitplanner.co.uk"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.retrofitplanner.co.uk/"},{"@type":"ListItem","position":2,"name":"Solar Panel Calculator"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much do solar panels cost in the UK in 2026?","acceptedAnswer":{"@type":"Answer","text":"A typical 4kW solar panel system costs £5,000 to £7,000 installed. A larger 6kW system costs £7,000 to £9,000. Prices have fallen significantly over the past five years and continue to decrease."}},{"@type":"Question","name":"How long do solar panels take to pay for themselves UK?","acceptedAnswer":{"@type":"Answer","text":"Most UK solar panel systems pay for themselves in 8 to 12 years through bill savings and Smart Export Guarantee payments. After payback, you benefit from free electricity for the remaining 15 to 20 years of the panel warranty."}},{"@type":"Question","name":"How much can I earn from the Smart Export Guarantee?","acceptedAnswer":{"@type":"Answer","text":"The Smart Export Guarantee pays 3p to 15p per kWh for exported electricity, depending on your energy supplier and tariff. Octopus Energy and other suppliers offer competitive export rates. A typical 4kW system exports around 50% of generation."}}]}
+    </script>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/">EPC Rating</a></li><li><a href="/solar-calculator/" class="active">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
+
+    <div class="breadcrumbs"><a href="/">Home</a><span>/</span>Solar Panel Calculator</div>
+
+    <header class="hero">
+        <div class="hero-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Updated March 2026 with latest electricity rates</div>
+        <h1>Solar Panel Calculator</h1>
+        <p>Calculate your solar panel costs, annual generation, bill savings, and payback period. See how much you could earn through the Smart Export Guarantee and how <a href="/epc-calculator/">solar improves your EPC rating</a>.</p>
+    </header>
+
+    <main class="main">
+        <div class="calc-card">
+            <h2>Your solar estimate</h2>
+            <p class="subtitle">Answer a few questions about your home and we'll estimate your solar savings.</p>
+
+            <div class="form-group">
+                <label for="region">Where do you live?</label>
+                <select id="region">
+                    <option value="">Select your region</option>
+                    <option value="south">South England (London, Bristol, Brighton)</option>
+                    <option value="midlands">Midlands (Birmingham, Nottingham, Leicester)</option>
+                    <option value="north">North England (Manchester, Leeds, Newcastle)</option>
+                    <option value="wales">Wales</option>
+                    <option value="scotland">Scotland</option>
+                    <option value="ni">Northern Ireland</option>
+                </select>
+                <p class="helper">Solar generation varies by region. Southern England gets around 15% more sun than Scotland.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="roofDirection">Main roof direction</label>
+                <select id="roofDirection">
+                    <option value="">Which way does your main roof face?</option>
+                    <option value="south">South</option>
+                    <option value="south-east">South-east</option>
+                    <option value="south-west">South-west</option>
+                    <option value="east">East</option>
+                    <option value="west">West</option>
+                    <option value="flat">Flat roof</option>
+                    <option value="unsure">Not sure</option>
+                </select>
+                <p class="helper">South-facing roofs generate the most electricity. East or west-facing roofs generate around 15% less. Not sure? Check your property on Google Maps.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="systemSize">System size</label>
+                <select id="systemSize">
+                    <option value="">Select system size</option>
+                    <option value="3">3 kW (8-10 panels, small home)</option>
+                    <option value="4">4 kW (10-12 panels, average home)</option>
+                    <option value="5">5 kW (13-15 panels, larger home)</option>
+                    <option value="6">6 kW (16-18 panels, large home)</option>
+                </select>
+                <p class="helper">Most homes suit a 3 to 4 kW system. Each panel is roughly 1.7m x 1m. A 4 kW system needs about 20 square metres of roof space.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="annualBill">Annual electricity bill (optional)</label>
+                <input type="number" id="annualBill" placeholder="e.g. 900" min="0" max="10000">
+                <p class="helper">Enter your annual electricity spend in pounds. This helps us estimate how much solar reduces your bills. The UK average is around £900 per year. If unsure, leave blank and we'll use the average.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="battery">Adding a battery?</label>
+                <select id="battery">
+                    <option value="">Select</option>
+                    <option value="no">No battery</option>
+                    <option value="yes">Yes, adding battery storage</option>
+                </select>
+                <p class="helper">A battery stores excess solar generation for use in the evening. Costs £2,500 to £5,000 extra but increases the amount of solar electricity you use directly.</p>
+            </div>
+
+            <button class="btn-calculate" onclick="calculate()">Calculate my solar savings</button>
+
+            <div class="results" id="results">
+                <h3>Your solar panel estimate</h3>
+                <div id="resultsContent"></div>
+
+                <div class="next-steps" style="margin-top: 28px;">
+                    <h4>Maximise your savings</h4>
+                    <a href="/insulation-calculator/" class="next-step-link">
+                        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                        <div class="step-text"><div class="step-name">Insulate first</div><div class="step-desc">Reduce your demand before adding solar</div></div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                    <a href="/heat-pump-calculator/" class="next-step-link">
+                        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                        <div class="step-text"><div class="step-name">Combine with a heat pump</div><div class="step-desc">Power your heat pump with free solar electricity</div></div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                    <a href="/epc-calculator/" class="next-step-link">
+                        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                        <div class="step-text"><div class="step-name">See EPC impact</div><div class="step-desc">Solar panels add 5 to 10 points to your EPC</div></div>
+                        <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                    </a>
+                </div>
+
+                <div class="cta-box">
+                    <h4>Get solar panel quotes</h4>
+                    <p>Our estimates are based on national averages. Get accurate quotes from MCS-certified installers in your area for the best price.</p>
+                    <a href="#">Compare local solar installers</a>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-card grant">
+                <h3>No VAT on solar panels</h3>
+                <div class="grant-amount">0% VAT</div>
+                <p class="grant-detail">Solar panel installations on residential properties are zero-rated for VAT until March 2027. This saves around £1,000 on a typical 4 kW system compared to the standard 20% rate.</p>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Smart Export Guarantee</h3>
+                <p>The SEG pays you for electricity you export to the grid. Rates range from 3p to 15p per kWh depending on your supplier. The best tariffs are usually from Octopus Energy and similar suppliers. You must be MCS-certified to qualify.</p>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Related calculators</h3>
+                <a href="/heat-pump-calculator/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">Heat Pump Calculator</div><div class="tool-desc">Power a heat pump with solar</div></div>
+                </a>
+                <a href="/insulation-calculator/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">Insulation Calculator</div><div class="tool-desc">Reduce demand before adding solar</div></div>
+                </a>
+                <a href="/epc-calculator/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">EPC Improvement Planner</div><div class="tool-desc">Solar adds 5-10 EPC points</div></div>
+                </a>
+                <a href="/grants/" class="tool-link">
+                    <div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <div class="tool-info"><div class="tool-name">Grant Checker</div><div class="tool-desc">Check all available energy grants</div></div>
+                </a>
+            </div>
+        </aside>
+    </main>
+
+    <section class="content-section">
+        <article>
+            <h2>Are solar panels worth it in the UK in 2026?</h2>
+            <p>For most UK homeowners, solar panels are a strong investment. A typical 4 kW system costs £5,000 to £7,000, saves £400 to £700 per year on electricity bills, and pays for itself in 8 to 12 years. After that, you benefit from largely free electricity for the remaining 15 to 20 years of the panel warranty. The current 0% VAT rate (until March 2027) makes this an especially good time to install.</p>
+            <p>Solar works particularly well when combined with other improvements. <a href="/insulation-calculator/">Insulating your home first</a> reduces your overall energy demand. Adding a <a href="/heat-pump-calculator/">heat pump</a> means you can power your heating with free solar electricity during daylight hours. A battery stores excess generation for evening use, further reducing your reliance on grid electricity.</p>
+
+            <h2>How much electricity do solar panels generate in the UK?</h2>
+            <p>A 1 kW solar panel system generates approximately 800 to 1,000 kWh per year in the UK, depending on your location and roof orientation. Southern England receives the most sunlight, while Scotland receives around 15% less. A south-facing roof generates the most, while east or west-facing roofs produce roughly 15% less. Even north-facing roofs can generate useful amounts of electricity, though the payback period is longer.</p>
+            <p>A typical 4 kW system generates 3,400 to 4,000 kWh per year — roughly equivalent to the average UK household's annual electricity consumption of around 3,700 kWh. However, you won't use all of this directly because generation peaks during summer daytime when you may not be home.</p>
+
+            <h2>Understanding the Smart Export Guarantee</h2>
+            <p>The Smart Export Guarantee (SEG) replaced the Feed-in Tariff in 2020. Under the SEG, energy suppliers with more than 150,000 customers must offer you a tariff for electricity you export to the grid. Rates currently range from 3p to 15p per kWh. Without a battery, a typical household exports around 50% of its solar generation. With a battery, this drops to around 20% as you store and use more yourself.</p>
+            <p>The best SEG rates change frequently. As of early 2026, competitive rates are available from several suppliers. You don't have to export to the same company that supplies your electricity — shop around for the best export rate.</p>
+
+            <div class="related-links">
+                <a href="/heat-pump-calculator/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">Heat Pump Calculator</div><div class="rl-desc">Power heating with free solar electricity</div></div>
+                </a>
+                <a href="/insulation-calculator/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">Insulation Calculator</div><div class="rl-desc">Reduce energy demand first</div></div>
+                </a>
+                <a href="/epc-calculator/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">EPC Improvement Planner</div><div class="rl-desc">Solar adds 5-10 EPC points</div></div>
+                </a>
+                <a href="/boiler-vs-heat-pump/" class="related-link-card">
+                    <div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
+                    <div class="rl-text"><div class="rl-name">Boiler vs Heat Pump</div><div class="rl-desc">Full lifetime cost comparison</div></div>
+                </a>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+            <h3>How much do solar panels cost in the UK in 2026?</h3>
+            <p>A typical 4 kW system costs £5,000 to £7,000 installed. A larger 6 kW system costs £7,000 to £9,000. Adding a battery adds £2,500 to £5,000. Prices continue to fall year on year. The current 0% VAT rate (until March 2027) reduces costs by roughly £1,000.</p>
+
+            <h3>How long do solar panels take to pay for themselves?</h3>
+            <p>Most UK solar panel systems pay for themselves in 8 to 12 years through bill savings and Smart Export Guarantee payments. A south-facing system in southern England pays back fastest. After payback, you benefit from free electricity for the remaining 15 to 20 years of the panel warranty.</p>
+
+            <h3>How much can I earn from the Smart Export Guarantee?</h3>
+            <p>SEG rates range from 3p to 15p per kWh exported. A 4 kW system without a battery typically exports around 2,000 kWh per year, earning £60 to £300 depending on your tariff. With a battery, you export less but save more on your own bills instead.</p>
+
+            <h3>Do solar panels work on cloudy days?</h3>
+            <p>Yes. Solar panels generate electricity from daylight, not direct sunlight. On a cloudy day, panels typically produce 10% to 25% of their rated capacity. The UK's climate means annual generation is lower than sunnier countries, but the financial returns remain strong due to high electricity prices.</p>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements. Built on published data from the Energy Saving Trust, Ofgem, and BEIS.</p></div>
+            <div class="footer-col"><h4>Calculators</h4><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel ROI Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div>
+            <div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-guide/">Complete Heat Pump Guide</a><a href="/guides/insulation-guide/">Home Insulation Guide</a><a href="/guides/epc-explained/">EPC Ratings Explained</a><a href="/guides/boiler-upgrade-scheme/">Boiler Upgrade Scheme Guide</a><a href="/guides/average-energy-bills/">Average Energy Bills UK</a></div>
+            <div class="footer-col"><h4>Company</h4><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/contact/">Contact</a></div>
+        </div>
+        <div class="attribution">Contains public sector information licensed under the Open Government Licence v3.0. Solar irradiance data from Met Office and PVGIS. Electricity prices from Ofgem (Q1 2026 price cap). Calculator results are estimates based on national averages.</div>
+    </footer>
+
+    <script>
+    // Sources: PVGIS (EU JRC), Energy Saving Trust, Ofgem Q1 2026
+    const SOLAR = {
+        // kWh generated per kW installed per year by region
+        generation: { south: 950, midlands: 880, north: 830, wales: 870, scotland: 810, ni: 830 },
+        // Orientation factor (fraction of optimal south-facing)
+        orientation: { south: 1.0, 'south-east': 0.95, 'south-west': 0.95, east: 0.85, west: 0.85, flat: 0.90, unsure: 0.88 },
+        // System costs by size in kW
+        costs: { 3: { min: 4000, max: 5500 }, 4: { min: 5000, max: 7000 }, 5: { min: 6500, max: 8500 }, 6: { min: 7000, max: 9000 } },
+        batteryCost: { min: 2500, max: 5000 },
+        electricityRate: 0.245, // Ofgem Q1 2026
+        segRate: 0.08, // Conservative average SEG rate
+        selfUseNoBattery: 0.45,
+        selfUseWithBattery: 0.80,
+        annualDegradation: 0.005, // 0.5% per year
+    };
+
+    function calculate() {
+        const region = document.getElementById('region').value;
+        const roof = document.getElementById('roofDirection').value;
+        const size = parseFloat(document.getElementById('systemSize').value);
+        const bill = parseFloat(document.getElementById('annualBill').value) || 900;
+        const battery = document.getElementById('battery').value;
+
+        if (!region || !roof || !size || !battery) { alert('Please fill in all fields.'); return; }
+
+        const annualGen = Math.round(SOLAR.generation[region] * size * SOLAR.orientation[roof]);
+        const selfUseRate = battery === 'yes' ? SOLAR.selfUseWithBattery : SOLAR.selfUseNoBattery;
+        const selfUseKwh = Math.round(annualGen * selfUseRate);
+        const exportKwh = annualGen - selfUseKwh;
+
+        // Current electricity consumption estimate
+        const currentConsumption = Math.round(bill / SOLAR.electricityRate);
+
+        // Cap self-use at actual consumption
+        const actualSelfUse = Math.min(selfUseKwh, currentConsumption);
+        const actualExport = annualGen - actualSelfUse;
+
+        const billSaving = Math.round(actualSelfUse * SOLAR.electricityRate);
+        const segIncome = Math.round(actualExport * SOLAR.segRate);
+        const totalAnnualBenefit = billSaving + segIncome;
+
+        const costRange = SOLAR.costs[size];
+        const systemCost = Math.round((costRange.min + costRange.max) / 2);
+        const batteryCost = battery === 'yes' ? Math.round((SOLAR.batteryCost.min + SOLAR.batteryCost.max) / 2) : 0;
+        const totalCost = systemCost + batteryCost;
+
+        const paybackYears = Math.round(totalCost / totalAnnualBenefit * 10) / 10;
+
+        // 25-year returns (accounting for degradation)
+        let totalReturn = 0;
+        for (let y = 0; y < 25; y++) {
+            totalReturn += totalAnnualBenefit * Math.pow(1 - SOLAR.annualDegradation, y);
+        }
+        const netProfit = Math.round(totalReturn - totalCost);
+
+        const co2Saved = Math.round(annualGen * 0.233 / 1000 * 10) / 10; // tonnes CO2 per year
+
+        let html = '';
+        html += '<div class="result-grid">';
+        html += '<div class="result-item highlight"><div class="label">Annual generation</div><div class="value">' + annualGen.toLocaleString() + ' kWh</div><div class="detail">' + size + ' kW system in ' + region.replace('south', 'South England').replace('midlands', 'Midlands').replace('north', 'North England').replace('wales', 'Wales').replace('scotland', 'Scotland').replace('ni', 'Northern Ireland') + '</div></div>';
+        html += '<div class="result-item saving"><div class="label">Total annual benefit</div><div class="value">£' + totalAnnualBenefit + '/yr</div><div class="detail">Bill savings + export income</div></div>';
+        html += '<div class="result-item"><div class="label">System cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (battery === 'yes' ? 'Panels + battery, ' : '') + 'inc. 0% VAT</div></div>';
+        html += '<div class="result-item"><div class="label">Payback period</div><div class="value">' + paybackYears + ' years</div><div class="detail">Then free electricity for 15+ years</div></div>';
+        html += '</div>';
+
+        // Breakdown
+        html += '<div class="result-full"><div class="label">Savings breakdown</div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 8px;"><span>Bill savings (self-use ' + actualSelfUse.toLocaleString() + ' kWh)</span><strong>£' + billSaving + '/yr</strong></div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>SEG export income (' + actualExport.toLocaleString() + ' kWh at ' + (SOLAR.segRate * 100) + 'p/kWh)</span><strong>£' + segIncome + '/yr</strong></div>';
+        html += '</div>';
+
+        // 25-year projection
+        html += '<div class="result-full"><div class="label">25-year projection</div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 8px;"><span>Total benefits (accounting for panel degradation)</span><strong>£' + Math.round(totalReturn).toLocaleString() + '</strong></div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>System cost</span><strong>-£' + totalCost.toLocaleString() + '</strong></div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--color-border);"><span style="font-weight: 600;">Net profit over 25 years</span><strong style="color: var(--color-accent); font-size: 1.1rem;">£' + netProfit.toLocaleString() + '</strong></div>';
+        html += '</div>';
+
+        // CO2
+        html += '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);">';
+        html += '<div style="font-weight: 600; color: var(--color-accent);">Environmental impact</div>';
+        html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your system would save approximately ' + co2Saved + ' tonnes of CO2 per year — equivalent to driving around ' + Math.round(co2Saved * 4000).toLocaleString() + ' fewer miles per year.</div>';
+        html += '</div>';
+
+        if (battery === 'no') {
+            html += '<div class="result-full" style="background: var(--color-highlight-bg); border: 1px solid var(--color-highlight-border);">';
+            html += '<div style="font-weight: 600;">Consider adding a battery</div>';
+            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">A battery (£2,500 to £5,000) would increase your self-use from ' + Math.round(selfUseRate * 100) + '% to around 80%. This means higher bill savings but a slightly longer payback period. The financial case for batteries is improving each year as electricity prices remain high.</div>';
+            html += '</div>';
+        }
+
+        document.getElementById('resultsContent').innerHTML = html;
+        document.getElementById('results').classList.add('visible');
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    </script>
+</body>
+</html>
