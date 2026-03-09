@@ -9,11 +9,11 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Energy Guides UK 2026 | Retrofit Planner</title>
-    <meta name="description" content="In-depth guides to heat pumps, insulation, solar panels, EPC ratings, and UK energy grants. Backed by official data from Ofgem, Energy Saving Trust, and GOV.UK.">
+    <meta name="description" content="14 in-depth guides to heat pumps, insulation, solar panels, EPC ratings, and UK energy grants. Backed by official data from Ofgem, Energy Saving Trust, and GOV.UK.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.retrofitplanner.co.uk/guides/">
     <meta property="og:title" content="Home Energy Guides UK 2026">
-    <meta property="og:description" content="Free guides to heat pumps, insulation, solar, EPC, and grants.">
+    <meta property="og:description" content="14 free guides to heat pumps, insulation, solar, EPC, and grants.">
     <meta property="og:url" content="https://www.retrofitplanner.co.uk/guides/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Retrofit Planner">
@@ -25,8 +25,40 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.retrofitplanner.co.uk/"},{"@type":"ListItem","position":2,"name":"Guides"}]}
     </script>
     <style>
-        .guide-section { max-width: 1080px; margin: 0 auto; padding: 0 24px 48px; }
-        .guide-section h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--color-accent-bg); color: var(--color-text); }
+        .glossary { max-width: 1080px; margin: 0 auto; padding: 0 24px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+        .glossary a { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); text-decoration: none; color: var(--color-text); font-size: 0.88rem; font-weight: 500; transition: border-color 0.2s, background 0.2s; }
+        .glossary a:hover { border-color: var(--color-accent-border); background: var(--color-accent-bg); }
+        .glossary a .g-count { font-size: 0.75rem; color: var(--color-text-tertiary); margin-left: auto; }
+        .guide-section { max-width: 1080px; margin: 0 auto; padding: 0 24px 32px; }
+        .guide-section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--color-accent-bg); }
+        .guide-section-header h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em; color: var(--color-text); margin: 0; }
+        .guide-section-header .count { font-size: 0.78rem; color: var(--color-text-tertiary); }
+        .guide-list { display: flex; flex-direction: column; gap: 10px; }
+        .guide-item { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); text-decoration: none; color: var(--color-text); transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s; }
+        .guide-item:hover { border-color: var(--color-accent-border); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transform: translateY(-1px); }
+        .guide-item .gi-icon { width: 40px; height: 40px; background: var(--color-accent-bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .guide-item .gi-icon svg { width: 20px; height: 20px; stroke: var(--color-accent); }
+        .guide-item .gi-content { flex: 1; min-width: 0; }
+        .guide-item .gi-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
+        .guide-item .gi-desc { font-size: 0.82rem; color: var(--color-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .guide-item .gi-badges { display: flex; gap: 6px; flex-shrink: 0; }
+        .gi-badge { font-size: 0.7rem; font-weight: 600; padding: 3px 8px; border-radius: 100px; white-space: nowrap; }
+        .gi-badge.popular { background: var(--color-accent-bg); color: var(--color-accent); border: 1px solid var(--color-accent-border); }
+        .gi-badge.homeowner { background: #EEF0FF; color: #4F46E5; border: 1px solid #C7D2FE; }
+        .gi-badge.landlord { background: #FFF1E6; color: #C2410C; border: 1px solid #FED7AA; }
+        .gi-badge.money { background: var(--color-highlight-bg); color: var(--color-highlight); border: 1px solid var(--color-highlight-border); }
+        .gi-badge.free { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+        .gi-badge.new { background: #FEF2F2; color: #DC2626; border: 1px solid #FECACA; }
+        .guide-item .gi-arrow { flex-shrink: 0; }
+        .guide-item .gi-arrow svg { width: 16px; height: 16px; stroke: var(--color-text-tertiary); }
+        @media (max-width: 800px) {
+            .glossary { grid-template-columns: 1fr 1fr; }
+            .guide-item .gi-desc { display: none; }
+            .guide-item .gi-badges { flex-wrap: wrap; }
+        }
+        @media (max-width: 500px) {
+            .glossary { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -34,129 +66,142 @@
 
     <div class="breadcrumbs"><a href="/">Home</a><span>/</span>Guides</div>
 
-    <header class="hero centered">
+    <header class="hero centered" style="padding-bottom: 32px;">
         <h1>Home Energy Guides</h1>
-        <p>In-depth guides to help you understand your options and make informed decisions. Written in plain language, backed by official data from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a>, <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, and <a href="https://www.gov.uk/" target="_blank" rel="noopener">GOV.UK</a>.</p>
+        <p>14 guides backed by data from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a>, <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, and <a href="https://www.gov.uk/" target="_blank" rel="noopener">GOV.UK</a>. Plain language, real numbers, no fluff.</p>
     </header>
 
-    <section class="guide-section">
-        <h2>Heat Pumps</h2>
-        <div class="tools-grid">
-            <a href="/guides/heat-pump-running-costs/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
-                <h2>Heat Pump Running Costs UK 2026</h2>
-                <p>What a heat pump actually costs to run versus gas, oil, and electric heating. Detailed breakdown by property type and insulation level.</p>
-                <span class="tag">Read guide</span>
+    <nav class="glossary">
+        <a href="#heat-pumps"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg> Heat Pumps <span class="g-count">5</span></a>
+        <a href="#insulation"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Insulation <span class="g-count">3</span></a>
+        <a href="#solar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg> Solar Panels <span class="g-count">2</span></a>
+        <a href="#epc"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> EPC Ratings <span class="g-count">1</span></a>
+        <a href="#grants"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Grants <span class="g-count">2</span></a>
+        <a href="#bills"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Energy Bills <span class="g-count">1</span></a>
+    </nav>
+
+    <section class="guide-section" id="heat-pumps">
+        <div class="guide-section-header"><h2>Heat Pumps</h2><span class="count">5 guides</span></div>
+        <div class="guide-list">
+            <a href="/guides/heat-pump-running-costs/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Heat Pump Running Costs UK 2026</div><div class="gi-desc">What a heat pump costs to run versus gas, oil, and electric heating by property type</div></div>
+                <div class="gi-badges"><span class="gi-badge popular">Most popular</span><span class="gi-badge homeowner">For homeowners</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
-            <a href="/guides/heat-pump-cost-by-house-type/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-                <h2>Heat Pump Cost by House Type</h2>
-                <p>Specific costs for every UK property from 2 bed flat to 5 bed detached. Installation cost, running cost, and savings after the £7,500 grant.</p>
-                <span class="tag">Read guide</span>
+            <a href="/guides/heat-pump-cost-by-house-type/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Heat Pump Cost by House Type</div><div class="gi-desc">Specific costs from 2 bed flat to 5 bed detached, including the £7,500 grant</div></div>
+                <div class="gi-badges"><span class="gi-badge money">Save £7,500</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
-            <a href="/guides/heat-pump-vs-new-boiler/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
-                <h2>Heat Pump vs New Boiler 2026</h2>
-                <p>Full 15-year cost comparison. Upfront cost, running costs, maintenance, grants, and total lifetime cost with real numbers.</p>
-                <span class="tag">Read guide</span>
+            <a href="/guides/heat-pump-vs-new-boiler/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Heat Pump vs New Boiler: Which Is Cheaper?</div><div class="gi-desc">Full 15-year cost comparison with real 2026 numbers</div></div>
+                <div class="gi-badges"><span class="gi-badge popular">Most popular</span><span class="gi-badge homeowner">For homeowners</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
-            <a href="/guides/heat-pump-noise/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></div>
-                <h2>Heat Pump Noise: How Loud Are They?</h2>
-                <p>Real decibel levels compared to everyday sounds. Planning rules, neighbour concerns, quietest models, and how to reduce noise.</p>
-                <span class="tag">Read guide</span>
+            <a href="/guides/heat-pump-noise/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Heat Pump Noise: How Loud Are They Really?</div><div class="gi-desc">Real decibel levels, planning rules, neighbour concerns, and quietest models</div></div>
+                <div class="gi-badges"><span class="gi-badge new">New</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
-            <a href="/guides/best-heat-pump-tariffs/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                <h2>Best Heat Pump Tariffs UK 2026</h2>
-                <p>Compare Octopus Cosy, Octopus Agile, Economy 7, and standard tariffs. See how each saves on heat pump running costs.</p>
-                <span class="tag">Read guide</span>
+            <a href="/guides/best-heat-pump-tariffs/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Best Heat Pump Tariffs UK 2026</div><div class="gi-desc">Compare Octopus Cosy, Agile, Economy 7 and save 15% to 35% on running costs</div></div>
+                <div class="gi-badges"><span class="gi-badge money">Save 15% to 35%</span><span class="gi-badge new">New</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
         </div>
     </section>
 
-    <section class="guide-section">
-        <h2>Insulation</h2>
-        <div class="tools-grid">
-            <a href="/guides/is-loft-insulation-worth-it/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-                <h2>Is Loft Insulation Worth It?</h2>
-                <p>Costs £300 to £600, saves £135 to £355 per year, pays back in 1 to 4 years. Many get it free through ECO4.</p>
-                <span class="tag">Read guide</span>
+    <section class="guide-section" id="insulation">
+        <div class="guide-section-header"><h2>Insulation</h2><span class="count">3 guides</span></div>
+        <div class="guide-list">
+            <a href="/guides/is-loft-insulation-worth-it/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Is Loft Insulation Worth It?</div><div class="gi-desc">Costs £300 to £600, saves £135 to £355/yr, pays back in 1 to 4 years</div></div>
+                <div class="gi-badges"><span class="gi-badge popular">Most popular</span><span class="gi-badge homeowner">For homeowners</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
-            <a href="/guides/is-cavity-wall-insulation-worth-it/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
-                <h2>Is Cavity Wall Insulation Worth It?</h2>
-                <p>Costs, savings, risks, and whether your home is suitable. Includes damp concerns and when to avoid it.</p>
-                <span class="tag">Read guide</span>
+            <a href="/guides/is-cavity-wall-insulation-worth-it/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Is Cavity Wall Insulation Worth It?</div><div class="gi-desc">Costs, savings, risks, damp concerns, and when to avoid it</div></div>
+                <div class="gi-badges"><span class="gi-badge homeowner">For homeowners</span><span class="gi-badge landlord">For landlords</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
-            <a href="/guides/free-loft-insulation-uk/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                <h2>How to Get Free Loft Insulation</h2>
-                <p>Step-by-step guide to getting free loft insulation through the ECO4 scheme. Who qualifies and how to apply.</p>
-                <span class="tag">Read guide</span>
-            </a>
-        </div>
-    </section>
-
-    <section class="guide-section">
-        <h2>Solar Panels</h2>
-        <div class="tools-grid">
-            <a href="/guides/are-solar-panels-worth-it-uk/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></div>
-                <h2>Are Solar Panels Worth It UK?</h2>
-                <p>Full assessment including costs, savings, export income, and the honest downsides nobody talks about.</p>
-                <span class="tag">Read guide</span>
-            </a>
-            <a href="/guides/solar-panel-payback-uk/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                <h2>Solar Panel Payback: How Long to Break Even?</h2>
-                <p>8 to 12 years without a battery, 10 to 14 with. Payback by region, roof direction, and system size.</p>
-                <span class="tag">Read guide</span>
+            <a href="/guides/free-loft-insulation-uk/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <div class="gi-content"><div class="gi-title">How to Get Free Loft Insulation UK 2026</div><div class="gi-desc">Step-by-step ECO4 application. Who qualifies and what is covered</div></div>
+                <div class="gi-badges"><span class="gi-badge free">Free through ECO4</span><span class="gi-badge new">New</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
         </div>
     </section>
 
-    <section class="guide-section">
-        <h2>EPC Ratings</h2>
-        <div class="tools-grid">
-            <a href="/guides/how-to-improve-epc-rating/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-                <h2>How to Improve Your EPC Rating Cheaply</h2>
-                <p>The cheapest improvements ranked by cost per EPC point. Essential reading for landlords meeting minimum standards.</p>
-                <span class="tag">Read guide</span>
+    <section class="guide-section" id="solar">
+        <div class="guide-section-header"><h2>Solar Panels</h2><span class="count">2 guides</span></div>
+        <div class="guide-list">
+            <a href="/guides/are-solar-panels-worth-it-uk/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Are Solar Panels Worth It in the UK?</div><div class="gi-desc">Full assessment including costs, savings, export income, and honest downsides</div></div>
+                <div class="gi-badges"><span class="gi-badge popular">Most popular</span><span class="gi-badge homeowner">For homeowners</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+            </a>
+            <a href="/guides/solar-panel-payback-uk/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Solar Panel Payback: How Long to Break Even?</div><div class="gi-desc">8 to 12 years without battery, 10 to 14 with. By region and roof direction</div></div>
+                <div class="gi-badges"><span class="gi-badge money">0% VAT until Mar 2027</span><span class="gi-badge new">New</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
         </div>
     </section>
 
-    <section class="guide-section">
-        <h2>Grants and Schemes</h2>
-        <div class="tools-grid">
-            <a href="/guides/boiler-upgrade-scheme-guide/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                <h2>Boiler Upgrade Scheme Guide</h2>
-                <p>How the £7,500 heat pump grant works, who qualifies, how to apply, and what to expect from the process.</p>
-                <span class="tag">Read guide</span>
-            </a>
-            <a href="/guides/eco4-scheme-explained/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                <h2>ECO4 Scheme Explained</h2>
-                <p>Who qualifies for free insulation and heating upgrades, how to apply, ECO4 Flex explained, and scheme deadlines.</p>
-                <span class="tag">Read guide</span>
+    <section class="guide-section" id="epc">
+        <div class="guide-section-header"><h2>EPC Ratings</h2><span class="count">1 guide</span></div>
+        <div class="guide-list">
+            <a href="/guides/how-to-improve-epc-rating/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div class="gi-content"><div class="gi-title">How to Improve Your EPC Rating Cheaply</div><div class="gi-desc">Cheapest improvements ranked by cost per EPC point gained</div></div>
+                <div class="gi-badges"><span class="gi-badge landlord">For landlords</span><span class="gi-badge homeowner">For homeowners</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
         </div>
     </section>
 
-    <section class="guide-section">
-        <h2>Energy Bills</h2>
-        <div class="tools-grid">
-            <a href="/guides/average-energy-bills-uk/" class="tool-card">
-                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-                <h2>Average Energy Bills UK 2026</h2>
-                <p>What UK households actually pay for gas and electricity, broken down by property type. Ofgem Q1 2026 data.</p>
-                <span class="tag">Read guide</span>
+    <section class="guide-section" id="grants">
+        <div class="guide-section-header"><h2>Grants and Schemes</h2><span class="count">2 guides</span></div>
+        <div class="guide-list">
+            <a href="/guides/boiler-upgrade-scheme-guide/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Boiler Upgrade Scheme Guide</div><div class="gi-desc">How the £7,500 heat pump grant works, eligibility, and how to apply</div></div>
+                <div class="gi-badges"><span class="gi-badge money">Save £7,500</span><span class="gi-badge homeowner">For homeowners</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+            </a>
+            <a href="/guides/eco4-scheme-explained/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div class="gi-content"><div class="gi-title">ECO4 Scheme Explained</div><div class="gi-desc">Free insulation and heating. Who qualifies, ECO4 Flex, and deadlines</div></div>
+                <div class="gi-badges"><span class="gi-badge free">Free upgrades</span><span class="gi-badge new">New</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
             </a>
         </div>
+    </section>
+
+    <section class="guide-section" id="bills">
+        <div class="guide-section-header"><h2>Energy Bills</h2><span class="count">1 guide</span></div>
+        <div class="guide-list">
+            <a href="/guides/average-energy-bills-uk/" class="guide-item">
+                <div class="gi-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                <div class="gi-content"><div class="gi-title">Average Energy Bills UK 2026 by House Type</div><div class="gi-desc">What UK households actually pay for gas and electricity. Ofgem Q1 2026 data</div></div>
+                <div class="gi-badges"><span class="gi-badge popular">Reference data</span><span class="gi-badge new">New</span></div>
+                <div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+            </a>
+        </div>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 24px 24px 60px; text-align: center;">
+        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Need a quick estimate? Use our <a href="/">free calculators</a> to get personalised costs and savings for your home in seconds.</p>
     </section>
 
     <footer class="footer">
