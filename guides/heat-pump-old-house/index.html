@@ -303,6 +303,30 @@
 <p>Cost and performance data from <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>. Energy prices from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem Q1 2026 price cap</a>. BUS grant details from <a href="https://www.gov.uk/apply-boiler-upgrade-scheme" target="_blank" rel="noopener">GOV.UK</a>. Planning rules from <a href="https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance" target="_blank" rel="noopener">GOV.UK permitted development guidance</a>.</p>
 </main>
 
+<section class="newsletter-signup">
+<div class="newsletter-inner">
+<h3>Get UK Energy Policy Updates</h3>
+<p>Grant deadlines, tariff changes, and money-saving tips for homeowners. No spam. Unsubscribe anytime.</p>
+<form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
+<p style="display:none"><label>Do not fill this in: <input name="bot-field"></label></p>
+<input type="email" name="email" placeholder="Your email address" required>
+<button type="submit">Subscribe</button>
+</form>
+</div>
+</section>
+
+<style>
+.newsletter-signup{background:var(--color-surface-alt,#f5f7f5);border-top:2px solid var(--color-accent-bg,#e8f5e9);padding:40px 24px;text-align:center}
+.newsletter-inner{max-width:520px;margin:0 auto}
+.newsletter-signup h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:8px;color:var(--color-text,#1a1a1a)}
+.newsletter-signup p{font-size:.88rem;color:var(--color-text-secondary,#555);margin-bottom:16px;line-height:1.5}
+.newsletter-form{display:flex;gap:8px;max-width:420px;margin:0 auto}
+.newsletter-form input[type="email"]{flex:1;padding:10px 14px;border:1px solid var(--color-border,#ddd);border-radius:var(--radius-sm,6px);font-size:.9rem;font-family:inherit}
+.newsletter-form input[type="email"]:focus{outline:none;border-color:var(--color-accent,#1b6b4a)}
+.newsletter-form button{padding:10px 20px;background:var(--color-accent,#1b6b4a);color:#fff;border:none;border-radius:var(--radius-sm,6px);font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-form button:hover{opacity:.9}
+@media(max-width:500px){.newsletter-form{flex-direction:column}.newsletter-form button{width:100%}}
+</style>
 <footer class="footer"><div class="footer-inner">
   <div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div>
   <div class="footer-col"><h4>Calculators</h4>
