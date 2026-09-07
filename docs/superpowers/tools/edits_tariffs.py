@@ -1,0 +1,18 @@
+EDITS = {'guides/best-heat-pump-tariffs/index.html': [
+ ('<td>24.5p/kWh flat</td>', '<td>26.32p/kWh flat</td>'),
+ ('<tr><td>OVO Heat Pump Plus</td><td>11 to 14p</td>', '<tr><td>OVO Heat Pump Plus (closed to new customers, February 2026)</td><td>11 to 14p</td>'),
+ ('<p>If you prefer simplicity, <strong>OVO Heat Pump Plus</strong> provides a straightforward overnight rate without half-hourly price changes. It is less aggressive on savings than Cosy or Agile but requires no smart scheduling.</p>',
+  '<p><strong>OVO Heat Pump Plus</strong> offered a straightforward overnight rate without half-hourly price changes, but it closed to new customers in February 2026. Existing customers keep their rate. If you want simplicity without smart scheduling, Economy 7 or a fixed-window tariff such as Cosy is now the nearest equivalent.</p>'),
+ ('<tr><td>Standard variable (24.5p flat)</td><td>£1,014</td><td>Baseline</td></tr>', '<tr><td>Standard variable (26.32p flat)</td><td>£1,089</td><td>Baseline</td></tr>'),
+ ('<td class="highlight-cell">£352 (35%)</td>', '<td class="highlight-cell">£427 (39%)</td>'),
+ ('<td class="highlight-cell">£434 (43%)</td>', '<td class="highlight-cell">£509 (47%)</td>'),
+ ('<tr><td>OVO Heat Pump Plus</td><td>£745</td><td>£269 (27%)</td></tr>', '<tr><td>OVO Heat Pump Plus (closed to new customers)</td><td>£745</td><td>£344 (32%)</td></tr>'),
+ ('<tr><td>Economy 7</td><td>£828</td><td>£186 (18%)</td></tr>', '<tr><td>Economy 7</td><td>£828</td><td>£261 (24%)</td></tr>'),
+ ('<tr><td>Octopus Go</td><td>£690</td><td>£324 (32%)</td></tr>', '<tr><td>Octopus Go</td><td>£690</td><td>£399 (37%)</td></tr>'),
+ ('The difference between the worst option (standard variable at £1,014) and the best (Agile at £580) is £434 per year.',
+  'The difference between the worst option (standard variable at £1,089) and the best (Agile at £580) is £509 per year.'),
+ ('that is nearly £9,000.', 'that is more than £10,000.'),
+ ('verified March 2026. Standard variable rates from', 'verified March 2026 and rechecked for availability in September 2026. Standard variable rates from'),
+ ('annual heating costs of £662 to £828 on a heat pump tariff versus £1,267 on standard rates.',
+  'annual heating costs of £745 to £931 on a heat pump tariff versus £1,089 to £1,361 on standard rates.'),
+]}

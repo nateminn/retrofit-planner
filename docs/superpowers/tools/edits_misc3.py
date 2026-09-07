@@ -1,0 +1,33 @@
+EDITS = {
+ 'guides/heat-pump-old-house/index.html': [
+  ('<tr><td>Gas boiler (90% efficiency)</td><td>£1,127</td></tr>', '<tr><td>Gas boiler (90% efficiency)</td><td>£1,328</td></tr>'),
+  ('<tr><td>Heat pump (COP 2.9, standard tariff)</td><td>£1,267</td></tr>', '<tr><td>Heat pump (COP 2.9, standard tariff)</td><td>£1,361</td></tr>'),
+  ('<tr><td>Heat pump (COP 2.9, heat pump tariff)</td><td class="highlight-cell">£862 to £1,034</td></tr>',
+   '<tr><td>Heat pump (COP 2.9, heat pump tariff)</td><td class="highlight-cell">£879 to £1,034</td></tr>'),
+  ('<p>At the Q1 2026 Ofgem price cap, electricity costs 24.5p/kWh and gas costs 6.76p/kWh. A heat pump with a COP of 2.9 delivers heat at an effective cost of 8.4p/kWh, which is higher than gas at 6.76p per kWh. The gap narrows significantly if you switch to a heat pump tariff.</p>',
+   '<p>At the Ofgem price cap for October to December 2026, electricity costs 26.32p/kWh and gas costs 7.97p/kWh. A heat pump with a COP of 2.9 delivers heat at an effective cost of 9.1p/kWh, against 8.9p per kWh for gas once boiler efficiency is included. The two are close to level, and a heat pump tariff puts the heat pump clearly ahead.</p>'),
+  ('reduce your effective electricity cost to around 15 to 18p/kWh, bringing your heating cost per kWh closer to 5 to 6p.',
+   'reduce your effective electricity cost to around 17 to 20p/kWh, bringing your heating cost per kWh down to 6 to 7p.'),
+  ('Based on Ofgem Q1 2026 price cap rates. Standing charges excluded. Heat pump tariff assumes 15 to 18p/kWh effective rate.',
+   'Based on the Ofgem price cap for October to December 2026. Standing charges excluded. Heat pump tariff assumes 17 to 20p/kWh effective rate.'),
+ ],
+ 'guides/boiler-upgrade-scheme-guide/index.html': [
+  ('<tr><td>Gas boiler (90% efficiency)</td><td>£1,127</td></tr>', '<tr><td>Gas boiler (90% efficiency)</td><td>£1,328</td></tr>'),
+  ('<tr><td>Heat pump (standard tariff, 24.5p/kWh)</td><td>£1,267</td></tr>', '<tr><td>Heat pump (standard tariff, 26.32p/kWh)</td><td>£1,361</td></tr>'),
+  ('<tr><td>Heat pump (heat pump tariff, ~16p/kWh)</td><td class="highlight-cell">£828</td></tr>',
+   '<tr><td>Heat pump (heat pump tariff, ~18p/kWh)</td><td class="highlight-cell">£931</td></tr>'),
+  ('<p>At the Q1 2026 Ofgem price cap, a heat pump with a COP of 2.9 on a standard tariff costs slightly more to run than a gas boiler. On a dedicated heat pump tariff, it costs less.',
+   '<p>At the Ofgem price cap for October to December 2026, a heat pump with a COP of 2.9 on a standard tariff costs about the same to run as a gas boiler. On a dedicated heat pump tariff, it costs less.'),
+  ('Based on Ofgem Q1 2026 rates. Heat pump tariff assumes Octopus Cosy or equivalent.',
+   'Based on the Ofgem price cap for October to December 2026. Heat pump tariff assumes Octopus Cosy or equivalent at ~18p/kWh effective.'),
+ ],
+ 'guides/heat-pump-flat/index.html': [
+  ('<td>£400 to £500</td></tr>', '<td>£430 to £540</td></tr>'),
+  ('<td>£450 to £600</td></tr>', '<td>£480 to £640</td></tr>'),
+  ('<td>£500 to £700</td></tr>', '<td>£540 to £750</td></tr>'),
+  ('Q1 2026 rates (24.5p/kWh), assuming good insulation and COP 3.2.',
+   'price cap rates for October to December 2026 (26.32p/kWh), assuming good insulation and COP 3.2.'),
+  ('Running costs £400 to £600 per year.', 'Running costs £430 to £640 per year.'),
+  ('Running costs are £400 to £600 per year.', 'Running costs are £430 to £640 per year.'),
+ ],
+}

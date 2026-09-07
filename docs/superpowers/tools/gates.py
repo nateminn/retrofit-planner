@@ -77,8 +77,11 @@ check('no stray brace directory', not stray, str(stray))
 if ORDER[STAGE] >= 2:
     stale = re.compile(r'24\.5p|6\.76p|61\.64p|31\.65p|Q1 2026|0\.245,|0\.0676|15 to 18p|~16p|16p/kWh|£1,738')
     bad = {}
+    annotation = re.compile(r'January to March 2026 gas price of 6\.76p per kWh')
     for f, s in contents.items():
-        hits = sorted(set(stale.findall(s)))
+        if STAGE == 'c' and f == 'guides/heat-pump-cost-4-bed-house/index.html':
+            continue  # rewritten in commit D
+        hits = sorted(set(stale.findall(annotation.sub('', s))))
         if hits:
             bad[f] = hits
     check('zero stale price/label tokens', not bad, str(bad)[:800])

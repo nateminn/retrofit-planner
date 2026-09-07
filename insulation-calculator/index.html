@@ -101,7 +101,7 @@
     <header class="hero">
         <div class="hero-badge">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Updated March 2026 with latest Ofgem rates
+            Updated September 2026 with Ofgem October to December 2026 rates
         </div>
         <h1>Insulation Savings Calculator</h1>
         <p>Find out how much you could save by insulating your home. See costs for loft, cavity wall, and solid wall insulation, check if you qualify for <a href="/grants/">free installation through government schemes</a>, and calculate your payback period.</p>
@@ -369,15 +369,15 @@
             </div>
         </div>
         <div class="attribution">
-            Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy prices from Ofgem (Q1 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes. Always obtain professional quotes before proceeding with installation.
+            Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy prices from Ofgem (October to December 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes. Always obtain professional quotes before proceeding with installation.
         </div>
     </footer>
 
     <script>
     // Source: <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a> typical savings by property type and insulation measure (2025 data)
-    // Fuel prices: <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a> Q1 2026 price cap
+    // Fuel prices: <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a> price cap, October to December 2026; oil at September 2026 market rate
     const DATA = {
-        fuelPrices: { gas: 0.0676, oil: 0.068, lpg: 0.095, electricity: 0.245 },
+        fuelPrices: { gas: 0.0797, oil: 0.090, lpg: 0.095, electricity: 0.2632 },
         fuelMultiplier: { gas: 1.0, oil: 1.01, lpg: 1.41, electricity: 3.63 },
         // Annual savings in £ for gas heating (multiply by fuelMultiplier for others)
         // Source: EST typical savings data

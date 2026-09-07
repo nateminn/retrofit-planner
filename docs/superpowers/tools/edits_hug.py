@@ -1,0 +1,16 @@
+EDITS = {'guides/home-upgrade-grant/index.html': [
+ ('<tr><td>Air source heat pump</td><td>£9,000 to £13,000</td><td>£300 to £600 vs oil</td></tr>',
+  '<tr><td>Air source heat pump</td><td>£9,000 to £13,000</td><td>£750 to £1,350 vs oil</td></tr>'),
+ ('<tr><td>Maximum value</td><td class="highlight-cell">Up to £25,000</td><td>Up to £10,000+</td><td>£7,500</td></tr>',
+  '<tr><td>Maximum value</td><td class="highlight-cell">Up to £25,000</td><td>Up to £10,000+</td><td>£7,500 (£9,000 for oil or LPG homes)</td></tr>'),
+ ('<tr><td>Oil boiler</td><td>£1,200 to £1,600</td><td>£662 (HP tariff)</td><td class="highlight-cell">£538 to £938</td></tr>',
+  '<tr><td>Oil boiler</td><td>£1,500 to £2,100</td><td>£745 (HP tariff)</td><td class="highlight-cell">£755 to £1,355</td></tr>'),
+ ('<tr><td>LPG boiler</td><td>£1,400 to £1,800</td><td>£662 (HP tariff)</td><td class="highlight-cell">£738 to £1,138</td></tr>',
+  '<tr><td>LPG boiler</td><td>£1,600 to £2,000</td><td>£745 (HP tariff)</td><td class="highlight-cell">£855 to £1,255</td></tr>'),
+ ('<tr><td>Electric storage heaters</td><td>£2,200 to £3,000</td><td>£662 (HP tariff)</td><td class="highlight-cell">£1,538 to £2,338</td></tr>',
+  '<tr><td>Electric storage heaters</td><td>£2,400 to £3,200</td><td>£745 (HP tariff)</td><td class="highlight-cell">£1,655 to £2,455</td></tr>'),
+ ('<tr><td>Electric boiler</td><td>£2,500 to £3,500</td><td>£662 (HP tariff)</td><td class="highlight-cell">£1,838 to £2,838</td></tr>',
+  '<tr><td>Electric boiler</td><td>£2,700 to £3,800</td><td>£745 (HP tariff)</td><td class="highlight-cell">£1,955 to £3,055</td></tr>'),
+ ('<p class="note">Oil at ~7p/kWh. LPG at ~8.5p/kWh. Electricity at 24.5p/kWh. Heat pump COP 2.9 on HP tariff ~16p/kWh. 12,000 kWh heat demand.</p>',
+  '<p class="note">Oil at 9.0p/kWh (September 2026 kerosene price). LPG at 9.5p/kWh. Electricity at 26.32p/kWh (Ofgem price cap, October to December 2026). Heat pump COP 2.9 on HP tariff ~18p/kWh. 12,000 kWh heat demand. Fossil fuel and storage heater ranges scaled from the March 2026 figures by the change in each fuel price.</p>'),
+]}

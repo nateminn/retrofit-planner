@@ -16,7 +16,7 @@ checks = [
  ('running-costs gas', [gas(d, OLD) for d in D5], [601, 901, 1127, 1352, 1653]),
  ('running-costs hp standard', [hpstd(d, OLD) for d in D5], [676, 1014, 1267, 1521, 1859]),
  ('running-costs hp tariff 16p', [hptar(d, OLD) for d in D5], [441, 662, 828, 993, 1214]),
- ('running-costs hp tariff 20p upper', [hptar(d, OLD, 0.20) for d in D5], [529, 794, 993, 1192, 1457]),
+ ('running-costs hp tariff upper bound (19.2p on the page)', [hptar(d, OLD, 0.192) for d in D5], [529, 794, 993, 1192, 1457]),
  ('electric boiler', [eboil(d, OLD) for d in D4], [1960, 2940, 3675, 4410]),
  ('vs-boiler 15yr running totals', [(901 + 100) * 15, (1014 + 65) * 15, (662 + 65) * 15], [15015, 16185, 10905]),
  ('avg-bills gas by kWh', [bill_gas(k, OLD) for k in (5500, 8500, 14000)], [487, 690, 1062]),

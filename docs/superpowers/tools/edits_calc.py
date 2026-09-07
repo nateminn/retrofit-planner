@@ -27,7 +27,6 @@ EDITS = {
  ],
  'solar-calculator/index.html': [
   ('electricityRate: 0.245, // Ofgem Q1 2026', 'electricityRate: 0.2632, // Ofgem cap Oct to Dec 2026'),
-  ('// Sources: PVGIS (EU JRC), Energy Saving Trust, Ofgem Q1 2026', '// Sources: PVGIS (EU JRC), Energy Saving Trust, Ofgem cap Oct to Dec 2026'),
   ('Updated March 2026 with latest electricity rates', 'Updated September 2026 with October to December 2026 electricity rates'),
   ('Electricity prices from Ofgem (Q1 2026 price cap).', 'Electricity prices from Ofgem (October to December 2026 price cap).'),
  ],
