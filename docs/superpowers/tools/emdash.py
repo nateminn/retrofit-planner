@@ -1,0 +1,60 @@
+EDITS = {
+ 'about/index.html': [
+  ('No sales pitch, no hidden agenda — just clear data and honest calculations.',
+   'No sales pitch, no hidden agenda, just clear data and honest calculations.'),
+  ('Heat pumps, insulation, solar panels, EPC improvements — there', 'Heat pumps, insulation, solar panels, EPC improvements: there'),
+  ('<strong>Ofgem</strong> — energy prices', '<strong>Ofgem</strong>: energy prices'),
+  ('<strong>Energy Saving Trust (EST)</strong> — installation costs', '<strong>Energy Saving Trust (EST)</strong>: installation costs'),
+  ('<strong>BEIS / DESNZ</strong> — government', '<strong>BEIS / DESNZ</strong>: government'),
+  ('<strong>BRE (Building Research Establishment)</strong> — the Standard', '<strong>BRE (Building Research Establishment)</strong>: the Standard'),
+  ('<strong>GOV.UK</strong> — grant scheme', '<strong>GOV.UK</strong>: grant scheme'),
+  ('<strong>Installer referrals</strong> — when you click', '<strong>Installer referrals</strong>: when you click'),
+  ('<strong>Product recommendations</strong> — some pages', '<strong>Product recommendations</strong>: some pages'),
+  ('run entirely in your browser — we don', 'run entirely in your browser. We don'),
+  ('</a> — ', '</a>: ', 6),
+  (' (coming soon)', '', 4),
+ ],
+ 'epc-calculator/index.html': [
+  ('should start there — it', 'should start there. It'),
+  ('</strong> — £', '</strong>: £', 9),
+  ('Landlords should plan ahead — the most', 'Landlords should plan ahead. The most'),
+  ('Consider further improvements for lower bills — try our', 'Consider further improvements for lower bills. Try our'),
+  ("' — target reached'", "', target reached'"),
+  ("' points — '", "' points: '"),
+  ("' — reaches Band '", "', reaches Band '"),
+ ],
+ 'insulation-calculator/index.html': [
+  ('alternating long and short bricks — that indicates', 'alternating long and short bricks, which indicates'),
+  ('after cavity fill — get a survey', 'after cavity fill, so get a survey'),
+  ("' — costs £'", "', costs £'"),
+  ("' — payback in '", "', payback in '"),
+  ("' — <strong style", "', <strong style"),
+ ],
+ 'grants/index.html': [
+  ('local authority schemes — all in one place.', 'local authority schemes, all in one place.'),
+  ('applies on your behalf — the grant is deducted', 'applies on your behalf, and the grant is deducted'),
+  ('Eligibility criteria may change — always verify', 'Eligibility criteria may change, so always verify'),
+  ('by your installer — no application needed.', 'by your installer, no application needed.'),
+ ],
+ 'contact/index.html': [
+  ('</strong> — ', '</strong>: ', 4),
+ ],
+ 'solar-calculator/index.html': [
+  ('per year — roughly equivalent', 'per year, roughly equivalent'),
+  ('supplies your electricity — shop around', 'supplies your electricity, so shop around'),
+  ('per year — equivalent to driving', 'per year, equivalent to driving'),
+ ],
+ 'methodology/index.html': [
+  ('vary by property — our estimates', 'vary by property, so our estimates'),
+  ('change frequently — we review', 'change frequently, so we review'),
+  ('run in your browser — we do not', 'run in your browser. We do not'),
+ ],
+ 'boiler-vs-heat-pump/index.html': [
+  ('</a> — we recommend insulating', '</a>. We recommend insulating'),
+  ('MCS-certified installer — no separate application needed.', 'MCS-certified installer, with no separate application needed.'),
+  ('phased out — a heat pump future-proofs', 'phased out, and a heat pump future-proofs'),
+ ],
+ 'privacy/index.html': [
+  ('aggregated and anonymous — we cannot', 'aggregated and anonymous, so we cannot'),
+ ],
+}

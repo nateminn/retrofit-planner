@@ -156,21 +156,24 @@ Include in every `<head>`:
 
 ## Data Sources (use these numbers)
 
-### Energy Prices (Ofgem Q1 2026 Price Cap)
-- Electricity: 24.5p per kWh
-- Gas: 6.76p per kWh
-- Electricity standing charge: 61.64p per day
-- Gas standing charge: 31.65p per day
+### Energy Prices (Ofgem Price Cap, 1 October to 31 December 2026, announced 26 August 2026)
+- Electricity: 26.32p per kWh
+- Gas: 7.97p per kWh
+- Electricity standing charge: 54.83p per day
+- Gas standing charge: 29.68p per day
+- Ofgem typical consumption from 1 July 2026: 2,500 kWh electricity, 9,500 kWh gas (typical dual-fuel bill £1,723)
+- Heat pump tariff effective rate used in all tables: 18p per kWh (well-scheduled Octopus Cosy). OVO Heat Pump Plus closed to new customers February 2026.
+- Refresh recipe: run docs/superpowers/tools/verify_model.py, then update the constants in the four calculators and the tables listed in docs/superpowers/plans/2026-09-06-fix-and-freshen.md
 
 ### Other Fuel Prices
-- Heating oil (kerosene): 6.8p per kWh
+- Heating oil (kerosene): 9.0p per kWh (September 2026, about 93p per litre including VAT)
 - LPG: 9.5p per kWh
 
 ### Heat Pump Data
 - COP by insulation: Good = 3.2, Average = 2.9, Poor = 2.6
 - Installation cost: £7,000 to £13,000 (air source)
 - BUS grant: £7,500 (air source), £6,000 (ground source)
-- BUS runs until April 2028
+- BUS runs to 2030 (extended 28 April 2026). £9,000 for homes replacing oil or LPG (from July 2026). £2,500 for air-to-air.
 
 ### Insulation Savings (EST data, gas heating)
 | Measure | Detached | Semi | Mid-terrace | End-terrace | Bungalow | Flat |
@@ -182,7 +185,7 @@ Include in every `<head>`:
 ### Grant Schemes
 - ECO4: runs until December 2026. Benefits required (main route). ECO4 Flex available through local councils.
 - GBIS: CLOSED to new applications January 31, 2026.
-- BUS: £7,500 air source, £6,000 ground source. Until April 2028.
+- BUS: £7,500 air source or ground source, £9,000 if replacing oil or LPG, £2,500 air-to-air. Runs to 2030.
 - Home Upgrade Grant (HUG): off-gas-grid homes, EPC D-G. Local authority managed.
 - 0% VAT on solar, heat pumps, insulation: until March 2027.
 

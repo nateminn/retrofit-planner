@@ -1,0 +1,37 @@
+EDITS = {
+ 'heat-pump-calculator/index.html': [
+  ('covers air source heat pumps. £6,000 for ground source. Available until March 2028. Applied automatically by your installer.',
+   'covers air source and ground source heat pumps, with £9,000 if you are replacing an oil or LPG boiler. The scheme runs to 2030. Applied automatically by your installer.'),
+  ('The Boiler Upgrade Scheme provides £7,500 towards an air source heat pump and £6,000 towards a ground source heat pump.',
+   'The Boiler Upgrade Scheme provides £7,500 towards an air source or ground source heat pump, and £9,000 if you are replacing an oil or LPG boiler.'),
+  ('provides £7,500 for an air source heat pump and £6,000 for a ground source heat pump.',
+   'provides £7,500 for an air source or ground source heat pump, rising to £9,000 if you are replacing an oil or LPG boiler.'),
+ ],
+ 'guides/heat-pump-old-house/index.html': [
+  ('The scheme runs until April 2028.</p>', 'The scheme runs to 2030.</p>'),
+ ],
+ 'guides/boiler-upgrade-scheme-guide/index.html': [
+  ('"text":"The scheme runs until April 2028. The government has extended it from its original March 2025 end date and increased funding. Apply well before the deadline, as installer availability tightens closer to scheme closures."',
+   '"text":"The scheme now runs to 2030. It was extended on 28 April 2026 under the Warm Homes Plan, with a £400 million budget for 2026 to 2027. Apply well before the end date, as installer availability tightens closer to scheme closures."'),
+  ('The scheme runs until April 2028 and is available to all homeowners',
+   'The scheme runs to 2030 and is available to all homeowners'),
+  ('<p>The BUS has been extended and expanded. The current funding runs until April 2028. If demand exceeds supply, the scheme may close early or be replaced. Applying sooner reduces this risk.</p>',
+   '<p>The BUS has been extended and expanded. On 28 April 2026 the government extended it to 2030 under the Warm Homes Plan and set a £400 million budget for 2026 to 2027. If demand exceeds supply in any year, applications can pause, so applying sooner reduces this risk.</p>'),
+  ('<p>April 2028. Apply well before the deadline.', '<p>2030, following the April 2026 extension. Apply well before the end date.'),
+  ('<tr><td>Ground source heat pump</td><td class="highlight-cell">£7,500</td><td>£15,000 to £35,000</td><td>£7,500 to £27,500</td></tr>',
+   '<tr><td>Ground source heat pump</td><td class="highlight-cell">£7,500</td><td>£15,000 to £35,000</td><td>£7,500 to £27,500</td></tr>\n<tr><td>Air or ground source, replacing oil or LPG</td><td class="highlight-cell">£9,000</td><td>£9,000 to £13,000</td><td>£0 to £4,000</td></tr>\n<tr><td>Air-to-air heat pump</td><td class="highlight-cell">£2,500</td><td>£3,000 to £8,000</td><td>£500 to £5,500</td></tr>'),
+  ('<p>£7,500 for both air source and ground source heat pumps. It is deducted',
+   '<p>£7,500 for both air source and ground source heat pumps, or £9,000 if you are replacing an oil or LPG boiler. Air-to-air systems get £2,500. It is deducted'),
+  ('"text":"The grant is £7,500 for an air source heat pump and £7,500 for a ground source heat pump. It is deducted',
+   '"text":"The grant is £7,500 for an air source or ground source heat pump, £9,000 if you are replacing an oil or LPG boiler, and £2,500 for an air-to-air system. It is deducted'),
+ ],
+ 'grants/index.html': [
+  ('Provides £7,500 towards an air source heat pump or £6,000 towards a ground source heat pump.',
+   'Provides £7,500 towards an air source or ground source heat pump, rising to £9,000 if you are replacing an oil or LPG boiler.'),
+  (' and no existing oil or LPG boiler (for the full grant)', ''),
+  ('Towards an air source heat pump. Applied by your MCS-certified installer.',
+   'Towards an air source or ground source heat pump, or £9,000 if you are replacing oil or LPG. Applied by your MCS-certified installer.'),
+  ("desc: 'Towards an air source heat pump installation. Your MCS-certified installer applies on your behalf.'",
+   "desc: 'Towards an air source or ground source heat pump, or £9,000 if you are replacing an oil or LPG boiler. Your MCS-certified installer applies on your behalf.'"),
+ ],
+}

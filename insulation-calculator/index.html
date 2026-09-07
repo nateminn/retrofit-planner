@@ -170,7 +170,7 @@
                     <option value="solid-insulated">Solid walls, already insulated</option>
                     <option value="unsure">Not sure</option>
                 </select>
-                <p class="helper">Homes built after 1930 usually have cavity walls. Pre-1930 homes typically have solid walls. Check for a pattern of alternating long and short bricks — that indicates solid walls.</p>
+                <p class="helper">Homes built after 1930 usually have cavity walls. Pre-1930 homes typically have solid walls. Check for a pattern of alternating long and short bricks, which indicates solid walls.</p>
             </div>
 
             <div class="form-group">
@@ -309,7 +309,7 @@
             <p>Professional loft insulation typically costs £300 to £600 for a standard home. Many households qualify for free installation through the <a href="/grants/">ECO4 scheme or GB Energy Scheme</a>. DIY loft insulation using mineral wool rolls costs around £5 to £8 per square metre from builders' merchants.</p>
 
             <h3>Is cavity wall insulation worth it?</h3>
-            <p>For most homes, cavity wall insulation saves £200 to £500 per year on heating bills, with a typical payback period of 2 to 4 years. It is one of the most cost-effective home improvements available. However, some homes have issues with damp penetration after cavity fill — get a survey from a reputable installer before proceeding.</p>
+            <p>For most homes, cavity wall insulation saves £200 to £500 per year on heating bills, with a typical payback period of 2 to 4 years. It is one of the most cost-effective home improvements available. However, some homes have issues with damp penetration after cavity fill, so get a survey from a reputable installer before proceeding.</p>
 
             <h3>Can I get free insulation in the UK?</h3>
             <p>Yes. The ECO4 scheme and GB Energy Scheme provide free or heavily subsidised insulation to qualifying households, particularly those on low incomes or receiving certain benefits. Check our <a href="/grants/">grant eligibility checker</a> to see if you qualify.</p>
@@ -358,14 +358,7 @@
                 <a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a>
                 <a href="/grants/">Grant Eligibility Checker</a>
             </div>
-            <div class="footer-col">
-                <h4>Guides</h4>
-                <a href="/guides/heat-pump-guide/">Complete Heat Pump Guide</a>
-                <a href="/guides/insulation-guide/">Home Insulation Guide</a>
-                <a href="/guides/epc-explained/">EPC Ratings Explained</a>
-                <a href="/guides/boiler-upgrade-scheme/">Boiler Upgrade Scheme Guide</a>
-                <a href="/guides/average-energy-bills/">Average Energy Bills UK</a>
-            </div>
+            <div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <a href="/about/">About Us</a>
@@ -486,9 +479,9 @@
                 html += '<div><div class="label">' + o.name + '</div>';
                 html += '<div style="font-size: 0.95rem; margin-top: 4px;">Save <strong style="color: var(--color-accent);">£' + o.saving + '/year</strong>';
                 if (o.cost > 0) {
-                    html += ' — costs £' + o.cost.toLocaleString() + ' — payback in ' + o.payback + ' years';
+                    html += ', costs £' + o.cost.toLocaleString() + ', payback in ' + o.payback + ' years';
                 } else {
-                    html += ' — <strong style="color: var(--color-accent);">likely free</strong> through <a href="/grants/">grant schemes</a>';
+                    html += ', <strong style="color: var(--color-accent);">likely free</strong> through <a href="/grants/">grant schemes</a>';
                 }
                 html += '</div>';
                 if (o.note) html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">' + o.note + '</div>';
