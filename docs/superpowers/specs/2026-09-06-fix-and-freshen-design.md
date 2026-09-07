@@ -98,8 +98,8 @@ New file `_redirects` at repo root (Netlify reads it from the publish root):
 /guides/average-energy-bills/    /guides/average-energy-bills-uk/         301
 /epc-calculator/epc-calculator/  /epc-calculator/                         301
 /guides/heat-pump-running-costs-uk-electricity-vs-gas-compared  /guides/heat-pump-running-costs/  301
-/CONTEXT.md                      /404.html                                404
-/docs/*                          /404.html                                404
+/CONTEXT.md                      /404.html                                404!
+/docs/*                          /404.html                                404!
 ```
 
 The last two rules stop Netlify serving the planning brief and this spec, which are committed to the repo and therefore public today (CONTEXT.md returns 200 live).

@@ -276,8 +276,8 @@ Expected: `PASS footer Guides block identical on all pages` and `PASS all intern
 /guides/average-energy-bills/     /guides/average-energy-bills-uk/         301
 /epc-calculator/epc-calculator/   /epc-calculator/                         301
 /guides/heat-pump-running-costs-uk-electricity-vs-gas-compared   /guides/heat-pump-running-costs/   301
-/CONTEXT.md                       /404.html                                404
-/docs/*                           /404.html                                404
+/CONTEXT.md                       /404.html                                404!
+/docs/*                           /404.html                                404!
 ```
 
 - [ ] **Step 2: Create `404.html`**
