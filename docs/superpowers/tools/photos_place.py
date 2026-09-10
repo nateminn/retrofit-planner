@@ -21,6 +21,13 @@ HUB = open('guides/index.html', encoding='utf-8').read()
 # Fractions of the original frame (left, top, right, bottom) to keep before resizing.
 PRECROP = {
     'boiler-vs-heat-pump': (0.40, 0.0, 1.0, 1.0),
+    'insulation-calculator': (0.30, 0.36, 0.75, 0.80),
+}
+
+# Where the subject sits vertically, for images whose wide banner crop would otherwise miss it.
+FOCUS = {
+    'boiler-vs-heat-pump': '50% 64%',
+    'solar-calculator': '50% 78%',
 }
 
 def fetch(c, slug):
@@ -85,10 +92,11 @@ def credit_html(c):
 
 def figure(slug, alt, caption, credit, banner=False, priority=True):
     attrs = 'fetchpriority="high"' if priority else 'loading="lazy"'
-    return ('<figure class="photo-fig%s" id="photo-%s"><img src="/images/%s-960.webp" srcset="/images/%s-640.webp 640w, /images/%s-960.webp 960w, /images/%s-1200.webp 1200w" '
-            'sizes="%s" width="1200" height="800" alt="%s" %s decoding="async"><figcaption>%s %s</figcaption></figure>\n') % (
-            ' banner' if banner else '', slug, slug, slug, slug, slug, '(max-width: 1128px) calc(100vw - 48px), 1080px' if banner else '(max-width: 768px) calc(100vw - 48px), 720px',
-            html.escape(alt, quote=True), attrs, html.escape(caption), credit)
+    fig = ('<figure class="photo-fig%s" id="photo-%s"><img src="/images/%s-960.webp" srcset="/images/%s-640.webp 640w, /images/%s-960.webp 960w, /images/%s-1200.webp 1200w" '
+           'sizes="%s" width="1200" height="800" alt="%s" %s decoding="async"FOCUS><figcaption>%s %s</figcaption></figure>\n') % (
+           ' banner' if banner else '', slug, slug, slug, slug, slug, '(max-width: 1128px) calc(100vw - 48px), 1080px' if banner else '(max-width: 768px) calc(100vw - 48px), 720px',
+           html.escape(alt, quote=True), attrs, html.escape(caption), credit)
+    return fig.replace('FOCUS', ' style="--photo-focus:' + FOCUS[slug] + '"' if slug in FOCUS else '')
 
 def og_tags(slug, alt):
     return ('<meta property="og:image" content="%s/images/%s-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="800">'
