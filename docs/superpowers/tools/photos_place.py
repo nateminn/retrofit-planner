@@ -17,6 +17,12 @@ def crop_resize(im, w, h):
 
 HUB = open('guides/index.html', encoding='utf-8').read()
 
+# Some originals put the subject off to one side, so a centre crop loses it.
+# Fractions of the original frame (left, top, right, bottom) to keep before resizing.
+PRECROP = {
+    'boiler-vs-heat-pump': (0.40, 0.0, 1.0, 1.0),
+}
+
 def fetch(c, slug):
     """Always resolve the image from its source URL, keyed by that URL, so the file
     on disk can never drift from the credit metadata (agents reuse candidate filenames)."""
@@ -32,6 +38,9 @@ def fetch(c, slug):
 
 def process(slug, path, thumb=True):
     im = Image.open(path); im = ImageOps.exif_transpose(im).convert('RGB')
+    if slug in PRECROP:
+        l, t, r, bo = PRECROP[slug]; W, H = im.size
+        im = im.crop((int(W * l), int(H * t), int(W * r), int(H * bo)))
     out = {}
     variants = [('1200', (1200, 800), 'webp'), ('960', (960, 640), 'webp'), ('640', (640, 427), 'webp'), ('og', (1200, 800), 'jpg')]
     if thumb: variants.insert(3, ('240', (240, 240), 'webp'))
