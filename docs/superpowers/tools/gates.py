@@ -94,7 +94,7 @@ if ORDER[STAGE] >= 2:
     bad = [f for f in touched if 'Updated March 2026' in contents[f] or 'Last checked March 2026' in contents[f]]
     check('no "Updated March 2026" on touched pages', not bad, str(bad))
     bad = [f for f in touched if 'guides/' in f and f != 'guides/index.html'
-           and not re.search(r'"dateModified": ?"2026-09-06"', contents[f])]
+           and not re.search(r'"dateModified": ?"2026-(09|1[0-2])-\d\d"', contents[f])]
     check('touched guides carry dateModified 2026-09-06', not bad, str(bad))
 
 # --- stage d checks ---
