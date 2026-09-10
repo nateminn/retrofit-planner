@@ -85,7 +85,8 @@ def og_tags(slug, alt):
     return ('<meta property="og:image" content="%s/images/%s-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="800">'
             '<meta property="og:image:alt" content="%s"><meta name="twitter:card" content="summary_large_image">') % (SITE, slug, html.escape(alt, quote=True))
 
-credits = ['# Image credits', '', 'Every photo on retrofitplanner.co.uk is used under a licence that allows commercial use. Files are resized crops of the originals linked below.', '']
+credits = ['# Image credits', '', 'Every photo on retrofitplanner.co.uk is used under a licence that allows commercial use. Files are resized crops of the originals linked below, and each one carries its credit in the caption on the page.', '',
+           'Two images are licensed CC BY-SA, which means the cropped versions used here are offered under the same licence. If you reuse or edit those two files elsewhere, keep the credit and the CC BY-SA notice with them. Everything else is Pexels, Pixabay, CC0 or CC BY and carries no share-alike obligation.', '']
 touched = set(); total_bytes = 0; placed = {}
 for p in picks:
     slug = p['slug']; c = p['chosen']; s = subjects[slug]
