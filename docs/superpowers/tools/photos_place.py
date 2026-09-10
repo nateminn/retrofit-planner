@@ -67,7 +67,11 @@ def credit_html(c):
         return 'Photo: %svia <a href="%s" rel="nofollow noopener" target="_blank">Pixabay</a>.' % ((who + ' ') if who else '', html.escape(c['page_url']))
     lic = html.escape(clean_license(c.get('license'))); lu = c.get('license_url') or ''
     lic_html = '<a href="%s" rel="license noopener" target="_blank">%s</a>' % (html.escape(lu), lic) if lu else lic
-    site = 'Wikimedia Commons' if src == 'commons' else src.replace('openverse:', '').title()
+    if src == 'commons':
+        site = 'Wikimedia Commons'
+    else:
+        host = re.sub(r'^www\.', '', re.sub(r'^https?://([^/]+).*$', r'\1', c['page_url'] or ''))
+        site = {'flickr.com': 'Flickr', 'commons.wikimedia.org': 'Wikimedia Commons'}.get(host, host or 'Openverse')
     return 'Photo: %s, %s, via <a href="%s" rel="nofollow noopener" target="_blank">%s</a>.' % (who or 'unknown author', lic_html, html.escape(c['page_url']), site)
 
 def figure(slug, alt, caption, credit, banner=False, priority=True):

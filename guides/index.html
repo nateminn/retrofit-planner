@@ -56,6 +56,15 @@
             .guide-item .gi-desc { display: none; }
             .guide-item .gi-badges { flex-wrap: wrap; }
         }
+        @media (max-width: 640px) {
+            .guide-item { flex-wrap: wrap; gap: 12px; }
+            .guide-item .gi-content { flex: 1 1 0; min-width: 0; }
+            .guide-item .gi-badges { order: 3; flex-basis: 100%; justify-content: flex-start; margin-top: 2px; }
+            .guide-item .gi-arrow { display: none; }
+            .guide-item .gi-thumb { width: 48px; height: 48px; }
+            .guide-item .gi-icon { width: 36px; height: 36px; }
+            .guide-item .gi-icon svg { width: 18px; height: 18px; }
+        }
         @media (max-width: 500px) {
             .glossary { grid-template-columns: 1fr; }
         }
