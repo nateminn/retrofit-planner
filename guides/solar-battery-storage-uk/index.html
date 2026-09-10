@@ -62,7 +62,8 @@
 
 <h2>Cost by battery size</h2>
 
-<table class="data-table">
+<figure class="chart-fig" id="chart-battery-savings"><div class="chart-head"><div class="chart-title">Annual saving by battery size, with a 4 kW solar system</div></div><div class="chart-scroll"><svg class="chart-svg" viewBox="0 0 720 160" role="img" aria-label="Annual saving by battery size, with a 4 kW solar system"><line class="grid" x1="190.0" x2="190.0" y1="10" y2="130"/><text class="tick" x="190.0" y="152" text-anchor="middle">£0</text><line class="grid" x1="305.0" x2="305.0" y1="10" y2="130"/><text class="tick" x="305.0" y="152" text-anchor="middle">£200</text><line class="grid" x1="420.0" x2="420.0" y1="10" y2="130"/><text class="tick" x="420.0" y="152" text-anchor="middle">£400</text><line class="grid" x1="535.0" x2="535.0" y1="10" y2="130"/><text class="tick" x="535.0" y="152" text-anchor="middle">£600</text><line class="grid" x1="650.0" x2="650.0" y1="10" y2="130"/><text class="tick" x="650.0" y="152" text-anchor="middle">£800</text><line class="axis" x1="190" x2="190" y1="10" y2="130"/><text class="cat" x="182" y="25.0" text-anchor="end" dominant-baseline="middle">3 to 4 kWh</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£160 to £270" data-tip="3 to 4 kWh"><rect x="282.0" y="16.0" width="63.2" height="18" rx="4"/><rect class="hit" x="190" y="12.0" width="460.0" height="26"/></g><text class="val" x="351.2" y="25.0" dominant-baseline="middle">£160 to £270</text><text class="cat" x="182" y="55.0" text-anchor="end" dominant-baseline="middle">5 to 6 kWh</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£210 to £380" data-tip="5 to 6 kWh"><rect x="310.8" y="46.0" width="97.8" height="18" rx="4"/><rect class="hit" x="190" y="42.0" width="460.0" height="26"/></g><text class="cat" x="182" y="85.0" text-anchor="end" dominant-baseline="middle">8 to 10 kWh</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£320 to £480" data-tip="8 to 10 kWh"><rect x="374.0" y="76.0" width="92.0" height="18" rx="4"/><rect class="hit" x="190" y="72.0" width="460.0" height="26"/></g><text class="cat" x="182" y="115.0" text-anchor="end" dominant-baseline="middle">13 to 15 kWh</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£380 to £590" data-tip="13 to 15 kWh"><rect x="408.5" y="106.0" width="120.8" height="18" rx="4"/><rect class="hit" x="190" y="102.0" width="460.0" height="26"/></g><text class="val" x="535.2" y="115.0" dominant-baseline="middle">£380 to £590</text></svg></div><figcaption>Stored solar used in the evening instead of bought at 26.32p/kWh. Time-of-use tariffs add £100 to £200 a year on top.</figcaption></figure>
+<div class="tblwrap"><table class="data-table">
 <thead><tr><th>Battery capacity</th><th>Installed cost</th><th>Typical use case</th><th>Annual saving (with solar)</th></tr></thead>
 <tbody>
 <tr><td>3 to 4 kWh</td><td>£2,000 to £3,000</td><td>Small household, 1-2 people</td><td>£160 to £270</td></tr>
@@ -70,7 +71,7 @@
 <tr><td>8 to 10 kWh</td><td>£4,000 to £6,000</td><td>Large household, heat pump, EV</td><td>£320 to £480</td></tr>
 <tr><td>13 to 15 kWh</td><td>£5,500 to £8,000</td><td>High consumption, full self-sufficiency goal</td><td>£380 to £590</td></tr>
 </tbody>
-</table>
+</table></div>
 <p class="note">Costs include battery unit and installation. Savings assume a 4 kW solar panel system and standard electricity at 26.32p/kWh. With time-of-use tariffs, savings increase by £100 to £200 per year.</p>
 
 <p>For most UK households, a 5 to 6 kWh battery is the sweet spot. It stores enough to cover evening electricity use (cooking, lighting, entertainment) from solar generated during the day. Larger batteries are worth considering if you have a <a href="/guides/heat-pump-running-costs/">heat pump</a> or electric vehicle that you want to charge from solar.</p>
@@ -87,14 +88,14 @@
 
 <h2>Payback: solar only vs solar plus battery</h2>
 
-<table class="data-table">
+<div class="tblwrap"><table class="data-table">
 <thead><tr><th>System</th><th>Total cost</th><th>Annual saving</th><th>Payback</th></tr></thead>
 <tbody>
 <tr><td>4 kW solar panels only</td><td>£4,500 to £5,500</td><td>£430 to £590</td><td class="highlight-cell">8 to 12 years</td></tr>
 <tr><td>4 kW solar plus 5 kWh battery</td><td>£7,000 to £9,000</td><td>£640 to £970</td><td>10 to 14 years</td></tr>
 <tr><td>4 kW solar plus 5 kWh battery plus TOU tariff</td><td>£7,000 to £9,000</td><td class="highlight-cell">£750 to £1,130</td><td class="highlight-cell">8 to 12 years</td></tr>
 </tbody>
-</table>
+</table></div>
 <p class="note">Assumes south-facing roof in central England. Solar plus battery plus TOU tariff includes grid arbitrage savings. All systems qualify for 0% VAT until March 2027.</p>
 
 <p>Without a time-of-use tariff, a battery extends payback by 2 to 4 years. With a TOU tariff, the battery pays for itself within the overall system payback because the additional savings from grid arbitrage offset the battery cost. Read our <a href="/guides/solar-panel-payback-uk/">solar panel payback guide</a> for the full analysis without a battery.</p>
@@ -212,5 +213,6 @@
 </div>
 <div class="attribution">Data from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a>, <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, and <a href="https://www.gov.uk/" target="_blank" rel="noopener">GOV.UK</a>. Licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. As an Amazon Associate I earn from qualifying purchases.</div>
 </footer>
+<script src="/js/charts.js" defer></script>
 </body>
 </html>

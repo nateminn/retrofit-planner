@@ -62,7 +62,7 @@
 
 <h2>Tariff comparison</h2>
 
-<table class="data-table">
+<div class="tblwrap"><table class="data-table">
 <thead><tr><th>Tariff</th><th>Off-peak rate</th><th>Peak rate</th><th>Off-peak hours</th><th>Best for</th></tr></thead>
 <tbody>
 <tr><td>Standard variable (Ofgem cap)</td><td>n/a</td><td>26.32p/kWh flat</td><td>None</td><td>Baseline comparison</td></tr>
@@ -72,7 +72,7 @@
 <tr><td>Economy 7</td><td>14 to 18p</td><td>28 to 35p</td><td>7 hrs overnight</td><td>Legacy option, being replaced</td></tr>
 <tr><td>Octopus Go</td><td class="highlight-cell">7.5 to 9p</td><td>30 to 35p</td><td>5 hrs overnight</td><td>EV owners with heat pump</td></tr>
 </tbody>
-</table>
+</table></div>
 <p class="note">Rates are approximate and vary by region and over time. Verify current rates with each supplier before switching. All time-of-use tariffs require a SMETS2 smart meter.</p>
 
 <h2>Our recommendation</h2>
@@ -87,7 +87,8 @@
 
 <p>Here is what a 3-bed semi with 12,000 kWh annual heat demand and a COP 2.9 heat pump would pay per year on each tariff, assuming 60% of heating consumption is shifted to off-peak hours.</p>
 
-<table class="data-table">
+<figure class="chart-fig" id="chart-tariff-costs"><div class="chart-head"><div class="chart-title">Annual heating cost by tariff, 3-bed semi</div></div><div class="chart-scroll"><svg class="chart-svg" viewBox="0 0 720 244" role="img" aria-label="Annual heating cost by tariff, 3-bed semi"><line class="grid" x1="190.0" x2="190.0" y1="10" y2="214"/><text class="tick" x="190.0" y="236" text-anchor="middle">£0</text><line class="grid" x1="343.3" x2="343.3" y1="10" y2="214"/><text class="tick" x="343.3" y="236" text-anchor="middle">£500</text><line class="grid" x1="496.7" x2="496.7" y1="10" y2="214"/><text class="tick" x="496.7" y="236" text-anchor="middle">£1,000</text><line class="grid" x1="650.0" x2="650.0" y1="10" y2="214"/><text class="tick" x="650.0" y="236" text-anchor="middle">£1,500</text><line class="axis" x1="190" x2="190" y1="10" y2="214"/><text class="cat" text-anchor="end"><tspan x="182" y="25.0">Standard variable (26.32p</tspan><tspan x="182" y="38.0">flat)</tspan></text><g class="bar" tabindex="0" fill="var(--chart-3)" data-val="£1,089" data-tip="Standard variable (26.32p flat)"><path d="M190.0,18.0 h330.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-330.0 z"/><rect class="hit" x="190" y="14.0" width="460.0" height="26"/></g><text class="val" x="530.0" y="27.0" dominant-baseline="middle">£1,089</text><text class="cat" x="182" y="61.0" text-anchor="end" dominant-baseline="middle">Octopus Cosy</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£662" data-tip="Octopus Cosy"><path d="M190.0,52.0 h199.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-199.0 z"/><rect class="hit" x="190" y="48.0" width="460.0" height="26"/></g><text class="cat" text-anchor="end"><tspan x="182" y="93.0">Octopus Agile</tspan><tspan x="182" y="106.0">(well-managed)</tspan></text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£580" data-tip="Octopus Agile (well-managed)"><path d="M190.0,86.0 h173.9 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-173.9 z"/><rect class="hit" x="190" y="82.0" width="460.0" height="26"/></g><text class="val" x="373.9" y="95.0" dominant-baseline="middle">£580</text><text class="cat" text-anchor="end"><tspan x="182" y="127.0">OVO Heat Pump Plus (closed</tspan><tspan x="182" y="140.0">to new customers)</tspan></text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£745" data-tip="OVO Heat Pump Plus (closed to new customers)"><path d="M190.0,120.0 h224.5 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-224.5 z"/><rect class="hit" x="190" y="116.0" width="460.0" height="26"/></g><text class="cat" x="182" y="163.0" text-anchor="end" dominant-baseline="middle">Economy 7</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£828" data-tip="Economy 7"><path d="M190.0,154.0 h249.9 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-249.9 z"/><rect class="hit" x="190" y="150.0" width="460.0" height="26"/></g><text class="cat" x="182" y="197.0" text-anchor="end" dominant-baseline="middle">Octopus Go</text><g class="bar" tabindex="0" fill="var(--chart-2)" data-val="£690" data-tip="Octopus Go"><path d="M190.0,188.0 h207.6 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-207.6 z"/><rect class="hit" x="190" y="184.0" width="460.0" height="26"/></g></svg></div><figcaption>12,000 kWh heat demand, COP 2.9, 60% of heating shifted to off-peak windows where the tariff has them. The standard variable rate is the gold bar for comparison.</figcaption></figure>
+<div class="tblwrap"><table class="data-table">
 <thead><tr><th>Tariff</th><th>Annual heating cost</th><th>Saving vs standard</th></tr></thead>
 <tbody>
 <tr><td>Standard variable (26.32p flat)</td><td>£1,089</td><td>Baseline</td></tr>
@@ -97,7 +98,7 @@
 <tr><td>Economy 7</td><td>£828</td><td>£261 (24%)</td></tr>
 <tr><td>Octopus Go</td><td>£690</td><td>£399 (37%)</td></tr>
 </tbody>
-</table>
+</table></div>
 <p class="note">Assumes COP 2.9, 12,000 kWh heat demand, 60% off-peak shift. Actual savings depend on your usage pattern and how much heating you can shift to cheap periods. Standing charges excluded.</p>
 
 <p>The difference between the worst option (standard variable at £1,089) and the best (Agile at £580) is £509 per year. Over a heat pump's 20-year lifespan, that is more than £10,000. Choosing the right tariff is not optional; it is the difference between a heat pump being cheaper or more expensive than gas.</p>
@@ -211,5 +212,6 @@
 </div>
 <div class="attribution">Data from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a>, <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, and <a href="https://www.gov.uk/" target="_blank" rel="noopener">GOV.UK</a>. Licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. As an Amazon Associate I earn from qualifying purchases.</div>
 </footer>
+<script src="/js/charts.js" defer></script>
 </body>
 </html>
