@@ -5,8 +5,8 @@ TICK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" 
 def form(source):
     return ('<section class="quote-form" id="quote">\n'
     '<h2>Get heat pump quotes for your home</h2>\n'
-    '<p class="qf-sub">Tell us about your property and we will email you a shortlist of MCS-certified installers covering your postcode, with the questions worth asking each one. Free, no obligation, no sales calls unless you ask for them.</p>\n'
-    '<ul class="qf-points"><li>%s MCS-certified installers only</li><li>%s Grant of £7,500 handled by the installer</li><li>%s Reply within two working days</li></ul>\n'
+    '<p class="qf-sub">Tell us about your property to request quotes from MCS-certified installers covering your postcode. Free, no obligation, and nobody calls you unless you tick the box.</p>\n'
+    '<ul class="qf-points"><li>%s MCS-certified installers only</li><li>%s Grant of £7,500 handled by the installer</li><li>%s No obligation, no spam</li></ul>\n'
     '<form name="heat-pump-quote" method="POST" action="/quote-thanks/" data-netlify="true" netlify-honeypot="bot-field">\n'
     '<input type="hidden" name="form-name" value="heat-pump-quote">\n'
     '<input type="hidden" name="source" value="%s">\n'
@@ -39,9 +39,14 @@ PAGES = {
 }
 dry = '--dry' in sys.argv; n = 0
 for path, where in PAGES.items():
-    s = open(path, encoding='utf-8').read()
-    if 'name="heat-pump-quote"' in s: print('skip (present)', path); continue
-    src = '/' + path.replace('index.html', '')
+    s = open(path, encoding='utf-8').read(); src = '/' + path.replace('index.html', '')
+    if 'name="heat-pump-quote"' in s:
+        if '--replace' in sys.argv:
+            s2, k = re.subn(r'<section class="quote-form" id="quote">.*?</section>\n', lambda m: form(src), s, count=1, flags=re.S)
+            assert k == 1, path
+            if not dry: open(path, 'w', encoding='utf-8').write(s2)
+            n += 1; print('replaced', path); continue
+        print('skip (present)', path); continue
     if where == 'after-breakdown':
         i = s.index('<h2 id="breakdown"'); j = s.index('<h2', i + 5)
         s = s[:j] + form(src) + s[j:]
