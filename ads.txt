@@ -1,0 +1,3 @@
+# ads.txt for retrofitplanner.co.uk
+# The advertising partner supplies the lines for this file: Journey by Mediavine provides its full list in the dashboard,
+# Google AdSense needs one line in the form: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
