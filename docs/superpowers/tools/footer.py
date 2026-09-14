@@ -12,7 +12,7 @@ CANON = ('<div class="footer-col"><h4>Guides</h4>'
          '</div>')
 PATTERN = re.compile(r'<div class="footer-col">\s*<h4>Guides</h4>.*?</div>', re.S)
 
-pages = sorted(set(glob.glob('index.html') + glob.glob('*/index.html') + glob.glob('guides/*/index.html')) - {'thank-you/index.html'})
+pages = sorted(set(glob.glob('index.html') + glob.glob('*/index.html') + glob.glob('guides/*/index.html')) - {'thank-you/index.html', 'quote-thanks/index.html'})
 if glob.glob('404.html'):
     pages.append('404.html')
 changed = 0

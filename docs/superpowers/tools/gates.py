@@ -12,7 +12,7 @@ if '--stage' in sys.argv:
     STAGE = sys.argv[sys.argv.index('--stage') + 1]
 ORDER = {'b': 1, 'c': 2, 'd': 3}
 
-PAGES = sorted(set(glob.glob('index.html') + glob.glob('*/index.html') + glob.glob('guides/*/index.html')) - {'thank-you/index.html'})
+PAGES = sorted(set(glob.glob('index.html') + glob.glob('*/index.html') + glob.glob('guides/*/index.html')) - {'thank-you/index.html', 'quote-thanks/index.html'})
 ALL_HTML = PAGES + (['404.html'] if os.path.exists('404.html') else [])
 failures = []
 
