@@ -3,7 +3,7 @@
 Usage: python3 docs/superpowers/tools/charts.py --dry   (parse and describe only)
        python3 docs/superpowers/tools/charts.py          (insert figures, add js include)
 Idempotent: a page that already contains a figure with the same id is skipped."""
-import re, html, sys, math
+import os, re, html, sys, math
 
 C1, C2, C3 = 'var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)'
 W = 720
@@ -271,6 +271,26 @@ SPECS = [
       title='Where the money goes on a 3-bed semi installation', caption='Cost ranges for each element after the £7,500 grant is deducted from the heat pump line. Many 1950s to 1980s semis need fewer radiator changes and land near the bottom of the total.'),
  dict(page='guides/heat-pump-cost-3-bed-semi/index.html', table=4, fid='chart-3bed-running', form='hbars', cat=0, cols=[(1, 'Annual cost')], unit='£', highlight_label='Heat pump (heat pump tariff)',
       title='Annual heating cost, 3-bed semi, 12,000 kWh', caption='Ofgem cap for October to December 2026. The heat pump on a heat pump tariff is the gold bar; oil and LPG use September 2026 market prices.'),
+ dict(page='guides/heat-pump-cost-2-bed-terrace/index.html', table=1, fid='chart-2bedterrace-breakdown', form='hbars', cat=0, cols=[(1, 'Range')], unit='£', drop=['BUS grant', 'Net heat pump cost'], highlight_label='Total out of pocket',
+      title='Where the money goes on a 2-bed terrace installation', caption='Cost ranges for each element after the £7,500 grant is deducted from the heat pump line. The total is what a typical home of this type pays out of pocket.'),
+ dict(page='guides/heat-pump-cost-2-bed-terrace/index.html', table=4, fid='chart-2bedterrace-running', form='hbars', cat=0, cols=[(1, 'Annual cost')], unit='£', highlight_label='Heat pump (heat pump tariff)',
+      title='Annual heating cost, 2-bed terrace, 8,000 kWh', caption='Ofgem cap for October to December 2026. The heat pump on a heat pump tariff is the gold bar.'),
+ dict(page='guides/heat-pump-cost-3-bed-detached/index.html', table=1, fid='chart-3beddetached-breakdown', form='hbars', cat=0, cols=[(1, 'Range')], unit='£', drop=['BUS grant', 'Net heat pump cost'], highlight_label='Total out of pocket',
+      title='Where the money goes on a 3-bed detached house installation', caption='Cost ranges for each element after the £7,500 grant is deducted from the heat pump line. The total is what a typical home of this type pays out of pocket.'),
+ dict(page='guides/heat-pump-cost-3-bed-detached/index.html', table=4, fid='chart-3beddetached-running', form='hbars', cat=0, cols=[(1, 'Annual cost')], unit='£', highlight_label='Heat pump (heat pump tariff)',
+      title='Annual heating cost, 3-bed detached, 16,000 kWh', caption='Ofgem cap for October to December 2026. The heat pump on a heat pump tariff is the gold bar.'),
+ dict(page='guides/heat-pump-cost-5-bed-house/index.html', table=1, fid='chart-5bed-breakdown', form='hbars', cat=0, cols=[(1, 'Range')], unit='£', drop=['BUS grant', 'Net heat pump cost'], highlight_label='Total out of pocket',
+      title='Where the money goes on a 5-bed house installation', caption='Cost ranges for each element after the £7,500 grant is deducted from the heat pump line. The total is what a typical home of this type pays out of pocket.'),
+ dict(page='guides/heat-pump-cost-5-bed-house/index.html', table=4, fid='chart-5bed-running', form='hbars', cat=0, cols=[(1, 'Annual cost')], unit='£', highlight_label='Heat pump (heat pump tariff)',
+      title='Annual heating cost, 5-bed house, 24,000 kWh', caption='Ofgem cap for October to December 2026. The heat pump on a heat pump tariff is the gold bar.'),
+ dict(page='guides/heat-pump-cost-bungalow/index.html', table=1, fid='chart-bungalow-breakdown', form='hbars', cat=0, cols=[(1, 'Range')], unit='£', drop=['BUS grant', 'Net heat pump cost'], highlight_label='Total out of pocket',
+      title='Where the money goes on a bungalow installation', caption='Cost ranges for each element after the £7,500 grant is deducted from the heat pump line. The total is what a typical home of this type pays out of pocket.'),
+ dict(page='guides/heat-pump-cost-bungalow/index.html', table=4, fid='chart-bungalow-running', form='hbars', cat=0, cols=[(1, 'Annual cost')], unit='£', highlight_label='Heat pump (heat pump tariff)',
+      title='Annual heating cost, bungalow, 13,000 kWh', caption='Ofgem cap for October to December 2026. The heat pump on a heat pump tariff is the gold bar. Oil and LPG at September 2026 market prices.'),
+ dict(page='guides/heat-pump-victorian-terrace/index.html', table=1, fid='chart-victorian-breakdown', form='hbars', cat=0, cols=[(1, 'Range')], unit='£', drop=['BUS grant', 'Net heat pump cost'], highlight_label='Total out of pocket',
+      title='Where the money goes on a Victorian terrace installation', caption='Cost ranges for each element after the £7,500 grant is deducted from the heat pump line. The total is what a typical home of this type pays out of pocket.'),
+ dict(page='guides/heat-pump-victorian-terrace/index.html', table=4, fid='chart-victorian-running', form='hbars', cat=0, cols=[(1, 'Annual cost')], unit='£', highlight_label='Heat pump (heat pump tariff)',
+      title='Annual heating cost, Victorian terrace, 16,000 kWh', caption='Ofgem cap for October to December 2026. The heat pump on a heat pump tariff is the gold bar.'),
  dict(page='guides/average-energy-bills-uk/index.html', table=0, fid='chart-bills-by-property', form='stacked', cat=0, cols=[(1, 'Gas'), (2, 'Electricity')], unit='£',
       title='Annual energy bill by property type', caption='Gas and electricity at the Ofgem cap for October to December 2026, including standing charges. Consumption by property type from Energy Saving Trust and Ofgem data.'),
  dict(page='guides/energy-bills-by-household-size/index.html', table=0, fid='chart-bills-by-occupants', form='stacked', cat=0, cols=[(1, 'Gas'), (2, 'Electricity')], unit='£',
@@ -330,6 +350,8 @@ if __name__ == '__main__':
     dry = '--dry' in sys.argv; replace = '--replace' in sys.argv
     touched = set()
     for spec in SPECS:
+        if not os.path.exists(spec['page']):
+            continue
         page = open(spec['page'], encoding='utf-8').read()
         if replace and not dry:
             page, k = re.subn(r'<figure class="chart-fig" id="%s">.*?</figure>\n' % spec['fid'], '', page, flags=re.S)

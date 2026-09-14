@@ -37,6 +37,17 @@ PLAN = {
     'radiator-sizing-heat-pump': ('Radiator Sizing', 'Do you need bigger?', 'thermo', ['_heat-pump-calculator', 'heat-pump-cost-4-bed-house', 'heat-pump-old-house']),
 }
 
+PLAN_NEW = {
+    'heat-pump-cost-2-bed-terrace': ('2-Bed Terrace Costs', 'Prices, sizing, models', 'house', ['heat-pump-cost-by-house-type', 'heat-pump-cost-3-bed-semi', 'heat-pump-running-costs', '_heat-pump-calculator', 'heat-pump-flat']),
+    'heat-pump-cost-3-bed-detached': ('3-Bed Detached Costs', 'Prices, sizing, models', 'house', ['heat-pump-cost-by-house-type', 'heat-pump-cost-3-bed-semi', 'heat-pump-cost-4-bed-house', '_heat-pump-calculator']),
+    'heat-pump-cost-5-bed-house': ('5-Bed House Costs', 'Large homes and cascades', 'house', ['heat-pump-cost-by-house-type', 'heat-pump-cost-4-bed-house', '_heat-pump-calculator', 'radiator-sizing-heat-pump']),
+    'heat-pump-cost-bungalow': ('Bungalow Costs', 'One floor, big roof', 'house', ['heat-pump-cost-by-house-type', 'heat-pump-cost-3-bed-semi', 'home-upgrade-grant', 'is-loft-insulation-worth-it', '_heat-pump-calculator']),
+    'heat-pump-victorian-terrace': ('Victorian Terrace', 'Solid walls and a heat pump', 'house', ['heat-pump-old-house', 'solid-wall-insulation-cost', 'heat-pump-cost-by-house-type', 'heat-pump-cost-2-bed-terrace', 'planning-permission-heat-pump']),
+}
+for _t, _v in PLAN_NEW.items():
+    if os.path.exists('guides/' + _t + '/index.html'):
+        PLAN[_t] = _v
+
 def page_path(slug):
     return (slug[1:] + '/index.html') if slug.startswith('_') else ('guides/' + slug + '/index.html')
 

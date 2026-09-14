@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Insert explanatory inline-SVG diagrams into guide and calculator pages. Idempotent by figure id."""
-import re, sys, html
+import re, sys, html, os
 
 INK = 'var(--color-text)'; INK2 = 'var(--color-text-secondary)'; LINE = '#6B6960'
 C1 = 'var(--chart-1)'; C2 = 'var(--chart-2)'; C3 = 'var(--chart-3)'; SURF = 'var(--color-surface)'; ALT = 'var(--color-surface-alt)'
@@ -154,6 +154,11 @@ PLACEMENTS = [
  ('heat-pump', 'guides/heat-pump-running-costs/index.html', 'first-h2'),
  ('heat-pump', 'guides/heat-pump-cost-4-bed-house/index.html', '<h2 id="size">'),
  ('heat-pump', 'guides/heat-pump-cost-3-bed-semi/index.html', '<h2 id="size">'),
+ ('heat-pump', 'guides/heat-pump-cost-2-bed-terrace/index.html', '<h2 id="size">'),
+ ('heat-pump', 'guides/heat-pump-cost-3-bed-detached/index.html', '<h2 id="size">'),
+ ('heat-pump', 'guides/heat-pump-cost-5-bed-house/index.html', '<h2 id="size">'),
+ ('heat-pump', 'guides/heat-pump-cost-bungalow/index.html', '<h2 id="size">'),
+ ('heat-pump', 'guides/heat-pump-victorian-terrace/index.html', '<h2 id="size">'),
  ('heat-pump', 'heat-pump-calculator/index.html', 'first-h2'),
  ('sizing', 'guides/heat-pump-cost-by-house-type/index.html', 'first-h2'),
  ('sizing', 'guides/heat-pump-flat/index.html', 'first-h2'),
@@ -176,6 +181,8 @@ if __name__ == '__main__':
     dry = '--dry' in sys.argv; replace = '--replace' in sys.argv
     touched = set()
     for key, path, anchor in PLACEMENTS:
+        if not os.path.exists(path):
+            continue
         page = open(path, encoding='utf-8').read()
         fid = 'diagram-' + key
         if replace and not dry:
@@ -185,7 +192,7 @@ if __name__ == '__main__':
             print('skip (exists)', path, key); continue
         d = DIAGRAMS[key]; h, body = d['build']()
         figure = fig(fid, d['label'], (h, body), d['caption'])
-        if anchor == 'first-h2':
+        if anchor == 'first-h2' or page.find(anchor) < 0:
             start = page.find('<h1')
             pos = page.find('<h2', start)
         else:

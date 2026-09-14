@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Every content page: title 60 or fewer, description 155 or fewer, og:title equals title, no em dash or ampersand in the title. Exit 1 on any problem."""
 import re, glob, sys
-skip = ('methodology/', 'terms/', 'about/', 'privacy/', 'contact/', 'thank-you/')
+import os
+skip = ('methodology/', 'terms/', 'about/', 'privacy/', 'contact/', 'thank-you/') + tuple(x for x in os.environ.get('HEAD_CHECK_SKIP', '').split(',') if x)
 bad = []
 for f in ['index.html'] + glob.glob('*/index.html') + glob.glob('guides/*/index.html'):
     if f.startswith(skip): continue
