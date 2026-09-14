@@ -1,0 +1,179 @@
+{
+ "_note": "Title and description sweep, 14 Sep 2026. title max 60 chars, description max 155. null keeps the current value. Applied by titles_apply.py which replaces the old title everywhere in <head> (title tag, og:title, schema headline) and the old description likewise.",
+ "index.html": {
+  "title": null,
+  "description": "Free UK calculators for heat pump costs after the £7,500 grant, insulation savings, solar payback, EPC upgrades and grants. Built on Ofgem and GOV.UK data."
+ },
+ "boiler-vs-heat-pump/index.html": {
+  "title": "Boiler vs Heat Pump UK 2026: Which Is Cheaper Over 15 Years?",
+  "description": "A new gas boiler costs less up front, a heat pump less to run. Compare 15-year costs with the £7,500 grant, running costs and maintenance for your home."
+ },
+ "epc-calculator/index.html": {
+  "title": "EPC Calculator UK 2026: Points, Costs and Cheapest Upgrades",
+  "description": "Free EPC calculator: see which upgrades add the most points for the least money, with 2026 costs, and the cheapest route to band C for landlords."
+ },
+ "grants/index.html": {
+  "title": "Energy Grants Checker UK 2026: £7,500 Heat Pump, ECO4, GBIS",
+  "description": "Check which UK energy grants you can get in 2026: the £7,500 Boiler Upgrade Scheme, ECO4 free insulation, the Great British Insulation Scheme and more."
+ },
+ "heat-pump-calculator/index.html": {
+  "title": "Heat Pump Calculator UK 2026: Cost After the £7,500 Grant",
+  "description": "Estimate your heat pump cost after the £7,500 grant, annual running costs against gas at Ofgem rates, and payback, in under a minute. Free and independent."
+ },
+ "insulation-calculator/index.html": {
+  "title": "Insulation Calculator UK 2026: Save Up to £590 a Year",
+  "description": "See what loft, cavity or solid wall insulation saves your home each year, what it costs, whether you qualify for free installation, and the payback."
+ },
+ "solar-calculator/index.html": {
+  "title": "Solar Panel Cost Calculator UK 2026: Price, Savings, Payback",
+  "description": "Solar panels cost £5,000 to £7,000 for a typical 4 kW system. Calculate your cost, yearly savings, export income and payback by roof, region and size."
+ },
+ "guides/are-solar-panels-worth-it-uk/index.html": {
+  "title": "Are Solar Panels Worth It UK 2026? Payback in 8 to 12 Years",
+  "description": "Yes for most homes with an unshaded south-facing roof. Real 2026 costs, savings and payback at current rates, 0% VAT until 2027, and the downsides."
+ },
+ "guides/average-energy-bills-uk/index.html": {
+  "title": "Average Energy Bill UK 2026: £1,723 a Year by House and Fuel",
+  "description": "The typical dual fuel bill is £1,723 a year at the October 2026 Ofgem cap. Average gas and electricity bills by house type, bedrooms and fuel."
+ },
+ "guides/condensation-mould-guide/index.html": {
+  "title": "Condensation and Mould UK 2026: Causes, Fixes, Prevention",
+  "description": null
+ },
+ "guides/draught-proofing-guide/index.html": {
+  "title": "Draught-Proofing UK 2026: Costs, Savings and DIY Guide",
+  "description": "Draught-proofing costs £200 to £400 professionally or under £100 DIY and saves £60 to £125 a year. The cheapest way to cut heat loss and feel warmer."
+ },
+ "guides/eco4-scheme-explained/index.html": {
+  "title": "ECO4 Scheme 2026: Free Insulation, Who Qualifies, Ends Dec",
+  "description": "ECO4 pays for free insulation and heating upgrades for eligible households until 31 December 2026. Who qualifies, what is covered and how to apply in time."
+ },
+ "guides/electric-boiler-vs-heat-pump/index.html": {
+  "title": null,
+  "description": "Electric boiler vs heat pump: a heat pump costs 60 to 70% less to run. Upfront cost, running costs, maintenance and which suits your home."
+ },
+ "guides/energy-bills-by-epc-rating/index.html": {
+  "title": null,
+  "description": "Band D homes pay about £1,834 a year, band C £1,591 and band E £2,070 at the October 2026 price cap. Bills for every band by month, plus a calculator."
+ },
+ "guides/energy-bills-by-household-size/index.html": {
+  "title": "Energy Bills by Household Size UK 2026: £1,250 to £2,380",
+  "description": "A 1-person home pays about £1,250 a year and a 4-person home £2,090 at 2026 rates. Bills by number of occupants, property type and fuel."
+ },
+ "guides/epc-rating-landlords/index.html": {
+  "title": null,
+  "description": "Landlords need at least EPC band E to let a property, with fines up to £5,000. How to improve your rating, costs, exemptions and the 2030 band C rule."
+ },
+ "guides/free-loft-insulation-uk/index.html": {
+  "title": null,
+  "description": "Free loft insulation through ECO4: who qualifies, how to apply, what is covered, and how to get referred through ECO4 Flex without being on benefits."
+ },
+ "guides/heat-pump-cost-3-bed-semi/index.html": {
+  "title": null,
+  "description": "A heat pump for a 3-bed semi costs £9,000 to £12,000 installed, £1,500 to £4,500 after the £7,500 grant. 2026 prices, sizing, models, running costs."
+ },
+ "guides/heat-pump-cost-4-bed-house/index.html": {
+  "title": "Heat Pump Cost for a 4-Bed House UK 2026: £11,000 to £16,000",
+  "description": "A heat pump for a 4-bed house costs £11,000 to £16,000 installed, £3,500 to £8,500 after the £7,500 grant. 2026 prices, sizing, models, running costs."
+ },
+ "guides/heat-pump-cost-by-house-type/index.html": {
+  "title": "Heat Pump Cost by House Type UK 2026: £7,000 to £19,000",
+  "description": "2026 heat pump costs for every UK house type: 2-bed flat from £7,000, 3-bed semi £9,000 to £12,000, 4-bed detached £11,000 to £16,000, before the grant."
+ },
+ "guides/heat-pump-flat/index.html": {
+  "title": "Heat Pump in a Flat UK 2026: Costs, Rules and Options",
+  "description": "Yes, many flats can have a heat pump. Costs £7,000 to £9,000, often nothing after the £7,500 grant. Freeholder permission, noise, space and alternatives."
+ },
+ "guides/heat-pump-old-house/index.html": {
+  "title": null,
+  "description": "Can you install a heat pump in an old house? Yes. Costs run £7,000 to £13,000 with a £7,500 BUS grant. Guide to insulation, radiators, and planning."
+ },
+ "guides/heat-pump-running-costs/index.html": {
+  "title": "Heat Pump Running Costs UK 2026: Cost vs Gas by Home Type",
+  "description": "A heat pump costs about the same to run as gas on a standard tariff and £200 to £500 a year less on a heat pump tariff. Costs for every UK property type."
+ },
+ "guides/heat-pump-vs-new-boiler/index.html": {
+  "title": "Heat Pump vs New Boiler UK 2026: 15-Year Cost Comparison",
+  "description": null
+ },
+ "guides/home-upgrade-grant/index.html": {
+  "title": "Home Upgrade Grant 2026: Up to £25,000 for Off-Gas Homes",
+  "description": null
+ },
+ "guides/how-epc-points-are-calculated/index.html": {
+  "title": "How EPC Points Are Calculated: UK Scoring Explained 2026",
+  "description": "Your EPC score runs from 1 to 100 based on energy cost per square metre. What moves the score, how to check yours, and which upgrades gain the most points."
+ },
+ "guides/how-to-improve-epc-rating/index.html": {
+  "title": "Improve Your EPC Rating Cheaply 2026: Fixes Ranked by Cost",
+  "description": "The cheapest ways to improve your EPC rating in 2026, ranked by cost per point gained, from free fixes to insulation. Built for landlords chasing band C."
+ },
+ "guides/is-cavity-wall-insulation-worth-it/index.html": {
+  "title": "Is Cavity Wall Insulation Worth It? UK Costs, Savings 2026",
+  "description": "Cavity wall insulation costs £400 to £1,500 and saves up to £395 a year, paying back in 1 to 4 years. Costs, savings, risks and when to avoid it."
+ },
+ "guides/is-loft-insulation-worth-it/index.html": {
+  "title": null,
+  "description": "Loft insulation saves a detached house up to £355 a year and costs £300 to £800, paying back in under 2 years. Costs and savings for every property type."
+ },
+ "guides/planning-permission-heat-pump/index.html": {
+  "title": "Do Heat Pumps Need Planning Permission? UK Rules 2026",
+  "description": "Most heat pumps need no planning permission under permitted development. Listed buildings still need consent. The rules, noise limits and exceptions."
+ },
+ "guides/radiator-sizing-heat-pump/index.html": {
+  "title": "Radiator Sizing for Heat Pumps UK 2026: Do You Need Bigger?",
+  "description": "Heat pumps run cooler than boilers, so most homes need some radiator upgrades costing £2,000 to £4,000. How to check yours and what to replace."
+ },
+ "guides/solar-battery-storage-uk/index.html": {
+  "title": "Solar Battery Storage UK 2026: £2,500 to £6,000, Worth It?",
+  "description": "A solar battery costs £2,500 to £6,000 and adds 2 to 4 years to your payback. Worth it for high self-use. Costs, savings and a brand comparison."
+ },
+ "guides/solar-panel-payback-uk/index.html": {
+  "title": null,
+  "description": "Solar panels pay for themselves in 8 to 12 years without a battery and 10 to 14 with one. Payback by region, roof direction and system size."
+ },
+ "guides/solid-wall-insulation-cost/index.html": {
+  "title": null,
+  "description": "Solid wall insulation costs £4,000 to £14,000 internal or £8,000 to £22,000 external and saves up to £590 a year. UK prices, grants and payback."
+ },
+ "guides/storage-heaters-vs-heat-pump/index.html": {
+  "title": "Storage Heaters vs Heat Pump UK 2026: Save £1,200 to £2,700",
+  "description": null
+ },
+ "guides/underfloor-insulation-cost/index.html": {
+  "title": null,
+  "description": "Underfloor insulation costs £500 to £2,500 and saves up to £115 a year. Suspended timber and solid floors compared, DIY options, ECO4 funding, payback."
+ },
+ "guides/warm-home-discount/index.html": {
+  "title": "Warm Home Discount 2026: How to Get £150 Off Your Bill",
+  "description": "The Warm Home Discount takes £150 off the electricity bills of eligible households, 6.1 million homes for 2025/26. Who qualifies and how to check."
+ },
+ "guides/warm-homes-plan-2026/index.html": {
+  "title": "Warm Homes Plan 2026: £13.2 Billion for 5 Million UK Homes",
+  "description": null
+ },
+ "guides/diy-loft-insulation/index.html": {
+  "title": null,
+  "description": "Install loft insulation yourself for £300 to £600 and save up to £355 a year. Step-by-step instructions, materials list, safety tips and common mistakes."
+ },
+ "guides/boiler-upgrade-scheme-guide/index.html": {
+  "title": null,
+  "description": "The Boiler Upgrade Scheme pays £7,500 towards a heat pump, £9,000 for oil homes. Eligibility, how to apply and how to combine it with other funding."
+ },
+ "guides/great-british-insulation-scheme/index.html": {
+  "title": "Great British Insulation Scheme: Free Insulation UK 2026",
+  "description": null
+ },
+ "guides/heat-pump-noise/index.html": {
+  "title": null,
+  "description": null
+ },
+ "guides/index.html": {
+  "title": null,
+  "description": "In-depth guides to heat pumps, insulation, solar panels, EPC ratings and UK energy grants, backed by data from Ofgem, the Energy Saving Trust and GOV.UK."
+ },
+ "guides/best-heat-pump-tariffs/index.html": {
+  "title": "Best Heat Pump Tariffs UK 2026: Save 15% to 35% on Heating",
+  "description": "Compare Octopus Cosy, Agile and Economy 7 for heat pump owners. The right tariff cuts heat pump heating bills by 15% to 35% against standard rates."
+ }
+}
