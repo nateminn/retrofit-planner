@@ -814,3 +814,27 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
 .quote-band{max-width:1080px;margin:0 auto;padding:0 24px 24px}
 .quote-band .quote-form{margin:0}
 @media (max-width:640px){.quote-form{padding:20px}.quote-form .qf-grid{grid-template-columns:1fr}}
+
+/* ---- shareable and printable results (September 2026) ---- */
+.result-share{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:24px;padding-top:18px;border-top:1px solid var(--color-border)}
+.rs-label{font-size:.85rem;font-weight:600;color:var(--color-text-secondary);margin-right:2px}
+.rs-btn{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-sm,6px);padding:8px 14px;font-size:.84rem;font-weight:600;font-family:inherit;color:var(--color-text);cursor:pointer}
+.rs-btn:hover{border-color:var(--color-accent);color:var(--color-accent)}
+.print-head{display:none}
+@media print{
+  .nav,.footer,.newsletter-signup,.sidebar,.result-share,.next-steps,.cta-box,.btn-calculate,
+  .quote-form,.quote-band,.breadcrumbs,.hero,.hero-badge,.form-group,.subtitle,.intro-band,
+  .related-links,.content-section,.attribution,.photo-fig,.photo-banner,
+  .diagram-fig,.chart-fig,.calc-card > h2,.trust-section{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .main{display:block;max-width:none;padding:0}
+  .calc-card{border:0;padding:0;box-shadow:none}
+  .results{display:block!important;border:0;padding:0;margin:0}
+  .print-head{display:block;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid #999}
+  .print-head strong{display:block;font-size:13pt}
+  .print-head .ph-inputs{display:block;font-size:9pt;color:#333;margin-top:4px}
+  .print-head .ph-url{display:block;font-size:8pt;color:#666;margin-top:6px}
+  .result-grid,.result-full{page-break-inside:avoid}
+  .data-table{font-size:9pt}
+  a[href]{text-decoration:none;color:#000}
+}
