@@ -14,7 +14,9 @@ def page_for(loc):
 def date_for(p):
     if not os.path.isfile(p): return None
     out = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', p], capture_output=True, text=True).stdout.strip()
-    return out or None
+    if out: return out
+    # not yet committed, so the file is new: its change date is today
+    return subprocess.run(['date', '+%Y-%m-%d'], capture_output=True, text=True).stdout.strip() or None
 
 changed = missing = 0
 def fix(m):

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heat Pump Cost Calculator</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Embeddable heat pump cost calculator from Retrofit Planner.">
+<link rel="canonical" href="https://www.retrofitplanner.co.uk/heat-pump-calculator/">
+<style>
+*{box-sizing:border-box}
+:root{--ink:#1A1A17;--ink2:#56544C;--ink3:#84817A;--line:#E5E3DC;--surf:#FFFFFF;--surf2:#F7F6F2;--acc:#2D6A4F;--accbg:#EDF6F0;--accline:#B7E4C7;--gold:#D4A843;--radius:10px}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--surf);font-size:15px;line-height:1.5}
+.w{padding:20px}
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:4px}
+h1{font-size:1.15rem;margin:0;letter-spacing:-0.01em}
+.sub{font-size:.82rem;color:var(--ink2);margin:0 0 16px}
+.f{margin-bottom:12px}
+label{display:block;font-size:.8rem;font-weight:600;margin-bottom:5px}
+select,input{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit;background:var(--surf);color:var(--ink)}
+select:focus,input:focus{outline:2px solid var(--accline);outline-offset:-1px;border-color:var(--acc)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:.74rem;color:var(--ink3);margin:4px 0 0}
+button{width:100%;margin-top:6px;padding:12px;background:var(--acc);color:#fff;border:0;border-radius:8px;font-size:.92rem;font-weight:600;font-family:inherit;cursor:pointer}
+button:hover{background:#245741}
+.res{display:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.res.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.card{background:var(--surf2);border:1px solid var(--line);border-radius:var(--radius);padding:12px}
+.card.hi{background:var(--accbg);border-color:var(--accline)}
+.k{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);font-weight:600}
+.v{font-size:1.3rem;font-weight:700;margin-top:2px;letter-spacing:-0.02em}
+.d{font-size:.74rem;color:var(--ink2);margin-top:2px}
+.bars{background:var(--surf2);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:12px}
+.bar{margin-bottom:8px}
+.bar:last-child{margin-bottom:0}
+.blab{display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:3px}
+.btrack{height:9px;background:#EDEBE4;border-radius:5px;overflow:hidden}
+.bfill{height:100%;border-radius:5px;transition:width .4s ease}
+.note{font-size:.76rem;color:var(--ink2);margin:10px 0 0;line-height:1.45}
+.cta{display:block;margin-top:14px;padding:11px;text-align:center;background:var(--accbg);border:1px solid var(--accline);border-radius:8px;color:var(--acc);text-decoration:none;font-size:.85rem;font-weight:600}
+.cta:hover{background:#E3F1E8}
+.ft{margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:.72rem;color:var(--ink3);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ft a{color:var(--acc);text-decoration:none}
+@media (max-width:420px){.row,.grid{grid-template-columns:1fr}.w{padding:16px}}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#F2F1EC;--ink2:#B8B5AC;--ink3:#8E8B83;--line:#33322D;--surf:#1B1A17;--surf2:#232220;--accbg:#1E2F26;--accline:#2F5B45}
+}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="hd"><h1>Heat pump cost calculator</h1></div>
+<p class="sub">Installed cost, the £7,500 grant, running costs and payback for a UK home.</p>
+
+<div class="row">
+<div class="f"><label for="propertyType">Property type</label><select id="propertyType"><option value="detached">Detached house</option><option value="semi" selected>Semi-detached house</option><option value="mid-terrace">Mid-terrace house</option><option value="end-terrace">End-terrace house</option><option value="bungalow">Bungalow</option><option value="flat">Flat or maisonette</option></select></div>
+<div class="f"><label for="bedrooms">Bedrooms</label><select id="bedrooms"><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5 or more</option></select></div>
+</div>
+<div class="row">
+<div class="f"><label for="currentHeating">Current heating</label><select id="currentHeating"><option value="gas-boiler" selected>Gas boiler</option><option value="oil-boiler">Oil boiler</option><option value="lpg-boiler">LPG boiler</option><option value="electric-storage">Electric storage heaters</option><option value="electric-direct">Direct electric heating</option></select></div>
+<div class="f"><label for="insulation">Insulation</label><select id="insulation"><option value="good">Good</option><option value="average" selected>Average</option><option value="poor">Poor</option></select></div>
+</div>
+<div class="f"><label for="annualBill">Current annual heating bill (optional)</label><input type="number" id="annualBill" placeholder="e.g. 1200" min="0" step="10"><p class="hint">Leave blank and we estimate it from your property and fuel.</p></div>
+<button type="button" onclick="calc()">Calculate heat pump cost</button>
+
+<div class="res" id="res">
+<div class="grid">
+<div class="card"><div class="k">Installed cost</div><div class="v" id="installCost">-</div><div class="d">unit, labour and commissioning</div></div>
+<div class="card hi"><div class="k">After the £7,500 grant</div><div class="v" id="afterGrant">-</div><div class="d">Boiler Upgrade Scheme deducted</div></div>
+<div class="card"><div class="k">Annual saving</div><div class="v" id="annualSaving">-</div><div class="d" id="savingDetail">against your current heating</div></div>
+<div class="card"><div class="k">Payback</div><div class="v" id="payback">-</div><div class="d">on the net cost</div></div>
+</div>
+<div class="bars">
+<div class="bar"><div class="blab"><span id="curLabel">Current heating</span><strong id="gasCost">-</strong></div><div class="btrack"><div class="bfill" id="gasBar" style="width:0;background:#B9805B"></div></div></div>
+<div class="bar"><div class="blab"><span>Heat pump</span><strong id="hpCost">-</strong></div><div class="btrack"><div class="bfill" id="hpBar" style="width:0;background:var(--acc)"></div></div></div>
+</div>
+<p class="note" id="rec"></p>
+<a class="cta" id="cta" href="https://www.retrofitplanner.co.uk/heat-pump-calculator/" target="_blank" rel="noopener">See the full breakdown, grants and quotes</a>
+</div>
+
+<div class="ft">
+<span>Ofgem cap, October to December 2026. Estimates, not a quote.</span>
+<span>Calculator by <a href="https://www.retrofitplanner.co.uk/heat-pump-calculator/" target="_blank" rel="noopener">Retrofit Planner</a></span>
+</div>
+</div>
+
+<script>
+// Same model as retrofitplanner.co.uk/heat-pump-calculator/ so the numbers cannot diverge.
+var DATA={
+ energyPrices:{electricity:0.2632,gas:0.0797,oil:0.090,lpg:0.095},
+ heatDemand:{detached:{1:10000,2:13000,3:16000,4:20000,5:24000},semi:{1:8000,2:10000,3:13000,4:16000,5:19000},'mid-terrace':{1:6500,2:8500,3:11000,4:13500,5:16000},'end-terrace':{1:7000,2:9500,3:12000,4:15000,5:18000},bungalow:{1:8000,2:10500,3:13000,4:16000,5:19000},flat:{1:5000,2:6500,3:8500,4:10000,5:12000}},
+ insulationMultiplier:{good:1.0,average:1.2,poor:1.5},
+ installCost:{detached:{base:11000},semi:{base:10000},'mid-terrace':{base:9000},'end-terrace':{base:9500},bungalow:{base:10000},flat:{base:8000}},
+ cop:{good:3.2,average:2.9,poor:2.6},
+ boilerEfficiency:{'gas-boiler':0.90,'oil-boiler':0.85,'lpg-boiler':0.85,'electric-storage':1.0,'electric-direct':1.0},
+ fuelType:{'gas-boiler':'gas','oil-boiler':'oil','lpg-boiler':'lpg','electric-storage':'electricity','electric-direct':'electricity'},
+ busGrant:7500};
+var LABEL={'gas-boiler':'Gas boiler','oil-boiler':'Oil boiler','lpg-boiler':'LPG boiler','electric-storage':'Storage heaters','electric-direct':'Electric heating'};
+function v(id){return document.getElementById(id).value}
+function gbp(n){return '£'+Math.round(n).toLocaleString('en-GB')}
+function calc(){
+  var pt=v('propertyType'), bed=v('bedrooms'), heat=v('currentHeating'), ins=v('insulation'), bill=v('annualBill');
+  var demand=DATA.heatDemand[pt][bed]*DATA.insulationMultiplier[ins];
+  var fuel=DATA.fuelType[heat], eff=DATA.boilerEfficiency[heat];
+  var est=(demand/eff)*DATA.energyPrices[fuel];
+  var cur=bill?parseFloat(bill):est;
+  var hp=(demand/DATA.cop[ins])*DATA.energyPrices.electricity;
+  var bm=1+(parseInt(bed,10)-3)*0.08, im=ins==='poor'?1.15:ins==='average'?1.05:1.0;
+  var cost=Math.round(DATA.installCost[pt].base*bm*im/100)*100;
+  cost=Math.max(7000,Math.min(cost,15000));
+  var net=cost-DATA.busGrant, save=cur-hp, pay=save>0?net/save:null;
+  document.getElementById('installCost').textContent=gbp(cost);
+  document.getElementById('afterGrant').textContent=gbp(Math.max(0,net));
+  document.getElementById('annualSaving').textContent=save>0?gbp(save):'None';
+  document.getElementById('savingDetail').textContent=save>0?('against '+(LABEL[heat]||'your heating').toLowerCase()):'Running costs are similar';
+  document.getElementById('payback').textContent=(save>0&&pay<50)?(pay<1?'Under a year':Math.round(pay)+' years'):'Not on running cost';
+  var max=Math.max(cur,hp);
+  document.getElementById('gasBar').style.width=(cur/max*100)+'%';
+  document.getElementById('hpBar').style.width=(hp/max*100)+'%';
+  document.getElementById('curLabel').textContent=LABEL[heat]||'Current heating';
+  document.getElementById('gasCost').textContent=gbp(cur)+' a year';
+  document.getElementById('hpCost').textContent=gbp(hp)+' a year';
+  var rec;
+  if(ins==='poor') rec='Insulate first. Poor insulation means a bigger, more expensive unit and a lower efficiency, so loft and cavity work pays for itself twice.';
+  else if(pt==='flat') rec='Flats usually need a compact, quieter unit, and you will need the freeholder’s agreement before any work starts.';
+  else rec='An air source heat pump suits most homes of this type. The grant is paid to the installer, so you pay the net figure.';
+  document.getElementById('rec').textContent=rec;
+  document.getElementById('res').classList.add('on');
+  report();
+}
+// Tell the host page how tall we are, so the iframe can size itself.
+function report(){
+  try{ if(window.parent!==window) window.parent.postMessage({rpEmbed:'heat-pump-calculator',rpHeight:document.documentElement.scrollHeight},'*'); }catch(e){}
+}
+if(window.ResizeObserver){ new ResizeObserver(report).observe(document.body); }
+window.addEventListener('load',report);
+</script>
+</body>
+</html>
