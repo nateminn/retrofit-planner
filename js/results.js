@@ -117,7 +117,17 @@
       window[CALC] = function () { var r = original.apply(this, arguments); afterCalc(); return r; };
     }
 
-    if (restore() && typeof window[CALC] === 'function') window[CALC]();
+    /* Only calculate straight away when the link carries a complete answer. A full result
+       link always does. A preset link from the start-here router fills in what it knows
+       and leaves the rest, and running that would only produce a validation alert. */
+    function complete() {
+      for (var i = 0; i < FIELDS.length; i++) {
+        var node = el(FIELDS[i]);
+        if (node && node.tagName === 'SELECT' && node.value === '') return false;
+      }
+      return true;
+    }
+    if (restore() && complete() && typeof window[CALC] === 'function') window[CALC]();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready);

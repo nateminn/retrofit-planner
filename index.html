@@ -58,6 +58,40 @@
         <p>Free calculators built on official UK data. See costs, savings, grants, and payback periods for heat pumps, insulation, solar panels, and more.</p>
     </header>
 
+    <form class="router" id="start" onsubmit="return rpRoute(event)">
+        <h2>Not sure where to start?</h2>
+        <p>Three questions and we will send you to the right tool with your answers already filled in.</p>
+        <div class="router-grid">
+            <div><label for="r-heat">What heats your home now?</label>
+                <select id="r-heat">
+                    <option value="gas-new">Gas boiler, under 15 years old</option>
+                    <option value="gas-old">Gas boiler, over 15 years old</option>
+                    <option value="oil">Oil boiler</option>
+                    <option value="lpg">LPG boiler</option>
+                    <option value="electric-storage">Electric storage heaters</option>
+                    <option value="electric-direct">Direct electric heating</option>
+                    <option value="heat-pump">Heat pump</option>
+                </select></div>
+            <div><label for="r-goal">What do you want to sort out?</label>
+                <select id="r-goal">
+                    <option value="bills">Lower my energy bills</option>
+                    <option value="heating">Replace the heating system</option>
+                    <option value="insulation">Insulate the house</option>
+                    <option value="solar">Solar panels</option>
+                    <option value="epc">Improve the EPC rating</option>
+                    <option value="grants">Find grants I qualify for</option>
+                </select></div>
+            <div><label for="r-who">Is it your own home?</label>
+                <select id="r-who">
+                    <option value="own">I own it and live in it</option>
+                    <option value="landlord">I rent it out</option>
+                    <option value="tenant">I rent it as a tenant</option>
+                </select></div>
+        </div>
+        <button type="submit" class="router-go">Show me where to start</button>
+        <div class="router-out" id="r-out" hidden></div>
+    </form>
+
     <section class="tools-grid">
         <a href="/heat-pump-calculator/" class="tool-card featured">
             <img class="tc-img" src="/images/heat-pump-calculator-640.webp" width="640" height="427" alt="" loading="lazy" decoding="async">
@@ -177,5 +211,6 @@
             Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy prices from Ofgem (October to December 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes.
         </div>
     </footer>
+<script src="/js/router.js" defer></script>
 </body>
 </html>
