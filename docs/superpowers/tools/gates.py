@@ -67,8 +67,8 @@ distinct = set(footers.values())
 check('footer Guides block identical on all pages', len(distinct) == 1 and None not in distinct,
       'distinct=%d missing=%s' % (len(distinct), [f for f, v in footers.items() if v is None]))
 
-check('_redirects has 9 rules', os.path.exists('_redirects') and
-      len([l for l in open('_redirects') if l.strip() and not l.startswith('#')]) == 9)
+check('_redirects has 10 rules', os.path.exists('_redirects') and
+      len([l for l in open('_redirects') if l.strip() and not l.startswith('#')]) == 10)
 check('404.html exists', os.path.exists('404.html'))
 stray = [d for d in glob.glob('guides/*') if '{' in d]
 check('no stray brace directory', not stray, str(stray))
