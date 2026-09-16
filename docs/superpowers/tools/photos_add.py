@@ -88,6 +88,9 @@ elif mode == 'place':
         if hub_linked and ('images/%s-240.webp' % slug) not in hub:
             thumb = '<img class="gi-thumb" src="/images/%s-240.webp" width="240" height="240" alt="" loading="lazy" decoding="async">' % slug
             hub = re.sub(r'(<a href="/guides/%s/" class="guide-item">\s*)' % re.escape(slug), lambda m: m.group(1) + thumb, hub, count=1)
+            # a card shows either a photo or a placeholder icon, never both
+            hub = re.sub(r'(<a href="/guides/%s/" class="guide-item">.*?)<div class="gi-icon">.*?</div>\s*' % re.escape(slug),
+                         lambda m: m.group(1), hub, count=1, flags=re.S)
         credits.append('- %s: %s, %s, %s' % (slug, (c.get('title') or c['id'])[:80], c['license'], c['page_url']))
         print('placed', slug, c['source'], c['id'], '(hub thumb)' if hub_linked else '')
     open(hub_path, 'w', encoding='utf-8').write(hub)

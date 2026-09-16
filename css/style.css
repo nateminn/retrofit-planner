@@ -719,7 +719,21 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
 @media (max-width: 800px) {
     .main { grid-template-columns: 1fr; }
     .sidebar { position: static; }
-    .nav-links { display: none; }
+    /* Mobile navigation: a scrollable strip rather than no navigation at all.
+       Mobile is the larger share of clicks and a guide runs to 20 screens, so the
+       header has to stay useful all the way down. */
+    .nav { padding: 0 16px; }
+    .nav-inner { flex-wrap: wrap; height: auto; row-gap: 6px; padding: 8px 0 6px; }
+    .nav-logo { flex: 0 0 auto; }
+    .nav-links {
+        display: flex; gap: 18px; width: 100%; overflow-x: auto; padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        mask-image: linear-gradient(to right, #000 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, #000 90%, transparent);
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li { flex: 0 0 auto; }
+    .nav-links a { font-size: 0.82rem; white-space: nowrap; }
     .calc-card { padding: 24px; }
     .result-grid { grid-template-columns: 1fr; }
     .related-links { grid-template-columns: 1fr; }
