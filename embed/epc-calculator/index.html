@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPC Rating Calculator</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Embeddable EPC rating calculator from Retrofit Planner.">
+<link rel="canonical" href="https://www.retrofitplanner.co.uk/epc-calculator/">
+<style>
+*{box-sizing:border-box}
+:root{--ink:#1A1A17;--ink2:#56544C;--ink3:#84817A;--line:#E5E3DC;--surf:#FFFFFF;--surf2:#F7F6F2;--acc:#2D6A4F;--accbg:#EDF6F0;--accline:#B7E4C7;--radius:10px}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--surf);font-size:15px;line-height:1.5}
+.w{padding:20px}
+h1{font-size:1.15rem;margin:0;letter-spacing:-0.01em}
+.sub{font-size:.82rem;color:var(--ink2);margin:4px 0 16px}
+.f{margin-bottom:12px}
+label{display:block;font-size:.8rem;font-weight:600;margin-bottom:5px}
+select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit;background:var(--surf);color:var(--ink)}
+select:focus{outline:2px solid var(--accline);outline-offset:-1px;border-color:var(--acc)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:.74rem;color:var(--ink3);margin:4px 0 0}
+.more{border:0;padding:0;margin:0 0 12px}
+.more summary{cursor:pointer;font-size:.82rem;font-weight:600;color:var(--acc);padding:6px 0}
+button.go{width:100%;margin-top:6px;padding:12px;background:var(--acc);color:#fff;border:0;border-radius:8px;font-size:.92rem;font-weight:600;font-family:inherit;cursor:pointer}
+button.go:hover{background:#245741}
+.res{display:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.res.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.card{background:var(--surf2);border:1px solid var(--line);border-radius:var(--radius);padding:12px}
+.card.hi{background:var(--accbg);border-color:var(--accline)}
+.k{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);font-weight:600}
+.v{font-size:1.3rem;font-weight:700;margin-top:2px;letter-spacing:-0.02em}
+.d{font-size:.74rem;color:var(--ink2);margin-top:2px}
+.scale{display:flex;gap:3px;margin:0 0 12px}
+.bd{flex:1;text-align:center;padding:7px 2px;border-radius:5px;font-size:.72rem;font-weight:700;color:#1A1A17;opacity:.32}
+.bd.now{opacity:1;outline:2px solid var(--ink);outline-offset:1px}
+.bd.aim{opacity:1;outline:2px dashed var(--acc);outline-offset:1px}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:10px}
+th{text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);border-bottom:1px solid var(--line);padding:6px 6px 6px 0}
+td{padding:7px 6px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{text-align:right;white-space:nowrap;padding-right:0}
+.note{font-size:.76rem;color:var(--ink2);margin:10px 0 0;line-height:1.45}
+.cta{display:block;margin-top:14px;padding:11px;text-align:center;background:var(--accbg);border:1px solid var(--accline);border-radius:8px;color:var(--acc);text-decoration:none;font-size:.85rem;font-weight:600}
+.cta:hover{background:#E3F1E8}
+.ft{margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:.72rem;color:var(--ink3);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ft a{color:var(--acc);text-decoration:none}
+@media (max-width:420px){.row,.grid{grid-template-columns:1fr}.w{padding:16px}.bd{font-size:.64rem;padding:6px 1px}}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#F2F1EC;--ink2:#B8B5AC;--ink3:#8E8B83;--line:#33322D;--surf:#1B1A17;--surf2:#232220;--accbg:#1E2F26;--accline:#2F5B45}
+  .bd{color:#12110F}
+}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>EPC rating calculator</h1>
+<p class="sub">Estimate your band, then see the cheapest measures that reach your target.</p>
+
+<div class="row">
+<div class="f"><label for="currentBand">Current EPC band</label><select id="currentBand"><option value="estimate" selected>Not sure, estimate it</option><option value="G">G</option><option value="F">F</option><option value="E">E</option><option value="D">D</option><option value="C">C</option><option value="B">B</option></select></div>
+<div class="f"><label for="targetBand">Target band</label><select id="targetBand"><option value="C" selected>C</option><option value="B">B</option><option value="A">A</option></select></div>
+</div>
+<div class="row">
+<div class="f"><label for="propType">Property type</label><select id="propType"><option value="detached">Detached house</option><option value="semi" selected>Semi-detached house</option><option value="mid-terrace">Mid-terrace house</option><option value="end-terrace">End-terrace house</option><option value="bungalow">Bungalow</option><option value="flat">Flat or maisonette</option></select></div>
+<div class="f"><label for="propAge">Built</label><select id="propAge"><option value="pre1919">Before 1919</option><option value="1919">1919 to 1944</option><option value="1945">1945 to 1964</option><option value="1965" selected>1965 to 1980</option><option value="1981">1981 to 1990</option><option value="1991">1991 to 2002</option><option value="2003">2003 to 2011</option><option value="2012">2012 or later</option></select></div>
+</div>
+<div class="row">
+<div class="f"><label for="hasWall">Walls</label><select id="hasWall"><option value="cavity-no" selected>Cavity, not insulated</option><option value="cavity-yes">Cavity, insulated</option><option value="solid-no">Solid, not insulated</option><option value="solid-yes">Solid, insulated</option></select></div>
+<div class="f"><label for="hasLoft">Loft insulation</label><select id="hasLoft"><option value="none">None or under 100mm</option><option value="good" selected>100mm or more</option><option value="na">No loft</option></select></div>
+</div>
+<div class="row">
+<div class="f"><label for="hasDoubleGlazing">Glazing</label><select id="hasDoubleGlazing"><option value="single">Single</option><option value="partial">Mix of single and double</option><option value="double" selected>Full double</option><option value="triple">Triple</option></select></div>
+<div class="f"><label for="heating">Heating</label><select id="heating"><option value="old-gas">Gas boiler over 15 years</option><option value="new-gas" selected>Gas boiler under 15 years</option><option value="oil">Oil boiler</option><option value="electric">Electric heating</option><option value="heat-pump">Heat pump</option></select></div>
+</div>
+<details class="more"><summary>Two more details for a sharper estimate</summary>
+<div class="row" style="margin-top:10px">
+<div class="f"><label for="hasSolar">Solar panels</label><select id="hasSolar"><option value="no" selected>No</option><option value="yes">Yes</option></select></div>
+<div class="f"><label for="lighting">Lighting</label><select id="lighting"><option value="mixed" selected>Mix of LED and older</option><option value="led">Mostly LED</option><option value="old">Mostly halogen or old</option></select></div>
+</div>
+</details>
+<button type="button" class="go" onclick="calc()">Calculate my EPC plan</button>
+
+<div class="res" id="res">
+<div class="scale" id="scale"></div>
+<div class="grid">
+<div class="card"><div class="k" id="nowLabel">Current rating</div><div class="v" id="nowBand">-</div><div class="d" id="nowPts">-</div></div>
+<div class="card hi"><div class="k">After the work</div><div class="v" id="newBand">-</div><div class="d" id="newPts">-</div></div>
+<div class="card"><div class="k">Points needed</div><div class="v" id="needPts">-</div><div class="d" id="needDetail">to reach your target</div></div>
+<div class="card"><div class="k">Estimated cost</div><div class="v" id="cost">-</div><div class="d">after grants, cheapest first</div></div>
+</div>
+<table id="plan"><thead><tr><th>Measure</th><th class="n">Points</th><th class="n">Cost</th></tr></thead><tbody id="planBody"></tbody></table>
+<p class="note" id="note"></p>
+<a class="cta" href="https://www.retrofitplanner.co.uk/epc-calculator/" target="_blank" rel="noopener">See the full plan, grants and payback</a>
+</div>
+
+<div class="ft">
+<span>Estimates from the RdSAP point model. Not a certificate.</span>
+<span>Calculator by <a href="https://www.retrofitplanner.co.uk/epc-calculator/" target="_blank" rel="noopener">Retrofit Planner</a></span>
+</div>
+</div>
+
+<script>
+// Same model as retrofitplanner.co.uk/epc-calculator/ so the two cannot diverge.
+var BANDS={G:10,F:30,E:47,D:62,C:75,B:86,A:96};
+var EST={base:20,
+ age:{pre1919:8,'1919':10,'1945':13,'1965':15,'1981':17,'1991':19,'2003':21,'2012':24},
+ type:{flat:6,'mid-terrace':4,'end-terrace':2,semi:1,detached:0,bungalow:-1},
+ wall:{'cavity-yes':12,'cavity-no':4,'solid-yes':10,'solid-no':0},
+ loft:{none:0,good:7,na:6},
+ glazing:{single:0,partial:3,double:6,triple:8},
+ heating:{'old-gas':6,'new-gas':14,oil:8,electric:-2,'heat-pump':18},
+ solar:{no:0,yes:8},
+ lighting:{old:0,mixed:1,led:3}};
+var MEASURES=[
+ {id:'loft',name:'Loft insulation to 270mm',points:8,costMin:300,costMax:600,requires:'loft-none'},
+ {id:'cavity',name:'Cavity wall insulation',points:12,costMin:400,costMax:1500,requires:'wall-cavity-no'},
+ {id:'led',name:'LED lighting throughout',points:3,costMin:100,costMax:300,requires:null},
+ {id:'controls',name:'Smart heating controls',points:3,costMin:150,costMax:400,requires:null},
+ {id:'glazing',name:'Double glazing',points:8,costMin:3000,costMax:7000,requires:'glazing-single'},
+ {id:'glazing-partial',name:'Replace remaining single glazing',points:4,costMin:1500,costMax:3500,requires:'glazing-partial'},
+ {id:'boiler',name:'New condensing gas boiler',points:8,costMin:1500,costMax:3500,requires:'heating-old-gas'},
+ {id:'heatpump',name:'Air source heat pump',points:13,costMin:7000,costMax:13000,requires:'heating-notHP',grantValue:7500},
+ {id:'solar',name:'Solar PV panels (4kW)',points:7,costMin:5000,costMax:8000,requires:'solar-no'},
+ {id:'solidwall',name:'Solid wall insulation (internal)',points:20,costMin:4500,costMax:8000,requires:'wall-solid-no'}];
+var COLOURS={A:'#008054',B:'#19B459',C:'#8DCE46',D:'#FFD500',E:'#FCAA65',F:'#EF8023',G:'#E9153B'};
+function v(id){return document.getElementById(id).value}
+function gbp(n){return '£'+Math.round(n).toLocaleString('en-GB')}
+function bandOf(s){return s>=92?'A':s>=81?'B':s>=69?'C':s>=55?'D':s>=39?'E':s>=21?'F':'G'}
+function estimateScore(age,type,wall,loft,glazing,heating,solar,lighting){
+  return Math.max(1,Math.min(100, EST.base+EST.age[age]+EST.type[type]+EST.wall[wall]+EST.loft[loft]+EST.glazing[glazing]+EST.heating[heating]+EST.solar[solar]+EST.lighting[lighting]));
+}
+function calc(){
+  var band=v('currentBand'), target=v('targetBand'), type=v('propType'), age=v('propAge');
+  var wall=v('hasWall'), loft=v('hasLoft'), glazing=v('hasDoubleGlazing'), heating=v('heating'), solar=v('hasSolar'), lighting=v('lighting');
+  var estimated=band==='estimate', score=estimated?estimateScore(age,type,wall,loft,glazing,heating,solar,lighting):BANDS[band];
+  var cur=bandOf(score), targetScore=BANDS[target], need=targetScore-score;
+  function drawScale(after){
+    var scale=document.getElementById('scale'); scale.innerHTML='';
+    ['A','B','C','D','E','F','G'].forEach(function(b){
+      var d=document.createElement('div'); d.className='bd'+(b===cur?' now':'')+(b===after&&b!==cur?' aim':'');
+      d.style.background=COLOURS[b]; d.textContent=b;
+      d.title=b===cur?'Now':(b===after?'After the work':'');
+      scale.appendChild(d);
+    });
+  }
+  document.getElementById('nowLabel').textContent=estimated?'Estimated now':'Current rating';
+  document.getElementById('nowBand').textContent='Band '+cur;
+  document.getElementById('nowPts').textContent=estimated?('about '+score+' points, range '+Math.max(1,score-6)+' to '+Math.min(100,score+6)):(score+' points');
+  var body=document.getElementById('planBody'); body.innerHTML='';
+  if(need<=0){
+    document.getElementById('newBand').textContent='Band '+cur;
+    document.getElementById('newPts').textContent='already at or above target';
+    document.getElementById('needPts').textContent='0';
+    document.getElementById('needDetail').textContent='no work needed for band '+target;
+    document.getElementById('cost').textContent=gbp(0);
+    document.getElementById('note').textContent='This home already meets band '+target+' on the estimate. If you need it on paper, a new certificate costs £55 to £150 and lasts ten years.';
+    document.getElementById('plan').style.display='none';
+    drawScale(cur); show(); return;
+  }
+  document.getElementById('plan').style.display='';
+  var avail=MEASURES.filter(function(m){
+    switch(m.requires){
+      case null: return true;
+      case 'loft-none': return loft==='none';
+      case 'wall-cavity-no': return wall==='cavity-no';
+      case 'wall-solid-no': return wall==='solid-no';
+      case 'glazing-single': return glazing==='single';
+      case 'glazing-partial': return glazing==='partial';
+      case 'heating-old-gas': return heating==='old-gas';
+      case 'heating-notHP': return heating!=='heat-pump';
+      case 'solar-no': return solar==='no';
+    }
+    return false;
+  });
+  function net(m){return Math.max(0,(m.costMin+m.costMax)/2-(m.grantValue||0))}
+  avail.sort(function(a,b){return (net(a)/a.points)-(net(b)/b.points)});
+  var pts=0, total=0, rows=0;
+  for(var i=0;i<avail.length;i++){
+    if(pts>=need) break;
+    var m=avail[i], c=Math.round(net(m));
+    pts+=m.points; total+=c; rows++;
+    var tr=document.createElement('tr');
+    var td1=document.createElement('td'); td1.textContent=m.name+(m.grantValue?' (after the £7,500 grant)':'');
+    var td2=document.createElement('td'); td2.className='n'; td2.textContent='+'+m.points;
+    var td3=document.createElement('td'); td3.className='n'; td3.textContent=c===0?'Free':gbp(c);
+    tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); body.appendChild(tr);
+  }
+  var newScore=Math.min(100,score+pts), reaches=newScore>=targetScore;
+  drawScale(bandOf(newScore));
+  document.getElementById('newBand').textContent='Band '+bandOf(newScore);
+  document.getElementById('newPts').textContent='about '+newScore+' points'+(reaches?'':', still short');
+  document.getElementById('needPts').textContent='+'+need;
+  document.getElementById('needDetail').textContent='to reach band '+target;
+  document.getElementById('cost').textContent=gbp(total);
+  document.getElementById('note').textContent=reaches
+    ? 'Measures are ordered by points per pound, so the cheapest wins come first. Grants can cover the insulation entirely if you qualify, and a heat pump carries the £7,500 Boiler Upgrade Scheme grant.'
+    : 'Standard measures do not reach band '+target+' on this estimate. An assessor can list what would count for your home, and the certificate itself costs £55 to £150.';
+  show();
+}
+function show(){document.getElementById('res').classList.add('on');report()}
+function report(){
+  try{ if(window.parent!==window) window.parent.postMessage({rpEmbed:'epc-calculator',rpHeight:document.documentElement.scrollHeight},'*'); }catch(e){}
+}
+if(window.ResizeObserver){ new ResizeObserver(report).observe(document.body); }
+window.addEventListener('load',report);
+</script>
+</body>
+</html>
