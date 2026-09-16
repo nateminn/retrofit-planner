@@ -1,0 +1,33 @@
+{
+ "heat-pump-cost-3-bed-detached": {
+  "query": "detached house uk suburban brick",
+  "alt": "A modern brick detached house on a UK street",
+  "caption": "A 3-bed detached house loses heat through four external walls, which is why it needs a bigger unit than a semi of the same floor area.",
+  "pick": 2
+ },
+ "heat-pump-noise": {
+  "query": "air source heat pump outdoor unit garden wall",
+  "alt": "An air source heat pump unit standing beside a house wall",
+  "caption": "Most of the noise a heat pump makes comes from the fan and the compressor in the outdoor unit, and it is measured at the neighbour's nearest window.",
+  "pick": 4
+ },
+ "how-long-loft-insulation-lasts": {
+  "query": "loft insulation",
+  "alt": "Packs of 170 mm mineral wool loft insulation stacked for sale",
+  "caption": "Mineral wool, the material in most UK lofts. Kept dry and uncompressed it holds its rated performance for decades.",
+  "sources": "commons",
+  "pick": 1
+ },
+ "how-to-improve-epc-rating": {
+  "query": "smart thermostat wall home heating control",
+  "alt": "A smart heating thermostat mounted on a wall in a home",
+  "caption": "The cheapest EPC points come from controls, lighting and insulation rather than from replacing the heating system.",
+  "pick": 7
+ },
+ "epc-cost": {
+  "query": "energy performance certificate house survey clipboard",
+  "alt": "An assessor with a clipboard recording details in an empty room of a house",
+  "caption": "A domestic energy assessor measures every room, records the construction and heating, and photographs the evidence. The visit takes under an hour.",
+  "pick": 4
+ }
+}
