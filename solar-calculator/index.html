@@ -260,7 +260,7 @@
             </tbody>
             </table></div>
             <p class="note">Source: PVGIS 5.3, London, south facing, building-integrated mounting, 35 degree slope, 14% system losses. Monthly figures are rounded, so the columns do not sum exactly to the annual total.</p>
-            <p>July produces about three and a half times as much as December. April to September carries roughly two thirds of the year's output. This is the single most important thing to understand before buying, because it means no domestic battery can carry you through a British winter: in December a 4 kW array makes about 4.6 kWh a day, which is less than many households use before lunchtime. Solar cuts your bills across the year; it does not take you off grid.</p>
+            <p>July produces about 3.4 times as much as December in London, and the gap widens as you go north: in Edinburgh June makes nearly five times what December does. April to September carries roughly two thirds of the year's output. This is the single most important thing to understand before buying, because it means no domestic battery can carry you through a British winter: in December a 4 kW array makes about 4.6 kWh a day, which is less than many households use before lunchtime. Solar cuts your bills across the year; it does not take you off grid.</p>
 
             <h2 id="sizing">How many solar panels do you need?</h2>
             <p>There are two limits on system size: what your roof can hold, and what your household actually uses. Start with usage. Ofgem reviewed its <a href="https://www.ofgem.gov.uk/consultation/review-typical-domestic-consumption-values" target="_blank" rel="noopener">typical domestic consumption values</a> in May 2026 and cut them, with the new figures applying from July 2026. A single rate electricity meter is now assumed to use 1,600 kWh a year for a low user, 2,500 kWh for a medium user and 3,800 kWh for a high user.</p>
@@ -484,6 +484,17 @@
         return parseInt(packed.substr(gi * 2, 2), 10) / 100;
     }
 
+    // Monthly share of annual output, PVGIS 5.3 SARAH3, south facing, 35 degree slope,
+    // 14% losses, building-integrated mounting. Shares in ten-thousandths, Jan to Dec.
+    const MONTH_SHAPE = {
+        south: [403,525,850,1120,1170,1200,1206,1082,934,675,476,360], // London
+        midlands: [388,535,869,1114,1208,1206,1216,1096,930,651,440,346], // Birmingham
+        north: [306,506,881,1177,1273,1245,1218,1095,914,639,425,321], // Manchester
+        wales: [355,520,858,1147,1267,1253,1237,1085,922,630,413,314], // Cardiff
+        scotland: [321,516,872,1169,1320,1226,1250,1129,909,622,419,249], // Edinburgh
+        ni: [325,519,878,1173,1327,1260,1196,1095,886,635,417,290], // Belfast
+    };
+
     const SOLAR = {
         // kWh generated per kW installed per year by region. Regional averages, set below the
         // PVGIS best-case city figures to allow for shading, roof pitch and soiling.
@@ -565,6 +576,33 @@
         // Export rate sensitivity
         const lowSeg = Math.round(billSaving + actualExport * 0.041);
         const highSeg = Math.round(billSaving + actualExport * 0.175);
+        // What size matches this household's yearly use, and what that is in panels.
+        var matchKwp = currentConsumption / SOLAR.generation[region];
+        var panelsLow = Math.round(matchKwp / 0.40);
+        var panelsHigh = Math.round(matchKwp / 0.35);
+        var panelRange = panelsLow === panelsHigh ? String(panelsLow) : panelsLow + ' to ' + panelsHigh;
+        html += '<div class="result-full"><div class="label">How many panels you need</div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>System that generates what you use in a year</span><strong>' + (Math.round(matchKwp * 10) / 10) + ' kWp, about ' + panelRange + ' panels</strong></div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>Roof area needed</span><strong>about ' + Math.round(matchKwp * 5) + ' square metres</strong></div>';
+        html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Generating as much as you use over a year is not the same as covering your usage, because the generation arrives in summer daytime and the demand arrives in winter evenings. <a href="#sizing">How sizing actually works</a>.</div>';
+        html += '</div>';
+
+        // Month by month output for this system, using the regional PVGIS shape.
+        var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var shape = MONTH_SHAPE[region];
+        var monthly = shape.map(function (f) { return Math.round(annualGen * f / 10000); });
+        var peak = Math.max.apply(null, monthly);
+        html += '<div class="result-full"><div class="label">Your output month by month</div>';
+        html += '<div class="month-bars">';
+        for (var mi = 0; mi < 12; mi++) {
+            var pct = Math.round(monthly[mi] / peak * 100);
+            html += '<div class="month-bar"><div class="mb-track"><div class="mb-fill" style="height: ' + pct + '%"></div></div>'
+                 + '<div class="mb-kwh">' + monthly[mi] + '</div><div class="mb-name">' + MONTH_NAMES[mi] + '</div></div>';
+        }
+        html += '</div>';
+        html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">kWh a month. June generates about ' + (Math.round(monthly[5] / monthly[11] * 10) / 10) + ' times what December does here, so no battery will carry you through winter. Shape from PVGIS for your region, scaled to your system. <a href="#by-month">Full monthly table</a>.</div>';
+        html += '</div>';
+
         html += '<div class="result-full"><div class="label">If you change export tariff</div>';
         html += '<div style="display: flex; justify-content: space-between; margin-top: 8px;"><span>On a 4.1p flat SEG rate</span><strong>£' + lowSeg.toLocaleString() + '/yr, payback ' + (Math.round(totalCost / lowSeg * 10) / 10) + ' years</strong></div>';
         html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>On a 17.5p installer-linked rate</span><strong>£' + highSeg.toLocaleString() + '/yr, payback ' + (Math.round(totalCost / highSeg * 10) / 10) + ' years</strong></div>';
