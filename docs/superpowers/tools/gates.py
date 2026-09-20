@@ -36,7 +36,16 @@ emoji = re.compile('[\U0001F300-\U0001FAFF☀-➿]')
 bad = [f for f, s in contents.items() if emoji.search(s)]
 check('no emoji', not bad, str(bad))
 
-bad = [f for f, s in contents.items() if '2028' in s and 'Boiler Upgrade' in s and re.search(r'(until|to|runs? until) (April|March) 2028', s)]
+# Only flag a 2028 end date that actually attaches to the Boiler Upgrade Scheme. Other
+# schemes legitimately run to March 2028, so co-occurrence on the page is not enough.
+def _bus_2028(text):
+    for m in re.finditer(r'Boiler Upgrade', text):
+        window = text[m.start():m.start() + 220]
+        if re.search(r'(until|to|runs? until) (April|March) 2028', window):
+            return True
+    return False
+
+bad = [f for f, s in contents.items() if _bus_2028(s)]
 check('no BUS 2028 claims', not bad, str(bad))
 
 missing = set()
@@ -67,8 +76,8 @@ distinct = set(footers.values())
 check('footer Guides block identical on all pages', len(distinct) == 1 and None not in distinct,
       'distinct=%d missing=%s' % (len(distinct), [f for f, v in footers.items() if v is None]))
 
-check('_redirects has 10 rules', os.path.exists('_redirects') and
-      len([l for l in open('_redirects') if l.strip() and not l.startswith('#')]) == 10)
+check("_redirects has 14 rules", os.path.exists("_redirects") and
+      len([l for l in open('_redirects') if l.strip() and not l.startswith('#')]) == 14)
 check('404.html exists', os.path.exists('404.html'))
 stray = [d for d in glob.glob('guides/*') if '{' in d]
 check('no stray brace directory', not stray, str(stray))
