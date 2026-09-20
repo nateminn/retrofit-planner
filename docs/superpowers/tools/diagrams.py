@@ -136,10 +136,12 @@ def d_solar():
         s.append('<rect x="%.1f" y="%d" width="%.1f" height="26" rx="4" fill="%s"/>' % (x0 + sw, y, w - sw, C1))
         s.append('<text x="%.1f" y="%d" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">%d%% used at home</text>' % (x0 + sw / 2, y + 17, self_pct))
         s.append('<text x="%.1f" y="%d" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">%d%% exported</text>' % (x0 + sw + (w - sw) / 2, y + 17, 100 - self_pct))
-    bar(160, 'Without a battery', 45)
-    bar(216, 'With a battery', 80)
+    # MCS MGD 003: 4 kW array (3,600 to 3,899 kWh), household in about half the day
+    # using 2,500 to 2,999 kWh. PV only 19%, with a 5 kWh battery 52%.
+    bar(160, 'Without a battery', 19)
+    bar(216, 'With a battery', 52)
     s.append('<text x="30" y="266" %s>Electricity used at home saves the full 26.32p per kWh.</text>' % T)
-    s.append('<text x="30" y="284" %s>Exported electricity earns about 8p per kWh under the Smart Export Guarantee.</text>' % T)
+    s.append('<text x="30" y="284" %s>Exported electricity earns 12p per kWh on the Outgoing Octopus SEG rate.</text>' % T)
     return (298, ''.join(s))
 
 DIAGRAMS = {
@@ -147,7 +149,7 @@ DIAGRAMS = {
  'heat-loss': dict(build=d_heat_loss, label='Where an uninsulated house loses heat', caption='Typical shares of heat loss for an uninsulated house, based on Energy Saving Trust estimates. Walls and roof account for about six tenths, which is why loft and wall insulation come first.'),
  'epc-bands': dict(build=d_epc_bands, label='EPC bands A to G and their SAP points', caption='The seven EPC bands with the SAP points each covers. Band widths are proportional to the points they span, so the lower bands cover more ground.'),
  'sizing': dict(build=d_sizing, label='Heat pump size and installed cost by house type', caption='Typical air source heat pump size and installed cost before the grant for each house type. A room-by-room heat loss survey sets the exact size.'),
- 'solar': dict(build=d_solar, label='Where solar electricity goes with and without a battery', caption='Without a battery a household uses about 45% of its solar generation and exports the rest. A battery lifts self-use to about 80%.'),
+ 'solar': dict(build=d_solar, label='Where solar electricity goes with and without a battery', caption='A 4 kW array on a household that is out for about half the day uses roughly 19% of what it generates and exports the rest. A 5 kWh battery lifts that to about 52%. Figures from the MCS MGD 003 look-up tables, which is what the solar calculator reads.'),
 }
 
 PLACEMENTS = [
