@@ -42,7 +42,8 @@
 </script>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/">EPC Rating</a></li><li><a href="/solar-calculator/" class="active">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
+<a class="skip-link" href="#main">Skip to content</a>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/">EPC Rating</a></li><li><a href="/solar-calculator/" class="active" aria-current="page">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
 
     <div class="breadcrumbs"><a href="/">Home</a><span>/</span>Solar Panel Calculator</div>
 
@@ -69,7 +70,7 @@
 </table></div>
 <p class="note">Benefit values the electricity you use yourself at the Ofgem cap rate of 26.32p and the rest at 12p per kWh, the Outgoing Octopus Smart Export Guarantee rate. Payback is the midpoint cost divided by the benefit. Roofs in the Midlands and the north generate 7 to 13% less; a battery adds £4,600 and lifts self-use to about 55%. How much you use yourself depends heavily on when you are at home, so the calculator reads it from the MCS tables rather than assuming a single figure, explained in full <a href="#self-use">further down this page</a>. Run the calculator below for your own roof.</p>
 </section>
-    <main class="main">
+    <main id="main" class="main">
         <div class="calc-card">
             <h2>Your solar cost and savings estimate</h2>
             <p class="subtitle">Answer a few questions about your home and we'll estimate your solar cost and savings.</p>
@@ -523,7 +524,7 @@
         const battery = document.getElementById('battery').value;
         const occupancy = document.getElementById('occupancy').value;
 
-        if (!region || !roof || !size || !battery || !occupancy) { alert('Please fill in all fields.'); return; }
+        if (!rpRequire()) { return; }
 
         const annualGen = Math.round(SOLAR.generation[region] * size * SOLAR.orientation[roof]);
 
@@ -630,11 +631,12 @@
         }
 
         document.getElementById('resultsContent').innerHTML = html;
-        document.getElementById('results').classList.add('visible');
-        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        rpReveal('results');
     }
     </script>
 <script src="/js/results.js" data-fields="region,roofDirection,systemSize,annualBill,occupancy,battery" data-calc="calculate" data-title="Solar panel cost estimate" defer></script>
 <script src="/js/charts.js" defer></script>
+<script src="/js/a11y.js" defer></script>
+<script src="/js/nav.js" defer></script>
 </body>
 </html>

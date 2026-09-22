@@ -29,7 +29,12 @@ def visible_text(html):
 contents = {f: open(f, encoding='utf-8').read() for f in ALL_HTML}
 
 # --- stage b checks ---
-bad = [f for f, s in contents.items() if '—' in s]
+# The rule is "no em dash in ANY file", but this only ever scanned HTML, so one sat in a
+# css/style.css comment from the beginning. Sweep the shared CSS and JS too.
+ASSETS = sorted(glob.glob('css/*.css') + glob.glob('js/*.js'))
+asset_contents = {f: open(f, encoding='utf-8').read() for f in ASSETS}
+
+bad = [f for f, s in list(contents.items()) + list(asset_contents.items()) if '\u2014' in s]
 check('no em dashes', not bad, str(bad))
 
 emoji = re.compile('[\U0001F300-\U0001FAFF☀-➿]')

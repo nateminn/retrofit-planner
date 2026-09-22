@@ -37,7 +37,8 @@
 </script>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/" class="active">EPC Rating</a></li><li><a href="/solar-calculator/">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
+<a class="skip-link" href="#main">Skip to content</a>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/" class="active" aria-current="page">EPC Rating</a></li><li><a href="/solar-calculator/">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
 
     <div class="breadcrumbs"><a href="/">Home</a><span>/</span>EPC Improvement Calculator</div>
 
@@ -49,7 +50,7 @@
 <div class="photo-banner"><figure class="photo-fig banner" id="photo-epc-calculator"><img src="/images/epc-calculator-960.webp" srcset="/images/epc-calculator-640.webp 640w, /images/epc-calculator-960.webp 960w, /images/epc-calculator-1200.webp 1200w" sizes="(max-width: 1128px) calc(100vw - 48px), 1080px" width="1200" height="800" alt="Row of red brick cottages with tall chimneys and white windows on a street corner, beside a grass verge and a red postbox" fetchpriority="high" decoding="async"><figcaption>Older solid brick homes like these often start on a low EPC rating, so insulation and heating upgrades deliver the biggest gains. Photo: Mike Bird via <a href="https://www.pexels.com/photo/brick-house-on-the-corner-of-a-street-13526285/" rel="nofollow noopener" target="_blank">Pexels</a>.</figcaption></figure></div>
 
 
-    <main class="main">
+    <main id="main" class="main">
         <div class="calc-card">
             <figure class="diagram-fig" id="diagram-epc-bands"><div class="chart-scroll"><svg viewBox="0 0 720 206" role="img" aria-label="EPC bands A to G and their SAP points" xmlns="http://www.w3.org/2000/svg"><rect x="30.0" y="88" width="56.4" height="56" rx="6" fill="#008054"/><text x="58.2" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">A</text><text x="58.2" y="133" text-anchor="middle" font-size="11" fill="#FFFFFF">92 to 100</text><rect x="89.4" y="88" width="69.6" height="56" rx="6" fill="#19B459"/><text x="124.2" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">B</text><text x="124.2" y="133" text-anchor="middle" font-size="11" fill="#FFFFFF">81 to 91</text><rect x="162.0" y="88" width="76.2" height="56" rx="6" fill="#8DCE46"/><text x="200.1" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A17">C</text><text x="200.1" y="133" text-anchor="middle" font-size="11" fill="#1A1A17">69 to 80</text><rect x="241.2" y="88" width="89.4" height="56" rx="6" fill="#FFD500"/><text x="285.9" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A17">D</text><text x="285.9" y="133" text-anchor="middle" font-size="11" fill="#1A1A17">55 to 68</text><rect x="333.6" y="88" width="102.6" height="56" rx="6" fill="#FCAA65"/><text x="384.9" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A17">E</text><text x="384.9" y="133" text-anchor="middle" font-size="11" fill="#1A1A17">39 to 54</text><rect x="439.2" y="88" width="115.8" height="56" rx="6" fill="#EF8023"/><text x="497.1" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A17">F</text><text x="497.1" y="133" text-anchor="middle" font-size="11" fill="#1A1A17">21 to 38</text><rect x="558.0" y="88" width="129.0" height="56" rx="6" fill="#E9153B"/><text x="622.5" y="113" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">G</text><text x="622.5" y="133" text-anchor="middle" font-size="11" fill="#FFFFFF">1 to 20</text><line x1="384.9" y1="22.0" x2="384.9" y2="84.0" stroke="#6B6960" stroke-width="2" stroke-linecap="round"/><polyline points="381.4,76.8 384.9,84.0 388.4,76.8" fill="none" stroke="#6B6960" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="384.9" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="var(--color-text)">Rented homes today: minimum band E</text><line x1="200.1" y1="48.0" x2="200.1" y2="84.0" stroke="#6B6960" stroke-width="2" stroke-linecap="round"/><polyline points="196.6,76.8 200.1,84.0 203.6,76.8" fill="none" stroke="#6B6960" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="200.1" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="var(--color-text)">Rented homes from 2030: band C</text><line x1="285.9" y1="180.0" x2="285.9" y2="150.0" stroke="#6B6960" stroke-width="2" stroke-linecap="round"/><polyline points="289.4,157.2 285.9,150.0 282.4,157.2" fill="none" stroke="#6B6960" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="285.9" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="var(--color-text)">Most common band in England and Wales</text></svg></div><figcaption>The seven EPC bands with the SAP points each covers. Band widths are proportional to the points they span, so the lower bands cover more ground.</figcaption></figure>
 <h2>Estimate your EPC rating, or enter your band</h2>
@@ -401,12 +402,10 @@
         const solar = document.getElementById('hasSolar').value;
         const tenure = document.getElementById('tenure').value;
 
-        if (!currentBand || !targetBand || !propType || !loft || !wall || !glazing || !heating || !solar || !tenure) {
-            alert('Please fill in all fields.'); return;
-        }
+        if (!rpRequire(['propAge'])) { return; }
         let estimated = false, currentScore;
         if (currentBand === 'estimate') {
-            if (!propAge) { alert('Please choose when the property was built so we can estimate the rating.'); return; }
+            if (!rpRequireOne('propAge', 'Choose when it was built so we can estimate the rating.')) { return; }
             currentScore = estimateScore(propAge, propType, wall, loft, glazing, heating, solar, lighting);
             currentBand = bandOf(currentScore); estimated = true;
         } else {
@@ -418,8 +417,7 @@
 
         if (pointsNeeded <= 0) {
             document.getElementById('resultsContent').innerHTML = estimateNote + '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);"><div style="font-weight: 600;">You already meet your target</div><div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your current Band ' + currentBand + ' already meets or exceeds Band ' + targetBand + '. Consider further improvements for lower bills. Try our <a href="/heat-pump-calculator/">heat pump calculator</a> or <a href="/solar-calculator/">solar panel calculator</a>.</div></div>';
-            document.getElementById('results').classList.add('visible');
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            rpReveal('results');
             return;
         }
 
@@ -540,10 +538,11 @@
         }
 
         document.getElementById('resultsContent').innerHTML = html;
-        document.getElementById('results').classList.add('visible');
-        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        rpReveal('results');
     }
     </script>
 <script src="/js/results.js" data-fields="currentBand,targetBand,propType,propAge,lighting,hasLoft,hasWall,hasDoubleGlazing,heating,hasSolar,tenure" data-calc="calculate" data-title="EPC improvement plan" defer></script>
+<script src="/js/a11y.js" defer></script>
+<script src="/js/nav.js" defer></script>
 </body>
 </html>

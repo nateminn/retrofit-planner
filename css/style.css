@@ -1,4 +1,4 @@
-/* Retrofit Planner — Shared Styles
+/* Retrofit Planner: Shared Styles
    All pages reference this file for consistent design.
    Fonts: Fraunces (display) + Plus Jakarta Sans (body)
    Updated: March 2026
@@ -11,12 +11,12 @@
     --color-border: #E2DFD6;
     --color-text: #1A1A17;
     --color-text-secondary: #6B6960;
-    --color-text-tertiary: #9C9888;
+    --color-text-tertiary: #716F5D; /* was #9C9888, which measured 2.56:1 to 2.89:1 and failed AA */
     --color-accent: #2D6A4F;
     --color-accent-light: #40916C;
     --color-accent-bg: #EDF6F0;
     --color-accent-border: #B7E4C7;
-    --color-highlight: #D4A843;
+    --color-highlight: #946C07; /* was #D4A843, 2.09:1 on the highlight card. Text-only token. */
     --color-highlight-bg: #FFF8E7;
     --color-highlight-border: #F0D78C;
     --color-danger: #C1453B;
@@ -728,8 +728,17 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
     .nav-links {
         display: flex; gap: 18px; width: 100%; overflow-x: auto; padding-bottom: 2px;
         -webkit-overflow-scrolling: touch; scrollbar-width: none;
-        mask-image: linear-gradient(to right, #000 90%, transparent);
-        -webkit-mask-image: linear-gradient(to right, #000 90%, transparent);
+        /* A permanent mask faded the last link even when scrolled to the end, and clipped
+           focus rings. This shadow is overflow-aware and does neither. */
+        background-image:
+            linear-gradient(to right, var(--color-surface), var(--color-surface)),
+            linear-gradient(to left, var(--color-surface), var(--color-surface)),
+            linear-gradient(to right, rgba(26,26,23,.18), rgba(26,26,23,0)),
+            linear-gradient(to left, rgba(26,26,23,.18), rgba(26,26,23,0));
+        background-position: left center, right center, left center, right center;
+        background-repeat: no-repeat;
+        background-size: 18px 100%, 18px 100%, 12px 100%, 12px 100%;
+        background-attachment: local, local, scroll, scroll;
     }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links li { flex: 0 0 auto; }
@@ -865,3 +874,60 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
 .mb-name{font-size:.66rem;color:var(--color-text-secondary);line-height:1}
 @media (max-width:640px){.month-bars{gap:2px}.mb-track{height:76px}.mb-kwh,.mb-name{font-size:.58rem}}
 @media print{.mb-fill{background:#888;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* ---- accessibility and mobile pass (September 2026) ---- */
+
+/* Visually hidden but available to assistive technology. Used by the live region in js/a11y.js. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Skip link, first focusable thing on the page. */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200}
+.skip-link:focus{left:8px;top:8px;width:auto;height:auto;padding:10px 16px;background:var(--color-surface);color:var(--color-text);border:2px solid var(--color-accent);border-radius:var(--radius-sm,6px);font-weight:600}
+
+/* Named field errors, replacing the generic alert(). */
+.field-error{margin:6px 0 0;font-size:.82rem;font-weight:600;color:#A32C1E;line-height:1.4}
+select[aria-invalid="true"],input[aria-invalid="true"]{border-color:#A32C1E;outline:1px solid #A32C1E;outline-offset:-2px}
+
+/* The results block receives focus after calculating, so it needs a visible ring of its own. */
+#results:focus,#results:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px}
+#results:focus:not(:focus-visible){outline:none}
+
+/* The sticky header is ~80px tall and was covering every anchor target and the results
+   heading. scroll-padding-top on the scroll container fixes both. Do NOT also add
+   scroll-margin-top to the targets: the two stack and overshoot by double. */
+html{scroll-padding-top:92px}
+
+/* Horizontal scroll cue. Charts and wide tables were clipping at a clean card edge with no
+   sign there was more to the right, and the hidden columns are the ones that carry the point.
+   background-attachment:local makes this self-detecting with no JavaScript: the opaque cover
+   layer scrolls with the content, so it hides the shadow only once you reach the right end.
+   A table that fits shows no cue at all. */
+.chart-scroll,.tblwrap{
+  background-image:
+    linear-gradient(to right,var(--color-surface),var(--color-surface)),
+    linear-gradient(to left,var(--color-surface),var(--color-surface)),
+    linear-gradient(to right,rgba(26,26,23,.16),rgba(26,26,23,0)),
+    linear-gradient(to left,rgba(26,26,23,.16),rgba(26,26,23,0));
+  background-position:left center,right center,left center,right center;
+  background-repeat:no-repeat;
+  background-size:22px 100%,22px 100%,14px 100%,14px 100%;
+  background-attachment:local,local,scroll,scroll;
+}
+
+@media (max-width:800px){
+  /* iOS Safari zooms the whole page when a text-entry control under 16px receives focus.
+     All 59 of them were. The quote form and the router set their own size with higher
+     specificity, so they are named explicitly rather than relying on the bare selectors. */
+  select,textarea,input[type="number"],input[type="text"],input[type="email"],input[type="tel"],
+  .quote-form select,.quote-form input[type="text"],.quote-form input[type="email"],.quote-form input[type="tel"],
+  .router-grid select{font-size:1rem}
+  /* Tap targets: the nav strip and breadcrumbs were well under the 44px minimum. */
+  .nav-links a{padding-top:13px;padding-bottom:13px}
+  .breadcrumb a,.breadcrumb span{display:inline-block;padding-top:11px;padding-bottom:11px}
+  /* The fade mask on the nav strip was hiding the last link and clipping its focus ring. */
+  .nav-links a:focus-visible{outline:2px solid var(--color-accent);outline-offset:-2px;border-radius:4px}
+}
+
+/* A 3px ring in the accent tone measured 1.10:1 against the field. Pair it with a dark
+   inner edge so it is visible on both the white cards and the warm page background. */
+select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--color-text);outline-offset:2px}
