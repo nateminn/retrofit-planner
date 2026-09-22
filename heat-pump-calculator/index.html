@@ -345,20 +345,19 @@
 
         if (!rpRequire()) { return; }
 
-        const baseHeatDemand = DATA.heatDemand[propType][bedrooms];
-        const heatDemand = baseHeatDemand * DATA.insulationMultiplier[insulation];
+        // Heat demand, COP and install costs all come from the shared model in
+        // /js/heat-model.js so this page and /boiler-vs-heat-pump/ cannot drift apart.
+        // The table is gas consumption, so heat demand is derived with a gas boiler's
+        // efficiency; the CURRENT cost then uses whatever fuel the visitor actually has.
+        const heatDemand = RP_HEAT.heatDemand(propType, bedrooms, insulation, 'gas');
         const fuelType = DATA.fuelType[heating];
         const fuelPrice = DATA.energyPrices[fuelType];
-        const boilerEff = DATA.boilerEfficiency[heating];
+        const boilerEff = RP_HEAT.boilerEfficiency(fuelType);
         const estimatedCurrentCost = (heatDemand / boilerEff) * fuelPrice;
         const currentCost = annualBillInput ? parseFloat(annualBillInput) : estimatedCurrentCost;
-        const cop = DATA.cop[insulation];
+        const cop = RP_HEAT.cop(insulation);
         const hpRunningCost = (heatDemand / cop) * DATA.energyPrices.electricity;
-        const installData = DATA.installCost[propType];
-        const bedroomMultiplier = 1 + (parseInt(bedrooms) - 3) * 0.08;
-        const insulationCostMultiplier = insulation === 'poor' ? 1.15 : insulation === 'average' ? 1.05 : 1.0;
-        let installCost = Math.round(installData.base * bedroomMultiplier * insulationCostMultiplier / 100) * 100;
-        installCost = Math.max(7000, Math.min(installCost, 15000));
+        const installCost = RP_HEAT.heatPumpInstall(propType, bedrooms, insulation);
         const grant = (heating === 'oil-boiler' || heating === 'lpg-boiler') ? DATA.busGrantOilLpg : DATA.busGrant;
         const afterGrant = installCost - grant;
         const annualSaving = currentCost - hpRunningCost;
@@ -412,6 +411,7 @@
     }
     </script>
 <script src="/js/results.js" data-fields="propertyType,bedrooms,currentHeating,insulation,annualBill" data-calc="calculate" data-title="Heat pump cost estimate" defer></script>
+<script src="/js/heat-model.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>

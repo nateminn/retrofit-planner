@@ -91,8 +91,8 @@ button:hover{background:#245741}
 // Same model as retrofitplanner.co.uk/heat-pump-calculator/ so the numbers cannot diverge.
 var DATA={
  energyPrices:{electricity:0.2632,gas:0.0797,oil:0.090,lpg:0.095},
- heatDemand:{detached:{1:10000,2:13000,3:16000,4:20000,5:24000},semi:{1:8000,2:10000,3:13000,4:16000,5:19000},'mid-terrace':{1:6500,2:8500,3:11000,4:13500,5:16000},'end-terrace':{1:7000,2:9500,3:12000,4:15000,5:18000},bungalow:{1:8000,2:10500,3:13000,4:16000,5:19000},flat:{1:5000,2:6500,3:8500,4:10000,5:12000}},
- insulationMultiplier:{good:1.0,average:1.2,poor:1.5},
+ gasKwh:{detached:{1:7100,2:9400,3:11700,4:14600,5:19500},semi:{1:4100,2:7500,3:11000,4:15300,5:22800},'mid-terrace':{1:4300,2:7000,3:9800,4:13200,5:19100},'end-terrace':{1:6600,2:8400,3:10300,4:12600,5:16500},bungalow:{1:7000,2:9200,3:11500,4:14300,5:19100},flat:{1:5600,2:7100,3:8700,4:10700,5:14100}},
+ insulationMultiplier:{good:0.85,average:1.00,poor:1.11},
  installCost:{detached:{base:11000},semi:{base:10000},'mid-terrace':{base:9000},'end-terrace':{base:9500},bungalow:{base:10000},flat:{base:8000}},
  cop:{good:3.2,average:2.9,poor:2.6},
  boilerEfficiency:{'gas-boiler':0.90,'oil-boiler':0.85,'lpg-boiler':0.85,'electric-storage':1.0,'electric-direct':1.0},
@@ -103,7 +103,7 @@ function v(id){return document.getElementById(id).value}
 function gbp(n){return '£'+Math.round(n).toLocaleString('en-GB')}
 function calc(){
   var pt=v('propertyType'), bed=v('bedrooms'), heat=v('currentHeating'), ins=v('insulation'), bill=v('annualBill');
-  var demand=DATA.heatDemand[pt][bed]*DATA.insulationMultiplier[ins];
+  var demand=Math.round(DATA.gasKwh[pt][bed]*DATA.insulationMultiplier[ins]*0.90);
   var fuel=DATA.fuelType[heat], eff=DATA.boilerEfficiency[heat];
   var est=(demand/eff)*DATA.energyPrices[fuel];
   var cur=bill?parseFloat(bill):est;

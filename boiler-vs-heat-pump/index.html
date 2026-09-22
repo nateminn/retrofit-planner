@@ -261,23 +261,29 @@
 
         if (!rpRequire()) { return; }
 
-        const bedsMultiplier = 1 + (beds - 3) * 0.1;
-        const heatDemand = Math.round(D.heatDemand[prop][insulation] * bedsMultiplier);
+        // Shared model, see /js/heat-model.js. This page used to disagree with the heat
+        // pump calculator by a factor of 2.4 on the same house because both tables were
+        // invented separately.
+        const heatDemand = RP_HEAT.heatDemand(prop, beds, insulation, 'gas');
 
         // Use actual gas bill if provided, otherwise calculate
         let annualGasCost;
         if (gasBill > 0) {
             annualGasCost = gasBill;
         } else {
-            annualGasCost = Math.round(heatDemand / D.boilerEfficiency * D.gasRate);
+            annualGasCost = Math.round(heatDemand / RP_HEAT.boilerEfficiency('gas') * D.gasRate);
         }
 
-        const cop = D.cop[insulation];
+        const cop = RP_HEAT.cop(insulation);
         const annualHPCost = Math.round(heatDemand / cop * D.elecRate);
 
-        const boilerInstall = Math.round((D.boilerCost.min + D.boilerCost.max) / 2);
-        const hpInstall = Math.round((D.hpCost.min + D.hpCost.max) / 2);
-        const hpAfterGrant = hpInstall - D.busGrant;
+        // Both now scale with the property, instead of returning £2,500 for every one
+        // of the 120 combinations this form can produce.
+        const boilerInstall = RP_HEAT.boilerInstall(beds);
+        const hpInstall = RP_HEAT.heatPumpInstall(prop, beds, insulation);
+        // The grant is deducted from the installer's quote, so it can cover the whole job
+        // on a small property but never pays out more than the job costs.
+        const hpAfterGrant = Math.max(0, hpInstall - D.busGrant);
 
         // 15-year costs
         const boiler15 = boilerInstall + (annualGasCost * 15) + (D.boilerMaintenance * 15);
@@ -291,7 +297,7 @@
         // Summary grid
         html += '<div class="result-grid">';
         html += '<div class="result-item"><div class="label">Gas boiler upfront</div><div class="value">£' + boilerInstall.toLocaleString() + '</div><div class="detail">New condensing boiler installed</div></div>';
-        html += '<div class="result-item highlight"><div class="label">Heat pump upfront</div><div class="value">£' + hpAfterGrant.toLocaleString() + '</div><div class="detail">After £7,500 BUS grant</div></div>';
+        html += '<div class="result-item highlight"><div class="label">Heat pump upfront</div><div class="value">£' + hpAfterGrant.toLocaleString() + '</div><div class="detail">' + (hpAfterGrant === 0 ? 'The £7,500 grant covers the whole job' : 'After the £7,500 BUS grant') + '</div></div>';
         html += '<div class="result-item"><div class="label">Gas annual running cost</div><div class="value">£' + annualGasCost.toLocaleString() + '/yr</div><div class="detail">At current Ofgem rates</div></div>';
         html += '<div class="result-item ' + (annualHPCost < annualGasCost ? 'highlight' : '') + '"><div class="label">Heat pump annual running cost</div><div class="value">£' + annualHPCost.toLocaleString() + '/yr</div><div class="detail">COP of ' + cop + ' in your home</div></div>';
         html += '</div>';
@@ -340,6 +346,7 @@
     }
     </script>
 <script src="/js/results.js" data-fields="propType,bedrooms,insulation,gasBill" data-calc="calculate" data-title="Boiler versus heat pump, 15-year cost" defer></script>
+<script src="/js/heat-model.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>
