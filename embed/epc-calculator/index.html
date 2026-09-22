@@ -120,8 +120,8 @@ var MEASURES=[
  {id:'controls',name:'Smart heating controls',points:3,costMin:150,costMax:400,requires:null},
  {id:'glazing',name:'Double glazing',points:8,costMin:3000,costMax:7000,requires:'glazing-single'},
  {id:'glazing-partial',name:'Replace remaining single glazing',points:4,costMin:1500,costMax:3500,requires:'glazing-partial'},
- {id:'boiler',name:'New condensing gas boiler',points:8,costMin:1500,costMax:3500,requires:'heating-old-gas'},
- {id:'heatpump',name:'Air source heat pump',points:13,costMin:7000,costMax:13000,requires:'heating-notHP',grantValue:7500},
+ {id:'boiler',group:'heating',name:'New condensing gas boiler',points:8,costMin:1500,costMax:3500,requires:'heating-old-gas'},
+ {id:'heatpump',group:'heating',name:'Air source heat pump',points:13,costMin:7000,costMax:13000,requires:'heating-notHP',grantValue:7500},
  {id:'solar',name:'Solar PV panels (4kW)',points:7,costMin:5000,costMax:8000,requires:'solar-no'},
  {id:'solidwall',name:'Solid wall insulation (internal)',points:20,costMin:4500,costMax:8000,requires:'wall-solid-no'}];
 var COLOURS={A:'#008054',B:'#19B459',C:'#8DCE46',D:'#FFD500',E:'#FCAA65',F:'#EF8023',G:'#E9153B'};
@@ -177,9 +177,11 @@ function calc(){
   function net(m){return Math.max(0,(m.costMin+m.costMax)/2-(m.grantValue||0))}
   avail.sort(function(a,b){return (net(a)/a.points)-(net(b)/b.points)});
   var pts=0, total=0, rows=0;
+  var usedGroups=[];
   for(var i=0;i<avail.length;i++){
     if(pts>=need) break;
     var m=avail[i], c=Math.round(net(m));
+    if(m.group){ if(usedGroups.indexOf(m.group)!==-1) continue; usedGroups.push(m.group); }
     pts+=m.points; total+=c; rows++;
     var tr=document.createElement('tr');
     var td1=document.createElement('td'); td1.textContent=m.name+(m.grantValue?' (after the £7,500 grant)':'');
@@ -187,7 +189,10 @@ function calc(){
     var td3=document.createElement('td'); td3.className='n'; td3.textContent=c===0?'Free':gbp(c);
     tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); body.appendChild(tr);
   }
-  var newScore=Math.min(100,score+pts), reaches=newScore>=targetScore;
+  var newScore=Math.min(100,score+pts);
+  // Compare BANDS, not raw scores: hitting the band's lower bound IS reaching it.
+  var ORDER=['G','F','E','D','C','B','A'];
+  var reaches=ORDER.indexOf(bandOf(newScore))>=ORDER.indexOf(target);
   drawScale(bandOf(newScore));
   document.getElementById('newBand').textContent='Band '+bandOf(newScore);
   document.getElementById('newPts').textContent='about '+newScore+' points'+(reaches?'':', still short');

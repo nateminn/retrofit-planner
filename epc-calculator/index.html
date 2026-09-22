@@ -423,6 +423,25 @@
             return;
         }
 
+        // Each measure's points are derived from the SAME estimator table that produced the
+        // current rating, using the answer the visitor actually gave. Hard-coding them separately
+        // let the two disagree: solid wall insulation was credited +20 here while changing the
+        // wall answer moved the estimate by only +10.
+        function estPoints(m) {
+            switch (m.id) {
+                case 'loft':            return EST.loft.good      - EST.loft[loft];
+                case 'cavity':          return EST.wall['cavity-yes'] - EST.wall[wall];
+                case 'solidwall':       return EST.wall['solid-yes']  - EST.wall[wall];
+                case 'glazing':         return EST.glazing.double - EST.glazing[glazing];
+                case 'glazing-partial': return EST.glazing.double - EST.glazing[glazing];
+                case 'boiler':          return EST.heating['new-gas']   - EST.heating[heating];
+                case 'heatpump':        return EST.heating['heat-pump'] - EST.heating[heating];
+                case 'solar':           return EST.solar.yes      - EST.solar[solar];
+                case 'led':             return EST.lighting.led   - EST.lighting[lighting];
+                default:                return m.points; // smart controls have no estimator equivalent
+            }
+        }
+
         // Filter available measures
         let available = MEASURES.filter(m => {
             if (m.requires === 'loft-none' && loft !== 'none') return false;
@@ -437,6 +456,10 @@
         });
 
         // Sort by cost-effectiveness (points per £)
+        // Resolve each measure's points once, then drop any that no longer gain anything
+        // (for example LED lighting offered to someone who already has LED).
+        available = available.map(m => ({ ...m, points: Math.max(0, estPoints(m)) })).filter(m => m.points > 0);
+
         available.sort((a, b) => {
             const costA = (a.costMin + a.costMax) / 2 - (a.grantValue || 0);
             const costB = (b.costMin + b.costMax) / 2 - (b.grantValue || 0);
@@ -466,7 +489,11 @@
 
         const newScore = Math.min(currentScore + cumulativePoints, 100);
         const newBand = newScore >= 92 ? 'A' : newScore >= 81 ? 'B' : newScore >= 69 ? 'C' : newScore >= 55 ? 'D' : newScore >= 39 ? 'E' : newScore >= 21 ? 'F' : 'G';
-        const reachesTarget = newScore >= targetScore;
+        // Band thresholds. Compare BANDS, not raw scores: reaching 69 is Band C even if the
+        // target band's nominal score was higher, so a score test reports a false shortfall.
+        const BAND_MIN = { A: 92, B: 81, C: 69, D: 55, E: 39, F: 21, G: 1 };
+        const BAND_ORDER = ['G','F','E','D','C','B','A'];
+        const reachesTarget = BAND_ORDER.indexOf(newBand) >= BAND_ORDER.indexOf(targetBand);
 
         // Summary
         html += estimateNote;

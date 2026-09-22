@@ -12,7 +12,10 @@
     'electric-direct':  { hp: 'electric-direct', ins: 'electricity', epc: 'electric',  grants: 'electric' },
     'heat-pump':        { hp: '',                ins: 'electricity', epc: 'heat-pump', grants: '' }
   };
-  var FOSSIL = { 'gas-old': 1, 'gas-new': 1, 'oil': 1, 'lpg': 1 };
+  // /boiler-vs-heat-pump/ models a MAINS GAS boiler and has no fuel input, so sending an oil
+  // or LPG owner there prices them against gas and can tell them to keep a boiler they do not
+  // have. Those two go to the heat pump calculator, which knows their fuel.
+  var MAINS_GAS = { 'gas-old': 1, 'gas-new': 1 };
 
   function go(path, params) {
     var q = [];
@@ -49,7 +52,7 @@
     if (goal === 'bills' && heat === 'electric-storage') { location.href = '/guides/storage-heaters-vs-heat-pump/'; return false; }
 
     if (goal === 'heating') {
-      if (FOSSIL[heat]) return go('/boiler-vs-heat-pump/', {});
+      if (MAINS_GAS[heat]) return go('/boiler-vs-heat-pump/', {});
       return go('/heat-pump-calculator/', { currentHeating: map.hp });
     }
     if (goal === 'solar')      return go('/solar-calculator/', {});
