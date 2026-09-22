@@ -369,8 +369,20 @@
         document.getElementById('installCost').textContent = '£' + installCost.toLocaleString();
         document.getElementById('afterGrant').textContent = '£' + Math.max(0, afterGrant).toLocaleString();
         document.getElementById('grantCaption').textContent = 'With the £' + grant.toLocaleString() + ' BUS grant';
-        document.getElementById('annualSaving').textContent = annualSaving > 0 ? '£' + Math.round(annualSaving).toLocaleString() : '-';
-        document.getElementById('savingDetail').textContent = annualSaving > 0 ? 'per year vs ' + heating.replace(/-/g, ' ') : 'Running costs are similar';
+        // A negative saving is not "similar". Say what the gap actually is: a 143% increase was
+        // being reported as similar running costs, which is the opposite of what the reader needs.
+        const gap = Math.round(Math.abs(annualSaving));
+        const fuelLabel = heating.replace(/-/g, ' ');
+        if (annualSaving > 0) {
+            document.getElementById('annualSaving').textContent = '£' + Math.round(annualSaving).toLocaleString();
+            document.getElementById('savingDetail').textContent = 'per year vs ' + fuelLabel;
+        } else if (gap <= 60) {
+            document.getElementById('annualSaving').textContent = 'About the same';
+            document.getElementById('savingDetail').textContent = 'Within £' + gap + ' a year of your ' + fuelLabel;
+        } else {
+            document.getElementById('annualSaving').textContent = '£' + gap.toLocaleString() + ' more';
+            document.getElementById('savingDetail').textContent = 'per year than your ' + fuelLabel + ', on a standard tariff';
+        }
         if (paybackYears && paybackYears > 0 && paybackYears < 50) { document.getElementById('payback').textContent = Math.round(paybackYears) + ' years'; }
         else if (annualSaving <= 0) { document.getElementById('payback').textContent = 'N/A'; }
         else { document.getElementById('payback').textContent = '< 1 year'; }
