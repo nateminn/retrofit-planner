@@ -257,7 +257,9 @@
         const prop = document.getElementById('propType').value;
         const beds = parseInt(document.getElementById('bedrooms').value);
         const insulation = document.getElementById('insulation').value;
-        const gasBill = parseFloat(document.getElementById('gasBill').value);
+        const gasBillInput = rpNumber('gasBill');
+        if (gasBillInput === false) { return; }
+        const gasBill = gasBillInput === null ? 0 : gasBillInput;
 
         if (!rpRequire()) { return; }
 
@@ -304,8 +306,8 @@
 
         // Running cost comparison bars
         html += '<div class="result-full"><div class="label">Annual heating cost comparison</div>';
-        html += '<div class="cost-bar-container" style="margin-top: 12px;"><div class="cost-bar-label">Gas boiler</div><div class="cost-bar-wrap"><div class="cost-bar gas" style="width: ' + (annualGasCost / maxCost * 100) + '%;"></div></div><div class="cost-bar-amount">£' + annualGasCost + '/yr</div></div>';
-        html += '<div class="cost-bar-container"><div class="cost-bar-label">Heat pump</div><div class="cost-bar-wrap"><div class="cost-bar hp" style="width: ' + (annualHPCost / maxCost * 100) + '%;"></div></div><div class="cost-bar-amount">£' + annualHPCost + '/yr</div></div>';
+        html += '<div class="cost-bar-container" style="margin-top: 12px;"><div class="cost-bar-label">Gas boiler</div><div class="cost-bar-wrap"><div class="cost-bar gas" style="width: ' + (annualGasCost / maxCost * 100) + '%;"></div></div><div class="cost-bar-amount">£' + annualGasCost.toLocaleString() + '/yr</div></div>';
+        html += '<div class="cost-bar-container"><div class="cost-bar-label">Heat pump</div><div class="cost-bar-wrap"><div class="cost-bar hp" style="width: ' + (annualHPCost / maxCost * 100) + '%;"></div></div><div class="cost-bar-amount">£' + annualHPCost.toLocaleString() + '/yr</div></div>';
         html += '</div>';
 
         // 15-year total
@@ -319,7 +321,7 @@
         if (saving15 > 0) {
             html += '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);">';
             html += '<div style="font-weight: 600; color: var(--color-accent);">Heat pump saves you £' + saving15.toLocaleString() + ' over 15 years</div>';
-            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">That\'s £' + Math.round(saving15 / 15).toLocaleString() + ' per year on average. ';
+            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">That\'s £' + Math.round(saving15 / 15).toLocaleString().toLocaleString() + ' per year on average. ';
             if (insulation === 'poor') {
                 html += '<a href="/insulation-calculator/">Improving your insulation</a> would increase the heat pump\'s efficiency and save you even more.';
             } else {

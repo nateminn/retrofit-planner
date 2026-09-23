@@ -156,6 +156,7 @@
                     <option value="old-gas">Gas boiler (over 15 years old)</option>
                     <option value="new-gas">Gas boiler (under 15 years old)</option>
                     <option value="oil">Oil boiler</option>
+                    <option value="lpg">LPG boiler</option>
                     <option value="electric">Electric heating</option>
                     <option value="heat-pump">Heat pump (already installed)</option>
                 </select>
@@ -367,7 +368,9 @@
         wall: { 'cavity-yes': 12, 'cavity-no': 4, 'solid-yes': 10, 'solid-no': 0 },
         loft: { none: 0, good: 7, na: 6 },
         glazing: { single: 0, partial: 3, double: 6, triple: 8 },
-        heating: { 'old-gas': 6, 'new-gas': 14, oil: 8, electric: -2, 'heat-pump': 18 },
+        // EPC is a cost based rating, and of the common fuels LPG is the dearest per kWh
+        // (this site prices gas 7.97p, oil 9.0p, LPG 9.5p), so LPG sits just below oil.
+        heating: { 'old-gas': 6, 'new-gas': 14, oil: 8, lpg: 7, electric: -2, 'heat-pump': 18 },
         solar: { no: 0, yes: 8 },
         lighting: { old: 0, mixed: 1, led: 3 }
     };

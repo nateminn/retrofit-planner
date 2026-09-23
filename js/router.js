@@ -7,7 +7,7 @@
     'gas-old':          { hp: 'gas-boiler',      ins: 'gas',         epc: 'old-gas',   grants: 'gas' },
     'gas-new':          { hp: 'gas-boiler',      ins: 'gas',         epc: 'new-gas',   grants: 'gas' },
     'oil':              { hp: 'oil-boiler',      ins: 'oil',         epc: 'oil',       grants: 'oil' },
-    'lpg':              { hp: 'lpg-boiler',      ins: 'lpg',         epc: '',          grants: 'lpg' },
+    'lpg':              { hp: 'lpg-boiler',      ins: 'lpg',         epc: 'lpg',       grants: 'lpg' },
     'electric-storage': { hp: 'electric-storage', ins: 'electricity', epc: 'electric', grants: 'electric' },
     'electric-direct':  { hp: 'electric-direct', ins: 'electricity', epc: 'electric',  grants: 'electric' },
     'heat-pump':        { hp: '',                ins: 'electricity', epc: 'heat-pump', grants: '' }

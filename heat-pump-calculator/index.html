@@ -341,7 +341,8 @@
         const bedrooms = document.getElementById('bedrooms').value;
         const heating = document.getElementById('currentHeating').value;
         const insulation = document.getElementById('insulation').value;
-        const annualBillInput = document.getElementById('annualBill').value;
+        const annualBillInput = rpNumber('annualBill');
+        if (annualBillInput === false) { return; }
 
         if (!rpRequire()) { return; }
 
@@ -354,7 +355,7 @@
         const fuelPrice = DATA.energyPrices[fuelType];
         const boilerEff = RP_HEAT.boilerEfficiency(fuelType);
         const estimatedCurrentCost = (heatDemand / boilerEff) * fuelPrice;
-        const currentCost = annualBillInput ? parseFloat(annualBillInput) : estimatedCurrentCost;
+        const currentCost = annualBillInput === null ? estimatedCurrentCost : annualBillInput;
         const cop = RP_HEAT.cop(insulation);
         const hpRunningCost = (heatDemand / cop) * DATA.energyPrices.electricity;
         const installCost = RP_HEAT.heatPumpInstall(propType, bedrooms, insulation);

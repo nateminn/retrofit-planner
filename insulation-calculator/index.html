@@ -388,7 +388,7 @@
         const wall = document.getElementById('wallType').value;
         const benefits = document.getElementById('benefits').value;
 
-        if (!rpRequire(['propAge'])) { return; }
+        if (!rpRequire()) { return; }
 
         const fm = DATA.fuelMultiplier[fuel];
         const bedsMultiplier = 1 + (beds - 3) * 0.1;
@@ -427,43 +427,82 @@
             const saving = Math.round(DATA.solidWallSavings[prop] * fm * bedsMultiplier);
             const costInternal = Math.round((DATA.solidWallCost.internal.min + DATA.solidWallCost.internal.max) / 2);
             const costExternal = Math.round((DATA.solidWallCost.external.min + DATA.solidWallCost.external.max) / 2);
-            const cost = benefits === 'yes' ? 0 : costInternal;
+            // Claiming a benefit does not by itself fund solid wall insulation: it is the most
+            // expensive measure, ECO4 closes on 31 December 2026, and installers ration it.
+            // Show the real cost and flag that it MAY be funded, which /grants/ can check.
+            const cost = costInternal;
             const payback = cost > 0 ? Math.round(costInternal / saving * 10) / 10 : 0;
             totalSaving += saving;
             opportunities.push({
                 name: 'Solid wall insulation (internal)',
                 saving, cost, payback,
-                freeEligible: benefits === 'yes',
+                freeEligible: false,
+                mayBeFunded: benefits === 'yes',
                 priority: 'medium',
                 note: 'External option costs £' + costExternal.toLocaleString() + ' but avoids losing room space.'
+            });
+        } else if (wall === 'unsure') {
+            // Not knowing the wall type is not the same as having nothing to do. Offer the
+            // range it could be worth and tell the reader how to find out, rather than
+            // scoring the answer as if the walls were already done.
+            const cavity = Math.round(DATA.cavitySavings[prop] * fm * bedsMultiplier);
+            const solid = Math.round(DATA.solidWallSavings[prop] * fm * bedsMultiplier);
+            opportunities.push({
+                name: 'Wall insulation, once you know which walls you have',
+                saving: 0, cost: 0, payback: 0,
+                freeEligible: false,
+                priority: 'high',
+                unknown: true,
+                note: 'Worth £' + cavity.toLocaleString() + ' a year if the walls are cavity and about £'
+                    + solid.toLocaleString() + ' a year if they are solid. Look at the brickwork: a repeating '
+                    + 'pattern of short ends among the long bricks means solid walls. Your EPC also records it.'
             });
         }
 
         if (opportunities.length === 0) {
             html = '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);">';
-            html += '<div style="font-weight: 600;">Your home is already well insulated</div>';
-            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Consider a <a href="/heat-pump-calculator/">heat pump</a> or <a href="/solar-calculator/">solar panels</a> as your next upgrade.</div>';
+            html += '<div style="font-weight: 600;">Nothing left on the answers you gave</div>';
+            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your loft and walls are both covered, so the next gains are elsewhere: a <a href="/heat-pump-calculator/">heat pump</a>, <a href="/solar-calculator/">solar panels</a>, or the smaller fixes in our <a href="/guides/draught-proofing-guide/">draught proofing guide</a>. Floors and windows are not covered by this calculator.</div>';
             html += '</div>';
         } else {
             // Summary
+            const known = opportunities.filter(o => !o.unknown);
+            if (known.length === 0) {
+                // Every measure on the list depends on an answer the visitor does not have yet,
+                // so a "£0 saving" headline would be actively misleading.
+                html += '<div class="result-full" style="background: var(--color-highlight-bg); border: 1px solid var(--color-highlight-border);">';
+                html += '<div style="font-weight: 600;">We need one more answer before we can total this up</div>';
+                html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your loft is done, so the walls are the open question, and what they are worth depends entirely on which kind you have.</div>';
+                html += '</div>';
+            } else {
             html += '<div class="result-grid">';
             html += '<div class="result-item saving"><div class="label">Total annual saving</div><div class="value">£' + totalSaving.toLocaleString() + '</div><div class="detail">across all measures</div></div>';
             const totalCost = opportunities.reduce((s, o) => s + o.cost, 0);
-            html += '<div class="result-item highlight"><div class="label">Total cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (benefits === 'yes' ? 'Free through grant schemes' : 'Before any grants') + '</div></div>';
+            html += '<div class="result-item highlight"><div class="label">Total cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (benefits === 'yes' ? 'Before grants. Check what you qualify for' : 'Before any grants') + '</div></div>';
             html += '</div>';
+
+            }
 
             // Individual measures
             opportunities.forEach(o => {
                 html += '<div class="result-full">';
                 html += '<div style="display: flex; justify-content: space-between; align-items: start;">';
                 html += '<div><div class="label">' + o.name + '</div>';
-                html += '<div style="font-size: 0.95rem; margin-top: 4px;">Save <strong style="color: var(--color-accent);">£' + o.saving + '/year</strong>';
-                if (o.cost > 0) {
-                    html += ', costs £' + o.cost.toLocaleString() + ', payback in ' + o.payback + ' years';
+                if (o.unknown) {
+                    // No saving can be stated until the visitor knows what walls they have.
+                    html += '<div style="font-size: 0.95rem; margin-top: 4px;">Worth checking before anything else</div>';
                 } else {
-                    html += ', <strong style="color: var(--color-accent);">likely free</strong> through <a href="/grants/">grant schemes</a>';
+                    html += '<div style="font-size: 0.95rem; margin-top: 4px;">Save <strong style="color: var(--color-accent);">£' + o.saving.toLocaleString() + ' a year</strong>';
+                    if (o.cost > 0) {
+                        html += ', costs £' + o.cost.toLocaleString() + ', payback in ' + o.payback + ' years';
+                        if (o.mayBeFunded) {
+                            html += '. On the benefits you named this <a href="/grants/">may be funded</a>, though solid wall work is the most heavily rationed measure';
+                        }
+                    } else {
+                        html += ', <strong style="color: var(--color-accent);">likely free</strong> through <a href="/grants/">grant schemes</a>';
+                    }
+                    html += '</div>';
                 }
-                html += '</div>';
                 if (o.note) html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">' + o.note + '</div>';
                 html += '</div></div></div>';
             });

@@ -97,6 +97,90 @@
         return false;
     };
 
+    /* Reads an optional number field. The min and max attributes on these inputs never
+       fire, because the calculators submit through a button rather than a form, so a
+       visitor could enter 0, a negative, or nine digits and get a result built on it.
+       Returns null when the field is empty (use your own estimate), a number when it is
+       valid, and false when it is present but out of range, having marked the field. */
+    window.rpNumber = function (id) {
+        var node = document.getElementById(id);
+        if (!node) { return null; }
+        clearError(node);
+        var raw = String(node.value).trim();
+        if (raw === '') { return null; }
+        var v = Number(raw);
+        var min = node.hasAttribute('min') ? Number(node.getAttribute('min')) : -Infinity;
+        var max = node.hasAttribute('max') ? Number(node.getAttribute('max')) : Infinity;
+        var lo = min > 0 ? min : 1;
+        if (!isFinite(v) || v < lo || v > max) {
+            markError(node, 'Enter an amount between £' + lo + ' and £' + max.toLocaleString()
+                            + ', or leave it blank and we will estimate it.');
+            say('Check ' + labelFor(node) + ': enter an amount between £' + lo
+                + ' and £' + max.toLocaleString() + ', or leave it blank.');
+            node.focus();
+            return false;
+        }
+        return v;
+    };
+
+    /* Carries the answers a visitor has already given across to the next calculator, so
+       they are not asked the same questions twice. Property type, bedrooms, insulation and
+       tenure share a vocabulary across the tools and travel safely. Fuel does not: the EPC
+       calculator needs to know whether a gas boiler is over or under 15 years old, which
+       the other tools never ask, so gas is deliberately NOT carried there. Carrying a wrong
+       answer is worse than carrying none. */
+    var FUEL_IN = {
+        'old-gas': 'gas', 'new-gas': 'gas', 'gas-boiler': 'gas', 'gas': 'gas',
+        'oil': 'oil', 'oil-boiler': 'oil', 'lpg': 'lpg', 'lpg-boiler': 'lpg',
+        'electric': 'electric', 'electricity': 'electric',
+        'electric-storage': 'electric', 'electric-direct': 'electric',
+        'heat-pump': 'heat-pump', 'heatpump': 'heat-pump'
+    };
+    var FUEL_OUT = {
+        '/heat-pump-calculator/': { field: 'currentHeating',
+            map: { gas: 'gas-boiler', oil: 'oil-boiler', lpg: 'lpg-boiler', electric: 'electric-storage' } },
+        '/insulation-calculator/': { field: 'heatingFuel',
+            map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electricity' } },
+        '/grants/': { field: 'heating',
+            map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heatpump' } },
+        '/epc-calculator/': { field: 'heating',
+            map: { oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heat-pump' } }
+    };
+    var TYPE_FIELD = { '/epc-calculator/': 'propType', '/boiler-vs-heat-pump/': 'propType',
+                       '/heat-pump-calculator/': 'propertyType', '/insulation-calculator/': 'propertyType' };
+    var TAKES_BEDS = { '/heat-pump-calculator/': 1, '/insulation-calculator/': 1, '/boiler-vs-heat-pump/': 1 };
+    var TAKES_INS  = { '/heat-pump-calculator/': 1, '/boiler-vs-heat-pump/': 1 };
+    var TAKES_TEN  = { '/epc-calculator/': 1, '/grants/': 1 };
+
+    function val(id) {
+        var n = document.getElementById(id);
+        return n && n.value ? n.value : null;
+    }
+
+    window.rpCarry = function () {
+        var here = {
+            type: val('propType') || val('propertyType'),
+            beds: val('bedrooms'),
+            ins: val('insulation'),
+            fuel: FUEL_IN[val('heating') || val('currentHeating') || val('heatingFuel') || ''] || null,
+            tenure: val('tenure')
+        };
+        var links = document.querySelectorAll('a.next-step-link, a.tool-link, .related-links a');
+        Array.prototype.forEach.call(links, function (a) {
+            var href = a.getAttribute('href') || '';
+            if (href.charAt(0) !== '/' || href.indexOf('?') !== -1) { return; }
+            var dest = href.split('#')[0];
+            var q = [];
+            if (here.type && TYPE_FIELD[dest]) { q.push(TYPE_FIELD[dest] + '=' + here.type); }
+            if (here.beds && TAKES_BEDS[dest]) { q.push('bedrooms=' + here.beds); }
+            if (here.ins && TAKES_INS[dest]) { q.push('insulation=' + here.ins); }
+            if (here.tenure && TAKES_TEN[dest]) { q.push('tenure=' + here.tenure); }
+            var f = FUEL_OUT[dest];
+            if (here.fuel && f && f.map[here.fuel]) { q.push(f.field + '=' + f.map[here.fuel]); }
+            if (q.length) { a.setAttribute('href', dest + '?' + q.join('&')); }
+        });
+    };
+
     /* Reveals a results block so assistive technology announces it and keyboard focus
        follows the visitor to the answer instead of being stranded on the button. */
     window.rpReveal = function (id) {
@@ -118,6 +202,8 @@
         say(label && value
             ? 'Result ready. ' + label.textContent.replace(/\s+/g, ' ').trim() + ': ' + value.textContent.replace(/\s+/g, ' ').trim() + '. Full breakdown follows.'
             : 'Your result is ready below.');
+        // Answers already given travel to whatever the visitor opens next.
+        try { window.rpCarry(); } catch (e) {}
         // focus() scrolls the element into view and carries the screen reader with it.
         box.focus();
     };
