@@ -29,5 +29,11 @@
   "alt": "An assessor with a clipboard recording details in an empty room of a house",
   "caption": "A domestic energy assessor measures every room, records the construction and heating, and photographs the evidence. The visit takes under an hour.",
   "pick": 4
+ },
+ "heat-pump-cost-end-terrace": {
+  "query": "end terrace house uk brick row gable",
+  "alt": "A brick end terrace house at the end of a row, with its side gable wall exposed",
+  "caption": "An end terrace has the same three exposed walls as a semi. The difference is the gable, and it is worth less than most owners expect.",
+  "pick": 1
  }
 }

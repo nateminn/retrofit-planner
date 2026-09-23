@@ -24,6 +24,9 @@ BASIS = {
     'heat-pump-cost-bungalow':       ('bungalow', 3, 'average'),
     'heat-pump-victorian-terrace':   ('mid-terrace', 3, 'poor'),
     'heat-pump-flat':                ('flat', 2, 'average'),
+    'heat-pump-cost-end-terrace':    ('end-terrace', 3, 'average'),
+    'heat-pump-1960s-house':         ('semi', 3, 'average'),
+    'heat-pump-cost-2-bed-bungalow': ('bungalow', 2, 'average'),
 }
 
 def heat(t, b, ins):

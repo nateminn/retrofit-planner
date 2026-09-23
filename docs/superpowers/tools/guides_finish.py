@@ -4,6 +4,8 @@ guides_meta.json: {slug: {"hub_title": ..., "blurb": ..., "after": <slug of the 
 Idempotent: skips a slug already present on the hub or in the sitemap."""
 import json, re, sys, os
 
+TODAY = '2026-09-23'  # these pages are genuinely new today, so this lastmod is a fact
+
 meta = json.load(open(sys.argv[1], encoding='utf-8'))
 hub = open('guides/index.html', encoding='utf-8').read()
 smap = open('sitemap.xml', encoding='utf-8').read()
@@ -24,9 +26,14 @@ for slug, m in meta.items():
         hub = hub[:anchor.end()] + entry + hub[anchor.end():]; added_hub += 1
     loc = 'https://www.retrofitplanner.co.uk/guides/%s/' % slug
     if loc not in smap:
-        after = '<url><loc>https://www.retrofitplanner.co.uk/guides/%s/</loc></url>\n' % m['after']
-        assert after in smap, ('sitemap anchor not found', m['after'])
-        smap = smap.replace(after, after + '  <url><loc>%s</loc></url>\n' % loc, 1); added_map += 1
+        # entries gained a <lastmod> after this tool was written, so match the whole line
+        import re as _re
+        anchor_re = _re.compile(r'[ \t]*<url><loc>https://www\.retrofitplanner\.co\.uk/guides/'
+                                + _re.escape(m['after']) + r'/</loc>.*?</url>\n')
+        am = anchor_re.search(smap)
+        assert am, ('sitemap anchor not found', m['after'])
+        smap = (smap[:am.end()] + '  <url><loc>%s</loc><lastmod>%s</lastmod></url>\n' % (loc, TODAY)
+                + smap[am.end():]); added_map += 1
 open('guides/index.html', 'w', encoding='utf-8').write(hub)
 open('sitemap.xml', 'w', encoding='utf-8').write(smap)
 n = len(re.findall(r'class="guide-item"', hub))
