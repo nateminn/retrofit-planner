@@ -1,0 +1,5 @@
+RetrofitPlanner.co.uk is an independent UK home energy site. It runs seven calculators, including a solar calculator that sizes a system against the visitor's roof aspect, shading and actual electricity use, then models payback using the current Ofgem cap and SEG export rates.
+
+The site takes about 430 organic clicks a month from Google and is growing steadily. Solar is the second largest search demand on the site by impressions but has no commercial partner attached, so visitors who finish the solar calculator currently get handed to a generic government page.
+
+I would place Project Solar as the quote route from the solar calculator results and from the solar guides, disclosed with rel="sponsored" and a visible affiliate notice above the link. Placement is editorial only: no brand bidding on Project Solar terms, no voucher or cashback activity, no incentivised signups, no email drops. All traffic is UK organic search.

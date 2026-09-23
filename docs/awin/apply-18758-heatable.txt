@@ -1,0 +1,5 @@
+RetrofitPlanner.co.uk is an independent UK home energy site running seven calculators, including a boiler versus heat pump comparison built on the DESNZ National Energy Efficiency Data framework rather than generic averages. It tells visitors plainly when a heat pump will not save them money, which is why people trust the recommendation when it does.
+
+The site takes about 430 organic clicks a month from Google, weighted towards heat pump and EPC queries, and is growing steadily.
+
+Heatable covers boilers, heat pumps and solar, which maps onto three of the calculators. I would place it as the quote route from the heat pump calculator results and from the boiler comparison, disclosed with rel="sponsored" and a visible affiliate notice above the link. Placement is editorial only: no brand bidding on Heatable terms, no voucher or cashback activity, no incentivised signups. All traffic is UK organic search.
