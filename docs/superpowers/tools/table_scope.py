@@ -7,7 +7,10 @@ thead become scope="col"; a th that opens a tbody row becomes scope="row". Idemp
 """
 import io, re, glob, sys
 
-TH = re.compile(r'<th(?![^>]*\bscope=)([^>]*)>')
+# The \b after th is load bearing. Without it this matches <thead> as well, because
+# "ead" satisfies [^>]* and the tag gets rewritten to <th scope="col"ead>. That bug
+# shipped once and corrupted 130 tables across 46 guides before it was caught.
+TH = re.compile(r'<th\b(?![^>]*\bscope=)([^>]*)>')
 
 def patch(html):
     out, n = [], 0
