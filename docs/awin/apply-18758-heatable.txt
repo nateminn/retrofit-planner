@@ -4,7 +4,7 @@ Clicks have grown from 39 in March to 331 in August, roughly 8x in five months. 
 
 Heat pumps and boilers are far my largest cluster: 94,563 impressions and 777 clicks in 12 months, from nine pages. The boiler comparison alone took 11,929 impressions at position 11.2.
 
-Heat demand there is modelled from DESNZ NEED 2026 microdata rather than generic averages, method published at /methodology/. It says plainly when a heat pump will not pay, and drops the quote link when its own figures say so, which is why the recommendation carries weight when it does appear.
+Heat demand there is modelled from DESNZ NEED 2026 microdata rather than generic averages, method published at /methodology/. It says plainly when a heat pump will not pay, and withholds both the quote link and the quote form when its own figures say so, which is why the recommendation carries weight when it does appear.
 
 One file holds the partner destination for every calculator, so this goes live the day it is approved, with rel="sponsored" and a disclosure above the link.
 

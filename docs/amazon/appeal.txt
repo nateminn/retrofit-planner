@@ -1,0 +1,21 @@
+I would like to request reinstatement of Associates account minnisandcomp-21.
+
+I understand the account was closed because it had not generated qualifying sales. That is correct, and the reason is straightforward: the site was built in March 2026 and then left untouched for roughly six months while I was busy elsewhere. It was not abandoned, and it was never a placeholder or a link farm. I returned to it this month and have been working on it daily since.
+
+The site is RetrofitPlanner.co.uk. It is a free UK home energy resource: six interactive calculators that model the cost, saving and payback of heat pumps, insulation and solar for a specific property, plus 46 long-form guides. The heat demand model behind the calculators is derived from the DESNZ National Energy Efficiency Data-Framework, and the method is published openly at /methodology/.
+
+On traffic, the site is now growing steadily from organic search: 39 clicks in March, 331 in August, and 413 clicks from 52,068 impressions in the 28 days to 20 September 2026. Average position has improved from 25.6 in June to 11.0.
+
+On compliance, which I take seriously:
+
+- 123 Associates links across 44 pages, all carrying the minnisandcomp-21 tag and all marked rel="sponsored".
+- The required statement, "As an Amazon Associate I earn from qualifying purchases", appears on 45 pages.
+- Every page carrying an Associates link also shows a plain commission notice above the first link, so readers know before they click rather than afterwards.
+- The links cover 16 distinct products, all genuine editorial recommendations tied to the advice on the page: draught excluders in the draught-proofing guide, anti-vibration pads in the heat pump noise guide, energy monitors in the running cost guides. No product grids, no price comparison pages, no thin content built around links.
+- No links are placed in email, PDFs or offline material, and nothing is cloaked or redirected.
+
+The reason the account had no sales is simply that the site had almost no traffic during the qualifying window. That has changed, and the audience is a good match: people researching a specific home improvement, on pages where a relevant product is a genuine next step rather than an interruption.
+
+I would be grateful if you would reinstate the account. If reinstatement is not possible, please let me know whether submitting a fresh application would be the appropriate route and I will do that instead.
+
+Thank you for your time.

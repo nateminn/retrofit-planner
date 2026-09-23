@@ -156,7 +156,7 @@
             </div>
         </aside>
     </main>
-<section class="quote-band"><section class="quote-form" id="quote">
+<section class="quote-band" id="quoteBand" hidden><section class="quote-form" id="quote">
 <h2>Get heat pump quotes for your home</h2>
 <p class="qf-sub">Tell us about your property to request quotes from MCS-certified installers covering your postcode. Free, no obligation, and nobody calls you unless you tick the box.</p>
 <ul class="qf-points"><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> MCS-certified installers only</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Grant of £7,500 handled by the installer</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No obligation, no spam</li></ul>
@@ -343,7 +343,10 @@
         document.getElementById('resultsContent').innerHTML = html;
 
         /* The next step has to follow the answer, not the other way round. This page
-           tells 42 of its 120 input combinations that the boiler wins. Showing "get
+           has 120 property combinations, 6 types by 5 bedroom counts by 4 fabric
+           grades, and how many of them favour the boiler depends entirely on the gas
+           bill: 68 at £600 a year, 42 at £900, 24 at £1,200, 12 at £1,500, 5 at £1,800.
+           Quoting a bare count without naming the bill is meaningless. Showing "get
            heat pump quotes" underneath that sentence would be the page arguing with
            itself, and once that link is a paid one it would be worse than that. */
         var nextStep;
@@ -365,6 +368,14 @@
                 + '<a href="/grants/">Check what grants could change the maths</a></div>';
         }
         document.getElementById('nextStep').innerHTML = nextStep;
+
+        /* The quote form follows the same rule as the box above it. It sat outside
+           <main> and rendered on every result, so a reader told the gas boiler wins
+           still got "Get heat pump quotes for your home" and a form asking for their
+           postcode and phone number. The box saying one thing while the form below
+           said another is worse than either alone. */
+        var band = document.getElementById('quoteBand');
+        if (band) { band.hidden = !(saving15 > 0); }
 
         if (window.rpDisclose) { rpDisclose(); }
         rpReveal('results');

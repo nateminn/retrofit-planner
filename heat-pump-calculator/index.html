@@ -227,7 +227,7 @@
         <div class="cta-box" style="margin-top:20px"><h4>Run a website? Embed this calculator</h4><p>The same calculator, free to put on your own site in one line of HTML. No account, no cookies and no tracking on your readers.</p><a href="/embed/">Get the embed code</a></div>
 </aside>
     </main>
-<section class="quote-band"><section class="quote-form" id="quote">
+<section class="quote-band" id="quoteBand" hidden><section class="quote-form" id="quote">
 <h2>Get heat pump quotes for your home</h2>
 <p class="qf-sub">Tell us about your property to request quotes from MCS-certified installers covering your postcode. Free, no obligation, and nobody calls you unless you tick the box.</p>
 <ul class="qf-points"><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> MCS-certified installers only</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Grant of £7,500 handled by the installer</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No obligation, no spam</li></ul>
@@ -405,6 +405,13 @@
                 + 'so sort it out before committing to anything.');
         }
         document.getElementById('nextStep').innerHTML = nextStep;
+
+        /* Same rule as the next step box: the quote form only appears where the
+           modelled saving actually supports getting quotes. Below that threshold the
+           page offers a tariff instead, and asking for a phone number underneath
+           that would contradict it. */
+        var band = document.getElementById('quoteBand');
+        if (band) { band.hidden = !(annualSaving > 60); }
         if (paybackYears && paybackYears > 0 && paybackYears < 50) { document.getElementById('payback').textContent = Math.round(paybackYears) + ' years'; }
         else if (annualSaving <= 0) { document.getElementById('payback').textContent = 'N/A'; }
         else { document.getElementById('payback').textContent = '< 1 year'; }
