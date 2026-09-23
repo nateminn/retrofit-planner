@@ -28,9 +28,17 @@
     /* Builds an Awin tracking link. Once a programme is approved, all a partner entry below
        needs is `awinmid` plus the destination it should land on. */
     function awin(merchantId, destination) {
+        // Format taken from Awin's own Link Builder API response, including platform=pl.
+        // All six advertiser ids below were verified against that endpoint, which rejects
+        // unknown ids, so these are real programmes rather than numbers from a blog post:
+        //   25022 EPC and Gas Safety, 13574 BOXT, 5342 British Gas Boilers CPL,
+        //   54765 E.ON Next, 118321 Project Solar, 18758 Heatable.
+        // Generating a link does NOT mean the programme is approved. An unapproved link
+        // still redirects but pays nothing, which is why none of them are switched on here.
         return 'https://www.awin1.com/cread.php?awinmid=' + merchantId
              + '&awinaffid=' + AWIN_ID
-             + '&ued=' + encodeURIComponent(destination);
+             + '&ued=' + encodeURIComponent(destination)
+             + '&platform=pl';
     }
 
     var PARTNERS = {
