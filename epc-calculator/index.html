@@ -204,12 +204,7 @@
                         <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
                     </a>
                 </div>
-
-                <div class="cta-box">
-                    <h4>Get a professional EPC assessment</h4>
-                    <p>Our tool estimates improvements based on typical properties. For an accurate EPC improvement plan, get a professional assessment from a qualified energy assessor.</p>
-                    <a href="https://www.gov.uk/get-new-energy-certificate" target="_blank" rel="noopener">Find an accredited energy assessor</a>
-                </div>
+                <div id="nextStep"></div>
             </div>
         </div>
 
@@ -420,7 +415,10 @@
 
         if (pointsNeeded <= 0) {
             document.getElementById('resultsContent').innerHTML = estimateNote + '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);"><div style="font-weight: 600;">You already meet your target</div><div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your current Band ' + currentBand + ' already meets or exceeds Band ' + targetBand + '. Consider further improvements for lower bills. Try our <a href="/heat-pump-calculator/">heat pump calculator</a> or <a href="/solar-calculator/">solar panel calculator</a>.</div></div>';
-            rpReveal('results');
+            document.getElementById('nextStep').innerHTML = rpPartnerBox('epc',
+            'Turn the estimate into a certificate',
+            'This is a model, not an assessment. A real EPC is what lenders, landlord rules and every grant scheme actually ask for, and an assessor will also spot things a questionnaire cannot.');
+        rpReveal('results');
             return;
         }
 
@@ -541,10 +539,14 @@
         }
 
         document.getElementById('resultsContent').innerHTML = html;
+        document.getElementById('nextStep').innerHTML = rpPartnerBox('epc',
+            'Turn the estimate into a certificate',
+            'This is a model, not an assessment. A real EPC is what lenders, landlord rules and every grant scheme actually ask for, and an assessor will also spot things a questionnaire cannot.');
         rpReveal('results');
     }
     </script>
 <script src="/js/results.js" data-fields="currentBand,targetBand,propType,propAge,lighting,hasLoft,hasWall,hasDoubleGlazing,heating,hasSolar,tenure" data-calc="calculate" data-title="EPC improvement plan" defer></script>
+<script src="/js/partners.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>

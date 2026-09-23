@@ -222,12 +222,7 @@
                         <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
                     </a>
                 </div>
-
-                <div class="cta-box">
-                    <h4>Get free insulation quotes</h4>
-                    <p>Our estimates are based on national averages. Get accurate quotes from certified installers in your area, and find out if you qualify for free installation.</p>
-                    <a href="https://www.trustmark.org.uk/find-a-tradesperson" target="_blank" rel="noopener">Find a TrustMark-registered insulation installer</a>
-                </div>
+                <div id="nextStep"></div>
             </div>
         </div>
 
@@ -511,10 +506,14 @@
         }
 
         document.getElementById('resultsContent').innerHTML = html;
+        document.getElementById('nextStep').innerHTML = rpPartnerBox('grants',
+            'Check what you can get funded first',
+            'Insulation is the one area where grants regularly cover the whole job, so it is worth checking eligibility before paying for anything.');
         rpReveal('results');
     }
     </script>
 <script src="/js/results.js" data-fields="propertyType,bedrooms,heatingFuel,loftInsulation,wallType,benefits" data-calc="calculate" data-title="Insulation savings estimate" defer></script>
+<script src="/js/partners.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>

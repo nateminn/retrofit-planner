@@ -167,12 +167,7 @@
                         <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
                     </a>
                 </div>
-
-                <div class="cta-box">
-                    <h4>Get solar panel quotes</h4>
-                    <p>Our estimates are based on national averages. Get accurate quotes from <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener">MCS-certified installers</a> in your area for the best price.</p>
-                    <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener">Find MCS-certified solar installers</a>
-                </div>
+                <div id="nextStep"></div>
             </div>
         </div>
 
@@ -633,11 +628,15 @@
         }
 
         document.getElementById('resultsContent').innerHTML = html;
+        document.getElementById('nextStep').innerHTML = rpPartnerBox('solar',
+            'Get quotes for your roof',
+            'Generation depends on your actual roof: pitch, shading and the inverter all move the number. A survey is what turns this estimate into a price.');
         rpReveal('results');
     }
     </script>
 <script src="/js/results.js" data-fields="region,roofDirection,systemSize,annualBill,occupancy,battery" data-calc="calculate" data-title="Solar panel cost estimate" defer></script>
 <script src="/js/charts.js" defer></script>
+<script src="/js/partners.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>

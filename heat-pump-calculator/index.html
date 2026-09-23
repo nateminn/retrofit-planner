@@ -192,12 +192,7 @@
                         <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
                     </a>
                 </div>
-
-                <div class="cta-box">
-                    <h4>Get accurate quotes for your home</h4>
-                    <p>Our calculator gives estimates based on national averages. For an accurate price, get free quotes from <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener">MCS-certified installers</a> in your area.</p>
-                    <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener">Find MCS-certified installers near you</a>
-                </div>
+                <div id="nextStep"></div>
             </div>
         </div>
 
@@ -385,6 +380,30 @@
             document.getElementById('annualSaving').textContent = '£' + gap.toLocaleString() + ' more';
             document.getElementById('savingDetail').textContent = 'per year than your ' + fuelLabel + ', on a standard tariff';
         }
+
+        // The next step follows the answer, not the commission. Where the heat pump costs more
+        // to run on a standard tariff, the tariff is genuinely the first thing to fix, so that
+        // is what the page offers. Pushing quotes under a result that says "this costs you
+        // more" would be the fastest way to stop being worth trusting.
+        var nextStep;
+        if (annualSaving > 60) {
+            nextStep = rpPartnerBox('heatpump',
+                'Get quotes for your home',
+                'These figures are modelled from national data. A heat loss survey is what turns '
+                + 'them into a real price, and only an MCS certified installer can do it.');
+        } else if (annualSaving > -60) {
+            nextStep = rpPartnerBox('tariff',
+                'Fix the tariff before you fix the heating',
+                'On a standard tariff this heat pump runs at about the same cost as your ' + fuelLabel
+                + '. A heat pump tariff is what turns that into a saving, and it is free to switch.');
+        } else {
+            nextStep = rpPartnerBox('tariff',
+                'A heat pump tariff is a condition, not a bonus',
+                'On a standard tariff this heat pump would cost £' + gap.toLocaleString()
+                + ' a year more to run than your ' + fuelLabel + '. The right tariff closes most of that gap, '
+                + 'so sort it out before committing to anything.');
+        }
+        document.getElementById('nextStep').innerHTML = nextStep;
         if (paybackYears && paybackYears > 0 && paybackYears < 50) { document.getElementById('payback').textContent = Math.round(paybackYears) + ' years'; }
         else if (annualSaving <= 0) { document.getElementById('payback').textContent = 'N/A'; }
         else { document.getElementById('payback').textContent = '< 1 year'; }
@@ -414,6 +433,7 @@
     </script>
 <script src="/js/results.js" data-fields="propertyType,bedrooms,currentHeating,insulation,annualBill" data-calc="calculate" data-title="Heat pump cost estimate" defer></script>
 <script src="/js/heat-model.js"></script>
+<script src="/js/partners.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>
