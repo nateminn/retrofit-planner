@@ -19,8 +19,23 @@
 (function () {
     'use strict';
 
+    /* Awin publisher ID for Minnis and Company. This is NOT a secret: it appears in every
+       tracking link on every affiliate site in the world. The API token is a secret and must
+       never appear in this file or anywhere else in the repo, because everything here ships
+       to the browser. */
+    var AWIN_ID = '3103652';
+
+    /* Builds an Awin tracking link. Once a programme is approved, all a partner entry below
+       needs is `awinmid` plus the destination it should land on. */
+    function awin(merchantId, destination) {
+        return 'https://www.awin1.com/cread.php?awinmid=' + merchantId
+             + '&awinaffid=' + AWIN_ID
+             + '&ued=' + encodeURIComponent(destination);
+    }
+
     var PARTNERS = {
         epc: {
+            // When programme 25022 is approved: paid: true, url: awin('25022', '<their landing page>')
             paid: false, url: '',
             fallback: 'https://www.gov.uk/get-new-energy-certificate',
             cta: 'Book an accredited EPC assessment',
