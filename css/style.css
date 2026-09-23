@@ -940,3 +940,11 @@ select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,su
   border-bottom:1px solid var(--color-surface-alt);text-align:left}
 /* A visible review date on the page whose job is telling people how current the figures are. */
 .page-updated{font-size:.85rem;color:var(--color-text-secondary);margin:-4px 0 20px;max-width:62ch;line-height:1.5}
+
+/* Standing notice for a scheme with a closing date. Inserted and removed in one pass by
+   docs/superpowers/tools/eco4_notice.py, so the wording stays identical across the site. */
+.scheme-note{margin:20px 0;padding:14px 18px;background:var(--color-highlight-bg);border:1px solid var(--color-highlight-border);border-left:4px solid var(--color-highlight);border-radius:var(--radius-md,10px)}
+.scheme-note p{margin:0;font-size:.9rem;line-height:1.6;color:var(--color-text)}
+.scheme-note strong{color:var(--color-text)}
+@media (max-width:640px){.scheme-note{padding:12px 14px;border-radius:var(--radius-sm,6px)}}
+@media print{.scheme-note{border:1px solid #999;background:transparent}}
