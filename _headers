@@ -1,0 +1,35 @@
+# Security headers. Netlify applies the most specific matching rule for a given header name,
+# which is why the embeddable widgets get their own frame-ancestors further down.
+#
+# WHAT IS NOT HERE, AND WHY:
+#   Trusted Types. The calculators build their results with innerHTML in 10 places, which
+#   require-trusted-types-for 'script' blocks outright. Turning it on would break every
+#   calculator on the site.
+#   A strict CSP. This is static hosting with no server to mint a per-request nonce, and the
+#   site carries 72 inline script blocks and 72 inline event handlers. Hashing them would
+#   break on every content edit. So script-src and style-src keep 'unsafe-inline', which
+#   means Lighthouse will still flag "Ensure CSP is effective against XSS". The source
+#   allowlist below is still worth having: it stops a script loading from an origin we never
+#   intended, even though it cannot stop inline execution.
+#   X-Frame-Options. It has no value meaning "anyone may frame this", so setting it at all
+#   would break the embeddable widgets. CSP frame-ancestors does the same job and can be
+#   relaxed per path.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+# The widgets exist to be dropped into other people's pages, so they must stay framable by
+# anyone. They are self contained with zero external requests, so their policy is tighter
+# than the site default everywhere except frame-ancestors.
+/embed/heat-pump-calculator/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors *; base-uri 'self'; form-action 'none'; object-src 'none'
+  Cross-Origin-Opener-Policy: unsafe-none
+
+/embed/epc-calculator/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors *; base-uri 'self'; form-action 'none'; object-src 'none'
+  Cross-Origin-Opener-Policy: unsafe-none
