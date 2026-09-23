@@ -29,12 +29,18 @@
        needs is `awinmid` plus the destination it should land on. */
     function awin(merchantId, destination) {
         // Format taken from Awin's own Link Builder API response, including platform=pl.
-        // All six advertiser ids below were verified against that endpoint, which rejects
-        // unknown ids, so these are real programmes rather than numbers from a blog post:
-        //   25022 EPC and Gas Safety, 13574 BOXT, 5342 British Gas Boilers CPL,
-        //   54765 E.ON Next, 118321 Project Solar, 18758 Heatable.
-        // Generating a link does NOT mean the programme is approved. An unapproved link
-        // still redirects but pays nothing, which is why none of them are switched on here.
+        //
+        // OPEN programmes, each confirmed by following its bare awinmid redirect and landing
+        // on the merchant's own site:
+        //   25022 EPC and Gas Safety, 13574 BOXT, 54765 E.ON Next,
+        //   118321 Project Solar, 18758 Heatable.
+        // CLOSED, do not use: 5342 British Gas Boilers CPL. Its redirect serves Awin's
+        // closedMerchant.html, so the programme no longer accepts publishers. The Link
+        // Builder still mints links for it because the advertiser record exists. That is
+        // the trap: a link generating successfully proves the id is known, nothing more.
+        //
+        // Approval is a separate thing again. An unapproved link still redirects but pays
+        // nothing, which is why none of these are switched on below.
         return 'https://www.awin1.com/cread.php?awinmid=' + merchantId
              + '&awinaffid=' + AWIN_ID
              + '&ued=' + encodeURIComponent(destination)
@@ -50,30 +56,40 @@
             note: 'An assessor visits, lodges the certificate on the national register and it lasts ten years.'
         },
         heatpump: {
+            // On approval of 13574 BOXT:   paid: true, url: awin('13574', 'https://www.boxt.co.uk/heat-pumps')
+            // or 18758 Heatable:           paid: true, url: awin('18758', 'https://heatable.co.uk/heat-pumps')
             paid: false, url: '',
             fallback: 'https://mcscertified.com/find-an-installer/',
             cta: 'Get heat pump quotes',
             note: 'Only MCS certified installers can claim the Boiler Upgrade Scheme grant on your behalf.'
         },
         solar: {
+            // On approval of 118321 Project Solar: paid: true, url: awin('118321', 'https://www.projectsolaruk.com/')
+            // or 18758 Heatable:                   paid: true, url: awin('18758', 'https://heatable.co.uk/solar')
             paid: false, url: '',
             fallback: 'https://mcscertified.com/find-an-installer/',
             cta: 'Get solar quotes',
             note: 'MCS certification is also what makes you eligible for Smart Export Guarantee payments.'
         },
         tariff: {
+            // On approval of 54765 E.ON Next: paid: true, url: awin('54765', 'https://www.eonnext.com/')
             paid: false, url: '',
             fallback: '/guides/best-heat-pump-tariffs/',
             cta: 'Compare heat pump tariffs',
             note: 'The tariff changes running costs more than almost anything else you can do.'
         },
         insulation: {
+            // No open Awin programme fits this slot. Insulation is mostly grant funded or
+            // local trade, and the search demand here is small. The TrustMark fallback is
+            // the right answer, not a placeholder waiting to be monetised.
             paid: false, url: '',
             fallback: 'https://www.trustmark.org.uk/find-a-tradesperson',
             cta: 'Find an insulation installer',
             note: 'TrustMark registration is required for most grant funded insulation work.'
         },
         grants: {
+            // Deliberately never commercial. Grants are public money and the honest answer
+            // is the government route, whatever a partner would pay to sit here.
             paid: false, url: '', fallback: '/grants/',
             cta: 'Check which grants you qualify for',
             note: ''
