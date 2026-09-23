@@ -125,11 +125,7 @@
                     </a>
                 </div>
 
-                <div class="cta-box">
-                    <h4>Get heat pump quotes</h4>
-                    <p>Ready to explore a heat pump? Get quotes from MCS-certified installers and claim your £7,500 grant.</p>
-                    <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener">Find MCS-certified heat pump installers</a>
-                </div>
+                <div id="nextStep"></div>
             </div>
         </div>
 
@@ -344,11 +340,37 @@
         }
 
         document.getElementById('resultsContent').innerHTML = html;
+
+        /* The next step has to follow the answer, not the other way round. This page
+           tells 42 of its 120 input combinations that the boiler wins. Showing "get
+           heat pump quotes" underneath that sentence would be the page arguing with
+           itself, and once that link is a paid one it would be worse than that. */
+        var nextStep;
+        if (saving15 > 0) {
+            nextStep = rpPartnerBox('heatpump', 'Get heat pump quotes',
+                'On these numbers a heat pump is the cheaper 15-year option for your home. '
+                + 'Get three quotes and compare them on the heat loss calculation rather than the headline price.');
+        } else if (insulation === 'poor' || insulation === 'average') {
+            nextStep = rpPartnerBox('insulation', 'Insulate before you decide',
+                'On these numbers the boiler wins, but that is partly because the house loses heat faster '
+                + 'than a heat pump can economically replace it. Fabric first changes the answer, and it is '
+                + 'worth doing whichever heating you end up with.');
+        } else {
+            nextStep = '<div class="cta-box"><h4>A heat pump does not pay here yet</h4>'
+                + '<p>On these numbers, and for a well insulated home, the gas boiler is still the cheaper '
+                + '15-year option. That can change with the Boiler Upgrade Scheme, a heat pump tariff, or a '
+                + 'gas price rise, so it is worth re-running this when your boiler is actually due for replacement. '
+                + 'We are not going to send you for quotes on a decision our own figures say costs you money.</p>'
+                + '<a href="/grants/">Check what grants could change the maths</a></div>';
+        }
+        document.getElementById('nextStep').innerHTML = nextStep;
+
         rpReveal('results');
     }
     </script>
 <script src="/js/results.js" data-fields="propType,bedrooms,insulation,gasBill" data-calc="calculate" data-title="Boiler versus heat pump, 15-year cost" defer></script>
 <script src="/js/heat-model.js"></script>
+<script src="/js/partners.js"></script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>

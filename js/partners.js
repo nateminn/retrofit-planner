@@ -130,4 +130,68 @@
     };
 
     window.rpPartner = get;
+
+    /* VISIBLE DISCLOSURE.
+
+       rel="sponsored" tells a search engine a link is paid. It tells the reader nothing.
+       The CMA guidance on hidden advertising and the ASA rules both ask for something
+       stronger: the reader has to be able to tell a link is paid BEFORE they click it,
+       without hunting for it. A line in the privacy policy does not meet that, and nor
+       does an attribute they cannot see.
+
+       So: if a page contains any link that actually earns, put one plain sentence at the
+       top of the content saying so. Once per page, above the article, in the reader's
+       path rather than beside it. Pages with no paid links get nothing, because a
+       disclosure on a page that earns nothing is just noise that trains people to skip
+       the real ones. */
+    function paidLinkCount() {
+        var n = 0, i, a;
+        var rels = document.querySelectorAll('a[rel~="sponsored"]');
+        for (i = 0; i < rels.length; i++) { if (rels[i].href) { n++; } }
+        var slots = document.querySelectorAll('[data-partner]');
+        for (i = 0; i < slots.length; i++) {
+            a = get(slots[i].getAttribute('data-partner'));
+            if (a && a.paid) { n++; }
+        }
+        return n;
+    }
+
+    function showDisclosure() {
+        if (document.querySelector('.affiliate-note')) { return; }
+        var main = document.querySelector('main');
+        if (!main || !paidLinkCount()) { return; }
+        var note = document.createElement('p');
+        note.className = 'affiliate-note';
+        note.setAttribute('role', 'note');
+        note.textContent = 'Some links on this page earn us a commission if you buy. '
+            + 'It costs you nothing, and it never changes the numbers or which option '
+            + 'this page recommends.';
+        // After the h1 where there is one, so the reader has the subject before the caveat.
+        var h1 = main.querySelector('h1');
+        if (h1 && h1.parentNode) { h1.parentNode.insertBefore(note, h1.nextSibling); }
+        else { main.insertBefore(note, main.firstChild); }
+    }
+
+    /* Upgrades any anchor carrying data-partner to the paid destination once that
+       programme is switched on above. Until then the anchor keeps the href already in
+       the HTML, so the link works with JavaScript off and works if a programme is later
+       suspended. Nothing here ever downgrades a link that is already correct. */
+    function upgradeLinks() {
+        var slots = document.querySelectorAll('a[data-partner]');
+        for (var i = 0; i < slots.length; i++) {
+            var el = slots[i];
+            var p = get(el.getAttribute('data-partner'));
+            if (!p || !p.paid || !p.href) { continue; }
+            el.href = p.href;
+            var rel = (el.getAttribute('rel') || '').split(/\s+/);
+            if (rel.indexOf('sponsored') === -1) { rel.push('sponsored'); }
+            if (rel.indexOf('noopener') === -1) { rel.push('noopener'); }
+            el.setAttribute('rel', rel.join(' ').trim());
+        }
+    }
+
+    function init() { upgradeLinks(); showDisclosure(); }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else { init(); }
 })();
