@@ -56,7 +56,9 @@ check('no BUS 2028 claims', not bad, str(bad))
 missing = set()
 for f, s in contents.items():
     for href in re.findall(r'href="(/[^"#?]*)"', s):
-        if re.search(r'\.(css|ico|png|xml|txt|webmanifest|js|html)$', href):
+        # Anything with a file extension is a file, not a directory. woff2 was missing
+        # here, so self hosted fonts were looked up as /fonts/x.woff2/index.html.
+        if re.search(r'\.(css|ico|png|jpg|jpeg|webp|svg|xml|txt|webmanifest|js|html|woff2|woff|ttf|pdf)$', href):
             target = href.lstrip('/')
         else:
             target = href.strip('/') + '/index.html' if href != '/' else 'index.html'
