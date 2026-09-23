@@ -849,7 +849,7 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
 }
 
 /* ---- start-here router on the home page (September 2026) ---- */
-.router{max-width:1080px;margin:0 auto 8px;padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg,14px)}
+.router{max-width:1080px;margin:0 auto 48px;padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg,14px)}
 .router h2{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin:0 0 6px}
 .router > p{font-size:.9rem;color:var(--color-text-secondary);margin:0 0 18px;max-width:60ch}
 .router-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
@@ -862,7 +862,7 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
 .router-out h3{font-family:var(--font-display);font-size:1.05rem;margin:0 0 8px}
 .router-out p{font-size:.88rem;line-height:1.6;margin:0 0 10px}
 .router-out p:last-child{margin-bottom:0}
-@media (max-width:800px){.router-grid{grid-template-columns:1fr}.router{padding:20px;border-radius:0;border-left:0;border-right:0}.router-go{width:100%}}
+@media (max-width:800px){.router-grid{grid-template-columns:1fr}.router{margin-bottom:32px;padding:20px;border-radius:0;border-left:0;border-right:0}.router-go{width:100%}}
 @media print{.router{display:none!important}}
 
 /* ---- month by month output bars in the solar results (September 2026) ---- */
