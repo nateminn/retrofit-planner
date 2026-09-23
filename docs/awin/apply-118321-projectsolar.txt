@@ -1,0 +1,9 @@
+RetrofitPlanner.co.uk is an independent UK home energy site I run on my own. Editorial content, UK organic search only.
+
+Clicks have grown from 39 in March to 331 in August, roughly 8x in five months. The 28 days to 20 September gave 413 clicks from 52,068 impressions.
+
+I am applying for one slot: the results of my solar calculator. It took 13,191 impressions in 12 months and only 32 clicks, because it still ranks near position 22. That is real demand that has not surfaced yet, and it has no commercial partner at all. Finishers go to the MCS directory, which earns nothing.
+
+The calculator models generation from regional yield figures, self consumption from the MCS MGD 003 tables and payback against the Ofgem cap and a 12p SEG rate, so anyone reaching your quote form already has a system size and a payback figure.
+
+The link carries rel="sponsored" with a disclosure above it. No brand bidding, no vouchers, no incentivised signups, no email drops.
