@@ -418,6 +418,7 @@
             document.getElementById('nextStep').innerHTML = rpPartnerBox('epc',
             'Turn the estimate into a certificate',
             'This is a model, not an assessment. A real EPC is what lenders, landlord rules and every grant scheme actually ask for, and an assessor will also spot things a questionnaire cannot.');
+        if (window.rpDisclose) { rpDisclose(); }
         rpReveal('results');
             return;
         }
@@ -542,6 +543,7 @@
         document.getElementById('nextStep').innerHTML = rpPartnerBox('epc',
             'Turn the estimate into a certificate',
             'This is a model, not an assessment. A real EPC is what lenders, landlord rules and every grant scheme actually ask for, and an assessor will also spot things a questionnaire cannot.');
+        if (window.rpDisclose) { rpDisclose(); }
         rpReveal('results');
     }
     </script>

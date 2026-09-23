@@ -631,6 +631,7 @@
         document.getElementById('nextStep').innerHTML = rpPartnerBox('solar',
             'Get quotes for your roof',
             'Generation depends on your actual roof: pitch, shading and the inverter all move the number. A survey is what turns this estimate into a price.');
+        if (window.rpDisclose) { rpDisclose(); }
         rpReveal('results');
     }
     </script>

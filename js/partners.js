@@ -99,9 +99,15 @@
     function get(key) {
         var p = PARTNERS[key];
         if (!p) { return null; }
+        /* paid and href are decided by the SAME condition on purpose. An earlier version
+           had href fall back with `p.url || p.fallback` while paid required both flags,
+           so a slot holding a tracking url with paid still false would serve the money
+           link while every other part of this file treated it as unpaid: no sponsored
+           rel, no disclosure. That is the one state this file exists to make impossible. */
+        var live = !!(p.url && p.paid);
         return {
-            href: p.url || p.fallback,
-            paid: !!(p.url && p.paid),
+            href: live ? p.url : p.fallback,
+            paid: live,
             cta: p.cta,
             note: p.note
         };
@@ -119,17 +125,24 @@
         var html = '<div class="cta-box">';
         html += '<h4>' + heading + '</h4>';
         html += '<p>' + body + (p.note ? ' ' + p.note : '') + '</p>';
-        html += '<a href="' + p.href + '"' + rel + '>' + p.cta + '</a>';
+        /* Above the link, not below it. A disclosure the reader meets after they have
+           already clicked is not a disclosure. */
         if (p.paid) {
             html += '<p class="cta-disclosure">We may be paid a commission if you go on to buy '
                   + 'through this link. It costs you nothing and it does not change the figures '
                   + 'above, which come from the same model whatever you decide.</p>';
         }
+        html += '<a href="' + p.href + '"' + rel + '>' + p.cta + '</a>';
         html += '</div>';
         return html;
     };
 
     window.rpPartner = get;
+
+    /* The calculators write their partner box long after DOMContentLoaded, so the
+       page level check has already run and found nothing. They call this once the
+       box is in the DOM. It is idempotent and does nothing when no link earns. */
+    window.rpDisclose = function () { showDisclosure(); };
 
     /* VISIBLE DISCLOSURE.
 

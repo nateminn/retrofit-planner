@@ -509,6 +509,7 @@
         document.getElementById('nextStep').innerHTML = rpPartnerBox('grants',
             'Check what you can get funded first',
             'Insulation is the one area where grants regularly cover the whole job, so it is worth checking eligibility before paying for anything.');
+        if (window.rpDisclose) { rpDisclose(); }
         rpReveal('results');
     }
     </script>
