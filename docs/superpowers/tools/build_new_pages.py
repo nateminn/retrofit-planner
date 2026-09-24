@@ -98,7 +98,160 @@ def what_size():
                          'MCS, <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener">find a certified installer</a>.'])
 
 
-PAGES = {'what-size-heat-pump': what_size}
+# Prices and electricity baselines shared with the bill checker on average-energy-bills-uk,
+# read from that page so the two can never disagree.
+def bill_data():
+    src = (ROOT / 'guides' / 'average-energy-bills-uk' / 'index.html').read_text()
+    D = json.loads(re.search(r'var D=(\{.*?\});', src, re.S).group(1))
+    return D
+RG, RE, ROIL, RLPG, SCG, HPT = 0.0797, 0.2632, 0.090, 0.095, 108.33, 0.18
+INS = [('poor', 'Poorly insulated'), ('average', 'Average'), ('good', 'Well insulated'), ('excellent', 'Recently retrofitted')]
+
+
+def heating_cost(t, b, i, fuel):
+    c = m(t, b, i)
+    if fuel == 'gas': return c['gas'] * RG + SCG
+    if fuel == 'oil': return c['heat'] / 0.85 * ROIL
+    if fuel == 'lpg': return c['heat'] / 0.85 * RLPG
+    if fuel == 'electric': return c['heat'] * RE
+    if fuel == 'hp': return c['heat'] / c['cop'] * RE
+    if fuel == 'hpt': return c['heat'] / c['cop'] * HPT
+
+
+def bills_page(slug, beds, homes, crumb):
+    D = bill_data()
+    rows, main = [], None
+    for key, t, label in homes:
+        e = D[key]['e']
+        g = heating_cost(t, beds, 'average', 'gas') + e
+        rows.append([label, gbp(g), gbp(g / 12), gbp(heating_cost(t, beds, 'average', 'gas')), gbp(e)])
+        main = main or (key, t, label, g, e)
+    key, t, label, total, e = main
+    ins_rows = [[iname, gbp(heating_cost(t, beds, i, 'gas') + e), gbp((heating_cost(t, beds, i, 'gas') + e) / 12)] for i, iname in INS]
+    fuel_rows = []
+    for f, fname in [('gas', 'Mains gas boiler'), ('oil', 'Oil boiler'), ('lpg', 'LPG boiler'), ('electric', 'Electric heating, standard rate'), ('hp', 'Heat pump, standard rate'), ('hpt', 'Heat pump, 18p heat pump tariff')]:
+        yr = heating_cost(t, beds, 'average', f) + e
+        fuel_rows.append([fname, gbp(yr), gbp(yr / 12)])
+    tbl_types = table('Average energy bill by type of %d bed home' % beds, ['Home, average insulation, gas heating', 'A year', 'A month', 'Heating', 'Everything else'], rows)
+    tbl_ins = table('Energy bill for a %s by insulation' % label, ['Insulation', 'A year', 'A month'], ins_rows)
+    tbl_fuel = table('Energy bill for a %s by heating fuel' % label, ['Heating', 'A year', 'A month'], fuel_rows)
+    gas_kwh = m(t, beds)['gas']
+    faq = [
+        ('What is the average energy bill for a %d bed house?' % beds,
+         'About %s a year, or %s a month, for a %s with average insulation heated by mains gas, at the Ofgem price cap for October to December 2026. That includes both standing charges.' % (gbp(total), gbp(total / 12), label)),
+        ('How much gas does a %d bed house use?' % beds,
+         'A %s with average insulation uses about %s kWh of gas a year for heating, hot water and any gas cooking, from government meter data. A poorly insulated one uses about %s kWh and a well insulated one about %s kWh.' % (label, f"{gas_kwh:,}", f"{m(t, beds, 'poor')['gas']:,}", f"{m(t, beds, 'good')['gas']:,}")),
+        ('Why is my bill higher than this?',
+         'The usual reasons are a colder than average home, more people in it, being at home in the day, or a tariff above the price cap. Our bill checker compares your own bill with a home like yours.'),
+    ]
+    body = f"""
+<p class="lead">A {label} with average insulation and gas central heating costs about <strong>{gbp(total)} a year</strong>, or <strong>{gbp(total / 12)} a month</strong>, at the Ofgem price cap for October to December 2026. That is about {gbp(total - e)} for gas and {gbp(e)} for electricity, both including their standing charges.</p>
+
+<h2 id="by-type">Average bill by type of {beds} bed home</h2>
+<p>Gas is the larger part of the bill, and it depends on the size and type of the house. Heating use comes from government meter data for 39,502 gas heated homes; electricity for lights, appliances and cooking is scaled by home size from Ofgem's typical consumption figures.</p>
+{tbl_types}
+
+<h2 id="insulation">How insulation changes it</h2>
+<p>Insulation is the biggest thing you can change. These are the bills for the same {label} at each level of insulation, measured the government's way: comparing homes of the same type and size with different EPC bands.</p>
+{tbl_ins}
+
+<h2 id="fuel">How your heating fuel changes it</h2>
+<p>Everything else on the bill stays the same whatever heats the home, so this table only changes the heating part. Heat pump running costs use the median efficiency measured in 428 homes in the government's Electrification of Heat trial.</p>
+{tbl_fuel}
+<p class="note">Gas bills include the £108.33 a year gas standing charge; homes without gas do not pay it. Electricity includes the £200.13 standing charge in every row. Oil and LPG are September 2026 market prices.</p>
+
+<h2 id="check">Check your own bill</h2>
+<p>Put your own annual bill into the <a href="/guides/average-energy-bills-uk/#bill-checker">bill checker</a> to see how far it sits from a home like yours, or see <a href="/guides/energy-bills-by-household-size/">bills by number of people</a> and <a href="/guides/energy-bills-by-epc-rating/">bills by EPC rating</a>. To cut the bill, the <a href="/retrofit-plan/">retrofit plan</a> puts the upgrades for your home in order, with what each saves.</p>
+"""
+    return dict(slug=slug, kind='home',
+                title='Average Energy Bill for a %d Bed House UK 2026: %s a Month' % (beds, gbp(total / 12)),
+                description='A %d bed house costs about %s a year, %s a month, in gas and electricity at the October 2026 price cap. By house type, insulation and heating fuel.' % (beds, gbp(total), gbp(total / 12)),
+                h1='Average energy bill for a %d bed house' % beds, crumb=crumb, faq=faq, body=body,
+                sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
+                         'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.',
+                         'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat heat pump performance report</a>, December 2024.'])
+
+
+def bills_3():
+    return bills_page('energy-bills-3-bed-house', 3, [('semi3', 'semi', '3 bed semi'), ('det3', 'detached', '3 bed detached')], 'Energy bills, 3 bed house')
+
+
+def bills_4():
+    return bills_page('energy-bills-4-bed-house', 4, [('det4', 'detached', '4 bed detached')], 'Energy bills, 4 bed house')
+
+
+def hp_house(slug, t, b, label, title_label, crumb, intro, extra_h2, extra_p, compare):
+    c = m(t, b)
+    rows = [[iname, kw(m(t, b, i)['kw']), gbp(m(t, b, i)['install']), '%s to %s' % (gbp(m(t, b, i)['range'][0]), gbp(m(t, b, i)['range'][1])),
+             gbp(max(0, m(t, b, i)['install'] - 7500))] for i, iname in INS]
+    tbl_cost = table('Heat pump cost for a %s by insulation' % label, ['Insulation', 'Typical size', 'Median installed', 'Middle half of installs', 'Median after £7,500 grant'], rows)
+    run = []
+    for i, iname in INS:
+        x = m(t, b, i)
+        run.append([iname, gbp(x['gas'] * RG), gbp(x['heat'] / x['cop'] * RE), gbp(x['heat'] / x['cop'] * HPT)])
+    tbl_run = table('Running cost for a %s by insulation' % label, ['Insulation', 'Gas boiler', 'Heat pump, standard rate', 'Heat pump tariff, 18p'], run)
+    comp = [[l, kw(m(tt, bb)['kw']), '%s to %s' % (gbp(m(tt, bb)['range'][0]), gbp(m(tt, bb)['range'][1])), gbp(m(tt, bb)['heat'] / m(tt, bb)['cop'] * HPT)] for tt, bb, l in compare]
+    tbl_comp = table('%s compared with similar homes' % label.capitalize(), ['Home, average insulation', 'Typical size', 'Installed, middle half', 'Heat pump tariff running cost'], comp)
+    lo, hi = c['range']
+    faq = [
+        ('How much does a heat pump cost for a %s?' % label,
+         'Typically %s to %s installed for a %s heat pump, with a median of %s, from what installers recorded under the Boiler Upgrade Scheme in 2025/26. After the £7,500 grant that is %s to %s, or %s to %s if you are replacing oil or LPG.' % (gbp(lo), gbp(hi), kw(c['kw']), gbp(c['install']), gbp(max(0, lo - 7500)), gbp(max(0, hi - 7500)), gbp(max(0, lo - 9000)), gbp(max(0, hi - 9000)))),
+        ('Is a heat pump cheaper to run than gas in a %s?' % label,
+         'On an 18p heat pump tariff, yes: about %s a year against %s for gas with average insulation. On a standard electricity tariff it costs about %s, a little more than gas. Both figures are energy only; gas also carries a £108 a year standing charge you save if you cap the supply.' % (gbp(c['heat'] / c['cop'] * HPT), gbp(c['gas'] * RG), gbp(c['heat'] / c['cop'] * RE))),
+        ('What size heat pump does a %s need?' % label,
+         'About %s with average insulation, and less once it is well insulated. The exact size comes from the room by room heat loss calculation an MCS installer must do. See our guide to heat pump sizes.' % kw(c['kw'])),
+    ]
+    body = f"""
+<p class="lead">{intro} Installers recorded a typical cost of <strong>{gbp(lo)} to {gbp(hi)}</strong> for a heat pump of that size under the Boiler Upgrade Scheme, with a median of {gbp(c['install'])}. After the £7,500 grant, most pay <strong>{gbp(max(0, lo - 7500))} to {gbp(max(0, hi - 7500))}</strong>.</p>
+
+<h2 id="cost">What it costs</h2>
+<p>Size, and so price, follows how much heat the home loses. These are the typical size and the recorded installed cost for a {label} at each level of insulation. The installed cost is the whole job as installers reported it to the scheme: the heat pump, hot water cylinder, labour and VAT, before the grant. Some homes also need larger radiators, which can add to it; see <a href="/guides/radiator-sizing-heat-pump/">radiator sizing</a>.</p>
+{tbl_cost}
+<p class="note">Middle half of installs: the scheme's lower and upper quartile, scaled to each median. Homes replacing oil or LPG get £9,000 instead of £7,500 until March 2027.</p>
+
+<h2 id="running">What it costs to run</h2>
+<p>Running costs use the median efficiency measured across 428 heat pumps in the government's Electrification of Heat trial, at the Ofgem price cap for October to December 2026. The tariff matters more than almost anything else: see <a href="/guides/best-heat-pump-tariffs/">heat pump tariffs</a>.</p>
+{tbl_run}
+
+<h2 id="{extra_h2[0]}">{extra_h2[1]}</h2>
+{extra_p}
+
+<h2 id="compare">Compared with similar homes</h2>
+{tbl_comp}
+<p>For your own figures, use the <a href="/heat-pump-calculator/">heat pump calculator</a>, or build a <a href="/retrofit-plan/">retrofit plan</a> that puts insulation first and sizes the heat pump for the home after it.</p>
+"""
+    return dict(slug=slug, kind='heat-pump', title=title_label % (gbp(lo), gbp(hi)) if '%s' in title_label else title_label,
+                description='%s heat pump: %s to %s installed, %s to %s after the £7,500 grant. Typical size, running costs and what to check first.' % (label[0].upper() + label[1:], gbp(lo), gbp(hi), gbp(max(0, lo - 7500)), gbp(max(0, hi - 7500))),
+                h1='Heat pump for a %s: cost and running costs' % label, crumb=crumb, faq=faq, body=body,
+                sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables A1.3A and Q1.1A.',
+                         'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat heat pump performance report</a>, December 2024.',
+                         'DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
+                         'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.'])
+
+
+def mid_terrace_3():
+    c = m('mid-terrace', 3)
+    return hp_house('heat-pump-cost-3-bed-mid-terrace', 'mid-terrace', 3, '3 bed mid-terrace',
+                    '3-Bed Mid-Terrace Heat Pump Cost 2026: %s to %s', 'Heat pump, 3 bed mid-terrace',
+                    'In government meter data a 3 bed mid-terrace uses less heat than any other kind of 3 bed house, because two of its walls are shared with warm neighbours, so it needs a smaller heat pump: about %s with average insulation.' % kw(c['kw']),
+                    ('outdoor-unit', 'Where the outdoor unit goes'),
+                    '<p>Most mid-terraces have no side access, so the outdoor unit usually goes in the back garden or yard, and the installer runs pipework through to the hot water cylinder. Keep it away from a neighbour\'s window: in England a heat pump is usually permitted development, but only within noise and siting conditions. See <a href="/guides/planning-permission-heat-pump/">planning rules</a> and <a href="/guides/heat-pump-noise/">heat pump noise</a> before you choose a spot.</p>',
+                    [('mid-terrace', 3, '3 bed mid-terrace'), ('end-terrace', 3, '3 bed end-terrace'), ('semi', 3, '3 bed semi'), ('detached', 3, '3 bed detached')])
+
+
+def semi_1930s():
+    c = m('semi', 3)
+    g = m('semi', 3, 'good')
+    return hp_house('heat-pump-1930s-semi', 'semi', 3, '1930s semi',
+                    'Heat Pump for a 1930s Semi UK 2026: Cost and Running Costs', 'Heat pump, 1930s semi',
+                    'A typical 1930s semi is a 3 bed house, and many were built with cavity walls that have since been filled. With average insulation, a 1930s semi typically needs a heat pump of about %s, falling to about %s once it is well insulated.' % (kw(c['kw']), kw(g['kw'])),
+                    ('before', 'What to check in a 1930s semi first'),
+                    '<p>Three things decide how well a heat pump works in a house of this age. First, the walls: if the cavity has never been filled, filling it is one of the biggest cuts in heat loss you can make, a median 12.0 per cent less gas in homes the government measured. Second, the floor: many 1930s houses have suspended timber floors that are draughty, which <a href="/guides/underfloor-insulation-cost/">underfloor insulation</a> and draught-proofing address. Third, the radiators: rooms such as a bay-fronted lounge may need a larger radiator to stay warm at the lower flow temperatures heat pumps run at. An MCS installer\'s room by room heat loss survey shows which rooms need what.</p>',
+                    [('semi', 3, '3 bed semi'), ('end-terrace', 3, '3 bed end-terrace'), ('mid-terrace', 3, '3 bed mid-terrace'), ('detached', 3, '3 bed detached')])
+
+
+PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
+         'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s}
 
 
 def render(p):
