@@ -104,7 +104,8 @@ function calc(){
   // A typed bill sets the heat demand for both sides; a gas bill's standing charge comes off first.
   var demand=H.heatDemand(pt,bed,ins,'gas'), standing=fuel==='gas'?GAS_STANDING:0;
   var billNote='';
-  if(bill>0 && bill-standing>50){ demand=Math.round((bill-standing)/price*eff); } else if(bill>0){ billNote=' That bill is below the gas standing charge alone, so these figures use the model for your home.'; }
+  if(!isNaN(bill) && (bill<1 || bill>10000)){ billNote=' A yearly bill needs to be between £1 and £10,000, so these figures use the model for your home.'; }
+  else if(bill>0 && bill-standing>50){ demand=Math.round((bill-standing)/price*eff); } else if(bill>0){ billNote=' That bill is too low to work out your heat use from, so these figures use the model for your home.'; }
   var cur=demand/eff*price, cop=H.cop(ins);
   var hp=demand/cop*PRICE.electricity, hpTar=demand/cop*TARIFF;
   var cost=H.heatPumpInstall(pt,bed,ins), grant=H.busGrant(fuel), net=Math.max(0,cost-grant);
@@ -119,7 +120,7 @@ function calc(){
   if(fuel==='oil'){ document.getElementById('savingDetail').textContent+='. Oil is priced at 9.0p per kWh, below September 2026 prices, so the saving is likely higher'; }
   // Payback and the verdict on a heat pump tariff, as on the full calculator.
   var pay=saveTar>0?net/saveTar:null;
-  document.getElementById('payback').textContent=!(saveTar>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+' years')));
+  document.getElementById('payback').textContent=!(saveTar>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+(Math.round(pay)===1?' year':' years'))));
   var max=Math.max(cur,hp,hpTar);
   document.getElementById('gasBar').style.width=(cur/max*100)+'%';
   document.getElementById('hpBar').style.width=(hp/max*100)+'%';

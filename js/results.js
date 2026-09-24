@@ -114,9 +114,14 @@
 
     var original = window[CALC];
     if (typeof original === 'function') {
-      /* Hide the old answer first. A calculator only reveals the box when the new inputs
-         pass its checks, so a half-filled form can never sit above the previous result. */
-      window[CALC] = function () { box.classList.remove('visible'); var r = original.apply(this, arguments); afterCalc(); return r; };
+      /* Hide the old answer and its quote form first. A calculator only reveals them when
+         the new inputs pass its checks, so a half-filled form can never sit above the
+         previous result. */
+      window[CALC] = function () {
+        box.classList.remove('visible');
+        var band = el('quoteBand'); if (band) band.hidden = true;   // each calculator re-shows it when the new result earns it
+        var r = original.apply(this, arguments); afterCalc(); return r;
+      };
     }
 
     /* Only calculate straight away when the link carries a complete answer. A full result
