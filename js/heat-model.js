@@ -21,6 +21,26 @@
      That is a much narrower spread than the 1.0 to 1.5 range this site used to assume,
      and it is what the data supports.
 
+     WHY THERE IS NO BAND F OR G TIER, checked against the 2026 sample on 24 September
+     2026 rather than assumed. NEED reports F and G as one band, and the 50,000 row sample
+     holds 635 such records, 312 of them gas heated with 2024 consumption. Measured the
+     same way as the tiers above, within property type and floor area cells, F/G comes out
+     at 1.04, which is BELOW band E at 1.11. Three cells clear 30 records and all three
+     agree: mid terrace 1.04, semi 1.03 and 1.06. Loosening the threshold to 10 records
+     gives 1.06 across 11 cells. In every cell with enough data, F/G households buy 3 to 5
+     per cent LESS gas than band E households in the same size and type of house.
+     That is almost certainly under-heating rather than efficiency: the worst bands
+     correlate with fuel poverty, and metered consumption measures what people buy, not
+     what the building needs. Two consequences. A tier at 1.04 would have the site tell
+     the owner of a solid wall Victorian house that it uses less than a band E one, which
+     is true of the meter and useless as advice. And demand for any home in these bands is
+     understated for heat pump sizing, because a heat pump will heat the house properly
+     where the old system did not.
+     Beware the naive version of this calculation: pooling all records regardless of
+     property size gives F/G 1.23, because the worst bands skew towards larger older
+     houses. That confounds band with size, which is what the within cell method exists
+     to avoid.
+
    Figures are median ANNUAL GAS CONSUMPTION in kWh for a gas heated home at EPC band D,
    which includes hot water and any gas cooking. Multiply by boiler efficiency for the
    heat actually delivered. */

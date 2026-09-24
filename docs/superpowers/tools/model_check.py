@@ -41,6 +41,10 @@ BASIS = {
     # ladder. The original audit scoped itself to pages stating a kWh figure, and this
     # page states only derived costs, so it was invisible to that scan.
     'storage-heaters-vs-heat-pump':  ('semi', 3, 'average'),
+    # Its running-cost section is a 3-bed Edwardian semi with the loft and glazing done
+    # but the walls unlined, which is the model's average cell, not poor. The sizing
+    # table above it is explicitly "(insulated)" and uses the good cells.
+    'heat-pump-old-house':           ('semi', 3, 'average'),
 }
 
 def heat(t, b, ins):
