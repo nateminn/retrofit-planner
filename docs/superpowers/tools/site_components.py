@@ -23,6 +23,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]
 APPLY = '--apply' in sys.argv
 
 CONTACT = 'hello@retrofitplanner.co.uk'
+# Each form's label ends in its kind (for example intro-v2-2026-09-24-solar), so the label alone
+# identifies which wording a person agreed to; the wording itself is stored too.
 CONSENT_VERSION = 'intro-v2-2026-09-24'
 NEWS_VERSION = 'newsletter-v2-2026-09-24'
 
@@ -91,7 +93,7 @@ INSULATION = ['insulation-calculator'] + ['guides/' + g for g in [
     'is-cavity-wall-insulation-worth-it', 'is-loft-insulation-worth-it', 'solid-wall-insulation-cost',
     'underfloor-insulation-cost', 'condensation-mould-guide', 'great-british-insulation-scheme', 'eco4-scheme-explained']]
 EPC = ['guides/epc-cost', 'guides/epc-rating-landlords']
-HOME = ['', 'guides', 'grants', 'epc-calculator', 'about', 'retrofit-plan'] + ['guides/' + g for g in [
+HOME = ['', 'guides', 'grants', 'epc-calculator', 'about', 'contact', 'retrofit-plan'] + ['guides/' + g for g in [
     'energy-bills-3-bed-house', 'energy-bills-4-bed-house', 'energy-bills-1-bed-flat', 'energy-bills-2-bed-house', 'energy-bills-5-bed-house',
     'how-epc-points-are-calculated', 'how-to-improve-epc-rating', 'energy-bills-by-epc-rating',
     'average-energy-bills-uk', 'energy-bills-by-household-size', 'home-upgrade-grant',
@@ -158,7 +160,7 @@ def lead_form(kind, source):
         '<p class="qf-small">It costs you nothing and never changes any figure on this site. We keep your request and the wording you agreed to as a record of your consent, and delete both after 12 months. See our <a href="/privacy/#quotes">privacy policy</a>.</p>\n'
         '</form>\n</section>\n<!-- /lead-form -->'
         % (kind, k['h2'], sub_who(k), points, k['form'], k['action'], k['form'], esc(source),
-           CONSENT_VERSION, esc(ct), '\n'.join(fields), ct))
+           CONSENT_VERSION + '-' + kind, esc(ct), '\n'.join(fields), ct))
 
 
 NEWS_TEXT = 'I would like email updates about changes to UK home energy rules, grants and prices. I can unsubscribe at any time.'
@@ -263,7 +265,7 @@ THANKS = {
     '': ('heat-pump', 'heat pump', 'https://mcscertified.com/find-an-installer/', 'Find MCS-certified installers yourself',
          ['Will you do a room-by-room heat loss survey before quoting, and can I see it?',
           'What design flow temperature is the system sized for, and which radiators change?',
-          'Is the £7,500 Boiler Upgrade Scheme grant deducted on the invoice, and who applies for it?',
+          'Is the Boiler Upgrade Scheme grant (£7,500, or £9,000 replacing oil or LPG) taken off your quote, and do you apply for it?',
           'What seasonal efficiency do you expect, and will you show me a running cost estimate?',
           'Who services it, what does that cost, and what does the warranty cover?'],
          [('/guides/heat-pump-cost-by-house-type/', 'Compare costs by house type'), ('/guides/boiler-upgrade-scheme-guide/', 'Read the grant guide')]),

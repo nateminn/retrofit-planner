@@ -28,7 +28,7 @@ Every quote request in Netlify carries:
 | created_at (Netlify) | When they asked |
 | source | The page they asked on |
 | consent_text | The exact wording they ticked |
-| consent_version | Which version of that wording (intro-v2-2026-09-24) |
+| consent_version | Which version of that wording and which form, for example intro-v2-2026-09-24-heat-pump or intro-v2-2026-09-24-solar |
 | share_ok = yes | That they ticked it. The box is required, so every request since 24 September has it |
 
 Requests made before 24 September used the older optional box. Only pass those on if
