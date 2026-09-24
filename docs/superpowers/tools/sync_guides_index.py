@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Keep /guides/ in step with the guides themselves.
 
-1. Any card whose blurb quotes a figure takes the guide's own meta description, so the
-   index can never quote a price the guide no longer gives.
+1. Every card takes the guide's own meta description, so the index can never quote a
+   price, or promise a section, that the guide no longer has.
 2. Guides not yet on the index are added to their section (NEW below).
 3. Section header counts and the category nav counts are recounted from the cards.
 
@@ -42,8 +42,6 @@ def main():
 
     def fix_desc(m):
         slug, desc = m.group(1), m.group(3)
-        if not re.search(r'£|\d', desc):
-            return m.group(0)
         md = meta_description(slug)
         if not md or md == html.unescape(desc):
             return m.group(0)
