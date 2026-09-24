@@ -27,6 +27,16 @@ BASIS = {
     'heat-pump-cost-end-terrace':    ('end-terrace', 3, 'average'),
     'heat-pump-1960s-house':         ('semi', 3, 'average'),
     'heat-pump-cost-2-bed-bungalow': ('bungalow', 2, 'average'),
+    # Added after the September 2026 drift audit. These six state a single property
+    # basis and had all wandered off it: 12,000 and 15,000 kWh for a 3-bed semi the
+    # model puts at 9,900. The other seven pages that state a kWh figure present many
+    # property types in one table, which a single-basis check cannot police, so they
+    # are deliberately not here and need a different check.
+    'boiler-upgrade-scheme-guide':   ('semi', 3, 'average'),
+    'home-upgrade-grant':            ('semi', 3, 'average'),
+    'best-heat-pump-tariffs':        ('semi', 3, 'average'),
+    'heat-pump-vs-new-boiler':       ('semi', 3, 'average'),
+    'electric-boiler-vs-heat-pump':  ('semi', 3, 'average'),
 }
 
 def heat(t, b, ins):
