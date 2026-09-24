@@ -61,7 +61,7 @@ Their 2025 sustainability report says EPCs capture neither actual energy use nor
 
 ## Does your proposition use artificial intelligence?
 
-NA. There is no AI in this. No model inference, no learned black box. Every output is arithmetic over a published table derived from DESNZ NEED microdata, so any figure can be reproduced by hand from the method page. That is deliberate: a number put in front of a bank customer should be traceable to a source rather than generated.
+NA, and deliberately. Every output is arithmetic over a published table, so any figure can be reproduced by hand and audited by your model risk team. It also keeps the interface four dropdowns rather than a chat box. The worst stock is the oldest: 18 per cent of NEED's earliest age band sits at EPC E or below against 0.5 per cent of the newest. Those owners need a clear form, not a conversation.
 
 ## Accessibility: WCAG 2.2 AA
 
