@@ -348,6 +348,10 @@
         const grant = RP_HEAT.busGrant(heating);
         const afterGrant = installCost - grant;
         const annualSaving = currentCost - hpRunningCost;
+        // On a heat pump tariff (18p blended), which is how most owners run one and what the
+        // site recommends; switching is free, so it decides whether quotes are worth getting.
+        const hpTariffCost = (heatDemand / cop) * 0.18;
+        const annualSavingT = currentCost - hpTariffCost;
         const paybackYears = annualSaving > 0 ? afterGrant / annualSaving : null;
         const currentCO2 = (heatDemand / boilerEff) * DATA.co2Factors[fuelType];
         const hpCO2 = (heatDemand / cop) * DATA.co2Factors.electricity;
@@ -379,19 +383,19 @@
         if (annualSaving > 60) {
             nextStep = rpPartnerBox('heatpump',
                 'Get quotes for your home',
-                'These figures are modelled from national data. A heat loss survey is what turns '
-                + 'them into a real price, and only an MCS certified installer can do it.');
-        } else if (annualSaving > -60) {
-            nextStep = rpPartnerBox('tariff',
-                'Fix the tariff before you fix the heating',
-                'On a standard tariff this heat pump runs at about the same cost as your ' + fuelLabel
-                + '. A heat pump tariff is what turns that into a saving, and it is free to switch.');
+                'On these figures a heat pump costs less to run than your ' + fuelLabel + ' on any tariff. '
+                + 'A heat loss survey is what turns them into a real price, and only an MCS certified installer can do it.');
+        } else if (annualSavingT > 60) {
+            nextStep = rpPartnerBox('heatpump',
+                'Get quotes, and plan on a heat pump tariff',
+                'On a standard tariff this heat pump would cost about the same as your ' + fuelLabel + ' or more, but on a heat pump tariff '
+                + 'it saves about £' + Math.round(annualSavingT).toLocaleString('en-GB') + ' a year. Switching tariff is free, so it is part of the decision. '
+                + 'A heat loss survey turns these figures into a real price.');
         } else {
             nextStep = rpPartnerBox('tariff',
-                'A heat pump tariff is a condition, not a bonus',
-                'On a standard tariff this heat pump would cost £' + gap.toLocaleString('en-GB')
-                + ' a year more to run than your ' + fuelLabel + '. The right tariff closes most of that gap, '
-                + 'so sort it out before committing to anything.');
+                'A heat pump does not pay here yet',
+                'Even on a heat pump tariff this heat pump would cost about as much to run as your ' + fuelLabel + ' or more. '
+                + 'Insulation first, or a change in prices, can change that, so it is worth re-running this later.');
         }
         document.getElementById('nextStep').innerHTML = nextStep;
 
@@ -400,7 +404,7 @@
            page offers a tariff instead, and asking for a phone number underneath
            that would contradict it. */
         var band = document.getElementById('quoteBand');
-        if (band) { band.hidden = !(annualSaving > 60); }
+        if (band) { band.hidden = !(annualSavingT > 60); }
         var pb;
         if (annualSaving <= 0) { pb = 'No payback'; }
         else if (afterGrant <= 0) { pb = 'Immediate'; }
@@ -415,11 +419,15 @@
         document.getElementById('gasCost').textContent = '£' + Math.round(currentCost).toLocaleString('en-GB') + '/yr';
         document.getElementById('hpCost').textContent = '£' + Math.round(hpRunningCost).toLocaleString('en-GB') + '/yr';
         document.getElementById('co2Saving').textContent = Math.round(co2Saving).toLocaleString('en-GB');
+        const tariffLine = annualSavingT > 0
+            ? ' On an 18p heat pump tariff it would cost £' + Math.round(hpTariffCost).toLocaleString('en-GB') + ' a year, saving £' + Math.round(annualSavingT).toLocaleString('en-GB')
+              + (afterGrant > 0 ? ' and paying back the £' + Math.max(0, afterGrant).toLocaleString('en-GB') + ' after the grant in about ' + Math.round(afterGrant / annualSavingT) + ' years.' : '.')
+            : ' Even on an 18p heat pump tariff it would cost £' + Math.round(hpTariffCost).toLocaleString('en-GB') + ' a year.';
         document.getElementById('costNote').textContent = (billNote ? billNote + ' ' : '')
             + (fuelType === 'gas'
                 ? 'Both figures are the energy you use, based on ' + (annualBillInput !== null && !billNote ? 'your bill' : 'the model for your home')
                   + '. Gas also carries a standing charge of £108 a year, which you save as well if you cap the gas supply after switching.'
-                : 'Both figures are the energy you use, based on ' + (annualBillInput !== null && !billNote ? 'your bill' : 'the model for your home') + '.');
+                : 'Both figures are the energy you use, based on ' + (annualBillInput !== null && !billNote ? 'your bill' : 'the model for your home') + '.') + tariffLine;
 
         const recEl = document.getElementById('recommendation');
         const recDetail = document.getElementById('recommendationDetail');
