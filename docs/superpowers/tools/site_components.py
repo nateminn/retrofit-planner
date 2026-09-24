@@ -83,14 +83,16 @@ HEAT_PUMP = ['heat-pump-calculator', 'boiler-vs-heat-pump'] + ['guides/' + g for
     'heat-pump-cost-2-bed-bungalow', 'heat-pump-cost-bungalow', 'heat-pump-flat', 'heat-pump-old-house',
     'heat-pump-running-costs', 'heat-pump-vs-new-boiler', 'storage-heaters-vs-heat-pump',
     'electric-boiler-vs-heat-pump', 'boiler-upgrade-scheme-guide', 'heat-pump-noise',
-    'radiator-sizing-heat-pump', 'planning-permission-heat-pump', 'best-heat-pump-tariffs']]
+    'radiator-sizing-heat-pump', 'planning-permission-heat-pump', 'best-heat-pump-tariffs',
+    'what-size-heat-pump', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi']]
 SOLAR = ['solar-calculator'] + ['guides/' + g for g in ['are-solar-panels-worth-it-uk', 'solar-battery-storage-uk', 'solar-panel-payback-uk']]
 INSULATION = ['insulation-calculator'] + ['guides/' + g for g in [
     'diy-loft-insulation', 'draught-proofing-guide', 'free-loft-insulation-uk', 'how-long-loft-insulation-lasts',
     'is-cavity-wall-insulation-worth-it', 'is-loft-insulation-worth-it', 'solid-wall-insulation-cost',
     'underfloor-insulation-cost', 'condensation-mould-guide', 'great-british-insulation-scheme', 'eco4-scheme-explained']]
 EPC = ['guides/epc-cost', 'guides/epc-rating-landlords']
-HOME = ['', 'guides', 'grants', 'epc-calculator', 'about'] + ['guides/' + g for g in [
+HOME = ['', 'guides', 'grants', 'epc-calculator', 'about', 'retrofit-plan'] + ['guides/' + g for g in [
+    'energy-bills-3-bed-house', 'energy-bills-4-bed-house',
     'how-epc-points-are-calculated', 'how-to-improve-epc-rating', 'energy-bills-by-epc-rating',
     'average-energy-bills-uk', 'energy-bills-by-household-size', 'home-upgrade-grant',
     'warm-homes-plan-2026', 'warm-home-discount']]
@@ -101,7 +103,7 @@ for kind, pages in (('heat-pump', HEAT_PUMP), ('solar', SOLAR), ('insulation', I
         PAGE_KIND[p] = kind
 
 # Calculators show their form in a band that stays hidden until a result earns it.
-BANDED = {'heat-pump-calculator', 'boiler-vs-heat-pump', 'solar-calculator', 'insulation-calculator', 'epc-calculator'}
+BANDED = {'heat-pump-calculator', 'boiler-vs-heat-pump', 'solar-calculator', 'insulation-calculator', 'epc-calculator', 'retrofit-plan'}
 
 
 def esc(s):
@@ -161,7 +163,7 @@ def lead_form(kind, source):
 
 NEWS_TEXT = 'I would like email updates about changes to UK home energy rules, grants and prices. I can unsubscribe at any time.'
 
-FOOTER_COLS = '''<div class="footer-inner"><div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div><div class="footer-col"><h4>Calculators</h4><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel Cost Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div><div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div><div class="footer-col"><h4>Company</h4><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/embed/">Embed Our Calculators</a><a href="/contact/">Contact</a></div></div>'''
+FOOTER_COLS = '''<div class="footer-inner"><div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div><div class="footer-col"><h4>Calculators</h4><a href="/retrofit-plan/">Retrofit Plan</a><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel Cost Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div><div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div><div class="footer-col"><h4>Company</h4><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/accuracy/">How Accurate We Are</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/embed/">Embed Our Calculators</a><a href="/contact/">Contact</a></div></div>'''
 
 DEFAULT_ATTRIBUTION = ('Data from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a>, '
                        '<a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, and '
