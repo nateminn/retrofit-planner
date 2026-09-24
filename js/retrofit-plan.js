@@ -28,9 +28,9 @@
 
     var MEASURES = {
         loftBare: { name: 'Loft insulation to 270mm', cost: 750, saving: 0.0321, n: 1486,
-            note: 'Measured average across mostly top-ups. A loft with no insulation at all usually saves more than this.' },
+            note: 'The measured figure covers top-ups as well as bare lofts. A loft with no insulation at all usually saves more than this.' },
         loftTopUp: { name: 'Loft insulation top-up to 270mm', cost: 600, saving: 0.0321, n: 1486,
-            note: 'Measured average saving after loft insulation, most of it top-ups like this one.' },
+            note: 'Measured average saving after loft insulation, top-ups and bare lofts together.' },
         cavity: { name: 'Cavity wall insulation', cost: 2700, saving: 0.1198, n: 2191,
             note: 'Energy Saving Trust puts a typical home at about £2,700. It is often free through a grant.' },
         solidInternal: { name: 'Solid wall insulation (internal)', cost: 12000, saving: 0.1728, n: 2411,

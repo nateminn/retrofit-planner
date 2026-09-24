@@ -273,7 +273,7 @@
         <article>
             <h2>How much does insulation cost in 2026?</h2>
             <p>Loft insulation is the cheapest: the Energy Saving Trust puts it at £750 to lay 270mm in a bare loft and £600 to top up a thin one. Cavity wall insulation costs about £2,700 for a typical home. Solid wall insulation is the most expensive, about £12,000 inside or £15,000 outside for a typical 3 bed semi. Larger homes cost more. Many households on lower incomes can get loft and cavity insulation free through <a href="/guides/eco4-scheme-explained/">ECO4</a>, which ends on 31 December 2026, or a Warm Homes: Local Grant from their council in England, where the council has funding.</p>
-            <p>The savings we show are what homes measurably saved: the government compared gas use before and after in thousands of real homes. The median was 12.0 per cent for cavity wall insulation, 17.3 per cent for solid wall and 3.2 per cent for loft insulation, most of it top-ups. We apply those to your home's own fuel use, so a detached house saves more than a mid-terrace, and oil or LPG homes save more pounds than gas homes because their fuel costs more. These savings are lower than most calculators show, because many homes were under-heated before and take part of the gain as warmth.</p>
+            <p>The savings we show are what homes measurably saved: the government compared gas use before and after in thousands of real homes. The median was 12.0 per cent for cavity wall insulation, 17.3 per cent for solid wall and 3.2 per cent for loft insulation, top-ups and bare lofts together. We apply those to your home's own fuel use, so a detached house saves more than a mid-terrace, and oil or LPG homes save more pounds than gas homes because their fuel costs more. These savings are lower than most calculators show, because many homes were under-heated before and take part of the gain as warmth.</p>
 
             <h2>Should I insulate before installing a heat pump?</h2>
             <p>Yes, almost always. <a href="/heat-pump-calculator/">Heat pumps</a> work best in well-insulated homes because they operate at lower temperatures than gas boilers. Better insulation means you need a smaller heat pump (lower cost), the heat pump runs more efficiently (lower bills), and your home stays comfortable at the lower flow temperatures. Our <a href="/epc-calculator/">EPC improvement planner</a> can show you the most cost-effective order of improvements for your home.</p>
@@ -335,7 +335,7 @@
        SAVINGS ARE MEASURED. Each figure is the median fall in gas use the government
        measured in real homes after that measure was fitted, against similar homes that had
        nothing done: NEED Impact of Measures 2026, Table 1 (DESNZ, 11 June 2026; installs
-       mid-May 2023 to mid-May 2024). Loft 3.2% (1,486 homes, mostly top-ups), cavity wall
+       mid-May 2023 to mid-May 2024). Loft 3.2% (1,486 homes, top-ups and bare lofts together), cavity wall
        12.0% (2,191), solid wall 17.3% (2,411). They are applied to this home's own fuel use
        from the shared heat model, so a bigger or leakier home saves more, and priced at the
        fuel it actually uses. Measured savings are lower than the modelled figures most
@@ -392,7 +392,7 @@
         }
         if (loft === 'none') {
             add('Loft insulation to 270mm', 'loft', DATA.cost.loftNone,
-                'The measured figure is an average across mostly top-ups. A loft with little or no insulation usually saves more than this.', true);
+                'The measured figure covers top-ups as well as bare lofts. A loft with little or no insulation usually saves more than this.', true);
         } else if (loft === 'partial') {
             add('Loft insulation top-up to 270mm', 'loft', DATA.cost.loftTopUp, '');
         }

@@ -372,7 +372,8 @@ def main():
     seen = set()
     for f in sorted(ROOT.rglob('*.html')):
         parts = f.relative_to(ROOT).parts
-        if parts[0] in ('docs', 'embed', 'node_modules'):
+        # The embed widgets are framed on other sites and carry no footer; the /embed/ page itself does.
+        if parts[0] in ('docs', 'node_modules') or (parts[0] == 'embed' and len(parts) > 2):
             continue
         t0, t, notes = process(f)
         seen.add(page_key(f))

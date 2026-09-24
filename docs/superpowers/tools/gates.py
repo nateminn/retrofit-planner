@@ -140,6 +140,15 @@ for _tool in ('model_check.py', 'table_check.py', 'stale_check.py'):
     check(_tool + (' finds no pre-recalibration figures' if _tool == 'stale_check.py' else ' agrees with js/heat-model.js'), _r.returncode == 0,
           '\n        '.join(_tail[-6:]))
 
+# The /embed/ page promises each widget gives the same figures as its full calculator.
+# These two run both versions over every input combination and compare what they show.
+_here = os.path.dirname(os.path.abspath(__file__))
+for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.join(_here, 'epc_parity.js')]),
+                     ('heat pump widget matches the heat pump calculator', [sys.executable, os.path.join(_here, 'hp_parity.py')])):
+    _r = _sp.run(_cmd, capture_output=True, text=True, cwd=os.getcwd())
+    _tail = [l for l in (_r.stdout + _r.stderr).strip().split('\n') if l.strip()]
+    check(_label, _r.returncode == 0, '\n        '.join(_tail[-6:]))
+
 print()
 print('ALL PASS' if not failures else 'FAILED: ' + ', '.join(failures))
 sys.exit(1 if failures else 0)

@@ -23,7 +23,7 @@ BUS_ALL = (13021, 30590)
 EOH = {'q1': 2.55, 'median': 2.78, 'q3': 3.05, 'n': 428, 'spfh2': 2.93}
 # NEED Impact of Measures 2026, Table 1, median measured gas saving.
 NEED = [('Cavity wall insulation', 0.1198, 2191, 'cavity'), ('Solid wall insulation', 0.1728, 2411, 'solid'),
-        ('Loft insulation (mostly top-ups)', 0.0321, 1486, 'loft')]
+        ('Loft insulation (top-ups and bare lofts)', 0.0321, 1486, 'loft')]
 # The insulation calculator's figures before the change, for a 3 bed semi on gas.
 INSULATION_BEFORE = {'cavity': 215, 'solid': 340, 'loft': 120}
 

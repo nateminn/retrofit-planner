@@ -70,21 +70,21 @@ def d_heat_loss():
     # roof arrows
     for x in (300, 360, 420):
         s.append(arrow(x, 96 + (abs(x - 360) // 3), x, 30 + (abs(x - 360) // 3), C1))
-    s.append('<text x="360" y="18" text-anchor="middle" %s>Roof 26%%</text>' % TB)
+    s.append('<text x="360" y="18" text-anchor="middle" %s>Roof</text>' % TB)
     # wall arrows
     s.append(arrow(252, 200, 196, 200, C1)); s.append(arrow(252, 250, 196, 250, C1))
-    s.append('<text x="186" y="196" text-anchor="end" %s>Walls 33%%</text>' % TB)
+    s.append('<text x="186" y="196" text-anchor="end" %s>Walls, about 33%%</text>' % TB)
     s.append(arrow(468, 250, 524, 250, C1))
-    s.append('<text x="534" y="254" text-anchor="start" %s>Walls 33%%</text>' % TB)
+    s.append('<text x="534" y="254" text-anchor="start" %s>Walls</text>' % TB)
     # window arrows
     s.append(arrow(436, 200, 524, 200, C1))
-    s.append('<text x="534" y="196" text-anchor="start" %s>Windows and doors 18%%</text>' % TB)
+    s.append('<text x="534" y="196" text-anchor="start" %s>Windows and doors</text>' % TB)
     # draughts
     s.append(arrow(378, 268, 524, 296, C1))
-    s.append('<text x="534" y="300" text-anchor="start" %s>Draughts 15%%</text>' % TB)
+    s.append('<text x="534" y="300" text-anchor="start" %s>Draughts</text>' % TB)
     # floor
     s.append(arrow(300, 282, 300, 322, C1)); s.append(arrow(420, 282, 420, 322, C1))
-    s.append('<text x="360" y="342" text-anchor="middle" %s>Floor 8%%</text>' % TB)
+    s.append('<text x="360" y="342" text-anchor="middle" %s>Floor</text>' % TB)
     return (352, ''.join(s))
 
 def d_epc_bands():
@@ -101,13 +101,13 @@ def d_epc_bands():
         cx = centres[letter]
         s.append(arrow(cx, y + 6, cx, top - 4, LINE))
         s.append('<text x="%.1f" y="%d" text-anchor="middle" %s>%s</text>' % (cx, y, TB, label))
-    cx = centres['D']
+    cx = centres['C']   # EHS 2024 to 2025: band C is now the most common in England
     s.append(arrow(cx, top + bh + 36, cx, top + bh + 6, LINE))
-    s.append('<text x="%.1f" y="%d" text-anchor="middle" %s>Most common band in England and Wales</text>' % (cx, top + bh + 54, TB))
+    s.append('<text x="%.1f" y="%d" text-anchor="middle" %s>Most common band in England</text>' % (cx, top + bh + 54, TB))
     return (top + bh + 62, ''.join(s))
 
 def d_sizing():
-    homes = [('Flat', '4 to 6 kW', '£7,000 to £10,000', 62, 60), ('Terrace', '5 to 7 kW', '£8,000 to £11,000', 74, 82), ('Semi-detached', '8 to 10 kW', '£9,000 to £12,000', 92, 98), ('Detached', '10 to 14 kW', '£11,000 to £16,000', 114, 116)]
+    homes = [('Flat', '4.5 to 6 kW', '£10,000 to £14,500', 62, 60), ('Terrace', '5.5 kW', '£10,000 to £14,000', 74, 82), ('Semi-detached', '9 kW', '£11,000 to £15,500', 92, 98), ('Detached', '12 kW', '£12,500 to £18,000', 114, 116)]
     s = []; slots = [110, 280, 450, 620]; base = 150
     for (name, kw, cost, w, h), cx in zip(homes, slots):
         s.append('<polygon points="%.1f,%d %.1f,%d %.1f,%d" fill="%s" stroke="%s" stroke-width="2" stroke-linejoin="round"/>' % (cx - w / 2 - 6, base - h * 0.55, cx, base - h - 6, cx + w / 2 + 6, base - h * 0.55, ALT, LINE))
@@ -146,7 +146,7 @@ def d_solar():
 
 DIAGRAMS = {
  'heat-pump': dict(build=d_heat_pump, label='How an air source heat pump heats a home', caption='An air source heat pump moves heat from outdoor air into a refrigerant loop, delivers it to the house at 40 to 50C, stores hot water in a cylinder and feeds larger radiators or underfloor heating. Every unit of electricity produces 2.5 to 3.5 units of heat.'),
- 'heat-loss': dict(build=d_heat_loss, label='Where an uninsulated house loses heat', caption='Typical shares of heat loss for an uninsulated house, based on Energy Saving Trust estimates. Walls and roof account for about six tenths, which is why loft and wall insulation come first.'),
+ 'heat-loss': dict(build=d_heat_loss, label='Where an uninsulated house loses heat', caption='The Energy Saving Trust puts the walls at about a third of the heat an uninsulated home loses. Walls and roof are the largest surfaces, which is why wall and loft insulation come first.'),
  'epc-bands': dict(build=d_epc_bands, label='EPC bands A to G and their SAP points', caption='The seven EPC bands with the SAP points each covers. Band widths are proportional to the points they span, so the lower bands cover more ground.'),
  'sizing': dict(build=d_sizing, label='Heat pump size and installed cost by house type', caption='Typical air source heat pump size and installed cost before the grant for each house type. A room-by-room heat loss survey sets the exact size.'),
  'solar': dict(build=d_solar, label='Where solar electricity goes with and without a battery', caption='A 4 kW array on a household that is out for about half the day uses roughly 19% of what it generates and exports the rest. A 5 kWh battery lifts that to about 52%. Figures from the MCS MGD 003 look-up tables, which is what the solar calculator reads.'),
@@ -163,7 +163,7 @@ PLACEMENTS = [
  ('heat-pump', 'guides/heat-pump-victorian-terrace/index.html', '<h2 id="size">'),
  ('heat-pump', 'heat-pump-calculator/index.html', 'first-h2'),
  ('sizing', 'guides/heat-pump-cost-by-house-type/index.html', 'first-h2'),
- ('sizing', 'guides/heat-pump-flat/index.html', 'first-h2'),
+ # heat-pump-flat carries its own flat-by-size version of this diagram; do not regenerate it here.
  ('heat-loss', 'guides/is-loft-insulation-worth-it/index.html', 'first-h2'),
  ('heat-loss', 'guides/is-cavity-wall-insulation-worth-it/index.html', 'first-h2'),
  ('heat-loss', 'guides/solid-wall-insulation-cost/index.html', 'first-h2'),

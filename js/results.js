@@ -114,16 +114,19 @@
 
     var original = window[CALC];
     if (typeof original === 'function') {
-      window[CALC] = function () { var r = original.apply(this, arguments); afterCalc(); return r; };
+      /* Hide the old answer first. A calculator only reveals the box when the new inputs
+         pass its checks, so a half-filled form can never sit above the previous result. */
+      window[CALC] = function () { box.classList.remove('visible'); var r = original.apply(this, arguments); afterCalc(); return r; };
     }
 
     /* Only calculate straight away when the link carries a complete answer. A full result
        link always does. A preset link from the start-here router fills in what it knows
-       and leaves the rest, and running that would only produce a validation alert. */
+       and leaves the rest, and running that would only produce a validation alert. A select
+       marked data-optional may be left blank. */
     function complete() {
       for (var i = 0; i < FIELDS.length; i++) {
         var node = el(FIELDS[i]);
-        if (node && node.tagName === 'SELECT' && node.value === '') return false;
+        if (node && node.tagName === 'SELECT' && node.value === '' && !node.hasAttribute('data-optional')) return false;
       }
       return true;
     }
