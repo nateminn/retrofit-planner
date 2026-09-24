@@ -35,7 +35,41 @@
         <main id="main">
 <div class="page-content">
         <h1>Put our calculators on your own site</h1>
-        <p class="lead">Two of our calculators are free to embed on any website: heat pump costs and EPC ratings. One line of HTML each, no account, no cookies and no tracking scripts loaded on your readers. All we ask is that you keep the credit link.</p>
+        <p class="lead">Three of our tools are free to embed on any website: the retrofit plan, heat pump costs and EPC ratings. One line of HTML each, no account, no cookies and no tracking scripts loaded on your readers. All we ask is that you keep the credit link.</p>
+
+        <h2 id="plan">Retrofit plan</h2>
+        <p>Four questions about a home give an ordered list of upgrades: insulation first, cheapest payback first, then a heat pump sized for the home after it, each with its cost, the saving homes like it measurably made, and the payback. It runs the same script as our <a href="/retrofit-plan/">full retrofit plan</a>, so the two cannot disagree, and nothing the reader enters leaves their browser. Suited to lenders, landlords' portals and any page about improving a home.</p>
+        <div class="embed-demo">
+            <iframe class="demo" src="/embed/retrofit-plan/" title="Retrofit plan" style="width:100%;height:760px;border:1px solid var(--color-border);border-radius:12px;background:#fff" loading="lazy"></iframe>
+        </div>
+        <div class="snippet-wrap">
+            <button class="snippet-copy" type="button" onclick="copySnippet('snip0', this)">Copy</button>
+            <pre class="snippet" id="snip0" tabindex="0" aria-label="Embed code"><code>&lt;iframe
+  src="https://www.retrofitplanner.co.uk/embed/retrofit-plan/"
+  title="Retrofit plan"
+  loading="lazy"
+  style="width:100%;max-width:640px;height:760px;
+         border:1px solid #e5e3dc;border-radius:12px"&gt;
+&lt;/iframe&gt;
+&lt;p style="font-size:13px"&gt;Plan by
+  &lt;a href="https://www.retrofitplanner.co.uk/retrofit-plan/"&gt;
+    Retrofit Planner&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;script&gt;
+addEventListener("message", function (e) {
+  if (e.origin !== "https://www.retrofitplanner.co.uk") return;
+  if (!e.data || !e.data.rpHeight) return;
+  var f = document.querySelectorAll(
+    'iframe[src*="retrofitplanner.co.uk/embed/"]');
+  for (var i = 0; i &lt; f.length; i++) {
+    if (f[i].contentWindow === e.source) {
+      f[i].style.height = e.data.rpHeight + "px";
+    }
+  }
+});
+&lt;/script&gt;</code></pre>
+        </div>
 
         <h2 id="heat-pump">Heat pump cost calculator</h2>
         <p>Installed cost, the £7,500 Boiler Upgrade Scheme grant, running costs against the reader's current heating, and payback. It runs the same cost model as our <a href="/heat-pump-calculator/">full heat pump calculator</a>, and we test every money figure against it, so a reader who follows the link sees the same numbers. It also shows what a dedicated heat pump tariff would cost, which is where most of the saving comes from.</p>
@@ -104,10 +138,10 @@ addEventListener("message", function (e) {
 });
 &lt;/script&gt;</code></pre>
         </div>
-        <p class="note">The resize script handles both widgets, so if you embed the pair on one page you only need it once.</p>
+        <p class="note">The resize script handles every widget, so if you embed more than one on a page you only need it once.</p>
 
         <h3>If your CMS strips scripts</h3>
-        <p>Some editors remove script tags. Drop the script block and set a taller fixed height instead: 900px for the heat pump calculator and 1100px for the EPC calculator. The widget then scrolls inside the frame rather than resizing.</p>
+        <p>Some editors remove script tags. Drop the script block and set a taller fixed height instead: 1500px for the retrofit plan, 900px for the heat pump calculator and 1100px for the EPC calculator. The widget then scrolls inside the frame rather than resizing.</p>
 
         <h2 id="terms">The terms, in plain English</h2>
         <ul>
