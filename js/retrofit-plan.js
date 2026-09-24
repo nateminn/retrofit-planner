@@ -22,7 +22,7 @@
 (function () {
     'use strict';
 
-    var PRICE = { gas: 0.0797, oil: 0.090, lpg: 0.095, electric: 0.2632 };   // pounds per kWh, Ofgem cap Oct to Dec 2026; oil and LPG Sept 2026 market
+    var PRICE = { gas: 0.0797, oil: 0.090, lpg: 0.095, electric: 0.2632 };   // pounds per kWh, Ofgem cap Oct to Dec 2026; oil and LPG are our assumptions (see methodology)
     var HP_TARIFF = 0.18;                                                     // pounds per kWh on a heat pump tariff
     var FUEL_NAME = { gas: 'mains gas', oil: 'heating oil', lpg: 'LPG', electric: 'electric heating' };
 
@@ -78,7 +78,7 @@
         candidates.forEach(function (c) {
             var saving = baseCost * remaining * c.pct;
             remaining *= (1 - c.pct);
-            steps.push({ kind: 'fabric', name: c.name, cost: c.cost, costNote: 'Typical cost, before any grant',
+            steps.push({ kind: 'fabric', key: c.key, name: c.name, cost: c.cost, costNote: 'Typical cost, before any grant',
                 saving: saving, payback: c.cost / saving, note: c.note, unsure: c.unsure,
                 measured: (c.pct * 100).toFixed(1) + '% measured median saving, ' + c.n.toLocaleString('en-GB') + ' homes' });
         });
@@ -141,10 +141,10 @@
             } else {
                 h += '<div><span class="rp-l">Yearly saving</span><span class="rp-v">' + gbp(s.saving) + '</span><span class="rp-d">' + s.measured + '</span></div>';
             }
-            h += '<div><span class="rp-l">Payback</span><span class="rp-v">' + paybackLabel(s.payback) + '</span><span class="rp-d">At full price</span></div>';
+            h += '<div><span class="rp-l">Payback</span><span class="rp-v">' + paybackLabel(s.payback) + '</span><span class="rp-d">' + (s.kind === 'heatpump' ? 'After the grant, on a heat pump tariff' : s.key === 'loftBare' ? 'On the measured average; likely shorter for a bare loft' : 'At full price') + '</span></div>';
             h += '</div>';
             if (s.kind === 'heatpump') {
-                h += '<p class="rp-note">A ' + s.kw + ' kW heat pump, typically ' + gbp(s.range[0]) + ' to ' + gbp(s.range[1]) + ' installed (median ' + gbp(s.install)
+                h += '<p class="rp-note">' + (/^(8|11|18)(\.|$)/.test(String(s.kw)) ? 'An ' : 'A ') + s.kw + ' kW heat pump, typically ' + gbp(s.range[0]) + ' to ' + gbp(s.range[1]) + ' installed (median ' + gbp(s.install)
                     + ') before the grant, for a home like yours after the insulation above. Running cost ' + gbp(s.hpTariff) + ' a year on a heat pump tariff, against '
                     + gbp(s.fuelCostAfter) + ' for your current heating after insulation. Only an MCS certified installer can claim the grant.</p>';
             } else {
@@ -156,8 +156,15 @@
         h += '<div class="rp-total"><div><span class="rp-l">Whole plan</span><span class="rp-v">' + gbp(r.totalCost) + '</span><span class="rp-d">' + (r.heatPumpPays ? 'After the heat pump grant, before any insulation grant' : 'Insulation only, before any grant') + '</span></div>'
             + '<div><span class="rp-l">Saving a year</span><span class="rp-v">' + gbp(r.totalSaving) + '</span><span class="rp-d">' + (r.heatPumpPays ? 'With a heat pump tariff' : 'Insulation only; the heat pump would not lower your bill') + '</span></div>'
             + '<div><span class="rp-l">Payback</span><span class="rp-v">' + paybackLabel(r.totalSaving > 0 ? r.totalCost / r.totalSaving : null) + '</span><span class="rp-d">Simple payback at today\'s prices</span></div></div>';
-        h += '<p class="rp-small">Savings are what homes like yours measurably saved, not the most you could save. Costs are typical figures, and grants can cover some or all of the insulation. '
-            + 'Prices: Ofgem cap for October to December 2026, energy only; gas also carries a £108 a year standing charge, which you save if you cap the supply after switching. '
+        var fabricSteps = r.steps.filter(function (s) { return s.kind === 'fabric'; }).length;
+        h += '<p class="rp-small">Savings are what homes like yours measurably saved, not the most you could save. '
+            + (fabricSteps > 1 ? 'Where the plan has more than one insulation measure, each saving is taken from what is left after the one before; homes that had two measures at once measured less than that, so treat the combined figure as an upper guide. ' : '')
+            + 'Costs are typical figures, and grants can cover some or all of the insulation. '
+            + (r.inputs.fuel === 'oil'
+                ? 'Prices: electricity at the Ofgem cap for October to December 2026; heating oil at 9.0p per kWh. Kerosene cost more than this in September 2026, about 11p, so your current bill and the saving from switching may both be higher. '
+                : r.inputs.fuel === 'lpg'
+                ? 'Prices: electricity at the Ofgem cap for October to December 2026; LPG at 9.5p per kWh, which varies by supplier and contract. '
+                : 'Prices: Ofgem cap for October to December 2026, energy only' + (r.inputs.fuel === 'gas' ? '; gas also carries a £108 a year standing charge, which you save if you cap the supply after switching. ' : '. '))
             + (r.inputs.fuel === 'electric' ? 'Electric heating is priced at the standard rate; storage heaters on Economy 7 cost less to run, so your current bill and the heat pump saving will both be lower. ' : '')
             + '<a href="/accuracy/">How accurate are these figures?</a></p>';
         el.innerHTML = h;
