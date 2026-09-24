@@ -43,7 +43,30 @@
 
    Figures are median ANNUAL GAS CONSUMPTION in kWh for a gas heated home at EPC band D,
    which includes hot water and any gas cooking. Multiply by boiler efficiency for the
-   heat actually delivered. */
+   heat actually delivered.
+
+   CALIBRATED AGAINST MEASURED DATA, 24 September 2026. Two inputs were assumptions until
+   then, and both were checked against what real installations recorded. Both moved.
+   The full comparison, before and after, is published at /accuracy/.
+
+   - Heat pump efficiency. Was 2.6 / 2.9 / 3.2 / 3.4 by fabric. Now the whole system
+     seasonal performance (SPFH4: heat pump, immersion, backup heater and circulation
+     pumps, which is what the household pays for) measured in 428 air source heat pumps
+     by the Electrification of Heat trial (Energy Systems Catapult for DESNZ, final report
+     December 2024, Table 1.2): median 2.78, quartiles 2.55 and 3.05. Poor fabric takes
+     the lower quartile, average the median, good the upper quartile, and excellent 3.25,
+     about the 90th percentile of that distribution. The old average of 2.9 was 4 per
+     cent above the measured median, so every heat pump running cost was a little low.
+   - Heat pump installed cost. Was a flat base per property type. Now the median cost
+     installers reported for air source heat pumps paid under the Boiler Upgrade Scheme in
+     2025/26, by capacity band (DESNZ BUS statistics, August 2026 release, Table A1.3A,
+     30,590 installations), read at the size this model gives the home. Those costs include
+     the system, labour and VAT, before the grant. The old figures matched the data for
+     large homes but sat 2,000 to 4,000 pounds low for small ones, because an install has
+     fixed costs that do not shrink with the house. The ranges quoted on the site are the
+     scheme's Q2 2026 quartiles scaled to each median (Table Q1.1A).
+   - Size. The kW a home needs is its annual heat demand over 1,100 full load hours,
+     which reproduces the sizes the site's guides quote for each house type. */
 (function () {
     'use strict';
 
@@ -59,14 +82,27 @@
         },
         // Relative to EPC band D, measured within property type and floor area cells.
         insulation: { excellent: 0.62, good: 0.85, average: 1.00, poor: 1.11 },
-        // Seasonal performance of a well specified air source heat pump, by how well the
-        // fabric lets it run at a low flow temperature.
-        cop: { excellent: 3.4, good: 3.2, average: 2.9, poor: 2.6 },
-        // Real world seasonal efficiency, below the lab figure on the badge.
-        boilerEfficiency: { gas: 0.90, oil: 0.85, lpg: 0.85, electric: 1.0 },
-        // Installed cost before any grant, for a typical 3-bed of that type.
-        heatPumpBase: { detached: 11000, semi: 10000, 'mid-terrace': 9000,
-                        'end-terrace': 9500, bungalow: 10000, flat: 8000 },
+        // Measured whole system seasonal performance (SPFH4), Electrification of Heat
+        // trial, 428 air source heat pumps: lower quartile, median, upper quartile, ~P90.
+        cop: { excellent: 3.25, good: 3.05, average: 2.78, poor: 2.55 },
+        // Real world seasonal efficiency, below the lab figure on the badge. Electric
+        // heating appears under both names because the pages use both; a missing key used
+        // to fall back silently to 0.90 and price every electric home as 90% efficient.
+        boilerEfficiency: { gas: 0.90, oil: 0.85, lpg: 0.85, electric: 1.0, electricity: 1.0 },
+        // Median installed cost, pounds, of air source heat pumps paid under the Boiler
+        // Upgrade Scheme in 2025/26, at each capacity band's midpoint in kW (Table A1.3A).
+        // The 16 to 18 kW band (14,817) sits below 14 to 16 kW on a smaller sample, so it
+        // is skipped to keep cost rising with size. Above 20 kW the scheme reports too few
+        // homes of this kind to use.
+        busCostByKw: [[5, 11494], [7, 12164], [9, 12686], [11, 13943], [13, 15365], [15, 15496], [19, 17878]],
+        // Q2 2026 lower and upper quartile as a share of the median: 11,128 and 15,627
+        // against 12,908 (Table Q1.1A).
+        busSpread: [0.862, 1.211],
+        // Hours a year at full output. Heat demand over this gives the kW the guides quote.
+        fullLoadHours: 1100,
+        // Boiler Upgrade Scheme grant: 7,500, or 9,000 replacing oil or LPG (gov.uk, raised
+        // 2026, available until March 2027).
+        busGrant: 7500, busGrantOilLpg: 9000,
         // A new condensing gas boiler, across the £1,500 to £3,500 range the site quotes.
         boilerBase: 2500
     };
@@ -102,16 +138,45 @@
             var e = MODEL.boilerEfficiency[fuel];
             return e === undefined ? 0.90 : e;
         },
-        /* Both install costs scale with the same size factor, so a 1-bed flat and a
-           5-bed detached no longer get quoted the identical figure. */
+        /* Boiler install cost scales with the home. */
         sizeFactor: function (beds) { return 1 + (clampBeds(beds) - 3) * 0.08; },
+        /* Heat pump size in kW, to the nearest half kW. */
+        heatPumpKw: function (type, beds, insulation) {
+            var heat = this.heatDemand(type, beds, insulation, 'gas');
+            if (heat === null) { return null; }
+            var kw = Math.round(heat / MODEL.fullLoadHours * 2) / 2;
+            return Math.max(4, Math.min(kw, 20));
+        },
+        /* Median installed cost for a heat pump of that size under the Boiler Upgrade
+           Scheme, interpolated between capacity bands, to the nearest 100 pounds. A leakier
+           home costs more because it needs a bigger unit, which the size already carries. */
         heatPumpInstall: function (type, beds, insulation) {
-            var base = MODEL.heatPumpBase[type];
-            if (!base) { return null; }
-            // A leakier home needs more emitters and a bigger unit for the same comfort.
-            var fabric = insulation === 'poor' ? 1.15 : insulation === 'average' ? 1.05 : 1.0;
-            var c = Math.round(base * this.sizeFactor(beds) * fabric / 100) * 100;
-            return Math.max(7000, Math.min(c, 15000));
+            var kw = this.heatPumpKw(type, beds, insulation);
+            if (kw === null) { return null; }
+            var t = MODEL.busCostByKw, c;
+            if (kw <= t[0][0]) { c = t[0][1]; }
+            else if (kw >= t[t.length - 1][0]) { c = t[t.length - 1][1]; }
+            else {
+                for (var i = 1; i < t.length; i++) {
+                    if (kw <= t[i][0]) {
+                        var f = (kw - t[i - 1][0]) / (t[i][0] - t[i - 1][0]);
+                        c = t[i - 1][1] + f * (t[i][1] - t[i - 1][1]);
+                        break;
+                    }
+                }
+            }
+            return Math.round(c / 100) * 100;
+        },
+        /* The middle half of real installs around that median, to the nearest 500 pounds. */
+        heatPumpInstallRange: function (type, beds, insulation) {
+            var c = this.heatPumpInstall(type, beds, insulation);
+            if (c === null) { return null; }
+            return [Math.round(c * MODEL.busSpread[0] / 500) * 500, Math.round(c * MODEL.busSpread[1] / 500) * 500];
+        },
+        /* The grant for the fuel being replaced. */
+        busGrant: function (fuel) {
+            return (fuel === 'oil' || fuel === 'lpg' || fuel === 'oil-boiler' || fuel === 'lpg-boiler')
+                ? MODEL.busGrantOilLpg : MODEL.busGrant;
         },
         boilerInstall: function (beds) {
             var c = Math.round(MODEL.boilerBase * this.sizeFactor(beds) / 50) * 50;

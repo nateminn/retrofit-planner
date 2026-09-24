@@ -260,15 +260,22 @@
         // Shared model, see /js/heat-model.js. This page used to disagree with the heat
         // pump calculator by a factor of 2.4 on the same house because both tables were
         // invented separately.
-        const heatDemand = RP_HEAT.heatDemand(prop, beds, insulation, 'gas');
-
-        // Use actual gas bill if provided, otherwise calculate
-        let annualGasCost;
+        /* A typed bill has to drive both sides. It used to replace only the boiler's cost
+           while the heat pump was costed from the modelled house, so a large bill showed a
+           huge heat pump saving and a small one the reverse, for the same home. The bill now
+           sets the gas used, the heat pump heats that same demand, and both are compared on
+           energy alone, as every guide does. A gas bill includes the standing charge, so that
+           comes off first and is shown separately under the result. */
+        const GAS_STANDING = 108.33;
+        let heatDemand = RP_HEAT.heatDemand(prop, beds, insulation, 'gas'), billNote = '';
         if (gasBill > 0) {
-            annualGasCost = gasBill;
-        } else {
-            annualGasCost = Math.round(heatDemand / RP_HEAT.boilerEfficiency('gas') * D.gasRate);
+            if (gasBill - GAS_STANDING > 50) {
+                heatDemand = Math.round((gasBill - GAS_STANDING) / D.gasRate * RP_HEAT.boilerEfficiency('gas'));
+            } else {
+                billNote = 'That bill is below the gas standing charge alone, so these figures use the model for your home instead. ';
+            }
         }
+        const annualGasCost = Math.round(heatDemand / RP_HEAT.boilerEfficiency('gas') * D.gasRate);
 
         const cop = RP_HEAT.cop(insulation);
         const annualHPCost = Math.round(heatDemand / cop * D.elecRate);
@@ -308,7 +315,7 @@
         html += '<div class="result-full"><div class="label">15-year total cost of ownership</div>';
         html += '<div class="cost-bar-container" style="margin-top: 12px;"><div class="cost-bar-label">Gas boiler</div><div class="cost-bar-wrap"><div class="cost-bar gas" style="width: ' + (boiler15 / Math.max(boiler15, hp15) * 100) + '%;"></div></div><div class="cost-bar-amount">£' + boiler15.toLocaleString() + '</div></div>';
         html += '<div class="cost-bar-container"><div class="cost-bar-label">Heat pump</div><div class="cost-bar-wrap"><div class="cost-bar hp" style="width: ' + (hp15 / Math.max(boiler15, hp15) * 100) + '%;"></div></div><div class="cost-bar-amount">£' + hp15.toLocaleString() + '</div></div>';
-        html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Includes installation, running costs, and annual servicing. Does not account for energy price changes.</div>';
+        html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">' + billNote + 'Includes installation, the energy each system uses, and annual servicing, at today\'s prices. Gas also carries a £108 a year standing charge, left out of both totals; cap the gas supply after switching and you save that too, about £1,600 over 15 years.</div>';
         html += '</div>';
 
         // Verdict
@@ -325,7 +332,7 @@
         } else {
             html += '<div class="result-full" style="background: var(--color-highlight-bg); border: 1px solid var(--color-highlight-border);">';
             html += '<div style="font-weight: 600;">Gas boiler saves you £' + Math.abs(saving15).toLocaleString() + ' over 15 years</div>';
-            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">However, <a href="/insulation-calculator/">improving your insulation</a> could tip the balance in favour of a heat pump. Gas boilers are also being phased out, and a heat pump future-proofs your home.</div>';
+            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">However, <a href="/insulation-calculator/">improving your insulation</a> or moving to a <a href="/guides/best-heat-pump-tariffs/">heat pump tariff</a> could tip the balance in favour of a heat pump. There is no ban on gas boilers in existing homes, so a new boiler remains a legitimate choice.</div>';
             html += '</div>';
         }
 
@@ -377,10 +384,10 @@
         rpReveal('results');
     }
     </script>
+<script src="/js/a11y.js" defer></script>
 <script src="/js/results.js" data-fields="propType,bedrooms,insulation,gasBill" data-calc="calculate" data-title="Boiler versus heat pump, 15-year cost" defer></script>
 <script src="/js/heat-model.js"></script>
 <script src="/js/partners.js"></script>
-<script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>
 </html>

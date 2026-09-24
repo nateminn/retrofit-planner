@@ -158,6 +158,7 @@
                         <div class="cost-bar-wrap"><div class="cost-bar hp" id="hpBar" style="width: 0%"></div></div>
                         <span class="cost-bar-amount" id="hpCost">-</span>
                     </div>
+                    <p class="cost-note" id="costNote" style="font-size: 0.82rem; color: var(--color-text-secondary); margin: 10px 0 0; line-height: 1.5;"></p>
                 </div>
 
                 <div class="result-full">
@@ -307,27 +308,9 @@
     <script>
     const DATA = {
         energyPrices: { electricity: 0.2632, gas: 0.0797, oil: 0.090, lpg: 0.095 }, // Ofgem cap Oct to Dec 2026; oil Sept 2026 market
-        heatDemand: {
-            'detached':    { 1: 10000, 2: 13000, 3: 16000, 4: 20000, 5: 24000 },
-            'semi':        { 1: 8000,  2: 10000, 3: 13000, 4: 16000, 5: 19000 },
-            'mid-terrace': { 1: 6500,  2: 8500,  3: 11000, 4: 13500, 5: 16000 },
-            'end-terrace': { 1: 7000,  2: 9500,  3: 12000, 4: 15000, 5: 18000 },
-            'bungalow':    { 1: 8000,  2: 10500, 3: 13000, 4: 16000, 5: 19000 },
-            'flat':        { 1: 5000,  2: 6500,  3: 8500,  4: 10000, 5: 12000 },
-        },
-        insulationMultiplier: { 'good': 1.0, 'average': 1.2, 'poor': 1.5 },
-        installCost: {
-            'detached': { base: 11000, range: 2000 }, 'semi': { base: 10000, range: 1500 },
-            'mid-terrace': { base: 9000, range: 1500 }, 'end-terrace': { base: 9500, range: 1500 },
-            'bungalow': { base: 10000, range: 1500 }, 'flat': { base: 8000, range: 1500 },
-        },
-        cop: { 'good': 3.2, 'average': 2.9, 'poor': 2.6 },
-        boilerEfficiency: { 'gas-boiler': 0.90, 'oil-boiler': 0.85, 'lpg-boiler': 0.85, 'electric-storage': 1.0, 'electric-direct': 1.0 },
         fuelType: { 'gas-boiler': 'gas', 'oil-boiler': 'oil', 'lpg-boiler': 'lpg', 'electric-storage': 'electricity', 'electric-direct': 'electricity' },
         co2Factors: { 'gas': 0.182, 'oil': 0.247, 'lpg': 0.214, 'electricity': 0.136 },
-        // Boiler Upgrade Scheme: £7,500, rising to £9,000 when replacing oil or LPG.
-        busGrant: 7500,
-        busGrantOilLpg: 9000
+        gasStanding: 108.33 // a year, Ofgem cap October to December 2026
     };
 
     function calculate() {
@@ -344,16 +327,31 @@
         // /js/heat-model.js so this page and /boiler-vs-heat-pump/ cannot drift apart.
         // The table is gas consumption, so heat demand is derived with a gas boiler's
         // efficiency; the CURRENT cost then uses whatever fuel the visitor actually has.
-        const heatDemand = RP_HEAT.heatDemand(propType, bedrooms, insulation, 'gas');
+        const modelDemand = RP_HEAT.heatDemand(propType, bedrooms, insulation, 'gas');
         const fuelType = DATA.fuelType[heating];
         const fuelPrice = DATA.energyPrices[fuelType];
         const boilerEff = RP_HEAT.boilerEfficiency(fuelType);
-        const estimatedCurrentCost = (heatDemand / boilerEff) * fuelPrice;
-        const currentCost = annualBillInput === null ? estimatedCurrentCost : annualBillInput;
+        /* A typed bill has to drive BOTH sides. It used to replace only the current cost
+           while the heat pump was still costed from the modelled house, so any bill above
+           the model counted in full as a heat pump saving. Now the bill sets the heat
+           demand, and the heat pump heats that same demand. Running costs are compared on
+           energy alone, as on every guide: a gas bill carries a standing charge, so that
+           comes off first and is shown separately below. */
+        const standing = fuelType === 'gas' ? DATA.gasStanding : 0;
+        let heatDemand = modelDemand, billNote = '';
+        if (annualBillInput !== null) {
+            const energySpend = annualBillInput - standing;
+            if (energySpend > 50) {
+                heatDemand = Math.round(energySpend / fuelPrice * boilerEff);
+            } else {
+                billNote = 'That bill is below the gas standing charge alone, so these figures use the model for your home instead.';
+            }
+        }
+        const currentCost = heatDemand / boilerEff * fuelPrice;
         const cop = RP_HEAT.cop(insulation);
         const hpRunningCost = (heatDemand / cop) * DATA.energyPrices.electricity;
         const installCost = RP_HEAT.heatPumpInstall(propType, bedrooms, insulation);
-        const grant = (heating === 'oil-boiler' || heating === 'lpg-boiler') ? DATA.busGrantOilLpg : DATA.busGrant;
+        const grant = RP_HEAT.busGrant(heating);
         const afterGrant = installCost - grant;
         const annualSaving = currentCost - hpRunningCost;
         const paybackYears = annualSaving > 0 ? afterGrant / annualSaving : null;
@@ -409,9 +407,13 @@
            that would contradict it. */
         var band = document.getElementById('quoteBand');
         if (band) { band.hidden = !(annualSaving > 60); }
-        if (paybackYears && paybackYears > 0 && paybackYears < 50) { document.getElementById('payback').textContent = Math.round(paybackYears) + ' years'; }
-        else if (annualSaving <= 0) { document.getElementById('payback').textContent = 'N/A'; }
-        else { document.getElementById('payback').textContent = '< 1 year'; }
+        var pb;
+        if (annualSaving <= 0) { pb = 'No payback'; }
+        else if (afterGrant <= 0) { pb = 'Immediate'; }
+        else if (paybackYears < 1) { pb = 'Under a year'; }
+        else if (paybackYears >= 50) { pb = 'Over 50 years'; }
+        else { pb = Math.round(paybackYears) + ' years'; }
+        document.getElementById('payback').textContent = pb;
 
         const maxCost = Math.max(currentCost, hpRunningCost);
         document.getElementById('gasBar').style.width = (currentCost / maxCost * 100) + '%';
@@ -419,6 +421,11 @@
         document.getElementById('gasCost').textContent = '£' + Math.round(currentCost).toLocaleString() + '/yr';
         document.getElementById('hpCost').textContent = '£' + Math.round(hpRunningCost).toLocaleString() + '/yr';
         document.getElementById('co2Saving').textContent = Math.round(co2Saving).toLocaleString();
+        document.getElementById('costNote').textContent = (billNote ? billNote + ' ' : '')
+            + (fuelType === 'gas'
+                ? 'Both figures are the energy you use, based on ' + (annualBillInput !== null && !billNote ? 'your bill' : 'the model for your home')
+                  + '. Gas also carries a standing charge of £108 a year, which you save as well if you cap the gas supply after switching.'
+                : 'Both figures are the energy you use, based on ' + (annualBillInput !== null && !billNote ? 'your bill' : 'the model for your home') + '.');
 
         const recEl = document.getElementById('recommendation');
         const recDetail = document.getElementById('recommendationDetail');
@@ -436,10 +443,10 @@
         rpReveal('results');
     }
     </script>
+<script src="/js/a11y.js" defer></script>
 <script src="/js/results.js" data-fields="propertyType,bedrooms,currentHeating,insulation,annualBill" data-calc="calculate" data-title="Heat pump cost estimate" defer></script>
 <script src="/js/heat-model.js"></script>
 <script src="/js/partners.js"></script>
-<script src="/js/a11y.js" defer></script>
 <script src="/js/nav.js" defer></script>
 </body>
 </html>
