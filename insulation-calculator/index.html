@@ -8,12 +8,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insulation Calculator UK 2026: Save Up to £590 a Year</title>
-    <meta name="description" content="See what loft, cavity or solid wall insulation saves your home each year, what it costs, whether you qualify for free installation, and the payback.">
+    <title>Insulation Calculator UK 2026: Costs, Savings and Payback</title>
+    <meta name="description" content="What loft, cavity and solid wall insulation cost, what homes like yours measurably saved, the payback, and the grants that can pay for it.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.retrofitplanner.co.uk/insulation-calculator/">
-    <meta property="og:title" content="Insulation Calculator UK 2026: Save Up to £590 a Year">
-    <meta property="og:description" content="See what loft, cavity or solid wall insulation saves your home each year, what it costs, whether you qualify for free installation, and the payback.">
+    <meta property="og:title" content="Insulation Calculator UK 2026: Costs, Savings and Payback">
+    <meta property="og:description" content="What loft, cavity and solid wall insulation cost, what homes like yours measurably saved, the payback, and the grants that can pay for it.">
     <meta property="og:url" content="https://www.retrofitplanner.co.uk/insulation-calculator/">
     <meta property="og:type" content="website"><meta property="og:image" content="https://www.retrofitplanner.co.uk/images/insulation-calculator-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="800"><meta property="og:image:alt" content="Foil-faced insulation boards fixed to the wall of a house with red fixing caps, seen behind scaffolding"><meta name="twitter:card" content="summary_large_image">
     <meta property="og:site_name" content="Retrofit Planner"><noscript></noscript>
@@ -23,7 +23,7 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Insulation Savings Calculator UK",
-        "description": "Calculate how much you could save with home insulation. Covers loft, cavity wall, solid wall, and floor insulation with grant eligibility.",
+        "description": "Calculate how much you could save with home insulation. Covers loft, cavity wall and solid wall insulation, with measured savings, typical costs and grant eligibility.",
         "url": "https://www.retrofitplanner.co.uk/insulation-calculator/",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -42,29 +42,7 @@
         ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How much does loft insulation cost in 2026?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Professional loft insulation typically costs £300 to £600 for a standard home. Many households qualify for free installation through the ECO4 scheme or GB Energy Scheme." }
-            },
-            {
-                "@type": "Question",
-                "name": "Is cavity wall insulation worth it?",
-                "acceptedAnswer": { "@type": "Answer", "text": "For most homes, cavity wall insulation saves £200 to £500 per year on heating bills, with a typical payback period of 2 to 4 years. It is one of the most cost-effective home improvements available." }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I get free insulation in the UK?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. The ECO4 scheme and GB Energy Scheme provide free or heavily subsidised insulation to qualifying households, particularly those on low incomes or receiving certain benefits." }
-            }
-        ]
-    }
-    </script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does loft insulation cost in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "The Energy Saving Trust puts it at about £750 to lay 270mm in a bare loft and £600 to top up an existing layer. Many households on lower incomes can get it free through ECO4 until 31 December 2026, or through a Warm Homes: Local Grant from their council."}}, {"@type": "Question", "name": "Is cavity wall insulation worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Usually, and especially if a grant pays for it. Homes the government measured used a median 12.0 per cent less gas after cavity wall insulation, about £105 a year for a 3 bed semi on gas. At a typical £2,700 that is a long payback at full price, which is why most cavity insulation is grant funded. Get a survey first, because some exposed or damp walls are not suitable."}}, {"@type": "Question", "name": "Can I get free insulation in the UK?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if you qualify. ECO4 funds insulation for many households on means-tested benefits or lower incomes until 31 December 2026, and councils run Warm Homes: Local Grants. The Great British Insulation Scheme closed on 31 March 2026. Our grant checker shows which you could get."}}, {"@type": "Question", "name": "Does insulation improve my EPC rating?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. How much depends on the home and what it already has; our EPC improvement planner estimates it for yours."}}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QMWG6G2WL"></script>
 <script>
@@ -159,8 +137,8 @@
                     <option value="">Select loft insulation status</option>
                     <option value="none">None or less than 50mm</option>
                     <option value="partial">50mm to 100mm</option>
-                    <option value="good">100mm or more</option>
-                    <option value="na">No loft (flat or top-floor flat)</option>
+                    <option value="full">100mm or more</option>
+                    <option value="none-applicable">No loft above my home (ground or middle floor flat)</option>
                 </select>
             </div>
 
@@ -184,7 +162,7 @@
                     <option value="yes">Yes (Universal Credit, Pension Credit, etc.)</option>
                     <option value="no">No</option>
                 </select>
-                <p class="helper">This determines if you qualify for <a href="/grants/">free insulation through the ECO4 or GB Energy Scheme</a>.</p>
+                <p class="helper">This helps show whether a grant could pay for it, through <a href="/grants/">ECO4 or a Warm Homes: Local Grant</a>.</p>
 <aside class="scheme-note" data-scheme-note="eco4"><p><strong>ECO4 closes on 31 December 2026.</strong> The work has to be finished by then, not just applied for, and installers fill up as the date gets closer. Government has confirmed there will be no successor supplier obligation: from 2027 the money moves to council run schemes under the Warm Homes Plan, which you apply for through your local authority rather than your energy supplier. If you think you qualify, start now. <a href="/grants/">Check what you qualify for</a>.</p></aside>
 
             </div>
@@ -228,21 +206,19 @@
 
         <aside class="sidebar">
             <div class="sidebar-card grant">
-                <h3>Free insulation available</h3>
+                <h3>Insulation grants</h3>
                 <div class="grant-amount">£0</div>
-                <p class="grant-detail">Many households qualify for completely free insulation through the <a href="/grants/">ECO4 scheme</a> or the <a href="/grants/">GB Energy Scheme</a>. Check your eligibility with our <a href="/grants/">grant checker</a>.</p>
+                <p class="grant-detail">Loft and cavity wall insulation can be free for households on lower incomes, through <a href="/guides/eco4-scheme-explained/">ECO4</a> until 31 December 2026 or a Warm Homes: Local Grant from your council. <a href="/grants/">Check your eligibility</a>.</p>
             </div>
 
             <div class="sidebar-card">
-                <h3>Typical annual savings</h3>
+                <h3>Measured savings and typical costs</h3>
                 <ul>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Loft insulation: £100 to £355/yr</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cavity wall: £100 to £395/yr</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Solid wall (internal): £200 to £590/yr</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Solid wall (external): £200 to £590/yr</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Floor insulation: £40 to £70/yr</li>
+                    <li>Loft insulation: 3.2% less gas; £600 top-up, £750 from bare</li>
+                    <li>Cavity wall: 12.0% less gas; about £2,700</li>
+                    <li>Solid wall: 17.3% less gas; about £12,000 internal, £15,000 external</li>
                 </ul>
-                <p style="font-size: 0.78rem; color: var(--color-text-tertiary); margin-top: 8px;">Source: <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, 2025 data</p>
+                <p style="font-size: 0.78rem; color: var(--color-text-tertiary); margin-top: 8px;">Savings: median measured in real homes, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026" target="_blank" rel="noopener">NEED 2026</a>. Costs: <a href="https://energysavingtrust.org.uk/advice/cavity-wall-insulation/" target="_blank" rel="noopener">Energy Saving Trust</a>, 2026, for a typical home.</p>
             </div>
 
             <div class="sidebar-card">
@@ -296,8 +272,8 @@
     <section class="content-section">
         <article>
             <h2>How much does insulation cost in 2026?</h2>
-            <p>Insulation costs vary significantly by type and property. Loft insulation is the cheapest at £300 to £600 for a typical home. Cavity wall insulation costs £400 to £1,500. Solid wall insulation is the most expensive at £4,500 to £13,000 for internal or external options. However, many households can get insulation installed for free through the <a href="/grants/">ECO4 scheme or GB Energy Scheme</a>.</p>
-            <p>The savings also vary. A detached house saves more than a mid-terrace because it has more exposed wall and roof area. Homes heated by oil or LPG see larger savings than those on mains gas because their fuel costs more per unit. Our calculator factors in your property type and fuel to give you a personalised estimate.</p>
+            <p>Loft insulation is the cheapest: the Energy Saving Trust puts it at £750 to lay 270mm in a bare loft and £600 to top up a thin one. Cavity wall insulation costs about £2,700 for a typical home. Solid wall insulation is the most expensive, about £12,000 inside or £15,000 outside for a typical 3 bed semi. Larger homes cost more. Many households on lower incomes can get loft and cavity insulation free through <a href="/guides/eco4-scheme-explained/">ECO4</a>, which ends on 31 December 2026, or a Warm Homes: Local Grant from their council.</p>
+            <p>The savings we show are what homes measurably saved: the government compared gas use before and after in thousands of real homes. The median was 12.0 per cent for cavity wall insulation, 17.3 per cent for solid wall and 3.2 per cent for loft insulation, most of it top-ups. We apply those to your home's own fuel use, so a detached house saves more than a mid-terrace, and oil or LPG homes save more pounds than gas homes because their fuel costs more. These savings are lower than most calculators show, because many homes were under-heated before and take part of the gain as warmth.</p>
 
             <h2>Should I insulate before installing a heat pump?</h2>
             <p>Yes, almost always. <a href="/heat-pump-calculator/">Heat pumps</a> work best in well-insulated homes because they operate at lower temperatures than gas boilers. Better insulation means you need a smaller heat pump (lower cost), the heat pump runs more efficiently (lower bills), and your home stays comfortable at the lower flow temperatures. Our <a href="/epc-calculator/">EPC improvement planner</a> can show you the most cost-effective order of improvements for your home.</p>
@@ -334,52 +310,63 @@
 
             <h2>Frequently asked questions</h2>
             <h3>How much does loft insulation cost in 2026?</h3>
-            <p>Professional loft insulation typically costs £300 to £600 for a standard home. Many households qualify for free installation through the <a href="/grants/">ECO4 scheme or GB Energy Scheme</a>. DIY loft insulation using mineral wool rolls costs around £5 to £8 per square metre from builders' merchants.</p>
+            <p>The Energy Saving Trust puts it at about £750 to lay 270mm in a bare loft and £600 to top up an existing layer. Many households on lower incomes can get it free through ECO4 until 31 December 2026, or through a Warm Homes: Local Grant from their council.</p>
 
             <h3>Is cavity wall insulation worth it?</h3>
-            <p>For most homes, cavity wall insulation saves £200 to £500 per year on heating bills, with a typical payback period of 2 to 4 years. It is one of the most cost-effective home improvements available. However, some homes have issues with damp penetration after cavity fill, so get a survey from a reputable installer before proceeding.</p>
+            <p>Usually, and especially if a grant pays for it. Homes the government measured used a median 12.0 per cent less gas after cavity wall insulation, about £105 a year for a 3 bed semi on gas. At a typical £2,700 that is a long payback at full price, which is why most cavity insulation is grant funded. Get a survey first, because some exposed or damp walls are not suitable.</p>
 
             <h3>Can I get free insulation in the UK?</h3>
-            <p>Yes. The ECO4 scheme and GB Energy Scheme provide free or heavily subsidised insulation to qualifying households, particularly those on low incomes or receiving certain benefits. Check our <a href="/grants/">grant eligibility checker</a> to see if you qualify.</p>
+            <p>Yes, if you qualify. ECO4 funds insulation for many households on means-tested benefits or lower incomes until 31 December 2026, and councils run Warm Homes: Local Grants. The Great British Insulation Scheme closed on 31 March 2026. Our grant checker shows which you could get.</p>
 
             <h3>Does insulation improve my EPC rating?</h3>
-            <p>Yes, significantly. Loft insulation can improve your <a href="/epc-calculator/">EPC rating</a> by 5 to 10 points. Cavity wall insulation can add 10 to 15 points. Solid wall insulation can add 15 to 25 points. For landlords who need to meet minimum EPC standards, insulation is often the cheapest way to improve their rating.</p>
+            <p>Yes. How much depends on the home and what it already has; our EPC improvement planner estimates it for yours.</p>
         </article>
     </section>
 
     
 
 <!-- site-footer -->
-<footer class="footer"><section class="footer-news" id="newsletter" aria-labelledby="fn-title"><div class="fn-copy"><h2 id="fn-title">Keep up to date with UK home energy rules</h2><p>Grants, the energy price cap and the rules for UK homes change often. Get a short email when something changes that affects your home.</p></div><form name="newsletter" method="POST" action="/newsletter-thanks/" data-netlify="true" netlify-honeypot="bot-field" class="fn-form"><input type="hidden" name="form-name" value="newsletter"><input type="hidden" name="source" value="/insulation-calculator/"><input type="hidden" name="consent_version" value="newsletter-v2-2026-09-24"><input type="hidden" name="consent_text" value="I would like email updates about changes to UK home energy rules, grants and prices. I can unsubscribe at any time."><p class="qf-hp" hidden><label>Do not fill this in: <input name="bot-field"></label></p><label for="fn-email">Email address</label><div class="fn-row"><input type="email" id="fn-email" name="email" required autocomplete="email" placeholder="you@example.com"><button type="submit">Keep me updated</button></div><p class="fn-small">Unsubscribe any time. We use your email only for these updates and never share it. <a href="/privacy/#email-updates">Privacy policy</a></p></form></section><div class="footer-inner"><div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div><div class="footer-col"><h4>Calculators</h4><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel Cost Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div><div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div><div class="footer-col"><h4>Company</h4><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/embed/">Embed Our Calculators</a><a href="/contact/">Contact</a></div></div><div class="attribution">Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy prices from Ofgem (October to December 2026 price cap). Cost data from Energy Saving Trust. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes. Always obtain professional quotes before proceeding with installation.</div></footer>
+<footer class="footer"><section class="footer-news" id="newsletter" aria-labelledby="fn-title"><div class="fn-copy"><h2 id="fn-title">Keep up to date with UK home energy rules</h2><p>Grants, the energy price cap and the rules for UK homes change often. Get a short email when something changes that affects your home.</p></div><form name="newsletter" method="POST" action="/newsletter-thanks/" data-netlify="true" netlify-honeypot="bot-field" class="fn-form"><input type="hidden" name="form-name" value="newsletter"><input type="hidden" name="source" value="/insulation-calculator/"><input type="hidden" name="consent_version" value="newsletter-v2-2026-09-24"><input type="hidden" name="consent_text" value="I would like email updates about changes to UK home energy rules, grants and prices. I can unsubscribe at any time."><p class="qf-hp" hidden><label>Do not fill this in: <input name="bot-field"></label></p><label for="fn-email">Email address</label><div class="fn-row"><input type="email" id="fn-email" name="email" required autocomplete="email" placeholder="you@example.com"><button type="submit">Keep me updated</button></div><p class="fn-small">Unsubscribe any time. We use your email only for these updates and never share it. <a href="/privacy/#email-updates">Privacy policy</a></p></form></section><div class="footer-inner"><div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div><div class="footer-col"><h4>Calculators</h4><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel Cost Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div><div class="footer-col"><h4>Guides</h4><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div><div class="footer-col"><h4>Company</h4><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/embed/">Embed Our Calculators</a><a href="/contact/">Contact</a></div></div><div class="attribution">Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy prices from Ofgem (October to December 2026 price cap). Insulation costs from the Energy Saving Trust, 2026. Measured savings from NEED Impact of Measures 2026. Grant information from GOV.UK. Calculator results are estimates based on national averages and should not be treated as quotes. Always obtain professional quotes before proceeding with installation.</div></footer>
 <!-- /site-footer -->
 
     <script>
     // Source: <a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a> typical savings by property type and insulation measure (2025 data)
     // Fuel prices: <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a> price cap, October to December 2026; oil at September 2026 market rate
+    /* Everything here is published data, and the page says where it comes from.
+
+       SAVINGS ARE MEASURED. Each figure is the median fall in gas use the government
+       measured in real homes after that measure was fitted, against similar homes that had
+       nothing done: NEED Impact of Measures 2026, Table 1 (DESNZ, 11 June 2026; installs
+       mid-May 2023 to mid-May 2024). Loft 3.2% (1,486 homes, mostly top-ups), cavity wall
+       12.0% (2,191), solid wall 17.3% (2,411). They are applied to this home's own fuel use
+       from the shared heat model, so a bigger or leakier home saves more, and priced at the
+       fuel it actually uses. Measured savings are lower than the modelled figures most
+       calculators show, because many homes were under-heated before and take part of the
+       gain as warmth.
+
+       COSTS are the Energy Saving Trust's 2026 figures for a typical home: loft 270mm from
+       nothing £750 and top-up from 120mm £600 (updated 8 May 2026), cavity wall about
+       £2,700 (10 February 2026), solid wall about £12,000 internal and £15,000 external for
+       a 3 bed semi (18 June 2026). Larger homes cost more; the page says so. */
     const DATA = {
-        fuelPrices: { gas: 0.0797, oil: 0.090, lpg: 0.095, electricity: 0.2632 },
-        fuelMultiplier: { gas: 1.0, oil: 1.01, lpg: 1.41, electricity: 3.63 },
-        // Annual savings in £ for gas heating (multiply by fuelMultiplier for others)
-        // Source: EST typical savings data
-        loftSavings: {
-            'none':    { detached: 355, semi: 215, 'mid-terrace': 135, 'end-terrace': 175, bungalow: 280, flat: 100 },
-            'partial': { detached: 200, semi: 120, 'mid-terrace': 75,  'end-terrace': 100, bungalow: 160, flat: 55 },
-        },
-        cavitySavings: {
-            detached: 395, semi: 215, 'mid-terrace': 105, 'end-terrace': 160, bungalow: 250, flat: 100
-        },
-        solidWallSavings: {
-            detached: 590, semi: 340, 'mid-terrace': 200, 'end-terrace': 270, bungalow: 370, flat: 160
-        },
-        // Installation costs
-        loftCost: { none: { min: 300, max: 600 }, partial: { min: 250, max: 400 } },
-        cavityCost: { min: 400, max: 1500 },
-        solidWallCost: { internal: { min: 4500, max: 8000 }, external: { min: 8000, max: 13000 } },
+        fuelPrices: { gas: 0.0797, oil: 0.090, lpg: 0.095, electricity: 0.2632 }, // Ofgem cap Oct to Dec 2026; oil and LPG Sept 2026 market
+        saving: { loft: 0.0321, cavity: 0.1198, solid: 0.1728 },
+        homes: { loft: 1486, cavity: 2191, solid: 2411 },
+        cost: { loftNone: 750, loftTopUp: 600, cavity: 2700, solidInternal: 12000, solidExternal: 15000 }
     };
+
+    function gbp(v) { return '£' + Math.round(v).toLocaleString('en-GB'); }
+    function payback(cost, saving) {
+        if (!(saving > 0)) { return 'no payback'; }
+        const y = cost / saving;
+        if (y < 1) { return 'under a year'; }
+        if (y >= 50) { return 'over 50 years'; }
+        return Math.round(y) + (Math.round(y) === 1 ? ' year' : ' years');
+    }
 
     function calculate() {
         const prop = document.getElementById('propertyType').value;
-        const beds = parseInt(document.getElementById('bedrooms').value);
+        const beds = parseInt(document.getElementById('bedrooms').value, 10);
         const fuel = document.getElementById('heatingFuel').value;
         const loft = document.getElementById('loftInsulation').value;
         const wall = document.getElementById('wallType').value;
@@ -387,123 +374,70 @@
 
         if (!rpRequire()) { return; }
 
-        const fm = DATA.fuelMultiplier[fuel];
-        const bedsMultiplier = 1 + (beds - 3) * 0.1;
-        let html = '';
-        let totalSaving = 0;
-        let opportunities = [];
+        /* How well insulated the home is now decides how much fuel it uses today, which is
+           what each measured percentage is taken from. */
+        const loftDone = loft === 'full' || loft === 'none-applicable';
+        const wallsDone = wall === 'cavity-insulated' || wall === 'solid-insulated';
+        const fabric = (loftDone && wallsDone) ? 'good' : (!loftDone && !wallsDone && wall !== 'unsure') ? 'poor' : 'average';
+        const eff = RP_HEAT.boilerEfficiency(fuel);
+        const fuelKwh = fuel === 'gas' ? RP_HEAT.gasKwh(prop, beds, fabric) : RP_HEAT.heatDemand(prop, beds, fabric, 'gas') / eff;
+        const fuelCost = fuelKwh * DATA.fuelPrices[fuel];
+        const maybeFunded = benefits === 'yes';
 
-        // Loft insulation
-        if (loft === 'none' || loft === 'partial') {
-            const saving = Math.round(DATA.loftSavings[loft][prop] * fm * bedsMultiplier);
-            const costRange = DATA.loftCost[loft];
-            const cost = benefits === 'yes' ? 0 : Math.round((costRange.min + costRange.max) / 2);
-            const payback = cost > 0 ? Math.round(cost / saving * 10) / 10 : 0;
-            totalSaving += saving;
-            opportunities.push({
-                name: loft === 'none' ? 'Loft insulation (new)' : 'Loft insulation (top-up)',
-                saving, cost, payback,
-                freeEligible: benefits === 'yes',
-                priority: 'high'
-            });
+        let remaining = 1;
+        const measures = [];
+        function add(name, key, cost, note) {
+            const saving = fuelCost * remaining * DATA.saving[key];
+            remaining *= (1 - DATA.saving[key]);
+            measures.push({ name: name, saving: saving, cost: cost, note: note,
+                measured: (DATA.saving[key] * 100).toFixed(1) + '% measured median saving across ' + DATA.homes[key].toLocaleString('en-GB') + ' homes' });
         }
-
-        // Wall insulation
+        if (loft === 'none') {
+            add('Loft insulation to 270mm', 'loft', DATA.cost.loftNone,
+                'The measured figure is an average across mostly top-ups. A loft with little or no insulation usually saves more than this.');
+        } else if (loft === 'partial') {
+            add('Loft insulation top-up to 270mm', 'loft', DATA.cost.loftTopUp, '');
+        }
         if (wall === 'cavity-uninsulated') {
-            const saving = Math.round(DATA.cavitySavings[prop] * fm * bedsMultiplier);
-            const cost = benefits === 'yes' ? 0 : Math.round((DATA.cavityCost.min + DATA.cavityCost.max) / 2);
-            const payback = cost > 0 ? Math.round(cost / saving * 10) / 10 : 0;
-            totalSaving += saving;
-            opportunities.push({
-                name: 'Cavity wall insulation',
-                saving, cost, payback,
-                freeEligible: benefits === 'yes',
-                priority: 'high'
-            });
+            add('Cavity wall insulation', 'cavity', DATA.cost.cavity,
+                'About £2,700 for a typical home. Larger homes cost more. Get a survey first: some exposed or damp walls are not suitable.');
         } else if (wall === 'solid') {
-            const saving = Math.round(DATA.solidWallSavings[prop] * fm * bedsMultiplier);
-            const costInternal = Math.round((DATA.solidWallCost.internal.min + DATA.solidWallCost.internal.max) / 2);
-            const costExternal = Math.round((DATA.solidWallCost.external.min + DATA.solidWallCost.external.max) / 2);
-            // Claiming a benefit does not by itself fund solid wall insulation: it is the most
-            // expensive measure, ECO4 closes on 31 December 2026, and installers ration it.
-            // Show the real cost and flag that it MAY be funded, which /grants/ can check.
-            const cost = costInternal;
-            const payback = cost > 0 ? Math.round(costInternal / saving * 10) / 10 : 0;
-            totalSaving += saving;
-            opportunities.push({
-                name: 'Solid wall insulation (internal)',
-                saving, cost, payback,
-                freeEligible: false,
-                mayBeFunded: benefits === 'yes',
-                priority: 'medium',
-                note: 'External option costs £' + costExternal.toLocaleString() + ' but avoids losing room space.'
-            });
-        } else if (wall === 'unsure') {
-            // Not knowing the wall type is not the same as having nothing to do. Offer the
-            // range it could be worth and tell the reader how to find out, rather than
-            // scoring the answer as if the walls were already done.
-            const cavity = Math.round(DATA.cavitySavings[prop] * fm * bedsMultiplier);
-            const solid = Math.round(DATA.solidWallSavings[prop] * fm * bedsMultiplier);
-            opportunities.push({
-                name: 'Wall insulation, once you know which walls you have',
-                saving: 0, cost: 0, payback: 0,
-                freeEligible: false,
-                priority: 'high',
-                unknown: true,
-                note: 'Worth £' + cavity.toLocaleString() + ' a year if the walls are cavity and about £'
-                    + solid.toLocaleString() + ' a year if they are solid. Look at the brickwork: a repeating '
-                    + 'pattern of short ends among the long bricks means solid walls. Your EPC also records it.'
-            });
+            add('Solid wall insulation (internal)', 'solid', DATA.cost.solidInternal,
+                'About £12,000 internal or £15,000 external for a typical 3 bed semi. External avoids losing room space.');
         }
 
-        if (opportunities.length === 0) {
-            html = '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);">';
-            html += '<div style="font-weight: 600;">Nothing left on the answers you gave</div>';
-            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your loft and walls are both covered, so the next gains are elsewhere: a <a href="/heat-pump-calculator/">heat pump</a>, <a href="/solar-calculator/">solar panels</a>, or the smaller fixes in our <a href="/guides/draught-proofing-guide/">draught proofing guide</a>. Floors and windows are not covered by this calculator.</div>';
-            html += '</div>';
-        } else {
-            // Summary
-            const known = opportunities.filter(o => !o.unknown);
-            if (known.length === 0) {
-                // Every measure on the list depends on an answer the visitor does not have yet,
-                // so a "£0 saving" headline would be actively misleading.
-                html += '<div class="result-full" style="background: var(--color-highlight-bg); border: 1px solid var(--color-highlight-border);">';
-                html += '<div style="font-weight: 600;">We need one more answer before we can total this up</div>';
-                html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your loft is done, so the walls are the open question, and what they are worth depends entirely on which kind you have.</div>';
-                html += '</div>';
-            } else {
-            html += '<div class="result-grid">';
-            html += '<div class="result-item saving"><div class="label">Total annual saving</div><div class="value">£' + totalSaving.toLocaleString() + '</div><div class="detail">across all measures</div></div>';
-            const totalCost = opportunities.reduce((s, o) => s + o.cost, 0);
-            html += '<div class="result-item highlight"><div class="label">Total cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (benefits === 'yes' ? 'Before grants. Check what you qualify for' : 'Before any grants') + '</div></div>';
-            html += '</div>';
-
+        let html = '';
+        const fuelNote = fuel === 'electricity' ? ' Electric heating is priced at the standard rate; on Economy 7 your savings will be lower.' : '';
+        if (wall === 'unsure') {
+            const f = fuelCost * (1 - (loft === 'none' || loft === 'partial' ? DATA.saving.loft : 0));
+            html += '<div class="result-full" style="background: var(--color-highlight-bg); border: 1px solid var(--color-highlight-border);"><div style="font-weight: 600;">Find out which walls you have</div>'
+                + '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Wall insulation is worth about ' + gbp(f * DATA.saving.cavity) + ' a year if your walls are an unfilled cavity, and about '
+                + gbp(f * DATA.saving.solid) + ' a year if they are solid. Look at the brickwork: a repeating pattern of short brick ends among the long ones means solid walls. Your EPC also records it.</div></div>';
+        }
+        if (measures.length === 0) {
+            if (wall !== 'unsure') {
+                html += '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);"><div style="font-weight: 600;">Nothing left on the answers you gave</div>'
+                    + '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your loft and walls are both covered, so the next gains are elsewhere: <a href="/guides/draught-proofing-guide/">draught-proofing</a>, <a href="/guides/underfloor-insulation-cost/">floor insulation</a> or a <a href="/heat-pump-calculator/">heat pump</a>. The <a href="/retrofit-plan/">retrofit plan</a> puts them in order.</div></div>';
             }
-
-            // Individual measures
-            opportunities.forEach(o => {
-                html += '<div class="result-full">';
-                html += '<div style="display: flex; justify-content: space-between; align-items: start;">';
-                html += '<div><div class="label">' + o.name + '</div>';
-                if (o.unknown) {
-                    // No saving can be stated until the visitor knows what walls they have.
-                    html += '<div style="font-size: 0.95rem; margin-top: 4px;">Worth checking before anything else</div>';
-                } else {
-                    html += '<div style="font-size: 0.95rem; margin-top: 4px;">Save <strong style="color: var(--color-accent);">£' + o.saving.toLocaleString() + ' a year</strong>';
-                    if (o.cost > 0) {
-                        html += ', costs £' + o.cost.toLocaleString() + ', payback in ' + o.payback + ' years';
-                        if (o.mayBeFunded) {
-                            html += '. On the benefits you named this <a href="/grants/">may be funded</a>, though solid wall work is the most heavily rationed measure';
-                        }
-                    } else {
-                        html += ', <strong style="color: var(--color-accent);">likely free</strong> through <a href="/grants/">grant schemes</a>';
-                    }
-                    html += '</div>';
-                }
-                if (o.note) html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">' + o.note + '</div>';
-                html += '</div></div></div>';
+        } else {
+            const totalSaving = measures.reduce((t, m) => t + m.saving, 0);
+            const totalCost = measures.reduce((t, m) => t + m.cost, 0);
+            html += '<div class="result-grid">';
+            html += '<div class="result-item saving"><div class="label">Yearly saving</div><div class="value">' + gbp(totalSaving) + '</div><div class="detail">What homes like yours measurably saved</div></div>';
+            html += '<div class="result-item highlight"><div class="label">Typical cost</div><div class="value">' + gbp(totalCost) + '</div><div class="detail">Before any grant</div></div>';
+            html += '</div>';
+            measures.forEach(function (m) {
+                html += '<div class="result-full"><div class="label">' + m.name + '</div>'
+                    + '<div style="font-size: 0.95rem; margin-top: 4px;">Save <strong style="color: var(--color-accent);">' + gbp(m.saving) + ' a year</strong>, typical cost ' + gbp(m.cost) + ', payback ' + payback(m.cost, m.saving) + ' at full price</div>'
+                    + '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">' + m.measured + '. ' + (m.note ? m.note + ' ' : '') + '</div></div>';
             });
+            html += '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);"><div style="font-weight: 600;">'
+                + (maybeFunded ? 'This could be free for you' : 'Grants can cover some or all of this') + '</div><div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">'
+                + (maybeFunded ? 'On a means-tested benefit you may qualify for loft and cavity wall insulation at no cost through ECO4, which ends on 31 December 2026, or a Warm Homes: Local Grant from your council. Solid wall insulation is funded far less often. '
+                               : 'ECO4, which ends on 31 December 2026, and council run Warm Homes: Local Grants fund insulation for many households on lower incomes. ')
+                + '<a href="/grants/">Check which grants you qualify for</a>.</div></div>';
         }
+        html += '<p style="font-size: 0.8rem; color: var(--color-text-tertiary); margin-top: 8px;">Savings are what homes like yours measurably saved, not the most you could save; a home heated the same way before and after can save more. Priced at the Ofgem cap for October to December 2026.' + fuelNote + ' <a href="/accuracy/">How accurate are these figures?</a></p>';
 
         document.getElementById('resultsContent').innerHTML = html;
         document.getElementById('nextStep').innerHTML = rpPartnerBox('grants',
@@ -516,6 +450,7 @@
     </script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/results.js" data-fields="propertyType,bedrooms,heatingFuel,loftInsulation,wallType,benefits" data-calc="calculate" data-title="Insulation savings estimate" defer></script>
+<script src="/js/heat-model.js"></script>
 <script src="/js/partners.js"></script>
 <script src="/js/nav.js" defer></script>
 </body>
