@@ -133,11 +133,11 @@ if ORDER[STAGE] >= 3:
 import subprocess as _sp
 # stale_check looks for figures only the pre 24 September 2026 model produced, which is
 # what a page nobody re-read after the recalibration would still say.
-for _tool in ('model_check.py', 'table_check.py', 'stale_check.py'):
+for _tool in ('model_check.py', 'table_check.py', 'stale_check.py', 'faq_parity.py'):
     _r = _sp.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), _tool)],
                  capture_output=True, text=True, cwd=os.getcwd())
     _tail = [l for l in _r.stdout.strip().split('\n') if l.strip()]
-    check(_tool + (' finds no pre-recalibration figures' if _tool == 'stale_check.py' else ' agrees with js/heat-model.js'), _r.returncode == 0,
+    check(_tool + {'stale_check.py': ' finds no pre-recalibration figures', 'faq_parity.py': ': FAQ schema matches the visible FAQ'}.get(_tool, ' agrees with js/heat-model.js'), _r.returncode == 0,
           '\n        '.join(_tail[-6:]))
 
 # The /embed/ page promises each widget gives the same figures as its full calculator.
