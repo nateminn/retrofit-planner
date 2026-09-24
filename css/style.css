@@ -968,5 +968,3 @@ select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,su
 @media (max-width:640px){.scheme-note{padding:12px 14px;border-radius:var(--radius-sm,6px)}}
 @media print{.scheme-note{border:1px solid #999;background:transparent}}
 /* Disclosure under a paid next-step link. Shown only when the link actually earns. */
-.cta-disclosure{margin:10px 0 0;font-size:.78rem;line-height:1.5;color:var(--color-text-secondary)}
-.affiliate-note{margin:0 0 24px;padding:10px 14px;border-left:3px solid var(--color-border);background:var(--color-surface);font-size:.82rem;line-height:1.55;color:var(--color-text-secondary);border-radius:0 6px 6px 0}

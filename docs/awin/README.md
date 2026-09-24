@@ -42,3 +42,16 @@ whether the programme takes publishers.
 The nine-page count folds GSC's anchor rows back into their parent page and drops
 malformed and one-impression URLs. An earlier draft said 21 pages, which counted
 those rows separately and would not have survived anyone checking.
+
+## Paused on 24 September 2026
+
+All affiliate activity was taken off the site on 24 September 2026: the Amazon tagged links
+(unwrapped by docs/superpowers/tools/strip_affiliates.py), the per page commission notes, the
+footer Amazon line, the privacy and About page sections, and the Awin machinery in
+js/partners.js (publisher ID, the awin() link builder, the paid flags, rel="sponsored" and the
+visible disclosure that appeared above paid links).
+
+To bring Awin back after an approval, restore js/partners.js from commit 3be5248
+(git show 3be5248:js/partners.js) and re-add the disclosure wording to privacy/ and about/.
+The visible disclosure must sit above the paid link, before the reader clicks.
+
