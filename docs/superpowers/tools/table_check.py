@@ -138,6 +138,41 @@ def money(s):
     lo = float(m.group(1).replace(',', ''))
     return lo if not m.group(2) else (lo, float(m.group(2).replace(',', '')))
 
+# The bill checker on average-energy-bills-uk inlines the model's numbers in a script
+# tag rather than a table, because it computes live. Unguarded derived data is exactly
+# what caused the drift this tool exists to catch, so it is checked too.
+INLINE = [dict(page='guides/average-energy-bills-uk/index.html', var='D',
+               cells={'flat1': ('flat', 1), 'flat2': ('flat', 2), 'terrace2': ('mid-terrace', 2),
+                      'semi3': ('semi', 3), 'det3': ('detached', 3), 'det4': ('detached', 4),
+                      'det5': ('detached', 5)})]
+
+def check_inline(problems):
+    n = 0
+    for spec in INLINE:
+        f = ROOT / spec['page']
+        if not f.exists():
+            continue
+        html = f.read_text()
+        m = re.search(r'var %s=(\{.*?\});' % spec['var'], html, re.S)
+        if not m:
+            problems.append((spec['page'], '', 'inline %s not found' % spec['var'], '', ''))
+            continue
+        data = json.loads(m.group(1))
+        name = spec['page'].replace('guides/', '').replace('/index.html', '') + ' (inline)'
+        for key, (ptype, beds) in spec['cells'].items():
+            if key not in data:
+                problems.append((name, key, 'missing from inline data', '', '')); continue
+            for ins in ('poor', 'average', 'good', 'excellent'):
+                c = M['%s|%d|%s' % (ptype, beds, ins)]
+                for field, want in (('g', c['gas']), ('h', c['heat'])):
+                    got = data[key][field].get(ins)
+                    n += 1
+                    if got is None:
+                        problems.append((name, key, field + ' ' + ins, 'missing', str(want)))
+                    elif abs(got - want) > 1:
+                        problems.append((name, key, field + ' ' + ins, str(got), str(want)))
+    return n
+
 def main():
     problems, checked, unmapped = [], 0, []
     for spec in SPECS:
@@ -176,6 +211,7 @@ def main():
                 t = tol(qty, exp)
                 if not (lo - t <= exp <= hi + t):
                     problems.append((name, c[0], head, c[i], '%.0f' % exp))
+    checked += check_inline(problems)
     for name, row, col, got, exp in problems:
         print('  %-30s %-22s %-26s page %s, model %s' % (name, row[:22], col[:26], got, exp))
     if unmapped:
