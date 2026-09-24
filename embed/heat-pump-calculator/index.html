@@ -60,7 +60,7 @@ button:hover{background:#245741}
 </div>
 <div class="row">
 <div class="f"><label for="currentHeating">Current heating</label><select id="currentHeating"><option value="gas-boiler" selected>Gas boiler</option><option value="oil-boiler">Oil boiler</option><option value="lpg-boiler">LPG boiler</option><option value="electric-storage">Electric storage heaters</option><option value="electric-direct">Direct electric heating</option></select></div>
-<div class="f"><label for="insulation">Insulation</label><select id="insulation"><option value="good">Good</option><option value="average" selected>Average</option><option value="poor">Poor</option></select></div>
+<div class="f"><label for="insulation">Insulation</label><select id="insulation"><option value="excellent">Excellent: recently retrofitted</option><option value="good">Good</option><option value="average" selected>Average</option><option value="poor">Poor</option></select></div>
 </div>
 <div class="f"><label for="annualBill">Current annual heating bill (optional)</label><input type="number" id="annualBill" placeholder="e.g. 1200" min="0" step="10"><p class="hint">Leave blank and we estimate it from your property and fuel.</p></div>
 <button type="button" onclick="calc()">Calculate heat pump cost</button>
@@ -87,51 +87,48 @@ button:hover{background:#245741}
 </div>
 </div>
 
+<script src="/js/heat-model.js"></script>
 <script>
-// Same model as retrofitplanner.co.uk/heat-pump-calculator/ so the numbers cannot diverge.
-var DATA={
- energyPrices:{electricity:0.2632,gas:0.0797,oil:0.090,lpg:0.095},
- gasKwh:{detached:{1:7100,2:9400,3:11700,4:14600,5:19500},semi:{1:4100,2:7500,3:11000,4:15300,5:22800},'mid-terrace':{1:4300,2:7000,3:9800,4:13200,5:19100},'end-terrace':{1:6600,2:8400,3:10300,4:12600,5:16500},bungalow:{1:7000,2:9200,3:11500,4:14300,5:19100},flat:{1:5600,2:7100,3:8700,4:10700,5:14100}},
- insulationMultiplier:{good:0.85,average:1.00,poor:1.11},
- installCost:{detached:{base:11000},semi:{base:10000},'mid-terrace':{base:9000},'end-terrace':{base:9500},bungalow:{base:10000},flat:{base:8000}},
- cop:{good:3.2,average:2.9,poor:2.6},
- boilerEfficiency:{'gas-boiler':0.90,'oil-boiler':0.85,'lpg-boiler':0.85,'electric-storage':1.0,'electric-direct':1.0},
- fuelType:{'gas-boiler':'gas','oil-boiler':'oil','lpg-boiler':'lpg','electric-storage':'electricity','electric-direct':'electricity'},
- busGrant:7500, tariffRate:0.18};
-var LABEL={'gas-boiler':'Gas boiler','oil-boiler':'Oil boiler','lpg-boiler':'LPG boiler','electric-storage':'Storage heaters','electric-direct':'Electric heating'};
+/* The calculation is the shared model in /js/heat-model.js, the same file the full
+   calculator loads, so the two cannot give different answers. This page used to carry its
+   own copy of the tables, which drifted: old costs, old efficiencies and one grant for all. */
+var PRICE={electricity:0.2632,gas:0.0797,oil:0.090,lpg:0.095}, TARIFF=0.18, GAS_STANDING=108.33;
+var FUEL={'gas-boiler':'gas','oil-boiler':'oil','lpg-boiler':'lpg','electric-storage':'electricity','electric-direct':'electricity'};
+var LABEL={'gas-boiler':'gas boiler','oil-boiler':'oil boiler','lpg-boiler':'LPG boiler','electric-storage':'storage heaters','electric-direct':'electric heating'};
 function v(id){return document.getElementById(id).value}
 function gbp(n){return '£'+Math.round(n).toLocaleString('en-GB')}
 function calc(){
-  var pt=v('propertyType'), bed=v('bedrooms'), heat=v('currentHeating'), ins=v('insulation'), bill=v('annualBill');
-  var demand=Math.round(DATA.gasKwh[pt][bed]*DATA.insulationMultiplier[ins]*0.90);
-  var fuel=DATA.fuelType[heat], eff=DATA.boilerEfficiency[heat];
-  var est=(demand/eff)*DATA.energyPrices[fuel];
-  var cur=bill?parseFloat(bill):est;
-  var hp=(demand/DATA.cop[ins])*DATA.energyPrices.electricity;
-  var hpTar=(demand/DATA.cop[ins])*DATA.tariffRate;
-  var bm=1+(parseInt(bed,10)-3)*0.08, im=ins==='poor'?1.15:ins==='average'?1.05:1.0;
-  var cost=Math.round(DATA.installCost[pt].base*bm*im/100)*100;
-  cost=Math.max(7000,Math.min(cost,15000));
-  var net=cost-DATA.busGrant, save=cur-hp, saveTar=cur-hpTar;
-  var pay=save>0?net/save:null;
+  var H=window.RP_HEAT;
+  var pt=v('propertyType'), bed=parseInt(v('bedrooms'),10), heat=v('currentHeating'), ins=v('insulation'), bill=parseFloat(v('annualBill'));
+  var fuel=FUEL[heat], eff=H.boilerEfficiency(fuel), price=PRICE[fuel];
+  // A typed bill sets the heat demand for both sides; a gas bill's standing charge comes off first.
+  var demand=H.heatDemand(pt,bed,ins,'gas'), standing=fuel==='gas'?GAS_STANDING:0;
+  if(bill>0 && bill-standing>50){ demand=Math.round((bill-standing)/price*eff); }
+  var cur=demand/eff*price, cop=H.cop(ins);
+  var hp=demand/cop*PRICE.electricity, hpTar=demand/cop*TARIFF;
+  var cost=H.heatPumpInstall(pt,bed,ins), grant=H.busGrant(fuel), net=Math.max(0,cost-grant);
+  var save=cur-hp, saveTar=cur-hpTar;
   document.getElementById('installCost').textContent=gbp(cost);
-  document.getElementById('afterGrant').textContent=gbp(Math.max(0,net));
-  document.getElementById('annualSaving').textContent=save>0?gbp(save):'None';
-  document.getElementById('savingDetail').textContent=save>0?('against '+(LABEL[heat]||'your heating').toLowerCase()):'Similar on a standard tariff';
-  document.getElementById('payback').textContent=(save>0&&pay<50)?(pay<1?'Under a year':Math.round(pay)+' years'):'Not on running cost';
+  document.getElementById('afterGrant').textContent=gbp(net);
+  if(Math.abs(save)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='within £'+Math.round(Math.abs(save))+' a year of your '+LABEL[heat]+', standard tariff'; }
+  else if(save>0){ document.getElementById('annualSaving').textContent=gbp(save); document.getElementById('savingDetail').textContent='a year against your '+LABEL[heat]+', standard tariff'; }
+  else { document.getElementById('annualSaving').textContent=gbp(-save)+' more'; document.getElementById('savingDetail').textContent='a year than your '+LABEL[heat]+', on a standard tariff'; }
+  var best=Math.max(save,saveTar), pay=best>0?net/best:null;
+  document.getElementById('payback').textContent=!(best>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+' years')));
   var max=Math.max(cur,hp,hpTar);
   document.getElementById('gasBar').style.width=(cur/max*100)+'%';
   document.getElementById('hpBar').style.width=(hp/max*100)+'%';
   document.getElementById('hpTarBar').style.width=(hpTar/max*100)+'%';
   document.getElementById('hpTarCost').textContent=gbp(hpTar)+' a year';
-  document.getElementById('curLabel').textContent=LABEL[heat]||'Current heating';
+  document.getElementById('curLabel').textContent=LABEL[heat].charAt(0).toUpperCase()+LABEL[heat].slice(1);
   document.getElementById('gasCost').textContent=gbp(cur)+' a year';
   document.getElementById('hpCost').textContent=gbp(hp)+' a year';
   var rec;
-  if(ins==='poor') rec='Insulate first. Poor insulation means a bigger, more expensive unit and a lower efficiency, so loft and cavity work pays for itself twice.';
-  else if(saveTar>save) rec='The headline saving is against a standard electricity tariff. On a dedicated heat pump tariff, which prices off-peak electricity near 18p, this home would save about ' + gbp(saveTar) + ' a year instead.';
+  if(ins==='poor') rec='Insulate first. A leaky home needs a bigger, more expensive heat pump that runs less efficiently, so loft and wall insulation come before it.';
+  else if(saveTar>save) rec='On a heat pump tariff, which averages about 18p a kWh when most heating runs in the cheap hours, this home would pay '+gbp(hpTar)+' a year to heat, against '+gbp(cur)+' now.';
   else if(pt==='flat') rec='Flats usually need a compact, quieter unit, and you will need the freeholder’s agreement before any work starts.';
   else rec='An air source heat pump suits most homes of this type. The grant is paid to the installer, so you pay the net figure.';
+  if(fuel==='gas') rec+=' Figures are energy only; gas also carries a £108 a year standing charge you save if you cap the supply.';
   document.getElementById('rec').textContent=rec;
   document.getElementById('res').classList.add('on');
   report();
