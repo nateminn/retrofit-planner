@@ -98,7 +98,7 @@ The calculators store and send nothing, so I have no count of calculator uses. T
 
 The Energy Saving Trust Home Energy Efficiency Tool, which Lloyds already white labels, as do Nationwide and Barclays. By the banks' descriptions it returns current and improved bills, EPC before and after, measure costs and CO2. None mentions payback, and no method is published. It covers all of Great Britain and gives EPC and CO2 figures; my EPC planner is only a rough estimate.
 
-Snugg, a free home energy planner TSB offers its customers. Kamma Climate and Cotality sell modelling to lenders, not advice to customers. Installer funnels and paid surveys answer only after the customer has committed.
+Snugg, a free home energy planner TSB offers its customers. Kamma Climate and Cotality sell modelling to lenders, not advice to customers. Installer funnels answer only after the customer has committed.
 
 ## What are you hoping to achieve, and how can Lloyds help?
 
