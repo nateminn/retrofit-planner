@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .photo-src/
+
+# Real lead data never goes in the repo.
+docs/leads/private/
+*.leads.csv
