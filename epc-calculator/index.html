@@ -403,7 +403,7 @@
         { id: 'glazing', name: 'Double glazing', points: 8, costMin: 3000, costMax: 7000, requires: 'glazing-single', grantEligible: false, link: null },
         { id: 'glazing-partial', name: 'Replace remaining single glazing', points: 4, costMin: 1500, costMax: 3500, requires: 'glazing-partial', grantEligible: false, link: null },
         { id: 'boiler', group: 'heating', name: 'New condensing gas boiler', points: 8, costMin: 1500, costMax: 3500, requires: 'heating-old-gas', grantEligible: false, link: '/boiler-vs-heat-pump/' },
-        { id: 'heatpump', group: 'heating', name: 'Air source heat pump', points: 13, costMin: 7000, costMax: 13000, requires: 'heating-notHP', grantEligible: true, grantValue: 7500, link: '/heat-pump-calculator/' },
+        { id: 'heatpump', group: 'heating', name: 'Air source heat pump', points: 13, costMin: 10000, costMax: 15500, requires: 'heating-notHP', grantEligible: true, grantValue: 7500, link: '/heat-pump-calculator/' },
         { id: 'solar', name: 'Solar PV panels (4kW)', points: 7, costMin: 5000, costMax: 8000, requires: 'solar-no', grantEligible: false, link: '/solar-calculator/' },
         { id: 'solidwall', name: 'Solid wall insulation (internal)', points: 20, costMin: 4500, costMax: 8000, requires: 'wall-solid-no', grantEligible: true, link: '/insulation-calculator/' },
     ];
@@ -431,7 +431,11 @@
             currentScore = BANDS[currentBand];
         }
         const estimateNote = estimated ? '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border); margin-bottom: 16px;"><div style="font-weight: 600;">Estimated current rating: Band ' + currentBand + ', about ' + currentScore + ' points</div><div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Likely range ' + Math.max(1, currentScore - 6) + ' to ' + Math.min(100, currentScore + 6) + ' (Band ' + bandOf(Math.max(1, currentScore - 6)) + ' to ' + bandOf(Math.min(100, currentScore + 6)) + '). This is an estimate from the age, insulation and heating you entered, not an EPC. Most homes already have one: <a href="https://www.gov.uk/find-energy-certificate" target="_blank" rel="noopener">check the register</a>. <a href="/guides/how-epc-points-are-calculated/">How the points work</a>.</div></div>' : '';
-        const targetScore = BANDS[targetBand];
+        /* Aim for the target band's lower edge. Aiming at its midpoint (75 for C) kept adding
+           measures after the home was already in band C, and told homes already inside the
+           target band to spend money. */
+        const BAND_MIN = { A: 92, B: 81, C: 69, D: 55, E: 39, F: 21, G: 1 };
+        const targetScore = BAND_MIN[targetBand];
         const pointsNeeded = targetScore - currentScore;
 
         if (pointsNeeded <= 0) {
@@ -481,6 +485,7 @@
         // Resolve each measure's points once, then drop any that no longer gain anything
         // (for example LED lighting offered to someone who already has LED).
         available = available.map(m => ({ ...m, points: Math.max(0, estPoints(m)) })).filter(m => m.points > 0);
+        available = available.map(m => m.id === 'heatpump' ? { ...m, grantValue: (heating === 'oil' || heating === 'lpg') ? 9000 : 7500 } : m);
 
         available.sort((a, b) => {
             const costA = (a.costMin + a.costMax) / 2 - (a.grantValue || 0);
@@ -513,7 +518,6 @@
         const newBand = newScore >= 92 ? 'A' : newScore >= 81 ? 'B' : newScore >= 69 ? 'C' : newScore >= 55 ? 'D' : newScore >= 39 ? 'E' : newScore >= 21 ? 'F' : 'G';
         // Band thresholds. Compare BANDS, not raw scores: reaching 69 is Band C even if the
         // target band's nominal score was higher, so a score test reports a false shortfall.
-        const BAND_MIN = { A: 92, B: 81, C: 69, D: 55, E: 39, F: 21, G: 1 };
         const BAND_ORDER = ['G','F','E','D','C','B','A'];
         const reachesTarget = BAND_ORDER.indexOf(newBand) >= BAND_ORDER.indexOf(targetBand);
 

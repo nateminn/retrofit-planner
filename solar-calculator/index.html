@@ -84,9 +84,8 @@
                     <option value="north">North England (Manchester, Leeds, Newcastle)</option>
                     <option value="wales">Wales</option>
                     <option value="scotland">Scotland</option>
-                    <option value="ni">Northern Ireland</option>
                 </select>
-                <p class="helper">Solar generation varies by region. Southern England gets around 17% more sun than Scotland. <a href="#by-region">See the full regional table</a>.</p>
+                <p class="helper">Solar generation varies by region. Southern England gets around 17% more sun than Scotland. <a href="#by-region">See the full regional table</a>. Great Britain only for now: Northern Ireland has its own electricity prices and export payments, which this calculator does not yet cover.</p>
             </div>
 
             <div class="form-group">
@@ -573,7 +572,11 @@
         for (let y = 0; y < 25; y++) {
             totalReturn += totalAnnualBenefit * Math.pow(1 - SOLAR.annualDegradation, y);
         }
-        const netProfit = Math.round(totalReturn - totalCost);
+        /* A battery lasts about 10 to 12 years (Energy Saving Trust, and this page says so),
+           so over the 25 year life of the panels it is bought twice. Counting it once
+           overstated the return of every battery configuration. */
+        const lifetimeCost = totalCost + batteryCost;
+        const netProfit = Math.round(totalReturn - lifetimeCost);
 
         const co2Kg = Math.round(annualGen * SOLAR.gridCarbon / 10) * 10;
         const co2Miles = Math.round(annualGen * SOLAR.gridCarbon / SOLAR.carCarbon / 10) * 10;
@@ -583,7 +586,7 @@
         html += '<div class="result-item highlight"><div class="label">Annual generation</div><div class="value">' + annualGen.toLocaleString() + ' kWh</div><div class="detail">' + size + ' kW system in ' + region.replace('south', 'South England').replace('midlands', 'Midlands').replace('north', 'North England').replace('wales', 'Wales').replace('scotland', 'Scotland').replace('ni', 'Northern Ireland') + '</div></div>';
         html += '<div class="result-item saving"><div class="label">Total annual benefit</div><div class="value">£' + totalAnnualBenefit.toLocaleString() + '/yr</div><div class="detail">Bill savings plus export income</div></div>';
         html += '<div class="result-item"><div class="label">System cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (battery === 'yes' ? 'Panels plus battery, ' : '') + 'at 0% VAT to 31 March 2027</div></div>';
-        html += '<div class="result-item"><div class="label">Payback period</div><div class="value">' + paybackYears + ' years</div><div class="detail">Then free electricity for 15+ years</div></div>';
+        html += '<div class="result-item"><div class="label">Payback period</div><div class="value">' + paybackYears + ' years</div><div class="detail">' + (netProfit > 0 && paybackYears < 25 ? 'Leaves about ' + Math.round(25 - paybackYears) + ' years of a 25 year panel life' : 'Does not pay back within the 25 year panel life') + '</div></div>';
         html += '</div>';
 
         // Breakdown
@@ -631,7 +634,7 @@
         // 25-year projection
         html += '<div class="result-full"><div class="label">25-year projection</div>';
         html += '<div style="display: flex; justify-content: space-between; margin-top: 8px;"><span>Total benefits (accounting for panel degradation)</span><strong>£' + Math.round(totalReturn).toLocaleString() + '</strong></div>';
-        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>System cost</span><strong>-£' + totalCost.toLocaleString() + '</strong></div>';
+        html += '<div style="display: flex; justify-content: space-between; margin-top: 4px;"><span>' + (batteryCost ? 'System cost, including one battery replacement' : 'System cost') + '</span><strong>-£' + lifetimeCost.toLocaleString() + '</strong></div>';
         html += '<div style="display: flex; justify-content: space-between; margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--color-border);"><span style="font-weight: 600;">Net profit over 25 years</span><strong style="color: var(--color-accent); font-size: 1.1rem;">£' + netProfit.toLocaleString() + '</strong></div>';
         html += '</div>';
 
