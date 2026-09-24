@@ -52,7 +52,7 @@ button:hover{background:#245741}
 <body>
 <div class="w">
 <div class="hd"><h1>Heat pump cost calculator</h1></div>
-<p class="sub">Installed cost, the £7,500 grant, running costs and payback for a UK home.</p>
+<p class="sub">Installed cost, the grant, running costs and payback for a UK home.</p>
 
 <div class="row">
 <div class="f"><label for="propertyType">Property type</label><select id="propertyType"><option value="detached">Detached house</option><option value="semi" selected>Semi-detached house</option><option value="mid-terrace">Mid-terrace house</option><option value="end-terrace">End-terrace house</option><option value="bungalow">Bungalow</option><option value="flat">Flat or maisonette</option></select></div>
@@ -67,10 +67,10 @@ button:hover{background:#245741}
 
 <div class="res" id="res">
 <div class="grid">
-<div class="card"><div class="k">Installed cost</div><div class="v" id="installCost">-</div><div class="d">unit, labour and commissioning</div></div>
-<div class="card hi"><div class="k">After the £7,500 grant</div><div class="v" id="afterGrant">-</div><div class="d">Boiler Upgrade Scheme deducted</div></div>
-<div class="card"><div class="k">Annual saving</div><div class="v" id="annualSaving">-</div><div class="d" id="savingDetail">against your current heating</div></div>
-<div class="card"><div class="k">Payback</div><div class="v" id="payback">-</div><div class="d">on the net cost</div></div>
+<div class="card"><div class="k">Installed cost</div><div class="v" id="installCost">-</div><div class="d">median recorded for this size, before the grant</div></div>
+<div class="card hi"><div class="k" id="grantLabel">After the £7,500 grant</div><div class="v" id="afterGrant">-</div><div class="d">Boiler Upgrade Scheme deducted</div></div>
+<div class="card"><div class="k">Annual saving on a heat pump tariff</div><div class="v" id="annualSaving">-</div><div class="d" id="savingDetail">against your current heating</div></div>
+<div class="card"><div class="k">Payback</div><div class="v" id="payback">-</div><div class="d">on the cost after the grant, heat pump tariff</div></div>
 </div>
 <div class="bars">
 <div class="bar"><div class="blab"><span id="curLabel">Current heating</span><strong id="gasCost">-</strong></div><div class="btrack"><div class="bfill" id="gasBar" style="width:0;background:#B9805B"></div></div></div>
@@ -103,18 +103,22 @@ function calc(){
   var fuel=FUEL[heat], eff=H.boilerEfficiency(fuel), price=PRICE[fuel];
   // A typed bill sets the heat demand for both sides; a gas bill's standing charge comes off first.
   var demand=H.heatDemand(pt,bed,ins,'gas'), standing=fuel==='gas'?GAS_STANDING:0;
-  if(bill>0 && bill-standing>50){ demand=Math.round((bill-standing)/price*eff); }
+  var billNote='';
+  if(bill>0 && bill-standing>50){ demand=Math.round((bill-standing)/price*eff); } else if(bill>0){ billNote=' That bill is below the gas standing charge alone, so these figures use the model for your home.'; }
   var cur=demand/eff*price, cop=H.cop(ins);
   var hp=demand/cop*PRICE.electricity, hpTar=demand/cop*TARIFF;
   var cost=H.heatPumpInstall(pt,bed,ins), grant=H.busGrant(fuel), net=Math.max(0,cost-grant);
   var save=cur-hp, saveTar=cur-hpTar;
   document.getElementById('installCost').textContent=gbp(cost);
   document.getElementById('afterGrant').textContent=gbp(net);
-  if(Math.abs(save)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='within £'+Math.round(Math.abs(save))+' a year of your '+LABEL[heat]+', standard tariff'; }
-  else if(save>0){ document.getElementById('annualSaving').textContent=gbp(save); document.getElementById('savingDetail').textContent='a year against your '+LABEL[heat]+', standard tariff'; }
-  else { document.getElementById('annualSaving').textContent=gbp(-save)+' more'; document.getElementById('savingDetail').textContent='a year than your '+LABEL[heat]+', on a standard tariff'; }
-  var best=Math.max(save,saveTar), pay=best>0?net/best:null;
-  document.getElementById('payback').textContent=!(best>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+' years')));
+  var gl=document.getElementById('grantLabel'); if(gl){ gl.textContent='After the £'+grant.toLocaleString('en-GB')+' grant'; }
+  var std=save>0?gbp(save)+' on a standard tariff':gbp(-save)+' a year more on a standard tariff';
+  if(Math.abs(saveTar)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='as your '+LABEL[heat]+'; '+std; }
+  else if(saveTar>0){ document.getElementById('annualSaving').textContent=gbp(saveTar); document.getElementById('savingDetail').textContent='a year on a heat pump tariff; '+std; }
+  else { document.getElementById('annualSaving').textContent=gbp(-saveTar)+' more'; document.getElementById('savingDetail').textContent='a year, even on a heat pump tariff'; }
+  // Payback and the verdict on a heat pump tariff, as on the full calculator.
+  var pay=saveTar>0?net/saveTar:null;
+  document.getElementById('payback').textContent=!(saveTar>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+' years')));
   var max=Math.max(cur,hp,hpTar);
   document.getElementById('gasBar').style.width=(cur/max*100)+'%';
   document.getElementById('hpBar').style.width=(hp/max*100)+'%';
@@ -125,9 +129,10 @@ function calc(){
   document.getElementById('hpCost').textContent=gbp(hp)+' a year';
   var rec;
   if(ins==='poor') rec='Insulate first. A leaky home needs a bigger, more expensive heat pump that runs less efficiently, so loft and wall insulation come before it.';
-  else if(saveTar>save) rec='On a heat pump tariff, which averages about 18p a kWh when most heating runs in the cheap hours, this home would pay '+gbp(hpTar)+' a year to heat, against '+gbp(cur)+' now.';
+  else if(save<=60) rec='On a heat pump tariff, which averages about 18p a kWh when most heating runs in the cheap hours, this home would pay '+gbp(hpTar)+' a year to heat, against '+gbp(cur)+' now.';
   else if(pt==='flat') rec='Flats usually need a compact, quieter unit, and you will need the freeholder’s agreement before any work starts.';
   else rec='An air source heat pump suits most homes of this type. The grant is paid to the installer, so you pay the net figure.';
+  rec+=billNote;
   if(fuel==='gas') rec+=' Figures are energy only; gas also carries a £108 a year standing charge you save if you cap the supply.';
   document.getElementById('rec').textContent=rec;
   document.getElementById('res').classList.add('on');
