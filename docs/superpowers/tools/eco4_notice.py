@@ -7,7 +7,8 @@ saying that. Rather than 24 bespoke rewrites, this inserts one dated notice afte
 first substantive mention, so the wording stays identical everywhere and can be swapped
 or removed in a single pass on 1 January.
 
-Run with --remove after the scheme closes.
+Run with --remove after the scheme closes, and with --refresh to rewrite existing notices
+with the current wording (checked against the gov.uk government response, January 2026).
 """
 import io, re, sys, glob
 
@@ -15,11 +16,10 @@ MARK = 'data-scheme-note="eco4"'
 
 NOTICE = (
     '<aside class="scheme-note" ' + MARK + '>'
-    '<p><strong>ECO4 closes on 31 December 2026.</strong> The work has to be finished by then, '
-    'not just applied for, and installers fill up as the date gets closer. Government has confirmed '
-    'there will be no successor supplier obligation: from 2027 the money moves to council run schemes '
-    'under the Warm Homes Plan, which you apply for through your local authority rather than your '
-    'energy supplier. If you think you qualify, start now. '
+    '<p><strong>ECO4 closes on 31 December 2026.</strong> Work under the scheme has to be done '
+    'before then, so if you think you qualify, start now. The government has confirmed there will be '
+    'no successor supplier obligation; instead it has committed £1.5 billion of extra grant funding '
+    'for households on low incomes. '
     '<a href="/grants/">Check what you qualify for</a>.</p>'
     '</aside>'
 )
@@ -40,8 +40,14 @@ def target_paragraph(html):
             return start + p.end()
     return None
 
-def apply(path, remove=False):
+def apply(path, remove=False, refresh=False):
     s = io.open(path, encoding='utf-8').read()
+    if refresh:
+        new = re.sub(r'<aside class="scheme-note" ' + MARK + r'>.*?</aside>', lambda _: NOTICE, s, flags=re.S)
+        if new != s:
+            io.open(path, 'w', encoding='utf-8').write(new)
+            return 'refreshed'
+        return None
     if remove:
         new = re.sub(r'<aside class="scheme-note" ' + MARK + r'>.*?</aside>', '', s, flags=re.S)
         if new != s:
@@ -65,14 +71,15 @@ def apply(path, remove=False):
 
 if __name__ == '__main__':
     remove = '--remove' in sys.argv
+    refresh = '--refresh' in sys.argv
     pages = sorted(set(glob.glob('index.html') + glob.glob('*/index.html')
                        + glob.glob('guides/*/index.html'))
                    - {'quote-thanks/index.html'})
     done = []
     for p in pages:
-        r = apply(p, remove)
+        r = apply(p, remove, refresh)
         if r:
             done.append(p)
-    print(f"{'removed from' if remove else 'added to'} {len(done)} pages")
+    print(f"{'removed from' if remove else 'refreshed on' if refresh else 'added to'} {len(done)} pages")
     for d in done:
         print(f"   {d}")
