@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPC Rating Calculator</title>
+<title>EPC Calculator: Rating and Upgrade Costs</title>
 <meta name="robots" content="noindex, follow">
-<meta name="description" content="Embeddable EPC rating calculator from Retrofit Planner.">
+<meta name="description" content="Embeddable EPC calculator from Retrofit Planner: estimate an EPC rating and the cheapest upgrades to reach band C, with costs after grants.">
 <link rel="canonical" href="https://www.retrofitplanner.co.uk/epc-calculator/">
 <style>
 *{box-sizing:border-box}
@@ -72,7 +72,7 @@ td.n{text-align:right;white-space:nowrap;padding-right:0}
 </div>
 <div class="row">
 <div class="f"><label for="hasDoubleGlazing">Glazing</label><select id="hasDoubleGlazing"><option value="single">Single</option><option value="partial">Mix of single and double</option><option value="double" selected>Full double</option><option value="triple">Triple</option></select></div>
-<div class="f"><label for="heating">Heating</label><select id="heating"><option value="old-gas">Gas boiler over 15 years</option><option value="new-gas" selected>Gas boiler under 15 years</option><option value="oil">Oil boiler</option><option value="electric">Electric heating</option><option value="heat-pump">Heat pump</option></select></div>
+<div class="f"><label for="heating">Heating</label><select id="heating"><option value="old-gas">Gas boiler over 15 years</option><option value="new-gas" selected>Gas boiler under 15 years</option><option value="oil">Oil boiler</option><option value="lpg">LPG boiler</option><option value="electric">Electric heating</option><option value="heat-pump">Heat pump</option></select></div>
 </div>
 <details class="more"><summary>Two more details for a sharper estimate</summary>
 <div class="row" style="margin-top:10px">
@@ -92,38 +92,46 @@ td.n{text-align:right;white-space:nowrap;padding-right:0}
 </div>
 <table id="plan"><thead><tr><th scope="col">Measure</th><th scope="col" class="n">Points</th><th scope="col" class="n">Cost</th></tr></thead><tbody id="planBody"></tbody></table>
 <p class="note" id="note"></p>
-<a class="cta" href="https://www.retrofitplanner.co.uk/epc-calculator/" target="_blank" rel="noopener">See the full plan, grants and payback</a>
+<a class="cta" href="https://www.retrofitplanner.co.uk/epc-calculator/" target="_blank" rel="noopener">See the full plan and grants</a>
 </div>
 
 <div class="ft">
-<span>Estimates from the RdSAP point model. Not a certificate.</span>
+<span>A rough estimate from a simple points model, not an assessment or a certificate.</span>
 <span>Calculator by <a href="https://www.retrofitplanner.co.uk/epc-calculator/" target="_blank" rel="noopener">Retrofit Planner</a></span>
 </div>
 </div>
 
 <script>
-// Same model as retrofitplanner.co.uk/epc-calculator/ so the two cannot diverge.
+// An identical copy of the tables and plan logic in retrofitplanner.co.uk/epc-calculator/.
+// Change both together. On 25 September 2026 both were run on all 435,456 input combinations
+// (every answer; build date varied only when estimating) and agreed on band, points, cost and plan.
+// Rough points model, not SAP, and not fitted to lodged certificates.
 var BANDS={G:10,F:30,E:47,D:62,C:75,B:86,A:96};
+var BAND_MIN={A:92,B:81,C:69,D:55,E:39,F:21,G:1};
 var EST={base:20,
  age:{pre1919:8,'1919':10,'1945':13,'1965':15,'1981':17,'1991':19,'2003':21,'2012':24},
  type:{flat:6,'mid-terrace':4,'end-terrace':2,semi:1,detached:0,bungalow:-1},
  wall:{'cavity-yes':12,'cavity-no':4,'solid-yes':10,'solid-no':0},
  loft:{none:0,good:7,na:6},
  glazing:{single:0,partial:3,double:6,triple:8},
- heating:{'old-gas':6,'new-gas':14,oil:8,electric:-2,'heat-pump':18},
+ heating:{'old-gas':6,'new-gas':14,oil:8,lpg:7,electric:-2,'heat-pump':18},
  solar:{no:0,yes:8},
  lighting:{old:0,mixed:1,led:3}};
+// Typical cost in pounds: insulation from the Energy Saving Trust (2026), heat pump from
+// Boiler Upgrade Scheme medians by type of home, the rest typical installed prices.
 var MEASURES=[
- {id:'loft',name:'Loft insulation to 270mm',points:8,costMin:300,costMax:600,requires:'loft-none'},
- {id:'cavity',name:'Cavity wall insulation',points:12,costMin:400,costMax:1500,requires:'wall-cavity-no'},
- {id:'led',name:'LED lighting throughout',points:3,costMin:100,costMax:300,requires:null},
- {id:'controls',name:'Smart heating controls',points:3,costMin:150,costMax:400,requires:null},
- {id:'glazing',name:'Double glazing',points:8,costMin:3000,costMax:7000,requires:'glazing-single'},
- {id:'glazing-partial',name:'Replace remaining single glazing',points:4,costMin:1500,costMax:3500,requires:'glazing-partial'},
- {id:'boiler',group:'heating',name:'New condensing gas boiler',points:8,costMin:1500,costMax:3500,requires:'heating-old-gas'},
- {id:'heatpump',group:'heating',name:'Air source heat pump',points:13,costMin:7000,costMax:13000,requires:'heating-notHP',grantValue:7500},
- {id:'solar',name:'Solar PV panels (4kW)',points:7,costMin:5000,costMax:8000,requires:'solar-no'},
- {id:'solidwall',name:'Solid wall insulation (internal)',points:20,costMin:4500,costMax:8000,requires:'wall-solid-no'}];
+ {id:'loft',name:'Loft insulation to 270mm',points:7,cost:750,requires:'loft-none'},
+ {id:'cavity',name:'Cavity wall insulation',points:8,cost:2700,requires:'wall-cavity-no'},
+ {id:'led',name:'LED lighting throughout',points:3,cost:200,requires:null},
+ {id:'controls',name:'Smart heating controls',points:3,cost:275,requires:null},
+ {id:'glazing',name:'Double glazing',points:6,cost:5000,requires:'glazing-single'},
+ {id:'glazing-partial',name:'Replace remaining single glazing',points:3,cost:2500,requires:'glazing-partial'},
+ {id:'boiler',group:'heating',name:'New condensing gas boiler',points:8,cost:2500,requires:'heating-old-gas'},
+ {id:'heatpump',group:'heating',name:'Air source heat pump',points:12,cost:12700,requires:'heating-notHP',grantValue:7500},
+ {id:'solar',name:'Solar PV panels (4kW)',points:8,cost:6000,requires:'solar-no'},
+ {id:'solidwall',name:'Solid wall insulation (internal)',points:10,cost:12000,requires:'wall-solid-no'}];
+var HP_COST={flat:11800,'mid-terrace':12400,'end-terrace':12600,semi:12700,detached:13000,bungalow:13000};
+function hpGrant(heating){return (heating==='oil'||heating==='lpg')?9000:7500}
 var COLOURS={A:'#008054',B:'#19B459',C:'#8DCE46',D:'#FFD500',E:'#FCAA65',F:'#EF8023',G:'#E9153B'};
 function v(id){return document.getElementById(id).value}
 function gbp(n){return '£'+Math.round(n).toLocaleString('en-GB')}
@@ -135,7 +143,8 @@ function calc(){
   var band=v('currentBand'), target=v('targetBand'), type=v('propType'), age=v('propAge');
   var wall=v('hasWall'), loft=v('hasLoft'), glazing=v('hasDoubleGlazing'), heating=v('heating'), solar=v('hasSolar'), lighting=v('lighting');
   var estimated=band==='estimate', score=estimated?estimateScore(age,type,wall,loft,glazing,heating,solar,lighting):BANDS[band];
-  var cur=bandOf(score), targetScore=BANDS[target], need=targetScore-score;
+  // Aim for the target band's lower edge, as the full calculator does.
+  var cur=bandOf(score), targetScore=BAND_MIN[target], need=targetScore-score;
   function drawScale(after){
     var scale=document.getElementById('scale'); scale.innerHTML='';
     ['A','B','C','D','E','F','G'].forEach(function(b){
@@ -147,7 +156,7 @@ function calc(){
   }
   document.getElementById('nowLabel').textContent=estimated?'Estimated now':'Current rating';
   document.getElementById('nowBand').textContent='Band '+cur;
-  document.getElementById('nowPts').textContent=estimated?('about '+score+' points, range '+Math.max(1,score-6)+' to '+Math.min(100,score+6)):(score+' points');
+  document.getElementById('nowPts').textContent=estimated?('about '+score+' points, a rough estimate'):('about '+score+' points');
   var body=document.getElementById('planBody'); body.innerHTML='';
   if(need<=0){
     document.getElementById('newBand').textContent='Band '+cur;
@@ -155,7 +164,7 @@ function calc(){
     document.getElementById('needPts').textContent='0';
     document.getElementById('needDetail').textContent='no work needed for band '+target;
     document.getElementById('cost').textContent=gbp(0);
-    document.getElementById('note').textContent='This home already meets band '+target+' on the estimate. If you need it on paper, a new certificate costs £55 to £150 and lasts ten years.';
+    document.getElementById('note').textContent='This home already meets band '+target+' on the estimate, which is a rough points model, not an assessment. If you need it on paper, a new certificate costs £55 to £150 and lasts ten years.';
     document.getElementById('plan').style.display='none';
     drawScale(cur); show(); return;
   }
@@ -174,7 +183,25 @@ function calc(){
     }
     return false;
   });
-  function net(m){return Math.max(0,(m.costMin+m.costMax)/2-(m.grantValue||0))}
+  // Points come from the same estimator steps that produced the current score.
+  function estPoints(m){
+    switch(m.id){
+      case 'loft': return EST.loft.good-EST.loft[loft];
+      case 'cavity': return EST.wall['cavity-yes']-EST.wall[wall];
+      case 'solidwall': return EST.wall['solid-yes']-EST.wall[wall];
+      case 'glazing': return EST.glazing.double-EST.glazing[glazing];
+      case 'glazing-partial': return EST.glazing.double-EST.glazing[glazing];
+      case 'boiler': return EST.heating['new-gas']-EST.heating[heating];
+      case 'heatpump': return EST.heating['heat-pump']-EST.heating[heating];
+      case 'solar': return EST.solar.yes-EST.solar[solar];
+      case 'led': return EST.lighting.led-EST.lighting[lighting];
+      default: return m.points;
+    }
+  }
+  avail=avail.map(function(m){var o={};for(var k in m){o[k]=m[k]}o.points=Math.max(0,estPoints(m));
+    if(o.id==='heatpump'){o.cost=HP_COST[type]||o.cost;o.grantValue=hpGrant(heating)}return o})
+    .filter(function(m){return m.points>0});
+  function net(m){return Math.max(0,m.cost-(m.grantValue||0))}
   avail.sort(function(a,b){return (net(a)/a.points)-(net(b)/b.points)});
   var pts=0, total=0, rows=0;
   var usedGroups=[];
@@ -184,7 +211,7 @@ function calc(){
     if(m.group){ if(usedGroups.indexOf(m.group)!==-1) continue; usedGroups.push(m.group); }
     pts+=m.points; total+=c; rows++;
     var tr=document.createElement('tr');
-    var td1=document.createElement('td'); td1.textContent=m.name+(m.grantValue?' (after the £7,500 grant)':'');
+    var td1=document.createElement('td'); td1.textContent=m.name+(m.grantValue?' (after the '+gbp(m.grantValue)+' grant)':'');
     var td2=document.createElement('td'); td2.className='n'; td2.textContent='+'+m.points;
     var td3=document.createElement('td'); td3.className='n'; td3.textContent=c===0?'Free':gbp(c);
     tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); body.appendChild(tr);
@@ -200,7 +227,7 @@ function calc(){
   document.getElementById('needDetail').textContent='to reach band '+target;
   document.getElementById('cost').textContent=gbp(total);
   document.getElementById('note').textContent=reaches
-    ? 'Measures are ordered by points per pound, so the cheapest wins come first. Grants can cover the insulation entirely if you qualify, and a heat pump carries the £7,500 Boiler Upgrade Scheme grant.'
+    ? 'Measures are ordered by cost per point after grants, so the cheapest wins come first. Grants can cover insulation entirely if you qualify, and a heat pump carries the Boiler Upgrade Scheme grant of £7,500, or £9,000 when it replaces oil or LPG (England and Wales). This is a rough points model, not an assessment.'
     : 'Standard measures do not reach band '+target+' on this estimate. An assessor can list what would count for your home, and the certificate itself costs £55 to £150.';
   show();
 }
