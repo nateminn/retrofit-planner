@@ -130,6 +130,9 @@
     if (restore() && complete() && typeof window[CALC] === 'function') window[CALC]();
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready);
-  else ready();
+  /* Wait for the whole page, not just the HTML. A calculator's own functions, and the
+     helpers it calls from a11y.js, are deferred scripts too; running before they have loaded
+     opened every shared link with the form filled in and no result. */
+  if (document.readyState === 'complete') ready();
+  else window.addEventListener('load', ready);
 })();
