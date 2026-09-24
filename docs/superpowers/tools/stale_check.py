@@ -24,10 +24,13 @@ TOKENS = [
     # installed and after-grant ranges from the old cost model
     '£9,000 to £12,000', '£1,500 to £4,500', '£11,000 to £16,000', '£3,500 to £8,500', '£8,000 to £10,000',
     '£500 to £2,500', '£10,000 to £13,000', '£2,500 to £5,500', '£13,000 to £19,000', '£5,500 to £11,500',
-    '£7,000 to £13,000', '£7,000 to £10,000', '£0 to £2,500', '£9,000 to £11,000',
+    '£7,000 to £10,000', '£0 to £2,500', '£9,000 to £11,000',
     # retired claims
-    'GB Energy Scheme', 'being phased out', 'gas ban likely',
+    'GB Energy Scheme', 'gas ban likely',
 ]
+# Generic ranges that other measures legitimately share only count near a heat pump.
+HEAT_PUMP_ONLY = {'£500 to £2,500', '£8,000 to £10,000', '£0 to £2,500'}
+BOILER_PHASE = re.compile(r'boilers?[^.<]{0,40}(?:being |be )?phased out', re.I)
 EFFICIENCY = re.compile(r'\b(?:COP|SCOP|efficiency|coefficient of performance)[^.<]{0,60}\b(2\.9|3\.4|2\.6 to 3\.4)\b', re.I)
 
 
@@ -49,7 +52,11 @@ def main():
                 ctx = text[max(0, m.start() - 70):m.end() + 50]
                 if rel == 'methodology/index.html' and 'Until 24 September 2026' in ctx:
                     continue
+                if t in HEAT_PUMP_ONLY and 'heat pump' not in text[max(0, m.start() - 160):m.end() + 80].lower():
+                    continue
                 found.append((rel, t, ctx.strip()))
+        for m in BOILER_PHASE.finditer(text):
+            found.append((rel, 'boilers phased out', text[max(0, m.start() - 40):m.end() + 30].strip()))
         for m in EFFICIENCY.finditer(text):
             ctx = text[max(0, m.start() - 30):m.end() + 40]
             if rel == 'methodology/index.html' and 'Until 24 September 2026' in text[max(0, m.start() - 200):m.end()]:
