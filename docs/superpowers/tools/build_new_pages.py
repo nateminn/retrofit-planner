@@ -118,7 +118,7 @@ def heating_cost(t, b, i, fuel):
     if fuel == 'hpt': return c['heat'] / c['cop'] * HPT
 
 
-def bills_page(slug, beds, homes, crumb):
+def bills_page(slug, beds, homes, crumb, noun='house'):
     D = bill_data()
     rows, main = [], None
     for key, t, label in homes:
@@ -137,9 +137,9 @@ def bills_page(slug, beds, homes, crumb):
     tbl_fuel = table('Energy bill for a %s by heating fuel' % label, ['Heating', 'A year', 'A month'], fuel_rows)
     gas_kwh = m(t, beds)['gas']
     faq = [
-        ('What is the average energy bill for a %d bed house?' % beds,
+        ('What is the average energy bill for a %d bed %s?' % (beds, noun),
          'About %s a year, or %s a month, for a %s with average insulation heated by mains gas, at the Ofgem price cap for October to December 2026. That includes both standing charges.' % (gbp(total), gbp(total / 12), label)),
-        ('How much gas does a %d bed house use?' % beds,
+        ('How much gas does a %d bed %s use?' % (beds, noun),
          'A %s with average insulation uses about %s kWh of gas a year for heating, hot water and any gas cooking, from government meter data. A poorly insulated one uses about %s kWh and a well insulated one about %s kWh.' % (label, f"{gas_kwh:,}", f"{m(t, beds, 'poor')['gas']:,}", f"{m(t, beds, 'good')['gas']:,}")),
         ('Why is my bill higher than this?',
          'The usual reasons are a colder than average home, more people in it, being at home in the day, or a tariff above the price cap. Our bill checker compares your own bill with a home like yours.'),
@@ -148,11 +148,11 @@ def bills_page(slug, beds, homes, crumb):
 <p class="lead">A {label} with average insulation and gas central heating costs about <strong>{gbp(total)} a year</strong>, or <strong>{gbp(total / 12)} a month</strong>, at the Ofgem price cap for October to December 2026. That is about {gbp(total - e)} for gas and {gbp(e)} for electricity, both including their standing charges.</p>
 
 <h2 id="by-type">Average bill by type of {beds} bed home</h2>
-<p>Gas is the larger part of the bill, and it depends on the size and type of the house. Heating use comes from government meter data for 39,502 gas heated homes; electricity for lights, appliances and cooking is scaled by home size from Ofgem's typical consumption figures.</p>
+<p>{'Gas is the larger part of the bill' if (total - e) > e else 'Electricity is the larger part of the bill in a home this size'}, and gas use depends on the size and type of the home. Heating use comes from government meter data for 39,502 gas heated homes; electricity for lights, appliances and cooking is scaled by home size from Ofgem's typical consumption figures.</p>
 {tbl_types}
 
 <h2 id="insulation">How insulation changes it</h2>
-<p>Insulation is the biggest thing you can change. These are the bills for the same {label} at each level of insulation, measured the government's way: comparing homes of the same type and size with different EPC bands.</p>
+<p>Insulation changes the heating part of the bill. These are the bills for the same {label} at each level of insulation, measured the government's way: comparing homes of the same type and size with different EPC bands.</p>
 {tbl_ins}
 
 <h2 id="fuel">How your heating fuel changes it</h2>
@@ -164,9 +164,9 @@ def bills_page(slug, beds, homes, crumb):
 <p>Put your own annual bill into the <a href="/guides/average-energy-bills-uk/#bill-checker">bill checker</a> to see how far it sits from a home like yours, or see <a href="/guides/energy-bills-by-household-size/">bills by number of people</a> and <a href="/guides/energy-bills-by-epc-rating/">bills by EPC rating</a>. To cut the bill, the <a href="/retrofit-plan/">retrofit plan</a> puts the upgrades for your home in order, with what each saves.</p>
 """
     return dict(slug=slug, kind='home',
-                title='Average Energy Bill for a %d Bed House UK 2026: %s a Month' % (beds, gbp(total / 12)),
-                description='A %d bed house costs about %s a year, %s a month, in gas and electricity at the October 2026 price cap. By house type, insulation and heating fuel.' % (beds, gbp(total), gbp(total / 12)),
-                h1='Average energy bill for a %d bed house' % beds, crumb=crumb, faq=faq, body=body,
+                title='Average Energy Bill for a %d Bed %s UK 2026: %s a Month' % (beds, noun.capitalize(), gbp(total / 12)),
+                description='A %d bed %s costs about %s a year, %s a month, in gas and electricity at the October 2026 price cap. By home type, insulation and heating fuel.' % (beds, noun, gbp(total), gbp(total / 12)),
+                h1='Average energy bill for a %d bed %s' % (beds, noun), crumb=crumb, faq=faq, body=body,
                 sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
                          'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.',
                          'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat heat pump performance report</a>, December 2024.'])
@@ -250,7 +250,20 @@ def semi_1930s():
                     [('semi', 3, '3 bed semi'), ('end-terrace', 3, '3 bed end-terrace'), ('mid-terrace', 3, '3 bed mid-terrace'), ('detached', 3, '3 bed detached')])
 
 
+def bills_1():
+    return bills_page('energy-bills-1-bed-flat', 1, [('flat1', 'flat', '1 bed flat')], 'Energy bills, 1 bed flat', noun='flat')
+
+
+def bills_2():
+    return bills_page('energy-bills-2-bed-house', 2, [('terrace2', 'mid-terrace', '2 bed terrace'), ('flat2', 'flat', '2 bed flat')], 'Energy bills, 2 bed home')
+
+
+def bills_5():
+    return bills_page('energy-bills-5-bed-house', 5, [('det5', 'detached', '5 bed detached')], 'Energy bills, 5 bed house')
+
+
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
+         'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s}
 
 
