@@ -187,7 +187,7 @@
                         <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                         <div class="step-text">
                             <div class="step-name">See your EPC improvement</div>
-                            <div class="step-desc">Insulation can boost your EPC by one or two bands</div>
+                            <div class="step-desc">See how much insulation could lift your EPC</div>
                         </div>
                         <div class="step-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
                     </a>
@@ -242,7 +242,7 @@
             </div>
         </aside>
     </main>
-<section class="quote-band" id="quoteBand" hidden><!-- lead-form:insulation -->
+<section class="quote-band" id="quoteBand"><!-- lead-form:insulation -->
 <section class="quote-form" id="quote">
 <h2>Get insulation quotes for your home</h2>
 <p class="qf-sub">Tell us about your property and we will pass your request to up to three TrustMark-registered insulation installers covering your postcode. It is free and there is no obligation to go ahead.</p>
@@ -283,7 +283,7 @@
             <p>The simplest and most cost-effective upgrade. The recommended depth is 270mm of mineral wool. If your loft is easy to access and you are comfortable working at height, this is a common DIY project. Professional installation takes a few hours for a typical home.</p>
 
             <h3>Cavity wall insulation</h3>
-            <p>Suitable for homes built after the 1920s with unfilled cavity walls. An installer drills small holes in the outer wall, injects insulation material, and seals the holes. The process typically takes two to three hours for a whole house with minimal disruption.</p>
+            <p>Suitable for homes built after the 1920s with unfilled cavity walls. An installer drills small holes in the outer wall, injects insulation material, and seals the holes. The Energy Saving Trust says it takes about two hours for an average home with easy to reach walls.</p>
 
             <h3>Solid wall insulation</h3>
             <p>For older homes, mostly built before the 1920s, with solid walls (no cavity). Available as internal insulation (boards fitted to interior walls, reducing room size slightly) or external insulation (cladding applied to the outside of the building). Both are effective but significantly more expensive and disruptive than cavity or loft insulation.</p>
@@ -350,7 +350,9 @@
         fuelPrices: { gas: 0.0797, oil: 0.090, lpg: 0.095, electricity: 0.2632 }, // Ofgem cap Oct to Dec 2026; oil and LPG are our assumptions (see methodology)
         saving: { loft: 0.0321, cavity: 0.1198, solid: 0.1728 },
         homes: { loft: 1486, cavity: 2191, solid: 2411 },
-        cost: { loftNone: 750, loftTopUp: 600, cavity: 2700, solidInternal: 12000, solidExternal: 15000 }
+        cost: { loftNone: 750, loftTopUp: 600, cavity: 2700, solidInternal: 12000, solidExternal: 15000 },
+        // NEED Impact of Measures 2026, Table 2: homes that had two measures fitted together
+        combined: { 'loft+cavity': [0.0838, 2297], 'loft+solid': [0.1431, 1609] }
     };
 
     function gbp(v) { return '£' + Math.round(v).toLocaleString('en-GB'); }
@@ -394,7 +396,8 @@
             add('Loft insulation to 270mm', 'loft', DATA.cost.loftNone,
                 'The measured figure covers top-ups as well as bare lofts. A loft with little or no insulation usually saves more than this.', true);
         } else if (loft === 'partial') {
-            add('Loft insulation top-up to 270mm', 'loft', DATA.cost.loftTopUp, '');
+            add('Loft insulation top-up to 270mm', 'loft', DATA.cost.loftTopUp,
+                'The Energy Saving Trust prices a top-up from 120mm at £600; a thinner layer costs somewhere between that and the £750 for a bare loft.');
         }
         if (wall === 'cavity-uninsulated') {
             add('Cavity wall insulation', 'cavity', DATA.cost.cavity,
@@ -415,13 +418,21 @@
         if (measures.length === 0) {
             if (wall !== 'unsure') {
                 html += '<div class="result-full" style="background: var(--color-accent-bg); border: 1px solid var(--color-accent-border);"><div style="font-weight: 600;">Nothing left on the answers you gave</div>'
-                    + '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">' + (loft === 'none-applicable' ? 'Your walls are covered on the answers you gave' : 'Your loft and walls are covered on the answers you gave') + ', so the next gains are elsewhere: <a href="/guides/draught-proofing-guide/">draught-proofing</a>, <a href="/guides/underfloor-insulation-cost/">floor insulation</a> or a <a href="/heat-pump-calculator/">heat pump</a>. The <a href="/retrofit-plan/">retrofit plan</a> puts them in order.</div></div>';
+                    + '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">' + (loft === 'none-applicable' ? 'Your walls are already insulated' : 'Your loft and walls are already insulated') + ', so the next gains are elsewhere: <a href="/guides/draught-proofing-guide/">draught-proofing</a>, <a href="/guides/underfloor-insulation-cost/">floor insulation</a> or a <a href="/heat-pump-calculator/">heat pump</a>. The <a href="/retrofit-plan/">retrofit plan</a> puts them in order.</div></div>';
             }
         } else {
             const totalSaving = measures.reduce((t, m) => t + m.saving, 0);
+            /* Two measures: the single-measure medians taken one after another. Homes that had
+               both fitted at once measured less, so say what they saw. */
+            function combinedNote() {
+                const pair = wall === 'solid' ? 'loft+solid' : 'loft+cavity';
+                const c = DATA.combined[pair];
+                return 'Each measured saving applied in turn, an upper guide. Homes that had both fitted together saved a median '
+                    + (c[0] * 100).toFixed(1) + '%, about ' + gbp(fuelCost * c[0]) + ' a year for yours (' + c[1].toLocaleString('en-GB') + ' homes)';
+            }
             const totalCost = measures.reduce((t, m) => t + m.cost, 0);
             html += '<div class="result-grid">';
-            html += '<div class="result-item saving"><div class="label">Yearly saving</div><div class="value">' + gbp(totalSaving) + '</div><div class="detail">' + (measures.length > 1 ? 'Measured savings combined; homes that had two measures at once saved less, so treat this as an upper guide' : 'What homes like yours measurably saved') + '</div></div>';
+            html += '<div class="result-item saving"><div class="label">Yearly saving</div><div class="value">' + gbp(totalSaving) + '</div><div class="detail">' + (measures.length > 1 ? combinedNote() : 'What homes like yours measurably saved') + '</div></div>';
             html += '<div class="result-item highlight"><div class="label">Typical cost</div><div class="value">' + gbp(totalCost) + '</div><div class="detail">Before any grant</div></div>';
             html += '</div>';
             measures.forEach(function (m) {
