@@ -37,6 +37,10 @@ BASIS = {
     'best-heat-pump-tariffs':        ('semi', 3, 'average'),
     'heat-pump-vs-new-boiler':       ('semi', 3, 'average'),
     'electric-boiler-vs-heat-pump':  ('semi', 3, 'average'),
+    # Added after storage-heaters-vs-heat-pump was found carrying the same wrong demand
+    # ladder. The original audit scoped itself to pages stating a kWh figure, and this
+    # page states only derived costs, so it was invisible to that scan.
+    'storage-heaters-vs-heat-pump':  ('semi', 3, 'average'),
 }
 
 def heat(t, b, ins):
