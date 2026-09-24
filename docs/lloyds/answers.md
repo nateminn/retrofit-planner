@@ -42,7 +42,7 @@ A heat pump or solid wall insulation often costs five figures, and a household l
 
 Seven free tools: a retrofit plan that orders the works for one home, heat pump cost, insulation savings, an EPC planner, solar, a 15 year boiler versus heat pump comparison and a grant checker. The plan also runs as an embeddable widget, built for a partner's own site.
 
-Every figure traces to one model. Checks compare 18 guides and 148 table cells against it before anything publishes, and /accuracy/ shows the model tested against measured data, before and after.
+Every figure traces to one model. Before anything publishes, checks compare 18 guides and 154 table cells with it and run each widget against its full calculator, and /accuracy/ shows the model tested against measured data, before and after.
 
 ## What is your Unique Selling Point?
 
