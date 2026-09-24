@@ -53,7 +53,7 @@
         if (!p) { return ''; }
         var external = p.href.charAt(0) !== '/';
         var html = '<div class="cta-box">';
-        html += '<h4>' + heading + '</h4>';
+        html += '<h3>' + heading + '</h3>';
         html += '<p>' + body + (p.note ? ' ' + p.note : '') + '</p>';
         html += '<a href="' + p.href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '>' + p.cta + '</a>';
         html += '</div>';
