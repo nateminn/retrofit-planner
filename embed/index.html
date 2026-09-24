@@ -44,7 +44,7 @@
         </div>
         <div class="snippet-wrap">
             <button class="snippet-copy" type="button" onclick="copySnippet('snip1', this)">Copy</button>
-            <pre class="snippet" id="snip1"><code>&lt;iframe
+            <pre class="snippet" id="snip1" tabindex="0" aria-label="Embed code"><code>&lt;iframe
   src="https://www.retrofitplanner.co.uk/embed/heat-pump-calculator/"
   title="Heat pump cost calculator"
   loading="lazy"
@@ -78,7 +78,7 @@ addEventListener("message", function (e) {
         </div>
         <div class="snippet-wrap">
             <button class="snippet-copy" type="button" onclick="copySnippet('snip2', this)">Copy</button>
-            <pre class="snippet" id="snip2"><code>&lt;iframe
+            <pre class="snippet" id="snip2" tabindex="0" aria-label="Embed code"><code>&lt;iframe
   src="https://www.retrofitplanner.co.uk/embed/epc-calculator/"
   title="EPC rating calculator"
   loading="lazy"
@@ -122,7 +122,7 @@ addEventListener("message", function (e) {
         <p>Installers and heating engineers use the heat pump calculator on a service page so a visitor can size the job before calling. Estate and letting agents use the EPC calculator next to listings, where the band is already on the page. Energy and money blogs use either to answer the cost question inside an article instead of sending readers away. Councils and community energy groups use them on advice pages. If you want a widget we do not offer yet, tell us on the <a href="/contact/">contact page</a>.</p>
 
         <h2 id="technical">Technical notes</h2>
-        <div class="tblwrap"><table class="data-table"><thead><tr><th scope="col">Detail</th><th scope="col">Value</th></tr></thead><tbody>
+        <div class="tblwrap" tabindex="0" role="region" aria-label="Technical notes"><table class="data-table"><thead><tr><th scope="col">Detail</th><th scope="col">Value</th></tr></thead><tbody>
             <tr><th scope="row">Page weight</th><td>12 KB for the heat pump calculator, 15 KB for the EPC calculator, no external requests</td></tr>
             <tr><th scope="row">Cookies and storage</th><td>None. One network request, for the widget itself</td></tr>
             <tr><th scope="row">Minimum width</th><td>300px. Below 420px each drops to a single column</td></tr>
