@@ -39,7 +39,7 @@ KINDS = {
         form='heat-pump-quote', action='/quote-thanks/',
         h2='Get heat pump quotes for your home',
         who='MCS-certified heat pump installers',
-        points=['MCS-certified installers only', '£7,500 grant handled by the installer', 'Free, with no obligation'],
+        points=['MCS-certified installers only', '£7,500 grant, or £9,000 replacing oil or LPG', 'Free, with no obligation'],
         extra=[HEATING],
         timing=('timing', 'When are you looking to install?', TIMING[2])),
     'solar': dict(
