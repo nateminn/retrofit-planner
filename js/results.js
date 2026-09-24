@@ -103,6 +103,8 @@
     var parts = build();
     if (!parts) return;
     var box = el('results');
+    // Quote forms that start hidden wait for a result; ones shown from the start stay put.
+    var startBand = el('quoteBand'), bandStartsHidden = !!(startBand && startBand.hidden);
 
     function afterCalc() {
       if (!box.classList.contains('visible')) return;      // validation failed, nothing to share
@@ -119,7 +121,7 @@
          previous result. */
       window[CALC] = function () {
         box.classList.remove('visible');
-        var band = el('quoteBand'); if (band) band.hidden = true;   // each calculator re-shows it when the new result earns it
+        var band = el('quoteBand'); if (band && bandStartsHidden) band.hidden = true;   // the calculator re-shows it when the new result earns it
         var r = original.apply(this, arguments); afterCalc(); return r;
       };
     }
