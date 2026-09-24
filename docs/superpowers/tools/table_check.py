@@ -173,6 +173,38 @@ def check_inline(problems):
                         problems.append((name, key, field + ' ' + ins, str(got), str(want)))
     return n
 
+FIX = '--fix' in sys.argv
+fixes = {}   # page -> list of (table index, row index, cell index, new value)
+
+def fmt(qty, v):
+    return ('%s' % f'{round(v):,}') if qty.endswith('_kwh') else ('£%s' % f'{round(v):,}')
+
+def apply_fixes():
+    """Rewrite single value cells that disagree with the model. Ranges are left for a
+    person, because which end moved is a judgement, not arithmetic."""
+    import re as _re
+    for page, items in fixes.items():
+        f = ROOT / page
+        html = f.read_text()
+        tables = list(_re.finditer(r'<table[^>]*>(.*?)</table>', html, _re.S))
+        edits = []
+        for ti, ri, ci, new in items:
+            t = tables[ti]
+            rows = list(_re.finditer(r'<tr>(.*?)</tr>', t.group(1), _re.S))
+            r = rows[ri]
+            cs = list(_re.finditer(r'(<t[dh][^>]*>)(.*?)(</t[dh]>)', r.group(1), _re.S))
+            c = cs[ci]
+            start = t.start(1) + r.start(1) + c.start(2)
+            end = t.start(1) + r.start(1) + c.end(2)
+            inner = html[start:end]
+            text = ' '.join(_re.sub(r'<[^>]+>', ' ', inner).split())
+            if _re.match(r'^£?[\d,]+$', text):
+                edits.append((start, end, _re.sub(r'£?[\d,]+', new, inner, count=1)))
+        for start, end, rep in sorted(edits, reverse=True):
+            html = html[:start] + rep + html[end:]
+        f.write_text(html)
+        print('  fixed %d cells in %s' % (len(edits), page))
+
 def main():
     problems, checked, unmapped = [], 0, []
     for spec in SPECS:
@@ -185,7 +217,7 @@ def main():
         rows = re.findall(r'<tr>(.*?)</tr>', tables[spec['table']], re.S)
         header = cells(rows[0])
         name = spec['page'].replace('guides/', '').replace('/index.html', '')
-        for row in rows[1:]:
+        for ri, row in enumerate(rows[1:], start=1):
             c = cells(row)
             if not c: continue
             cell = cell_for(c[0])
@@ -211,7 +243,11 @@ def main():
                 t = tol(qty, exp)
                 if not (lo - t <= exp <= hi + t):
                     problems.append((name, c[0], head, c[i], '%.0f' % exp))
+                    if FIX and lo == hi:
+                        fixes.setdefault(spec['page'], []).append((spec['table'], ri, i, fmt(qty, exp)))
     checked += check_inline(problems)
+    if FIX and fixes:
+        apply_fixes()
     for name, row, col, got, exp in problems:
         print('  %-30s %-22s %-26s page %s, model %s' % (name, row[:22], col[:26], got, exp))
     if unmapped:
