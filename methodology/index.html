@@ -32,7 +32,7 @@
     <main id="main">
 <div class="page-content">
         <h1>Our Methodology</h1>
-            <p class="page-updated">Figures last reviewed 23 September 2026. Energy prices are the Ofgem cap for 1 October to 31 December 2026 and change quarterly; the next cap is announced in late November.</p>
+            <p class="page-updated">Figures last reviewed 25 September 2026. Energy prices are the Ofgem cap for 1 October to 31 December 2026 and change quarterly; the next cap is announced in late November.</p>
         <p class="lead">Every number on Retrofit Planner comes from a published, verifiable source. Here's exactly how our calculators work, what data they use, and where we make assumptions.</p>
 
         <h2>Energy prices</h2>
@@ -46,21 +46,28 @@
         </ul>
         <p>We update our calculators when Ofgem announces each new price cap (usually late February, May, August and November), so the figures cover the coming quarter. We do not account for future price changes in our calculations because these are unpredictable. All estimates reflect current prices only.</p>
 
-        <h2>Installation costs</h2>
-        <p>Installation costs are sourced from the Energy Saving Trust (EST) and cross-referenced with MCS-certified installer quotes and trade body publications. We present cost ranges (min to max) rather than single figures because actual costs vary by property, location, and installer. Our "typical" cost used in payback calculations is the midpoint of the published range.</p>
+        <h2 id="costs">Installation costs</h2>
+        <p><strong>Heat pumps:</strong> the median cost installers reported for air source heat pumps paid under the Boiler Upgrade Scheme in 2025/26, by size (DESNZ Boiler Upgrade Scheme statistics, August 2026 release, Table A1.3A, 30,590 installations). The figure covers the system, hot water cylinder, labour and VAT, before the grant. We read it at the size our model gives the home, interpolating between size bands. Where we show a range it is the scheme's own lower and upper quartile for April to June 2026 (Table Q1.1A), scaled to that median. Some homes also need larger radiators, which can add to the cost.</p>
+        <p><strong>Insulation:</strong> the Energy Saving Trust's 2026 figures for a typical home: £750 to lay 270mm of loft insulation in a bare loft and £600 to top one up, about £2,700 for cavity wall insulation, and about £12,000 internal or £15,000 external for solid wall insulation on a typical 3 bed semi. Larger homes cost more.</p>
+        <p><strong>Boilers:</strong> a new condensing gas boiler within the £1,500 to £3,500 range, scaled by home size.</p>
 
-        <h2>Heat pump calculations</h2>
-        <p>Our <a href="/heat-pump-calculator/">heat pump calculator</a> uses the following methodology:</p>
+        <h2 id="heat-pumps">Heat pump calculations</h2>
         <ul>
-            <li><strong>Heat demand:</strong> from the DESNZ <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-anonymised-data-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework (NEED) 2026</a>, covering 2024 consumption in England and Wales. We took median gas consumption for every property type and floor area band from the 39,502 gas-heated records in the anonymised sample, fitted it against floor area for each type, then scaled it by bedroom count so the population weighted result reproduces NEED's own published medians by bedrooms (5,215 kWh for 1 bed up to 19,339 kWh for 5 or more). It matches to within 0.3% for 2 to 5 bedrooms. The heat pump calculator and the boiler comparison load this table directly from /js/heat-model.js, and the embeddable widget carries an identical copy inline. Guide pages do not run it: they state figures derived from it, and a check in the repository compares those figures against the table so they cannot drift unnoticed. The insulation, EPC and solar calculators model different things and are sourced separately, below.</li>
-            <li><strong>Insulation adjustment:</strong> measured from the same records by comparing EPC bands <em>within</em> each property type and floor area cell, so that size is not counted twice. Across 17 such cells the medians relative to band D are A or B 0.62, C 0.85, D 1.00, E 1.11. That is a narrower spread than the rule of thumb most calculators use, and it is what the data supports.</li>
-            <li><strong>Coefficient of Performance (COP):</strong> based on field data from the Electrification of Heat Demonstration Project. We use seasonal COP values of 2.6 to 3.4 depending on insulation level, which are conservative relative to manufacturer claims.</li>
-            <li><strong>Grant deduction:</strong> the £7,500 Boiler Upgrade Scheme grant is applied to air source heat pump costs for eligible properties.</li>
-            <li><strong>Running cost comparison:</strong> calculated as heat demand divided by COP, multiplied by the electricity rate, compared against heat demand divided by boiler efficiency (90% seasonal for a condensing gas boiler, below the figure on the badge) multiplied by the gas rate.</li>
+            <li><strong>Heat demand:</strong> from the DESNZ <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework (NEED) 2026</a>, covering 2024 consumption in England and Wales. We took median gas consumption for every property type and floor area band from the 39,502 gas heated records in the anonymised sample, fitted it against floor area for each type, then scaled it by bedroom count so the population weighted result reproduces NEED's own published medians by bedrooms (5,215 kWh for 1 bed up to 19,339 kWh for 5 or more). It matches to within 0.3% for 2 to 5 bedrooms. Every calculator that compares heating costs, and the embeddable widget, loads this one table from <a href="/js/heat-model.js">/js/heat-model.js</a>. Guide pages state figures derived from it, and checks in the repository compare those figures against the table so they cannot drift unnoticed.</li>
+            <li><strong>Insulation adjustment:</strong> measured from the same records by comparing EPC bands within each property type and floor area cell, so that size is not counted twice. Across 17 such cells the medians relative to band D are A or B 0.62, C 0.85, D 1.00, E 1.11.</li>
+            <li><strong>Efficiency:</strong> the whole system seasonal performance measured in 428 air source heat pumps by the government's <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat trial</a> (final report, December 2024): median 2.78, with the middle half of homes between 2.55 and 3.05. We use 2.55 for a poorly insulated home, 2.78 for average, 3.05 for well insulated and 3.25, about the top tenth, for a recently retrofitted one. Until 24 September 2026 we used 2.6 to 3.4, which was a little optimistic; <a href="/accuracy/">see the comparison</a>.</li>
+            <li><strong>Size:</strong> the home's annual heat demand over 1,100 full load hours, which gives the sizes installers typically fit: about 9 kW for an average 3 bed semi. The right size for a particular home comes from the installer's room by room heat loss calculation.</li>
+            <li><strong>Grant:</strong> the Boiler Upgrade Scheme pays £7,500 towards an air source heat pump, or £9,000 for homes replacing oil or LPG until March 2027.</li>
+            <li><strong>Running costs:</strong> heat demand divided by efficiency, multiplied by the electricity rate, compared with heat demand divided by the existing boiler's seasonal efficiency (90% for gas, 85% for oil and LPG, 100% for electric heating) multiplied by that fuel's rate. Both are energy only. Gas also carries a £108 a year standing charge, which a household saves if it caps the gas supply after switching; the calculators show that separately.</li>
+            <li><strong>Your own bill:</strong> if you enter your bill, we take off the gas standing charge, work out the heat your home actually uses from the rest, and cost the heat pump on that same demand, so both sides describe the same house.</li>
         </ul>
 
-        <h2>Insulation savings</h2>
-        <p>Our <a href="/insulation-calculator/">insulation calculator</a> uses Energy Saving Trust published typical savings data, broken down by property type and insulation measure. We adjust for heating fuel type using a multiplier based on relative fuel costs. The EST data represents median savings for each property type based on monitored installations.</p>
+        <h2 id="insulation">Insulation savings</h2>
+        <p>Every insulation saving is measured, not modelled. The government compares the gas use of homes before and after a measure is fitted against similar homes that had nothing done, and publishes the median: 12.0% for cavity wall insulation across 2,191 homes, 17.3% for solid wall insulation across 2,411, and 3.2% for loft insulation across 1,486, most of them top-ups (<a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026" target="_blank" rel="noopener">NEED Impact of Measures 2026</a>, Table 1). We apply those percentages to the home's own fuel use from the heat model and price them at the fuel it uses. When several measures are combined, each saving is taken from what is left after the ones before it.</p>
+        <p>Measured savings are lower than the modelled figures most calculators use, because many homes were under-heated before and take part of the gain as warmth rather than a lower bill. A home heated the same way before and after can save more than we show.</p>
+
+        <h2 id="plan">Retrofit plan</h2>
+        <p>The <a href="/retrofit-plan/">retrofit plan</a> combines the two. It lists the insulation a home may need, cheapest payback first, applies each measured saving in turn, then sizes and costs a heat pump for the home as it will be after that insulation. A whole-plan total counts the heat pump only where it lowers the bill. The same script runs the embeddable version, so the two cannot disagree.</p>
 
         <h2>Solar panel calculations</h2>
         <p>Our <a href="/solar-calculator/">solar calculator</a> uses:</p>
@@ -72,11 +79,14 @@
             <li><strong>Panel degradation:</strong> 0.5% per year, which is the industry standard warranty assumption.</li>
         </ul>
 
-        <h2>EPC calculations</h2>
-        <p>Our <a href="/epc-calculator/">EPC improvement planner</a> estimates EPC point improvements based on BRE's Standard Assessment Procedure (SAP) methodology. We use typical point improvements per measure as published by accredited energy assessors and cross-referenced with EPC lodgement data. Actual EPC improvements vary by property, so our estimates should be treated as indicative.</p>
+        <h2 id="epc">EPC calculations</h2>
+        <p>Our EPC improvement planner is a simple points model, not an assessment. It estimates a score from the answers you give using fixed points for each feature, then adds typical points for each improvement. It follows the SAP bands (A 92 to 100 down to G 1 to 20) but does not run SAP, and we have not yet compared its estimates with lodged certificates. Treat the band as a starting point: only an accredited assessor can produce an EPC.</p>
 
-        <h2>Grant eligibility</h2>
-        <p>Our <a href="/grants/">grant checker</a> uses published eligibility criteria from GOV.UK and scheme administrators. Grant schemes change frequently, so we review and update criteria monthly. However, we always recommend verifying eligibility directly with the scheme administrator before making decisions.</p>
+        <h2 id="grants">Grant eligibility</h2>
+        <p>Our grant checker uses the published eligibility criteria from GOV.UK and the scheme administrators, and was last reviewed in September 2026. Schemes open, close and change, so always confirm eligibility with the scheme itself before you rely on it.</p>
+
+        <h2 id="testing">How we test the model</h2>
+        <p>On 24 September 2026 we tested the model against the largest sets of measured data available for UK homes: installed costs from 30,590 grant funded heat pumps, efficiency from 428 monitored heat pumps, and insulation savings measured in thousands of homes. Where it was off, we changed it. <a href="/accuracy/">How accurate are our figures?</a> shows what we tested, what we found and what we changed.</p>
 
         <h2>Limitations and disclaimers</h2>
         <p>Our calculators provide estimates based on national averages and published data. They are not substitutes for professional assessments. Key limitations include:</p>
@@ -90,7 +100,7 @@
         <p>Always obtain professional quotes and assessments before proceeding with any installation.</p>
 
         <h2>Data licensing</h2>
-        <p>This site contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy price data from Ofgem. Energy efficiency data from BEIS/DESNZ. Grant information from GOV.UK. Solar irradiance data from <a href="https://re.jrc.ec.europa.eu/pvg_tools/" target="_blank" rel="noopener">PVGIS</a> (European Commission JRC).</p>
+        <p>This site contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>. Energy price data from Ofgem. Energy efficiency data and Boiler Upgrade Scheme statistics from DESNZ. Heat pump performance from the Electrification of Heat trial (Energy Systems Catapult for DESNZ). Grant information from GOV.UK. Solar irradiance data from <a href="https://re.jrc.ec.europa.eu/pvg_tools/" target="_blank" rel="noopener">PVGIS</a> (European Commission JRC).</p>
 
         <h2>Corrections and updates</h2>
         <p>If you spot an error in our calculations or data, please email <a href="mailto:hello@retrofitplanner.co.uk">hello@retrofitplanner.co.uk</a>. We take accuracy seriously and will investigate and correct any verified errors promptly.</p>
