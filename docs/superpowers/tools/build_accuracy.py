@@ -91,7 +91,16 @@ def main():
         ins_rows += '<tr><th scope="row">%s</th><td>%s a year</td><td>%s a year (%.1f%%, %s homes)</td></tr>' % (
             name, gbp(INSULATION_BEFORE[key]), gbp(measured), pct * 100, f'{n:,}')
 
+    # The counts in the checks section come from the checks themselves, not from memory.
+    mc = (ROOT / 'docs/superpowers/tools/model_check.py').read_text()
+    mc_basis = mc[mc.index('BASIS = {'):]
+    mc_guides = len(re.findall(r"^\s*'[a-z0-9-]+':", mc_basis[:mc_basis.index('\n}\n')], re.M))
+    tc_out = subprocess.run(['python3', 'docs/superpowers/tools/table_check.py'], cwd=ROOT, capture_output=True, text=True).stdout
+    tc_cells = int(re.search(r'(\d+) table cells checked', tc_out).group(1))
+    tc_src = (ROOT / 'docs/superpowers/tools/table_check.py').read_text()
+    tc_tables = len(re.findall(r'dict\(page=', tc_src[tc_src.index('SPECS = ['):tc_src.index('INLINE = [')]))
     page = TEMPLATE.format(
+        mc_guides=mc_guides, tc_cells=tc_cells, tc_tables=tc_tables,
         eff_rows=eff_rows, cost_rows=cost_rows, ins_rows=ins_rows,
         hp_before=gbp(hp_before * ELEC_P), hp_after=gbp(hp_after * ELEC_P),
         hpt_before=gbp(hp_before * HPT_P), hpt_after=gbp(hp_after * HPT_P),
@@ -193,7 +202,7 @@ TEMPLATE = '''<body>
 </ul>
 
 <h2 id="checks">How we keep the site in line with the model</h2>
-<p>The model is one readable file, <a href="/js/heat-model.js">heat-model.js</a>, and the <a href="/methodology/">methodology</a> explains each step. Before any change goes live, automated checks read the heat demand stated on 18 guides and 148 cells in 8 property tables and compare each one with the model. A page that disagrees fails the same check as a broken link.</p>
+<p>The model is one readable file, <a href="/js/heat-model.js">heat-model.js</a>, and the <a href="/methodology/">methodology</a> explains each step. Before any change goes live, automated checks read the heat demand stated on {mc_guides} guides and {tc_cells} cells in {tc_tables} property tables and compare each one with the model. A page that disagrees fails the same check as a broken link.</p>
 
 <h2 id="sources">Sources</h2>
 <ul>

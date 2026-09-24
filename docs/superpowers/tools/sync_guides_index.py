@@ -87,6 +87,8 @@ def main():
         seg2 = re.sub(r'<span class="count">\d+ guides?</span>', '<span class="count">%d guide%s</span>' % (n, '' if n == 1 else 's'), seg, count=1)
         s = s[:start] + seg2 + s[end:]
         s = re.sub(r'(<a href="#%s"[^>]*>.*?<span class="g-count">)\d+(</span>)' % re.escape(sid), lambda x: x.group(1) + str(n) + x.group(2), s, count=1, flags=re.S)
+    total = s.count('class="guide-item"')
+    s = re.sub(r'<p>\d+ guides backed by', '<p>%d guides backed by' % total, s, count=1)
     print('descriptions synced:', len(changed), changed)
     print('cards added:', added)
     if APPLY:
