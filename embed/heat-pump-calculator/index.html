@@ -116,6 +116,7 @@ function calc(){
   if(Math.abs(saveTar)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='as your '+LABEL[heat]+'; '+std; }
   else if(saveTar>0){ document.getElementById('annualSaving').textContent=gbp(saveTar); document.getElementById('savingDetail').textContent='a year on a heat pump tariff; '+std; }
   else { document.getElementById('annualSaving').textContent=gbp(-saveTar)+' more'; document.getElementById('savingDetail').textContent='a year, even on a heat pump tariff'; }
+  if(fuel==='oil'){ document.getElementById('savingDetail').textContent+='. Oil is priced at 9.0p per kWh, below September 2026 prices, so the saving is likely higher'; }
   // Payback and the verdict on a heat pump tariff, as on the full calculator.
   var pay=saveTar>0?net/saveTar:null;
   document.getElementById('payback').textContent=!(saveTar>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+' years')));

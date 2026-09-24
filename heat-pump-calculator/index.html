@@ -301,7 +301,7 @@
 
     <script>
     const DATA = {
-        energyPrices: { electricity: 0.2632, gas: 0.0797, oil: 0.090, lpg: 0.095 }, // Ofgem cap Oct to Dec 2026; oil Sept 2026 market
+        energyPrices: { electricity: 0.2632, gas: 0.0797, oil: 0.090, lpg: 0.095 }, // Ofgem cap Oct to Dec 2026; oil and LPG are our assumptions (see methodology)
         fuelType: { 'gas-boiler': 'gas', 'oil-boiler': 'oil', 'lpg-boiler': 'lpg', 'electric-storage': 'electricity', 'electric-direct': 'electricity' },
         co2Factors: { 'gas': 0.182, 'oil': 0.247, 'lpg': 0.214, 'electricity': 0.136 },
         gasStanding: 108.33 // a year, Ofgem cap October to December 2026
@@ -378,6 +378,9 @@
         } else {
             document.getElementById('annualSaving').textContent = '£' + gapT.toLocaleString('en-GB') + ' more';
             document.getElementById('savingDetail').textContent = 'a year than your ' + fuelLabel + ', even on a heat pump tariff';
+        }
+        if (fuelType === 'oil') {
+            document.getElementById('savingDetail').textContent += '. Oil is priced at 9.0p per kWh, below September 2026 prices, so your saving is likely higher';
         }
         const paybackT = annualSavingT > 0 ? afterGrant / annualSavingT : null;
         /* Quotes only where the heat pump pays back within 25 years on a heat pump tariff: the
