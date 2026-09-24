@@ -149,7 +149,7 @@ gap = (W - 2 * M - 2 * 6 * mm) / 3
 sy = y - 34 * mm
 stat(c, M, sy, gap, '39,502', 'gas heated NEED records behind the table')
 stat(c, M + gap + 6 * mm, sy, gap, '18 + 148', 'guides and table cells checked against the model automatically')
-stat(c, M + 2 * (gap + 6 * mm), sy, gap, '0', 'cookies set, and no customer data leaves the browser')
+stat(c, M + 2 * (gap + 6 * mm), sy, gap, '0', 'cookies set, and calculator inputs never leave the browser')
 c.setFont(BODY, 8.5)
 c.setFillColor(MUTED)
 c.drawString(M, sy - 10 * mm, 'Method at /methodology/. The model table itself is readable at /js/heat-model.js.')
@@ -169,7 +169,7 @@ y = bullet(c, 'The method is published, and enforced',
 y = bullet(c, 'No AI, by choice, not anti AI',
            'A heat pump often costs five figures and a household lives with it for 15 years, so the '
            'method and the data behind the number should be visible, not just a confident answer. '
-           'Deterministic arithmetic over public data, reproducible by hand, auditable by a model risk team.',
+           'Deterministic arithmetic over public data that anyone can check or work through by hand.',
            M, y, W - 2 * M)
 y = bullet(c, 'It withholds the sale',
            'The boiler tool hides both the quote prompt and the lead capture form when the existing '
@@ -183,17 +183,17 @@ c.setFont('DispB', 31)
 c.setFillColor(TEXT)
 c.drawString(M, H - M - 16 * mm, 'Small, growing fast, and not yet validated')
 
-# Monthly clicks from Google, March launch month to September. September is drawn
+# Monthly Google search impressions in thousands, March launch month to September. September is drawn
 # as what it has so far (22 days) plus a pale extension to its 30 day pace, so the
 # projection is never mistaken for a result.
-MONTHS = [('Mar', 39), ('Apr', 49), ('May', 78), ('Jun', 185), ('Jul', 297), ('Aug', 331), ('Sep', 346)]
-SEP_PACE = 472
+MONTHS = [('Mar', 11.8), ('Apr', 12.1), ('May', 11.4), ('Jun', 18.9), ('Jul', 24.9), ('Aug', 34.5), ('Sep', 45.3)]
+SEP_PACE = 61.8
 base, top = 205, 375
 scale = (top - base) / SEP_PACE
 bw, step = 44, 70
 c.setFont(BOLD, 11)
 c.setFillColor(TEXT)
-c.drawString(M, 410, 'Monthly clicks from Google search')
+c.drawString(M, 410, 'Monthly impressions on Google search')
 for n, (mon, v) in enumerate(MONTHS):
     x = M + n * step
     if mon == 'Sep':
@@ -204,16 +204,16 @@ for n, (mon, v) in enumerate(MONTHS):
         c.setDash()
         c.setFont(BOLD, 9.5)
         c.setFillColor(ACCENT)
-        c.drawCentredString(x + bw / 2, base + SEP_PACE * scale + 5, 'on pace ~470')
+        c.drawCentredString(x + bw / 2, base + SEP_PACE * scale + 5, 'on pace ~62k')
     c.setFillColor(ACCENT)
     c.rect(x, base, bw, v * scale, stroke=0, fill=1)
     c.setFont(BOLD, 9.5)
     if mon == 'Sep':
         c.setFillColor(SURFACE)
-        c.drawCentredString(x + bw / 2, base + v * scale - 13, str(v))
+        c.drawCentredString(x + bw / 2, base + v * scale - 13, '%.1fk' % v)
     else:
         c.setFillColor(TEXT)
-        c.drawCentredString(x + bw / 2, base + v * scale + 5, str(v))
+        c.drawCentredString(x + bw / 2, base + v * scale + 5, '%.1fk' % v)
     c.setFont(BODY, 9)
     c.setFillColor(MUTED)
     c.drawCentredString(x + bw / 2, base - 13, mon)
@@ -224,14 +224,14 @@ c.setFillColor(MUTED)
 c.drawString(M + 6 * step + bw + 10, base + 4, 'Sep: 22 days')
 
 sx, sw = W - M - 96 * mm, 96 * mm
-stat(c, sx, 290, sw, '3.6', 'average Google position for the 4 bed heat pump cost guide, across 20,382 impressions')
-stat(c, sx, 190, sw, '45,321', 'impressions in 22 days of September, against 11,801 in all of March')
+stat(c, sx, 290, sw, '3.6', 'average Google position for the 4 bed heat pump cost guide')
+stat(c, sx, 190, sw, 'Every month', 'clicks from Google have grown every month since launch. September passed all of August with eight days to spare.')
 
 y = 150
 c.setFont(BOLD, 11)
 c.setFillColor(TEXT)
 c.drawString(M, y, 'What I do not have, stated plainly')
-y = wrap(c, 'The site stores nothing on the device, so there is no count of calculator uses, no '
+y = wrap(c, 'The calculators store and send nothing, so there is no count of calculator uses, no '
             'completion rate and no user feedback. And no model output has yet been checked against '
             'a real house quote or its metered consumption. Establishing that accuracy is the first '
             'thing a pilot should do.', M, y - 8 * mm, W - 2 * M, BODY, 11.5, 6.2 * mm, MUTED)
@@ -258,8 +258,8 @@ c.roundRect(bx, H - M - 92 * mm, 96 * mm, 60 * mm, 3 * mm, stroke=1, fill=1)
 c.setFont(BOLD, 10.5)
 c.setFillColor(TEXT)
 c.drawString(bx + 8 * mm, H - M - 42 * mm, 'Commercially')
-wrap(c, 'Lloyds licences the model, IP stays with me. A four figure pilot fee, then a five figure '
-        'annual licence. No revenue share and no referral links on a Lloyds page. It is a lookup '
+wrap(c, 'Not seeking investment. A pilot first, to find out whether it works. If it does, we agree '
+        'terms for wider use. No revenue share and no referral links on a Lloyds page. It is a lookup '
         'table plus arithmetic, so no customer data needs to move.',
      bx + 8 * mm, H - M - 52 * mm, 80 * mm, BODY, 11, 6 * mm, MUTED)
 c.setFont(BODY, 9)

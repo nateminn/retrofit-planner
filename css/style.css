@@ -968,3 +968,27 @@ select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,su
 @media (max-width:640px){.scheme-note{padding:12px 14px;border-radius:var(--radius-sm,6px)}}
 @media print{.scheme-note{border:1px solid #999;background:transparent}}
 /* Disclosure under a paid next-step link. Shown only when the link actually earns. */
+
+/* ===== FOOTER NEWSLETTER (site_components.py) ===== */
+.footer-news{max-width:1080px;margin:0 auto 40px;padding:24px 28px;background:var(--color-bg,#fafaf7);border:1px solid var(--color-border);border-radius:var(--radius-lg);display:grid;grid-template-columns:1.1fr 1fr;gap:18px 36px;align-items:center}
+.footer-news h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin:0 0 6px;color:var(--color-text)}
+.footer-news .fn-copy p{font-size:.9rem;color:var(--color-text-secondary);line-height:1.55;margin:0}
+.fn-form label{display:block;font-weight:600;font-size:.85rem;margin-bottom:6px;color:var(--color-text)}
+.fn-row{display:flex;gap:8px}
+.fn-row input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-size:.95rem;font-family:inherit;background:#fff;color:var(--color-text)}
+.fn-row input:focus{outline:2px solid var(--color-accent);outline-offset:1px;border-color:var(--color-accent)}
+.fn-row button{padding:10px 18px;background:var(--color-accent);color:#fff;border:0;border-radius:var(--radius-sm);font-size:.9rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap}
+.fn-row button:hover{opacity:.92}
+.fn-small{font-size:.76rem;color:var(--color-text-tertiary);margin:8px 0 0;line-height:1.5}
+.fn-small a{color:inherit}
+@media (max-width:720px){.footer-news{grid-template-columns:1fr;padding:20px}.fn-row{flex-direction:column}.fn-row button{width:100%}}
+/* ===== THANK YOU PAGES (site_components.py) ===== */
+.thanks{max-width:640px;margin:0 auto;padding:72px 24px 56px}
+.thanks h1{font-family:var(--font-display);font-size:2rem;font-weight:700;margin:0 0 16px}
+.thanks p{color:var(--color-text-secondary);line-height:1.65;margin:0 0 16px}
+.thanks .thanks-lead{font-size:1.08rem;color:var(--color-text)}
+.thanks-cta{display:inline-block;padding:12px 22px;background:var(--color-accent);color:#fff;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;margin:4px 0 8px}
+.thanks-questions{margin:32px 0 8px}
+.thanks-questions h2{font-family:var(--font-display);font-size:1.3rem;margin:0 0 10px}
+.thanks-questions ol{color:var(--color-text-secondary);line-height:1.7;padding-left:22px;margin:0}
+.thanks .thanks-small{font-size:.85rem}

@@ -34,9 +34,9 @@ Behind them is a heat demand model built from DESNZ National Energy Efficiency D
 
 ## Why did you develop this proposition? What problem are you solving?
 
-Most retrofit figures a household can find come from the firm selling the work, with no method stated and no way to check them. Increasingly the other source is an AI answer, which can walk someone through it but rarely shows exactly where a number came from.
+Most retrofit figures available to households come from the company selling the work. They rarely show how the number was reached, so it cannot be checked. Increasingly the other source is an AI answer, which can walk someone through the options but rarely shows where a number came from.
 
-A heat pump or solid wall insulation often costs five figures, and a household lives with the choice for 15 years or more. A decision that size deserves a visible method. So I publish the process: public government data, a clear and simple model, and enough explanation for anyone to critique and judge the number before acting on it.
+A heat pump or solid wall insulation often costs five figures, and a household lives with it for 15 years or more. A decision that size deserves a visible method. I publish the process: public government data, a clear and simple model, and enough explanation for anyone to question the number before acting.
 
 ## What are the key features and benefits?
 
@@ -70,7 +70,7 @@ The gap is not money, it is decisions. Doubling those claims is 3,000 more homes
 
 ## Does your proposition use artificial intelligence?
 
-No. For a decision this size, a household should see the method and the data behind a number, not just a confident answer. Every output is arithmetic over a published table built from public government data, so anyone can check it, critique it or rebuild it by hand, your model risk team included. This is not anti AI. It is the right tool for a choice people live with for 15 years.
+No. For a decision this size, a household should be able to see the method and the data behind a number, not just a confident answer. Every output is arithmetic over a published table built from public government data, so anyone can check it or work it through by hand. This is not an anti AI position. It is the right tool for a choice people live with for 15 years.
 
 ## Accessibility: WCAG 2.2 AA
 
@@ -82,28 +82,50 @@ On privacy: the site sets zero cookies and uses no client storage, analytics run
 
 ## What stage of development are you?
 
-Live and in public use since March 2026, built and run by one person. Not yet registered, with plans to register in Q4 2026.
+Live and in public use since March 2026, built and run by one person. Not yet registered, with plans to register in Q4 2026. Every tool works today and is ready to test.
 
-Google search since launch: 39 clicks in March and 331 in August, with impressions up from 11,801 to 34,478. 22 days into September it has 346 clicks and 45,321 impressions, already past the whole of August and on pace for about 470 and 62,000.
+Clicks from Google search have risen every month since launch, and September passed the whole of August with eight days to spare. Search impressions are on pace for about 62,000 this month, up from about 12,000 in the launch month.
 
-It ranks best where people name their own house. The 4 bed heat pump cost guide averages position 3.6 on Google across 20,382 impressions, and the site averages position 6.3 for "epc points calculator".
+It ranks best where people name their own house: the 4 bed heat pump cost guide averages position 3.6 on Google.
 
 ## Who are your key customers?
 
-No institutional customers yet. Users are UK homeowners arriving from Google: 1,325 clicks from 158,907 impressions since launch, 93 per cent of the clicks from the UK.
+No institutional customers yet. Users are homeowners who find the site through Google search, 93 per cent of them in the UK.
 
-Two limitations I would rather state than have found. The site stores nothing on the device, so I have search data but no count of calculator uses, no completion rates and no user feedback. And no model output has yet been checked against a real house's quote or metered consumption. Establishing that accuracy is the first thing I would want the pilot to do.
+The calculators store nothing on the device and send nothing anywhere, so I have search data but no count of calculator uses and no user feedback. The model improves through better measurement, not visitors' inputs, and no output has yet been checked against a real home's quote or metered use. Establishing that accuracy is the first thing I would want the pilot to do.
 
 ## Who are your competitors?
 
-The Energy Saving Trust Home Energy Efficiency Tool, which Lloyds already white labels, as do Nationwide and Barclays. By both banks' own descriptions it returns current and improved bills, EPC before and after, measure costs and CO2. Neither mentions payback, and no method is published. It covers all of Great Britain and gives EPC and CO2 figures, which I do not.
+The Energy Saving Trust Home Energy Efficiency Tool, which Lloyds already white labels, as do Nationwide and Barclays. By both banks' descriptions it returns current and improved bills, EPC before and after, measure costs and CO2. Neither mentions payback, and no method is published. It covers all of Great Britain and gives EPC and CO2 figures, which I do not.
 
-Snugg, free and distributed by TSB. Kamma Climate and Cotality sell property level modelling to lenders, but the output goes to the lender. Installer funnels and paid surveys answer only after the customer has committed.
+Snugg, a free home energy planner TSB offers its customers. Kamma Climate and Cotality sell property level modelling, but the output goes to the lender. Installer funnels and paid surveys answer only after the customer has committed.
 
 ## What are you hoping to achieve, and how can Lloyds help?
 
-A 12 week pilot. Lloyds licences the model, IP stays with me: a four figure pilot fee then a five figure annual licence. No revenue share, no referral links on Lloyds pages.
+I am not asking for investment. I would like a 12 week pilot that tests two things: whether a published payback figure moves Lloyds customers to act, and whether the model's figures match real homes. If it works, we agree terms for wider use. If it does not, Lloyds has a clear answer at low cost.
 
-It is a lookup table plus arithmetic, no dependencies and no network calls, so it can be audited in an afternoon or rebuilt from a spec. No customer data moves.
+The model is a lookup table plus arithmetic, so no customer data needs to move. Outputs are guidance, not advice, and every figure shows its assumptions.
 
-The Consumer Duty harm is a household spending five figures on a wrong payback. Outputs are guidance, not advice, and every figure carries its assumptions.
+---
+
+## If they ask (interview prep, not for the form)
+
+**Why publish the method at all?**
+- A household spending five figures deserves to see how the number was reached.
+- Publishing invites correction. Errors get found and fixed rather than hidden.
+- For a bank under Consumer Duty, a published method is evidence the guidance is fair and explainable.
+- It is the only way to be credibly independent of the firms selling the work.
+
+**Where is the value if you collect no data?**
+- The value is the decision it helps someone make, not data taken from them. The calculators store and send nothing.
+- Four dropdowns carry little learning value. What would improve the model is outcomes: real bills and real quotes. That is exactly what a pilot measures.
+- Inside Lloyds, measurement comes from Lloyds' own records of who went on to act. Nothing needs to leave the bank.
+- The model itself needs no personal data, so running it inside Lloyds needs no data sharing agreement.
+
+**Why would Lloyds pay for this?**
+- Not yet, and I am not asking them to. The pilot exists to find out whether it is worth paying for.
+- If it moves customers to act and the figures hold up against real homes, that result is the case for a licence.
+
+**What if the model is wrong?**
+- It has not yet been checked against real homes, and I say so in the application.
+- It is built from government microdata and checked for internal consistency on every change. Testing it against real outcomes is the first job of the pilot.
