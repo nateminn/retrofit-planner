@@ -28,9 +28,9 @@ Every figure below was verified in the repository or in a Google Search Console 
 
 ## What do you do?
 
-RetrofitPlanner.co.uk is a free UK home energy site I build and run on my own. Six calculators and 46 guides answer one question for one house: what does the work cost, what does it save, and what comes first.
+RetrofitPlanner.co.uk is a free UK home energy site I build and run on my own. Seven tools and 51 guides answer one question for one house: what does the work cost, what does it save, and what comes first. The retrofit plan puts that in order from four fields: property type, bedrooms, fabric condition and heating fuel.
 
-Behind them is a heat demand model built from DESNZ National Energy Efficiency Data-Framework 2026 microdata, 39,502 gas heated records in England and Wales. It needs four fields: property type, floor area or bedrooms, fabric condition, heating fuel. No smart meter, no survey, no account. The method is published at /methodology/ and the model table is readable at /js/heat-model.js.
+It runs on published government data: meter readings for 39,502 homes, installed costs from 30,590 grant funded heat pumps, and savings measured in real homes. The method is public at /methodology/ and the model at /js/heat-model.js.
 
 ## Why did you develop this proposition? What problem are you solving?
 
@@ -40,15 +40,15 @@ A heat pump or solid wall insulation often costs five figures, and a household l
 
 ## What are the key features and benefits?
 
-Six free tools: heat pump cost, insulation savings, an EPC planner, solar cost, a 15 year boiler versus heat pump comparison, and a grant checker. 46 guides across 60 pages. A bill checker inside one guide takes four inputs and tells a household how far their bill sits from typical for their house.
+Seven free tools: a retrofit plan that orders the works for one home, heat pump cost, insulation savings, an EPC planner, solar, a 15 year boiler versus heat pump comparison and a grant checker. The plan also runs as an embeddable widget, built for a partner's own site.
 
-Every figure traces to one model. Two automated checks enforce that before anything publishes: one reads 18 guides for the model's demand figure, the other reads 148 cells across 8 property tables and works backwards from the costs. A wrong number fails the same check as a typo.
+Every figure traces to one model. Checks compare 18 guides and 148 table cells against it before anything publishes, and /accuracy/ shows the model tested against measured data, before and after.
 
 ## What is your Unique Selling Point?
 
 Kamma Climate and Cotality already model retrofit at property level and sell it to lenders. I am not claiming nobody else can do this. The difference is the output and who receives it: they return a risk score to the lender, this returns a payback figure and an ordered sequence of works to the customer, from a method anyone can read.
 
-It also withholds the sale. The boiler tool hides both the quote prompt and the lead form when the old boiler is cheaper: at a £900 gas bill that is 42 of the tool's 120 input combinations. The solar tool tells 282 of 6,048 modelled cases it never pays back.
+It also withholds the sale. The boiler comparison hides the quote prompt and form wherever a new boiler stays cheaper over 15 years even on a heat pump tariff: 35 of its 120 combinations at a £900 gas bill.
 
 ## Who is your target audience?
 
@@ -74,31 +74,31 @@ No. For a decision this size, a household should be able to see the method and t
 
 ## Accessibility: WCAG 2.2 AA
 
-Working towards, not conformant, and no formal audit has been done.
+Working towards, not claiming conformance, because no formal manual audit has been done.
 
-Measured this week: 100 of 100 images carry alt text, 151 label bindings, errors named per field, bound with aria-invalid and aria-describedby and announced through a live region with focus moved to them. Skip link on 62 of 64 pages. prefers-reduced-motion honoured. Last Lighthouse score 98.
+Automated testing finds no errors on any page: axe-core 4.13 against the WCAG 2.2 A and AA rules, at desktop and phone widths, including every calculator after it shows a result. Forms name each error, bind it to its field and announce it. Tables and charts that scroll can be reached by keyboard. Reduced motion is honoured.
 
-On privacy: the site sets zero cookies and uses no client storage, analytics runs with consent mode denied, and fonts are self hosted. One third party request remains, Google Analytics. Calculator inputs never leave the browser.
+On privacy: the site sets no cookies, analytics runs with consent mode denied, and calculator inputs never leave the browser.
 
 ## What stage of development are you?
 
-Live and in public use since March 2026, built and run by one person. Not yet registered, with plans to register in Q4 2026. Every tool works today and is ready to test.
+Live and in public use since March 2026, built and run by one person. Not yet registered, with plans to register in Q4 2026. Every tool works today and is ready to test, including an embeddable retrofit plan.
 
-Clicks from Google search have risen every month since launch, and September passed the whole of August with eight days to spare. Search impressions are on pace for about 62,000 this month, up from about 12,000 in the launch month.
+On 24 September 2026 I tested the model against measured data and corrected it where it was off: installed costs, heat pump efficiency and insulation savings. The results are published at /accuracy/.
 
-It ranks best where people name their own house: the 4 bed heat pump cost guide averages position 3.6 on Google.
+Clicks from Google search have risen every month since launch, and September passed the whole of August with eight days to spare.
 
 ## Who are your key customers?
 
-No institutional customers yet. Users are homeowners who find the site through Google search, 93 per cent of them in the UK.
+No institutional customers yet. Users are homeowners who find the site through Google search, 93 per cent of them in the UK. Since September they can ask for installer quotes, with recorded consent, and the first requests have arrived.
 
-The calculators store nothing on the device and send nothing anywhere, so I have search data but no count of calculator uses and no user feedback. The model improves through better measurement, not visitors' inputs, and no output has yet been checked against a real home's quote or metered use. Establishing that accuracy is the first thing I would want the pilot to do.
+The calculators store and send nothing, so I have no count of calculator uses. The model is tested against measured data from thousands of real installations, but not yet against individual homes' own bills. That is the first thing I would want the pilot to do.
 
 ## Who are your competitors?
 
-The Energy Saving Trust Home Energy Efficiency Tool, which Lloyds already white labels, as do Nationwide and Barclays. By both banks' descriptions it returns current and improved bills, EPC before and after, measure costs and CO2. Neither mentions payback, and no method is published. It covers all of Great Britain and gives EPC and CO2 figures, which I do not.
+The Energy Saving Trust Home Energy Efficiency Tool, which Lloyds already white labels, as do Nationwide and Barclays. By the banks' descriptions it returns current and improved bills, EPC before and after, measure costs and CO2. None mentions payback, and no method is published. It covers all of Great Britain and gives EPC and CO2 figures; my EPC planner is only a rough estimate.
 
-Snugg, a free home energy planner TSB offers its customers. Kamma Climate and Cotality sell property level modelling, but the output goes to the lender. Installer funnels and paid surveys answer only after the customer has committed.
+Snugg, a free home energy planner TSB offers its customers. Kamma Climate and Cotality sell modelling to lenders, not advice to customers. Installer funnels and paid surveys answer only after the customer has committed.
 
 ## What are you hoping to achieve, and how can Lloyds help?
 
