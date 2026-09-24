@@ -4,7 +4,7 @@
 Six landscape slides, the site's own palette, and Georgia for display because that is
 the fallback the site's CSS declares behind Fraunces. Nothing here is decoration for
 its own sake: every number on every slide is one that model_check.py, table_check.py or
-a GSC export can be pointed at.
+a GSC export can be pointed at. Search figures: GSC export to 22 Sep 2026.
 
 Run: python3 docs/lloyds/build_deck.py
 """
@@ -101,7 +101,7 @@ y = wrap(c, 'Retrofit cost, saving and payback for one specific house, from four
 c.setFont(BODY, 9.5)
 c.setFillColor(MUTED)
 c.drawString(M, M + 14 * mm, 'Lloyds Launch 2026   |   Homes   |   RetrofitPlanner.co.uk')
-c.drawString(M, M + 8 * mm, 'One person, sole trader, incorporating Q4 2026')
+c.drawString(M, M + 8 * mm, 'Built and run by one person. Plans to register in Q4 2026.')
 c.showPage()
 
 # 2 ------------------------------------------------------------------ problem
@@ -110,21 +110,21 @@ c.setFont('DispB', 31)
 c.setFillColor(TEXT)
 c.drawString(M, H - M - 16 * mm, 'The incentive is funded. The decision is not.')
 y = H - M - 34 * mm
-y = bullet(c, '39% band D, 17% band E to G',
-           'Of LBG residential mortgages with a known EPC. The majority of the book sits '
-           'below the standard rented homes must reach by 2030.', M, y, 118 * mm)
+y = bullet(c, '£250 billion of home retrofit needed by 2050',
+           "Lloyds' own estimate. 39% of its residential mortgages with a known EPC are band D, "
+           'and 17% are E to G.', M, y, 118 * mm)
 y = bullet(c, 'Just over 3,000 Eco Home Reward claims in 2025',
            'Against a book of millions. Up to £2,000 is available and almost nobody takes it.',
            M, y, 118 * mm)
 y = bullet(c, 'EPCs do not measure what a house actually uses',
-           'LBG 2025 sustainability report: EPCs capture neither actual energy use nor recent '
+           'Lloyds 2025 sustainability report: EPCs capture neither actual energy use nor recent '
            'retrofit work, and a 2.0% gap to the financed emissions pathway is attributed to '
            'EPC data limits.', M, y, 118 * mm)
 c.setFillColor(ACCBG)
-c.roundRect(W - M - 96 * mm, H - M - 78 * mm, 96 * mm, 46 * mm, 3 * mm, stroke=0, fill=1)
+c.roundRect(W - M - 96 * mm, H - M - 98 * mm, 96 * mm, 66 * mm, 3 * mm, stroke=0, fill=1)
 wrap(c, 'A household will not act on a cost and a saving. They act on how many years the '
         'money takes to come back, and which measure to do first. That is the number nobody '
-        'is giving them.', W - M - 88 * mm, H - M - 46 * mm, 80 * mm, 'Disp', 15, 8.4 * mm, TEXT)
+        'is giving them.', W - M - 88 * mm, H - M - 45 * mm, 80 * mm, 'Disp', 15, 8.4 * mm, TEXT)
 c.showPage()
 
 # 3 ------------------------------------------------------------------ model
@@ -166,10 +166,10 @@ y = bullet(c, 'The method is published, and enforced',
            'one publishes the model table and the method behind it, and two automated checks compare '
            'every figure on the site back against that table before anything goes live.',
            M, y, W - 2 * M)
-y = bullet(c, 'No AI, deliberately',
-           'Deterministic arithmetic, reproducible by hand, auditable by a model risk team. It also '
-           'keeps the interface four dropdowns rather than a chat box. The worst rated stock is the '
-           'oldest: 18% of NEED earliest age band is EPC E or below against 0.5% of the newest.',
+y = bullet(c, 'No AI, by choice, not anti AI',
+           'A heat pump often costs five figures and a household lives with it for 15 years, so the '
+           'method and the data behind the number should be visible, not just a confident answer. '
+           'Deterministic arithmetic over public data, reproducible by hand, auditable by a model risk team.',
            M, y, W - 2 * M)
 y = bullet(c, 'It withholds the sale',
            'The boiler tool hides both the quote prompt and the lead capture form when the existing '
@@ -181,19 +181,60 @@ c.showPage()
 slide(c, 'where it stands')
 c.setFont('DispB', 31)
 c.setFillColor(TEXT)
-c.drawString(M, H - M - 16 * mm, 'Small, growing, and not yet validated')
-gap = (W - 2 * M - 2 * 6 * mm) / 3
-stat(c, M, H - M - 56 * mm, gap, '413', 'clicks from 52,068 impressions, 28 days to 20 Sep 2026')
-stat(c, M + gap + 6 * mm, H - M - 56 * mm, gap, '39 to 331', 'monthly clicks, March to August 2026')
-stat(c, M + 2 * (gap + 6 * mm), H - M - 56 * mm, gap, '2.14%', 'EPC calculator click through from position 10.6, against 0.79% sitewide')
-y = H - M - 70 * mm
+c.drawString(M, H - M - 16 * mm, 'Small, growing fast, and not yet validated')
+
+# Monthly clicks from Google, March launch month to September. September is drawn
+# as what it has so far (22 days) plus a pale extension to its 30 day pace, so the
+# projection is never mistaken for a result.
+MONTHS = [('Mar', 39), ('Apr', 49), ('May', 78), ('Jun', 185), ('Jul', 297), ('Aug', 331), ('Sep', 346)]
+SEP_PACE = 472
+base, top = 205, 375
+scale = (top - base) / SEP_PACE
+bw, step = 44, 70
+c.setFont(BOLD, 11)
+c.setFillColor(TEXT)
+c.drawString(M, 410, 'Monthly clicks from Google search')
+for n, (mon, v) in enumerate(MONTHS):
+    x = M + n * step
+    if mon == 'Sep':
+        c.setFillColor(ACCBG)
+        c.setStrokeColor(ACCENT)
+        c.setDash(3, 2)
+        c.rect(x, base, bw, SEP_PACE * scale, stroke=1, fill=1)
+        c.setDash()
+        c.setFont(BOLD, 9.5)
+        c.setFillColor(ACCENT)
+        c.drawCentredString(x + bw / 2, base + SEP_PACE * scale + 5, 'on pace ~470')
+    c.setFillColor(ACCENT)
+    c.rect(x, base, bw, v * scale, stroke=0, fill=1)
+    c.setFont(BOLD, 9.5)
+    if mon == 'Sep':
+        c.setFillColor(SURFACE)
+        c.drawCentredString(x + bw / 2, base + v * scale - 13, str(v))
+    else:
+        c.setFillColor(TEXT)
+        c.drawCentredString(x + bw / 2, base + v * scale + 5, str(v))
+    c.setFont(BODY, 9)
+    c.setFillColor(MUTED)
+    c.drawCentredString(x + bw / 2, base - 13, mon)
+c.setStrokeColor(BORDER)
+c.line(M - 4, base, M + 6 * step + bw + 4, base)
+c.setFont(BODY, 8)
+c.setFillColor(MUTED)
+c.drawString(M + 6 * step + bw + 10, base + 4, 'Sep: 22 days')
+
+sx, sw = W - M - 96 * mm, 96 * mm
+stat(c, sx, 290, sw, '3.6', 'average Google position for the 4 bed heat pump cost guide, across 20,382 impressions')
+stat(c, sx, 190, sw, '45,321', 'impressions in 22 days of September, against 11,801 in all of March')
+
+y = 150
 c.setFont(BOLD, 11)
 c.setFillColor(TEXT)
 c.drawString(M, y, 'What I do not have, stated plainly')
-y = wrap(c, 'The site stores nothing on the device, so there is no completion rate, no repeat use '
-            'and no user feedback. And no model output has yet been checked against a real house '
-            'quote or its metered consumption. Establishing that accuracy is the first thing a '
-            'pilot should do.', M, y - 8 * mm, W - 2 * M, BODY, 11.5, 6.2 * mm, MUTED)
+y = wrap(c, 'The site stores nothing on the device, so there is no count of calculator uses, no '
+            'completion rate and no user feedback. And no model output has yet been checked against '
+            'a real house quote or its metered consumption. Establishing that accuracy is the first '
+            'thing a pilot should do.', M, y - 8 * mm, W - 2 * M, BODY, 11.5, 6.2 * mm, MUTED)
 c.showPage()
 
 # 6 ------------------------------------------------------------------ ask
@@ -206,21 +247,21 @@ y = bullet(c, 'Who', 'Mortgage customers at EPC band D or E, where the model is 
                      'against a matched holdout. Base rate near 0.1% means roughly 30,000 per arm.',
            M, y, 118 * mm)
 y = bullet(c, 'What they see', 'A payback figure and a ranked list of measures for their own home, '
-                               'inside a page LBG already runs.', M, y, 118 * mm)
+                               'inside a page Lloyds already runs.', M, y, 118 * mm)
 y = bullet(c, 'Measured by', 'Green additional borrowing drawn, and model accuracy against the '
                              "customer's own annual kWh. No difference at 6 months means it did not work.",
            M, y, 118 * mm)
 bx = W - M - 96 * mm
 c.setFillColor(SURFACE)
 c.setStrokeColor(BORDER)
-c.roundRect(bx, H - M - 86 * mm, 96 * mm, 54 * mm, 3 * mm, stroke=1, fill=1)
+c.roundRect(bx, H - M - 92 * mm, 96 * mm, 60 * mm, 3 * mm, stroke=1, fill=1)
 c.setFont(BOLD, 10.5)
 c.setFillColor(TEXT)
 c.drawString(bx + 8 * mm, H - M - 42 * mm, 'Commercially')
-wrap(c, 'LBG licences the model, IP stays with me. A four figure pilot fee, then a five figure '
-        'annual licence. No revenue share and no referral links on an LBG page. It is a lookup '
+wrap(c, 'Lloyds licences the model, IP stays with me. A four figure pilot fee, then a five figure '
+        'annual licence. No revenue share and no referral links on a Lloyds page. It is a lookup '
         'table plus arithmetic, so no customer data needs to move.',
-     bx + 9 * mm, H - M - 52 * mm, 78 * mm, BODY, 11, 6 * mm, MUTED)
+     bx + 8 * mm, H - M - 52 * mm, 80 * mm, BODY, 11, 6 * mm, MUTED)
 c.setFont(BODY, 9)
 c.setFillColor(MUTED)
 c.drawString(M, M + 8 * mm, 'RetrofitPlanner.co.uk')
