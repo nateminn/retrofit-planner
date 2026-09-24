@@ -1014,3 +1014,12 @@ select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,su
 .rp-total{border-top:2px solid var(--color-border);padding-top:14px;margin-top:4px}
 .rp-small{font-size:.78rem;color:var(--color-text-tertiary);margin:14px 0 0;line-height:1.55}
 @media (max-width:600px){.rp-figs,.rp-total{grid-template-columns:1fr 1fr}}
+
+/* ===== HOME: RETROFIT PLAN BANNER ===== */
+.plan-banner{display:flex;align-items:center;gap:14px 18px;max-width:880px;margin:0 auto 28px;padding:16px 20px;background:var(--color-accent-bg);border:1px solid var(--color-accent-border);border-radius:var(--radius-lg);text-decoration:none;color:var(--color-text)}
+.plan-banner:hover{border-color:var(--color-accent)}
+.pb-tag{flex-shrink:0;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--color-accent);border-radius:100px;padding:3px 10px}
+.pb-text{font-size:.95rem;line-height:1.5;color:var(--color-text-secondary)}
+.pb-text strong{color:var(--color-text)}
+.pb-go{flex-shrink:0;font-weight:600;color:var(--color-accent);white-space:nowrap}
+@media (max-width:640px){.plan-banner{flex-wrap:wrap;margin:0 16px 24px}}
