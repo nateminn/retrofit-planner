@@ -34,6 +34,10 @@
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors *; base-uri 'self'; form-action 'none'; object-src 'none'
   Cross-Origin-Opener-Policy: unsafe-none
 
+/embed/retrofit-plan/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors *; base-uri 'self'; form-action 'none'; object-src 'none'
+  Cross-Origin-Opener-Policy: unsafe-none
+
 # Fonts are content addressed: the hash is in the filename, so a changed font is a changed
 # URL. Nothing here ever needs revalidating.
 /fonts/*

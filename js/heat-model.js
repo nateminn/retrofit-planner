@@ -152,7 +152,11 @@
            home costs more because it needs a bigger unit, which the size already carries. */
         heatPumpInstall: function (type, beds, insulation) {
             var kw = this.heatPumpKw(type, beds, insulation);
-            if (kw === null) { return null; }
+            return kw === null ? null : this.heatPumpInstallForKw(kw);
+        },
+        /* The same median for a heat pump of a given size, for callers that size it
+           themselves, such as the retrofit plan sizing for the home after insulation. */
+        heatPumpInstallForKw: function (kw) {
             var t = MODEL.busCostByKw, c;
             if (kw <= t[0][0]) { c = t[0][1]; }
             else if (kw >= t[t.length - 1][0]) { c = t[t.length - 1][1]; }
@@ -166,6 +170,12 @@
                 }
             }
             return Math.round(c / 100) * 100;
+        },
+        kwForHeat: function (heat) {
+            return Math.max(4, Math.min(Math.round(heat / MODEL.fullLoadHours * 2) / 2, 20));
+        },
+        rangeForCost: function (c) {
+            return [Math.round(c * MODEL.busSpread[0] / 500) * 500, Math.round(c * MODEL.busSpread[1] / 500) * 500];
         },
         /* The middle half of real installs around that median, to the nearest 500 pounds. */
         heatPumpInstallRange: function (type, beds, insulation) {

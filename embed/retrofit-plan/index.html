@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retrofit Plan</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Embeddable retrofit plan from Retrofit Planner: an ordered list of home upgrades with cost, measured saving and payback.">
+<link rel="canonical" href="https://www.retrofitplanner.co.uk/retrofit-plan/">
+<style>
+*{box-sizing:border-box}
+:root{--ink:#1A1A17;--ink2:#56544C;--ink3:#6B6960;--line:#E5E3DC;--surf:#FFFFFF;--surf2:#F7F6F2;--acc:#2D6A4F;--accbg:#EDF6F0;--accline:#B7E4C7;--gold:#D4A843;--radius:10px}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--surf);font-size:15px;line-height:1.5}
+.w{padding:20px}
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:4px}
+h1{font-size:1.15rem;margin:0;letter-spacing:-0.01em}
+.sub{font-size:.82rem;color:var(--ink2);margin:0 0 16px}
+.f{margin-bottom:12px}
+label{display:block;font-size:.8rem;font-weight:600;margin-bottom:5px}
+select,input{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit;background:var(--surf);color:var(--ink)}
+select:focus,input:focus{outline:2px solid var(--accline);outline-offset:-1px;border-color:var(--acc)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:.74rem;color:var(--ink3);margin:4px 0 0}
+button{width:100%;margin-top:6px;padding:12px;background:var(--acc);color:#fff;border:0;border-radius:8px;font-size:.92rem;font-weight:600;font-family:inherit;cursor:pointer}
+button:hover{background:#245741}
+.res{display:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.res.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.card{background:var(--surf2);border:1px solid var(--line);border-radius:var(--radius);padding:12px}
+.card.hi{background:var(--accbg);border-color:var(--accline)}
+.k{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);font-weight:600}
+.v{font-size:1.3rem;font-weight:700;margin-top:2px;letter-spacing:-0.02em}
+.d{font-size:.74rem;color:var(--ink2);margin-top:2px}
+.bars{background:var(--surf2);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:12px}
+.bar{margin-bottom:8px}
+.bar:last-child{margin-bottom:0}
+.blab{display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:3px}
+.btrack{height:9px;background:#EDEBE4;border-radius:5px;overflow:hidden}
+.bfill{height:100%;border-radius:5px;transition:width .4s ease}
+.note{font-size:.76rem;color:var(--ink2);margin:10px 0 0;line-height:1.45}
+.cta{display:block;margin-top:14px;padding:11px;text-align:center;background:var(--accbg);border:1px solid var(--accline);border-radius:8px;color:var(--acc);text-decoration:none;font-size:.85rem;font-weight:600}
+.cta:hover{background:#E3F1E8}
+.ft{margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:.72rem;color:var(--ink3);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ft a{color:var(--acc);text-decoration:none}
+@media (max-width:420px){.row,.grid{grid-template-columns:1fr}.w{padding:16px}}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#F2F1EC;--ink2:#B8B5AC;--ink3:#8E8B83;--line:#33322D;--surf:#1B1A17;--surf2:#232220;--accbg:#1E2F26;--accline:#2F5B45}
+}
+
+.err{color:#9B1C1C;font-size:.8rem;margin:6px 0 0;display:none}.err.on{display:block}
+
+.rp-lead{margin:0 0 16px;line-height:1.6;color:var(--ink2)}
+.rp-steps{list-style:none;margin:0 0 16px;padding:0;counter-reset:none}
+.rp-step{border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin:0 0 12px;background:var(--surf)}
+.rp-step.rp-hp{border-color:var(--accline);background:var(--accbg)}
+.rp-step-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rp-step-head h3{font-size:1rem;margin:0;font-weight:600}
+.rp-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;font-size:.85rem;flex-shrink:0}
+.rp-if{font-size:.75rem;font-weight:500;color:var(--ink3);margin-left:6px}
+.rp-figs,.rp-total{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rp-figs>div,.rp-total>div{display:flex;flex-direction:column;gap:2px}
+.rp-l{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);font-weight:600}
+.rp-v{font-family:inherit;font-size:1.25rem;font-weight:700;color:var(--ink)}
+.rp-d{font-size:.78rem;color:var(--ink2);line-height:1.4}
+.rp-note{font-size:.84rem;color:var(--ink2);margin:10px 0 0;line-height:1.55}
+.rp-total{border-top:2px solid var(--line);padding-top:14px;margin-top:4px}
+.rp-small{font-size:.78rem;color:var(--ink3);margin:14px 0 0;line-height:1.55}
+@media (max-width:600px){.rp-figs,.rp-total{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="hd"><h1>Your retrofit plan</h1></div>
+<p class="sub">Four questions give the order to do the work in, with cost, measured saving and payback for each step.</p>
+<div class="row"><div class="f"><label for="t">Property type</label><select id="t"><option value="">Select</option><option value="detached">Detached</option><option value="semi">Semi-detached</option><option value="mid-terrace">Mid-terrace</option><option value="end-terrace">End-terrace</option><option value="bungalow">Bungalow</option><option value="flat">Flat</option></select></div>
+<div class="f"><label for="b">Bedrooms</label><select id="b"><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 or more</option></select></div></div>
+<div class="row"><div class="f"><label for="i">Insulation</label><select id="i"><option value="">Select</option><option value="poor">Poor</option><option value="average">Average</option><option value="good">Good</option><option value="excellent">Excellent</option></select></div>
+<div class="f"><label for="fu">Heating now</label><select id="fu"><option value="">Select</option><option value="gas">Mains gas</option><option value="oil">Oil</option><option value="lpg">LPG</option><option value="electric">Electric</option></select></div></div>
+<div class="row"><div class="f"><label for="l">Loft insulation</label><select id="l"><option value="unknown">Not sure</option><option value="none">None</option><option value="some">Some</option><option value="full">270mm or more</option></select></div>
+<div class="f"><label for="wa">Walls</label><select id="wa"><option value="unknown">Not sure</option><option value="cavity-empty">Cavity, not filled</option><option value="cavity-filled">Cavity, filled</option><option value="solid">Solid, not insulated</option><option value="solid-insulated">Solid, insulated</option></select></div></div>
+<button type="button" id="go">Build my plan</button>
+<p class="err" id="err" role="alert">Choose a property type, bedrooms, insulation and heating first.</p>
+<div class="res" id="res" aria-live="polite"><div id="out"></div></div>
+<p class="hint" style="margin-top:14px">Plan by <a href="https://www.retrofitplanner.co.uk/retrofit-plan/" target="_blank" rel="noopener">Retrofit Planner</a>. Measured savings from government data; estimates, not quotes. Nothing you enter leaves this page.</p>
+</div>
+<script src="/js/heat-model.js"></script>
+<script src="/js/retrofit-plan.js"></script>
+<script>
+(function(){
+  function v(id){return document.getElementById(id).value;}
+  document.getElementById('go').addEventListener('click',function(){
+    var err=document.getElementById('err');
+    if(!v('t')||!v('b')||!v('i')||!v('fu')){err.classList.add('on');report();return;}
+    err.classList.remove('on');
+    var r=RP_PLAN.plan({type:v('t'),beds:parseInt(v('b'),10),insulation:v('i'),fuel:v('fu'),loft:v('l'),walls:v('wa')});
+    RP_PLAN.render(document.getElementById('out'),r);
+    // Links inside the plan open on the full site, not inside the host page's frame.
+    document.querySelectorAll('#out a').forEach(function(a){a.href=new URL(a.getAttribute('href'),'https://www.retrofitplanner.co.uk').href;a.target='_blank';a.rel='noopener';});
+    document.getElementById('res').classList.add('on');
+    report();
+  });
+  function report(){try{if(window.parent!==window)window.parent.postMessage({rpEmbed:'retrofit-plan',rpHeight:document.documentElement.scrollHeight},'*');}catch(e){}}
+  if(window.ResizeObserver){new ResizeObserver(report).observe(document.body);}
+  window.addEventListener('load',report);
+})();
+</script>
+</body>
+</html>

@@ -995,3 +995,22 @@ select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,su
 
 /* Scrollable tables and charts are focusable so keyboard users can scroll them (WCAG 2.1.1). */
 .tblwrap:focus-visible,.chart-scroll:focus-visible,pre.snippet:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+
+/* ===== RETROFIT PLAN ===== */
+.rp-lead{margin:0 0 16px;line-height:1.6;color:var(--color-text-secondary)}
+.rp-steps{list-style:none;margin:0 0 16px;padding:0;counter-reset:none}
+.rp-step{border:1px solid var(--color-border);border-radius:var(--radius-md);padding:16px 18px;margin:0 0 12px;background:var(--color-surface)}
+.rp-step.rp-hp{border-color:var(--color-accent-border);background:var(--color-accent-bg)}
+.rp-step-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rp-step-head h3{font-size:1rem;margin:0;font-weight:600}
+.rp-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--color-accent);color:#fff;font-weight:700;font-size:.85rem;flex-shrink:0}
+.rp-if{font-size:.75rem;font-weight:500;color:var(--color-text-tertiary);margin-left:6px}
+.rp-figs,.rp-total{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rp-figs>div,.rp-total>div{display:flex;flex-direction:column;gap:2px}
+.rp-l{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-tertiary);font-weight:600}
+.rp-v{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--color-text)}
+.rp-d{font-size:.78rem;color:var(--color-text-secondary);line-height:1.4}
+.rp-note{font-size:.84rem;color:var(--color-text-secondary);margin:10px 0 0;line-height:1.55}
+.rp-total{border-top:2px solid var(--color-border);padding-top:14px;margin-top:4px}
+.rp-small{font-size:.78rem;color:var(--color-text-tertiary);margin:14px 0 0;line-height:1.55}
+@media (max-width:600px){.rp-figs,.rp-total{grid-template-columns:1fr 1fr}}
