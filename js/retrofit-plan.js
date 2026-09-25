@@ -11,8 +11,9 @@
    mid-May 2024). Measured savings are lower than the modelled figures most tools quote,
    because many homes were under-heated before and take part of the gain as warmth.
 
-   COSTS. Insulation: Energy Saving Trust 2026 figures for a typical home (loft updated
-   8 May 2026, cavity 10 February 2026, solid wall 18 June 2026). Heat pump: the median
+   COSTS. Insulation: the Energy Saving Trust's figures by type of home, from
+   /js/insulation-costs.js, which must load before this file (loft and cavity updated
+   8 May 2026, solid wall 18 June 2026). Heat pump: the median
    recorded under the Boiler Upgrade Scheme for a heat pump of the home's size, from the
    shared model.
 
@@ -27,14 +28,14 @@
     var FUEL_NAME = { gas: 'mains gas', oil: 'heating oil', lpg: 'LPG', electric: 'electric heating' };
 
     var MEASURES = {
-        loftBare: { name: 'Loft insulation to 270mm', cost: 750, saving: 0.0321, n: 1486,
+        loftBare: { name: 'Loft insulation to 270mm', cost: 750, ins: 'loftBare', saving: 0.0321, n: 1486,
             note: 'The measured figure covers top-ups as well as bare lofts. A loft with no insulation at all usually saves more than this.' },
-        loftTopUp: { name: 'Loft insulation top-up to 270mm', cost: 600, saving: 0.0321, n: 1486,
+        loftTopUp: { name: 'Loft insulation top-up to 270mm', cost: 600, ins: 'loftTopUp', saving: 0.0321, n: 1486,
             note: 'Measured average saving after loft insulation, top-ups and bare lofts together.' },
-        cavity: { name: 'Cavity wall insulation', cost: 2700, saving: 0.1198, n: 2191,
-            note: 'Energy Saving Trust puts a typical home at about £2,700. It is often free through a grant.' },
+        cavity: { name: 'Cavity wall insulation', cost: 2200, ins: 'cavity', saving: 0.1198, n: 2191,
+            note: 'The Energy Saving Trust\'s typical cost for a home like this. It is often free through a grant.' },
         solidInternal: { name: 'Solid wall insulation (internal)', cost: 12000, saving: 0.1728, n: 2411,
-            note: 'About £12,000 for a typical 3 bed semi. External insulation costs about £15,000 and avoids losing room space.' }
+            note: 'About £12,000 for a typical home. External insulation costs about £15,000 and avoids losing room space.' }
     };
 
     function round(v, to) { return Math.round(v / to) * to; }
@@ -69,8 +70,10 @@
            is taken from what is left after the ones before it. */
         candidates.forEach(function (c) {
             var m = MEASURES[c.key];
-            c.name = m.name; c.cost = m.cost; c.note = m.note; c.n = m.n; c.pct = m.saving;
-            c.rank = m.cost / (baseCost * m.saving);
+            // cost for this type of home where the Trust publishes one (js/insulation-costs.js)
+            c.name = m.name; c.cost = m.ins && window.RP_INS ? window.RP_INS.cost(m.ins, inp.type) : m.cost;
+            c.note = m.note; c.n = m.n; c.pct = m.saving;
+            c.rank = c.cost / (baseCost * m.saving);
         });
         candidates.sort(function (a, b) { return a.rank - b.rank; });
 

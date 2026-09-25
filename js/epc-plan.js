@@ -26,7 +26,7 @@
     };
     var MEASURES = [
         { id: 'loft', name: 'Loft insulation (270mm)', points: 7, cost: 750, requires: 'loft-none', grantEligible: true, link: '/insulation-calculator/' },
-        { id: 'cavity', name: 'Cavity wall insulation', points: 8, cost: 2700, requires: 'wall-cavity-no', grantEligible: true, link: '/insulation-calculator/' },
+        { id: 'cavity', name: 'Cavity wall insulation', points: 8, cost: 2200, requires: 'wall-cavity-no', grantEligible: true, link: '/insulation-calculator/' },
         { id: 'led', name: 'LED lighting throughout', points: 3, cost: 200, requires: null, grantEligible: false, link: null },
         { id: 'controls', name: 'Smart heating controls', points: 3, cost: 275, requires: null, grantEligible: false, link: null },
         { id: 'glazing', name: 'Double glazing', points: 6, cost: 4800, requires: 'glazing-single', grantEligible: false, link: null },
