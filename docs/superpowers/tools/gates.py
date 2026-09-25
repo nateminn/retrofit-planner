@@ -153,7 +153,8 @@ for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.
                      ('short answer boxes are in place and match their pages', [sys.executable, os.path.join(_here, 'tldr.py')]),
                      ('answer-first pages carry their layout', [sys.executable, os.path.join(_here, 'answer_first.py')]),
                      # folding moves closing tags; browsers repair broken nesting silently, so check it
-                     ('every page nests its elements correctly', [sys.executable, os.path.join(_here, 'html_nesting.py')])):
+                     ('every page nests its elements correctly', [sys.executable, os.path.join(_here, 'html_nesting.py')]),
+                     ('the data register on /accuracy/ matches docs/data-sources.json', [sys.executable, os.path.join(_here, 'data_sources.py')])):
     _r = _sp.run(_cmd, capture_output=True, text=True, cwd=os.getcwd())
     _tail = [l for l in (_r.stdout + _r.stderr).strip().split('\n') if l.strip()]
     check(_label, _r.returncode == 0, '\n        '.join(_tail[-6:]))

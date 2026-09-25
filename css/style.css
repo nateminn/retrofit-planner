@@ -1127,3 +1127,16 @@ details.faq-item>p{margin:0 0 14px}
 .region-panel p{margin:6px 0}
 .rp-hint{color:var(--color-text-secondary);font-size:.9rem}
 @media (max-width:700px){.region-intro{grid-template-columns:1fr}.region-intro .region-fig{width:160px;margin:0 auto}.region-picker{grid-template-columns:1fr}.region-picker .region-map{max-width:300px;margin:0 auto}.region-panel{position:static}}
+
+/* ===== DATA REGISTER (/accuracy/, data_sources.py) ===== */
+.ds-steps{padding-left:22px}
+.ds-steps li{margin:8px 0;line-height:1.6}
+.ds-list{list-style:none;padding:0;margin:16px 0}
+.ds-list>li{border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:14px 16px;margin:0 0 10px;background:var(--color-surface)}
+.ds-list h3{font-size:1rem;margin:0}
+.ds-list h3 a{color:var(--color-text)}
+.ds-list .ds-pub{font-size:.8rem;color:var(--color-text-tertiary);margin:2px 0 6px}
+.ds-list p{margin:0 0 8px;font-size:.92rem}
+.ds-dates{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;font-size:.8rem}
+.ds-dates dt{color:var(--color-text-tertiary);font-weight:500}
+.ds-dates dd{margin:0;font-weight:600;color:var(--color-text)}

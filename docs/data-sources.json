@@ -1,0 +1,248 @@
+{
+ "_about": "Every external source behind the site. Rendered into /accuracy/ by docs/superpowers/tools/data_sources.py. published = the publisher's own last update; checked = when we last confirmed our figures against it; our update is worked out from git history using probe (the first commit that contains the figure as it stands). govuk entries are re-checked automatically against the GOV.UK content API with --check.",
+ "sources": [
+  {
+   "name": "Energy price cap, 1 October to 31 December 2026",
+   "publisher": "Ofgem",
+   "url": "https://www.ofgem.gov.uk/news/changes-energy-price-cap-between-1-october-and-31-december-2026",
+   "use": "Gas and electricity unit rates and standing charges in every bill, running cost and payback",
+   "published": "26 August 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "electricity: 0.2632"
+   ]
+  },
+  {
+   "name": "National Energy Efficiency Data-Framework (NEED) 2026, 2024 meter readings",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026",
+   "govuk": "government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026",
+   "use": "How much gas homes of each type, size and EPC band use; electricity by number of bedrooms; bills by EPC band and household size",
+   "published": "11 June 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/bills.js",
+    "1: 1666, 2: 2137"
+   ]
+  },
+  {
+   "name": "NEED impact of measures data tables 2026",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026",
+   "govuk": "government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026",
+   "use": "Insulation savings measured in real homes: loft 3.2%, cavity wall 12.0%, solid wall 17.3%",
+   "published": "11 June 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/retrofit-plan.js",
+    "saving: 0.1198"
+   ]
+  },
+  {
+   "name": "Electrification of Heat trial, heat pump performance report",
+   "publisher": "Energy Systems Catapult for DESNZ",
+   "url": "https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf",
+   "use": "Heat pump efficiency measured in 428 homes: 2.55, 2.78 and 3.05",
+   "published": "December 2024",
+   "checked": "24 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "cop: { excellent: 3.25, good: 3.05, average: 2.78, poor: 2.55 }"
+   ]
+  },
+  {
+   "name": "Boiler Upgrade Scheme statistics, August 2026",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026",
+   "govuk": "government/statistics/boiler-upgrade-scheme-statistics-august-2026",
+   "use": "What installers charged for heat pumps of each size, before the grant",
+   "published": "24 September 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "[9, 12686]"
+   ]
+  },
+  {
+   "name": "Boiler Upgrade Scheme 2026 to 2030, summary business case",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://assets.publishing.service.gov.uk/media/6a33c2646422bec01b117764/summary_business_case_boiler_upgrade_scheme.pdf",
+   "use": "The average cost of a new gas boiler, about £3,500 including VAT",
+   "published": "18 June 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "boilerBase: 3500"
+   ]
+  },
+  {
+   "name": "Insulation costs: loft, cavity wall, solid wall and floor",
+   "publisher": "Energy Saving Trust",
+   "url": "https://energysavingtrust.org.uk/advice/cavity-wall-insulation/",
+   "use": "What each type of insulation costs for each type of home",
+   "published": "8 May 2026 (loft, cavity), 19 May 2026 (floor), 18 June 2026 (solid wall)",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/insulation-costs.js",
+    "cavity:     { detached: 3900"
+   ]
+  },
+  {
+   "name": "Draught-proofing and windows advice",
+   "publisher": "Energy Saving Trust",
+   "url": "https://energysavingtrust.org.uk/advice/draught-proofing/",
+   "use": "Draught-proofing about £250 and A-rated windows about £4,800 for a semi",
+   "published": "20 May 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "epc-calculator/index.html",
+    "cost: 4800"
+   ]
+  },
+  {
+   "name": "Solar panels and battery storage advice",
+   "publisher": "Energy Saving Trust",
+   "url": "https://energysavingtrust.org.uk/advice/solar-panels/",
+   "use": "Typical solar system cost, payback by location, a 5 kWh battery at about £4,600",
+   "published": "27 August 2026 (solar), 19 August 2026 (batteries)",
+   "checked": "25 September 2026",
+   "probe": [
+    "solar-calculator/index.html",
+    "batteryCost: 4600"
+   ]
+  },
+  {
+   "name": "PVGIS 5.3, SARAH3 radiation data 2005 to 2023",
+   "publisher": "European Commission Joint Research Centre",
+   "url": "https://re.jrc.ec.europa.eu/pvg_tools/en/",
+   "use": "Solar generation by region, month, roof direction and pitch",
+   "published": "Version 5.3",
+   "checked": "25 September 2026",
+   "probe": [
+    "solar-calculator/index.html",
+    "south:        { 20: 0.96, 35: 1.00, 45: 1.00 }"
+   ]
+  },
+  {
+   "name": "MGD 003 Solar PV Self-Consumption, Issue 2.0",
+   "publisher": "MCS",
+   "url": "https://mcscertified.com/",
+   "use": "How much of its solar output a home uses itself, with and without a battery",
+   "published": "1 April 2022",
+   "checked": "20 September 2026",
+   "probe": [
+    "solar-calculator/index.html",
+    "'home1500'"
+   ]
+  },
+  {
+   "name": "Solar PV cost data",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://www.gov.uk/government/statistics/solar-pv-cost-data",
+   "govuk": "government/statistics/solar-pv-cost-data",
+   "use": "A check on our solar cost bands: median £1,595 per kW up to 4 kW",
+   "published": "28 May 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "solar-calculator/index.html",
+    "median £1,595 per kW"
+   ]
+  },
+  {
+   "name": "Export and heat pump tariffs",
+   "publisher": "Octopus Energy, E.ON Next, EDF, ScottishPower",
+   "url": "https://octopus.energy/smart/cosy-octopus/",
+   "use": "Export rates from 4.1p to 17.5p, and the 19.8p heat pump tariff cost",
+   "published": "Rates for October 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "hpTariff: 0.198"
+   ]
+  },
+  {
+   "name": "Heating oil price",
+   "publisher": "BoilerJuice",
+   "url": "https://www.boilerjuice.com/kerosene-prices/",
+   "use": "Oil at 11.3p per kWh (116.20p a litre)",
+   "published": "Daily; the 25 September 2026 UK average",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "oil: 0.113"
+   ]
+  },
+  {
+   "name": "Greenhouse gas reporting: conversion factors 2026",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+   "govuk": "government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+   "use": "Energy in a litre of heating oil, and the carbon in grid electricity",
+   "published": "31 July 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "solar-calculator/index.html",
+    "gridCarbon: 0.14395"
+   ]
+  },
+  {
+   "name": "Private rented property: minimum energy efficiency standard",
+   "publisher": "GOV.UK, and the government response of 21 January 2026",
+   "url": "https://www.gov.uk/guidance/domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance",
+   "govuk": "guidance/domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance",
+   "use": "Landlord rules: band E today, band C from 1 October 2030, the £10,000 cap and fines",
+   "published": "5 May 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/epc-plan.js",
+    "BAND_MIN"
+   ]
+  },
+  {
+   "name": "Energy grants: ECO4, Boiler Upgrade Scheme, Warm Homes: Local Grant, Warm Home Discount",
+   "publisher": "GOV.UK and Ofgem",
+   "url": "https://www.gov.uk/government/publications/warm-homes-local-grant",
+   "govuk": "government/publications/warm-homes-local-grant",
+   "use": "Who qualifies for each grant, how much it pays and when it closes",
+   "published": "2 July 2026 (Warm Homes: Local Grant)",
+   "checked": "25 September 2026",
+   "probe": [
+    "js/heat-model.js",
+    "busGrantOilLpg: 9000"
+   ]
+  },
+  {
+   "name": "VAT Notice 708/6: energy-saving materials",
+   "publisher": "HM Revenue and Customs",
+   "url": "https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086",
+   "govuk": "guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086",
+   "use": "0% VAT on insulation, solar panels and heat pumps until 31 March 2027",
+   "published": "31 January 2024",
+   "checked": "25 September 2026",
+   "probe": [
+    "solar-calculator/index.html",
+    "0% VAT to 31 March 2027"
+   ]
+  },
+  {
+   "name": "International Territorial Level 1 boundaries, January 2025",
+   "publisher": "Office for National Statistics",
+   "url": "https://geoportal.statistics.gov.uk/",
+   "use": "The UK region map",
+   "published": "January 2025",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/maps/itl1-2025.json",
+    "Northern Ireland"
+   ]
+  }
+ ],
+ "assumptions": [
+  "LPG at 9.5p per kWh is our own assumption for a typical bulk contract; there is no official average.",
+  "The EPC estimate is a simple points model, not the government's SAP software, and it has not been compared with lodged certificates.",
+  "Solar generation for each region is set a little below the PVGIS figure for its sunniest city, to allow for shading and soiling on real roofs.",
+  "Where the Energy Saving Trust publishes no figure we borrow the nearest home: an end-terrace takes the semi-detached cost, and a top floor flat's loft takes the mid-terrace cost.",
+  "The typical household bill of £1,723 is the price cap rates applied to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas."
+ ]
+}

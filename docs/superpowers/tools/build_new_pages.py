@@ -644,7 +644,7 @@ def render(p):
 <main id="main" tabindex="-1" class="guide-content">
 <div class="breadcrumbs"><a href="/">Home</a><span>/</span><a href="/guides/">Guides</a><span>/</span>%s</div>
 <h1>%s</h1>
-<p class="note">Updated 25 September 2026. Every figure on this page comes from our published model; see <a href="/accuracy/">how accurate it is</a>.</p>
+<p class="note">Updated 25 September 2026. Every figure on this page comes from our published model; see <a href="/accuracy/">where our data comes from</a>.</p>
 %s
 <h2 id="faq">Frequently asked questions</h2>
 %s
