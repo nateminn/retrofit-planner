@@ -1696,5 +1696,488 @@
    }
   ],
   "faq": true
+ },
+ "guides/draught-proofing-guide": {
+  "sections": [
+   {
+    "h2": "Where draughts come from",
+    "title": "Where do draughts come from?",
+    "answer": "**Mostly through suspended timber floors, windows, external doors and unused chimneys.** Letterboxes, loft hatches, skirting gaps and pipe holes add more; older homes with sash windows and timber floors usually leak the most."
+   },
+   {
+    "h2": "How to draught-proof each area",
+    "title": "How do you draught-proof each area?",
+    "answer": "**Seal the accidental gaps with strips, brushes, filler and excluders, and leave the vents alone.** Use foam or rubber strip on casements, brush pile on sashes, flexible filler on floorboards and a removable excluder in an unused chimney."
+   },
+   {
+    "h2": "DIY vs professional draught-proofing",
+    "title": "Should you do it yourself or hire a professional?",
+    "answer": "**About £250 for a professional to do the windows and doors of a whole house, and less if you do it yourself.** A chimney pot cap starts from around £150; sash windows and period features may need a professional."
+   },
+   {
+    "h2": "Savings and payback",
+    "title": "How much does draught-proofing save?",
+    "answer": "**About £55 a year, paying back in about five years at the professional price and sooner if DIY.** An unused open chimney saves about £45 more, and turning the thermostat down from 22°C to 21°C saves about £120."
+   },
+   {
+    "h2": "Draught-proofing before a heat pump",
+    "title": "Should you draught-proof before a heat pump?",
+    "answer": "**Yes, draught-proof first.** A heat pump delivers warmth at lower temperatures, so draughts are more noticeable; with loft and cavity insulation, it cuts heat demand and can allow a smaller, cheaper heat pump."
+   },
+   {
+    "h2": "Draught-proofing and ventilation",
+    "title": "How do you keep a draught-proofed home ventilated?",
+    "answer": "**Seal the gaps but keep the ventilation working.** Keep trickle vents open, extractor fans working and air bricks clear; a home with no trickle vents, wall vents or mechanical ventilation may already be too airtight."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs, savings and ventilation advice come from the Energy Saving Trust**, with ventilation guidance from Building Regulations Approved Document F."
+   }
+  ],
+  "faq": true
+ },
+ "guides/underfloor-insulation-cost": {
+  "sections": [
+   {
+    "h2": "Cost by floor type and property",
+    "title": "What does underfloor insulation cost?",
+    "answer": "**£1,400 to £2,500 for a professional to insulate a suspended timber floor, or materials only if you do it yourself from below.** Solid concrete floors cost considerably more and pay back very slowly as a standalone job."
+   },
+   {
+    "h2": "Savings by property type",
+    "title": "How much will you save?",
+    "answer": "**About £55 a year in a semi-detached house**, from £40 in a mid-terrace to £100 in a detached bungalow. Bigger ground floors save more, and homes heated by oil, LPG or electricity save more in pounds."
+   },
+   {
+    "h2": "What type of floor do you have?",
+    "answer": "**Suspended timber if it has a slight bounce and there are air bricks in the wall near ground level**, as in most Victorian and Edwardian houses. A rigid floor with no give is solid concrete; your EPC states which."
+   },
+   {
+    "h2": "Insulating a suspended timber floor",
+    "title": "How do you insulate a suspended timber floor?",
+    "answer": "**From below if you have a cellar or crawl space, which costs only the materials.** Otherwise the boards come up, at a typical £1,400 to £2,500 professionally; check the joists are sound and keep the void ventilated."
+   },
+   {
+    "h2": "Insulating a solid concrete floor",
+    "title": "How do you insulate a solid concrete floor?",
+    "answer": "**Rigid boards go on top of the concrete with a new floor over them, which raises the floor level.** It rarely makes financial sense alone, so do it when you are renovating or replacing the floor anyway."
+   },
+   {
+    "h2": "Underfloor ventilation: do not block it",
+    "answer": "**Never block the air bricks under a suspended timber floor.** Fit the insulation between the joists, not across the void, and have old floor tiles tested for asbestos before you disturb them."
+   },
+   {
+    "h2": "Grants and funding",
+    "title": "Can you get a grant for underfloor insulation?",
+    "answer": "**ECO4 can fund it as part of a whole-house package, with work finished by 31 December 2026.** If you pay yourself, floor insulation is zero rated for VAT until 31 March 2027, then 5%."
+   },
+   {
+    "h2": "Where floor insulation fits in the priority order",
+    "title": "When should you insulate the floor?",
+    "answer": "**After the loft, the walls and draught-proofing.** Floors save less per pound spent, but a cold, draughty suspended timber floor can be worth tackling earlier for comfort."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs, savings and damp advice come from the Energy Saving Trust**, loft and cavity wall comparisons from DESNZ NEED Impact of Measures 2026 and VAT from HMRC."
+   }
+  ],
+  "faq": true
+ },
+ "guides/free-loft-insulation-uk": {
+  "sections": [
+   {
+    "h2": "Do you qualify?",
+    "answer": "**Yes, if someone claims a qualifying benefit and you own a home rated D to G, or rent privately rated E to G.** Without benefits, councils can refer households below £31,000 through ECO4 Flex, and England's Warm Homes: Local Grant goes up to £36,000."
+   },
+   {
+    "h2": "How to apply: step by step",
+    "title": "How do you apply?",
+    "answer": "**Contact your council or an energy supplier taking part in ECO4.** They check your benefit and EPC, an assessor visits, and a loft is usually done in a day; never pay a fee for ECO4 work."
+   },
+   {
+    "h2": "What you get",
+    "title": "What does free loft insulation include?",
+    "answer": "**Mineral wool laid to 270mm, with eaves ventilation trays, hatch insulation and pipe lagging.** Paying yourself, the Energy Saving Trust puts professional loft insulation at about £750 for a bare loft and £600 for a top-up."
+   },
+   {
+    "h2": "How much will you save?",
+    "answer": "**About £28 a year for a typical 3-bed semi on gas, or about £280 over 10 years.** That is the measured median, mostly from top-ups, so a bare loft saves more."
+   },
+   {
+    "h2": "ECO4 can cover more than loft insulation",
+    "title": "Can ECO4 cover more than the loft?",
+    "answer": "**Yes, the assessor looks at the whole house.** You may also get cavity or solid wall insulation, underfloor insulation, a boiler replacement or heating controls at no cost."
+   },
+   {
+    "h2": "What if you do not qualify?",
+    "answer": "**Pay about £750 for a bare loft or £600 for a top-up, or buy the materials and do it yourself.** The installation carries 0% VAT until 31 March 2027, but payback is slow, so check the free routes first."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Eligibility comes from GOV.UK, the ECO4 Order 2022 and Ofgem**, measured savings from DESNZ NEED, costs from the Energy Saving Trust and energy prices from the Ofgem price cap."
+   }
+  ],
+  "faq": true
+ },
+ "guides/condensation-mould-guide": {
+  "sections": [
+   {
+    "h2": "Why condensation happens",
+    "answer": "**Moist air from cooking, washing and breathing meets a surface below the dew point.** It settles on the coldest surfaces, such as single glazing and uninsulated external walls, and mould grows where they stay damp."
+   },
+   {
+    "h2": "The three causes (and their fixes)",
+    "title": "What causes condensation, and how do you fix it?",
+    "answer": "**Cold surfaces, too much moisture and too little heating.** Fix ventilation first as it is cheapest and fastest, then insulate, then heat the rooms you use to at least 18°C."
+   },
+   {
+    "h2": "Room by room solutions",
+    "title": "How do you fix it room by room?",
+    "answer": "**Run extractor fans in the bathroom and kitchen, and open bedroom vents or a window each morning.** Pull furniture away from external walls, and rule out leaks and other damp before blaming condensation."
+   },
+   {
+    "h2": "When it is not condensation",
+    "title": "How can you tell it is not condensation?",
+    "answer": "**Damp that is worse in wet weather, or on walls that are not external, may be rising or penetrating damp.** A qualified damp surveyor can diagnose it, and tenants should report damp and mould to their landlord in writing."
+   },
+   {
+    "h2": "Insulation and condensation",
+    "title": "Does insulation make condensation worse?",
+    "answer": "**No, as long as you keep ventilating.** Insulation raises inside surface temperatures, which cuts condensation; it only goes wrong when a tightly sealed home gives the moisture nowhere to go."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Health risks come from GOV.UK damp and mould guidance and heating advice from the NHS**, with ventilation from Approved Document F and insulation benefits from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/great-british-insulation-scheme": {
+  "sections": [
+   {
+    "h2": "Who qualifies",
+    "title": "Who qualified for GBIS?",
+    "answer": "**Homes in Council Tax bands A to D in England, or A to E in Scotland and Wales, rated D to G.** The General Group needed no benefits; the Low-Income Group took households on a means-tested benefit in any band."
+   },
+   {
+    "h2": "What GBIS covers",
+    "title": "What did GBIS cover?",
+    "answer": "**One measure per home, mostly cavity wall insulation, loft insulation or heating controls.** Measured in real homes, cavity wall insulation saves a 3-bed semi about £105 a year and loft insulation £28."
+   },
+   {
+    "h2": "GBIS vs ECO4",
+    "title": "How did GBIS differ from ECO4?",
+    "answer": "**GBIS needed no benefits and paid for a single measure; ECO4 needs a benefit or council referral and funds a whole-house package.** GBIS closed on 31 March 2026, and ECO4 runs to 31 December 2026."
+   },
+   {
+    "h2": "What you can still get in 2026",
+    "title": "What can you still get in 2026?",
+    "answer": "**ECO4 until 31 December 2026, the Warm Homes: Local Grant in England and the Boiler Upgrade Scheme.** The £15 billion Warm Homes Plan is the successor, rolling out in phases."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Scheme status comes from Ofgem and the Warm Homes Plan, and delivery figures from DESNZ statistics.** Measured savings come from DESNZ NEED and costs from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/home-upgrade-grant": {
+  "sections": [
+   {
+    "h2": "Who qualifies",
+    "title": "Who qualified for HUG2?",
+    "answer": "**Off gas grid homes in England rated D, E, F or G, in a council area taking part.** The household needed income within £36,000 gross from April 2024, a means-tested benefit or an eligible low income postcode."
+   },
+   {
+    "h2": "What is covered",
+    "title": "What did HUG2 cover?",
+    "answer": "**Insulation, air source heat pumps, solar panels and smaller measures, chosen by a retrofit coordinator for the whole house.** The Warm Homes: Local Grant works the same way, with a £16,600 per-home cap for low carbon heating."
+   },
+   {
+    "h2": "How to apply",
+    "title": "How do you apply now?",
+    "answer": "**HUG2 is closed, so apply for the Warm Homes: Local Grant through GOV.UK or your council's website.** The council usually contacts you within 10 working days to arrange a survey, and owner occupiers pay nothing."
+   },
+   {
+    "h2": "HUG2 vs ECO4 vs BUS",
+    "title": "How does HUG2 compare with ECO4 and BUS?",
+    "answer": "**HUG2 is closed, but the Warm Homes: Local Grant, ECO4 and the Boiler Upgrade Scheme are open.** ECO4 runs to 31 December 2026, BUS gives £7,500 towards a heat pump, and schemes combine if not for the same measure."
+   },
+   {
+    "h2": "Off-gas heating costs compared",
+    "title": "What does heating an off-gas home cost?",
+    "answer": "**£1,316 a year with oil, £1,106 with LPG and £1,752 with storage heaters, for a 3-bed semi.** A heat pump on a heat pump tariff costs £705, saving £611 a year against oil."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**HUG2 rules and delivery figures come from GOV.UK and the DESNZ HUG statistics.** Measured savings come from DESNZ NEED, energy prices from the Ofgem price cap and heating oil from BoilerJuice."
+   }
+  ],
+  "faq": true
+ },
+ "guides/warm-home-discount": {
+  "sections": [
+   {
+    "h2": "Who qualifies",
+    "answer": "**In England and Wales, households on Universal Credit, Housing Benefit, income-related ESA or Pension Credit on 23 August 2026, named on the electricity bill.** Scotland uses different lists, and Northern Ireland is not in the scheme."
+   },
+   {
+    "h2": "How the rebate works",
+    "title": "How is the rebate paid?",
+    "answer": "**As a £150 credit to your electricity account once each winter, not as cash.** Prepayment customers are told by their supplier how they get it, for example as a voucher to top up the meter."
+   },
+   {
+    "h2": "Warm Home Discount vs other energy schemes",
+    "title": "How does it compare with other schemes?",
+    "answer": "**It is a £150 bill rebate, not a home improvement, and you can get it alongside other schemes.** ECO4, the Boiler Upgrade Scheme and the Warm Homes: Local Grant pay for insulation or heating instead."
+   },
+   {
+    "h2": "What if you are not eligible",
+    "title": "What if you are not eligible?",
+    "answer": "**In England and Wales there is no route without a qualifying benefit, but other help does not need one.** The Warm Homes: Local Grant has an income route under £36,000, and councils can refer households under £31,000 into ECO4."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Scheme rules come from GOV.UK and the DESNZ eligibility statement for 2026 to 2027.** Household numbers come from the Warm Home Discount statistics, and insulation savings from DESNZ NEED."
+   }
+  ],
+  "faq": true
+ },
+ "guides/warm-homes-plan-2026": {
+  "sections": [
+   {
+    "h2": "What the Warm Homes Plan includes",
+    "answer": "**Low-income grants, the Boiler Upgrade Scheme, £2bn of consumer loans and a new Warm Homes Agency.** The Warm Homes: Local Grant is open through councils now, while the loan scheme is still signing up lenders."
+   },
+   {
+    "h2": "What happens to ECO4 and GBIS",
+    "answer": "**GBIS closed on 31 March 2026 and ECO4 closes on 31 December 2026, with no successor supplier scheme.** If you qualify for ECO4, apply now, because the work has to be installed by that date."
+   },
+   {
+    "h2": "Key commitments",
+    "title": "What has the plan committed to?",
+    "answer": "**Up to 5 million home upgrades and solar on up to 3 million more homes by 2030.** The £7,500 heat pump grant continues, £2 billion backs new loans, and private rentals must reach EPC band C by October 2030."
+   },
+   {
+    "h2": "What it means for you",
+    "title": "What does it mean for you?",
+    "answer": "**If you are on a low income, apply for the Warm Homes: Local Grant and ECO4 now rather than waiting.** Other owners can still get the £7,500 heat pump grant, and landlords need band C by October 2030."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**The plan and its funding table come from GOV.UK.** Local Grant rules come from the July 2026 guidance, the Boiler Upgrade Scheme budget from DESNZ and the ECO4 end date from the government's extension response."
+   }
+  ],
+  "faq": true
+ },
+ "guides/average-energy-bills-uk": {
+  "sections": [
+   {
+    "h2": "See how much you could save",
+    "title": "Is your bill higher than it should be?",
+    "answer": "**Compare it with the averages for your property type in the checker below.** If it is higher, poor insulation or an inefficient heating system may be costing you money."
+   },
+   {
+    "h2": "Current energy prices (October to December 2026)",
+    "title": "What do gas and electricity cost now?",
+    "answer": "**Electricity is 26.32p per kWh and gas 7.97p under the Ofgem cap from 1 October to 31 December 2026.** Daily standing charges are 54.83p for electricity and 29.68p for gas."
+   },
+   {
+    "h2": "Average energy bills by property type",
+    "answer": "**From £1,193 a year for a 1 bed flat to £3,068 for a 5 bed detached house.** An average 3 bed semi pays £1,885, or £157 a month, including standing charges."
+   },
+   {
+    "h2": "Why your bill might be higher than average",
+    "title": "Why might your bill be higher than average?",
+    "answer": "**Usually poor insulation, an old boiler, a high thermostat or a standard variable tariff.** A poorly insulated 3 bed semi uses around 31% more gas than a well-insulated one: £1,081 against £854."
+   },
+   {
+    "h2": "Average gas consumption by property type",
+    "title": "How much gas does a home use?",
+    "answer": "**From 5,600 kWh a year in a 1 bed flat to 19,500 kWh in a 5 bed detached house.** An average 3 bed semi uses 11,000 kWh, costing £985 a year."
+   },
+   {
+    "h2": "Average electricity use by number of bedrooms",
+    "title": "How much electricity does a home use?",
+    "answer": "**From 1,666 kWh a year with one bedroom to 4,581 kWh with five or more, costing £639 to £1,406.** A 3 bedroom home uses 2,659 kWh, about £900; an electric car or heat pump adds more."
+   },
+   {
+    "h2": "How to reduce your energy bills",
+    "title": "How can you cut your energy bill?",
+    "answer": "**Insulate first, then check your tariff, turn the thermostat down and consider a heat pump or solar.** Homes that had cavity wall insulation used a median 12.0% less gas, and many get it free through ECO4."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Energy prices come from the Ofgem price cap for October to December 2026.** Consumption comes from our heat demand model fitted to DESNZ NEED data, and heating oil prices from BoilerJuice."
+   }
+  ],
+  "faq": true
+ },
+ "guides/energy-bills-by-household-size": {
+  "sections": [
+   {
+    "h2": "Energy bills by number of occupants",
+    "title": "What does each household size pay?",
+    "answer": "**£1,496 a year for one adult, £1,888 for two and £2,289 for four.** The cost per adult falls as the household grows, because heating is largely fixed by the size of the home."
+   },
+   {
+    "h2": "Energy bills by property type",
+    "title": "How much does property type matter?",
+    "answer": "**More than household size: from £1,126 a year for a well-insulated 1-bed flat to £2,835 for a 5-bed detached house.** The same homes at band E pay roughly 24 to 28% more for gas."
+   },
+   {
+    "h2": "What drives the differences",
+    "title": "What drives the differences?",
+    "answer": "**Heating, which depends on the home's heat loss rather than how many people live there.** Hot water and electricity for appliances and lighting are what rise with each extra person."
+   },
+   {
+    "h2": "How to cut your bill",
+    "title": "How can you cut your bill?",
+    "answer": "**For a 3-bed semi on gas, cavity wall insulation saves about £105 a year and loft insulation about £28.** With a heat pump, a heat pump tariff saves about £232, and DIY draught-proofing costs under £250."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Consumption by number of adults comes from the DESNZ NEED consumption tables 2026, and prices from the Ofgem price cap.** Measured insulation savings also come from DESNZ NEED, and insulation costs from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/electric-boiler-vs-heat-pump": {
+  "sections": [
+   {
+    "h2": "Why the difference is so large",
+    "title": "Why is the difference so large?",
+    "answer": "**An electric boiler turns 1 kWh of electricity into 1 kWh of heat, while the median heat pump in the trial gave 2.78.** So heat costs 8.6p to 10.3p a unit from a heat pump, against 26.32p from an electric boiler."
+   },
+   {
+    "h2": "Running cost comparison",
+    "title": "How much cheaper is a heat pump to run?",
+    "answer": "**£2,606 a year with an electric boiler in a 3-bed semi, against £705 with a heat pump on a heat pump tariff.** Even on a standard tariff, the heat pump saves £1,062 to £2,214 a year in the four example homes."
+   },
+   {
+    "h2": "Upfront cost comparison",
+    "title": "What does each cost to install?",
+    "answer": "**£11,000 to £15,500 for a heat pump, or £3,500 to £8,000 after the grant; an electric boiler costs much less.** Saving £1,901 a year in a 3-bed semi on a heat pump tariff, the heat pump pays back in about 2 to 4 years."
+   },
+   {
+    "h2": "When an electric boiler still makes sense",
+    "title": "When does an electric boiler still make sense?",
+    "answer": "**In small flats with no outdoor space, homes with very low heat demand, on a tight budget or before a move.** In a well-insulated 1-bed flat the saving is about £630 a year, so payback takes about 4 to 10 years."
+   },
+   {
+    "h2": "The switch: what is involved",
+    "title": "What does the switch involve?",
+    "answer": "**An outdoor unit, a hot water cylinder if you have none, larger radiators where needed and new controls.** Your MCS certified installer removes the old boiler and handles the Boiler Upgrade Scheme application."
+   },
+   {
+    "h2": "Combining with solar panels",
+    "title": "Do solar panels help?",
+    "answer": "**Partly, mostly with hot water in spring and summer rather than winter heating.** The median home bought 12.2% less electricity in its first year with panels, while a heat pump cuts heating electricity by about two thirds."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Running costs use the Ofgem price cap and efficiency comes from the Electrification of Heat trial**, with installed costs from DESNZ Boiler Upgrade Scheme statistics and grant rules from GOV.UK."
+   }
+  ],
+  "faq": true
+ },
+ "guides/radiator-sizing-heat-pump": {
+  "sections": [
+   {
+    "h2": "Why heat pumps need different radiators",
+    "title": "Why do heat pumps need different radiators?",
+    "answer": "**A heat pump is most efficient making cool water, and radiators give out less heat at low temperatures.** In the trial, running at 55°C instead of 35°C used about 47% more electricity for the same heat."
+   },
+   {
+    "h2": "How much bigger radiators need to be",
+    "title": "How much bigger do radiators need to be?",
+    "answer": "**Rated output of about 3.1 times the room's heat loss at 41 to 45°C, against 1.9 times at 51 to 55°C.** So a radiator rated 1,000 W gives only about 320 W at 41 to 45°C."
+   },
+   {
+    "h2": "How to check your existing radiators",
+    "title": "How do you check your radiators?",
+    "answer": "**Divide each radiator's rated output by the factor for your planned flow temperature and compare it with the room's heat loss.** At 45°C a radiator rated at 1,000 watts gives about 320 watts; your MCS installer does this room by room."
+   },
+   {
+    "h2": "Which radiators usually need replacing",
+    "title": "Which radiators usually need replacing?",
+    "answer": "**Small single-panel radiators in large rooms, bathroom towel rails, and small radiators in kitchens and hallways.** A radiator rated at 800 watts gives only about 260 watts with water at 45°C."
+   },
+   {
+    "h2": "Which radiators often survive",
+    "title": "Which radiators often survive?",
+    "answer": "**Large cast iron radiators, oversized modern ones, double convectors and radiators in well-insulated rooms.** Insulating first helps: in the MCS example, a room's heat loss fell from 1,671 W to 976 W and it then worked at 45°C."
+   },
+   {
+    "h2": "Replacement options",
+    "title": "What can replace a radiator that is too small?",
+    "answer": "**A larger panel radiator in the same space, a fan-assisted radiator, or underfloor heating.** In the MCS example a same-size double convector gave about 70% more output; underfloor heating usually only suits a major renovation."
+   },
+   {
+    "h2": "What your installer should provide",
+    "title": "What should your installer provide?",
+    "answer": "**A room by room heat loss calculation, each radiator's output at the planned flow temperature, and which need upgrading, with costs.** If an installer proposes a heat pump without one, that is a red flag."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Radiator sizing comes from the MCS Heat Emitter Guide and efficiency by flow temperature from the Electrification of Heat trial**, with the grant rules from GOV.UK."
+   }
+  ],
+  "faq": true
+ },
+ "guides/storage-heaters-vs-heat-pump": {
+  "sections": [
+   {
+    "h2": "Running cost comparison",
+    "title": "How much cheaper is a heat pump to run?",
+    "answer": "**£1,752 a year for storage heaters in a 3-bed semi, against £705 for a heat pump on a heat pump tariff.** Across the four example homes, the heat pump tariff saves £666 to £1,389 a year."
+   },
+   {
+    "h2": "Why storage heaters cost so much",
+    "title": "Why do storage heaters cost so much?",
+    "answer": "**They turn each unit of electricity into one unit of heat, while a heat pump gave 2.55 to 3.05.** Daytime top-up costs about 32p/kWh on Economy 7, and you set each night's charge by guessing tomorrow's weather."
+   },
+   {
+    "h2": "What the switch involves",
+    "title": "What does the switch involve?",
+    "answer": "**A heat pump plus radiators, pipework and a hot water cylinder if the home has none.** The heat pump costs £3,500 to £8,000 after the grant, with radiator and pipework work priced separately."
+   },
+   {
+    "h2": "When to keep storage heaters",
+    "title": "When should you keep storage heaters?",
+    "answer": "**In a small, well-insulated flat with no outdoor space, or when you rent.** There, modern high heat retention storage heaters may be the practical choice, at £900 to £1,400 per room fitted."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Standard rates come from the Ofgem price cap and Economy 7 rates from Octopus Energy's public price feed**, with efficiency from the Electrification of Heat trial and installed costs from DESNZ Boiler Upgrade Scheme statistics."
+   }
+  ],
+  "faq": true
  }
 }
