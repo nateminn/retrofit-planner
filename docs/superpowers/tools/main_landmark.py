@@ -37,7 +37,7 @@ def patch(path):
         start_abs = m.end() + opened.start()
     else:
         start_abs = m.end()
-    new = s[:start_abs] + '<main id="main">\n' + s[start_abs:end] + '</main>\n' + s[end:]
+    new = s[:start_abs] + '<main id="main" tabindex="-1">\n' + s[start_abs:end] + '</main>\n' + s[end:]
     io.open(path, 'w', encoding='utf-8').write(new)
     return True
 

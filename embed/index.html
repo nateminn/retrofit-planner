@@ -32,7 +32,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
     <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/">EPC Rating</a></li><li><a href="/solar-calculator/">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
 
-        <main id="main">
+        <main id="main" tabindex="-1">
 <div class="page-content">
         <h1>Put our calculators on your own site</h1>
         <p class="lead">Three of our tools are free to embed on any website: the retrofit plan, heat pump costs and EPC ratings. One line of HTML each, no account, no cookies and no tracking scripts loaded on your readers. All we ask is that you keep the credit link.</p>
@@ -192,9 +192,15 @@ addEventListener("message", function (e) {
     </style>
     <script>
     function copySnippet(id, btn){
-      var t=document.getElementById(id).innerText;
-      navigator.clipboard.writeText(t).then(function(){ btn.textContent='Copied'; setTimeout(function(){btn.textContent='Copy';},1800); },
-        function(){ btn.textContent='Press Ctrl C'; });
+      var el=document.getElementById(id), t=el.innerText;
+      // If the browser will not copy for us, select the snippet so the reader can copy it.
+      function selectIt(){
+        var r=document.createRange(); r.selectNodeContents(el);
+        var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        btn.textContent=/Mac|iPhone|iPad/.test(navigator.platform)?'Selected: press Cmd+C':'Selected: press Ctrl+C';
+      }
+      if(!navigator.clipboard||!navigator.clipboard.writeText){ selectIt(); return; }
+      navigator.clipboard.writeText(t).then(function(){ btn.textContent='Copied'; setTimeout(function(){btn.textContent='Copy';},1800); }, selectIt);
     }
     addEventListener('message', function(e){
       if(e.origin!==location.origin || !e.data || !e.data.rpHeight) return;

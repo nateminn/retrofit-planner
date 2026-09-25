@@ -158,7 +158,7 @@ HEAD = '''<!DOCTYPE html>
 TEMPLATE = '''<body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Retrofit Planner</a><ul class="nav-links"><li><a href="/heat-pump-calculator/">Heat Pump</a></li><li><a href="/insulation-calculator/">Insulation</a></li><li><a href="/epc-calculator/">EPC Rating</a></li><li><a href="/solar-calculator/">Solar Panels</a></li><li><a href="/grants/">Grants</a></li><li><a href="/guides/">Guides</a></li></ul></div></nav>
-<main id="main" class="guide-content">
+<main id="main" tabindex="-1" class="guide-content">
 <div class="breadcrumbs"><a href="/">Home</a><span>/</span>How accurate are our figures?</div>
 <h1>How accurate are our figures?</h1>
 <p class="lead">Every figure on this site comes from one published model. On 24 September 2026 we tested that model against the largest sets of measured data available for UK homes. Two parts of it were wrong, and a third, our insulation savings, was far more optimistic than what homes actually saw. We changed all three. This page shows what we tested, what we found and what we changed.</p>

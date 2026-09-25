@@ -26,7 +26,7 @@ CONTACT = 'hello@retrofitplanner.co.uk'
 # Each form's label ends in its kind (for example intro-v2-2026-09-24-solar), so the label alone
 # identifies which wording a person agreed to; the wording itself is stored too.
 CONSENT_VERSION = 'intro-v2-2026-09-24'
-NEWS_VERSION = 'newsletter-v2-2026-09-24'
+NEWS_VERSION = 'newsletter-v3-2026-09-25'
 
 TICK = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
         'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
@@ -170,7 +170,8 @@ def lead_form(kind, source):
            CONSENT_VERSION + '-' + kind, esc(ct), '\n'.join(fields), ct))
 
 
-NEWS_TEXT = 'I would like email updates about changes to UK home energy rules, grants and prices. I can unsubscribe at any time.'
+# Shown under the button word for word, so the stored record is exactly what the person saw.
+NEWS_TEXT = 'By pressing Keep me updated you agree to email updates about changes to UK home energy rules, grants and prices. Unsubscribe any time. We use your email only for these updates and never share it.'
 
 FOOTER_COLS = '''<div class="footer-inner"><div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div><div class="footer-col"><h3>Calculators</h3><a href="/retrofit-plan/">Retrofit Plan</a><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel Cost Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div><div class="footer-col"><h3>Guides</h3><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div><div class="footer-col"><h3>Company</h3><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/accuracy/">How Accurate We Are</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/embed/">Embed Our Calculators</a><a href="/contact/">Contact</a></div></div>'''
 
@@ -193,8 +194,8 @@ def footer(source, attribution):
         '<label for="fn-email">Email address</label>'
         '<div class="fn-row"><input type="email" id="fn-email" name="email" required autocomplete="email" placeholder="you@example.com">'
         '<button type="submit">Keep me updated</button></div>'
-        '<p class="fn-small">Unsubscribe any time. We use your email only for these updates and never share it. <a href="/privacy/#email-updates">Privacy policy</a></p>'
-        '</form></section>' % (esc(source), NEWS_VERSION, esc(NEWS_TEXT)))
+        '<p class="fn-small">%s <a href="/privacy/#email-updates">Privacy policy</a></p>'
+        '</form></section>' % (esc(source), NEWS_VERSION, esc(NEWS_TEXT), NEWS_TEXT))
     return ('<!-- site-footer -->\n<footer class="footer">%s%s<div class="attribution">%s</div></footer>\n<!-- /site-footer -->'
             % (news, FOOTER_COLS, attribution))
 
@@ -315,7 +316,7 @@ def thanks_page(template, slug, spec):
     t = re.sub(r'gtag\("event","generate_lead",\{form:"[^"]*"\}\)', 'gtag("event","generate_lead",{form:"%s"})' % k['form'], t)
     qs = ''.join('<li>%s</li>' % q for q in questions)
     ls = ' or '.join('<a href="%s">%s</a>' % (h, (l[0].lower() + l[1:]) if i else l) for i, (h, l) in enumerate(links))
-    main = ('<main id="main" class="thanks">\n'
+    main = ('<main id="main" tabindex="-1" class="thanks">\n'
             '<h1>Request received</h1>\n'
             '<p class="thanks-lead">Thank you. We will pass your %s request to up to three %s, usually within two working days, and they will contact you directly with a quote. If we cannot find anyone covering your area, we will email you to say so.</p>\n'
             '<p>You can also look for %s yourself.</p>\n'
@@ -332,7 +333,7 @@ def thanks_page(template, slug, spec):
 def newsletter_thanks(template):
     t = re.sub(r'<title>[^<]*</title>', '<title>You are signed up | Retrofit Planner</title>', template)
     t = re.sub(r'gtag\("event","generate_lead",\{form:"[^"]*"\}\)', 'gtag("event","sign_up",{method:"newsletter"})', t)
-    main = ('<main id="main" class="thanks">\n<h1>You are signed up</h1>\n'
+    main = ('<main id="main" tabindex="-1" class="thanks">\n<h1>You are signed up</h1>\n'
             '<p class="thanks-lead">Thank you. We will email you when something changes that affects UK homes: the energy price cap, grant rules and deadlines, and the standards homes are held to. Every email has an unsubscribe link.</p>\n'
             '<p class="thanks-next">In the meantime, <a href="/grants/">check which grants you qualify for</a> or <a href="/epc-calculator/">see which upgrades come first for your home</a>.</p>\n'
             '</main>')

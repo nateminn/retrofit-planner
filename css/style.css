@@ -1023,3 +1023,6 @@ select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible,su
 .pb-text strong{color:var(--color-text)}
 .pb-go{flex-shrink:0;font-weight:600;color:var(--color-accent);white-space:nowrap}
 @media (max-width:640px){.plan-banner{flex-wrap:wrap;margin:0 16px 24px}}
+
+/* The skip link moves focus to <main tabindex="-1">; it needs no ring of its own */
+main[tabindex="-1"]:focus{outline:none}
