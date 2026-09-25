@@ -28,6 +28,18 @@ function makeCtx(code) {
   return { ctx, els, el };
 }
 const main = makeCtx(scriptOf('epc-calculator/index.html', 'function calculate()'));
+// js/epc-plan.js, the pure version the landlord EPC calculator uses, must plan identically.
+const planCtx = { window: {} }; vm.createContext(planCtx);
+vm.runInContext(fs.readFileSync(ROOT + 'js/epc-plan.js', 'utf8'), planCtx);
+const RP = planCtx.window.RP_EPC;
+let badPlan = 0; const planExamples = [];
+function readPlan(cur) {
+  const p = RP.plan({ currentBand: cur.currentBand, propType: cur.propType, propAge: cur.propAge, wall: cur.hasWall, loft: cur.hasLoft,
+    glazing: cur.hasDoubleGlazing, heating: cur.heating, solar: cur.hasSolar, lighting: cur.lighting }, cur.targetBand);
+  if (p.met) return { met: true };
+  return { now: 'Band ' + p.currentBand, band: 'Band ' + p.newBand, pts: '+' + p.points, cost: '£' + p.cost.toLocaleString('en-GB'),
+    names: p.measures.map(m => m.name).join('|'), each: p.measures.map(m => m.points).join(',') };
+}
 const emb = makeCtx(scriptOf('embed/epc-calculator/index.html', 'function calc()'));
 const V = {
   currentBand: ['estimate', 'G', 'F', 'E', 'D', 'C', 'B'], targetBand: ['C', 'B', 'A'],
@@ -64,6 +76,10 @@ function rec(i, cur) {
     if (a.met || b.met) { same = a.met && b.met; if (same) alreadyMet++; }
     else same = a.now === b.now && a.band === b.band && a.pts === b.pts && a.cost === b.cost && a.names === b.names && a.each === b.each;
     if (!same) { bad++; if (examples.length < 5) examples.push({ cur: { ...cur }, a, b }); }
+    const c = readPlan(cur);
+    const samePlan = (a.met || c.met) ? (!!a.met === !!c.met)
+      : a.now === c.now && a.band === c.band && a.pts === c.pts && a.cost === c.cost && a.names === c.names && a.each === c.each;
+    if (!samePlan) { badPlan++; if (planExamples.length < 5) planExamples.push({ cur: { ...cur }, a, c }); }
     return;
   }
   const vals = (keys[i] === 'propAge' && cur.currentBand !== 'estimate') ? ['1965'] : V[keys[i]];
@@ -72,5 +88,6 @@ function rec(i, cur) {
 rec(0, {});
 console.log(JSON.stringify({ combinations: n, mismatches: bad, alreadyMeetTarget: alreadyMet }));
 for (const e of examples) console.log(JSON.stringify(e));
-console.log((bad ? 'FAIL' : 'PASS') + ': EPC widget and EPC calculator agree on ' + (n - bad).toLocaleString('en-GB') + ' of ' + n.toLocaleString('en-GB') + ' combinations');
-process.exitCode = bad ? 1 : 0;
+for (const e of planExamples) console.log('js/epc-plan.js differs: ' + JSON.stringify(e));
+console.log((bad || badPlan ? 'FAIL' : 'PASS') + ': EPC widget, js/epc-plan.js and EPC calculator agree on ' + (n - Math.max(bad, badPlan)).toLocaleString('en-GB') + ' of ' + n.toLocaleString('en-GB') + ' combinations');
+process.exitCode = bad || badPlan ? 1 : 0;

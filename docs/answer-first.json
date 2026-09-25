@@ -1,39 +1,107 @@
 {
  "solar-calculator": {
   "sections": [
-   {"h2": "Are solar panels worth it in the UK in 2026?",
-    "answer": "**For most homes, yes.** A typical 4 kW system costs £5,000 to £7,000 and pays for itself in about 9 to 12 years, then keeps working for 25 years or more. Your export tariff and how much you use at home matter more than where you live."},
-   {"h2": "What a solar system really costs in 2026", "title": "What does a solar system really cost?",
-    "answer": "**£5,000 to £7,000 for a typical 4 kW system**, with no VAT until 31 March 2027. The government's figures put the median at £1,546 to £1,595 per kW."},
-   {"h2": "How much electricity will your roof generate?",
-    "answer": "**About 3,444 to 4,036 kWh a year from a 4 kW system** on a clean south facing roof, depending on the city. Manchester makes about 13% less than London; Cardiff slightly more."},
-   {"h2": "How roof direction and pitch change output", "title": "Does roof direction and pitch matter?",
-    "answer": "**South is best, but east and west still make about 80%**, and a shallow north facing roof about two thirds. Pitch barely matters on a south facing roof."},
-   {"h2": "Solar panel output by month in the UK", "title": "How much do solar panels generate each month?",
-    "answer": "**About two thirds of the year's output comes from April to September.** July makes about 3.4 times what December does in London, so no battery carries you through winter."},
-   {"h2": "How many solar panels do you need?",
-    "answer": "**Most homes need about 7 to 12 panels.** A medium user of 2,500 kWh a year needs about 2.6 kWp to generate what they use in a year, though most of that use will still come from the grid."},
-   {"h2": "How much of your solar will you actually use?",
-    "answer": "**Usually less than a quarter without a battery.** A typical 4 kW system on a medium use home uses 14% to 23% of its output, rising to about half with a 5 kWh battery."},
-   {"h2": "Is a solar battery worth it?",
-    "answer": "**Not on solar alone.** A 5 kWh battery costs about £4,600 and adds about £178 a year in a typical home, so it takes about 26 years to pay back and lasts 10 to 12. A time of use tariff, an electric car or a heat pump can change that."},
-   {"h2": "Smart Export Guarantee rates in September 2026",
-    "answer": "**From 4.1p to 17.5p per kWh**, depending on the tariff. Outgoing Octopus pays 12p to Octopus customers; the highest rates are tied to buying your system from that supplier."},
-   {"h2": "Worked example: a 4 kW system in Birmingham",
-    "answer": "**Payback from 8.3 to 19.2 years on the same roof**, depending only on the export tariff: 10.8 years on Outgoing Octopus at 12p."},
-   {"h2": "How long do solar panels take to pay for themselves?",
-    "answer": "**Around 9 to 12 years**: about a decade in the south, a year or two longer in Scotland, and much longer on a 4p export tariff. The panels then keep producing for 25 years or more."},
-   {"h2": "Where these figures come from", "keep": false, "summary": "Show every source and date",
-    "answer": "Ofgem, PVGIS, MCS, the Energy Saving Trust, the government's solar cost statistics and the suppliers' own tariff pages."}
+   {
+    "h2": "Are solar panels worth it in the UK in 2026?",
+    "answer": "**For most homes, yes.** A typical 4 kW system costs £5,000 to £7,000 and pays for itself in about 9 to 12 years, then keeps working for 25 years or more. Your export tariff and how much you use at home matter more than where you live."
+   },
+   {
+    "h2": "What a solar system really costs in 2026",
+    "title": "What does a solar system really cost?",
+    "answer": "**£5,000 to £7,000 for a typical 4 kW system**, with no VAT until 31 March 2027. The government's figures put the median at £1,546 to £1,595 per kW."
+   },
+   {
+    "h2": "How much electricity will your roof generate?",
+    "answer": "**About 3,444 to 4,036 kWh a year from a 4 kW system** on a clean south facing roof, depending on the city. Manchester makes about 13% less than London; Cardiff slightly more."
+   },
+   {
+    "h2": "How roof direction and pitch change output",
+    "title": "Does roof direction and pitch matter?",
+    "answer": "**South is best, but east and west still make about 80%**, and a shallow north facing roof about two thirds. Pitch barely matters on a south facing roof."
+   },
+   {
+    "h2": "Solar panel output by month in the UK",
+    "title": "How much do solar panels generate each month?",
+    "answer": "**About two thirds of the year's output comes from April to September.** July makes about 3.4 times what December does in London, so no battery carries you through winter."
+   },
+   {
+    "h2": "How many solar panels do you need?",
+    "answer": "**Most homes need about 7 to 12 panels.** A medium user of 2,500 kWh a year needs about 2.6 kWp to generate what they use in a year, though most of that use will still come from the grid."
+   },
+   {
+    "h2": "How much of your solar will you actually use?",
+    "answer": "**Usually less than a quarter without a battery.** A typical 4 kW system on a medium use home uses 14% to 23% of its output, rising to about half with a 5 kWh battery."
+   },
+   {
+    "h2": "Is a solar battery worth it?",
+    "answer": "**Not on solar alone.** A 5 kWh battery costs about £4,600 and adds about £178 a year in a typical home, so it takes about 26 years to pay back and lasts 10 to 12. A time of use tariff, an electric car or a heat pump can change that."
+   },
+   {
+    "h2": "Smart Export Guarantee rates in September 2026",
+    "answer": "**From 4.1p to 17.5p per kWh**, depending on the tariff. Outgoing Octopus pays 12p to Octopus customers; the highest rates are tied to buying your system from that supplier."
+   },
+   {
+    "h2": "Worked example: a 4 kW system in Birmingham",
+    "answer": "**Payback from 8.3 to 19.2 years on the same roof**, depending only on the export tariff: 10.8 years on Outgoing Octopus at 12p."
+   },
+   {
+    "h2": "How long do solar panels take to pay for themselves?",
+    "answer": "**Around 9 to 12 years**: about a decade in the south, a year or two longer in Scotland, and much longer on a 4p export tariff. The panels then keep producing for 25 years or more."
+   },
+   {
+    "h2": "Where these figures come from",
+    "keep": false,
+    "summary": "Show every source and date",
+    "answer": "Ofgem, PVGIS, MCS, the Energy Saving Trust, the government's solar cost statistics and the suppliers' own tariff pages."
+   }
   ],
   "notes": [
-   {"starts": "Every figure in the last three columns", "summary": "The data behind this table"}
+   {
+    "starts": "Every figure in the last three columns",
+    "summary": "The data behind this table"
+   }
   ],
   "faq": true,
-  "jump": [["Worth it?", "Are solar panels worth it in the UK in 2026?"], ["Cost", "What does a solar system really cost?"],
-           ["Output", "How much electricity will your roof generate?"], ["Roof direction", "Does roof direction and pitch matter?"],
-           ["Panels needed", "How many solar panels do you need?"], ["Battery", "Is a solar battery worth it?"],
-           ["Export rates", "Smart Export Guarantee rates in September 2026"], ["Payback", "How long do solar panels take to pay for themselves?"],
-           ["FAQs", "#faq"]]
+  "jump": [
+   [
+    "Worth it?",
+    "Are solar panels worth it in the UK in 2026?"
+   ],
+   [
+    "Cost",
+    "What does a solar system really cost?"
+   ],
+   [
+    "Output",
+    "How much electricity will your roof generate?"
+   ],
+   [
+    "Roof direction",
+    "Does roof direction and pitch matter?"
+   ],
+   [
+    "Panels needed",
+    "How many solar panels do you need?"
+   ],
+   [
+    "Battery",
+    "Is a solar battery worth it?"
+   ],
+   [
+    "Export rates",
+    "Smart Export Guarantee rates in September 2026"
+   ],
+   [
+    "Payback",
+    "How long do solar panels take to pay for themselves?"
+   ],
+   [
+    "FAQs",
+    "#faq"
+   ]
+  ]
+ },
+ "landlord-epc-calculator": {
+  "faq": true
  }
 }

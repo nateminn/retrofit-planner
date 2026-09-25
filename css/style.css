@@ -1097,3 +1097,13 @@ details.faq-item>summary:focus-visible{outline:3px solid var(--color-accent);out
 details.faq-item>p{margin:0 0 14px}
 .af-jump{margin:0 0 28px}
 @media (prefers-reduced-motion:reduce){details.more>summary::before{transition:none}}
+/* Landlord EPC calculator: one row per rule */
+.rule-row{display:block;padding:14px 16px;border-radius:var(--radius-sm);margin-bottom:12px;background:var(--color-surface-alt);border-left:4px solid var(--color-border)}
+.rule-row.ok{border-left-color:var(--color-accent)}
+.rule-row.fail{border-left-color:#B42318;background:#FEF3F2}
+.rule-row.todo{border-left-color:var(--color-highlight)}
+.rule-when{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:4px}
+.rule-body{line-height:1.6}
+.rule-body .tblwrap{margin:12px 0 4px}
+.rule-note{font-size:.85rem;color:var(--color-text-secondary);margin:8px 0 0}
+.cmp-table tr.over-cap th,.cmp-table tr.over-cap td{color:var(--color-text-tertiary)}

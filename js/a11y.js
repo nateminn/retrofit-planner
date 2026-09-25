@@ -150,12 +150,15 @@
             map: { oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heat-pump' } },
         '/energy-bill-calculator/': { field: 'heatingFuel',
             map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heatpump' } },
+        '/landlord-epc-calculator/': { field: 'heating',
+            map: { oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heat-pump' } },
         '/heat-pump-running-cost-calculator/': { field: 'currentHeating',
             map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electric' } }
     };
     var TYPE_FIELD = { '/epc-calculator/': 'propType', '/boiler-vs-heat-pump/': 'propType',
                        '/heat-pump-calculator/': 'propertyType', '/insulation-calculator/': 'propertyType',
-                       '/energy-bill-calculator/': 'propertyType', '/heat-pump-running-cost-calculator/': 'propertyType' };
+                       '/energy-bill-calculator/': 'propertyType', '/heat-pump-running-cost-calculator/': 'propertyType',
+                       '/landlord-epc-calculator/': 'propType' };
     var TAKES_BEDS = { '/heat-pump-calculator/': 1, '/insulation-calculator/': 1, '/boiler-vs-heat-pump/': 1,
                        '/energy-bill-calculator/': 1, '/heat-pump-running-cost-calculator/': 1 };
     var TAKES_INS  = { '/heat-pump-calculator/': 1, '/boiler-vs-heat-pump/': 1,
