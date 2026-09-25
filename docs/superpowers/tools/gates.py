@@ -149,7 +149,8 @@ for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.
                      ('every bill and running cost figure matches js/bills.js and js/running-cost.js', ['node', os.path.join(_here, 'bills_check.js')]),
                      # a regenerated page loses its short answer box, and a changed figure can leave
                      # the box quoting a number the page no longer says; tldr.py catches both
-                     ('short answer boxes are in place and match their pages', [sys.executable, os.path.join(_here, 'tldr.py')])):
+                     ('short answer boxes are in place and match their pages', [sys.executable, os.path.join(_here, 'tldr.py')]),
+                     ('answer-first pages carry their layout', [sys.executable, os.path.join(_here, 'answer_first.py')])):
     _r = _sp.run(_cmd, capture_output=True, text=True, cwd=os.getcwd())
     _tail = [l for l in (_r.stdout + _r.stderr).strip().split('\n') if l.strip()]
     check(_label, _r.returncode == 0, '\n        '.join(_tail[-6:]))

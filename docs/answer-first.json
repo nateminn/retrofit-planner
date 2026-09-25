@@ -103,5 +103,677 @@
  },
  "landlord-epc-calculator": {
   "faq": true
+ },
+ "guides/heat-pump-victorian-terrace": {
+  "sections": [
+   {
+    "h2": "What a Victorian terrace heat pump really costs",
+    "answer": "**About £12,200 to £12,700 installed, or £4,700 to £5,200 after the £7,500 grant.** A terrace sits near the national median of £12,908 because solid walls, sashes and bare floors lose a lot of heat."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**£12,700 at the median for an unimproved terrace, or £5,200 after the £7,500 grant.** Most jobs pay £3,500 to £8,000 after the grant, with radiators and the pipe run to the cylinder setting the price."
+   },
+   {
+    "h2": "Victorian terrace versus semi versus modern terrace",
+    "answer": "**About the same as a 3-bed semi to install, at £12,700.** Unimproved it costs £55 a year more than the semi to run on a heat pump tariff; insulating the walls turns that round."
+   },
+   {
+    "h2": "What size heat pump, and insulate first in cost order",
+    "answer": "**7 to 9 kW, depending on insulation.** Start with the loft at about £750 and draught-proofing at around £250; internal wall insulation, around £12,000, takes the unit from 8 kW to 7 kW."
+   },
+   {
+    "h2": "Which heat pumps suit a Victorian terrace",
+    "answer": "**Models with high flow temperatures, such as the Vaillant aroTHERM plus and Mitsubishi Ecodan R290 at 75°C.** They let the installer design at 55°C and keep more radiators; pre-1919 homes did no worse in the government trial."
+   },
+   {
+    "h2": "Cast iron radiators, cylinder and pipework",
+    "answer": "**Cast iron radiators can stay if they are big enough, and many are.** Expect a few to change; pipework is where terrace quotes vary most, with primaries running 10 to 20 metres to the cylinder."
+   },
+   {
+    "h2": "Running costs: Victorian terrace",
+    "answer": "**£760 a year on a heat pump tariff, £107 less than gas.** On a standard tariff it costs £1,010, £143 more than gas; insulating the walls to band C cuts the tariff bill to £487."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for a terrace",
+    "answer": "**£7,500 off the quoted price, bringing the heat pump to £4,700 to £5,200.** It is £9,000 until March 2027 for oil or LPG homes with no mains gas, and you no longer need a valid EPC."
+   },
+   {
+    "h2": "Is a heat pump worth it for a Victorian terrace",
+    "answer": "**Only just, on a heat pump tariff: about £1,700 more than a gas boiler, paid back in about 16 years at £107 a year.** On a standard tariff it never pays back, costing £143 a year more than gas."
+   },
+   {
+    "h2": "Placement, conservation areas and two party walls",
+    "answer": "**In the rear yard, usually on the side wall of the outrigger.** It must pass the MCS 020(a) sound test at both neighbours' windows; a conservation area does not stop it, but a listed terrace needs planning permission."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three quotes from MCS-certified installers and compare the design, not the price.** Each should include a heat loss calculation using the real solid wall figure, the design flow temperature, a radiator schedule and a sound calculation."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Installed prices come from DESNZ Boiler Upgrade Scheme statistics**, efficiency from the Electrification of Heat trial, energy prices from the Ofgem price cap and insulation costs from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-5-bed-house": {
+  "sections": [
+   {
+    "h2": "What a 5-bed heat pump really costs in 2026",
+    "answer": "**£14,000 to £19,500 installed for a typical 5-bed, or £6,500 to £12,000 after the £7,500 grant.** Price data for the very largest single units is thin, so treat those costs as less certain."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**£14,000 to £19,500 for the whole job, median £16,100.** After the £7,500 grant most households pay £6,500 to £12,000, or £5,000 to £10,500 with the £9,000 grant for oil or LPG homes."
+   },
+   {
+    "h2": "5-bed versus 4-bed versus 3-bed detached",
+    "answer": "**The biggest step on the ladder: £14,000 to £19,500 for a 5-bed against £12,500 to £18,000 for a 4-bed.** The extra £1,400 at the median takes about 18 years to earn back on a heat pump tariff."
+   },
+   {
+    "h2": "What size heat pump for a 5-bed house",
+    "answer": "**Around 13.5 to 17.5 kW, typically 16 kW, sometimes as two units in cascade.** Insulating an average house to well insulated drops it to 13.5 kW and saves about £700 on the median installation."
+   },
+   {
+    "h2": "Which heat pumps suit a 5-bed house",
+    "answer": "**Large single units such as the Daikin Altherma 3 H HT at 14 kW, 16 kW and 18 kW, or two smaller units in cascade.** Your electrical supply, single or three phase, narrows the choice before brand does."
+   },
+   {
+    "h2": "Radiators, cylinders, pipework and zoning",
+    "answer": "**Expect 6 to 9 of the 14 to 18 radiators to be upsized, plus a larger cylinder.** Set guest rooms back a couple of degrees rather than off, because closing them off makes the heat pump cycle."
+   },
+   {
+    "h2": "Running costs: 5-bed detached",
+    "answer": "**£1,250 a year on a heat pump tariff, £304 less than gas.** On standard electricity it costs £1,662, £108 more than gas, so the tariff decides whether it adds up."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for a 5-bed",
+    "answer": "**£7,500, or £9,000 for oil or LPG homes until 31 March 2027, whatever the size of the house.** On a 5-bed that covers only 38% to 54% of the job, and a cascade gets one grant, not two."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 5-bed house",
+    "answer": "**Only on a heat pump tariff, and slowly: a payback of about 8 to 26 years at £304 a year.** On standard electricity it never pays back; against oil it saves £1,083 a year."
+   },
+   {
+    "h2": "Electrical supply, DNO approval and cascades",
+    "answer": "**On a 5-bed the supply becomes a real question.** Above 60 amps of maximum demand the installer must apply to the network operator before fitting, and two single phase units in cascade can sometimes avoid a three phase unit."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three quotes from installers who have fitted 14 kW and larger systems, and compare the design.** Each should cover the heat loss, one unit or a cascade, the electrical survey and DNO route, and every radiator."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Installed costs come from DESNZ Boiler Upgrade Scheme statistics**, efficiency from the Electrification of Heat trial, energy prices from the Ofgem price cap and the oil price from BoilerJuice."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-3-bed-detached": {
+  "sections": [
+   {
+    "h2": "What a 3-bed detached heat pump really costs",
+    "answer": "**£11,000 to £15,500 installed for a typical 3-bed detached, or £3,500 to £8,000 after the £7,500 grant.** It needs about 9.5 kW, and insulation moves the range from £10,500 to £16,500."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**£11,000 to £15,500 for the whole job, median £13,000.** After the £7,500 grant most pay £3,500 to £8,000, or £2,000 to £6,500 with the £9,000 grant; radiators decide where you land."
+   },
+   {
+    "h2": "3-bed semi versus 3-bed detached versus 4-bed",
+    "answer": "**Between a 3-bed semi and a 4-bed detached, and close to the semi.** The fourth exposed wall adds about £300 to the median installation; the jump to a 4-bed detached is the bigger one."
+   },
+   {
+    "h2": "What size heat pump for a 3-bed detached house",
+    "answer": "**Around 8 to 10.5 kW, typically 9.5 kW.** Insulating a typical house to well insulated drops it to 8 kW and takes about £600 off the median installed cost."
+   },
+   {
+    "h2": "Which heat pumps suit a 3-bed detached house",
+    "answer": "**Any major brand's unit in the 8 to 12 kW class; at this size the design matters more than the brand.** R290 units such as the Vaillant aroTHERM plus reach 75°C and can keep more existing radiators."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**Expect 4 to 6 of the 10 to 12 radiators to be upsized, plus a new cylinder.** Microbore pipework, common from the 1970s, is the usual budget breaker and often needs replacing with 15mm or 22mm pipe."
+   },
+   {
+    "h2": "Running costs: 3-bed detached on gas and oil",
+    "answer": "**£750 a year on a heat pump tariff, £182 less than gas and £650 less than oil.** On a standard tariff it costs £997, £65 more than gas, but still beats oil by £403."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme: £7,500 or £9,000",
+    "answer": "**£7,500, or £9,000 for oil or LPG homes with no mains gas until 31 March 2027.** That leaves £3,500 to £8,000 to pay on gas, or £2,000 to £6,500 on oil or LPG."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 3-bed detached house",
+    "answer": "**On gas, only on a heat pump tariff.** At £182 a year the payback runs from immediately to about 25 years. Against oil the case is clear, saving £650 a year."
+   },
+   {
+    "h2": "Placement, noise and planning on a detached plot",
+    "answer": "**Placement is where a detached house wins.** With a side and rear wall to choose from and neighbours further away, the sound calculation is easier to pass, and planning permission is not normally needed."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the headline price.** Check the heat loss calculation, a flow temperature of 50°C or lower, the radiator schedule, the grant rate and, on oil, who removes the tank."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Installed costs come from DESNZ Boiler Upgrade Scheme statistics**, efficiency from the Electrification of Heat trial, energy prices from the Ofgem price cap and the oil price from BoilerJuice."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-2-bed-terrace": {
+  "sections": [
+   {
+    "h2": "What a 2-bed terrace heat pump really costs",
+    "answer": "**£10,000 to £14,000 installed, or £2,500 to £6,500 after the £7,500 grant.** Fixed costs such as the cylinder, survey and commissioning mean a small terrace costs only a little less than a 3-bed semi."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**£10,000 to £14,000 for the whole job, median £11,700.** After the £7,500 grant most pay £2,500 to £6,500; a new cylinder and a cupboard for it are what separate a terrace from a semi."
+   },
+   {
+    "h2": "Terrace versus flat versus semi",
+    "answer": "**About the same as a 2-bed flat, and less than an end-terrace.** A mid-terrace costs £10,000 to £14,000 against £10,500 to £15,000 for an end-terrace and £11,000 to £15,500 for a 3-bed semi."
+   },
+   {
+    "h2": "What size heat pump for a 2-bed terrace",
+    "answer": "**Around 5 to 6.5 kW, typically 5.5 kW.** That is the small end of most ranges; insulating first also lifts efficiency, which matters more to the running cost than the kWh saved."
+   },
+   {
+    "h2": "Which heat pumps suit a small terrace",
+    "answer": "**Small units from every major brand, such as the Vaillant aroTHERM plus at 3.5 kW or 5 kW.** For a terrace, choose on depth, sound power and flow temperature, and get a sound calculation for the exact yard spot."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**Two or three of the five to seven radiators usually need upsizing.** The bigger problem is finding room for a cylinder in a combi-heated terrace, and microbore runs often need replacing with 15mm pipe."
+   },
+   {
+    "h2": "Running costs: 2-bed terrace",
+    "answer": "**£449 a year on a heat pump tariff, £109 less than gas.** On standard electricity it costs £596, £38 more than gas; a well insulated terrace beats gas on either tariff."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for a terrace",
+    "answer": "**£7,500 off the invoice, leaving £2,500 to £6,500 to pay.** It covers roughly half to three quarters of the job, and a terrace qualifies like any other house you own."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 2-bed terrace",
+    "answer": "**Only on a heat pump tariff: at £109 a year the payback runs from immediately to about 30 years.** A terrace with generous radiators and an airing cupboard pays back fastest; a standard tariff gives no saving."
+   },
+   {
+    "h2": "Noise, the rear yard and two party walls",
+    "answer": "**In the rear yard, where it must pass the MCS 020(a) sound calculation at both neighbours' windows.** Avoid tight corners, which score worse; a fence or wall between unit and window often gets a terrace through."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the headline price.** Check the heat loss calculation, the radiator schedule, where the cylinder goes with the cupboard priced, and a sound calculation for both neighbours."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Installed costs come from DESNZ Boiler Upgrade Scheme statistics**, efficiency from the Electrification of Heat trial, energy prices from the Ofgem price cap and insulation costs from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-3-bed-semi": {
+  "sections": [
+   {
+    "h2": "What a 3-bed semi heat pump really costs",
+    "answer": "**A typical 3-bed semi costs £11,000 to £15,500 installed, or £3,500 to £8,000 after the £7,500 grant.** That is for a 9 kW heat pump; a well insulated semi needs 7.5 kW and a poorly insulated one 10 kW."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**The whole job is £11,000 to £15,500, median £12,700, or £3,500 to £8,000 after the grant.** Radiators are what most often push a quote outside that range, so ask whether radiator work is included."
+   },
+   {
+    "h2": "Semi versus end-terrace versus detached",
+    "answer": "**All three cost the same, £11,000 to £15,500 installed, because each needs a heat pump in the 8 to 10 kW band.** One shared wall saves only about 630 kWh of heat a year against a detached house."
+   },
+   {
+    "h2": "What size heat pump for a 3-bed semi",
+    "answer": "**Most 3-bed semis need around 7.5 to 10 kW, with a typical semi at 9 kW.** The installer's room-by-room heat loss calculation sets the real size, and insulating first can bring it down to 7.5 kW."
+   },
+   {
+    "h2": "Which heat pumps suit a semi",
+    "answer": "**Every major manufacturer makes a unit in the 7 to 10 kW class, and at this size the brands are close.** Ask for a design flow temperature of 50°C or lower and a sound calculation for the outdoor unit."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**Expect to upsize some of the 8 to 10 radiators, fit a heat pump cylinder and possibly replace microbore pipe.** The cylinder is in the recorded job cost; ask the installer to check pipe sizes at the survey."
+   },
+   {
+    "h2": "Running costs: 3-bed semi",
+    "answer": "**A heat pump costs £705 a year on a heat pump tariff, £172 less than gas, but £937 on standard electricity.** That is £60 a year more than the £877 gas bill, so the tariff decides the economics."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for a semi",
+    "answer": "**The grant is £7,500, or £9,000 for oil or LPG homes off the gas grid until 31 March 2027.** It takes a typical semi to £3,500 to £8,000, and the installer deducts it from the invoice."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 3-bed semi",
+    "answer": "**On gas, only with a heat pump tariff.** A £172 a year saving pays back the extra over a new boiler in anything from immediately to about 26 years. Against oil it saves about £611 a year."
+   },
+   {
+    "h2": "Noise, placement and the party wall",
+    "answer": "**Site the outdoor unit away from the party wall so it passes the 37 dB limit at the neighbour's nearest window.** Most semis pass without extra work, and planning permission is not normally needed."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the headline price.** Each should include a room-by-room heat loss calculation, a radiator schedule, a sound calculation and the £7,500 or £9,000 grant deducted."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs come from the DESNZ Boiler Upgrade Scheme statistics, August 2026.** Efficiency comes from the Electrification of Heat trial, prices from the Ofgem price cap and BoilerJuice, and heat demand from our NEED-based model."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-4-bed-house": {
+  "sections": [
+   {
+    "h2": "What a 4-bed heat pump really costs in 2026",
+    "answer": "**A typical 4-bed detached costs about £14,700 installed, with most jobs £12,500 to £18,000 before the grant.** It needs about 12 kW, so it sits in the upper half of all air source jobs."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**The whole job is £12,500 to £18,000, median £14,700, or £5,000 to £10,500 after the £7,500 grant.** Radiators are what most often move a quote outside that range."
+   },
+   {
+    "h2": "4-bed semi versus 4-bed detached",
+    "answer": "**A 4-bed semi costs about the same, £13,000 to £18,000 installed, because it uses slightly more heat.** It needs 12.5 kW against 12 kW for a detached, so do not budget on the semi being cheaper."
+   },
+   {
+    "h2": "What size heat pump for a 4-bed house",
+    "answer": "**A typical 4-bed detached needs about 12 kW, from 10 kW well insulated to 13.5 kW poorly insulated.** The installer's room-by-room heat loss calculation sets the real size."
+   },
+   {
+    "h2": "Which heat pumps suit a 4-bed house",
+    "answer": "**Every major manufacturer makes units at 10 to 16 kW, and brand matters less than design.** Ask for a design flow temperature of 50°C or lower and the seasonal performance the installer expects in the quote."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**Expect 4 to 7 of the 10 to 14 radiators to need upsizing, plus a heat pump cylinder.** The cylinder is in the recorded job cost; microbore pipework is the common budget breaker on long runs."
+   },
+   {
+    "h2": "Running costs: 4-bed detached",
+    "answer": "**A heat pump costs £936 a year on a heat pump tariff, £228 less than gas, but £1,244 on standard electricity.** That is £80 a year more than gas, so the tariff decides the economics."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for a 4-bed",
+    "answer": "**A 4-bed gets the same £7,500 grant, or £9,000 for oil or LPG homes off the gas grid until 31 March 2027.** There is no limit on house value, and the installer deducts it from the invoice."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 4-bed house",
+    "answer": "**On mains gas it is a weak case.** At £228 a year on a heat pump tariff, the extra over a new boiler takes about 5 to 29 years to earn back. Against oil it saves £811 a year."
+   },
+   {
+    "h2": "Ground source vs air source for a 4-bed",
+    "answer": "**Air source is the practical choice at £12,500 to £18,000, against £18,000 to £42,000 for ground source.** Ground source suits a detached house with plenty of land and a long ownership horizon."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the headline price.** Each should include a heat loss calculation, a radiator schedule, a sound calculation and the £7,500 or £9,000 grant deducted from the invoice."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs come from the DESNZ Boiler Upgrade Scheme statistics, August 2026.** Efficiency comes from the Electrification of Heat trial, prices from the Ofgem price cap and BoilerJuice, and heat demand from our NEED-based model."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-old-house": {
+  "sections": [
+   {
+    "h2": "Why old houses need extra preparation",
+    "answer": "**Old houses lose heat faster, so the heat pump must run hotter unless you insulate.** Yet in the government trial pre-1919 homes did as well as newer ones, at 2.90 units of heat per unit of electricity."
+   },
+   {
+    "h2": "Insulation priorities for old houses",
+    "answer": "**Do the loft first, then solid walls, draught-proofing and windows.** A loft top-up costs about £600; internal wall insulation costs around £12,000 but cut gas use by a median 17.3%."
+   },
+   {
+    "h2": "Choosing the right heat pump for an old house",
+    "answer": "**Air source, sized by a room-by-room heat loss survey.** Once insulated, old houses need from 5 kW for a 2-bed terrace to 10 kW for a 4-bed detached, at medians of £11,500 to £13,300."
+   },
+   {
+    "h2": "Radiator upgrades: do you need them?",
+    "answer": "**Probably, but not always, because a heat pump runs at 35 to 45 degrees instead of 55 to 70.** Large original cast iron radiators can often stay, and upgrades done in the job are part of the installed price."
+   },
+   {
+    "h2": "Cost breakdown for a typical old house",
+    "answer": "**A solid-walled 3-bed Edwardian semi costs around £18,000 in total after the grant.** That is the £12,700 median heat pump job less £7,500, plus internal wall insulation, a loft top-up and draught-proofing."
+   },
+   {
+    "h2": "Running costs: heat pump vs gas boiler in an old house",
+    "answer": "**On a heat pump tariff it costs £705 a year against £877 for gas, but £937 on standard electricity.** The tariff saving is £172 a year for a 3-bed Edwardian semi."
+   },
+   {
+    "h2": "Planning permission and listed buildings",
+    "answer": "**Most old houses need no planning permission, but listed buildings always do.** Conservation areas limit units facing a road, and every unit must meet the 37 dB noise limit at a neighbour's window."
+   },
+   {
+    "h2": "Common concerns with heat pumps in old houses",
+    "answer": "**A correctly designed heat pump keeps an old house warm and does not damage the walls.** You will need a hot water cylinder, and the original airing cupboard can often take it."
+   },
+   {
+    "h2": "Step-by-step: getting a heat pump in your old house",
+    "answer": "**Insulate first, then get three MCS quotes with a full heat loss calculation.** The installer claims the £7,500 grant, or £9,000 for oil or LPG homes, and installation takes a few days."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs come from the DESNZ Boiler Upgrade Scheme statistics, August 2026.** Efficiency comes from the Electrification of Heat trial, insulation costs from the Energy Saving Trust and prices from the Ofgem price cap."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-by-house-type": {
+  "sections": [
+   {
+    "h2": "Cost summary by property type",
+    "answer": "**Installed costs run from £10,000 to £14,500 for a 1 to 2 bed flat to £14,000 to £19,500 for a 5 bed detached.** The £7,500 grant comes off every one."
+   },
+   {
+    "h2": "What is included in the installed cost?",
+    "answer": "**The heat pump, cylinder, controls, pipework, labour and VAT are all included.** Radiator and pipework upgrades often are but not always, so ask whether they are in your quote."
+   },
+   {
+    "h2": "Detailed breakdown by house type",
+    "answer": "**Size follows the house: 4.5 to 6 kW for a flat, 9 kW for a 3-bed semi and about 16 kW for a 5-bed detached.** A typical semi pays £3,500 to £8,000 after the grant."
+   },
+   {
+    "h2": "How insulation level affects cost",
+    "answer": "**Going from poorly to well insulated takes a 3-bed semi from 10 kW to 7.5 kW.** It cuts the heat pump tariff bill from £853 to £546 a year, a fall of 36%."
+   },
+   {
+    "h2": "Ground source vs air source by house type",
+    "answer": "**Air source is the practical choice for most homes.** The middle half of ground source jobs cost £18,136 to £42,110, and it only suits larger detached homes with enough land."
+   },
+   {
+    "h2": "The BUS grant and total out-of-pocket cost",
+    "answer": "**The £7,500 grant, or £9,000 for oil or LPG homes until 31 March 2027, brings a 3-bed semi to £3,500 to £8,000.** It comes off the installer's invoice; Scotland has a separate scheme."
+   },
+   {
+    "h2": "Running costs by house type",
+    "answer": "**A heat pump saves only on a heat pump tariff: £705 a year for a 3-bed semi against £877 on gas.** On a standard tariff every house type is £38 to £108 a year worse off."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs come from the DESNZ Boiler Upgrade Scheme statistics, August 2026.** Efficiency comes from the Electrification of Heat trial, prices from the Ofgem price cap and insulation data from the Energy Saving Trust and NEED."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-1960s-house": {
+  "sections": [
+   {
+    "h2": "What a 1960s house heat pump really costs",
+    "answer": "**About £12,700 installed for a typical 1960s semi, or £5,200 after the £7,500 grant.** Filled cavities bring the median to £12,300 and unfilled ones push it to £13,300."
+   },
+   {
+    "h2": "The cavity wall is the whole story",
+    "answer": "**Filling an empty cavity roughly halves the wall's heat loss, for around £2,700.** Band E to band C takes the heat pump from 10 kW to 7.5 kW and £307 a year off a tariff bill."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**About £5,200 after the £7,500 grant, from a £12,700 median installation.** The middle half pay £3,500 to £8,000 after the grant, so ask what each quote leaves out."
+   },
+   {
+    "h2": "1960s estate house versus Victorian terrace",
+    "answer": "**The 1960s house reaches band C for a fraction of the cost.** Cavity fill costs around £2,700 against around £12,000 for internal wall insulation on a Victorian terrace, leaving £4,800 and £4,700 after the grant."
+   },
+   {
+    "h2": "What else a 1960s house brings",
+    "answer": "**Big windows, thin lofts, mixed floors, draughts and microbore pipework turn up on most surveys.** A loft top-up to 270mm costs about £600; ask the installer to check pipe sizes at the survey."
+   },
+   {
+    "h2": "What size heat pump for a 1960s house",
+    "answer": "**About 9 kW for a typical 1960s semi, 10 kW with open cavities and 7.5 kW once they are filled.** The installer's room-by-room calculation decides, so check the wall U-value it used."
+   },
+   {
+    "h2": "Which heat pumps suit a 1960s house",
+    "answer": "**Any of the main 7 to 10 kW units can do it; the design decides the result.** Ask for a flow temperature of 50°C or lower, expected performance in writing and an MCS 020(a) sound calculation."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**A 1960s semi usually needs fewer radiator changes than a Victorian terrace, and they sit inside the installed price.** The old airing cupboard often takes the new cylinder, and a whole re-plumb is rarely needed."
+   },
+   {
+    "h2": "Running costs: 1960s house",
+    "answer": "**£705 a year on a heat pump tariff against £877 for gas, but £937 on standard electricity.** Filling the cavities to reach band C cuts the tariff bill to £546."
+   },
+   {
+    "h2": "Why a leaky house is the worse case, not the better one",
+    "answer": "**The worse the house, the smaller the saving.** On a heat pump tariff the band E house saves £120 a year against gas and the band C house £199, so fill the cavity first."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for a 1960s house",
+    "answer": "**The grant is £7,500 for almost every 1960s house, because they are on mains gas.** Oil or LPG homes with no gas get £9,000 until March 2027, and open cavities no longer block the grant."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 1960s house",
+    "answer": "**Only on a heat pump tariff.** The £5,200 after the grant is about £1,700 more than a new boiler and pays back in about 10 years at £172 a year; on standard electricity there is no payback."
+   },
+   {
+    "h2": "Noise, placement and the estate layout",
+    "answer": "**Most 1960s plots pass the noise test easily because the houses are spaced wider apart.** The MCS 020(a) calculation must show 37 dB or less at the neighbour's nearest window, and planning permission is not normally needed."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the headline price.** Each should show the wall U-value used, how the cavity was checked, the flow temperature, a radiator schedule and a sound calculation."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Our heating model built on DESNZ NEED data, DESNZ Boiler Upgrade Scheme prices and the Electrification of Heat trial.** Energy prices come from the Ofgem price cap and insulation costs from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-end-terrace": {
+  "sections": [
+   {
+    "h2": "What an end terrace heat pump really costs",
+    "answer": "**About £12,600 installed for a typical 3-bed end terrace, or £5,100 after the £7,500 grant.** Insulation moves the median from £12,200 well insulated to £13,000 with a bare solid gable."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**About £5,100 after the £7,500 grant, from a £12,600 median job.** The middle half pay £3,500 to £8,000; radiators, cylinder and pipework decide where you land, not the heat pump."
+   },
+   {
+    "h2": "End terrace versus mid terrace versus semi",
+    "answer": "**Almost exactly midway between a mid terrace and a semi.** It uses 9,270 kWh against 8,820 kWh and 9,900 kWh, and costs £660 a year on a heat pump tariff against £628 and £705."
+   },
+   {
+    "h2": "The gable wall, and what it actually costs",
+    "answer": "**About £40 a year on gas in the typical case, which is not much.** Its construction sets the range: going from poorly to well insulated saves £287 a year on a heat pump tariff and £800 off the installation."
+   },
+   {
+    "h2": "What size heat pump for a 3-bed end terrace",
+    "answer": "**About 8.5 kW for a typical 3-bed end terrace, 7 kW well insulated and 9.5 kW with a bare solid gable.** Check the U-value the installer's heat loss calculation gives the gable."
+   },
+   {
+    "h2": "Which heat pumps suit an end terrace",
+    "answer": "**Any of the main 7 to 9 kW units can do it; the design decides the result, not the badge.** Ask for a flow temperature of 50°C or lower, expected performance in writing and an MCS 020(a) sound calculation."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**Several radiators usually need upsizing, starting with the rooms against the gable, and that work is part of the installed price.** A surviving airing cupboard usually takes the cylinder; check for microbore at the survey."
+   },
+   {
+    "h2": "Running costs: 3-bed end terrace",
+    "answer": "**£660 a year on a heat pump tariff, £161 less than gas, but £878 on standard electricity.** On a standard tariff the heat pump costs £57 a year more than the gas boiler."
+   },
+   {
+    "h2": "Insulation changes the answer more than size does",
+    "answer": "**A worse insulated end terrace saves less, not more.** On a heat pump tariff the saving against gas falls from £186 well insulated to £161 typical and £112 poorly insulated."
+   },
+   {
+    "h2": "The Boiler Upgrade Scheme for an end terrace",
+    "answer": "**The grant is £7,500, or £9,000 for oil or LPG homes with no mains gas until March 2027.** The installer takes it off the quote, and a well-insulated end terrace then pays £4,700."
+   },
+   {
+    "h2": "Is a heat pump worth it for an end terrace",
+    "answer": "**Only on a heat pump tariff.** A typical end terrace pays £5,100 after the grant, about £1,600 more than a new boiler, which £161 a year pays back in about 10 years."
+   },
+   {
+    "h2": "Placement, the side wall and one neighbour",
+    "answer": "**Easier than a mid terrace: one attached neighbour, and a gable facing none of their windows.** A unit near the gable usually passes the 37 dB MCS 020(a) test without an acoustic enclosure."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the headline price.** Each should state the gable's wall construction and U-value, the flow temperature, a radiator schedule and a sound calculation."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**DESNZ NEED 2026 data for heat demand, DESNZ Boiler Upgrade Scheme statistics for prices and the Electrification of Heat trial for efficiency.** Energy prices come from the Ofgem price cap."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-2-bed-bungalow": {
+  "sections": [
+   {
+    "h2": "Two beds or three: which guide you need",
+    "answer": "**Use this page for a bungalow of roughly 70 square metres; larger ones fit the main bungalow guide.** The 2-bed median job is about £700 cheaper and £147 a year cheaper to run on a heat pump tariff."
+   },
+   {
+    "h2": "What a 2-bed bungalow heat pump really costs",
+    "answer": "**£10,500 to £15,000 for a typical 2-bed bungalow, or £3,000 to £7,500 after the £7,500 grant.** Insulation barely moves the price: only £600 separates the best and worst insulated medians."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**The typical job is £10,500 to £15,000, median £12,300, and £3,000 to £7,500 after the grant.** Oil or LPG homes pay £1,500 to £6,000; radiator upgrades and microbore can add to it."
+   },
+   {
+    "h2": "How a 2-bed bungalow compares",
+    "answer": "**It costs more to heat than any other two bedroom home except a detached house.** A 2-bed bungalow uses 31% more heat than a 2-bed mid terrace and 23% more than a 2-bed semi."
+   },
+   {
+    "h2": "Why one storey costs more to heat",
+    "answer": "**Spreading out doubles the roof and floor.** A 2-bed bungalow has about 222 square metres of heat losing envelope against about 185 for a two storey house, so the loft and floor matter as much as the walls."
+   },
+   {
+    "h2": "What size heat pump for a 2-bed bungalow",
+    "answer": "**About 7.5 kW for a typical 2-bed bungalow, 6.5 kW well insulated and 8.5 kW poorly insulated.** Top up the loft, about £600, before the survey so the installer sizes to the improved house."
+   },
+   {
+    "h2": "Loft insulation is the biggest lever here",
+    "answer": "**The loft is about a third of the heat losing envelope, and cheap to fix.** Going from average to well insulated saves £133 a year on a heat pump tariff, with the loft the cheapest part."
+   },
+   {
+    "h2": "The floor is the second largest surface",
+    "answer": "**The ground floor is the second largest heat losing surface and rarely gets insulated.** A suspended timber floor with a crawl space is the easy case; a solid concrete floor is rarely worth doing alone."
+   },
+   {
+    "h2": "Which heat pumps suit a 2-bed bungalow",
+    "answer": "**Any of the main 6 to 9 kW units can do it; the design decides the result.** Ask for a flow temperature of 50°C or lower, expected performance in writing and an MCS 020(a) sound calculation."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework",
+    "answer": "**Usually 2 to 3 of the 5 to 7 radiators need upsizing, and short single floor pipe runs keep the job simple.** The cylinder needs a cupboard of at least 80cm by 80cm, not the loft."
+   },
+   {
+    "h2": "Running costs: 2-bed bungalow",
+    "answer": "**£590 a year on a heat pump tariff against £733 on gas, but £784 on standard electricity.** Off the gas grid it saves £511 a year against oil on a heat pump tariff."
+   },
+   {
+    "h2": "Grants, and the off-gas case",
+    "answer": "**£7,500 from the Boiler Upgrade Scheme, or £9,000 for oil or LPG homes with no mains gas until 31 March 2027.** That brings the whole job to £1,500 to £6,000 off the gas grid."
+   },
+   {
+    "h2": "Is a heat pump worth it for a 2-bed bungalow",
+    "answer": "**On mains gas the case is thin; off the gas grid it is strong.** On gas, payback at £143 a year runs from immediate to about 30 years, while against oil the saving is £511 a year."
+   },
+   {
+    "h2": "Placement, noise and controls",
+    "answer": "**The unit must pass the MCS 020(a) test of 37 dB at a neighbour's nearest window, which is harder on an attached bungalow.** Keep controls simple: one thermostat, weather compensation and a steady low flow temperature."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the price.** Check the loft depth assumed, the unit size against the heat loss, the radiator schedule, the cylinder cupboard and, off gas, the £9,000 grant rate."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**DESNZ Boiler Upgrade Scheme statistics for prices, our heat model built on DESNZ NEED 2026 and the Electrification of Heat trial for efficiency.** Energy prices come from Ofgem and oil prices from BoilerJuice."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-cost-bungalow": {
+  "sections": [
+   {
+    "h2": "What a bungalow heat pump really costs",
+    "answer": "**About £12,300 to £13,000 installed for a typical 2 or 3 bed bungalow, or £4,800 to £5,500 after the £7,500 grant.** Oil or LPG bungalows with no mains gas take a further £1,500 off."
+   },
+   {
+    "h2": "Complete cost breakdown",
+    "answer": "**A 3 bed bungalow pays about £5,500 after the £7,500 grant, from a £13,000 median.** With the £9,000 oil or LPG grant it is £4,000; ask what each quote excludes, such as oil tank removal."
+   },
+   {
+    "h2": "Bungalow versus semi versus detached",
+    "answer": "**A 3-bed bungalow sits next to a 3-bed detached house, not a smaller one.** It needs 9.5 kW and costs £13,000 installed, because its roof and floor are each as large as its floor area."
+   },
+   {
+    "h2": "What size heat pump for a bungalow",
+    "answer": "**About 7.5 kW for a 2 bed bungalow and 9.5 kW for a 3 bed.** Top up the loft, about £600, before the survey, though on its own it rarely changes the heat pump size."
+   },
+   {
+    "h2": "Which heat pumps suit a bungalow",
+    "answer": "**Any of the main 7 to 10 kW units can do it; the design decides the result.** Ask for a flow temperature of 50°C or lower, expected performance in writing and an MCS 020(a) sound calculation."
+   },
+   {
+    "h2": "Radiators, cylinder and pipework on one floor",
+    "answer": "**A few radiators usually need upsizing, and short single floor pipe runs make the job quicker.** With no landing, the cylinder needs a cupboard of at least 80 cm by 80 cm, not the loft."
+   },
+   {
+    "h2": "Running costs: bungalow",
+    "answer": "**£737 a year on a heat pump tariff, £180 less than gas and £639 less than oil.** On standard electricity it costs £980, which is £63 more than gas."
+   },
+   {
+    "h2": "Oil, LPG and the £9,000 grant",
+    "answer": "**Oil or LPG bungalows with no mains gas get £9,000 until March 2027.** That takes a typical 3 bed bungalow from £13,000 to £4,000, and low income households may get the work free through the council."
+   },
+   {
+    "h2": "Is a heat pump worth it for a bungalow",
+    "answer": "**On gas only with a heat pump tariff; on oil, clearly yes.** On gas £180 a year pays back the extra £2,000 in about 11 years; on oil £4,000 at £639 a year pays back in about six."
+   },
+   {
+    "h2": "Placement, noise and simple controls",
+    "answer": "**Site the unit away from the party wall, because bungalow windows sit at unit height.** It must pass the 37 dB MCS 020(a) test; ask for quiet mode at night and a single zone set to 20°C."
+   },
+   {
+    "h2": "Getting quotes: what to check",
+    "answer": "**Get three MCS quotes and compare the design, not the price.** In a bungalow check the loft depth assumed, the radiator schedule, where the cylinder goes and, for oil or LPG, the £9,000 grant rate."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**DESNZ Boiler Upgrade Scheme statistics for prices, our heating model built on DESNZ NEED data and the Electrification of Heat trial for efficiency.** Energy prices come from Ofgem and oil prices from BoilerJuice."
+   }
+  ],
+  "faq": true
  }
 }

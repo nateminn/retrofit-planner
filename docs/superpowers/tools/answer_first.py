@@ -16,14 +16,15 @@ docs/answer-first.json maps a page to:
    "jump":     [["Label", "exact heading text or #id"], ...]}   # optional row of question buttons
 Every £, p, % and kW figure in an answer must appear in the section it summarises.
 
-Runs once per page: a page already carrying data-af is skipped. Undo with git.
-Usage: python3 docs/superpowers/tools/answer_first.py [--apply]
+Runs once per page: a page already carrying this tool's answers or FAQ list is skipped. Undo with git.
+Usage: python3 docs/superpowers/tools/answer_first.py [--apply] [--data other.json]
+       --data checks another file's entries against the pages without writing anything.
 """
 import html, json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 APPLY = '--apply' in sys.argv
-FIG_RE = re.compile(r'£[\d,]+(?:\.\d+)?|\b\d[\d,]*(?:\.\d+)?(?:p\b|%| kW\b)')
+FIG_RE = re.compile(r'£\d{1,3}(?:,\d{3})*(?:\.\d+)?|\b\d[\d,]*(?:\.\d+)?(?:p\b|%| kW\b)')
 
 
 def visible(s):
@@ -50,11 +51,16 @@ def slug(t):
     return re.sub(r'[^a-z0-9]+', '-', html.unescape(t).lower()).strip('-')[:48].rstrip('-')
 
 
+def applied(s):
+    # notes_fold.py also marks its toggles data-af, so look for this tool's own output
+    return '<p class="answer" data-af>' in s or 'class="faq-item" data-af' in s
+
+
 def process(page, spec):
     f = ROOT / page / 'index.html'
     s = f.read_text()
     problems = []
-    if 'data-af' in s:
+    if applied(s):
         return s, ['%s: already answer-first, skipped' % page]
     a = s.index('<main')
     end = s.index('<footer', a)
@@ -74,6 +80,11 @@ def process(page, spec):
             if k != -1:
                 stop = k
         body = s[h_end:stop]
+        words = len(re.sub(r'\*\*', '', sec['answer']).split())
+        if words > 45:
+            problems.append('%s, "%s": answer is %d words, keep it under 45' % (page, sec['h2'], words))
+        if re.search('[\u2013\u2014&]', sec['answer']):
+            problems.append('%s, "%s": no dashes or ampersands in copy' % (page, sec['h2']))
         for fig in FIG_RE.findall(sec['answer'].replace('**', '')):
             if fig not in visible(body):
                 problems.append('%s, "%s": %s is in the answer but not in the section' % (page, sec['h2'], fig))
@@ -141,14 +152,23 @@ def process(page, spec):
 
 
 def main():
-    data = json.loads((ROOT / 'docs' / 'answer-first.json').read_text())
+    src = pathlib.Path(sys.argv[sys.argv.index('--data') + 1]) if '--data' in sys.argv else ROOT / 'docs' / 'answer-first.json'
+    data = json.loads(src.read_text())
+    if src != ROOT / 'docs' / 'answer-first.json' and APPLY:
+        print('--data checks a file without writing; merge it into docs/answer-first.json to apply')
+        return 1
     bad = []
     for page, spec in data.items():
         new, problems = process(page, spec)
         real = [p for p in problems if 'already answer-first' not in p]
+        # A dry run over docs/answer-first.json is the gate: every listed page must carry the layout.
+        if not APPLY and '--data' not in sys.argv and not applied((ROOT / page / 'index.html').read_text()):
+            real.append('%s: listed but not answer-first yet (run with --apply)' % page)
+            print('  ' + real[-1])
         bad += real
         for p in problems:
-            print('  ' + p)
+            if 'already answer-first' not in p:
+                print('  ' + p)
         if APPLY and not real and new != (ROOT / page / 'index.html').read_text():
             (ROOT / page / 'index.html').write_text(new)
             print('  applied to ' + page)
