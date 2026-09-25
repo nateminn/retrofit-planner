@@ -175,7 +175,7 @@ y = bullet(c, 'No AI, by choice, not anti AI',
            M, y, W - 2 * M)
 y = bullet(c, 'It withholds the sale',
            'The boiler tool hides both the quote prompt and the quote form when a new boiler is cheaper '
-           'over 15 years even on a heat pump tariff: at a £900 gas bill, 35 of its 120 input '
+           'over 15 years even on a heat pump tariff: at a £900 gas bill, 37 of its 120 input '
            'combinations. At a typical £860 bill the solar tool tells all 420 battery combinations to '
            'price the battery separately, and shows a 25 year loss in 213.', M, y, W - 2 * M)
 c.showPage()

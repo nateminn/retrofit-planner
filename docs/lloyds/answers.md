@@ -48,7 +48,7 @@ Every heat demand and heat pump figure traces to one model. Before anything publ
 
 Kamma Climate and Cotality already model retrofit for individual homes and sell it to lenders, and Kamma offers lenders a white label, ROI first tool for their borrowers. I am not claiming nobody else can do this. The difference is the method: mine is published in full and built mainly on measured data, so anyone can check a figure before acting on it.
 
-It also withholds the sale. The boiler comparison hides the heat pump quote prompt and form wherever a new boiler stays cheaper over 15 years even on a heat pump tariff: 35 of its 120 combinations at a £900 gas bill.
+It also withholds the sale. The boiler comparison hides the heat pump quote prompt and form wherever a new boiler stays cheaper over 15 years even on a heat pump tariff: 37 of its 120 combinations at a £900 gas bill.
 
 ## Who is your target audience?
 
