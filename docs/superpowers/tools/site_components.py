@@ -93,7 +93,7 @@ HEAT_PUMP = ['heat-pump-calculator', 'boiler-vs-heat-pump', 'heat-pump-running-c
     'heat-pump-cost-2-bed-bungalow', 'heat-pump-cost-bungalow', 'heat-pump-old-house',
     'what-size-heat-pump', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi',
     'boiler-upgrade-scheme-guide']]
-SOLAR = ['solar-calculator']
+SOLAR = ['solar-calculator'] + ['guides/' + g for g in ['solar-panel-payback-by-region', 'solar-panel-payback-south-england', 'solar-panel-payback-midlands', 'solar-panel-payback-north-england', 'solar-panel-payback-wales', 'solar-panel-payback-scotland']]
 INSULATION = ['insulation-calculator'] + ['guides/' + g for g in ['is-cavity-wall-insulation-worth-it', 'solid-wall-insulation-cost',
     'insulation-cost-by-house-type', 'insulation-cost-semi-detached-house', 'insulation-cost-detached-house',
     'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat']]

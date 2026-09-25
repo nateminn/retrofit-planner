@@ -2028,5 +2028,231 @@
     "Frequently asked questions"
    ]
   ]
+ },
+ "guides/solar-panel-payback-south-england": {
+  "points": [
+   "**10.7 years** to pay back a typical 4 kW south facing system in South and East England, earning about £559 a year",
+   "**About £7,168** left over 25 years after the £6,000 cost, or about £2,208 with a battery",
+   "**13.2 years** on an east or west roof, and **8.2 years** on a 17.5p export rate"
+  ],
+  "jumps": [
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Roof",
+    "#roof"
+   ],
+   [
+    "Battery",
+    "#battery"
+   ],
+   [
+    "Export rate",
+    "#export"
+   ],
+   [
+    "By month",
+    "#months"
+   ],
+   [
+    "Other regions",
+    "#compare"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/solar-panel-payback-midlands": {
+  "points": [
+   "**11.5 years** to pay back a typical 4 kW south facing system in the Midlands, earning about £523 a year",
+   "**About £6,320** left over 25 years after the £6,000 cost, or about £1,289 with a battery",
+   "**13.9 years** on an east or west roof, and **8.8 years** on a 17.5p export rate"
+  ],
+  "jumps": [
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Roof",
+    "#roof"
+   ],
+   [
+    "Battery",
+    "#battery"
+   ],
+   [
+    "Export rate",
+    "#export"
+   ],
+   [
+    "By month",
+    "#months"
+   ],
+   [
+    "Other regions",
+    "#compare"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/solar-panel-payback-north-england": {
+  "points": [
+   "**12.1 years** to pay back a typical 4 kW south facing system in northern England, earning about £494 a year",
+   "**About £5,637** left over 25 years after the £6,000 cost, or about £347 with a battery",
+   "**14.5 years** on an east or west roof, and **9.4 years** on a 17.5p export rate"
+  ],
+  "jumps": [
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Roof",
+    "#roof"
+   ],
+   [
+    "Battery",
+    "#battery"
+   ],
+   [
+    "Export rate",
+    "#export"
+   ],
+   [
+    "By month",
+    "#months"
+   ],
+   [
+    "Other regions",
+    "#compare"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/solar-panel-payback-wales": {
+  "points": [
+   "**11.6 years** to pay back a typical 4 kW south facing system in Wales, earning about £517 a year",
+   "**About £6,178** left over 25 years after the £6,000 cost, or about £1,101 with a battery",
+   "**14.1 years** on an east or west roof, and **9 years** on a 17.5p export rate"
+  ],
+  "jumps": [
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Roof",
+    "#roof"
+   ],
+   [
+    "Battery",
+    "#battery"
+   ],
+   [
+    "Export rate",
+    "#export"
+   ],
+   [
+    "By month",
+    "#months"
+   ],
+   [
+    "Other regions",
+    "#compare"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/solar-panel-payback-scotland": {
+  "points": [
+   "**12.3 years** to pay back a typical 4 kW south facing system in Scotland, earning about £486 a year",
+   "**About £5,448** left over 25 years after the £6,000 cost, or about £394 with a battery",
+   "**14.9 years** on an east or west roof, and **9.6 years** on a 17.5p export rate"
+  ],
+  "jumps": [
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Roof",
+    "#roof"
+   ],
+   [
+    "Battery",
+    "#battery"
+   ],
+   [
+    "Export rate",
+    "#export"
+   ],
+   [
+    "By month",
+    "#months"
+   ],
+   [
+    "Other regions",
+    "#compare"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/solar-panel-payback-by-region": {
+  "points": [
+   "**10.7 years** to pay back a 4 kW system in South and East England, and **12.3 years** in Scotland",
+   "**£486 to £559** a year in bill savings and export payments across Great Britain",
+   "Roof direction and the export tariff matter **more than the region**"
+  ],
+  "jumps": [
+   [
+    "Compare",
+    "#compare"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
  }
 }

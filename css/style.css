@@ -1107,3 +1107,23 @@ details.faq-item>p{margin:0 0 14px}
 .rule-body .tblwrap{margin:12px 0 4px}
 .rule-note{font-size:.85rem;color:var(--color-text-secondary);margin:8px 0 0}
 .cmp-table tr.over-cap th,.cmp-table tr.over-cap td{color:var(--color-text-tertiary)}
+
+/* ===== REGION MAP (ONS ITL1 boundaries, inline SVG) ===== */
+.region-fig{margin:20px 0}
+.region-map{display:block;width:100%;height:auto;max-width:360px}
+.region-map path{stroke:#fff;stroke-width:1;stroke-linejoin:round;transition:filter .15s}
+.region-map .rm-none{fill:#e4e2dc}
+.region-map a:hover path,.region-map a:focus path{filter:brightness(1.12);stroke:var(--color-text);stroke-width:1.5}
+.region-map a:focus{outline:none}
+.region-map a:focus-visible path{stroke:var(--color-accent);stroke-width:3}
+.region-map .rm-on{stroke:var(--color-text);stroke-width:1.5}
+.region-intro{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:start}
+.region-intro .region-fig{margin:0}
+.guide-content .region-fig figcaption{font-size:.78rem;color:var(--color-text-tertiary);line-height:1.4}
+.region-picker{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:28px;align-items:start;margin:20px 0 8px}
+.region-picker .region-fig{float:none;width:auto;margin:0}
+.region-panel{background:var(--color-surface-alt);border-radius:var(--radius-sm);padding:18px 20px;position:sticky;top:96px}
+.region-panel h3{margin:0 0 6px;font-family:var(--font-display)}
+.region-panel p{margin:6px 0}
+.rp-hint{color:var(--color-text-secondary);font-size:.9rem}
+@media (max-width:700px){.region-intro{grid-template-columns:1fr}.region-intro .region-fig{width:160px;margin:0 auto}.region-picker{grid-template-columns:1fr}.region-picker .region-map{max-width:300px;margin:0 auto}.region-panel{position:static}}

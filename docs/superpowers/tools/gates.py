@@ -146,6 +146,7 @@ _here = os.path.dirname(os.path.abspath(__file__))
 for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.join(_here, 'epc_parity.js')]),
                      ('heat pump widget matches the heat pump calculator', [sys.executable, os.path.join(_here, 'hp_parity.py')]),
                      ('solar pages quote what the solar calculator gives', [sys.executable, os.path.join(_here, 'solar_check.py')]),
+                     ('solar region pages match the solar calculator', [sys.executable, os.path.join(_here, 'solar_regions.py'), '--check']),
                      ('every bill and running cost figure matches js/bills.js and js/running-cost.js', ['node', os.path.join(_here, 'bills_check.js')]),
                      # a regenerated page loses its short answer box, and a changed figure can leave
                      # the box quoting a number the page no longer says; tldr.py catches both

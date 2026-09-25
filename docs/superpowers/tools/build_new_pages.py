@@ -434,12 +434,183 @@ def ins_flat():
                     'The Trust prices no loft for a flat, so a top floor flat takes its mid-terrace loft figures. ')
 
 
+
+# ------------------------------------------------------------------ solar payback by region
+# Every figure is the solar calculator's own output, saved by solar_regions.py to
+# docs/solar-regions.json (a gate re-runs the calculator and fails if they drift). The map is
+# the ONS ITL1 boundaries, simplified in docs/maps/itl1-2025.json (Open Government Licence).
+SOLAR_R = json.loads((ROOT / 'docs' / 'solar-regions.json').read_text())
+MAP = json.loads((ROOT / 'docs' / 'maps' / 'itl1-2025.json').read_text())
+REGION = {
+    'south': dict(slug='solar-panel-payback-south-england', name='South and East England', short='southern England', kwp=950,
+                  itl=['London', 'South East (England)', 'South West (England)', 'East (England)'],
+                  areas='London, the South East, the South West and the East of England', cities=[('London', 987), ('Bristol', 992)],
+                  title='Solar Panel Payback, South and East England: %s'),
+    'midlands': dict(slug='solar-panel-payback-midlands', name='the Midlands', short='the Midlands', kwp=880,
+                     itl=['East Midlands (England)', 'West Midlands (England)'], areas='the East and West Midlands', cities=[('Birmingham', 940)],
+                     title='Solar Panel Payback in the Midlands 2026: %s'),
+    'north': dict(slug='solar-panel-payback-north-england', name='North England', short='northern England', kwp=830,
+                  itl=['North East (England)', 'North West (England)', 'Yorkshire and The Humber'],
+                  areas='the North East, the North West and Yorkshire and the Humber', cities=[('Manchester', 861), ('Newcastle upon Tyne', 921)],
+                  title='Solar Panel Payback in Northern England 2026: %s'),
+    'wales': dict(slug='solar-panel-payback-wales', name='Wales', short='Wales', kwp=870, itl=['Wales'], areas='all of Wales', cities=[('Cardiff', 1009)],
+                  title='Solar Panel Payback in Wales 2026: %s'),
+    'scotland': dict(slug='solar-panel-payback-scotland', name='Scotland', short='Scotland', kwp=810, itl=['Scotland'], areas='all of Scotland',
+                     cities=[('Edinburgh', 878)], title='Solar Panel Payback in Scotland 2026: %s'),
+}
+SIZE_COST = {'3': '£4,000 to £5,500', '4': '£5,000 to £7,000', '5': '£6,500 to £8,500', '6': '£8,500 to £10,000'}
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+ROOF_NAME = {'south-east': 'South-east', 'south-west': 'South-west', 'east': 'East', 'west': 'West', 'north': 'North'}
+
+
+def region_of(itl_name):
+    return next((k for k, v in REGION.items() if itl_name in v['itl']), None)
+
+
+def region_map(highlight=None, links=True):
+    """The UK by ITL1 region, each coloured by our payback. Regions link to their page."""
+    shades = {'south': '#2d6a4f', 'midlands': '#40916c', 'wales': '#52a37b', 'north': '#74b495', 'scotland': '#95c7ad'}
+    out = []
+    for itl, d in MAP['paths'].items():
+        r = region_of(itl)
+        if r is None:
+            out.append('<path d="%s" class="rm-none"><title>Northern Ireland: not covered</title></path>' % d)
+            continue
+        fill = shades[r] if (highlight is None or highlight == r) else '#d7e3dc'
+        cls = 'rm-r' + (' rm-on' if highlight == r else '')
+        path = '<path d="%s" fill="%s" class="%s" data-region="%s"><title>%s: %s</title></path>' % (d, fill, cls, r, REGION[r]['name'].capitalize() if r != 'midlands' else 'The Midlands', SOLAR_R[r]['sizes']['4']['payback'])
+        if links and highlight != r:
+            nm = REGION[r]['name'].capitalize() if r != 'midlands' else 'The Midlands'
+            path = '<a href="/guides/%s/" data-region="%s" aria-label="%s: solar payback %s">%s</a>' % (REGION[r]['slug'], r, nm, SOLAR_R[r]['sizes']['4']['payback'], path)
+        out.append(path)
+    # a map with links is a group of links, not an image: links inside role="img" are unreachable
+    role = 'group' if links else 'img'
+    return ('<svg class="region-map" viewBox="0 0 %d %d" role="%s" aria-label="Map of the UK by region, shaded by solar panel payback">%s</svg>'
+            % (MAP['w'], MAP['h'], role, ''.join(out)))
+
+
+def solar_region_page(key):
+    R, D = REGION[key], SOLAR_R[key]
+    s4 = D['sizes']['4']
+    size_rows = [['%s kW' % k, SIZE_COST[k], f"{int(v['gen']):,} kWh", gbp(v['benefit']), v['payback'], gbp(v['net25'])] for k, v in D['sizes'].items()]
+    tbl_size = table('Solar payback by system size in %s' % R['short'], ['System', 'Installed cost', 'Generation a year', 'Saving and export a year', 'Payback', '25 years, after costs'], size_rows)
+    roof_rows = [['South', f"{int(s4['gen']):,} kWh", gbp(s4['benefit']), s4['payback']]] + [[ROOF_NAME[k], f"{int(v['gen']):,} kWh", gbp(v['benefit']), v['payback']] for k, v in D['roofs'].items()]
+    tbl_roof = table('4 kW solar payback by roof direction in %s' % R['short'], ['Roof faces', 'Generation a year', 'Saving and export a year', 'Payback'], roof_rows)
+    b = s4['battery']
+    tbl_batt = table('4 kW solar with and without a battery in %s' % R['short'], ['Result', 'Panels only', 'With a 5 kWh battery'],
+                     [['Upfront cost', '£6,000', gbp(b['cost'])], ['Used at home', '%d%% of output' % s4['self_pct'], '%d%% of output' % b['self_pct']],
+                      ['Saving and export a year', gbp(s4['benefit']), gbp(b['benefit'])], ['Payback', s4['payback'], b['payback']],
+                      ['25 years, after costs', gbp(s4['net25']), ('Loses ' + gbp(-b['net25'])) if b['net25'] < 0 else gbp(b['net25'])]])
+    tbl_seg = table('4 kW solar payback by export tariff in %s' % R['short'], ['Export rate', 'Saving and export a year', 'Payback'],
+                    [['4.1p flat SEG rate', gbp(s4['seg']['4.1p'][0]), s4['seg']['4.1p'][1]], ['12p, Outgoing Octopus', gbp(s4['benefit']), s4['payback']],
+                     ['17.5p installer-linked rate', gbp(s4['seg']['17.5p'][0]), s4['seg']['17.5p'][1]]])
+    mo = s4['months']
+    tbl_month = table('Monthly output of a 4 kW system in %s' % R['short'], ['Month', 'kWh'], [[MONTHS[i], str(mo[i])] for i in range(12)])
+    ratio = max(mo) / mo[11]
+    others = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands') if k != key else '<strong>%s</strong>' % (REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands'),
+               f"{int(SOLAR_R[k]['sizes']['4']['gen']):,} kWh", gbp(SOLAR_R[k]['sizes']['4']['benefit']), SOLAR_R[k]['sizes']['4']['payback']] for k in REGION]
+    tbl_others = table('4 kW solar payback in each region', ['Region', 'Generation a year', 'Saving and export a year', 'Payback'], others)
+    city = ', '.join('%s %s' % (c, f'{v:,}') for c, v in R['cities'])
+    name_cap = R['name'][0].upper() + R['name'][1:]
+    faq = [('How long do solar panels take to pay back in %s?' % R['short'],
+            'About %s for a typical 4 kW south facing system costing £6,000, at the October 2026 price cap and a 12p export rate. It earns about %s a year and leaves about %s over 25 years.'
+            % (s4['payback'], gbp(s4['benefit']), gbp(s4['net25']))),
+           ('Are solar panels worth it in %s?' % R['short'],
+            'On a reasonable roof, yes: a 4 kW system pays for itself in about %s, well inside a 25 year panel life. An east or west roof takes about %s, and a battery stretches it to %s.'
+            % (s4['payback'], D['roofs']['east']['payback'], b['payback'])),
+           ('How much electricity does a 4 kW solar system make in %s?' % R['short'],
+            'About %s kWh a year on a south facing roof, using %s kWh per kW, a cautious regional figure below the PVGIS result for the sunniest spots (%s kWh per kW). %s makes about %s times as much as December.'
+            % (f"{int(s4['gen']):,}", R['kwp'], city, MONTHS[mo.index(max(mo))], ('%.1f' % ratio)))]
+    body = f"""
+<div class="region-intro"><p class="lead">A typical 4 kW solar system in {R['short']} costs about £6,000, generates about <strong>{int(s4['gen']):,} kWh</strong> a year and brings in about <strong>{gbp(s4['benefit'])} a year</strong> in bill savings and export payments, so it pays for itself in about <strong>{s4['payback']}</strong>. These are the solar calculator's figures for {R['areas']}.</p>
+<figure class="region-fig">{region_map(highlight=key)}<figcaption>{name_cap} is highlighted. <a href="/guides/solar-panel-payback-by-region/">Compare every region</a>.</figcaption></figure></div>
+
+<h2 id="by-size">Payback by system size</h2>
+<p class="answer"><strong>About {s4['payback']} for 4 kW.</strong> Bigger systems earn more over 25 years but pay back a little more slowly, because more of their output is exported at 12p rather than used at 26.32p.</p>
+{tbl_size}
+<p class="note">South facing roof at a typical pitch, a household using 2,500 kWh a year (a bill of about £860) that is out for about half the day, no battery, 12p export on Outgoing Octopus. Payback uses the middle of each cost range; 0% VAT until 31 March 2027. The 25 year figure allows for the panels losing 0.5% of their output a year.</p>
+
+<h2 id="roof">Roof direction</h2>
+<p class="answer"><strong>South is best, but east or west still pays back in about {D['roofs']['east']['payback']}.</strong> A north facing roof makes much less and takes about {D['roofs']['north']['payback']}.</p>
+{tbl_roof}
+
+<h2 id="battery">With a battery</h2>
+<p class="answer"><strong>A battery slows payback to {b['payback']} here.</strong> It adds about {gbp(b['benefit'] - s4['benefit'])} a year for £4,600, and a battery lasts 10 to 12 years, so it is bought twice over the life of the panels.</p>
+{tbl_batt}
+
+<h2 id="export">Export tariff</h2>
+<p class="answer"><strong>The export rate moves payback more than where you live.</strong> The same system pays back in {s4['seg']['17.5p'][1]} at 17.5p and {s4['seg']['4.1p'][1]} at 4.1p.</p>
+{tbl_seg}
+
+<h2 id="months">Month by month</h2>
+<p class="answer"><strong>{MONTHS[mo.index(max(mo))]} makes about {ratio:.1f} times as much as December.</strong> April to September carries most of the year's output, so no home battery covers a {R['short'] if key != 'south' else 'southern'} winter.</p>
+{tbl_month}
+
+<h2 id="compare">Compared with other regions</h2>
+<p class="answer"><strong>The whole of Great Britain pays back within about two years of each other.</strong> Roof direction and the export tariff matter more than the region.</p>
+{tbl_others}
+<p>Work out your own roof, system size and battery in the <a href="/solar-calculator/">solar panel calculator</a>, or read <a href="/guides/solar-panel-payback-uk/">solar panel payback in the UK</a>.</p>
+"""
+    return dict(slug=R['slug'], kind='solar', title=R['title'] % s4['payback'].replace('years', 'Years'),
+                description=('A 4 kW solar system in %s costs about £6,000, earns about %s a year and pays back in about %s. By size, roof and battery.'
+                             % (R['short'], gbp(s4['benefit']), s4['payback'])),
+                h1='Solar panel payback in %s' % R['short'], crumb='Solar payback, %s' % R['short'], faq=faq, body=body,
+                sources=['European Commission Joint Research Centre, <a href="https://re.jrc.ec.europa.eu/pvg_tools/en/" target="_blank" rel="noopener">PVGIS 5.3</a>: generation by region and month, queried September 2026.',
+                         'MCS, <a href="https://mcscertified.com/" target="_blank" rel="noopener">MGD 003 Solar PV Self-Consumption</a>: the share of output used at home.',
+                         'Ofgem price cap October to December 2026; export rates from the suppliers, 25 September 2026; costs checked against DESNZ solar PV cost data, May 2026.',
+                         'Map: Office for National Statistics, ITL1 boundaries January 2025, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
+def solar_hub():
+    rows = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands'),
+             f"{int(SOLAR_R[k]['sizes']['4']['gen']):,} kWh", gbp(SOLAR_R[k]['sizes']['4']['benefit']), SOLAR_R[k]['sizes']['4']['payback'], gbp(SOLAR_R[k]['sizes']['4']['net25'])] for k in REGION]
+    tbl = table('4 kW solar payback by region', ['Region', 'Generation a year', 'Saving and export a year', 'Payback', '25 years, after costs'], rows)
+    lo, hi = SOLAR_R['south']['sizes']['4']['payback'], SOLAR_R['scotland']['sizes']['4']['payback']
+    faq = [('Where in the UK do solar panels pay back fastest?',
+            'In South and East England, about %s for a typical 4 kW south facing system, against about %s in Scotland. Wales and the Midlands sit in between. Northern Ireland is not covered, as it has its own electricity prices and export payments.' % (lo, hi)),
+           ('Is solar worth it in the north of the UK?',
+            'Yes on a reasonable roof: a 4 kW system pays back in about %s in northern England and %s in Scotland, well inside a 25 year panel life. Long summer days in the north partly make up for darker winters.' % (SOLAR_R['north']['sizes']['4']['payback'], hi))]
+    body = f"""
+<p class="lead">A typical 4 kW solar system pays for itself in about <strong>{lo}</strong> in South and East England and about <strong>{hi}</strong> in Scotland. Choose your region on the map for its full figures.</p>
+<div class="region-picker">
+<figure class="region-fig">{region_map()}<figcaption>Darker green pays back faster. Northern Ireland is not covered. Tap or select a region to open its page.</figcaption></figure>
+<div class="region-panel" id="regionPanel" aria-live="polite"><p class="rp-hint">Hover over or select a region to see its figures.</p></div>
+</div>
+
+<h2 id="compare">Payback by region</h2>
+<p class="answer"><strong>About two years separate the sunniest and the dullest regions.</strong> The export tariff and roof direction matter more than where you live.</p>
+{tbl}
+<p class="note">The solar calculator's figures for a 4 kW south facing system costing £6,000, a household using 2,500 kWh a year that is out for about half the day, no battery, and 12p export on Outgoing Octopus. Each region uses a cautious generation figure below the PVGIS result for its sunniest city.</p>
+<p>Work out your own roof in the <a href="/solar-calculator/">solar panel calculator</a>, or read <a href="/guides/solar-panel-payback-uk/">solar panel payback in the UK</a>.</p>
+<script>
+(function () {{
+    var D = {json.dumps({k: {'name': (REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands'), 'url': '/guides/%s/' % REGION[k]['slug'], 'gen': int(SOLAR_R[k]['sizes']['4']['gen']), 'benefit': int(SOLAR_R[k]['sizes']['4']['benefit']), 'payback': SOLAR_R[k]['sizes']['4']['payback']} for k in REGION})};
+    var panel = document.getElementById('regionPanel');
+    function show(k) {{
+        var d = D[k]; if (!d) {{ return; }}
+        panel.innerHTML = '<h3>' + d.name + '</h3><p><strong>' + d.payback + '</strong> to pay back a 4 kW system, earning about £' + d.benefit.toLocaleString('en-GB') + ' a year from ' + d.gen.toLocaleString('en-GB') + ' kWh.</p><p><a href="' + d.url + '">Full figures for ' + d.name.replace(/^The /, 'the ') + '</a></p>';
+    }}
+    document.querySelectorAll('.region-map a[data-region]').forEach(function (a) {{
+        a.addEventListener('mouseenter', function () {{ show(a.getAttribute('data-region')); }});
+        a.addEventListener('focus', function () {{ show(a.getAttribute('data-region')); }});
+    }});
+}})();
+</script>
+"""
+    return dict(slug='solar-panel-payback-by-region', kind='solar', title='Solar Panel Payback by Region UK 2026: %s to %s' % (lo.replace(' years', ''), hi.replace('years', 'Years')),
+                description='How long solar panels take to pay back in each part of Great Britain, from %s in the south to %s in Scotland, with a map of every region.' % (lo, hi),
+                h1='Solar panel payback by region', crumb='Solar payback by region', faq=faq, body=body,
+                sources=['Our <a href="/solar-calculator/">solar panel calculator</a>, using PVGIS 5.3, MCS MGD 003, the Ofgem price cap for October to December 2026 and supplier export rates of 25 September 2026.',
+                         'Map: Office for National Statistics, ITL1 boundaries January 2025, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
          'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
          'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
          'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
-         'insulation-cost-by-house-type': ins_hub}
+         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub,
+         **{REGION[k]['slug']: (lambda k=k: solar_region_page(k)) for k in REGION}}
 
 
 def render(p):

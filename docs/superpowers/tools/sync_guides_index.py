@@ -30,6 +30,12 @@ NEW = {
     'insulation-cost-terraced-house': ('insulation', 'Insulation Cost for a Terraced House', 'is-loft-insulation-worth-it', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge landlord">For landlords</span><span class="gi-badge new">New</span>'),
     'insulation-cost-bungalow': ('insulation', 'Insulation Cost for a Bungalow', 'underfloor-insulation-cost', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'insulation-cost-flat': ('insulation', 'Insulation Cost for a Flat', 'how-long-loft-insulation-lasts', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-panel-payback-by-region': ('solar', 'Solar Panel Payback by Region', 'solar-panel-payback-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-panel-payback-south-england': ('solar', 'Solar Payback in South and East England', 'are-solar-panels-worth-it-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-panel-payback-midlands': ('solar', 'Solar Payback in the Midlands', 'solar-panel-payback-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-panel-payback-north-england': ('solar', 'Solar Payback in Northern England', 'are-solar-panels-worth-it-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-panel-payback-wales': ('solar', 'Solar Payback in Wales', 'solar-panel-payback-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-panel-payback-scotland': ('solar', 'Solar Payback in Scotland', 'are-solar-panels-worth-it-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
 }
 ARROW = '<div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>'
 
