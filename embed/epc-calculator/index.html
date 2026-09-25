@@ -117,15 +117,15 @@ var EST={base:20,
  heating:{'old-gas':6,'new-gas':14,oil:8,lpg:7,electric:-2,'heat-pump':18},
  solar:{no:0,yes:8},
  lighting:{old:0,mixed:1,led:3}};
-// Typical cost in pounds: insulation from the Energy Saving Trust (2026), heat pump from
+// Typical cost in pounds: insulation and windows from the Energy Saving Trust (2026), heat pump from
 // Boiler Upgrade Scheme medians by type of home, the rest typical installed prices.
 var MEASURES=[
  {id:'loft',name:'Loft insulation to 270mm',points:7,cost:750,requires:'loft-none'},
  {id:'cavity',name:'Cavity wall insulation',points:8,cost:2700,requires:'wall-cavity-no'},
  {id:'led',name:'LED lighting throughout',points:3,cost:200,requires:null},
  {id:'controls',name:'Smart heating controls',points:3,cost:275,requires:null},
- {id:'glazing',name:'Double glazing',points:6,cost:5000,requires:'glazing-single'},
- {id:'glazing-partial',name:'Replace remaining single glazing',points:3,cost:2500,requires:'glazing-partial'},
+ {id:'glazing',name:'Double glazing',points:6,cost:4800,requires:'glazing-single'},
+ {id:'glazing-partial',name:'Replace remaining single glazing',points:3,cost:2400,requires:'glazing-partial'},
  {id:'boiler',group:'heating',name:'New condensing gas boiler',points:8,cost:2500,requires:'heating-old-gas'},
  {id:'heatpump',group:'heating',name:'Air source heat pump',points:12,cost:12700,requires:'heating-notHP',grantValue:7500},
  {id:'solar',name:'Solar PV panels (4kW)',points:8,cost:6000,requires:'solar-no'},

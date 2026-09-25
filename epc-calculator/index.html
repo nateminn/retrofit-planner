@@ -293,7 +293,7 @@
 
             <h3>EPC rating calculation: turning points into a band</h3>
             <p>The model returns a single score between 1 and 100, where 1 is extremely poor efficiency and 100 represents a home with no net annual energy cost. That score is then placed in one of seven bands, shown in the chart above. The bands are not equal widths, so a single point is worth more at some thresholds than others. Going from 68 to 69 lifts you out of D and into C. Going from 60 to 68 is eight points of work that leaves you in band D throughout.</p>
-            <p>That is why this calculator ranks upgrades by cost per point rather than by headline saving. If you sit two points below a band boundary, £100 to £300 of LED lighting can move your band, while £3,000 to £7,000 of new glazing spent mid-band may not. For how each element is weighted, read <a href="/guides/how-epc-points-are-calculated/">how EPC points are calculated</a>.</p>
+            <p>That is why this calculator ranks upgrades by cost per point rather than by headline saving. If you sit two points below a band boundary, £100 to £300 of LED lighting can move your band, while about £4,800 of new windows spent mid-band may not. For how each element is weighted, read <a href="/guides/how-epc-points-are-calculated/">how EPC points are calculated</a>.</p>
 
             <h3>Where most homes land</h3>
             <p>In 2024 the average SAP rating for English dwellings was 68 points, up from 45 points in 1996. Band C is now the most common rating, covering 49% of owner occupied homes, 48% of privately rented homes and 69% of social rented homes. Across the whole stock, 56% of dwellings sit in bands A to C, 35% in band D and 9% in bands E to G. Age remains the strongest single predictor: 27% of homes built before 1919 reach bands A to C, against 55% to 94% of homes built after 1944.</p>
@@ -303,16 +303,16 @@
             <p>The most cost-effective improvements depend on what your property already has. A home with under 100mm in the loft should usually start there: it costs about £750 and adds about 7 points in our model. A home that already has good insulation but an old gas boiler gains about 8 points from a new condensing boiler and about 12 from a <a href="/heat-pump-calculator/">heat pump</a>.</p>
 
             <h2>EPC improvements ranked by cost-effectiveness</h2>
-            <p>Here are the typical improvements, cheapest per point first, with the points this calculator gives each one. Insulation costs are Energy Saving Trust 2026 figures, heat pump costs are Boiler Upgrade Scheme medians, and the rest are typical installed prices. Grants can make insulation free, which changes the order.</p>
+            <p>Here are the typical improvements, cheapest per point first, with the points this calculator gives each one. Insulation and window costs are Energy Saving Trust 2026 figures, heat pump costs are Boiler Upgrade Scheme medians, and the rest are typical installed prices. Grants can make insulation free, which changes the order.</p>
             <ol>
                 <li><strong>LED lighting throughout</strong>: £100 to £300, adds 2 or 3 points. Simple DIY improvement.</li>
                 <li><strong>Smart heating controls</strong>: £150 to £400, adds about 3 points.</li>
-                <li><strong>Loft insulation to 270mm</strong>: about £750 in a bare loft, or £600 to top up a thin layer, adds about 7 points if you have under 100mm now. Often <a href="/grants/">available free through grants</a>. <a href="/insulation-calculator/">Calculate your savings</a>.</li>
+                <li><strong>Loft insulation to 270mm</strong>: about £750 in a bare loft, or about £600 to top up from 120mm, and adds about 7 points if you have under 100mm now. Often <a href="/grants/">available free through grants</a>. <a href="/insulation-calculator/">Calculate your savings</a>.</li>
                 <li><strong>New condensing gas boiler</strong>: £1,500 to £3,500, adds about 8 points when it replaces a gas boiler over 15 years old.</li>
                 <li><strong>Cavity wall insulation</strong>: about £2,700 for a typical home, adds about 8 points. <a href="/insulation-calculator/">Check if your walls are suitable</a>.</li>
                 <li><strong>Heat pump</strong>: a median £12,700 installed for a 3 bed semi, before the <a href="/grants/">£7,500 grant</a> (£9,000 when it replaces oil or LPG). Adds about 12 points replacing a gas boiler over 15 years old and 20 replacing electric heating, but only 4 replacing a newer gas boiler. <a href="/heat-pump-calculator/">Calculate your costs</a>.</li>
                 <li><strong>Solar panels</strong>: £5,000 to £7,000 for a 4 kW system, adds about 8 points. <a href="/solar-calculator/">Calculate your ROI</a>.</li>
-                <li><strong>Double glazing</strong>: £3,000 to £7,000, adds about 6 points replacing single glazing. Expensive per point, but improves comfort significantly.</li>
+                <li><strong>Double glazing</strong>: about £4,800 for A-rated windows in a semi-detached house, adds about 6 points replacing single glazing. Expensive per point, but improves comfort significantly.</li>
                 <li><strong>Solid wall insulation</strong>: about £12,000 done internally for a typical 3 bed semi, or £15,000 externally, adds about 10 points. The most expensive per point, but often the only large gain for a solid walled home. <a href="/insulation-calculator/">Check potential savings</a>.</li>
             </ol>
 
@@ -403,15 +403,17 @@
     // the Energy Saving Trust 2026 figure (270mm in a bare loft £750, cavity wall about
     // £2,700, internal solid wall about £12,000 for a typical 3 bed semi). The boiler is the
     // middle of the £1,500 to £3,500 the site quotes and solar the middle of £5,000 to £7,000
-    // for 4 kW, as the solar calculator. LED, controls and glazing are typical installed
-    // prices. Points are replaced at run time by the estimator steps (see estPoints).
+    // for 4 kW, as the solar calculator. Glazing is the Energy Saving Trust figure for A-rated
+    // windows in a semi (about £4,800, May 2026), and half that for the remaining windows.
+    // LED and controls are typical installed prices. Points are replaced at run time by the
+    // estimator steps (see estPoints).
     const MEASURES = [
         { id: 'loft', name: 'Loft insulation (270mm)', points: 7, cost: 750, requires: 'loft-none', grantEligible: true, link: '/insulation-calculator/' },
         { id: 'cavity', name: 'Cavity wall insulation', points: 8, cost: 2700, requires: 'wall-cavity-no', grantEligible: true, link: '/insulation-calculator/' },
         { id: 'led', name: 'LED lighting throughout', points: 3, cost: 200, requires: null, grantEligible: false, link: null },
         { id: 'controls', name: 'Smart heating controls', points: 3, cost: 275, requires: null, grantEligible: false, link: null },
-        { id: 'glazing', name: 'Double glazing', points: 6, cost: 5000, requires: 'glazing-single', grantEligible: false, link: null },
-        { id: 'glazing-partial', name: 'Replace remaining single glazing', points: 3, cost: 2500, requires: 'glazing-partial', grantEligible: false, link: null },
+        { id: 'glazing', name: 'Double glazing', points: 6, cost: 4800, requires: 'glazing-single', grantEligible: false, link: null },
+        { id: 'glazing-partial', name: 'Replace remaining single glazing', points: 3, cost: 2400, requires: 'glazing-partial', grantEligible: false, link: null },
         { id: 'boiler', group: 'heating', name: 'New condensing gas boiler', points: 8, cost: 2500, requires: 'heating-old-gas', grantEligible: false, link: '/boiler-vs-heat-pump/' },
         { id: 'heatpump', group: 'heating', name: 'Air source heat pump', points: 12, cost: 12700, requires: 'heating-notHP', grantEligible: false, grantValue: 7500, link: '/heat-pump-calculator/' },
         { id: 'solar', name: 'Solar PV panels (4kW)', points: 8, cost: 6000, requires: 'solar-no', grantEligible: false, link: '/solar-calculator/' },
