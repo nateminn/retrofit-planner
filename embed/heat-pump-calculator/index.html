@@ -82,7 +82,7 @@ button:hover{background:#245741}
 </div>
 
 <div class="ft">
-<span>Ofgem cap, October to December 2026, heat pump tariff at 18p. Estimates, not a quote.</span>
+<span>Ofgem cap, October to December 2026, heat pump tariff at 19.8p, oil at 11.3p on 25 September 2026, and oil prices move. Estimates, not a quote.</span>
 <span>Calculator by <a href="https://www.retrofitplanner.co.uk/heat-pump-calculator/" target="_blank" rel="noopener">Retrofit Planner</a></span>
 </div>
 </div>
@@ -110,13 +110,14 @@ function calc(){
   var hp=demand/cop*PRICE.electricity, hpTar=demand/cop*TARIFF;
   var cost=H.heatPumpInstall(pt,bed,ins), grant=H.busGrant(fuel), net=Math.max(0,cost-grant);
   var save=cur-hp, saveTar=cur-hpTar;
+  var shownSave=Math.round(cur)-Math.round(hp), shownSaveT=Math.round(cur)-Math.round(hpTar);   // as the full calculator shows them
   document.getElementById('installCost').textContent=gbp(cost);
   document.getElementById('afterGrant').textContent=gbp(net);
   var gl=document.getElementById('grantLabel'); if(gl){ gl.textContent='After the £'+grant.toLocaleString('en-GB')+' grant'; }
-  var std=save>0?gbp(save)+' on a standard tariff':gbp(-save)+' a year more on a standard tariff';
-  if(Math.abs(saveTar)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='as your '+LABEL[heat]+'; '+std; }
-  else if(saveTar>0){ document.getElementById('annualSaving').textContent=gbp(saveTar); document.getElementById('savingDetail').textContent='a year on a heat pump tariff; '+std; }
-  else { document.getElementById('annualSaving').textContent=gbp(-saveTar)+' more'; document.getElementById('savingDetail').textContent='a year, even on a heat pump tariff'; }
+  var std=shownSave>0?gbp(shownSave)+' on a standard tariff':gbp(-shownSave)+' a year more on a standard tariff';
+  if(Math.abs(shownSaveT)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='as your '+LABEL[heat]+'; '+std; }
+  else if(saveTar>0){ document.getElementById('annualSaving').textContent=gbp(shownSaveT); document.getElementById('savingDetail').textContent='a year on a heat pump tariff; '+std; }
+  else { document.getElementById('annualSaving').textContent=gbp(-shownSaveT)+' more'; document.getElementById('savingDetail').textContent='a year, even on a heat pump tariff'; }
   // Payback and the verdict on a heat pump tariff, as on the full calculator.
   var pay=saveTar>0?net/saveTar:null;
   document.getElementById('payback').textContent=!(saveTar>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+(Math.round(pay)===1?' year':' years'))));

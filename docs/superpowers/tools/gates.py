@@ -150,6 +150,14 @@ for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.
     _tail = [l for l in (_r.stdout + _r.stderr).strip().split('\n') if l.strip()]
     check(_label, _r.returncode == 0, '\n        '.join(_tail[-6:]))
 
+# The guides index copies each guide's description onto its card, so a card can fall behind
+# its guide (it showed an old heat pump tariff cost after the 25 September price change).
+_r = _sp.run([sys.executable, os.path.join(_here, 'sync_guides_index.py')], capture_output=True, text=True, cwd=os.getcwd())
+_synced = re.search(r'descriptions synced: (\d+)', _r.stdout)
+_added = re.search(r"cards added: \[(.*?)\]", _r.stdout)
+check('guides index cards match their guides', _r.returncode == 0 and _synced and _synced.group(1) == '0' and _added and not _added.group(1).strip(),
+      'run: python3 docs/superpowers/tools/sync_guides_index.py --apply\n        ' + _r.stdout.strip()[:300])
+
 print()
 print('ALL PASS' if not failures else 'FAILED: ' + ', '.join(failures))
 sys.exit(1 if failures else 0)

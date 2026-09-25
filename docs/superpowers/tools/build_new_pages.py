@@ -161,7 +161,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
 <h2 id="fuel">How your heating fuel changes it</h2>
 <p>Everything else on the bill stays the same whatever heats the home, so this table only changes the heating part. Heat pump running costs use the median efficiency measured in 428 homes in the government's Electrification of Heat trial.</p>
 {tbl_fuel}
-<p class="note">Gas bills include the £108.33 a year gas standing charge; homes without gas do not pay it. Electricity includes the £200.13 standing charge in every row. Oil and LPG are September 2026 market prices.</p>
+<p class="note">Gas bills include the £108.33 a year gas standing charge; homes without gas do not pay it. Electricity includes the £200.13 standing charge in every row. Oil is {ROIL * 100:.1f}p per kWh, the BoilerJuice UK average of 116.20p a litre on 25 September 2026, and oil prices move; LPG is {RLPG * 100:.1f}p per kWh, our assumption for a typical bulk contract.</p>
 
 <h2 id="check">Check your own bill</h2>
 <p>Put your own annual bill into the <a href="/guides/average-energy-bills-uk/#bill-checker">bill checker</a> to see how far it sits from a home like yours, or see <a href="/guides/energy-bills-by-household-size/">bills by number of people</a> and <a href="/guides/energy-bills-by-epc-rating/">bills by EPC rating</a>. To cut the bill, the <a href="/retrofit-plan/">retrofit plan</a> puts the upgrades for your home in order, with what each saves.</p>

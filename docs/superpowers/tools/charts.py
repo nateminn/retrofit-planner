@@ -2,7 +2,13 @@
 """Generate inline SVG charts from a page's own data tables and insert them above the table.
 Usage: python3 docs/superpowers/tools/charts.py --dry   (parse and describe only)
        python3 docs/superpowers/tools/charts.py          (insert figures, add js include)
-Idempotent: a page that already contains a figure with the same id is skipped."""
+Idempotent: a page that already contains a figure with the same id is skipped.
+
+Warning (25 Sep 2026): the charts on the pages have since been redrawn by hand with this file's
+drawing functions and then given accessibility attributes (tabindex, role and aria-label on
+.chart-scroll, via a11y_apply.py) and some extra value labels. A --replace run redraws from
+SPECS and loses those. If you ever --replace, rerun a11y_apply.py and axe_check.py after, and
+compare each chart's value labels with the page before publishing."""
 import os, re, html, sys, math
 
 C1, C2, C3 = 'var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)'
