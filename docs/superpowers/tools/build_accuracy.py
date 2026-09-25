@@ -213,7 +213,7 @@ TEMPLATE = '''<body>
 <h2 id="untested">What we have not tested yet</h2>
 <ul>
 <li><strong>Your home against your bills.</strong> Every figure here describes the typical home of its kind. How close it gets for a particular house depends on how that household heats it, and testing that needs metered data from real homes, shared with consent.</li>
-<li><strong>The EPC estimator.</strong> It is a simple points model, not an assessment, and we have not compared it with lodged certificates.</li>
+<li><strong>The EPC estimator.</strong> It is a simple points model, not an assessment, and it has not been compared home by home with lodged certificates, though it sits close to the English Housing Survey averages by age.</li>
 <li><strong>Solar generation.</strong> We use the European Commission's PVGIS model for generation. NEED measured a median 12.2 per cent fall in electricity bought after solar was fitted, which we have not yet reconciled with our figures.</li>
 </ul>
 
