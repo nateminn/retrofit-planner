@@ -1064,3 +1064,14 @@ main .tldr h2{font-family:var(--font-display);font-size:1.05rem;font-weight:600;
 .tools-grid .tool-card.wide .tc-img{grid-row:1/4;width:calc(100% + 32px);height:calc(100% + 64px);min-height:200px;margin:-32px 0 -32px -32px}
 .tools-grid .tool-card.wide .tag{justify-self:start}
 }
+.embed-note{margin-top:32px;font-size:.85rem;color:var(--color-text-tertiary)}
+.embed-note a{color:inherit}
+/* Solar calculator: verdict line, roof compass, panels vs battery table */
+.solar-verdict{background:var(--color-accent-bg);border:1px solid var(--color-accent-border);border-radius:var(--radius-sm);padding:14px 16px;margin:0 0 16px;line-height:1.55}
+.dir-row{display:flex;gap:12px;align-items:center}
+.dir-row select{flex:1;min-width:0}
+.compass{width:52px;height:52px;flex:none;color:var(--color-text-secondary)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:8px 0 0}
+.cmp-table th,.cmp-table td{padding:8px 10px;border-bottom:1px solid var(--color-border);text-align:left}
+.cmp-table thead th{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-secondary)}
+.cmp-table th,.cmp-table td,.cmp-table tbody th[scope="row"]{background:transparent}

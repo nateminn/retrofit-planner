@@ -76,10 +76,16 @@
             <p class="subtitle">Answer a few questions about your home and we'll estimate your solar cost and savings.</p>
 
             <div class="form-group">
+                <label for="postcode">Your postcode (optional)</label>
+                <input type="text" id="postcode" autocomplete="postal-code" placeholder="e.g. BS6 or BS6 5AA" maxlength="8" oninput="regionFromPostcode()">
+                <p class="helper" id="postcodeNote" aria-live="polite">The first half is enough. It only picks your region below and never leaves this page.</p>
+            </div>
+
+            <div class="form-group">
                 <label for="region">Where do you live?</label>
                 <select id="region">
                     <option value="">Select your region</option>
-                    <option value="south">South England (London, Bristol, Brighton)</option>
+                    <option value="south">South and East England (London, Bristol, Norwich)</option>
                     <option value="midlands">Midlands (Birmingham, Nottingham, Leicester)</option>
                     <option value="north">North England (Manchester, Leeds, Newcastle)</option>
                     <option value="wales">Wales</option>
@@ -90,23 +96,38 @@
 
             <div class="form-group">
                 <label for="roofDirection">Main roof direction</label>
-                <select id="roofDirection">
+                <div class="dir-row"><select id="roofDirection" onchange="syncRoof()">
                     <option value="">Which way does your main roof face?</option>
                     <option value="south">South</option>
                     <option value="south-east">South-east</option>
                     <option value="south-west">South-west</option>
                     <option value="east">East</option>
                     <option value="west">West</option>
+                    <option value="north-east">North-east</option>
+                    <option value="north-west">North-west</option>
+                    <option value="north">North</option>
                     <option value="flat">Flat roof</option>
                     <option value="unsure">Not sure</option>
                 </select>
-                <p class="helper">South facing roofs generate the most electricity. East or west facing roofs generate around 20% less. Not sure? Check your property on a satellite map.</p>
+                <svg class="compass" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/><text x="32" y="12" text-anchor="middle" font-size="9" fill="currentColor">N</text><text x="32" y="59" text-anchor="middle" font-size="9" fill="currentColor">S</text><text x="7" y="35" text-anchor="middle" font-size="9" fill="currentColor">W</text><text x="57" y="35" text-anchor="middle" font-size="9" fill="currentColor">E</text><g id="compassArrow" style="display:none"><line x1="32" y1="32" x2="32" y2="44" stroke="var(--color-accent)" stroke-width="3"/><polygon points="32,53 26,42 38,42" fill="var(--color-accent)"/></g><rect x="27" y="27" width="10" height="10" rx="1" fill="currentColor" fill-opacity=".35"/></svg></div>
+                <p class="helper">The side of the roof the panels would go on. South generates the most; east or west about 20% less, north about 45% less. Not sure? Check your property on a satellite map.</p>
+            </div>
+
+            <div class="form-group" id="pitchGroup">
+                <label for="roofPitch">How steep is that roof?</label>
+                <select id="roofPitch">
+                    <option value="35" selected>Typical pitch, about 35 degrees (most houses)</option>
+                    <option value="20">Shallow, about 20 degrees (many bungalows and extensions)</option>
+                    <option value="45">Steep, about 45 degrees (many older houses)</option>
+                </select>
+                <p class="helper">A steeper or shallower roof changes output by up to 5% on a south facing roof and more on others. <a href="#roof">See the full table</a>.</p>
             </div>
 
             <div class="form-group">
                 <label for="systemSize">System size</label>
                 <select id="systemSize">
                     <option value="">Select system size</option>
+                    <option value="auto">Not sure, suggest a size for my home</option>
                     <option value="3">3 kW (8 to 9 panels, small home)</option>
                     <option value="4">4 kW (10 to 12 panels, average home)</option>
                     <option value="5">5 kW (13 to 15 panels, larger home)</option>
@@ -258,7 +279,15 @@
             </tbody>
             </table></div>
             <p class="note">Source: PVGIS 5.3 (European Commission Joint Research Centre), PVGIS-SARAH3 database, crystalline silicon, building-integrated mounting, 35 degree slope, 0 degree azimuth, 14% system losses. Queried 20 September 2026 and rechecked 25 September 2026.</p>
-            <p>The spread across Great Britain is smaller than most people assume. Manchester to Cardiff is about 17%, a little less than the 20% or so you give up by facing your panels east or west instead of south. Note also that a single city is not a region: Cardiff is one of the sunniest parts of Wales and Edinburgh one of the sunniest parts of Scotland, so the calculator above uses lower regional averages of 810 to 950 kWh per kWp. Those cautious figures also allow for the shading, roof pitch and soiling that real installations have and PVGIS's ideal case does not.</p>
+            <p>The spread across Great Britain is smaller than most people assume. Manchester to Cardiff is about 17%, a little less than the 20% or so you give up by facing your panels east or west instead of south. Note also that a single city is not a region: Cardiff is one of the sunniest parts of Wales and Edinburgh one of the sunniest parts of Scotland, so the calculator above uses lower regional averages of 810 to 950 kWh per kWp. Those cautious figures also allow for the shading and soiling that real installations have and PVGIS's ideal case does not. Roof direction and pitch are asked for separately.</p>
+
+            <h2 id="roof">How roof direction and pitch change output</h2>
+            <p>Output from each kind of roof as a share of a south facing roof at 35 degrees, the best common case. These are from PVGIS for London, Manchester and Edinburgh, averaged; the three cities agree to within 3 points. The calculator uses the same figures.</p>
+            <div class="tblwrap" tabindex="0" role="region" aria-label="Solar output by roof direction and pitch"><table class="data-table">
+            <thead><tr><th scope="col">Roof faces</th><th scope="col">Shallow, 20 degrees</th><th scope="col">Typical, 35 degrees</th><th scope="col">Steep, 45 degrees</th></tr></thead>
+            <tbody><tr><th scope="row">South</th><td>96%</td><td class="highlight-cell">100%</td><td>100%</td></tr><tr><th scope="row">South-east</th><td>92%</td><td>95%</td><td>94%</td></tr><tr><th scope="row">South-west</th><td>91%</td><td>93%</td><td>93%</td></tr><tr><th scope="row">East</th><td>82%</td><td>80%</td><td>77%</td></tr><tr><th scope="row">West</th><td>81%</td><td>80%</td><td>76%</td></tr><tr><th scope="row">North-east</th><td>71%</td><td>63%</td><td>58%</td></tr><tr><th scope="row">North-west</th><td>71%</td><td>62%</td><td>57%</td></tr><tr><th scope="row">North</th><td>67%</td><td>55%</td><td>47%</td></tr></tbody>
+            </table></div>
+            <p>Two things stand out. Pitch barely matters on a south facing roof, but it matters more the further the roof turns from south: a shallow roof suits east, west and north faces better than a steep one, because the panels see more of the sky. And a north facing roof is not a write-off at a shallow pitch, where it still makes about two thirds of what a south facing one does. Many homes put panels on both the east and west faces of the same roof, which spreads generation across the day and can raise the share used at home. A flat roof with panels on frames at about 10 degrees makes about 90%.</p>
 
             <h2 id="by-month">Solar panel output by month in the UK</h2>
             <p>Annual figures hide how lopsided UK solar is. The chart below shows modelled monthly output for a 4 kW south facing system in London.</p>
@@ -425,7 +454,7 @@
             <tbody>
             <tr><th scope="row">Electricity at 26.32p per kWh, standing charge 54.83p a day</th><td>Ofgem energy price cap, unit rates and standing charges</td><td>1 October to 31 December 2026</td></tr>
             <tr><th scope="row">Generation by region and by month</th><td>PVGIS 5.3, European Commission Joint Research Centre, SARAH3 database</td><td>Queried 20 September 2026, rechecked 25 September 2026</td></tr>
-            <tr><th scope="row">Roof direction: east or west about 20% less than south, south-east and south-west 5 to 7% less</th><td>PVGIS 5.3 for London, Manchester and Edinburgh at a 35 degree pitch</td><td>Queried 25 September 2026</td></tr>
+            <tr><th scope="row">Roof direction and pitch: east or west about 20% less than south, south-east and south-west 5 to 7% less, north about 45% less at a 35 degree pitch</th><td>PVGIS 5.3 for London, Manchester and Edinburgh at 20, 35 and 45 degree pitches, averaged</td><td>Queried 25 September 2026</td></tr>
             <tr><th scope="row">Self consumption with and without a battery</th><td>MCS MGD 003, Solar PV Self-Consumption, Issue 2.0</td><td>Published 1 April 2022</td></tr>
             <tr><th scope="row">Average installed cost, just over £7,000</th><td>MCS Data Dashboard, reported on the MCS consumer solar page</td><td>2025 installations</td></tr>
             <tr><th scope="row">Median cost of £1,595 per kW up to 4 kW and £1,546 per kW for 4 to 10 kW, used to check our cost bands</th><td>DESNZ Solar PV cost data, total installed capacity basis</td><td>Published 28 May 2026, April 2025 to March 2026</td></tr>
@@ -516,11 +545,26 @@
         // kWh generated per kW installed per year by region. Regional averages, set below the
         // PVGIS best-case city figures to allow for shading, roof pitch and soiling.
         generation: { south: 950, midlands: 880, north: 830, wales: 870, scotland: 810 },
-        // Output as a fraction of a south facing roof at 35 degrees. PVGIS 5.3 (SARAH3, 14% losses,
-        // building mounting) for London, Manchester and Edinburgh, queried 25 September 2026:
-        // south-east 0.94 to 0.95, south-west 0.93 to 0.94, east 0.78 to 0.81, west 0.78 to 0.80.
-        // Flat roof assumes panels tilted up on frames at about 10 degrees (PVGIS 0.90 to 0.91).
-        orientation: { south: 1.0, 'south-east': 0.95, 'south-west': 0.93, east: 0.80, west: 0.80, flat: 0.90, unsure: 0.88 },
+        // Output as a fraction of a south facing roof at 35 degrees, by direction and pitch.
+        // PVGIS 5.3 (SARAH3, 14% losses, building mounting), the average of London, Manchester
+        // and Edinburgh, queried 25 September 2026 (the three cities agree within 0.03).
+        // At 35 degrees: south-east 0.94 to 0.95, south-west 0.93 to 0.94, east 0.78 to 0.81,
+        // west 0.78 to 0.80, north-east 0.61 to 0.65, north-west 0.61 to 0.64, north 0.53 to 0.57.
+        // A flat roof has panels tilted up on frames at about 10 degrees (PVGIS 0.90 to 0.91);
+        // not sure takes a little under the average of the likely roofs.
+        orientation: {
+            south:        { 20: 0.96, 35: 1.00, 45: 1.00 },
+            'south-east': { 20: 0.92, 35: 0.95, 45: 0.94 },
+            'south-west': { 20: 0.91, 35: 0.93, 45: 0.93 },
+            east:         { 20: 0.82, 35: 0.80, 45: 0.77 },
+            west:         { 20: 0.81, 35: 0.80, 45: 0.76 },
+            'north-east': { 20: 0.71, 35: 0.63, 45: 0.58 },
+            'north-west': { 20: 0.71, 35: 0.62, 45: 0.57 },
+            north:        { 20: 0.67, 35: 0.55, 45: 0.47 },
+            flat: 0.90, unsure: 0.88
+        },
+        // Which way the panels face, in degrees from south, for the compass beside the question.
+        aspect: { south: 0, 'south-west': 45, west: 90, 'north-west': 135, north: 180, 'north-east': -135, east: -90, 'south-east': -45 },
         // Installed cost bands by size in kW. Our bands, checked against DESNZ Solar PV cost data
         // (28 May 2026, April 2025 to March 2026, total installed capacity): median £1,595 per kW
         // for 0 to 4 kW and £1,546 per kW for 4 to 10 kW, which puts 3 kW at about £4,800,
@@ -539,10 +583,61 @@
         carCarbon: 0.26699,  // kg CO2e per mile, DESNZ 2026 average car, fuel unknown
     };
 
+    /* Postcode area to region. Read in the browser only: the postcode is never stored,
+       sent or put in a share link. Areas that straddle a border go where most of their
+       homes are, and the note tells the visitor which region was picked so they can change
+       it. Northern Ireland (BT), the Channel Islands and the Isle of Man are not covered. */
+    var PC_AREAS = {
+        scotland: 'AB DD DG EH FK G HS IV KA KW KY ML PA PH TD ZE',
+        wales: 'CF LD LL NP SA',
+        north: 'BB BD BL CA CH CW DH DL DN FY HD HG HU HX L LA LS M NE OL PR S SK SR TS WA WF WN YO',
+        midlands: 'B CV DE DY HR LE LN NG NN PE ST SY TF WR WS WV',
+        south: 'AL BA BH BN BR BS CB CM CO CR CT DA DT E EC EN EX GL GU HA HP IG IP KT LU ME MK N NR NW OX PL PO RG RH RM SE SG SL SM SN SO SP SS SW TA TN TQ TR TW UB W WC WD'
+    };
+    var REGION_NAME = { south: 'South and East England', midlands: 'the Midlands', north: 'North England', wales: 'Wales', scotland: 'Scotland' };
+    function regionFromPostcode() {
+        var typed = document.getElementById('postcode').value.toUpperCase().trim();
+        var note = document.getElementById('postcodeNote');
+        /* The outward code: before the space, or without a space everything but the last three
+           characters of a full postcode, so CH71AB reads as CH7 and not CH71. */
+        var joined = typed.replace(/\s+/g, '');
+        var outward = /\s/.test(typed) ? typed.split(/\s+/)[0] : (joined.length >= 5 ? joined.slice(0, -3) : joined);
+        var m = outward.match(/^([A-Z]{1,2})(\d{1,2})/);
+        if (!m) { return; }
+        var area = m[1], district = parseInt(m[2], 10), region = null;
+        if (area === 'BT' || area === 'GY' || area === 'JE' || area === 'IM') {
+            note.textContent = 'This calculator covers Great Britain only for now. Choose the nearest region below for a rough guide.';
+            return;
+        }
+        Object.keys(PC_AREAS).forEach(function (r) { if ((' ' + PC_AREAS[r] + ' ').indexOf(' ' + area + ' ') !== -1) { region = r; } });
+        // border districts: CH5 to CH8 and SY15 to SY25 are in Wales, TD12 and TD15 in England
+        if (area === 'CH' && district >= 5 && district <= 8) { region = 'wales'; }
+        if (area === 'SY' && district >= 15) { region = 'wales'; }
+        if (area === 'TD' && (district === 12 || district === 15)) { region = 'north'; }
+        if (!region) { return; }
+        document.getElementById('region').value = region;
+        note.textContent = 'That puts you in ' + REGION_NAME[region] + '. Change the region below if that looks wrong.';
+    }
+
+    function syncRoof() {
+        var dir = document.getElementById('roofDirection').value;
+        document.getElementById('pitchGroup').hidden = dir === 'flat' || dir === 'unsure';
+        var arrow = document.getElementById('compassArrow');
+        var a = SOLAR.aspect[dir];
+        arrow.style.display = a === undefined ? 'none' : '';
+        if (a !== undefined) { arrow.setAttribute('transform', 'rotate(' + a + ' 32 32)'); }
+    }
+    function roofFactor(dir, pitch) {
+        var o = SOLAR.orientation[dir];
+        return typeof o === 'number' ? o : o[pitch] || o[35];
+    }
+
     function calculate() {
+        syncRoof();
         const region = document.getElementById('region').value;
         const roof = document.getElementById('roofDirection').value;
-        const size = parseFloat(document.getElementById('systemSize').value);
+        const pitch = document.getElementById('roofPitch').value || '35';
+        const sizeChoice = document.getElementById('systemSize').value;
         const billInput = rpNumber('annualBill');
         if (billInput === false) { return; }
         const bill = billInput === null ? SOLAR.defaultBill : billInput;
@@ -551,75 +646,84 @@
 
         if (!rpRequire()) { return; }
 
-        const annualGen = Math.round(SOLAR.generation[region] * size * SOLAR.orientation[roof]);
+        const factor = roofFactor(roof, pitch);
 
         // Current consumption implied by the bill, after taking out a year of standing charges.
         const unitSpend = bill - SOLAR.standingCharge * 365;
         const currentConsumption = Math.max(500, Math.round(unitSpend / SOLAR.electricityRate));
 
-        const selfUseRate = mcsSelfUse(occupancy, currentConsumption, annualGen, battery === 'yes');
-        const selfUseKwh = Math.round(annualGen * selfUseRate);
+        /* Not sure of the size: suggest the one that generates about what the home uses in a
+           year on this roof, between 3 and 6 kW, the same rule as "How many panels you need". */
+        const suggested = sizeChoice === 'auto';
+        const size = suggested
+            ? Math.max(3, Math.min(6, Math.round(currentConsumption / (SOLAR.generation[region] * factor))))
+            : parseFloat(sizeChoice);
 
-        // Cap self-use at actual consumption
-        const actualSelfUse = Math.min(selfUseKwh, currentConsumption);
-        const actualExport = annualGen - actualSelfUse;
-
-        const billSaving = Math.round(actualSelfUse * SOLAR.electricityRate);
-        const segIncome = Math.round(actualExport * SOLAR.segRate);
-        const totalAnnualBenefit = billSaving + segIncome;
+        const annualGen = Math.round(SOLAR.generation[region] * size * factor);
 
         const costRange = SOLAR.costs[size];
         const systemCost = Math.round((costRange.min + costRange.max) / 2);
-        const batteryCost = battery === 'yes' ? SOLAR.batteryCost : 0;
-        const totalCost = systemCost + batteryCost;
 
         /* Simple payback: cost divided by the first year's benefit. A battery lasts about
            10 to 12 years, so when payback would come after the battery has worn out, the
            replacement battery is part of what has to be paid back. */
-        function paybackOn(benefit) {
+        function paybackFor(cost, batt, benefit) {
             if (benefit <= 0) { return Infinity; }
-            var years = totalCost / benefit;
-            if (batteryCost && years > SOLAR.batteryLife) { years = (totalCost + batteryCost) / benefit; }
+            var years = cost / benefit;
+            if (batt && years > SOLAR.batteryLife) { years = (cost + batt) / benefit; }
             return Math.round(years * 10) / 10;
         }
+        /* The same panels with and without a 5 kWh battery. Every result shows both, because
+           "is the battery worth it" is the question most people bring to this page. Over the
+           25 year life of the panels the battery is bought twice. */
+        function scenario(withBattery) {
+            var self = Math.min(Math.round(annualGen * mcsSelfUse(occupancy, currentConsumption, annualGen, withBattery)), currentConsumption);
+            var exported = annualGen - self;
+            var bs = Math.round(self * SOLAR.electricityRate), seg = Math.round(exported * SOLAR.segRate);
+            var batt = withBattery ? SOLAR.batteryCost : 0, cost = systemCost + batt;
+            var ret = 0;
+            for (let y = 0; y < 25; y++) { ret += (bs + seg) * Math.pow(1 - SOLAR.annualDegradation, y); }
+            return { selfUse: self, exported: exported, billSaving: bs, segIncome: seg, benefit: bs + seg, batteryCost: batt,
+                     cost: cost, payback: paybackFor(cost, batt, bs + seg), totalReturn: ret, lifetimeCost: cost + batt,
+                     netProfit: Math.round(ret - (cost + batt)) };
+        }
+        const panelsOnly = scenario(false), withBatt = scenario(true);
+        const main = battery === 'yes' ? withBatt : panelsOnly;
+
+        const actualSelfUse = main.selfUse, actualExport = main.exported;
+        const billSaving = main.billSaving, segIncome = main.segIncome, totalAnnualBenefit = main.benefit;
+        const batteryCost = main.batteryCost, totalCost = main.cost;
+        function paybackOn(benefit) { return paybackFor(totalCost, batteryCost, benefit); }
         function paybackText(years) {
             return years === Infinity ? 'never' : years + ' years';
         }
-        const paybackYears = paybackOn(totalAnnualBenefit);
+        const paybackYears = main.payback;
         const replacementInPayback = batteryCost > 0 && totalAnnualBenefit > 0 && totalCost / totalAnnualBenefit > SOLAR.batteryLife;
+        const totalReturn = main.totalReturn, lifetimeCost = main.lifetimeCost, netProfit = main.netProfit;
 
-        // 25-year returns (accounting for degradation)
-        let totalReturn = 0;
-        for (let y = 0; y < 25; y++) {
-            totalReturn += totalAnnualBenefit * Math.pow(1 - SOLAR.annualDegradation, y);
-        }
-        /* A battery lasts about 10 to 12 years (Energy Saving Trust, and this page says so),
-           so over the 25 year life of the panels it is bought twice. Counting it once
-           overstated the return of every battery configuration. */
-        const lifetimeCost = totalCost + batteryCost;
-        const netProfit = Math.round(totalReturn - lifetimeCost);
-
-        // The same panels without the battery, so the battery's own return can be shown.
-        var noBattery = null;
-        if (batteryCost) {
-            var nbSelf = Math.min(Math.round(annualGen * mcsSelfUse(occupancy, currentConsumption, annualGen, false)), currentConsumption);
-            var nbBenefit = Math.round(nbSelf * SOLAR.electricityRate) + Math.round((annualGen - nbSelf) * SOLAR.segRate);
-            var nbReturn = 0;
-            for (let y = 0; y < 25; y++) { nbReturn += nbBenefit * Math.pow(1 - SOLAR.annualDegradation, y); }
-            noBattery = {
-                benefit: nbBenefit,
-                payback: Math.round(systemCost / nbBenefit * 10) / 10,
-                netProfit: Math.round(nbReturn - systemCost),
-                extra: totalAnnualBenefit - nbBenefit
-            };
-        }
+        // Used by the next step below: the panels alone, when the result includes a battery.
+        var noBattery = battery === 'yes' ? { benefit: panelsOnly.benefit, payback: panelsOnly.payback,
+            netProfit: panelsOnly.netProfit, extra: withBatt.benefit - panelsOnly.benefit } : null;
 
         const co2Kg = Math.round(annualGen * SOLAR.gridCarbon / 10) * 10;
         const co2Miles = Math.round(annualGen * SOLAR.gridCarbon / SOLAR.carCarbon / 10) * 10;
 
         let html = '';
+        const pb = function (y) { return y === Infinity ? 'Never' : y + ' years'; };
+        const net = function (v) { return (v < 0 ? 'Loses £' : '£') + Math.abs(v).toLocaleString(); };
+        /* The short answer first, on the same rule as the next step below: quotes are only
+           offered where the system pays back within 20 years and makes money over 25. */
+        var verdict = netProfit > 0 && paybackYears <= 20
+            ? '<strong>Worth it on these numbers.</strong> Pays back in ' + paybackYears + ' years and leaves about £' + netProfit.toLocaleString() + ' over 25 years.'
+            : netProfit > 0
+            ? '<strong>Only just worth it.</strong> Pays back in ' + paybackYears + ' years, late in the 25 year life of the panels.'
+            : '<strong>Not worth it on these numbers.</strong> Over 25 years it returns less than it costs.';
+        if (battery === 'yes' && panelsOnly.netProfit > withBatt.netProfit) {
+            verdict += ' Without the battery: payback ' + pb(panelsOnly.payback).toLowerCase() + ', and ' + (panelsOnly.netProfit >= 0 ? 'about £' + panelsOnly.netProfit.toLocaleString() + ' left over 25 years.' : 'still a loss over 25 years.');
+        }
+        html += '<p class="solar-verdict">' + verdict + '</p>';
         html += '<div class="result-grid">';
-        html += '<div class="result-item highlight"><div class="label">Annual generation</div><div class="value">' + annualGen.toLocaleString() + ' kWh</div><div class="detail">' + size + ' kW system in ' + ({ south: 'South England', midlands: 'the Midlands', north: 'North England', wales: 'Wales', scotland: 'Scotland' })[region] + '</div></div>';
+        html += '<div class="result-item highlight"><div class="label">Annual generation</div><div class="value">' + annualGen.toLocaleString() + ' kWh</div><div class="detail">' + size + ' kW system' + (suggested ? ', the size that matches your yearly use,' : '') + ' in ' + REGION_NAME[region] + '</div></div>';
         html += '<div class="result-item saving"><div class="label">Total annual benefit</div><div class="value">£' + totalAnnualBenefit.toLocaleString() + '/yr</div><div class="detail">Bill savings plus export income</div></div>';
         html += '<div class="result-item"><div class="label">System cost</div><div class="value">£' + totalCost.toLocaleString() + '</div><div class="detail">' + (battery === 'yes' ? 'Panels plus battery, ' : '') + 'at 0% VAT to 31 March 2027</div></div>';
         html += '<div class="result-item"><div class="label">Payback period</div><div class="value">' + (paybackYears === Infinity ? 'None' : paybackYears + ' years') + '</div><div class="detail">' + (netProfit > 0 && paybackYears < 25 ? 'Leaves about ' + Math.round(25 - paybackYears) + ' years of a 25 year panel life' + (replacementInPayback ? ', counting one replacement battery' : '') : 'Does not pay back within the 25 year panel life') + '</div></div>';
@@ -635,13 +739,23 @@
         } else if (impliedKwh < 1500 || impliedKwh >= 6000) {
             html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Your bill implies about ' + impliedKwh.toLocaleString() + ' kWh a year, outside the 1,500 to 6,000 kWh range the MCS self-consumption tables cover, so treat the share used at home as a rough guide.</div>';
         }
-        if (noBattery) {
-            html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">'
-                + (noBattery.extra > 0
-                    ? 'The battery on its own adds £' + noBattery.extra.toLocaleString() + ' a year, so its £' + SOLAR.batteryCost.toLocaleString() + ' takes about ' + Math.round(SOLAR.batteryCost / noBattery.extra) + ' years to pay back, against a battery life of about 10 to 12 years. '
-                    : 'On these numbers the battery adds nothing a year. ')
-                + 'Without it, the panels alone would bring in £' + noBattery.benefit.toLocaleString() + ' a year and pay back in ' + noBattery.payback + ' years.</div>';
-        }
+        html += '</div>';
+
+        // Panels only against panels with a battery, for every result.
+        var extra = withBatt.benefit - panelsOnly.benefit;
+        html += '<div class="result-full"><div class="label">Panels only or with a battery</div>';
+        html += '<div class="tblwrap" tabindex="0" role="region" aria-label="Panels only compared with panels and a battery"><table class="data-table cmp-table"><thead><tr><th scope="col">Result</th><th scope="col">Panels only</th><th scope="col">With a 5 kWh battery</th></tr></thead><tbody>'
+            + '<tr><th scope="row">Upfront cost</th><td>£' + panelsOnly.cost.toLocaleString() + '</td><td>£' + withBatt.cost.toLocaleString() + '</td></tr>'
+            + '<tr><th scope="row">Used at home</th><td>' + Math.round(panelsOnly.selfUse / annualGen * 100) + '% of output</td><td>' + Math.round(withBatt.selfUse / annualGen * 100) + '% of output</td></tr>'
+            + '<tr><th scope="row">Saving and export a year</th><td>£' + panelsOnly.benefit.toLocaleString() + '</td><td>£' + withBatt.benefit.toLocaleString() + '</td></tr>'
+            + '<tr><th scope="row">Payback</th><td>' + pb(panelsOnly.payback) + '</td><td>' + pb(withBatt.payback) + '</td></tr>'
+            + '<tr><th scope="row">25 years, after costs</th><td>' + net(panelsOnly.netProfit) + '</td><td>' + net(withBatt.netProfit) + '</td></tr>'
+            + '</tbody></table></div>';
+        html += '<div style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">'
+            + (extra > 0
+                ? 'The battery adds £' + extra.toLocaleString() + ' a year, so its £' + SOLAR.batteryCost.toLocaleString() + ' takes about ' + Math.round(SOLAR.batteryCost / extra) + ' years to pay for itself, against a battery life of about 10 to 12 years. '
+                : 'On these numbers the battery adds nothing a year. ')
+            + 'The 25 year figures count a second battery. A time of use tariff, an electric car or a heat pump can change the case. <a href="#battery-worth">See the worked numbers</a>.</div>';
         html += '</div>';
 
         // Export rate sensitivity
@@ -695,12 +809,6 @@
         html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">Your system would displace about ' + co2Kg.toLocaleString() + ' kg of CO2e a year, about the same as driving ' + co2Miles.toLocaleString() + ' fewer miles in an average car. Based on the DESNZ 2026 conversion factors for UK grid electricity.</div>';
         html += '</div>';
 
-        if (battery === 'no') {
-            html += '<div class="result-full" style="background: var(--color-highlight-bg); border: 1px solid var(--color-highlight-border);">';
-            html += '<div style="font-weight: 600;">Thinking about a battery?</div>';
-            html += '<div style="font-size: 0.88rem; color: var(--color-text-secondary); margin-top: 4px;">A battery raises the share of your own solar you use, which is worth 26.32p per kWh instead of the export rate. The Energy Saving Trust prices a 5 kWh system at around £4,600. On solar alone that rarely pays back inside the battery\'s 10 to 12 year life, so look at it alongside a time of use tariff, an EV or a heat pump. <a href="#battery-worth">See the worked numbers</a>.</div>';
-            html += '</div>';
-        }
 
         document.getElementById('resultsContent').innerHTML = html;
         /* The next step follows the answer, the same rule the heat pump tools use.
@@ -752,7 +860,7 @@
     </script>
 <script src="/js/a11y.js" defer></script>
 <script src="/js/charts.js" defer></script>
-<script src="/js/results.js" data-fields="region,roofDirection,systemSize,annualBill,occupancy,battery" data-calc="calculate" data-title="Solar panel cost estimate" defer></script>
+<script src="/js/results.js" data-fields="region,roofDirection,roofPitch,systemSize,annualBill,occupancy,battery" data-calc="calculate" data-title="Solar panel cost estimate" defer></script>
 <script src="/js/partners.js"></script>
 <script src="/js/nav.js" defer></script>
 </body>
