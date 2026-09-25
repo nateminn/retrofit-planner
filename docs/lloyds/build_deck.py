@@ -95,8 +95,8 @@ c.rect(M, H - M - 2 * mm, 26 * mm, 1.4 * mm, stroke=0, fill=1)
 c.setFont('DispB', 40)
 c.setFillColor(TEXT)
 c.drawString(M, H - M - 24 * mm, 'Retrofit Planner')
-y = wrap(c, 'Retrofit cost, saving and payback for one specific house, from four fields a '
-            'mortgage lender already holds.', M, H - M - 38 * mm, W - 2 * M - 60 * mm,
+y = wrap(c, 'Retrofit cost, saving and payback for one specific house, from four simple '
+            'questions about it.', M, H - M - 38 * mm, W - 2 * M - 60 * mm,
          'Disp', 15, 8 * mm, MUTED)
 c.setFont(BODY, 9.5)
 c.setFillColor(MUTED)
@@ -111,10 +111,10 @@ c.setFillColor(TEXT)
 c.drawString(M, H - M - 16 * mm, 'The incentive is funded. The decision is not.')
 y = H - M - 34 * mm
 y = bullet(c, '£250 billion of home retrofit needed by 2050',
-           "Lloyds' own estimate. 39% of its residential mortgages with a known EPC are band D, "
-           'and 17% are E to G.', M, y, 118 * mm)
-y = bullet(c, 'Just over 3,000 Eco Home Reward claims in 2025',
-           'Against a book of millions. Up to £2,000 is available and almost nobody takes it.',
+           'Cited by Lloyds. By value, 39% of its residential mortgages with a known EPC are '
+           'band D, 17% E to G.', M, y, 118 * mm)
+y = bullet(c, 'Over 3,000 green home reward claims in 2025',
+           'Against over £320bn of mortgages. Up to £2,000 is available and almost nobody takes it.',
            M, y, 118 * mm)
 y = bullet(c, 'EPCs do not measure what a house actually uses',
            'Lloyds 2025 sustainability report: EPCs capture neither actual energy use nor recent '
@@ -123,8 +123,8 @@ y = bullet(c, 'EPCs do not measure what a house actually uses',
 c.setFillColor(ACCBG)
 c.roundRect(W - M - 96 * mm, H - M - 98 * mm, 96 * mm, 66 * mm, 3 * mm, stroke=0, fill=1)
 wrap(c, 'A household will not act on a cost and a saving. They act on how many years the '
-        'money takes to come back, and which measure to do first. That is the number nobody '
-        'is giving them.', W - M - 88 * mm, H - M - 45 * mm, 80 * mm, 'Disp', 15, 8.4 * mm, TEXT)
+        'money takes to come back, and which measure to do first. The bank tools\' own '
+        'descriptions never mention it.', W - M - 88 * mm, H - M - 45 * mm, 80 * mm, 'Disp', 15, 8.4 * mm, TEXT)
 c.showPage()
 
 # 3 ------------------------------------------------------------------ model
@@ -135,7 +135,8 @@ c.drawString(M, H - M - 16 * mm, 'Built from government microdata, published ope
 y = H - M - 32 * mm
 y = wrap(c, 'DESNZ National Energy Efficiency Data-Framework 2026. 39,502 gas heated records '
             'with 2024 consumption, England and Wales. Median gas per property type and floor '
-            'area band, calibrated to reproduce NEED published medians within 0.3%.',
+            'area band, calibrated to reproduce NEED published medians within 0.3% for 2 to 5 '
+            'bedrooms and 3.3% for 1 bedroom.',
          M, y, W - 2 * M, BODY, 12, 6.4 * mm, MUTED)
 y -= 6 * mm
 c.setFont(BOLD, 11)
@@ -144,12 +145,12 @@ c.drawString(M, y, 'Four inputs. No smart meter, no survey, no account, no addre
 y -= 7 * mm
 c.setFont(BODY, 10)
 c.setFillColor(MUTED)
-c.drawString(M, y, 'property type    |    floor area or bedrooms    |    fabric condition    |    heating fuel')
+c.drawString(M, y, 'property type    |    bedrooms    |    insulation level    |    heating fuel')
 gap = (W - 2 * M - 2 * 6 * mm) / 3
 sy = y - 34 * mm
 stat(c, M, sy, gap, '39,502', 'gas heated NEED records behind the table')
-stat(c, M + gap + 6 * mm, sy, gap, '18 + 148', 'guides and table cells checked against the model automatically')
-stat(c, M + 2 * (gap + 6 * mm), sy, gap, '0', 'cookies set, and calculator inputs never leave the browser')
+stat(c, M + gap + 6 * mm, sy, gap, '18 + 154', 'guides and table cells checked against the model automatically')
+stat(c, M + 2 * (gap + 6 * mm), sy, gap, '0', 'cookies set, and no calculator asks for personal details')
 c.setFont(BODY, 8.5)
 c.setFillColor(MUTED)
 c.drawString(M, sy - 10 * mm, 'Method at /methodology/. The model table itself is readable at /js/heat-model.js.')
@@ -163,8 +164,9 @@ c.drawString(M, H - M - 16 * mm, 'Everything about it is checkable')
 y = H - M - 34 * mm
 y = bullet(c, 'The method is published, and enforced',
            'Comparable tools return a score or an estimate without saying how it was produced. This '
-           'one publishes the model table and the method behind it, and two automated checks compare '
-           'every figure on the site back against that table before anything goes live.',
+           'one publishes the model table and the method behind it, and automated checks compare the '
+           'heat demand and cost figures in 18 guides and 154 table cells against that table before '
+           'anything goes live.',
            M, y, W - 2 * M)
 y = bullet(c, 'No AI, by choice, not anti AI',
            'A heat pump often costs five figures and a household lives with it for 15 years, so the '
@@ -172,16 +174,17 @@ y = bullet(c, 'No AI, by choice, not anti AI',
            'Deterministic arithmetic over public data that anyone can check or work through by hand.',
            M, y, W - 2 * M)
 y = bullet(c, 'It withholds the sale',
-           'The boiler tool hides both the quote prompt and the lead capture form when the existing '
-           'boiler is cheaper: at a £900 gas bill, 42 of its 120 input combinations. The solar tool '
-           'tells 282 of 6,048 modelled cases the system never pays for itself.', M, y, W - 2 * M)
+           'The boiler tool hides both the quote prompt and the quote form when a new boiler is cheaper '
+           'over 15 years even on a heat pump tariff: at a £900 gas bill, 35 of its 120 input '
+           'combinations. At a typical £860 bill the solar tool tells all 420 battery combinations to '
+           'price the battery separately, and shows a 25 year loss in 213.', M, y, W - 2 * M)
 c.showPage()
 
 # 5 ------------------------------------------------------------------ honest
 slide(c, 'where it stands')
 c.setFont('DispB', 31)
 c.setFillColor(TEXT)
-c.drawString(M, H - M - 16 * mm, 'Small, growing fast, and not yet validated')
+c.drawString(M, H - M - 16 * mm, 'Small, growing fast, not yet tested house by house')
 
 # Monthly Google search impressions in thousands, March launch month to September. September is drawn
 # as what it has so far (22 days) plus a pale extension to its 30 day pace, so the
@@ -231,9 +234,10 @@ y = 150
 c.setFont(BOLD, 11)
 c.setFillColor(TEXT)
 c.drawString(M, y, 'What I do not have, stated plainly')
-y = wrap(c, 'The calculators store and send nothing, so there is no count of calculator uses, no '
-            'completion rate and no user feedback. And no model output has yet been checked against '
-            'a real house quote or its metered consumption. Establishing that accuracy is the first '
+y = wrap(c, 'The calculators store nothing and ask for no personal details, so there is no count of '
+            'calculator uses, no completion rate and no user feedback. The model has been tested against '
+            'measured data in aggregate, but no output has yet been checked against one house\'s quote or '
+            'its metered consumption. Establishing that accuracy is the first '
             'thing a pilot should do.', M, y - 8 * mm, W - 2 * M, BODY, 11.5, 6.2 * mm, MUTED)
 c.showPage()
 
@@ -244,7 +248,8 @@ c.setFillColor(TEXT)
 c.drawString(M, H - M - 16 * mm, '12 weeks, one cohort, a falsifiable result')
 y = H - M - 34 * mm
 y = bullet(c, 'Who', 'Mortgage customers at EPC band D or E, where the model is calibrated, '
-                     'against a matched holdout. Base rate near 0.1% means roughly 30,000 per arm.',
+                     'against a matched holdout. At a 0.1% yearly claim rate, a 6 month read '
+                     'needs roughly 47,000 per arm.',
            M, y, 118 * mm)
 y = bullet(c, 'What they see', 'A payback figure and a ranked list of measures for their own home, '
                                'inside a page Lloyds already runs.', M, y, 118 * mm)

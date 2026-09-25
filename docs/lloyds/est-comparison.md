@@ -1,6 +1,6 @@
 # What the Energy Saving Trust tool gives, and what it does not
 
-Sourced from the two banks that white label it, in their own words, rather than from
+Sourced from the banks that white label it (Lloyds, Nationwide and, for its method, Barclays), in their own words, rather than from
 running a fabricated property through their systems.
 
 ## Lloyds Bank, Eco Home Tool page
@@ -34,17 +34,20 @@ Both official descriptions list the same four outputs, and neither mentions two 
    the other and tells the household how many years the money takes to come back. That is
    the number a person deciding whether to spend five figures actually needs.
 
-2. A STATED METHOD. Neither page, nor the tool, publishes how the estimate is produced or
-   what data it rests on. RetrofitPlanner publishes its method at /methodology/ and its
-   model table at /js/heat-model.js, and enforces both with two automated checks.
+2. A FULL METHOD. The tool states its method only in outline. Barclays' page (25 Sep
+   2026) says it "uses the same calculations as those used to produce an Energy
+   Performance Certificate", with assumptions "based on Energy Saving Trust analysis of
+   housing condition survey data", and measure costs from a fixed and a variable part.
+   RetrofitPlanner publishes its method at /methodology/ and its model at
+   /js/heat-model.js, and checks its pages against that model before anything publishes.
 
 Be careful not to overclaim. Nationwide's goal and budget step does order suggestions, so
 "no prioritisation at all" would be wrong. The defensible claim is about payback and
 published method, not about sequencing.
 
 Also fair to EST, and worth conceding in the application: their tool covers the whole of
-Great Britain and produces an EPC estimate and a CO2 figure. RetrofitPlanner does neither
-of the latter two, and its model is fitted to gas heated homes in England and Wales.
+Great Britain. RetrofitPlanner's EPC planner is a rough points model rather than an EPC
+calculation, and its heat model is fitted to gas heated homes in England and Wales.
 
 ## Why this was not tested by running a property through it
 
