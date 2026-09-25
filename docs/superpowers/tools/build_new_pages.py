@@ -169,7 +169,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
                 h1='Average energy bill for a %d bed %s' % (beds, noun), crumb=crumb, faq=faq, body=body,
                 sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
                          'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.',
-                         'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat heat pump performance report</a>, December 2024.'])
+                         'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat trial, heat pump performance report</a>, December 2024.'])
 
 
 def bills_3():
@@ -224,7 +224,7 @@ def hp_house(slug, t, b, label, title_label, crumb, intro, extra_h2, extra_p, co
                 description='%s heat pump: %s to %s installed, %s to %s after the £7,500 grant. Typical size, running costs and what to check first.' % (label[0].upper() + label[1:], gbp(lo), gbp(hi), gbp(max(0, lo - 7500)), gbp(max(0, hi - 7500))),
                 h1='Heat pump for a %s: cost and running costs' % label, crumb=crumb, faq=faq, body=body,
                 sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables A1.3A and Q1.1A.',
-                         'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat heat pump performance report</a>, December 2024.',
+                         'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat trial, heat pump performance report</a>, December 2024.',
                          'DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
                          'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.'])
 
@@ -311,6 +311,8 @@ def render(p):
 ''' % (nav, p['crumb'], p['h1'], p['body'], faq_html, src_html)
     out = ROOT / 'guides' / p['slug'] / 'index.html'
     out.parent.mkdir(parents=True, exist_ok=True)
+    # 'a 8 kW' reads wrong; sizes that start with a vowel sound take 'an'
+    page = re.sub(r'\ba ((?:8|11|18)(?:\.\d)? kW)', r'an \1', page)
     out.write_text(page)
     assert len(p['title']) <= 60, (p['slug'], len(p['title']))
     assert len(p['description']) <= 155, (p['slug'], len(p['description']))

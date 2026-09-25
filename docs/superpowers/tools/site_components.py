@@ -71,6 +71,9 @@ KINDS = {
         h2='Get quotes to upgrade your home',
         who='certified installers for the work I choose (MCS for heat pumps and solar, TrustMark for insulation)',
         sub_who='certified installers for the work you choose',
+        # how the request is described in the form intro and on the thank-you page
+        reach='certified installers who cover your postcode and do the work you choose',
+        finder_who='certified installers',
         points=['Certified installers only', 'Heat pumps, solar and insulation', 'Free, with no obligation'],
         extra=[('work', 'What do you want quotes for?', ['Heat pump', 'Solar panels', 'Insulation', 'Several of these', 'Not sure yet']), HEATING],
         timing=TIMING),
@@ -128,6 +131,10 @@ def sub_who(k):
     return k.get('sub_who', k['who'])
 
 
+def reach(k):
+    return k.get('reach', sub_who(k) + ' covering your postcode')
+
+
 def lead_form(kind, source):
     k = KINDS[kind]
     points = ''.join('<li>%s %s</li>' % (TICK, p) for p in k['points'])
@@ -146,7 +153,7 @@ def lead_form(kind, source):
     return (
         '<!-- lead-form:%s -->\n<section class="quote-form" id="quote">\n'
         '<h2>%s</h2>\n'
-        '<p class="qf-sub">Tell us about your property and we will pass your request to up to three %s covering your postcode. It is free and there is no obligation to go ahead.</p>\n'
+        '<p class="qf-sub">Tell us about your property and we will pass your request to up to three %s. It is free and there is no obligation to go ahead.</p>\n'
         '<ul class="qf-points">%s</ul>\n'
         '<form name="%s" method="POST" action="%s" data-netlify="true" netlify-honeypot="bot-field">\n'
         '<input type="hidden" name="form-name" value="%s">\n'
@@ -159,7 +166,7 @@ def lead_form(kind, source):
         '<button type="submit" class="btn-calculate">Request my free quotes</button>\n'
         '<p class="qf-small">It costs you nothing and never changes any figure on this site. We keep your request and the wording you agreed to as a record of your consent, and delete both after 12 months. See our <a href="/privacy/#quotes">privacy policy</a>.</p>\n'
         '</form>\n</section>\n<!-- /lead-form -->'
-        % (kind, k['h2'], sub_who(k), points, k['form'], k['action'], k['form'], esc(source),
+        % (kind, k['h2'], reach(k), points, k['form'], k['action'], k['form'], esc(source),
            CONSENT_VERSION + '-' + kind, esc(ct), '\n'.join(fields), ct))
 
 
@@ -307,16 +314,17 @@ def thanks_page(template, slug, spec):
     t = re.sub(r'<title>[^<]*</title>', '<title>Request received | Retrofit Planner</title>', template)
     t = re.sub(r'gtag\("event","generate_lead",\{form:"[^"]*"\}\)', 'gtag("event","generate_lead",{form:"%s"})' % k['form'], t)
     qs = ''.join('<li>%s</li>' % q for q in questions)
-    ls = ' or '.join('<a href="%s">%s</a>' % (h, l.lower() if i else l) for i, (h, l) in enumerate(links))
+    ls = ' or '.join('<a href="%s">%s</a>' % (h, (l[0].lower() + l[1:]) if i else l) for i, (h, l) in enumerate(links))
     main = ('<main id="main" class="thanks">\n'
             '<h1>Request received</h1>\n'
-            '<p class="thanks-lead">Thank you. We will pass your %s request to up to three %s covering your postcode, usually within two working days, and they will contact you directly with a quote. If we cannot find anyone covering your area, we will email you to say so.</p>\n'
+            '<p class="thanks-lead">Thank you. We will pass your %s request to up to three %s, usually within two working days, and they will contact you directly with a quote. If we cannot find anyone covering your area, we will email you to say so.</p>\n'
             '<p>You can also look for %s yourself.</p>\n'
             '<a class="thanks-cta" href="%s" target="_blank" rel="noopener">%s</a>\n'
-            '<div class="thanks-questions"><h2>Five questions worth asking every installer</h2><ol>%s</ol></div>\n'
+            '<div class="thanks-questions"><h2>Five questions worth asking every %s</h2><ol>%s</ol></div>\n'
             '<p class="thanks-next">While you wait: %s.</p>\n'
-            '<p class="thanks-small">Changed your mind? Email <a href="mailto:%s">%s</a> and we will not pass your details on, or will ask anyone we have passed them to to delete them.</p>\n'
-            '</main>') % (noun, who, who, finder, finder_label, qs, ls, CONTACT, CONTACT)
+            '<p class="thanks-small">Changed your mind? Email <a href="mailto:%s">%s</a> and we will not pass your details on, or will ask anyone who already has them to delete them.</p>\n'
+            '</main>') % (noun, reach(k).replace('you choose', 'you chose'), k.get('finder_who', who), finder, finder_label,
+                          'assessor' if kind == 'epc' else 'installer', qs, ls, CONTACT, CONTACT)
     t = re.sub(r'<main id="main".*?</main>', lambda _: main, t, count=1, flags=re.S)
     return t
 
