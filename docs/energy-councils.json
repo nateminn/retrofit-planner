@@ -1,0 +1,7076 @@
+{
+ "source_url": "https://assets.publishing.service.gov.uk/media/6a282784f553ec1112221813/Consumption_local_authority_EW_2024.xlsx",
+ "published": "2026-06-11",
+ "councils": {
+  "E06000047": {
+   "gas": 10616,
+   "elec": 2226,
+   "gas_type": {
+    "Detached": 13581,
+    "Semi detached": 10844,
+    "Mid terrace": 9755,
+    "End terrace": 10562,
+    "Bungalow": 9793,
+    "Converted flat": 7683,
+    "Purpose built flat": 5593
+   },
+   "elec_type": {
+    "Detached": 2941,
+    "Semi detached": 2312,
+    "Mid terrace": 2095,
+    "End terrace": 2246,
+    "Bungalow": 1814,
+    "Converted flat": 1880,
+    "Purpose built flat": 1402
+   }
+  },
+  "E06000005": {
+   "gas": 10369,
+   "elec": 2298,
+   "gas_type": {
+    "Detached": 13069,
+    "Semi detached": 11111,
+    "Mid terrace": 9206,
+    "End terrace": 9774,
+    "Bungalow": 10484,
+    "Converted flat": 6598,
+    "Purpose built flat": 5186
+   },
+   "elec_type": {
+    "Detached": 2960,
+    "Semi detached": 2397,
+    "Mid terrace": 2117,
+    "End terrace": 2411,
+    "Bungalow": 1980,
+    "Converted flat": 1882,
+    "Purpose built flat": 1548
+   }
+  },
+  "E06000001": {
+   "gas": 9849,
+   "elec": 2244,
+   "gas_type": {
+    "Detached": 12976,
+    "Semi detached": 10322,
+    "Mid terrace": 9253,
+    "End terrace": 9488,
+    "Bungalow": 8898,
+    "Converted flat": 7715,
+    "Purpose built flat": 4873
+   },
+   "elec_type": {
+    "Detached": 2960,
+    "Semi detached": 2340,
+    "Mid terrace": 2204,
+    "End terrace": 2281,
+    "Bungalow": 1874,
+    "Converted flat": 1803,
+    "Purpose built flat": 1366
+   }
+  },
+  "E06000002": {
+   "gas": 9983,
+   "elec": 2298,
+   "gas_type": {
+    "Detached": 12438,
+    "Semi detached": 10471,
+    "Mid terrace": 9522,
+    "End terrace": 9889,
+    "Bungalow": 9694,
+    "Converted flat": 7192,
+    "Purpose built flat": 5048
+   },
+   "elec_type": {
+    "Detached": 2902,
+    "Semi detached": 2376,
+    "Mid terrace": 2270,
+    "End terrace": 2420,
+    "Bungalow": 1933,
+    "Converted flat": 2234,
+    "Purpose built flat": 1467
+   }
+  },
+  "E06000057": {
+   "gas": 10277,
+   "elec": 2357,
+   "gas_type": {
+    "Detached": 13654,
+    "Semi detached": 10328,
+    "Mid terrace": 9335,
+    "End terrace": 9790,
+    "Bungalow": 10339,
+    "Converted flat": 7597,
+    "Purpose built flat": 5980
+   },
+   "elec_type": {
+    "Detached": 3122,
+    "Semi detached": 2392,
+    "Mid terrace": 2190,
+    "End terrace": 2315,
+    "Bungalow": 2199,
+    "Converted flat": 1655,
+    "Purpose built flat": 1481
+   }
+  },
+  "E06000003": {
+   "gas": 9910,
+   "elec": 2243,
+   "gas_type": {
+    "Detached": 12668,
+    "Semi detached": 10219,
+    "Mid terrace": 8849,
+    "End terrace": 9382,
+    "Bungalow": 9816,
+    "Converted flat": 6883,
+    "Purpose built flat": 4739
+   },
+   "elec_type": {
+    "Detached": 2873,
+    "Semi detached": 2321,
+    "Mid terrace": 2147,
+    "End terrace": 2370,
+    "Bungalow": 1932,
+    "Converted flat": 1770,
+    "Purpose built flat": 1487
+   }
+  },
+  "E06000004": {
+   "gas": 10288,
+   "elec": 2353,
+   "gas_type": {
+    "Detached": 13352,
+    "Semi detached": 10288,
+    "Mid terrace": 9056,
+    "End terrace": 9261,
+    "Bungalow": 9531,
+    "Converted flat": 6470,
+    "Purpose built flat": 4963
+   },
+   "elec_type": {
+    "Detached": 3031,
+    "Semi detached": 2377,
+    "Mid terrace": 2259,
+    "End terrace": 2326,
+    "Bungalow": 1933,
+    "Converted flat": 2222,
+    "Purpose built flat": 1416
+   }
+  },
+  "E08000037": {
+   "gas": 10487,
+   "elec": 2194,
+   "gas_type": {
+    "Detached": 14278,
+    "Semi detached": 11367,
+    "Mid terrace": 10227,
+    "End terrace": 10602,
+    "Bungalow": 10195,
+    "Converted flat": 8253,
+    "Purpose built flat": 6764
+   },
+   "elec_type": {
+    "Detached": 3024,
+    "Semi detached": 2388,
+    "Mid terrace": 2161,
+    "End terrace": 2271,
+    "Bungalow": 1831,
+    "Converted flat": 2228,
+    "Purpose built flat": 1662
+   }
+  },
+  "E08000021": {
+   "gas": 10689,
+   "elec": 2277,
+   "gas_type": {
+    "Detached": 13878,
+    "Semi detached": 12331,
+    "Mid terrace": 10697,
+    "End terrace": 10180,
+    "Bungalow": 10549,
+    "Converted flat": 9140,
+    "Purpose built flat": 7538
+   },
+   "elec_type": {
+    "Detached": 2990,
+    "Semi detached": 2495,
+    "Mid terrace": 2396,
+    "End terrace": 2337,
+    "Bungalow": 1905,
+    "Converted flat": 2645,
+    "Purpose built flat": 1807
+   }
+  },
+  "E08000022": {
+   "gas": 10368,
+   "elec": 2186,
+   "gas_type": {
+    "Detached": 13139,
+    "Semi detached": 11764,
+    "Mid terrace": 10018,
+    "End terrace": 9663,
+    "Bungalow": 9827,
+    "Converted flat": 8328,
+    "Purpose built flat": 6571
+   },
+   "elec_type": {
+    "Detached": 2959,
+    "Semi detached": 2472,
+    "Mid terrace": 2224,
+    "End terrace": 2231,
+    "Bungalow": 1759,
+    "Converted flat": 1735,
+    "Purpose built flat": 1523
+   }
+  },
+  "E08000023": {
+   "gas": 9725,
+   "elec": 2104,
+   "gas_type": {
+    "Detached": 13376,
+    "Semi detached": 10765,
+    "Mid terrace": 9596,
+    "End terrace": 9704,
+    "Bungalow": 9383,
+    "Converted flat": 8938,
+    "Purpose built flat": 6481
+   },
+   "elec_type": {
+    "Detached": 3062,
+    "Semi detached": 2362,
+    "Mid terrace": 2199,
+    "End terrace": 2295,
+    "Bungalow": 1738,
+    "Converted flat": 1823,
+    "Purpose built flat": 1466
+   }
+  },
+  "E08000024": {
+   "gas": 10464,
+   "elec": 2181,
+   "gas_type": {
+    "Detached": 13236,
+    "Semi detached": 11050,
+    "Mid terrace": 10164,
+    "End terrace": 10185,
+    "Bungalow": 9817,
+    "Converted flat": 7989,
+    "Purpose built flat": 5839
+   },
+   "elec_type": {
+    "Detached": 2948,
+    "Semi detached": 2297,
+    "Mid terrace": 2250,
+    "End terrace": 2230,
+    "Bungalow": 1794,
+    "Converted flat": 1977,
+    "Purpose built flat": 1448
+   }
+  },
+  "E06000008": {
+   "gas": 10837,
+   "elec": 2467,
+   "gas_type": {
+    "Detached": 13480,
+    "Semi detached": 11163,
+    "Mid terrace": 10533,
+    "End terrace": 11631,
+    "Bungalow": 11081,
+    "Converted flat": 7321,
+    "Purpose built flat": 5447
+   },
+   "elec_type": {
+    "Detached": 3252,
+    "Semi detached": 2625,
+    "Mid terrace": 2328,
+    "End terrace": 2609,
+    "Bungalow": 2252,
+    "Converted flat": 2405,
+    "Purpose built flat": 1611
+   }
+  },
+  "E06000009": {
+   "gas": 9419,
+   "elec": 2416,
+   "gas_type": {
+    "Detached": 13074,
+    "Semi detached": 10495,
+    "Mid terrace": 8407,
+    "End terrace": 9475,
+    "Bungalow": 9751,
+    "Converted flat": 7977,
+    "Purpose built flat": 4751
+   },
+   "elec_type": {
+    "Detached": 3083,
+    "Semi detached": 2542,
+    "Mid terrace": 2378,
+    "End terrace": 2463,
+    "Bungalow": 2059,
+    "Converted flat": 2442,
+    "Purpose built flat": 1838
+   }
+  },
+  "E06000049": {
+   "gas": 10484,
+   "elec": 2638,
+   "gas_type": {
+    "Detached": 14061,
+    "Semi detached": 9894,
+    "Mid terrace": 8261,
+    "End terrace": 8972,
+    "Bungalow": 10996,
+    "Converted flat": 7004,
+    "Purpose built flat": 5002
+   },
+   "elec_type": {
+    "Detached": 3392,
+    "Semi detached": 2592,
+    "Mid terrace": 2152,
+    "End terrace": 2401,
+    "Bungalow": 2243,
+    "Converted flat": 2606,
+    "Purpose built flat": 1899
+   }
+  },
+  "E06000050": {
+   "gas": 9649,
+   "elec": 2547,
+   "gas_type": {
+    "Detached": 12915,
+    "Semi detached": 9541,
+    "Mid terrace": 8010,
+    "End terrace": 8412,
+    "Bungalow": 10567,
+    "Converted flat": 6901,
+    "Purpose built flat": 4794
+   },
+   "elec_type": {
+    "Detached": 3235,
+    "Semi detached": 2563,
+    "Mid terrace": 2239,
+    "End terrace": 2431,
+    "Bungalow": 2262,
+    "Converted flat": 2197,
+    "Purpose built flat": 1806
+   }
+  },
+  "E06000063": {
+   "gas": 9916,
+   "elec": 2426,
+   "gas_type": {
+    "Detached": 13298,
+    "Semi detached": 10085,
+    "Mid terrace": 8970,
+    "End terrace": 9455,
+    "Bungalow": 10715,
+    "Converted flat": 6623,
+    "Purpose built flat": 5274
+   },
+   "elec_type": {
+    "Detached": 3224,
+    "Semi detached": 2481,
+    "Mid terrace": 2180,
+    "End terrace": 2370,
+    "Bungalow": 2261,
+    "Converted flat": 2229,
+    "Purpose built flat": 1614
+   }
+  },
+  "E06000006": {
+   "gas": 8903,
+   "elec": 2451,
+   "gas_type": {
+    "Detached": 12312,
+    "Semi detached": 9187,
+    "Mid terrace": 7720,
+    "End terrace": 8599,
+    "Bungalow": 9527,
+    "Converted flat": 5546,
+    "Purpose built flat": 4516
+   },
+   "elec_type": {
+    "Detached": 3221,
+    "Semi detached": 2497,
+    "Mid terrace": 2341,
+    "End terrace": 2522,
+    "Bungalow": 2058,
+    "Converted flat": 1721,
+    "Purpose built flat": 1701
+   }
+  },
+  "E06000007": {
+   "gas": 9675,
+   "elec": 2485,
+   "gas_type": {
+    "Detached": 13131,
+    "Semi detached": 9934,
+    "Mid terrace": 8101,
+    "End terrace": 8965,
+    "Bungalow": 9856,
+    "Converted flat": 5456,
+    "Purpose built flat": 4546
+   },
+   "elec_type": {
+    "Detached": 3325,
+    "Semi detached": 2554,
+    "Mid terrace": 2155,
+    "End terrace": 2473,
+    "Bungalow": 2017,
+    "Converted flat": 1946,
+    "Purpose built flat": 1862
+   }
+  },
+  "E06000064": {
+   "gas": 9569,
+   "elec": 2509,
+   "gas_type": {
+    "Detached": 13083,
+    "Semi detached": 10106,
+    "Mid terrace": 8234,
+    "End terrace": 9291,
+    "Bungalow": 10951,
+    "Converted flat": 7482,
+    "Purpose built flat": 5046
+   },
+   "elec_type": {
+    "Detached": 3428,
+    "Semi detached": 2649,
+    "Mid terrace": 2170,
+    "End terrace": 2526,
+    "Bungalow": 2411,
+    "Converted flat": 2494,
+    "Purpose built flat": 1648
+   }
+  },
+  "E08000001": {
+   "gas": 10265,
+   "elec": 2477,
+   "gas_type": {
+    "Detached": 14184,
+    "Semi detached": 10775,
+    "Mid terrace": 9210,
+    "End terrace": 10195,
+    "Bungalow": 11026,
+    "Converted flat": 7495,
+    "Purpose built flat": 4980
+   },
+   "elec_type": {
+    "Detached": 3314,
+    "Semi detached": 2662,
+    "Mid terrace": 2217,
+    "End terrace": 2518,
+    "Bungalow": 2214,
+    "Converted flat": 3684,
+    "Purpose built flat": 1864
+   }
+  },
+  "E08000002": {
+   "gas": 10492,
+   "elec": 2513,
+   "gas_type": {
+    "Detached": 14557,
+    "Semi detached": 11212,
+    "Mid terrace": 8691,
+    "End terrace": 10269,
+    "Bungalow": 11635,
+    "Converted flat": 7199,
+    "Purpose built flat": 5482
+   },
+   "elec_type": {
+    "Detached": 3346,
+    "Semi detached": 2652,
+    "Mid terrace": 2181,
+    "End terrace": 2517,
+    "Bungalow": 2193,
+    "Converted flat": 2847,
+    "Purpose built flat": 1982
+   }
+  },
+  "E08000003": {
+   "gas": 9503,
+   "elec": 2673,
+   "gas_type": {
+    "Detached": 13989,
+    "Semi detached": 11022,
+    "Mid terrace": 9501,
+    "End terrace": 9786,
+    "Bungalow": 8384,
+    "Converted flat": 5957,
+    "Purpose built flat": 5494
+   },
+   "elec_type": {
+    "Detached": 3307,
+    "Semi detached": 2771,
+    "Mid terrace": 2457,
+    "End terrace": 2689,
+    "Bungalow": 1948,
+    "Converted flat": 2561,
+    "Purpose built flat": 2834
+   }
+  },
+  "E08000004": {
+   "gas": 10319,
+   "elec": 2426,
+   "gas_type": {
+    "Detached": 14142,
+    "Semi detached": 10882,
+    "Mid terrace": 9480,
+    "End terrace": 10662,
+    "Bungalow": 11041,
+    "Converted flat": 7659,
+    "Purpose built flat": 5758
+   },
+   "elec_type": {
+    "Detached": 3298,
+    "Semi detached": 2646,
+    "Mid terrace": 2280,
+    "End terrace": 2581,
+    "Bungalow": 2184,
+    "Converted flat": 3688,
+    "Purpose built flat": 1644
+   }
+  },
+  "E08000005": {
+   "gas": 9943,
+   "elec": 2471,
+   "gas_type": {
+    "Detached": 14211,
+    "Semi detached": 10402,
+    "Mid terrace": 8958,
+    "End terrace": 9933,
+    "Bungalow": 10337,
+    "Converted flat": 7198,
+    "Purpose built flat": 5330
+   },
+   "elec_type": {
+    "Detached": 3300,
+    "Semi detached": 2609,
+    "Mid terrace": 2296,
+    "End terrace": 2555,
+    "Bungalow": 2146,
+    "Converted flat": 2945,
+    "Purpose built flat": 1708
+   }
+  },
+  "E08000006": {
+   "gas": 9363,
+   "elec": 2663,
+   "gas_type": {
+    "Detached": 12655,
+    "Semi detached": 10392,
+    "Mid terrace": 8642,
+    "End terrace": 9293,
+    "Bungalow": 9976,
+    "Converted flat": 6308,
+    "Purpose built flat": 5304
+   },
+   "elec_type": {
+    "Detached": 3270,
+    "Semi detached": 2623,
+    "Mid terrace": 2384,
+    "End terrace": 2539,
+    "Bungalow": 2107,
+    "Converted flat": 2940,
+    "Purpose built flat": 2990
+   }
+  },
+  "E08000007": {
+   "gas": 11116,
+   "elec": 2635,
+   "gas_type": {
+    "Detached": 15955,
+    "Semi detached": 11548,
+    "Mid terrace": 8540,
+    "End terrace": 9918,
+    "Bungalow": 12628,
+    "Converted flat": 6081,
+    "Purpose built flat": 5172
+   },
+   "elec_type": {
+    "Detached": 3430,
+    "Semi detached": 2737,
+    "Mid terrace": 2237,
+    "End terrace": 2506,
+    "Bungalow": 2369,
+    "Converted flat": 2913,
+    "Purpose built flat": 1934
+   }
+  },
+  "E08000008": {
+   "gas": 9630,
+   "elec": 2399,
+   "gas_type": {
+    "Detached": 13466,
+    "Semi detached": 10625,
+    "Mid terrace": 8582,
+    "End terrace": 9794,
+    "Bungalow": 10328,
+    "Converted flat": 7026,
+    "Purpose built flat": 5154
+   },
+   "elec_type": {
+    "Detached": 3248,
+    "Semi detached": 2603,
+    "Mid terrace": 2226,
+    "End terrace": 2484,
+    "Bungalow": 2123,
+    "Converted flat": 2739,
+    "Purpose built flat": 1702
+   }
+  },
+  "E08000009": {
+   "gas": 11452,
+   "elec": 2723,
+   "gas_type": {
+    "Detached": 17307,
+    "Semi detached": 12271,
+    "Mid terrace": 9724,
+    "End terrace": 10447,
+    "Bungalow": 10465,
+    "Converted flat": 7465,
+    "Purpose built flat": 5472
+   },
+   "elec_type": {
+    "Detached": 3725,
+    "Semi detached": 2850,
+    "Mid terrace": 2393,
+    "End terrace": 2595,
+    "Bungalow": 2093,
+    "Converted flat": 2852,
+    "Purpose built flat": 2107
+   }
+  },
+  "E08000010": {
+   "gas": 9216,
+   "elec": 2435,
+   "gas_type": {
+    "Detached": 11807,
+    "Semi detached": 9327,
+    "Mid terrace": 7711,
+    "End terrace": 8906,
+    "Bungalow": 9686,
+    "Converted flat": 7060,
+    "Purpose built flat": 4879
+   },
+   "elec_type": {
+    "Detached": 3197,
+    "Semi detached": 2490,
+    "Mid terrace": 2117,
+    "End terrace": 2350,
+    "Bungalow": 2083,
+    "Converted flat": 3271,
+    "Purpose built flat": 1989
+   }
+  },
+  "E07000117": {
+   "gas": 9889,
+   "elec": 2354,
+   "gas_type": {
+    "Detached": 12650,
+    "Semi detached": 10508,
+    "Mid terrace": 9257,
+    "End terrace": 10948,
+    "Bungalow": 9644,
+    "Converted flat": 7243,
+    "Purpose built flat": 4533
+   },
+   "elec_type": {
+    "Detached": 3007,
+    "Semi detached": 2555,
+    "Mid terrace": 2192,
+    "End terrace": 2636,
+    "Bungalow": 2063,
+    "Converted flat": 3178,
+    "Purpose built flat": 1431
+   }
+  },
+  "E07000118": {
+   "gas": 9861,
+   "elec": 2551,
+   "gas_type": {
+    "Detached": 12717,
+    "Semi detached": 9445,
+    "Mid terrace": 8103,
+    "End terrace": 8833,
+    "Bungalow": 11112,
+    "Converted flat": 5695,
+    "Purpose built flat": 4783
+   },
+   "elec_type": {
+    "Detached": 3361,
+    "Semi detached": 2534,
+    "Mid terrace": 2139,
+    "End terrace": 2449,
+    "Bungalow": 2287,
+    "Converted flat": 2145,
+    "Purpose built flat": 1902
+   }
+  },
+  "E07000119": {
+   "gas": 10454,
+   "elec": 2617,
+   "gas_type": {
+    "Detached": 12964,
+    "Semi detached": 10547,
+    "Mid terrace": 8209,
+    "End terrace": 9040,
+    "Bungalow": 11224,
+    "Converted flat": 6530,
+    "Purpose built flat": 5355
+   },
+   "elec_type": {
+    "Detached": 3142,
+    "Semi detached": 2686,
+    "Mid terrace": 2284,
+    "End terrace": 2446,
+    "Bungalow": 2319,
+    "Converted flat": 2023,
+    "Purpose built flat": 2620
+   }
+  },
+  "E07000120": {
+   "gas": 10006,
+   "elec": 2326,
+   "gas_type": {
+    "Detached": 12534,
+    "Semi detached": 10674,
+    "Mid terrace": 9300,
+    "End terrace": 11017,
+    "Bungalow": 10770,
+    "Converted flat": 6575,
+    "Purpose built flat": 5423
+   },
+   "elec_type": {
+    "Detached": 3132,
+    "Semi detached": 2583,
+    "Mid terrace": 2186,
+    "End terrace": 2606,
+    "Bungalow": 2072,
+    "Converted flat": 2557,
+    "Purpose built flat": 1383
+   }
+  },
+  "E07000121": {
+   "gas": 9569,
+   "elec": 2454,
+   "gas_type": {
+    "Detached": 12597,
+    "Semi detached": 10153,
+    "Mid terrace": 8410,
+    "End terrace": 8956,
+    "Bungalow": 10155,
+    "Converted flat": 6525,
+    "Purpose built flat": 5173
+   },
+   "elec_type": {
+    "Detached": 3252,
+    "Semi detached": 2606,
+    "Mid terrace": 2287,
+    "End terrace": 2507,
+    "Bungalow": 2213,
+    "Converted flat": 1950,
+    "Purpose built flat": 1965
+   }
+  },
+  "E07000122": {
+   "gas": 10706,
+   "elec": 2350,
+   "gas_type": {
+    "Detached": 14945,
+    "Semi detached": 11678,
+    "Mid terrace": 9794,
+    "End terrace": 11887,
+    "Bungalow": 11042,
+    "Converted flat": 8078,
+    "Purpose built flat": 4973
+   },
+   "elec_type": {
+    "Detached": 3334,
+    "Semi detached": 2694,
+    "Mid terrace": 2124,
+    "End terrace": 2538,
+    "Bungalow": 2181,
+    "Converted flat": 2818,
+    "Purpose built flat": 1496
+   }
+  },
+  "E07000123": {
+   "gas": 9621,
+   "elec": 2502,
+   "gas_type": {
+    "Detached": 12093,
+    "Semi detached": 9852,
+    "Mid terrace": 9244,
+    "End terrace": 9468,
+    "Bungalow": 9944,
+    "Converted flat": 6984,
+    "Purpose built flat": 4721
+   },
+   "elec_type": {
+    "Detached": 3124,
+    "Semi detached": 2527,
+    "Mid terrace": 2304,
+    "End terrace": 2528,
+    "Bungalow": 2085,
+    "Converted flat": 3194,
+    "Purpose built flat": 2067
+   }
+  },
+  "E07000124": {
+   "gas": 10536,
+   "elec": 2618,
+   "gas_type": {
+    "Detached": 13901,
+    "Semi detached": 10072,
+    "Mid terrace": 8651,
+    "End terrace": 9682,
+    "Bungalow": 11722,
+    "Converted flat": 6211,
+    "Purpose built flat": 5056
+   },
+   "elec_type": {
+    "Detached": 3653,
+    "Semi detached": 2683,
+    "Mid terrace": 2116,
+    "End terrace": 2448,
+    "Bungalow": 2363,
+    "Converted flat": 2432,
+    "Purpose built flat": 1445
+   }
+  },
+  "E07000125": {
+   "gas": 10981,
+   "elec": 2547,
+   "gas_type": {
+    "Detached": 15092,
+    "Semi detached": 11436,
+    "Mid terrace": 9669,
+    "End terrace": 11446,
+    "Bungalow": 11154,
+    "Converted flat": 7117,
+    "Purpose built flat": 5378
+   },
+   "elec_type": {
+    "Detached": 3535,
+    "Semi detached": 2754,
+    "Mid terrace": 2241,
+    "End terrace": 2602,
+    "Bungalow": 2265,
+    "Converted flat": 2926,
+    "Purpose built flat": 1581
+   }
+  },
+  "E07000126": {
+   "gas": 9611,
+   "elec": 2486,
+   "gas_type": {
+    "Detached": 11877,
+    "Semi detached": 9431,
+    "Mid terrace": 7773,
+    "End terrace": 8377,
+    "Bungalow": 10112,
+    "Converted flat": 5607,
+    "Purpose built flat": 5091
+   },
+   "elec_type": {
+    "Detached": 3112,
+    "Semi detached": 2487,
+    "Mid terrace": 2150,
+    "End terrace": 2376,
+    "Bungalow": 2202,
+    "Converted flat": 2253,
+    "Purpose built flat": 1817
+   }
+  },
+  "E07000127": {
+   "gas": 10037,
+   "elec": 2634,
+   "gas_type": {
+    "Detached": 13221,
+    "Semi detached": 9828,
+    "Mid terrace": 8439,
+    "End terrace": 8953,
+    "Bungalow": 10936,
+    "Converted flat": 7449,
+    "Purpose built flat": 4881
+   },
+   "elec_type": {
+    "Detached": 3440,
+    "Semi detached": 2632,
+    "Mid terrace": 2459,
+    "End terrace": 2464,
+    "Bungalow": 2393,
+    "Converted flat": 2278,
+    "Purpose built flat": 1580
+   }
+  },
+  "E07000128": {
+   "gas": 9813,
+   "elec": 2504,
+   "gas_type": {
+    "Detached": 12385,
+    "Semi detached": 9738,
+    "Mid terrace": 7806,
+    "End terrace": 8369,
+    "Bungalow": 10383,
+    "Converted flat": 6370,
+    "Purpose built flat": 4521
+   },
+   "elec_type": {
+    "Detached": 3217,
+    "Semi detached": 2512,
+    "Mid terrace": 2293,
+    "End terrace": 2439,
+    "Bungalow": 2213,
+    "Converted flat": 2087,
+    "Purpose built flat": 2098
+   }
+  },
+  "E08000011": {
+   "gas": 8867,
+   "elec": 2393,
+   "gas_type": {
+    "Detached": 10682,
+    "Semi detached": 9367,
+    "Mid terrace": 8324,
+    "End terrace": 8701,
+    "Bungalow": 8220,
+    "Converted flat": 5757,
+    "Purpose built flat": 5124
+   },
+   "elec_type": {
+    "Detached": 2982,
+    "Semi detached": 2475,
+    "Mid terrace": 2369,
+    "End terrace": 2371,
+    "Bungalow": 1988,
+    "Converted flat": 1496,
+    "Purpose built flat": 1548
+   }
+  },
+  "E08000012": {
+   "gas": 9310,
+   "elec": 2325,
+   "gas_type": {
+    "Detached": 12796,
+    "Semi detached": 10558,
+    "Mid terrace": 9057,
+    "End terrace": 9453,
+    "Bungalow": 8309,
+    "Converted flat": 6455,
+    "Purpose built flat": 4819
+   },
+   "elec_type": {
+    "Detached": 3149,
+    "Semi detached": 2538,
+    "Mid terrace": 2231,
+    "End terrace": 2407,
+    "Bungalow": 2005,
+    "Converted flat": 1962,
+    "Purpose built flat": 1936
+   }
+  },
+  "E08000014": {
+   "gas": 10067,
+   "elec": 2441,
+   "gas_type": {
+    "Detached": 14444,
+    "Semi detached": 10921,
+    "Mid terrace": 8445,
+    "End terrace": 8902,
+    "Bungalow": 10261,
+    "Converted flat": 6242,
+    "Purpose built flat": 5226
+   },
+   "elec_type": {
+    "Detached": 3241,
+    "Semi detached": 2618,
+    "Mid terrace": 2302,
+    "End terrace": 2464,
+    "Bungalow": 2102,
+    "Converted flat": 1738,
+    "Purpose built flat": 1667
+   }
+  },
+  "E08000013": {
+   "gas": 9230,
+   "elec": 2345,
+   "gas_type": {
+    "Detached": 12254,
+    "Semi detached": 9517,
+    "Mid terrace": 8156,
+    "End terrace": 8813,
+    "Bungalow": 9820,
+    "Converted flat": 5495,
+    "Purpose built flat": 4599
+   },
+   "elec_type": {
+    "Detached": 3125,
+    "Semi detached": 2456,
+    "Mid terrace": 2112,
+    "End terrace": 2314,
+    "Bungalow": 2035,
+    "Converted flat": 2357,
+    "Purpose built flat": 1540
+   }
+  },
+  "E08000015": {
+   "gas": 9963,
+   "elec": 2475,
+   "gas_type": {
+    "Detached": 14100,
+    "Semi detached": 11006,
+    "Mid terrace": 8294,
+    "End terrace": 8888,
+    "Bungalow": 10459,
+    "Converted flat": 6949,
+    "Purpose built flat": 5032
+   },
+   "elec_type": {
+    "Detached": 3236,
+    "Semi detached": 2672,
+    "Mid terrace": 2367,
+    "End terrace": 2546,
+    "Bungalow": 2184,
+    "Converted flat": 1885,
+    "Purpose built flat": 1603
+   }
+  },
+  "E06000011": {
+   "gas": 10262,
+   "elec": 2450,
+   "gas_type": {
+    "Detached": 13466,
+    "Semi detached": 10229,
+    "Mid terrace": 8579,
+    "End terrace": 9143,
+    "Bungalow": 9989,
+    "Converted flat": 6622,
+    "Purpose built flat": 4926
+   },
+   "elec_type": {
+    "Detached": 3171,
+    "Semi detached": 2488,
+    "Mid terrace": 2165,
+    "End terrace": 2271,
+    "Bungalow": 2104,
+    "Converted flat": 1873,
+    "Purpose built flat": 1720
+   }
+  },
+  "E06000010": {
+   "gas": 8889,
+   "elec": 2254,
+   "gas_type": {
+    "Detached": 11591,
+    "Semi detached": 9489,
+    "Mid terrace": 8914,
+    "End terrace": 9497,
+    "Bungalow": 7067,
+    "Converted flat": 6509,
+    "Purpose built flat": 5041
+   },
+   "elec_type": {
+    "Detached": 2982,
+    "Semi detached": 2423,
+    "Mid terrace": 2280,
+    "End terrace": 2379,
+    "Bungalow": 1677,
+    "Converted flat": 1934,
+    "Purpose built flat": 1712
+   }
+  },
+  "E06000012": {
+   "gas": 9537,
+   "elec": 2369,
+   "gas_type": {
+    "Detached": 12610,
+    "Semi detached": 9920,
+    "Mid terrace": 8465,
+    "End terrace": 8597,
+    "Bungalow": 10374,
+    "Converted flat": 6091,
+    "Purpose built flat": 4680
+   },
+   "elec_type": {
+    "Detached": 3077,
+    "Semi detached": 2457,
+    "Mid terrace": 2293,
+    "End terrace": 2371,
+    "Bungalow": 2133,
+    "Converted flat": 1948,
+    "Purpose built flat": 1555
+   }
+  },
+  "E06000013": {
+   "gas": 10091,
+   "elec": 2412,
+   "gas_type": {
+    "Detached": 13259,
+    "Semi detached": 10064,
+    "Mid terrace": 8463,
+    "End terrace": 8567,
+    "Bungalow": 9870,
+    "Converted flat": 6442,
+    "Purpose built flat": 5437
+   },
+   "elec_type": {
+    "Detached": 3159,
+    "Semi detached": 2425,
+    "Mid terrace": 2256,
+    "End terrace": 2318,
+    "Bungalow": 2064,
+    "Converted flat": 1697,
+    "Purpose built flat": 1611
+   }
+  },
+  "E06000065": {
+   "gas": 10287,
+   "elec": 2572,
+   "gas_type": {
+    "Detached": 13889,
+    "Semi detached": 10232,
+    "Mid terrace": 9003,
+    "End terrace": 9363,
+    "Bungalow": 10396,
+    "Converted flat": 7664,
+    "Purpose built flat": 5260
+   },
+   "elec_type": {
+    "Detached": 3452,
+    "Semi detached": 2610,
+    "Mid terrace": 2258,
+    "End terrace": 2455,
+    "Bungalow": 2209,
+    "Converted flat": 1976,
+    "Purpose built flat": 1734
+   }
+  },
+  "E06000014": {
+   "gas": 10492,
+   "elec": 2443,
+   "gas_type": {
+    "Detached": 14397,
+    "Semi detached": 11148,
+    "Mid terrace": 9294,
+    "End terrace": 9652,
+    "Bungalow": 10266,
+    "Converted flat": 6900,
+    "Purpose built flat": 5166
+   },
+   "elec_type": {
+    "Detached": 3022,
+    "Semi detached": 2574,
+    "Mid terrace": 2173,
+    "End terrace": 2466,
+    "Bungalow": 2030,
+    "Converted flat": 2705,
+    "Purpose built flat": 2111
+   }
+  },
+  "E08000038": {
+   "gas": 9810,
+   "elec": 2300,
+   "gas_type": {
+    "Detached": 12695,
+    "Semi detached": 9809,
+    "Mid terrace": 8516,
+    "End terrace": 9678,
+    "Bungalow": 9912,
+    "Converted flat": 5929,
+    "Purpose built flat": 5466
+   },
+   "elec_type": {
+    "Detached": 3060,
+    "Semi detached": 2440,
+    "Mid terrace": 2046,
+    "End terrace": 2304,
+    "Bungalow": 1931,
+    "Converted flat": 2015,
+    "Purpose built flat": 1513
+   }
+  },
+  "E08000017": {
+   "gas": 9914,
+   "elec": 2351,
+   "gas_type": {
+    "Detached": 12740,
+    "Semi detached": 9936,
+    "Mid terrace": 9144,
+    "End terrace": 9703,
+    "Bungalow": 9474,
+    "Converted flat": 6470,
+    "Purpose built flat": 5148
+   },
+   "elec_type": {
+    "Detached": 3092,
+    "Semi detached": 2413,
+    "Mid terrace": 2256,
+    "End terrace": 2456,
+    "Bungalow": 1871,
+    "Converted flat": 2319,
+    "Purpose built flat": 1615
+   }
+  },
+  "E08000018": {
+   "gas": 9997,
+   "elec": 2338,
+   "gas_type": {
+    "Detached": 13095,
+    "Semi detached": 10140,
+    "Mid terrace": 9125,
+    "End terrace": 9570,
+    "Bungalow": 9613,
+    "Converted flat": 6520,
+    "Purpose built flat": 5446
+   },
+   "elec_type": {
+    "Detached": 3084,
+    "Semi detached": 2445,
+    "Mid terrace": 2199,
+    "End terrace": 2408,
+    "Bungalow": 1886,
+    "Converted flat": 2124,
+    "Purpose built flat": 1534
+   }
+  },
+  "E08000039": {
+   "gas": 10546,
+   "elec": 2346,
+   "gas_type": {
+    "Detached": 15134,
+    "Semi detached": 11311,
+    "Mid terrace": 9754,
+    "End terrace": 10255,
+    "Bungalow": 10715,
+    "Converted flat": 7466,
+    "Purpose built flat": 5696
+   },
+   "elec_type": {
+    "Detached": 3128,
+    "Semi detached": 2479,
+    "Mid terrace": 2226,
+    "End terrace": 2377,
+    "Bungalow": 2001,
+    "Converted flat": 2350,
+    "Purpose built flat": 1774
+   }
+  },
+  "E08000032": {
+   "gas": 11611,
+   "elec": 2520,
+   "gas_type": {
+    "Detached": 15888,
+    "Semi detached": 11928,
+    "Mid terrace": 11047,
+    "End terrace": 11654,
+    "Bungalow": 11768,
+    "Converted flat": 7701,
+    "Purpose built flat": 6109
+   },
+   "elec_type": {
+    "Detached": 3327,
+    "Semi detached": 2600,
+    "Mid terrace": 2363,
+    "End terrace": 2564,
+    "Bungalow": 2177,
+    "Converted flat": 3123,
+    "Purpose built flat": 1830
+   }
+  },
+  "E08000033": {
+   "gas": 10745,
+   "elec": 2467,
+   "gas_type": {
+    "Detached": 16286,
+    "Semi detached": 11787,
+    "Mid terrace": 9401,
+    "End terrace": 11345,
+    "Bungalow": 11026,
+    "Converted flat": 7659,
+    "Purpose built flat": 5469
+   },
+   "elec_type": {
+    "Detached": 3617,
+    "Semi detached": 2624,
+    "Mid terrace": 2184,
+    "End terrace": 2523,
+    "Bungalow": 2178,
+    "Converted flat": 2915,
+    "Purpose built flat": 1906
+   }
+  },
+  "E08000034": {
+   "gas": 11010,
+   "elec": 2450,
+   "gas_type": {
+    "Detached": 15232,
+    "Semi detached": 11296,
+    "Mid terrace": 9678,
+    "End terrace": 10903,
+    "Bungalow": 11234,
+    "Converted flat": 7536,
+    "Purpose built flat": 5359
+   },
+   "elec_type": {
+    "Detached": 3297,
+    "Semi detached": 2533,
+    "Mid terrace": 2207,
+    "End terrace": 2442,
+    "Bungalow": 2097,
+    "Converted flat": 3242,
+    "Purpose built flat": 1675
+   }
+  },
+  "E08000035": {
+   "gas": 10492,
+   "elec": 2492,
+   "gas_type": {
+    "Detached": 14830,
+    "Semi detached": 10967,
+    "Mid terrace": 9423,
+    "End terrace": 9974,
+    "Bungalow": 10818,
+    "Converted flat": 7162,
+    "Purpose built flat": 5798
+   },
+   "elec_type": {
+    "Detached": 3284,
+    "Semi detached": 2525,
+    "Mid terrace": 2378,
+    "End terrace": 2464,
+    "Bungalow": 2051,
+    "Converted flat": 2797,
+    "Purpose built flat": 2072
+   }
+  },
+  "E08000036": {
+   "gas": 9666,
+   "elec": 2307,
+   "gas_type": {
+    "Detached": 12621,
+    "Semi detached": 9769,
+    "Mid terrace": 8590,
+    "End terrace": 9392,
+    "Bungalow": 9378,
+    "Converted flat": 7525,
+    "Purpose built flat": 5234
+   },
+   "elec_type": {
+    "Detached": 3034,
+    "Semi detached": 2396,
+    "Mid terrace": 2079,
+    "End terrace": 2319,
+    "Bungalow": 1871,
+    "Converted flat": 2673,
+    "Purpose built flat": 1623
+   }
+  },
+  "E06000015": {
+   "gas": 9959,
+   "elec": 2443,
+   "gas_type": {
+    "Detached": 13109,
+    "Semi detached": 10343,
+    "Mid terrace": 8993,
+    "End terrace": 8845,
+    "Bungalow": 9703,
+    "Converted flat": 6290,
+    "Purpose built flat": 5087
+   },
+   "elec_type": {
+    "Detached": 2921,
+    "Semi detached": 2593,
+    "Mid terrace": 2268,
+    "End terrace": 2467,
+    "Bungalow": 1929,
+    "Converted flat": 2699,
+    "Purpose built flat": 1874
+   }
+  },
+  "E06000016": {
+   "gas": 11346,
+   "elec": 2456,
+   "gas_type": {
+    "Detached": 15960,
+    "Semi detached": 12304,
+    "Mid terrace": 11540,
+    "End terrace": 10776,
+    "Bungalow": 8936,
+    "Converted flat": 7557,
+    "Purpose built flat": 5678
+   },
+   "elec_type": {
+    "Detached": 3156,
+    "Semi detached": 2630,
+    "Mid terrace": 2325,
+    "End terrace": 2521,
+    "Bungalow": 1822,
+    "Converted flat": 3020,
+    "Purpose built flat": 1995
+   }
+  },
+  "E06000061": {
+   "gas": 9911,
+   "elec": 2535,
+   "gas_type": {
+    "Detached": 12494,
+    "Semi detached": 9571,
+    "Mid terrace": 9090,
+    "End terrace": 9412,
+    "Bungalow": 9549,
+    "Converted flat": 7142,
+    "Purpose built flat": 5330
+   },
+   "elec_type": {
+    "Detached": 3187,
+    "Semi detached": 2513,
+    "Mid terrace": 2352,
+    "End terrace": 2453,
+    "Bungalow": 2146,
+    "Converted flat": 2586,
+    "Purpose built flat": 1750
+   }
+  },
+  "E06000018": {
+   "gas": 9554,
+   "elec": 2443,
+   "gas_type": {
+    "Detached": 14759,
+    "Semi detached": 10524,
+    "Mid terrace": 8792,
+    "End terrace": 9643,
+    "Bungalow": 8977,
+    "Converted flat": 7410,
+    "Purpose built flat": 5227
+   },
+   "elec_type": {
+    "Detached": 2945,
+    "Semi detached": 2612,
+    "Mid terrace": 2404,
+    "End terrace": 2549,
+    "Bungalow": 2001,
+    "Converted flat": 2572,
+    "Purpose built flat": 1871
+   }
+  },
+  "E06000017": {
+   "gas": 11175,
+   "elec": 2723,
+   "gas_type": {
+    "Detached": 14708,
+    "Semi detached": 9832,
+    "Mid terrace": 8272,
+    "End terrace": 9285,
+    "Bungalow": 11540,
+    "Converted flat": 6986,
+    "Purpose built flat": 5426
+   },
+   "elec_type": {
+    "Detached": 3368,
+    "Semi detached": 2629,
+    "Mid terrace": 2090,
+    "End terrace": 2382,
+    "Bungalow": 2360,
+    "Converted flat": 2105,
+    "Purpose built flat": 1682
+   }
+  },
+  "E06000062": {
+   "gas": 10089,
+   "elec": 2675,
+   "gas_type": {
+    "Detached": 12932,
+    "Semi detached": 9862,
+    "Mid terrace": 9210,
+    "End terrace": 9214,
+    "Bungalow": 9614,
+    "Converted flat": 6763,
+    "Purpose built flat": 5083
+   },
+   "elec_type": {
+    "Detached": 3337,
+    "Semi detached": 2667,
+    "Mid terrace": 2459,
+    "End terrace": 2571,
+    "Bungalow": 2256,
+    "Converted flat": 3136,
+    "Purpose built flat": 1807
+   }
+  },
+  "E07000032": {
+   "gas": 10227,
+   "elec": 2470,
+   "gas_type": {
+    "Detached": 12894,
+    "Semi detached": 9870,
+    "Mid terrace": 8095,
+    "End terrace": 9054,
+    "Bungalow": 10000,
+    "Converted flat": 6499,
+    "Purpose built flat": 5157
+   },
+   "elec_type": {
+    "Detached": 3032,
+    "Semi detached": 2499,
+    "Mid terrace": 2041,
+    "End terrace": 2210,
+    "Bungalow": 2118,
+    "Converted flat": 2600,
+    "Purpose built flat": 1740
+   }
+  },
+  "E07000033": {
+   "gas": 9954,
+   "elec": 2356,
+   "gas_type": {
+    "Detached": 12082,
+    "Semi detached": 9828,
+    "Mid terrace": 9247,
+    "End terrace": 10227,
+    "Bungalow": 9415,
+    "Converted flat": 8171,
+    "Purpose built flat": 5849
+   },
+   "elec_type": {
+    "Detached": 2973,
+    "Semi detached": 2434,
+    "Mid terrace": 2252,
+    "End terrace": 2429,
+    "Bungalow": 1882,
+    "Converted flat": 3066,
+    "Purpose built flat": 1442
+   }
+  },
+  "E07000034": {
+   "gas": 9705,
+   "elec": 2281,
+   "gas_type": {
+    "Detached": 13034,
+    "Semi detached": 9727,
+    "Mid terrace": 8470,
+    "End terrace": 9263,
+    "Bungalow": 9495,
+    "Converted flat": 6673,
+    "Purpose built flat": 4758
+   },
+   "elec_type": {
+    "Detached": 2912,
+    "Semi detached": 2396,
+    "Mid terrace": 2008,
+    "End terrace": 2208,
+    "Bungalow": 1885,
+    "Converted flat": 2390,
+    "Purpose built flat": 1567
+   }
+  },
+  "E07000035": {
+   "gas": 11017,
+   "elec": 2611,
+   "gas_type": {
+    "Detached": 14920,
+    "Semi detached": 10689,
+    "Mid terrace": 8738,
+    "End terrace": 9450,
+    "Bungalow": 11672,
+    "Converted flat": 7597,
+    "Purpose built flat": 5360
+   },
+   "elec_type": {
+    "Detached": 3406,
+    "Semi detached": 2626,
+    "Mid terrace": 2091,
+    "End terrace": 2350,
+    "Bungalow": 2440,
+    "Converted flat": 2058,
+    "Purpose built flat": 1522
+   }
+  },
+  "E07000036": {
+   "gas": 9944,
+   "elec": 2448,
+   "gas_type": {
+    "Detached": 13270,
+    "Semi detached": 9807,
+    "Mid terrace": 7735,
+    "End terrace": 8696,
+    "Bungalow": 9527,
+    "Converted flat": 6079,
+    "Purpose built flat": 4842
+   },
+   "elec_type": {
+    "Detached": 3025,
+    "Semi detached": 2456,
+    "Mid terrace": 2169,
+    "End terrace": 2281,
+    "Bungalow": 1916,
+    "Converted flat": 3574,
+    "Purpose built flat": 1858
+   }
+  },
+  "E07000037": {
+   "gas": 10675,
+   "elec": 2532,
+   "gas_type": {
+    "Detached": 15116,
+    "Semi detached": 11078,
+    "Mid terrace": 8561,
+    "End terrace": 10352,
+    "Bungalow": 11210,
+    "Converted flat": 7788,
+    "Purpose built flat": 5659
+   },
+   "elec_type": {
+    "Detached": 3369,
+    "Semi detached": 2645,
+    "Mid terrace": 2189,
+    "End terrace": 2460,
+    "Bungalow": 2166,
+    "Converted flat": 2387,
+    "Purpose built flat": 1784
+   }
+  },
+  "E07000038": {
+   "gas": 10381,
+   "elec": 2401,
+   "gas_type": {
+    "Detached": 13574,
+    "Semi detached": 9838,
+    "Mid terrace": 8491,
+    "End terrace": 9568,
+    "Bungalow": 10547,
+    "Converted flat": 6482,
+    "Purpose built flat": 5132
+   },
+   "elec_type": {
+    "Detached": 3087,
+    "Semi detached": 2404,
+    "Mid terrace": 2009,
+    "End terrace": 2275,
+    "Bungalow": 2023,
+    "Converted flat": 2038,
+    "Purpose built flat": 1446
+   }
+  },
+  "E07000039": {
+   "gas": 9581,
+   "elec": 2543,
+   "gas_type": {
+    "Detached": 11714,
+    "Semi detached": 8891,
+    "Mid terrace": 7516,
+    "End terrace": 8020,
+    "Bungalow": 10029,
+    "Converted flat": 7979,
+    "Purpose built flat": 5135
+   },
+   "elec_type": {
+    "Detached": 3077,
+    "Semi detached": 2460,
+    "Mid terrace": 2174,
+    "End terrace": 2235,
+    "Bungalow": 2146,
+    "Converted flat": 2578,
+    "Purpose built flat": 1598
+   }
+  },
+  "E07000129": {
+   "gas": 10701,
+   "elec": 2564,
+   "gas_type": {
+    "Detached": 12871,
+    "Semi detached": 10275,
+    "Mid terrace": 8036,
+    "End terrace": 8437,
+    "Bungalow": 10658,
+    "Converted flat": 7216,
+    "Purpose built flat": 5183
+   },
+   "elec_type": {
+    "Detached": 3147,
+    "Semi detached": 2524,
+    "Mid terrace": 2120,
+    "End terrace": 2305,
+    "Bungalow": 2086,
+    "Converted flat": 2532,
+    "Purpose built flat": 1574
+   }
+  },
+  "E07000130": {
+   "gas": 10253,
+   "elec": 2478,
+   "gas_type": {
+    "Detached": 13274,
+    "Semi detached": 9923,
+    "Mid terrace": 8504,
+    "End terrace": 8935,
+    "Bungalow": 10704,
+    "Converted flat": 7240,
+    "Purpose built flat": 4938
+   },
+   "elec_type": {
+    "Detached": 3096,
+    "Semi detached": 2461,
+    "Mid terrace": 2231,
+    "End terrace": 2374,
+    "Bungalow": 2102,
+    "Converted flat": 2498,
+    "Purpose built flat": 1710
+   }
+  },
+  "E07000131": {
+   "gas": 10813,
+   "elec": 2699,
+   "gas_type": {
+    "Detached": 13513,
+    "Semi detached": 9278,
+    "Mid terrace": 7869,
+    "End terrace": 8168,
+    "Bungalow": 10659,
+    "Converted flat": 7639,
+    "Purpose built flat": 4880
+   },
+   "elec_type": {
+    "Detached": 3338,
+    "Semi detached": 2535,
+    "Mid terrace": 2118,
+    "End terrace": 2200,
+    "Bungalow": 2177,
+    "Converted flat": 1917,
+    "Purpose built flat": 1821
+   }
+  },
+  "E07000132": {
+   "gas": 10103,
+   "elec": 2547,
+   "gas_type": {
+    "Detached": 13063,
+    "Semi detached": 9532,
+    "Mid terrace": 8103,
+    "End terrace": 8339,
+    "Bungalow": 10260,
+    "Converted flat": 7540,
+    "Purpose built flat": 4876
+   },
+   "elec_type": {
+    "Detached": 3218,
+    "Semi detached": 2503,
+    "Mid terrace": 2116,
+    "End terrace": 2338,
+    "Bungalow": 2145,
+    "Converted flat": 3143,
+    "Purpose built flat": 1861
+   }
+  },
+  "E07000133": {
+   "gas": 9998,
+   "elec": 2590,
+   "gas_type": {
+    "Detached": 12741,
+    "Semi detached": 9370,
+    "Mid terrace": 7868,
+    "End terrace": 8604,
+    "Bungalow": 10277,
+    "Converted flat": 7083,
+    "Purpose built flat": 5020
+   },
+   "elec_type": {
+    "Detached": 3281,
+    "Semi detached": 2512,
+    "Mid terrace": 2090,
+    "End terrace": 2264,
+    "Bungalow": 2224,
+    "Converted flat": 2196,
+    "Purpose built flat": 1770
+   }
+  },
+  "E07000134": {
+   "gas": 10413,
+   "elec": 2624,
+   "gas_type": {
+    "Detached": 12349,
+    "Semi detached": 9601,
+    "Mid terrace": 8589,
+    "End terrace": 9058,
+    "Bungalow": 10662,
+    "Converted flat": 7791,
+    "Purpose built flat": 5077
+   },
+   "elec_type": {
+    "Detached": 3161,
+    "Semi detached": 2545,
+    "Mid terrace": 2213,
+    "End terrace": 2411,
+    "Bungalow": 2207,
+    "Converted flat": 2284,
+    "Purpose built flat": 1816
+   }
+  },
+  "E07000135": {
+   "gas": 11415,
+   "elec": 2478,
+   "gas_type": {
+    "Detached": 15198,
+    "Semi detached": 11396,
+    "Mid terrace": 8888,
+    "End terrace": 8483,
+    "Bungalow": 10856,
+    "Converted flat": 5888,
+    "Purpose built flat": 5552
+   },
+   "elec_type": {
+    "Detached": 3126,
+    "Semi detached": 2495,
+    "Mid terrace": 2228,
+    "End terrace": 2289,
+    "Bungalow": 2013,
+    "Converted flat": 2403,
+    "Purpose built flat": 1885
+   }
+  },
+  "E07000136": {
+   "gas": 9548,
+   "elec": 2500,
+   "gas_type": {
+    "Detached": 12570,
+    "Semi detached": 9043,
+    "Mid terrace": 8334,
+    "End terrace": 8542,
+    "Bungalow": 9545,
+    "Converted flat": 7959,
+    "Purpose built flat": 5708
+   },
+   "elec_type": {
+    "Detached": 3107,
+    "Semi detached": 2580,
+    "Mid terrace": 2212,
+    "End terrace": 2289,
+    "Bungalow": 2249,
+    "Converted flat": 2324,
+    "Purpose built flat": 1844
+   }
+  },
+  "E07000137": {
+   "gas": 9165,
+   "elec": 2637,
+   "gas_type": {
+    "Detached": 13003,
+    "Semi detached": 8684,
+    "Mid terrace": 7286,
+    "End terrace": 7875,
+    "Bungalow": 9217,
+    "Converted flat": 6485,
+    "Purpose built flat": 5205
+   },
+   "elec_type": {
+    "Detached": 3444,
+    "Semi detached": 2682,
+    "Mid terrace": 2288,
+    "End terrace": 2426,
+    "Bungalow": 2358,
+    "Converted flat": 2341,
+    "Purpose built flat": 1991
+   }
+  },
+  "E07000138": {
+   "gas": 8810,
+   "elec": 2241,
+   "gas_type": {
+    "Detached": 12418,
+    "Semi detached": 8970,
+    "Mid terrace": 8918,
+    "End terrace": 8741,
+    "Bungalow": 9196,
+    "Converted flat": 6920,
+    "Purpose built flat": 4573
+   },
+   "elec_type": {
+    "Detached": 2836,
+    "Semi detached": 2345,
+    "Mid terrace": 2248,
+    "End terrace": 2362,
+    "Bungalow": 1935,
+    "Converted flat": 2291,
+    "Purpose built flat": 1666
+   }
+  },
+  "E07000139": {
+   "gas": 9652,
+   "elec": 2581,
+   "gas_type": {
+    "Detached": 11797,
+    "Semi detached": 8347,
+    "Mid terrace": 7002,
+    "End terrace": 7365,
+    "Bungalow": 10217,
+    "Converted flat": 7224,
+    "Purpose built flat": 4828
+   },
+   "elec_type": {
+    "Detached": 3164,
+    "Semi detached": 2502,
+    "Mid terrace": 2146,
+    "End terrace": 2157,
+    "Bungalow": 2265,
+    "Converted flat": 2346,
+    "Purpose built flat": 1628
+   }
+  },
+  "E07000140": {
+   "gas": 9587,
+   "elec": 2623,
+   "gas_type": {
+    "Detached": 12489,
+    "Semi detached": 8402,
+    "Mid terrace": 7376,
+    "End terrace": 7730,
+    "Bungalow": 9524,
+    "Converted flat": 7302,
+    "Purpose built flat": 5686
+   },
+   "elec_type": {
+    "Detached": 3225,
+    "Semi detached": 2656,
+    "Mid terrace": 2070,
+    "End terrace": 2113,
+    "Bungalow": 2269,
+    "Converted flat": 2587,
+    "Purpose built flat": 1991
+   }
+  },
+  "E07000141": {
+   "gas": 9661,
+   "elec": 2599,
+   "gas_type": {
+    "Detached": 12484,
+    "Semi detached": 8901,
+    "Mid terrace": 8150,
+    "End terrace": 8193,
+    "Bungalow": 9548,
+    "Converted flat": 5854,
+    "Purpose built flat": 5184
+   },
+   "elec_type": {
+    "Detached": 3167,
+    "Semi detached": 2527,
+    "Mid terrace": 2245,
+    "End terrace": 2407,
+    "Bungalow": 2270,
+    "Converted flat": 2611,
+    "Purpose built flat": 1821
+   }
+  },
+  "E07000142": {
+   "gas": 9979,
+   "elec": 2597,
+   "gas_type": {
+    "Detached": 13062,
+    "Semi detached": 8972,
+    "Mid terrace": 7585,
+    "End terrace": 8079,
+    "Bungalow": 10487,
+    "Converted flat": 6681,
+    "Purpose built flat": 4140
+   },
+   "elec_type": {
+    "Detached": 3273,
+    "Semi detached": 2474,
+    "Mid terrace": 2200,
+    "End terrace": 2302,
+    "Bungalow": 2328,
+    "Converted flat": 2215,
+    "Purpose built flat": 1655
+   }
+  },
+  "E07000170": {
+   "gas": 10232,
+   "elec": 2428,
+   "gas_type": {
+    "Detached": 12572,
+    "Semi detached": 10196,
+    "Mid terrace": 9044,
+    "End terrace": 9226,
+    "Bungalow": 10242,
+    "Converted flat": 6772,
+    "Purpose built flat": 5646
+   },
+   "elec_type": {
+    "Detached": 3038,
+    "Semi detached": 2508,
+    "Mid terrace": 2260,
+    "End terrace": 2366,
+    "Bungalow": 2007,
+    "Converted flat": 2716,
+    "Purpose built flat": 1660
+   }
+  },
+  "E07000171": {
+   "gas": 9867,
+   "elec": 2493,
+   "gas_type": {
+    "Detached": 12092,
+    "Semi detached": 9699,
+    "Mid terrace": 8617,
+    "End terrace": 9319,
+    "Bungalow": 9421,
+    "Converted flat": 7462,
+    "Purpose built flat": 4987
+   },
+   "elec_type": {
+    "Detached": 3126,
+    "Semi detached": 2464,
+    "Mid terrace": 2232,
+    "End terrace": 2391,
+    "Bungalow": 2025,
+    "Converted flat": 2560,
+    "Purpose built flat": 1582
+   }
+  },
+  "E07000172": {
+   "gas": 10502,
+   "elec": 2451,
+   "gas_type": {
+    "Detached": 13818,
+    "Semi detached": 10410,
+    "Mid terrace": 8257,
+    "End terrace": 8925,
+    "Bungalow": 10586,
+    "Converted flat": 6927,
+    "Purpose built flat": 5147
+   },
+   "elec_type": {
+    "Detached": 2977,
+    "Semi detached": 2454,
+    "Mid terrace": 2130,
+    "End terrace": 2312,
+    "Bungalow": 2112,
+    "Converted flat": 3123,
+    "Purpose built flat": 1892
+   }
+  },
+  "E07000173": {
+   "gas": 10891,
+   "elec": 2522,
+   "gas_type": {
+    "Detached": 14430,
+    "Semi detached": 10336,
+    "Mid terrace": 7881,
+    "End terrace": 8681,
+    "Bungalow": 12408,
+    "Converted flat": 6762,
+    "Purpose built flat": 5514
+   },
+   "elec_type": {
+    "Detached": 3048,
+    "Semi detached": 2544,
+    "Mid terrace": 2104,
+    "End terrace": 2318,
+    "Bungalow": 2292,
+    "Converted flat": 2334,
+    "Purpose built flat": 1769
+   }
+  },
+  "E07000174": {
+   "gas": 10692,
+   "elec": 2345,
+   "gas_type": {
+    "Detached": 13044,
+    "Semi detached": 10712,
+    "Mid terrace": 9810,
+    "End terrace": 10268,
+    "Bungalow": 10421,
+    "Converted flat": 7176,
+    "Purpose built flat": 5698
+   },
+   "elec_type": {
+    "Detached": 2926,
+    "Semi detached": 2447,
+    "Mid terrace": 2246,
+    "End terrace": 2281,
+    "Bungalow": 1930,
+    "Converted flat": 3267,
+    "Purpose built flat": 1533
+   }
+  },
+  "E07000175": {
+   "gas": 10077,
+   "elec": 2535,
+   "gas_type": {
+    "Detached": 12994,
+    "Semi detached": 9897,
+    "Mid terrace": 8270,
+    "End terrace": 8653,
+    "Bungalow": 9932,
+    "Converted flat": 6671,
+    "Purpose built flat": 5190
+   },
+   "elec_type": {
+    "Detached": 3190,
+    "Semi detached": 2544,
+    "Mid terrace": 2189,
+    "End terrace": 2320,
+    "Bungalow": 2149,
+    "Converted flat": 2445,
+    "Purpose built flat": 1715
+   }
+  },
+  "E07000176": {
+   "gas": 11142,
+   "elec": 2615,
+   "gas_type": {
+    "Detached": 14208,
+    "Semi detached": 10421,
+    "Mid terrace": 7879,
+    "End terrace": 8421,
+    "Bungalow": 11350,
+    "Converted flat": 6595,
+    "Purpose built flat": 5331
+   },
+   "elec_type": {
+    "Detached": 3168,
+    "Semi detached": 2563,
+    "Mid terrace": 2089,
+    "End terrace": 2230,
+    "Bungalow": 2278,
+    "Converted flat": 2306,
+    "Purpose built flat": 1650
+   }
+  },
+  "E06000019": {
+   "gas": 8575,
+   "elec": 2712,
+   "gas_type": {
+    "Detached": 11787,
+    "Semi detached": 8595,
+    "Mid terrace": 6960,
+    "End terrace": 7576,
+    "Bungalow": 9213,
+    "Converted flat": 6010,
+    "Purpose built flat": 4768
+   },
+   "elec_type": {
+    "Detached": 3345,
+    "Semi detached": 2693,
+    "Mid terrace": 2364,
+    "End terrace": 2483,
+    "Bungalow": 2512,
+    "Converted flat": 2370,
+    "Purpose built flat": 1871
+   }
+  },
+  "E06000051": {
+   "gas": 9059,
+   "elec": 2613,
+   "gas_type": {
+    "Detached": 12000,
+    "Semi detached": 8772,
+    "Mid terrace": 7348,
+    "End terrace": 7909,
+    "Bungalow": 9092,
+    "Converted flat": 6099,
+    "Purpose built flat": 4616
+   },
+   "elec_type": {
+    "Detached": 3231,
+    "Semi detached": 2604,
+    "Mid terrace": 2169,
+    "End terrace": 2352,
+    "Bungalow": 2208,
+    "Converted flat": 2491,
+    "Purpose built flat": 2037
+   }
+  },
+  "E06000021": {
+   "gas": 9823,
+   "elec": 2330,
+   "gas_type": {
+    "Detached": 12584,
+    "Semi detached": 10121,
+    "Mid terrace": 9247,
+    "End terrace": 9945,
+    "Bungalow": 8958,
+    "Converted flat": 7287,
+    "Purpose built flat": 5998
+   },
+   "elec_type": {
+    "Detached": 2948,
+    "Semi detached": 2509,
+    "Mid terrace": 2114,
+    "End terrace": 2348,
+    "Bungalow": 1830,
+    "Converted flat": 2264,
+    "Purpose built flat": 2001
+   }
+  },
+  "E06000020": {
+   "gas": 9088,
+   "elec": 2425,
+   "gas_type": {
+    "Detached": 11932,
+    "Semi detached": 8461,
+    "Mid terrace": 8096,
+    "End terrace": 8604,
+    "Bungalow": 8456,
+    "Converted flat": 6053,
+    "Purpose built flat": 5086
+   },
+   "elec_type": {
+    "Detached": 2946,
+    "Semi detached": 2383,
+    "Mid terrace": 2416,
+    "End terrace": 2449,
+    "Bungalow": 1907,
+    "Converted flat": 2230,
+    "Purpose built flat": 1595
+   }
+  },
+  "E07000192": {
+   "gas": 10193,
+   "elec": 2563,
+   "gas_type": {
+    "Detached": 12938,
+    "Semi detached": 9960,
+    "Mid terrace": 8123,
+    "End terrace": 8932,
+    "Bungalow": 9715,
+    "Converted flat": 5646,
+    "Purpose built flat": 5191
+   },
+   "elec_type": {
+    "Detached": 3072,
+    "Semi detached": 2598,
+    "Mid terrace": 2364,
+    "End terrace": 2521,
+    "Bungalow": 1966,
+    "Converted flat": 2586,
+    "Purpose built flat": 2089
+   }
+  },
+  "E07000193": {
+   "gas": 9804,
+   "elec": 2472,
+   "gas_type": {
+    "Detached": 12217,
+    "Semi detached": 9356,
+    "Mid terrace": 9275,
+    "End terrace": 8949,
+    "Bungalow": 9879,
+    "Converted flat": 6721,
+    "Purpose built flat": 5382
+   },
+   "elec_type": {
+    "Detached": 3141,
+    "Semi detached": 2462,
+    "Mid terrace": 2179,
+    "End terrace": 2375,
+    "Bungalow": 2108,
+    "Converted flat": 2845,
+    "Purpose built flat": 1739
+   }
+  },
+  "E07000194": {
+   "gas": 10623,
+   "elec": 2655,
+   "gas_type": {
+    "Detached": 14237,
+    "Semi detached": 10119,
+    "Mid terrace": 7973,
+    "End terrace": 8975,
+    "Bungalow": 10790,
+    "Converted flat": 8652,
+    "Purpose built flat": 5713
+   },
+   "elec_type": {
+    "Detached": 3295,
+    "Semi detached": 2608,
+    "Mid terrace": 2245,
+    "End terrace": 2464,
+    "Bungalow": 2203,
+    "Converted flat": 3144,
+    "Purpose built flat": 1939
+   }
+  },
+  "E07000195": {
+   "gas": 10466,
+   "elec": 2439,
+   "gas_type": {
+    "Detached": 13427,
+    "Semi detached": 10643,
+    "Mid terrace": 9298,
+    "End terrace": 9910,
+    "Bungalow": 10170,
+    "Converted flat": 7386,
+    "Purpose built flat": 5424
+   },
+   "elec_type": {
+    "Detached": 3112,
+    "Semi detached": 2504,
+    "Mid terrace": 2127,
+    "End terrace": 2413,
+    "Bungalow": 2045,
+    "Converted flat": 2455,
+    "Purpose built flat": 1922
+   }
+  },
+  "E07000196": {
+   "gas": 10880,
+   "elec": 2652,
+   "gas_type": {
+    "Detached": 14010,
+    "Semi detached": 10302,
+    "Mid terrace": 8597,
+    "End terrace": 9283,
+    "Bungalow": 10198,
+    "Converted flat": 8223,
+    "Purpose built flat": 5560
+   },
+   "elec_type": {
+    "Detached": 3273,
+    "Semi detached": 2621,
+    "Mid terrace": 2404,
+    "End terrace": 2502,
+    "Bungalow": 2129,
+    "Converted flat": 2475,
+    "Purpose built flat": 1714
+   }
+  },
+  "E07000197": {
+   "gas": 10301,
+   "elec": 2535,
+   "gas_type": {
+    "Detached": 12996,
+    "Semi detached": 9826,
+    "Mid terrace": 8749,
+    "End terrace": 8799,
+    "Bungalow": 10859,
+    "Converted flat": 6906,
+    "Purpose built flat": 4798
+   },
+   "elec_type": {
+    "Detached": 3101,
+    "Semi detached": 2479,
+    "Mid terrace": 2239,
+    "End terrace": 2330,
+    "Bungalow": 2201,
+    "Converted flat": 2489,
+    "Purpose built flat": 1761
+   }
+  },
+  "E07000198": {
+   "gas": 10936,
+   "elec": 2534,
+   "gas_type": {
+    "Detached": 13820,
+    "Semi detached": 10519,
+    "Mid terrace": 8620,
+    "End terrace": 9588,
+    "Bungalow": 10968,
+    "Converted flat": 6886,
+    "Purpose built flat": 5651
+   },
+   "elec_type": {
+    "Detached": 3175,
+    "Semi detached": 2531,
+    "Mid terrace": 2032,
+    "End terrace": 2356,
+    "Bungalow": 2174,
+    "Converted flat": 2670,
+    "Purpose built flat": 1827
+   }
+  },
+  "E07000199": {
+   "gas": 9589,
+   "elec": 2587,
+   "gas_type": {
+    "Detached": 12096,
+    "Semi detached": 9364,
+    "Mid terrace": 8148,
+    "End terrace": 9066,
+    "Bungalow": 9784,
+    "Converted flat": 6287,
+    "Purpose built flat": 5334
+   },
+   "elec_type": {
+    "Detached": 3018,
+    "Semi detached": 2539,
+    "Mid terrace": 2492,
+    "End terrace": 2525,
+    "Bungalow": 2006,
+    "Converted flat": 2816,
+    "Purpose built flat": 2061
+   }
+  },
+  "E07000218": {
+   "gas": 10299,
+   "elec": 2686,
+   "gas_type": {
+    "Detached": 13064,
+    "Semi detached": 10343,
+    "Mid terrace": 8748,
+    "End terrace": 9485,
+    "Bungalow": 9957,
+    "Converted flat": 7337,
+    "Purpose built flat": 4934
+   },
+   "elec_type": {
+    "Detached": 3321,
+    "Semi detached": 2718,
+    "Mid terrace": 2398,
+    "End terrace": 2597,
+    "Bungalow": 2211,
+    "Converted flat": 1850,
+    "Purpose built flat": 1912
+   }
+  },
+  "E07000219": {
+   "gas": 9763,
+   "elec": 2482,
+   "gas_type": {
+    "Detached": 12065,
+    "Semi detached": 9702,
+    "Mid terrace": 8897,
+    "End terrace": 8814,
+    "Bungalow": 9697,
+    "Converted flat": 6660,
+    "Purpose built flat": 5032
+   },
+   "elec_type": {
+    "Detached": 2983,
+    "Semi detached": 2511,
+    "Mid terrace": 2389,
+    "End terrace": 2455,
+    "Bungalow": 2020,
+    "Converted flat": 1955,
+    "Purpose built flat": 1744
+   }
+  },
+  "E07000220": {
+   "gas": 10257,
+   "elec": 2610,
+   "gas_type": {
+    "Detached": 13083,
+    "Semi detached": 10149,
+    "Mid terrace": 9005,
+    "End terrace": 8803,
+    "Bungalow": 10693,
+    "Converted flat": 7257,
+    "Purpose built flat": 5068
+   },
+   "elec_type": {
+    "Detached": 3238,
+    "Semi detached": 2581,
+    "Mid terrace": 2321,
+    "End terrace": 2462,
+    "Bungalow": 2320,
+    "Converted flat": 3203,
+    "Purpose built flat": 1910
+   }
+  },
+  "E07000221": {
+   "gas": 9568,
+   "elec": 2808,
+   "gas_type": {
+    "Detached": 12647,
+    "Semi detached": 9029,
+    "Mid terrace": 7749,
+    "End terrace": 8077,
+    "Bungalow": 10581,
+    "Converted flat": 7353,
+    "Purpose built flat": 5406
+   },
+   "elec_type": {
+    "Detached": 3525,
+    "Semi detached": 2723,
+    "Mid terrace": 2378,
+    "End terrace": 2560,
+    "Bungalow": 2721,
+    "Converted flat": 2333,
+    "Purpose built flat": 1905
+   }
+  },
+  "E07000222": {
+   "gas": 10159,
+   "elec": 2616,
+   "gas_type": {
+    "Detached": 14364,
+    "Semi detached": 10209,
+    "Mid terrace": 8877,
+    "End terrace": 8885,
+    "Bungalow": 10235,
+    "Converted flat": 7485,
+    "Purpose built flat": 5321
+   },
+   "elec_type": {
+    "Detached": 3347,
+    "Semi detached": 2630,
+    "Mid terrace": 2299,
+    "End terrace": 2423,
+    "Bungalow": 2195,
+    "Converted flat": 2269,
+    "Purpose built flat": 2244
+   }
+  },
+  "E08000025": {
+   "gas": 11358,
+   "elec": 2643,
+   "gas_type": {
+    "Detached": 16663,
+    "Semi detached": 12479,
+    "Mid terrace": 11076,
+    "End terrace": 11259,
+    "Bungalow": 9764,
+    "Converted flat": 7480,
+    "Purpose built flat": 6354
+   },
+   "elec_type": {
+    "Detached": 3371,
+    "Semi detached": 2745,
+    "Mid terrace": 2526,
+    "End terrace": 2662,
+    "Bungalow": 1989,
+    "Converted flat": 2551,
+    "Purpose built flat": 2405
+   }
+  },
+  "E08000026": {
+   "gas": 9980,
+   "elec": 2453,
+   "gas_type": {
+    "Detached": 13592,
+    "Semi detached": 11028,
+    "Mid terrace": 9454,
+    "End terrace": 10662,
+    "Bungalow": 9340,
+    "Converted flat": 6947,
+    "Purpose built flat": 5619
+   },
+   "elec_type": {
+    "Detached": 3143,
+    "Semi detached": 2634,
+    "Mid terrace": 2356,
+    "End terrace": 2529,
+    "Bungalow": 1961,
+    "Converted flat": 2708,
+    "Purpose built flat": 1985
+   }
+  },
+  "E08000027": {
+   "gas": 10358,
+   "elec": 2536,
+   "gas_type": {
+    "Detached": 13482,
+    "Semi detached": 10550,
+    "Mid terrace": 9199,
+    "End terrace": 9510,
+    "Bungalow": 9725,
+    "Converted flat": 6928,
+    "Purpose built flat": 5464
+   },
+   "elec_type": {
+    "Detached": 3061,
+    "Semi detached": 2625,
+    "Mid terrace": 2397,
+    "End terrace": 2510,
+    "Bungalow": 1987,
+    "Converted flat": 2951,
+    "Purpose built flat": 1801
+   }
+  },
+  "E08000028": {
+   "gas": 10386,
+   "elec": 2501,
+   "gas_type": {
+    "Detached": 13647,
+    "Semi detached": 11146,
+    "Mid terrace": 10587,
+    "End terrace": 10643,
+    "Bungalow": 8615,
+    "Converted flat": 7888,
+    "Purpose built flat": 5667
+   },
+   "elec_type": {
+    "Detached": 3037,
+    "Semi detached": 2655,
+    "Mid terrace": 2431,
+    "End terrace": 2646,
+    "Bungalow": 1877,
+    "Converted flat": 2441,
+    "Purpose built flat": 1920
+   }
+  },
+  "E08000029": {
+   "gas": 11458,
+   "elec": 2753,
+   "gas_type": {
+    "Detached": 16512,
+    "Semi detached": 12044,
+    "Mid terrace": 8280,
+    "End terrace": 9581,
+    "Bungalow": 10031,
+    "Converted flat": 7510,
+    "Purpose built flat": 6007
+   },
+   "elec_type": {
+    "Detached": 3477,
+    "Semi detached": 2784,
+    "Mid terrace": 2573,
+    "End terrace": 2691,
+    "Bungalow": 2078,
+    "Converted flat": 2491,
+    "Purpose built flat": 2042
+   }
+  },
+  "E08000030": {
+   "gas": 10559,
+   "elec": 2631,
+   "gas_type": {
+    "Detached": 14743,
+    "Semi detached": 10992,
+    "Mid terrace": 9691,
+    "End terrace": 10056,
+    "Bungalow": 10414,
+    "Converted flat": 7122,
+    "Purpose built flat": 5643
+   },
+   "elec_type": {
+    "Detached": 3165,
+    "Semi detached": 2712,
+    "Mid terrace": 2560,
+    "End terrace": 2677,
+    "Bungalow": 2057,
+    "Converted flat": 3186,
+    "Purpose built flat": 2092
+   }
+  },
+  "E08000031": {
+   "gas": 10746,
+   "elec": 2578,
+   "gas_type": {
+    "Detached": 15068,
+    "Semi detached": 11452,
+    "Mid terrace": 10006,
+    "End terrace": 10156,
+    "Bungalow": 10178,
+    "Converted flat": 7756,
+    "Purpose built flat": 5976
+   },
+   "elec_type": {
+    "Detached": 3088,
+    "Semi detached": 2660,
+    "Mid terrace": 2428,
+    "End terrace": 2613,
+    "Bungalow": 2124,
+    "Converted flat": 2769,
+    "Purpose built flat": 2170
+   }
+  },
+  "E07000234": {
+   "gas": 11504,
+   "elec": 2836,
+   "gas_type": {
+    "Detached": 15008,
+    "Semi detached": 11212,
+    "Mid terrace": 8068,
+    "End terrace": 9349,
+    "Bungalow": 12343,
+    "Converted flat": 7464,
+    "Purpose built flat": 4843
+   },
+   "elec_type": {
+    "Detached": 3564,
+    "Semi detached": 2763,
+    "Mid terrace": 2368,
+    "End terrace": 2515,
+    "Bungalow": 2549,
+    "Converted flat": 2606,
+    "Purpose built flat": 1819
+   }
+  },
+  "E07000235": {
+   "gas": 9211,
+   "elec": 2815,
+   "gas_type": {
+    "Detached": 12688,
+    "Semi detached": 8963,
+    "Mid terrace": 6781,
+    "End terrace": 7462,
+    "Bungalow": 9407,
+    "Converted flat": 7735,
+    "Purpose built flat": 4553
+   },
+   "elec_type": {
+    "Detached": 3529,
+    "Semi detached": 2784,
+    "Mid terrace": 2442,
+    "End terrace": 2629,
+    "Bungalow": 2409,
+    "Converted flat": 2174,
+    "Purpose built flat": 1739
+   }
+  },
+  "E07000236": {
+   "gas": 9370,
+   "elec": 2535,
+   "gas_type": {
+    "Detached": 12936,
+    "Semi detached": 9626,
+    "Mid terrace": 8017,
+    "End terrace": 8756,
+    "Bungalow": 8798,
+    "Converted flat": 6103,
+    "Purpose built flat": 5150
+   },
+   "elec_type": {
+    "Detached": 3153,
+    "Semi detached": 2581,
+    "Mid terrace": 2459,
+    "End terrace": 2543,
+    "Bungalow": 1946,
+    "Converted flat": 2290,
+    "Purpose built flat": 1720
+   }
+  },
+  "E07000237": {
+   "gas": 9017,
+   "elec": 2501,
+   "gas_type": {
+    "Detached": 11805,
+    "Semi detached": 9160,
+    "Mid terrace": 7840,
+    "End terrace": 8600,
+    "Bungalow": 9897,
+    "Converted flat": 6098,
+    "Purpose built flat": 4796
+   },
+   "elec_type": {
+    "Detached": 3004,
+    "Semi detached": 2661,
+    "Mid terrace": 2288,
+    "End terrace": 2389,
+    "Bungalow": 2155,
+    "Converted flat": 2341,
+    "Purpose built flat": 1922
+   }
+  },
+  "E07000238": {
+   "gas": 9149,
+   "elec": 2754,
+   "gas_type": {
+    "Detached": 12183,
+    "Semi detached": 8374,
+    "Mid terrace": 7190,
+    "End terrace": 7589,
+    "Bungalow": 8890,
+    "Converted flat": 6637,
+    "Purpose built flat": 4719
+   },
+   "elec_type": {
+    "Detached": 3355,
+    "Semi detached": 2702,
+    "Mid terrace": 2320,
+    "End terrace": 2454,
+    "Bungalow": 2360,
+    "Converted flat": 2960,
+    "Purpose built flat": 1866
+   }
+  },
+  "E07000239": {
+   "gas": 9384,
+   "elec": 2539,
+   "gas_type": {
+    "Detached": 12516,
+    "Semi detached": 9461,
+    "Mid terrace": 7654,
+    "End terrace": 8229,
+    "Bungalow": 9102,
+    "Converted flat": 5708,
+    "Purpose built flat": 4453
+   },
+   "elec_type": {
+    "Detached": 3099,
+    "Semi detached": 2625,
+    "Mid terrace": 2335,
+    "End terrace": 2423,
+    "Bungalow": 2091,
+    "Converted flat": 2665,
+    "Purpose built flat": 1805
+   }
+  },
+  "E06000055": {
+   "gas": 10078,
+   "elec": 2611,
+   "gas_type": {
+    "Detached": 13469,
+    "Semi detached": 10368,
+    "Mid terrace": 8568,
+    "End terrace": 9014,
+    "Bungalow": 10072,
+    "Converted flat": 6083,
+    "Purpose built flat": 5324
+   },
+   "elec_type": {
+    "Detached": 3321,
+    "Semi detached": 2647,
+    "Mid terrace": 2302,
+    "End terrace": 2473,
+    "Bungalow": 2391,
+    "Converted flat": 2058,
+    "Purpose built flat": 2037
+   }
+  },
+  "E06000056": {
+   "gas": 10068,
+   "elec": 2659,
+   "gas_type": {
+    "Detached": 13556,
+    "Semi detached": 10164,
+    "Mid terrace": 8176,
+    "End terrace": 9123,
+    "Bungalow": 10550,
+    "Converted flat": 7058,
+    "Purpose built flat": 5059
+   },
+   "elec_type": {
+    "Detached": 3360,
+    "Semi detached": 2704,
+    "Mid terrace": 2339,
+    "End terrace": 2483,
+    "Bungalow": 2365,
+    "Converted flat": 2411,
+    "Purpose built flat": 1832
+   }
+  },
+  "E06000032": {
+   "gas": 11614,
+   "elec": 2556,
+   "gas_type": {
+    "Detached": 15097,
+    "Semi detached": 12708,
+    "Mid terrace": 11126,
+    "End terrace": 11383,
+    "Bungalow": 11982,
+    "Converted flat": 7888,
+    "Purpose built flat": 6221
+   },
+   "elec_type": {
+    "Detached": 3121,
+    "Semi detached": 2726,
+    "Mid terrace": 2408,
+    "End terrace": 2560,
+    "Bungalow": 2394,
+    "Converted flat": 2580,
+    "Purpose built flat": 2090
+   }
+  },
+  "E06000031": {
+   "gas": 9261,
+   "elec": 2410,
+   "gas_type": {
+    "Detached": 12704,
+    "Semi detached": 9404,
+    "Mid terrace": 8317,
+    "End terrace": 8752,
+    "Bungalow": 9543,
+    "Converted flat": 7517,
+    "Purpose built flat": 4999
+   },
+   "elec_type": {
+    "Detached": 3009,
+    "Semi detached": 2425,
+    "Mid terrace": 2369,
+    "End terrace": 2399,
+    "Bungalow": 2068,
+    "Converted flat": 3143,
+    "Purpose built flat": 1712
+   }
+  },
+  "E06000033": {
+   "gas": 11182,
+   "elec": 2634,
+   "gas_type": {
+    "Detached": 17207,
+    "Semi detached": 13352,
+    "Mid terrace": 9866,
+    "End terrace": 11209,
+    "Bungalow": 12093,
+    "Converted flat": 7867,
+    "Purpose built flat": 5823
+   },
+   "elec_type": {
+    "Detached": 3546,
+    "Semi detached": 3036,
+    "Mid terrace": 2650,
+    "End terrace": 2849,
+    "Bungalow": 2428,
+    "Converted flat": 1982,
+    "Purpose built flat": 2083
+   }
+  },
+  "E06000034": {
+   "gas": 9788,
+   "elec": 2844,
+   "gas_type": {
+    "Detached": 14117,
+    "Semi detached": 10925,
+    "Mid terrace": 8761,
+    "End terrace": 9990,
+    "Bungalow": 11491,
+    "Converted flat": 7170,
+    "Purpose built flat": 5523
+   },
+   "elec_type": {
+    "Detached": 3656,
+    "Semi detached": 2970,
+    "Mid terrace": 2625,
+    "End terrace": 2860,
+    "Bungalow": 2608,
+    "Converted flat": 2726,
+    "Purpose built flat": 2643
+   }
+  },
+  "E07000008": {
+   "gas": 9646,
+   "elec": 2294,
+   "gas_type": {
+    "Detached": 16897,
+    "Semi detached": 11856,
+    "Mid terrace": 9680,
+    "End terrace": 10626,
+    "Bungalow": 9446,
+    "Converted flat": 7048,
+    "Purpose built flat": 5212
+   },
+   "elec_type": {
+    "Detached": 3273,
+    "Semi detached": 2698,
+    "Mid terrace": 2280,
+    "End terrace": 2500,
+    "Bungalow": 2070,
+    "Converted flat": 2047,
+    "Purpose built flat": 1776
+   }
+  },
+  "E07000009": {
+   "gas": 9712,
+   "elec": 2719,
+   "gas_type": {
+    "Detached": 12970,
+    "Semi detached": 9008,
+    "Mid terrace": 7495,
+    "End terrace": 8279,
+    "Bungalow": 10147,
+    "Converted flat": 6906,
+    "Purpose built flat": 4728
+   },
+   "elec_type": {
+    "Detached": 3347,
+    "Semi detached": 2704,
+    "Mid terrace": 2226,
+    "End terrace": 2329,
+    "Bungalow": 2575,
+    "Converted flat": 2672,
+    "Purpose built flat": 1670
+   }
+  },
+  "E07000010": {
+   "gas": 9652,
+   "elec": 2644,
+   "gas_type": {
+    "Detached": 12864,
+    "Semi detached": 9293,
+    "Mid terrace": 7474,
+    "End terrace": 8447,
+    "Bungalow": 9381,
+    "Converted flat": 7282,
+    "Purpose built flat": 4982
+   },
+   "elec_type": {
+    "Detached": 3300,
+    "Semi detached": 2760,
+    "Mid terrace": 2286,
+    "End terrace": 2527,
+    "Bungalow": 2234,
+    "Converted flat": 3351,
+    "Purpose built flat": 1960
+   }
+  },
+  "E07000011": {
+   "gas": 9810,
+   "elec": 2614,
+   "gas_type": {
+    "Detached": 12946,
+    "Semi detached": 9260,
+    "Mid terrace": 7492,
+    "End terrace": 8411,
+    "Bungalow": 9900,
+    "Converted flat": 6369,
+    "Purpose built flat": 4795
+   },
+   "elec_type": {
+    "Detached": 3216,
+    "Semi detached": 2568,
+    "Mid terrace": 2233,
+    "End terrace": 2364,
+    "Bungalow": 2285,
+    "Converted flat": 2073,
+    "Purpose built flat": 1795
+   }
+  },
+  "E07000012": {
+   "gas": 10210,
+   "elec": 2816,
+   "gas_type": {
+    "Detached": 13963,
+    "Semi detached": 9596,
+    "Mid terrace": 7591,
+    "End terrace": 8665,
+    "Bungalow": 9911,
+    "Converted flat": 6048,
+    "Purpose built flat": 4804
+   },
+   "elec_type": {
+    "Detached": 3497,
+    "Semi detached": 2771,
+    "Mid terrace": 2248,
+    "End terrace": 2440,
+    "Bungalow": 2785,
+    "Converted flat": 2128,
+    "Purpose built flat": 1667
+   }
+  },
+  "E07000066": {
+   "gas": 9831,
+   "elec": 2741,
+   "gas_type": {
+    "Detached": 14717,
+    "Semi detached": 10865,
+    "Mid terrace": 8310,
+    "End terrace": 9362,
+    "Bungalow": 11071,
+    "Converted flat": 7311,
+    "Purpose built flat": 5241
+   },
+   "elec_type": {
+    "Detached": 3566,
+    "Semi detached": 2918,
+    "Mid terrace": 2640,
+    "End terrace": 2791,
+    "Bungalow": 2553,
+    "Converted flat": 2835,
+    "Purpose built flat": 2000
+   }
+  },
+  "E07000067": {
+   "gas": 9707,
+   "elec": 2744,
+   "gas_type": {
+    "Detached": 13198,
+    "Semi detached": 9861,
+    "Mid terrace": 8186,
+    "End terrace": 9054,
+    "Bungalow": 9397,
+    "Converted flat": 6565,
+    "Purpose built flat": 5040
+   },
+   "elec_type": {
+    "Detached": 3413,
+    "Semi detached": 2721,
+    "Mid terrace": 2416,
+    "End terrace": 2594,
+    "Bungalow": 2267,
+    "Converted flat": 2745,
+    "Purpose built flat": 2488
+   }
+  },
+  "E07000068": {
+   "gas": 12639,
+   "elec": 2939,
+   "gas_type": {
+    "Detached": 19177,
+    "Semi detached": 13201,
+    "Mid terrace": 9482,
+    "End terrace": 10554,
+    "Bungalow": 13177,
+    "Converted flat": 6943,
+    "Purpose built flat": 6225
+   },
+   "elec_type": {
+    "Detached": 4079,
+    "Semi detached": 3081,
+    "Mid terrace": 2460,
+    "End terrace": 2710,
+    "Bungalow": 2793,
+    "Converted flat": 3370,
+    "Purpose built flat": 1988
+   }
+  },
+  "E07000069": {
+   "gas": 11498,
+   "elec": 2844,
+   "gas_type": {
+    "Detached": 14794,
+    "Semi detached": 11638,
+    "Mid terrace": 8453,
+    "End terrace": 9993,
+    "Bungalow": 10301,
+    "Converted flat": 7944,
+    "Purpose built flat": 5283
+   },
+   "elec_type": {
+    "Detached": 3538,
+    "Semi detached": 2935,
+    "Mid terrace": 2839,
+    "End terrace": 2934,
+    "Bungalow": 2357,
+    "Converted flat": 2414,
+    "Purpose built flat": 2313
+   }
+  },
+  "E07000070": {
+   "gas": 10695,
+   "elec": 2800,
+   "gas_type": {
+    "Detached": 14446,
+    "Semi detached": 11238,
+    "Mid terrace": 8923,
+    "End terrace": 9881,
+    "Bungalow": 10821,
+    "Converted flat": 6664,
+    "Purpose built flat": 4922
+   },
+   "elec_type": {
+    "Detached": 3531,
+    "Semi detached": 2887,
+    "Mid terrace": 2525,
+    "End terrace": 2697,
+    "Bungalow": 2529,
+    "Converted flat": 3152,
+    "Purpose built flat": 2057
+   }
+  },
+  "E07000071": {
+   "gas": 9710,
+   "elec": 2621,
+   "gas_type": {
+    "Detached": 13461,
+    "Semi detached": 9961,
+    "Mid terrace": 8110,
+    "End terrace": 9034,
+    "Bungalow": 10345,
+    "Converted flat": 6540,
+    "Purpose built flat": 5383
+   },
+   "elec_type": {
+    "Detached": 3197,
+    "Semi detached": 2619,
+    "Mid terrace": 2353,
+    "End terrace": 2501,
+    "Bungalow": 2284,
+    "Converted flat": 3080,
+    "Purpose built flat": 2308
+   }
+  },
+  "E07000072": {
+   "gas": 11688,
+   "elec": 2933,
+   "gas_type": {
+    "Detached": 20193,
+    "Semi detached": 13504,
+    "Mid terrace": 9822,
+    "End terrace": 11292,
+    "Bungalow": 12245,
+    "Converted flat": 7618,
+    "Purpose built flat": 6095
+   },
+   "elec_type": {
+    "Detached": 4520,
+    "Semi detached": 3263,
+    "Mid terrace": 2580,
+    "End terrace": 2875,
+    "Bungalow": 2716,
+    "Converted flat": 2972,
+    "Purpose built flat": 1990
+   }
+  },
+  "E07000073": {
+   "gas": 9169,
+   "elec": 2462,
+   "gas_type": {
+    "Detached": 13925,
+    "Semi detached": 10628,
+    "Mid terrace": 9238,
+    "End terrace": 9906,
+    "Bungalow": 9278,
+    "Converted flat": 7944,
+    "Purpose built flat": 5712
+   },
+   "elec_type": {
+    "Detached": 3432,
+    "Semi detached": 2852,
+    "Mid terrace": 2540,
+    "End terrace": 2624,
+    "Bungalow": 1981,
+    "Converted flat": 3256,
+    "Purpose built flat": 1816
+   }
+  },
+  "E07000074": {
+   "gas": 10072,
+   "elec": 2970,
+   "gas_type": {
+    "Detached": 12944,
+    "Semi detached": 9619,
+    "Mid terrace": 7334,
+    "End terrace": 8576,
+    "Bungalow": 10417,
+    "Converted flat": 7558,
+    "Purpose built flat": 4664
+   },
+   "elec_type": {
+    "Detached": 3593,
+    "Semi detached": 2779,
+    "Mid terrace": 2304,
+    "End terrace": 2514,
+    "Bungalow": 3013,
+    "Converted flat": 3040,
+    "Purpose built flat": 2378
+   }
+  },
+  "E07000075": {
+   "gas": 11424,
+   "elec": 2863,
+   "gas_type": {
+    "Detached": 14341,
+    "Semi detached": 11151,
+    "Mid terrace": 7529,
+    "End terrace": 8915,
+    "Bungalow": 11434,
+    "Converted flat": 6871,
+    "Purpose built flat": 5027
+   },
+   "elec_type": {
+    "Detached": 3543,
+    "Semi detached": 2885,
+    "Mid terrace": 2412,
+    "End terrace": 2612,
+    "Bungalow": 2574,
+    "Converted flat": 2385,
+    "Purpose built flat": 1975
+   }
+  },
+  "E07000076": {
+   "gas": 9508,
+   "elec": 2518,
+   "gas_type": {
+    "Detached": 12807,
+    "Semi detached": 9552,
+    "Mid terrace": 7945,
+    "End terrace": 8764,
+    "Bungalow": 9245,
+    "Converted flat": 6787,
+    "Purpose built flat": 5459
+   },
+   "elec_type": {
+    "Detached": 3125,
+    "Semi detached": 2648,
+    "Mid terrace": 2370,
+    "End terrace": 2501,
+    "Bungalow": 2243,
+    "Converted flat": 2515,
+    "Purpose built flat": 2097
+   }
+  },
+  "E07000077": {
+   "gas": 11126,
+   "elec": 3002,
+   "gas_type": {
+    "Detached": 14816,
+    "Semi detached": 10681,
+    "Mid terrace": 8669,
+    "End terrace": 9689,
+    "Bungalow": 11340,
+    "Converted flat": 7642,
+    "Purpose built flat": 5538
+   },
+   "elec_type": {
+    "Detached": 3965,
+    "Semi detached": 2894,
+    "Mid terrace": 2422,
+    "End terrace": 2539,
+    "Bungalow": 2614,
+    "Converted flat": 3022,
+    "Purpose built flat": 1840
+   }
+  },
+  "E07000095": {
+   "gas": 10729,
+   "elec": 2784,
+   "gas_type": {
+    "Detached": 16223,
+    "Semi detached": 12464,
+    "Mid terrace": 9550,
+    "End terrace": 10822,
+    "Bungalow": 11012,
+    "Converted flat": 6851,
+    "Purpose built flat": 5898
+   },
+   "elec_type": {
+    "Detached": 3691,
+    "Semi detached": 2971,
+    "Mid terrace": 2590,
+    "End terrace": 2797,
+    "Bungalow": 2324,
+    "Converted flat": 2648,
+    "Purpose built flat": 2318
+   }
+  },
+  "E07000096": {
+   "gas": 11120,
+   "elec": 2708,
+   "gas_type": {
+    "Detached": 17935,
+    "Semi detached": 12491,
+    "Mid terrace": 9772,
+    "End terrace": 10920,
+    "Bungalow": 13936,
+    "Converted flat": 6688,
+    "Purpose built flat": 5755
+   },
+   "elec_type": {
+    "Detached": 3824,
+    "Semi detached": 2963,
+    "Mid terrace": 2550,
+    "End terrace": 2708,
+    "Bungalow": 2695,
+    "Converted flat": 2570,
+    "Purpose built flat": 1871
+   }
+  },
+  "E07000242": {
+   "gas": 11018,
+   "elec": 2872,
+   "gas_type": {
+    "Detached": 15966,
+    "Semi detached": 11692,
+    "Mid terrace": 8680,
+    "End terrace": 10146,
+    "Bungalow": 11623,
+    "Converted flat": 6846,
+    "Purpose built flat": 5151
+   },
+   "elec_type": {
+    "Detached": 3754,
+    "Semi detached": 2985,
+    "Mid terrace": 2342,
+    "End terrace": 2579,
+    "Bungalow": 2686,
+    "Converted flat": 2815,
+    "Purpose built flat": 2259
+   }
+  },
+  "E07000098": {
+   "gas": 12263,
+   "elec": 2885,
+   "gas_type": {
+    "Detached": 22665,
+    "Semi detached": 13921,
+    "Mid terrace": 10304,
+    "End terrace": 11831,
+    "Bungalow": 14923,
+    "Converted flat": 8174,
+    "Purpose built flat": 6882
+   },
+   "elec_type": {
+    "Detached": 4765,
+    "Semi detached": 3221,
+    "Mid terrace": 2624,
+    "End terrace": 2883,
+    "Bungalow": 2701,
+    "Converted flat": 3182,
+    "Purpose built flat": 2044
+   }
+  },
+  "E07000099": {
+   "gas": 10700,
+   "elec": 2744,
+   "gas_type": {
+    "Detached": 16136,
+    "Semi detached": 11569,
+    "Mid terrace": 8810,
+    "End terrace": 10036,
+    "Bungalow": 10984,
+    "Converted flat": 7090,
+    "Purpose built flat": 5354
+   },
+   "elec_type": {
+    "Detached": 3581,
+    "Semi detached": 2842,
+    "Mid terrace": 2386,
+    "End terrace": 2583,
+    "Bungalow": 2463,
+    "Converted flat": 2377,
+    "Purpose built flat": 2161
+   }
+  },
+  "E07000240": {
+   "gas": 12985,
+   "elec": 2936,
+   "gas_type": {
+    "Detached": 19242,
+    "Semi detached": 14603,
+    "Mid terrace": 9989,
+    "End terrace": 11543,
+    "Bungalow": 14342,
+    "Converted flat": 7545,
+    "Purpose built flat": 6274
+   },
+   "elec_type": {
+    "Detached": 3991,
+    "Semi detached": 3321,
+    "Mid terrace": 2456,
+    "End terrace": 2710,
+    "Bungalow": 2738,
+    "Converted flat": 2424,
+    "Purpose built flat": 2017
+   }
+  },
+  "E07000243": {
+   "gas": 9693,
+   "elec": 2475,
+   "gas_type": {
+    "Detached": 14088,
+    "Semi detached": 10842,
+    "Mid terrace": 9366,
+    "End terrace": 10368,
+    "Bungalow": 8578,
+    "Converted flat": 6322,
+    "Purpose built flat": 5139
+   },
+   "elec_type": {
+    "Detached": 3159,
+    "Semi detached": 2673,
+    "Mid terrace": 2524,
+    "End terrace": 2669,
+    "Bungalow": 1854,
+    "Converted flat": 3614,
+    "Purpose built flat": 1680
+   }
+  },
+  "E07000102": {
+   "gas": 12552,
+   "elec": 2966,
+   "gas_type": {
+    "Detached": 22184,
+    "Semi detached": 13272,
+    "Mid terrace": 9542,
+    "End terrace": 10946,
+    "Bungalow": 14043,
+    "Converted flat": 6569,
+    "Purpose built flat": 5949
+   },
+   "elec_type": {
+    "Detached": 4541,
+    "Semi detached": 3149,
+    "Mid terrace": 2472,
+    "End terrace": 2744,
+    "Bungalow": 2835,
+    "Converted flat": 2781,
+    "Purpose built flat": 1926
+   }
+  },
+  "E07000103": {
+   "gas": 11484,
+   "elec": 2669,
+   "gas_type": {
+    "Detached": 20532,
+    "Semi detached": 13920,
+    "Mid terrace": 10226,
+    "End terrace": 11557,
+    "Bungalow": 13511,
+    "Converted flat": 7362,
+    "Purpose built flat": 6326
+   },
+   "elec_type": {
+    "Detached": 4023,
+    "Semi detached": 3051,
+    "Mid terrace": 2433,
+    "End terrace": 2711,
+    "Bungalow": 2448,
+    "Converted flat": 2060,
+    "Purpose built flat": 2312
+   }
+  },
+  "E07000241": {
+   "gas": 10806,
+   "elec": 2693,
+   "gas_type": {
+    "Detached": 19135,
+    "Semi detached": 12547,
+    "Mid terrace": 9874,
+    "End terrace": 10787,
+    "Bungalow": 11703,
+    "Converted flat": 7213,
+    "Purpose built flat": 5537
+   },
+   "elec_type": {
+    "Detached": 4034,
+    "Semi detached": 3043,
+    "Mid terrace": 2617,
+    "End terrace": 2711,
+    "Bungalow": 2378,
+    "Converted flat": 3869,
+    "Purpose built flat": 1853
+   }
+  },
+  "E07000143": {
+   "gas": 8824,
+   "elec": 2725,
+   "gas_type": {
+    "Detached": 11472,
+    "Semi detached": 8038,
+    "Mid terrace": 7332,
+    "End terrace": 7953,
+    "Bungalow": 9468,
+    "Converted flat": 7339,
+    "Purpose built flat": 4611
+   },
+   "elec_type": {
+    "Detached": 3328,
+    "Semi detached": 2738,
+    "Mid terrace": 2384,
+    "End terrace": 2548,
+    "Bungalow": 2500,
+    "Converted flat": 3471,
+    "Purpose built flat": 1819
+   }
+  },
+  "E07000144": {
+   "gas": 9642,
+   "elec": 2530,
+   "gas_type": {
+    "Detached": 12178,
+    "Semi detached": 8571,
+    "Mid terrace": 6590,
+    "End terrace": 7336,
+    "Bungalow": 10044,
+    "Converted flat": 5629,
+    "Purpose built flat": 4286
+   },
+   "elec_type": {
+    "Detached": 3000,
+    "Semi detached": 2557,
+    "Mid terrace": 2129,
+    "End terrace": 2294,
+    "Bungalow": 2369,
+    "Converted flat": 1941,
+    "Purpose built flat": 1531
+   }
+  },
+  "E07000145": {
+   "gas": 8181,
+   "elec": 2492,
+   "gas_type": {
+    "Detached": 11531,
+    "Semi detached": 8823,
+    "Mid terrace": 7270,
+    "End terrace": 8021,
+    "Bungalow": 9268,
+    "Converted flat": 5987,
+    "Purpose built flat": 4673
+   },
+   "elec_type": {
+    "Detached": 3192,
+    "Semi detached": 2643,
+    "Mid terrace": 2384,
+    "End terrace": 2501,
+    "Bungalow": 2335,
+    "Converted flat": 2652,
+    "Purpose built flat": 1869
+   }
+  },
+  "E07000146": {
+   "gas": 9409,
+   "elec": 2801,
+   "gas_type": {
+    "Detached": 12699,
+    "Semi detached": 9243,
+    "Mid terrace": 7846,
+    "End terrace": 8115,
+    "Bungalow": 9707,
+    "Converted flat": 6674,
+    "Purpose built flat": 4872
+   },
+   "elec_type": {
+    "Detached": 3544,
+    "Semi detached": 2937,
+    "Mid terrace": 2381,
+    "End terrace": 2601,
+    "Bungalow": 2543,
+    "Converted flat": 2439,
+    "Purpose built flat": 1942
+   }
+  },
+  "E07000147": {
+   "gas": 9103,
+   "elec": 2650,
+   "gas_type": {
+    "Detached": 13077,
+    "Semi detached": 8761,
+    "Mid terrace": 6904,
+    "End terrace": 7252,
+    "Bungalow": 9964,
+    "Converted flat": 6085,
+    "Purpose built flat": 4244
+   },
+   "elec_type": {
+    "Detached": 3199,
+    "Semi detached": 2906,
+    "Mid terrace": 2373,
+    "End terrace": 2617,
+    "Bungalow": 2416,
+    "Converted flat": 1721,
+    "Purpose built flat": 1830
+   }
+  },
+  "E07000148": {
+   "gas": 8085,
+   "elec": 2153,
+   "gas_type": {
+    "Detached": 14084,
+    "Semi detached": 9616,
+    "Mid terrace": 8241,
+    "End terrace": 9024,
+    "Bungalow": 9020,
+    "Converted flat": 5934,
+    "Purpose built flat": 5116
+   },
+   "elec_type": {
+    "Detached": 2954,
+    "Semi detached": 2616,
+    "Mid terrace": 2096,
+    "End terrace": 2477,
+    "Bungalow": 1861,
+    "Converted flat": 2470,
+    "Purpose built flat": 1725
+   }
+  },
+  "E07000149": {
+   "gas": 8944,
+   "elec": 2715,
+   "gas_type": {
+    "Detached": 11358,
+    "Semi detached": 8015,
+    "Mid terrace": 6513,
+    "End terrace": 7175,
+    "Bungalow": 10010,
+    "Converted flat": 6878,
+    "Purpose built flat": 4470
+   },
+   "elec_type": {
+    "Detached": 3201,
+    "Semi detached": 2755,
+    "Mid terrace": 2165,
+    "End terrace": 2332,
+    "Bungalow": 2605,
+    "Converted flat": 3087,
+    "Purpose built flat": 1625
+   }
+  },
+  "E07000200": {
+   "gas": 9503,
+   "elec": 2706,
+   "gas_type": {
+    "Detached": 12485,
+    "Semi detached": 9135,
+    "Mid terrace": 7566,
+    "End terrace": 8418,
+    "Bungalow": 9888,
+    "Converted flat": 6309,
+    "Purpose built flat": 4590
+   },
+   "elec_type": {
+    "Detached": 3366,
+    "Semi detached": 2679,
+    "Mid terrace": 2193,
+    "End terrace": 2388,
+    "Bungalow": 2563,
+    "Converted flat": 3231,
+    "Purpose built flat": 1941
+   }
+  },
+  "E07000244": {
+   "gas": 9210,
+   "elec": 2492,
+   "gas_type": {
+    "Detached": 12345,
+    "Semi detached": 8927,
+    "Mid terrace": 7398,
+    "End terrace": 8089,
+    "Bungalow": 9380,
+    "Converted flat": 6343,
+    "Purpose built flat": 4376
+   },
+   "elec_type": {
+    "Detached": 3069,
+    "Semi detached": 2628,
+    "Mid terrace": 2190,
+    "End terrace": 2351,
+    "Bungalow": 2243,
+    "Converted flat": 1910,
+    "Purpose built flat": 1897
+   }
+  },
+  "E07000202": {
+   "gas": 9070,
+   "elec": 2444,
+   "gas_type": {
+    "Detached": 13669,
+    "Semi detached": 9743,
+    "Mid terrace": 8084,
+    "End terrace": 9099,
+    "Bungalow": 9568,
+    "Converted flat": 6299,
+    "Purpose built flat": 4885
+   },
+   "elec_type": {
+    "Detached": 3074,
+    "Semi detached": 2559,
+    "Mid terrace": 2281,
+    "End terrace": 2479,
+    "Bungalow": 2174,
+    "Converted flat": 2838,
+    "Purpose built flat": 2031
+   }
+  },
+  "E07000203": {
+   "gas": 8330,
+   "elec": 2818,
+   "gas_type": {
+    "Detached": 11206,
+    "Semi detached": 7867,
+    "Mid terrace": 6388,
+    "End terrace": 7039,
+    "Bungalow": 8615,
+    "Converted flat": 5125,
+    "Purpose built flat": 4231
+   },
+   "elec_type": {
+    "Detached": 3505,
+    "Semi detached": 2714,
+    "Mid terrace": 2232,
+    "End terrace": 2346,
+    "Bungalow": 2639,
+    "Converted flat": 2865,
+    "Purpose built flat": 1730
+   }
+  },
+  "E07000245": {
+   "gas": 9024,
+   "elec": 2578,
+   "gas_type": {
+    "Detached": 12442,
+    "Semi detached": 9005,
+    "Mid terrace": 7847,
+    "End terrace": 8527,
+    "Bungalow": 9522,
+    "Converted flat": 6612,
+    "Purpose built flat": 4893
+   },
+   "elec_type": {
+    "Detached": 3282,
+    "Semi detached": 2629,
+    "Mid terrace": 2267,
+    "End terrace": 2440,
+    "Bungalow": 2519,
+    "Converted flat": 2107,
+    "Purpose built flat": 1799
+   }
+  },
+  "E09000007": {
+   "gas": 8328,
+   "elec": 2004,
+   "gas_type": {
+    "Detached": 27395,
+    "Semi detached": 26394,
+    "Mid terrace": 16297,
+    "End terrace": 19285,
+    "Bungalow": 13698,
+    "Converted flat": 7882,
+    "Purpose built flat": 6329
+   },
+   "elec_type": {
+    "Detached": 6625,
+    "Semi detached": 5246,
+    "Mid terrace": 3417,
+    "End terrace": 3776,
+    "Bungalow": 2382,
+    "Converted flat": 1909,
+    "Purpose built flat": 1830
+   }
+  },
+  "E09000001": {
+   "gas": 5091,
+   "elec": 2821,
+   "gas_type": {
+    "Detached": null,
+    "Semi detached": null,
+    "Mid terrace": 17411,
+    "End terrace": 16568,
+    "Bungalow": null,
+    "Converted flat": 5621,
+    "Purpose built flat": 4948
+   },
+   "elec_type": {
+    "Detached": null,
+    "Semi detached": null,
+    "Mid terrace": 4960,
+    "End terrace": 5588,
+    "Bungalow": null,
+    "Converted flat": 3595,
+    "Purpose built flat": 2682
+   }
+  },
+  "E09000012": {
+   "gas": 8101,
+   "elec": 2180,
+   "gas_type": {
+    "Detached": 13501,
+    "Semi detached": 17613,
+    "Mid terrace": 13586,
+    "End terrace": 14572,
+    "Bungalow": 8351,
+    "Converted flat": 7035,
+    "Purpose built flat": 6625
+   },
+   "elec_type": {
+    "Detached": 3302,
+    "Semi detached": 3893,
+    "Mid terrace": 3189,
+    "End terrace": 3321,
+    "Bungalow": 2406,
+    "Converted flat": 1927,
+    "Purpose built flat": 1990
+   }
+  },
+  "E09000013": {
+   "gas": 9762,
+   "elec": 2189,
+   "gas_type": {
+    "Detached": 22466,
+    "Semi detached": 20745,
+    "Mid terrace": 15135,
+    "End terrace": 15606,
+    "Bungalow": 7767,
+    "Converted flat": 6961,
+    "Purpose built flat": 6884
+   },
+   "elec_type": {
+    "Detached": 4736,
+    "Semi detached": 4438,
+    "Mid terrace": 3466,
+    "End terrace": 3682,
+    "Bungalow": 2394,
+    "Converted flat": 1749,
+    "Purpose built flat": 1939
+   }
+  },
+  "E09000014": {
+   "gas": 10695,
+   "elec": 2328,
+   "gas_type": {
+    "Detached": 25870,
+    "Semi detached": 19067,
+    "Mid terrace": 12728,
+    "End terrace": 14532,
+    "Bungalow": 8564,
+    "Converted flat": 7973,
+    "Purpose built flat": 7023
+   },
+   "elec_type": {
+    "Detached": 5801,
+    "Semi detached": 3632,
+    "Mid terrace": 2821,
+    "End terrace": 3085,
+    "Bungalow": 1891,
+    "Converted flat": 1918,
+    "Purpose built flat": 1887
+   }
+  },
+  "E09000019": {
+   "gas": 7976,
+   "elec": 2062,
+   "gas_type": {
+    "Detached": 16088,
+    "Semi detached": 20306,
+    "Mid terrace": 14122,
+    "End terrace": 14603,
+    "Bungalow": 8008,
+    "Converted flat": 7275,
+    "Purpose built flat": 6068
+   },
+   "elec_type": {
+    "Detached": 3598,
+    "Semi detached": 4150,
+    "Mid terrace": 3184,
+    "End terrace": 3247,
+    "Bungalow": 1984,
+    "Converted flat": 1817,
+    "Purpose built flat": 1889
+   }
+  },
+  "E09000020": {
+   "gas": 7926,
+   "elec": 2052,
+   "gas_type": {
+    "Detached": 24860,
+    "Semi detached": 29918,
+    "Mid terrace": 19151,
+    "End terrace": 21522,
+    "Bungalow": 8685,
+    "Converted flat": 7923,
+    "Purpose built flat": 6310
+   },
+   "elec_type": {
+    "Detached": 8225,
+    "Semi detached": 7520,
+    "Mid terrace": 4873,
+    "End terrace": 5338,
+    "Bungalow": 2092,
+    "Converted flat": 1935,
+    "Purpose built flat": 1927
+   }
+  },
+  "E09000022": {
+   "gas": 8961,
+   "elec": 2177,
+   "gas_type": {
+    "Detached": 24189,
+    "Semi detached": 18626,
+    "Mid terrace": 12732,
+    "End terrace": 13896,
+    "Bungalow": 9970,
+    "Converted flat": 7292,
+    "Purpose built flat": 6728
+   },
+   "elec_type": {
+    "Detached": 4730,
+    "Semi detached": 3637,
+    "Mid terrace": 2952,
+    "End terrace": 3122,
+    "Bungalow": 2257,
+    "Converted flat": 1816,
+    "Purpose built flat": 1931
+   }
+  },
+  "E09000023": {
+   "gas": 9782,
+   "elec": 2359,
+   "gas_type": {
+    "Detached": 20536,
+    "Semi detached": 15939,
+    "Mid terrace": 11002,
+    "End terrace": 12456,
+    "Bungalow": 9142,
+    "Converted flat": 7925,
+    "Purpose built flat": 6814
+   },
+   "elec_type": {
+    "Detached": 3753,
+    "Semi detached": 3282,
+    "Mid terrace": 2699,
+    "End terrace": 2908,
+    "Bungalow": 2233,
+    "Converted flat": 1881,
+    "Purpose built flat": 2004
+   }
+  },
+  "E09000025": {
+   "gas": 9836,
+   "elec": 2382,
+   "gas_type": {
+    "Detached": 14910,
+    "Semi detached": 12191,
+    "Mid terrace": 11357,
+    "End terrace": 12007,
+    "Bungalow": 6974,
+    "Converted flat": 7783,
+    "Purpose built flat": 6930
+   },
+   "elec_type": {
+    "Detached": 3404,
+    "Semi detached": 3115,
+    "Mid terrace": 2761,
+    "End terrace": 2903,
+    "Bungalow": 1838,
+    "Converted flat": 2094,
+    "Purpose built flat": 2045
+   }
+  },
+  "E09000028": {
+   "gas": 7919,
+   "elec": 2197,
+   "gas_type": {
+    "Detached": 23238,
+    "Semi detached": 18155,
+    "Mid terrace": 11469,
+    "End terrace": 11754,
+    "Bungalow": 8765,
+    "Converted flat": 7252,
+    "Purpose built flat": 6184
+   },
+   "elec_type": {
+    "Detached": 5119,
+    "Semi detached": 3677,
+    "Mid terrace": 2849,
+    "End terrace": 2922,
+    "Bungalow": 2077,
+    "Converted flat": 2050,
+    "Purpose built flat": 2004
+   }
+  },
+  "E09000030": {
+   "gas": 7381,
+   "elec": 2194,
+   "gas_type": {
+    "Detached": 14545,
+    "Semi detached": 11885,
+    "Mid terrace": 10627,
+    "End terrace": 11071,
+    "Bungalow": 5700,
+    "Converted flat": 6313,
+    "Purpose built flat": 6675
+   },
+   "elec_type": {
+    "Detached": 3923,
+    "Semi detached": 3118,
+    "Mid terrace": 2824,
+    "End terrace": 2985,
+    "Bungalow": 1768,
+    "Converted flat": 2574,
+    "Purpose built flat": 2094
+   }
+  },
+  "E09000032": {
+   "gas": 9817,
+   "elec": 2308,
+   "gas_type": {
+    "Detached": 27312,
+    "Semi detached": 19330,
+    "Mid terrace": 13169,
+    "End terrace": 13706,
+    "Bungalow": 7538,
+    "Converted flat": 7344,
+    "Purpose built flat": 7196
+   },
+   "elec_type": {
+    "Detached": 5843,
+    "Semi detached": 4091,
+    "Mid terrace": 3049,
+    "End terrace": 3112,
+    "Bungalow": 1871,
+    "Converted flat": 1846,
+    "Purpose built flat": 2013
+   }
+  },
+  "E09000033": {
+   "gas": 7175,
+   "elec": 2135,
+   "gas_type": {
+    "Detached": 29809,
+    "Semi detached": 27628,
+    "Mid terrace": 13187,
+    "End terrace": 17054,
+    "Bungalow": 11423,
+    "Converted flat": 7426,
+    "Purpose built flat": 6316
+   },
+   "elec_type": {
+    "Detached": 9692,
+    "Semi detached": 6481,
+    "Mid terrace": 3274,
+    "End terrace": 4114,
+    "Bungalow": 3050,
+    "Converted flat": 2061,
+    "Purpose built flat": 2078
+   }
+  },
+  "E09000002": {
+   "gas": 9794,
+   "elec": 2477,
+   "gas_type": {
+    "Detached": 13416,
+    "Semi detached": 12040,
+    "Mid terrace": 9674,
+    "End terrace": 11539,
+    "Bungalow": 10360,
+    "Converted flat": 7049,
+    "Purpose built flat": 6742
+   },
+   "elec_type": {
+    "Detached": 3448,
+    "Semi detached": 3029,
+    "Mid terrace": 2551,
+    "End terrace": 2888,
+    "Bungalow": 2168,
+    "Converted flat": 1944,
+    "Purpose built flat": 2044
+   }
+  },
+  "E09000003": {
+   "gas": 13336,
+   "elec": 2739,
+   "gas_type": {
+    "Detached": 26221,
+    "Semi detached": 18395,
+    "Mid terrace": 11947,
+    "End terrace": 13642,
+    "Bungalow": 14921,
+    "Converted flat": 9157,
+    "Purpose built flat": 7682
+   },
+   "elec_type": {
+    "Detached": 5244,
+    "Semi detached": 3570,
+    "Mid terrace": 2752,
+    "End terrace": 2981,
+    "Bungalow": 2804,
+    "Converted flat": 2095,
+    "Purpose built flat": 2087
+   }
+  },
+  "E09000004": {
+   "gas": 11283,
+   "elec": 2711,
+   "gas_type": {
+    "Detached": 17105,
+    "Semi detached": 13313,
+    "Mid terrace": 9262,
+    "End terrace": 11349,
+    "Bungalow": 12173,
+    "Converted flat": 7807,
+    "Purpose built flat": 6413
+   },
+   "elec_type": {
+    "Detached": 3710,
+    "Semi detached": 3080,
+    "Mid terrace": 2549,
+    "End terrace": 2853,
+    "Bungalow": 2467,
+    "Converted flat": 1965,
+    "Purpose built flat": 2102
+   }
+  },
+  "E09000005": {
+   "gas": 12690,
+   "elec": 2539,
+   "gas_type": {
+    "Detached": 24598,
+    "Semi detached": 17980,
+    "Mid terrace": 13948,
+    "End terrace": 15531,
+    "Bungalow": 15111,
+    "Converted flat": 8927,
+    "Purpose built flat": 7896
+   },
+   "elec_type": {
+    "Detached": 4510,
+    "Semi detached": 3325,
+    "Mid terrace": 2943,
+    "End terrace": 3093,
+    "Bungalow": 2789,
+    "Converted flat": 2056,
+    "Purpose built flat": 2021
+   }
+  },
+  "E09000006": {
+   "gas": 12415,
+   "elec": 2730,
+   "gas_type": {
+    "Detached": 20718,
+    "Semi detached": 15028,
+    "Mid terrace": 10299,
+    "End terrace": 11938,
+    "Bungalow": 13640,
+    "Converted flat": 8109,
+    "Purpose built flat": 6610
+   },
+   "elec_type": {
+    "Detached": 4013,
+    "Semi detached": 3181,
+    "Mid terrace": 2534,
+    "End terrace": 2797,
+    "Bungalow": 2645,
+    "Converted flat": 1993,
+    "Purpose built flat": 1961
+   }
+  },
+  "E09000008": {
+   "gas": 11864,
+   "elec": 2595,
+   "gas_type": {
+    "Detached": 20446,
+    "Semi detached": 14973,
+    "Mid terrace": 11043,
+    "End terrace": 12664,
+    "Bungalow": 14909,
+    "Converted flat": 7823,
+    "Purpose built flat": 6841
+   },
+   "elec_type": {
+    "Detached": 3797,
+    "Semi detached": 3198,
+    "Mid terrace": 2596,
+    "End terrace": 2809,
+    "Bungalow": 2851,
+    "Converted flat": 1961,
+    "Purpose built flat": 2011
+   }
+  },
+  "E09000009": {
+   "gas": 11586,
+   "elec": 2485,
+   "gas_type": {
+    "Detached": 24511,
+    "Semi detached": 16161,
+    "Mid terrace": 12220,
+    "End terrace": 13923,
+    "Bungalow": 12295,
+    "Converted flat": 8021,
+    "Purpose built flat": 7364
+   },
+   "elec_type": {
+    "Detached": 4693,
+    "Semi detached": 3339,
+    "Mid terrace": 2756,
+    "End terrace": 2978,
+    "Bungalow": 2461,
+    "Converted flat": 1910,
+    "Purpose built flat": 1975
+   }
+  },
+  "E09000010": {
+   "gas": 11822,
+   "elec": 2726,
+   "gas_type": {
+    "Detached": 22004,
+    "Semi detached": 16204,
+    "Mid terrace": 11469,
+    "End terrace": 13475,
+    "Bungalow": 14431,
+    "Converted flat": 8835,
+    "Purpose built flat": 7290
+   },
+   "elec_type": {
+    "Detached": 4264,
+    "Semi detached": 3264,
+    "Mid terrace": 2666,
+    "End terrace": 2929,
+    "Bungalow": 2834,
+    "Converted flat": 2096,
+    "Purpose built flat": 2312
+   }
+  },
+  "E09000011": {
+   "gas": 9895,
+   "elec": 2329,
+   "gas_type": {
+    "Detached": 19423,
+    "Semi detached": 14371,
+    "Mid terrace": 10484,
+    "End terrace": 11647,
+    "Bungalow": 9966,
+    "Converted flat": 8285,
+    "Purpose built flat": 6395
+   },
+   "elec_type": {
+    "Detached": 3976,
+    "Semi detached": 3112,
+    "Mid terrace": 2615,
+    "End terrace": 2863,
+    "Bungalow": 2100,
+    "Converted flat": 1970,
+    "Purpose built flat": 1917
+   }
+  },
+  "E09000015": {
+   "gas": 14234,
+   "elec": 2658,
+   "gas_type": {
+    "Detached": 24146,
+    "Semi detached": 17024,
+    "Mid terrace": 12572,
+    "End terrace": 14783,
+    "Bungalow": 15591,
+    "Converted flat": 9091,
+    "Purpose built flat": 8444
+   },
+   "elec_type": {
+    "Detached": 4315,
+    "Semi detached": 3100,
+    "Mid terrace": 2601,
+    "End terrace": 2830,
+    "Bungalow": 2788,
+    "Converted flat": 2030,
+    "Purpose built flat": 1929
+   }
+  },
+  "E09000016": {
+   "gas": 11262,
+   "elec": 2703,
+   "gas_type": {
+    "Detached": 18635,
+    "Semi detached": 13173,
+    "Mid terrace": 9655,
+    "End terrace": 11493,
+    "Bungalow": 12707,
+    "Converted flat": 7356,
+    "Purpose built flat": 6164
+   },
+   "elec_type": {
+    "Detached": 3982,
+    "Semi detached": 3053,
+    "Mid terrace": 2618,
+    "End terrace": 2864,
+    "Bungalow": 2638,
+    "Converted flat": 2290,
+    "Purpose built flat": 1955
+   }
+  },
+  "E09000017": {
+   "gas": 11965,
+   "elec": 2734,
+   "gas_type": {
+    "Detached": 19286,
+    "Semi detached": 14002,
+    "Mid terrace": 10115,
+    "End terrace": 12171,
+    "Bungalow": 14648,
+    "Converted flat": 8434,
+    "Purpose built flat": 7092
+   },
+   "elec_type": {
+    "Detached": 3830,
+    "Semi detached": 3137,
+    "Mid terrace": 2624,
+    "End terrace": 2918,
+    "Bungalow": 2770,
+    "Converted flat": 2762,
+    "Purpose built flat": 2034
+   }
+  },
+  "E09000018": {
+   "gas": 11344,
+   "elec": 2635,
+   "gas_type": {
+    "Detached": 19857,
+    "Semi detached": 15176,
+    "Mid terrace": 10892,
+    "End terrace": 12342,
+    "Bungalow": 11199,
+    "Converted flat": 8514,
+    "Purpose built flat": 6912
+   },
+   "elec_type": {
+    "Detached": 4027,
+    "Semi detached": 3307,
+    "Mid terrace": 2786,
+    "End terrace": 2949,
+    "Bungalow": 2349,
+    "Converted flat": 2185,
+    "Purpose built flat": 2103
+   }
+  },
+  "E09000021": {
+   "gas": 11697,
+   "elec": 2702,
+   "gas_type": {
+    "Detached": 19982,
+    "Semi detached": 14715,
+    "Mid terrace": 9894,
+    "End terrace": 11921,
+    "Bungalow": 13019,
+    "Converted flat": 7088,
+    "Purpose built flat": 6534
+   },
+   "elec_type": {
+    "Detached": 3857,
+    "Semi detached": 3187,
+    "Mid terrace": 2567,
+    "End terrace": 2822,
+    "Bungalow": 2671,
+    "Converted flat": 1996,
+    "Purpose built flat": 2087
+   }
+  },
+  "E09000024": {
+   "gas": 10980,
+   "elec": 2594,
+   "gas_type": {
+    "Detached": 26128,
+    "Semi detached": 16105,
+    "Mid terrace": 11114,
+    "End terrace": 13100,
+    "Bungalow": 12096,
+    "Converted flat": 7522,
+    "Purpose built flat": 6857
+   },
+   "elec_type": {
+    "Detached": 5277,
+    "Semi detached": 3377,
+    "Mid terrace": 2696,
+    "End terrace": 2929,
+    "Bungalow": 2590,
+    "Converted flat": 1980,
+    "Purpose built flat": 2046
+   }
+  },
+  "E09000026": {
+   "gas": 12768,
+   "elec": 2806,
+   "gas_type": {
+    "Detached": 20269,
+    "Semi detached": 16349,
+    "Mid terrace": 12726,
+    "End terrace": 15014,
+    "Bungalow": 15246,
+    "Converted flat": 8474,
+    "Purpose built flat": 7108
+   },
+   "elec_type": {
+    "Detached": 4130,
+    "Semi detached": 3438,
+    "Mid terrace": 2885,
+    "End terrace": 3273,
+    "Bungalow": 2982,
+    "Converted flat": 1940,
+    "Purpose built flat": 2035
+   }
+  },
+  "E09000027": {
+   "gas": 11848,
+   "elec": 2671,
+   "gas_type": {
+    "Detached": 23636,
+    "Semi detached": 17201,
+    "Mid terrace": 11448,
+    "End terrace": 13344,
+    "Bungalow": 12969,
+    "Converted flat": 7428,
+    "Purpose built flat": 6567
+   },
+   "elec_type": {
+    "Detached": 4737,
+    "Semi detached": 3600,
+    "Mid terrace": 2793,
+    "End terrace": 2987,
+    "Bungalow": 2725,
+    "Converted flat": 1906,
+    "Purpose built flat": 1884
+   }
+  },
+  "E09000029": {
+   "gas": 11386,
+   "elec": 2691,
+   "gas_type": {
+    "Detached": 21384,
+    "Semi detached": 14930,
+    "Mid terrace": 9360,
+    "End terrace": 11350,
+    "Bungalow": 14539,
+    "Converted flat": 7681,
+    "Purpose built flat": 6705
+   },
+   "elec_type": {
+    "Detached": 3970,
+    "Semi detached": 3150,
+    "Mid terrace": 2519,
+    "End terrace": 2747,
+    "Bungalow": 2692,
+    "Converted flat": 2206,
+    "Purpose built flat": 2180
+   }
+  },
+  "E09000031": {
+   "gas": 10539,
+   "elec": 2422,
+   "gas_type": {
+    "Detached": 17135,
+    "Semi detached": 15072,
+    "Mid terrace": 11292,
+    "End terrace": 12983,
+    "Bungalow": 12525,
+    "Converted flat": 7545,
+    "Purpose built flat": 6963
+   },
+   "elec_type": {
+    "Detached": 3688,
+    "Semi detached": 3248,
+    "Mid terrace": 2663,
+    "End terrace": 2889,
+    "Bungalow": 2600,
+    "Converted flat": 1837,
+    "Purpose built flat": 1917
+   }
+  },
+  "E06000036": {
+   "gas": 10492,
+   "elec": 2856,
+   "gas_type": {
+    "Detached": 14829,
+    "Semi detached": 10956,
+    "Mid terrace": 9240,
+    "End terrace": 9724,
+    "Bungalow": 10980,
+    "Converted flat": 7653,
+    "Purpose built flat": 5430
+   },
+   "elec_type": {
+    "Detached": 3571,
+    "Semi detached": 2972,
+    "Mid terrace": 2649,
+    "End terrace": 2738,
+    "Bungalow": 2447,
+    "Converted flat": 3475,
+    "Purpose built flat": 2193
+   }
+  },
+  "E06000043": {
+   "gas": 9444,
+   "elec": 2366,
+   "gas_type": {
+    "Detached": 17062,
+    "Semi detached": 11390,
+    "Mid terrace": 9970,
+    "End terrace": 9789,
+    "Bungalow": 11311,
+    "Converted flat": 6522,
+    "Purpose built flat": 5250
+   },
+   "elec_type": {
+    "Detached": 3578,
+    "Semi detached": 2973,
+    "Mid terrace": 2531,
+    "End terrace": 2696,
+    "Bungalow": 2601,
+    "Converted flat": 1863,
+    "Purpose built flat": 1851
+   }
+  },
+  "E06000060": {
+   "gas": 12031,
+   "elec": 2956,
+   "gas_type": {
+    "Detached": 17867,
+    "Semi detached": 12078,
+    "Mid terrace": 9251,
+    "End terrace": 10342,
+    "Bungalow": 13328,
+    "Converted flat": 7218,
+    "Purpose built flat": 5955
+   },
+   "elec_type": {
+    "Detached": 3995,
+    "Semi detached": 2989,
+    "Mid terrace": 2438,
+    "End terrace": 2621,
+    "Bungalow": 2874,
+    "Converted flat": 2656,
+    "Purpose built flat": 1981
+   }
+  },
+  "E06000046": {
+   "gas": 8349,
+   "elec": 2435,
+   "gas_type": {
+    "Detached": 12342,
+    "Semi detached": 8402,
+    "Mid terrace": 6333,
+    "End terrace": 7033,
+    "Bungalow": 9053,
+    "Converted flat": 6202,
+    "Purpose built flat": 4031
+   },
+   "elec_type": {
+    "Detached": 3040,
+    "Semi detached": 2560,
+    "Mid terrace": 2197,
+    "End terrace": 2300,
+    "Bungalow": 2273,
+    "Converted flat": 2018,
+    "Purpose built flat": 1967
+   }
+  },
+  "E06000035": {
+   "gas": 9503,
+   "elec": 2607,
+   "gas_type": {
+    "Detached": 13831,
+    "Semi detached": 10281,
+    "Mid terrace": 8639,
+    "End terrace": 9525,
+    "Bungalow": 10432,
+    "Converted flat": 6019,
+    "Purpose built flat": 5218
+   },
+   "elec_type": {
+    "Detached": 3416,
+    "Semi detached": 2814,
+    "Mid terrace": 2476,
+    "End terrace": 2696,
+    "Bungalow": 2387,
+    "Converted flat": 2025,
+    "Purpose built flat": 1987
+   }
+  },
+  "E06000042": {
+   "gas": 9940,
+   "elec": 2560,
+   "gas_type": {
+    "Detached": 13368,
+    "Semi detached": 9550,
+    "Mid terrace": 8987,
+    "End terrace": 9412,
+    "Bungalow": 9258,
+    "Converted flat": 6903,
+    "Purpose built flat": 5539
+   },
+   "elec_type": {
+    "Detached": 3194,
+    "Semi detached": 2517,
+    "Mid terrace": 2524,
+    "End terrace": 2540,
+    "Bungalow": 2188,
+    "Converted flat": 3123,
+    "Purpose built flat": 1882
+   }
+  },
+  "E06000044": {
+   "gas": 8484,
+   "elec": 2400,
+   "gas_type": {
+    "Detached": 14058,
+    "Semi detached": 10485,
+    "Mid terrace": 8724,
+    "End terrace": 9669,
+    "Bungalow": 9595,
+    "Converted flat": 6040,
+    "Purpose built flat": 5444
+   },
+   "elec_type": {
+    "Detached": 3201,
+    "Semi detached": 2819,
+    "Mid terrace": 2454,
+    "End terrace": 2650,
+    "Bungalow": 2296,
+    "Converted flat": 1969,
+    "Purpose built flat": 2002
+   }
+  },
+  "E06000038": {
+   "gas": 10494,
+   "elec": 2578,
+   "gas_type": {
+    "Detached": 16441,
+    "Semi detached": 12294,
+    "Mid terrace": 9477,
+    "End terrace": 10499,
+    "Bungalow": 11350,
+    "Converted flat": 6753,
+    "Purpose built flat": 5487
+   },
+   "elec_type": {
+    "Detached": 3424,
+    "Semi detached": 2874,
+    "Mid terrace": 2355,
+    "End terrace": 2645,
+    "Bungalow": 2395,
+    "Converted flat": 2446,
+    "Purpose built flat": 2160
+   }
+  },
+  "E06000039": {
+   "gas": 10693,
+   "elec": 2728,
+   "gas_type": {
+    "Detached": 16250,
+    "Semi detached": 13321,
+    "Mid terrace": 10101,
+    "End terrace": 11307,
+    "Bungalow": 10775,
+    "Converted flat": 7528,
+    "Purpose built flat": 6485
+   },
+   "elec_type": {
+    "Detached": 3621,
+    "Semi detached": 3014,
+    "Mid terrace": 2568,
+    "End terrace": 2817,
+    "Bungalow": 2163,
+    "Converted flat": 2656,
+    "Purpose built flat": 2412
+   }
+  },
+  "E06000045": {
+   "gas": 8861,
+   "elec": 2550,
+   "gas_type": {
+    "Detached": 13586,
+    "Semi detached": 10179,
+    "Mid terrace": 8175,
+    "End terrace": 8690,
+    "Bungalow": 9780,
+    "Converted flat": 6392,
+    "Purpose built flat": 4846
+   },
+   "elec_type": {
+    "Detached": 3097,
+    "Semi detached": 2764,
+    "Mid terrace": 2561,
+    "End terrace": 2630,
+    "Bungalow": 2318,
+    "Converted flat": 2508,
+    "Purpose built flat": 2177
+   }
+  },
+  "E06000037": {
+   "gas": 10875,
+   "elec": 3059,
+   "gas_type": {
+    "Detached": 14702,
+    "Semi detached": 10767,
+    "Mid terrace": 8573,
+    "End terrace": 9413,
+    "Bungalow": 11958,
+    "Converted flat": 6410,
+    "Purpose built flat": 5519
+   },
+   "elec_type": {
+    "Detached": 3768,
+    "Semi detached": 2999,
+    "Mid terrace": 2544,
+    "End terrace": 2677,
+    "Bungalow": 2966,
+    "Converted flat": 3066,
+    "Purpose built flat": 2483
+   }
+  },
+  "E06000040": {
+   "gas": 12415,
+   "elec": 2987,
+   "gas_type": {
+    "Detached": 18860,
+    "Semi detached": 12845,
+    "Mid terrace": 9708,
+    "End terrace": 11080,
+    "Bungalow": 14105,
+    "Converted flat": 7496,
+    "Purpose built flat": 6262
+   },
+   "elec_type": {
+    "Detached": 4133,
+    "Semi detached": 3159,
+    "Mid terrace": 2582,
+    "End terrace": 2778,
+    "Bungalow": 3103,
+    "Converted flat": 2391,
+    "Purpose built flat": 2050
+   }
+  },
+  "E06000041": {
+   "gas": 11932,
+   "elec": 2924,
+   "gas_type": {
+    "Detached": 15254,
+    "Semi detached": 11082,
+    "Mid terrace": 8253,
+    "End terrace": 9135,
+    "Bungalow": 13549,
+    "Converted flat": 7622,
+    "Purpose built flat": 5456
+   },
+   "elec_type": {
+    "Detached": 3537,
+    "Semi detached": 2830,
+    "Mid terrace": 2291,
+    "End terrace": 2543,
+    "Bungalow": 2788,
+    "Converted flat": 2288,
+    "Purpose built flat": 2059
+   }
+  },
+  "E07000061": {
+   "gas": 8628,
+   "elec": 2283,
+   "gas_type": {
+    "Detached": 13549,
+    "Semi detached": 9668,
+    "Mid terrace": 7908,
+    "End terrace": 8624,
+    "Bungalow": 8785,
+    "Converted flat": 6769,
+    "Purpose built flat": 5076
+   },
+   "elec_type": {
+    "Detached": 2929,
+    "Semi detached": 2672,
+    "Mid terrace": 2298,
+    "End terrace": 2469,
+    "Bungalow": 1969,
+    "Converted flat": 1955,
+    "Purpose built flat": 1819
+   }
+  },
+  "E07000062": {
+   "gas": 9136,
+   "elec": 2436,
+   "gas_type": {
+    "Detached": 13094,
+    "Semi detached": 9884,
+    "Mid terrace": 8479,
+    "End terrace": 8643,
+    "Bungalow": 9710,
+    "Converted flat": 6581,
+    "Purpose built flat": 5078
+   },
+   "elec_type": {
+    "Detached": 3172,
+    "Semi detached": 2722,
+    "Mid terrace": 2440,
+    "End terrace": 2617,
+    "Bungalow": 2239,
+    "Converted flat": 1840,
+    "Purpose built flat": 1966
+   }
+  },
+  "E07000063": {
+   "gas": 9553,
+   "elec": 2576,
+   "gas_type": {
+    "Detached": 13768,
+    "Semi detached": 9522,
+    "Mid terrace": 7830,
+    "End terrace": 8500,
+    "Bungalow": 10233,
+    "Converted flat": 6149,
+    "Purpose built flat": 4949
+   },
+   "elec_type": {
+    "Detached": 3391,
+    "Semi detached": 2759,
+    "Mid terrace": 2341,
+    "End terrace": 2551,
+    "Bungalow": 2400,
+    "Converted flat": 2053,
+    "Purpose built flat": 1954
+   }
+  },
+  "E07000064": {
+   "gas": 10358,
+   "elec": 2683,
+   "gas_type": {
+    "Detached": 14715,
+    "Semi detached": 9503,
+    "Mid terrace": 8256,
+    "End terrace": 8718,
+    "Bungalow": 11373,
+    "Converted flat": 7832,
+    "Purpose built flat": 5145
+   },
+   "elec_type": {
+    "Detached": 3411,
+    "Semi detached": 2798,
+    "Mid terrace": 2381,
+    "End terrace": 2671,
+    "Bungalow": 2520,
+    "Converted flat": 2056,
+    "Purpose built flat": 1951
+   }
+  },
+  "E07000065": {
+   "gas": 9954,
+   "elec": 2816,
+   "gas_type": {
+    "Detached": 13763,
+    "Semi detached": 9197,
+    "Mid terrace": 7473,
+    "End terrace": 8431,
+    "Bungalow": 9961,
+    "Converted flat": 6878,
+    "Purpose built flat": 4843
+   },
+   "elec_type": {
+    "Detached": 3616,
+    "Semi detached": 2770,
+    "Mid terrace": 2392,
+    "End terrace": 2594,
+    "Bungalow": 2462,
+    "Converted flat": 2371,
+    "Purpose built flat": 1792
+   }
+  },
+  "E07000084": {
+   "gas": 9808,
+   "elec": 2704,
+   "gas_type": {
+    "Detached": 13988,
+    "Semi detached": 9896,
+    "Mid terrace": 8412,
+    "End terrace": 9161,
+    "Bungalow": 10985,
+    "Converted flat": 6412,
+    "Purpose built flat": 5034
+   },
+   "elec_type": {
+    "Detached": 3534,
+    "Semi detached": 2766,
+    "Mid terrace": 2395,
+    "End terrace": 2581,
+    "Bungalow": 2634,
+    "Converted flat": 3286,
+    "Purpose built flat": 1817
+   }
+  },
+  "E07000085": {
+   "gas": 10706,
+   "elec": 2895,
+   "gas_type": {
+    "Detached": 14877,
+    "Semi detached": 9757,
+    "Mid terrace": 7988,
+    "End terrace": 8842,
+    "Bungalow": 12988,
+    "Converted flat": 6582,
+    "Purpose built flat": 4997
+   },
+   "elec_type": {
+    "Detached": 3705,
+    "Semi detached": 2859,
+    "Mid terrace": 2434,
+    "End terrace": 2590,
+    "Bungalow": 2915,
+    "Converted flat": 2431,
+    "Purpose built flat": 1912
+   }
+  },
+  "E07000086": {
+   "gas": 9131,
+   "elec": 2548,
+   "gas_type": {
+    "Detached": 12480,
+    "Semi detached": 8919,
+    "Mid terrace": 7276,
+    "End terrace": 7765,
+    "Bungalow": 10627,
+    "Converted flat": 5987,
+    "Purpose built flat": 4533
+   },
+   "elec_type": {
+    "Detached": 3142,
+    "Semi detached": 2618,
+    "Mid terrace": 2316,
+    "End terrace": 2395,
+    "Bungalow": 2417,
+    "Converted flat": 2188,
+    "Purpose built flat": 1805
+   }
+  },
+  "E07000087": {
+   "gas": 9497,
+   "elec": 2600,
+   "gas_type": {
+    "Detached": 12786,
+    "Semi detached": 9116,
+    "Mid terrace": 7139,
+    "End terrace": 8333,
+    "Bungalow": 9709,
+    "Converted flat": 5821,
+    "Purpose built flat": 4434
+   },
+   "elec_type": {
+    "Detached": 3131,
+    "Semi detached": 2634,
+    "Mid terrace": 2361,
+    "End terrace": 2506,
+    "Bungalow": 2340,
+    "Converted flat": 2784,
+    "Purpose built flat": 1921
+   }
+  },
+  "E07000088": {
+   "gas": 8134,
+   "elec": 2466,
+   "gas_type": {
+    "Detached": 12562,
+    "Semi detached": 9207,
+    "Mid terrace": 7352,
+    "End terrace": 8304,
+    "Bungalow": 8317,
+    "Converted flat": 6501,
+    "Purpose built flat": 4073
+   },
+   "elec_type": {
+    "Detached": 3056,
+    "Semi detached": 2682,
+    "Mid terrace": 2380,
+    "End terrace": 2590,
+    "Bungalow": 2050,
+    "Converted flat": 2384,
+    "Purpose built flat": 2027
+   }
+  },
+  "E07000089": {
+   "gas": 12414,
+   "elec": 2980,
+   "gas_type": {
+    "Detached": 16448,
+    "Semi detached": 11316,
+    "Mid terrace": 8555,
+    "End terrace": 9817,
+    "Bungalow": 13176,
+    "Converted flat": 7828,
+    "Purpose built flat": 5481
+   },
+   "elec_type": {
+    "Detached": 3625,
+    "Semi detached": 2934,
+    "Mid terrace": 2383,
+    "End terrace": 2715,
+    "Bungalow": 2787,
+    "Converted flat": 2816,
+    "Purpose built flat": 1988
+   }
+  },
+  "E07000090": {
+   "gas": 9172,
+   "elec": 2594,
+   "gas_type": {
+    "Detached": 13446,
+    "Semi detached": 9477,
+    "Mid terrace": 7709,
+    "End terrace": 8330,
+    "Bungalow": 10594,
+    "Converted flat": 5885,
+    "Purpose built flat": 4704
+   },
+   "elec_type": {
+    "Detached": 3110,
+    "Semi detached": 2754,
+    "Mid terrace": 2577,
+    "End terrace": 2605,
+    "Bungalow": 2457,
+    "Converted flat": 2432,
+    "Purpose built flat": 1914
+   }
+  },
+  "E07000091": {
+   "gas": 9915,
+   "elec": 2684,
+   "gas_type": {
+    "Detached": 13263,
+    "Semi detached": 9116,
+    "Mid terrace": 7216,
+    "End terrace": 8253,
+    "Bungalow": 10975,
+    "Converted flat": 6969,
+    "Purpose built flat": 5007
+   },
+   "elec_type": {
+    "Detached": 3271,
+    "Semi detached": 2749,
+    "Mid terrace": 2328,
+    "End terrace": 2522,
+    "Bungalow": 2585,
+    "Converted flat": 2363,
+    "Purpose built flat": 1810
+   }
+  },
+  "E07000092": {
+   "gas": 10197,
+   "elec": 2607,
+   "gas_type": {
+    "Detached": 14856,
+    "Semi detached": 11230,
+    "Mid terrace": 8774,
+    "End terrace": 10077,
+    "Bungalow": 11618,
+    "Converted flat": 7755,
+    "Purpose built flat": 5409
+   },
+   "elec_type": {
+    "Detached": 3299,
+    "Semi detached": 2810,
+    "Mid terrace": 2458,
+    "End terrace": 2598,
+    "Bungalow": 2533,
+    "Converted flat": 2342,
+    "Purpose built flat": 2057
+   }
+  },
+  "E07000093": {
+   "gas": 9063,
+   "elec": 2743,
+   "gas_type": {
+    "Detached": 12586,
+    "Semi detached": 8531,
+    "Mid terrace": 7588,
+    "End terrace": 8134,
+    "Bungalow": 10812,
+    "Converted flat": 5951,
+    "Purpose built flat": 4700
+   },
+   "elec_type": {
+    "Detached": 3442,
+    "Semi detached": 2710,
+    "Mid terrace": 2441,
+    "End terrace": 2548,
+    "Bungalow": 2892,
+    "Converted flat": 2147,
+    "Purpose built flat": 1777
+   }
+  },
+  "E07000094": {
+   "gas": 9878,
+   "elec": 2764,
+   "gas_type": {
+    "Detached": 14296,
+    "Semi detached": 9465,
+    "Mid terrace": 8235,
+    "End terrace": 8646,
+    "Bungalow": 11837,
+    "Converted flat": 6488,
+    "Purpose built flat": 5041
+   },
+   "elec_type": {
+    "Detached": 3627,
+    "Semi detached": 2832,
+    "Mid terrace": 2380,
+    "End terrace": 2547,
+    "Bungalow": 2809,
+    "Converted flat": 2267,
+    "Purpose built flat": 1770
+   }
+  },
+  "E07000105": {
+   "gas": 9318,
+   "elec": 2697,
+   "gas_type": {
+    "Detached": 12825,
+    "Semi detached": 9379,
+    "Mid terrace": 7883,
+    "End terrace": 8702,
+    "Bungalow": 9632,
+    "Converted flat": 6697,
+    "Purpose built flat": 4879
+   },
+   "elec_type": {
+    "Detached": 3455,
+    "Semi detached": 2677,
+    "Mid terrace": 2406,
+    "End terrace": 2517,
+    "Bungalow": 2631,
+    "Converted flat": 2217,
+    "Purpose built flat": 1908
+   }
+  },
+  "E07000106": {
+   "gas": 9801,
+   "elec": 2492,
+   "gas_type": {
+    "Detached": 13850,
+    "Semi detached": 9946,
+    "Mid terrace": 8413,
+    "End terrace": 9049,
+    "Bungalow": 10044,
+    "Converted flat": 6252,
+    "Purpose built flat": 5008
+   },
+   "elec_type": {
+    "Detached": 3242,
+    "Semi detached": 2658,
+    "Mid terrace": 2280,
+    "End terrace": 2470,
+    "Bungalow": 2255,
+    "Converted flat": 1855,
+    "Purpose built flat": 1906
+   }
+  },
+  "E07000107": {
+   "gas": 9707,
+   "elec": 2549,
+   "gas_type": {
+    "Detached": 15159,
+    "Semi detached": 11422,
+    "Mid terrace": 8742,
+    "End terrace": 9917,
+    "Bungalow": 12547,
+    "Converted flat": 6726,
+    "Purpose built flat": 5161
+   },
+   "elec_type": {
+    "Detached": 3724,
+    "Semi detached": 2886,
+    "Mid terrace": 2456,
+    "End terrace": 2724,
+    "Bungalow": 2597,
+    "Converted flat": 1880,
+    "Purpose built flat": 1890
+   }
+  },
+  "E07000108": {
+   "gas": 8661,
+   "elec": 2333,
+   "gas_type": {
+    "Detached": 12965,
+    "Semi detached": 8828,
+    "Mid terrace": 7619,
+    "End terrace": 8420,
+    "Bungalow": 10135,
+    "Converted flat": 6703,
+    "Purpose built flat": 4897
+   },
+   "elec_type": {
+    "Detached": 3146,
+    "Semi detached": 2487,
+    "Mid terrace": 2131,
+    "End terrace": 2291,
+    "Bungalow": 2304,
+    "Converted flat": 1910,
+    "Purpose built flat": 1692
+   }
+  },
+  "E07000112": {
+   "gas": 9205,
+   "elec": 2402,
+   "gas_type": {
+    "Detached": 13782,
+    "Semi detached": 9707,
+    "Mid terrace": 7965,
+    "End terrace": 8656,
+    "Bungalow": 9529,
+    "Converted flat": 6688,
+    "Purpose built flat": 4816
+   },
+   "elec_type": {
+    "Detached": 3190,
+    "Semi detached": 2601,
+    "Mid terrace": 2271,
+    "End terrace": 2430,
+    "Bungalow": 2314,
+    "Converted flat": 1750,
+    "Purpose built flat": 1812
+   }
+  },
+  "E07000109": {
+   "gas": 10148,
+   "elec": 2604,
+   "gas_type": {
+    "Detached": 15796,
+    "Semi detached": 11017,
+    "Mid terrace": 9339,
+    "End terrace": 10364,
+    "Bungalow": 12164,
+    "Converted flat": 6430,
+    "Purpose built flat": 5380
+   },
+   "elec_type": {
+    "Detached": 3761,
+    "Semi detached": 2901,
+    "Mid terrace": 2419,
+    "End terrace": 2654,
+    "Bungalow": 2622,
+    "Converted flat": 2068,
+    "Purpose built flat": 1893
+   }
+  },
+  "E07000110": {
+   "gas": 9923,
+   "elec": 2680,
+   "gas_type": {
+    "Detached": 13789,
+    "Semi detached": 10541,
+    "Mid terrace": 7888,
+    "End terrace": 8854,
+    "Bungalow": 10448,
+    "Converted flat": 5959,
+    "Purpose built flat": 5297
+   },
+   "elec_type": {
+    "Detached": 3495,
+    "Semi detached": 2796,
+    "Mid terrace": 2346,
+    "End terrace": 2554,
+    "Bungalow": 2456,
+    "Converted flat": 2570,
+    "Purpose built flat": 2034
+   }
+  },
+  "E07000111": {
+   "gas": 11949,
+   "elec": 3038,
+   "gas_type": {
+    "Detached": 19601,
+    "Semi detached": 12199,
+    "Mid terrace": 8962,
+    "End terrace": 10407,
+    "Bungalow": 14071,
+    "Converted flat": 8231,
+    "Purpose built flat": 5600
+   },
+   "elec_type": {
+    "Detached": 4324,
+    "Semi detached": 3090,
+    "Mid terrace": 2533,
+    "End terrace": 2772,
+    "Bungalow": 3292,
+    "Converted flat": 2300,
+    "Purpose built flat": 1910
+   }
+  },
+  "E07000113": {
+   "gas": 9078,
+   "elec": 2613,
+   "gas_type": {
+    "Detached": 12543,
+    "Semi detached": 9339,
+    "Mid terrace": 8065,
+    "End terrace": 8643,
+    "Bungalow": 9643,
+    "Converted flat": 6198,
+    "Purpose built flat": 4695
+   },
+   "elec_type": {
+    "Detached": 3370,
+    "Semi detached": 2726,
+    "Mid terrace": 2402,
+    "End terrace": 2576,
+    "Bungalow": 2413,
+    "Converted flat": 2319,
+    "Purpose built flat": 1794
+   }
+  },
+  "E07000114": {
+   "gas": 9025,
+   "elec": 2379,
+   "gas_type": {
+    "Detached": 13662,
+    "Semi detached": 9884,
+    "Mid terrace": 8020,
+    "End terrace": 8822,
+    "Bungalow": 9486,
+    "Converted flat": 6110,
+    "Purpose built flat": 4803
+   },
+   "elec_type": {
+    "Detached": 3122,
+    "Semi detached": 2692,
+    "Mid terrace": 2317,
+    "End terrace": 2518,
+    "Bungalow": 2152,
+    "Converted flat": 1868,
+    "Purpose built flat": 1917
+   }
+  },
+  "E07000115": {
+   "gas": 10270,
+   "elec": 2757,
+   "gas_type": {
+    "Detached": 14837,
+    "Semi detached": 10417,
+    "Mid terrace": 8010,
+    "End terrace": 9129,
+    "Bungalow": 11410,
+    "Converted flat": 7218,
+    "Purpose built flat": 5224
+   },
+   "elec_type": {
+    "Detached": 3642,
+    "Semi detached": 2855,
+    "Mid terrace": 2382,
+    "End terrace": 2630,
+    "Bungalow": 2599,
+    "Converted flat": 2327,
+    "Purpose built flat": 1867
+   }
+  },
+  "E07000116": {
+   "gas": 11168,
+   "elec": 2868,
+   "gas_type": {
+    "Detached": 17824,
+    "Semi detached": 11458,
+    "Mid terrace": 8989,
+    "End terrace": 9955,
+    "Bungalow": 12124,
+    "Converted flat": 7736,
+    "Purpose built flat": 5667
+   },
+   "elec_type": {
+    "Detached": 3986,
+    "Semi detached": 2977,
+    "Mid terrace": 2432,
+    "End terrace": 2700,
+    "Bungalow": 3018,
+    "Converted flat": 2274,
+    "Purpose built flat": 2048
+   }
+  },
+  "E07000177": {
+   "gas": 9747,
+   "elec": 2749,
+   "gas_type": {
+    "Detached": 12864,
+    "Semi detached": 9781,
+    "Mid terrace": 8295,
+    "End terrace": 8803,
+    "Bungalow": 9871,
+    "Converted flat": 5932,
+    "Purpose built flat": 5168
+   },
+   "elec_type": {
+    "Detached": 3388,
+    "Semi detached": 2795,
+    "Mid terrace": 2419,
+    "End terrace": 2529,
+    "Bungalow": 2414,
+    "Converted flat": 2336,
+    "Purpose built flat": 2143
+   }
+  },
+  "E07000178": {
+   "gas": 10635,
+   "elec": 2540,
+   "gas_type": {
+    "Detached": 17859,
+    "Semi detached": 12659,
+    "Mid terrace": 10278,
+    "End terrace": 10869,
+    "Bungalow": 10200,
+    "Converted flat": 7624,
+    "Purpose built flat": 5897
+   },
+   "elec_type": {
+    "Detached": 3479,
+    "Semi detached": 2881,
+    "Mid terrace": 2500,
+    "End terrace": 2619,
+    "Bungalow": 2164,
+    "Converted flat": 2039,
+    "Purpose built flat": 1967
+   }
+  },
+  "E07000179": {
+   "gas": 10518,
+   "elec": 2903,
+   "gas_type": {
+    "Detached": 14693,
+    "Semi detached": 10229,
+    "Mid terrace": 8195,
+    "End terrace": 8779,
+    "Bungalow": 12419,
+    "Converted flat": 7883,
+    "Purpose built flat": 5193
+   },
+   "elec_type": {
+    "Detached": 3719,
+    "Semi detached": 2936,
+    "Mid terrace": 2366,
+    "End terrace": 2527,
+    "Bungalow": 2866,
+    "Converted flat": 2372,
+    "Purpose built flat": 1943
+   }
+  },
+  "E07000180": {
+   "gas": 10053,
+   "elec": 2733,
+   "gas_type": {
+    "Detached": 13156,
+    "Semi detached": 9874,
+    "Mid terrace": 7871,
+    "End terrace": 8114,
+    "Bungalow": 12009,
+    "Converted flat": 6308,
+    "Purpose built flat": 4950
+   },
+   "elec_type": {
+    "Detached": 3268,
+    "Semi detached": 2756,
+    "Mid terrace": 2351,
+    "End terrace": 2456,
+    "Bungalow": 2773,
+    "Converted flat": 2226,
+    "Purpose built flat": 1819
+   }
+  },
+  "E07000181": {
+   "gas": 10134,
+   "elec": 2852,
+   "gas_type": {
+    "Detached": 13625,
+    "Semi detached": 9528,
+    "Mid terrace": 8396,
+    "End terrace": 9013,
+    "Bungalow": 10911,
+    "Converted flat": 7323,
+    "Purpose built flat": 5642
+   },
+   "elec_type": {
+    "Detached": 3513,
+    "Semi detached": 2840,
+    "Mid terrace": 2406,
+    "End terrace": 2583,
+    "Bungalow": 2720,
+    "Converted flat": 2692,
+    "Purpose built flat": 2238
+   }
+  },
+  "E07000207": {
+   "gas": 13297,
+   "elec": 3161,
+   "gas_type": {
+    "Detached": 22508,
+    "Semi detached": 13565,
+    "Mid terrace": 9577,
+    "End terrace": 10942,
+    "Bungalow": 14923,
+    "Converted flat": 8051,
+    "Purpose built flat": 6585
+   },
+   "elec_type": {
+    "Detached": 4796,
+    "Semi detached": 3285,
+    "Mid terrace": 2540,
+    "End terrace": 2786,
+    "Bungalow": 3021,
+    "Converted flat": 2416,
+    "Purpose built flat": 2098
+   }
+  },
+  "E07000208": {
+   "gas": 13090,
+   "elec": 2910,
+   "gas_type": {
+    "Detached": 19891,
+    "Semi detached": 14107,
+    "Mid terrace": 9474,
+    "End terrace": 11339,
+    "Bungalow": 14189,
+    "Converted flat": 8440,
+    "Purpose built flat": 6734
+   },
+   "elec_type": {
+    "Detached": 3861,
+    "Semi detached": 3178,
+    "Mid terrace": 2570,
+    "End terrace": 2887,
+    "Bungalow": 2756,
+    "Converted flat": 2222,
+    "Purpose built flat": 2008
+   }
+  },
+  "E07000209": {
+   "gas": 11866,
+   "elec": 2930,
+   "gas_type": {
+    "Detached": 17925,
+    "Semi detached": 11590,
+    "Mid terrace": 8402,
+    "End terrace": 9707,
+    "Bungalow": 13720,
+    "Converted flat": 7122,
+    "Purpose built flat": 5613
+   },
+   "elec_type": {
+    "Detached": 3956,
+    "Semi detached": 2924,
+    "Mid terrace": 2437,
+    "End terrace": 2636,
+    "Bungalow": 2918,
+    "Converted flat": 2193,
+    "Purpose built flat": 2113
+   }
+  },
+  "E07000210": {
+   "gas": 13270,
+   "elec": 3087,
+   "gas_type": {
+    "Detached": 19993,
+    "Semi detached": 12644,
+    "Mid terrace": 8869,
+    "End terrace": 10607,
+    "Bungalow": 14954,
+    "Converted flat": 7259,
+    "Purpose built flat": 5616
+   },
+   "elec_type": {
+    "Detached": 4170,
+    "Semi detached": 3095,
+    "Mid terrace": 2412,
+    "End terrace": 2634,
+    "Bungalow": 3064,
+    "Converted flat": 2273,
+    "Purpose built flat": 2126
+   }
+  },
+  "E07000211": {
+   "gas": 12114,
+   "elec": 2904,
+   "gas_type": {
+    "Detached": 19007,
+    "Semi detached": 12775,
+    "Mid terrace": 9411,
+    "End terrace": 10771,
+    "Bungalow": 14328,
+    "Converted flat": 7349,
+    "Purpose built flat": 6334
+   },
+   "elec_type": {
+    "Detached": 4040,
+    "Semi detached": 3117,
+    "Mid terrace": 2549,
+    "End terrace": 2783,
+    "Bungalow": 2900,
+    "Converted flat": 2130,
+    "Purpose built flat": 2033
+   }
+  },
+  "E07000212": {
+   "gas": 11850,
+   "elec": 2964,
+   "gas_type": {
+    "Detached": 17335,
+    "Semi detached": 12252,
+    "Mid terrace": 8689,
+    "End terrace": 10150,
+    "Bungalow": 13893,
+    "Converted flat": 6800,
+    "Purpose built flat": 5509
+   },
+   "elec_type": {
+    "Detached": 3968,
+    "Semi detached": 3018,
+    "Mid terrace": 2657,
+    "End terrace": 2848,
+    "Bungalow": 3006,
+    "Converted flat": 2774,
+    "Purpose built flat": 2231
+   }
+  },
+  "E07000213": {
+   "gas": 11331,
+   "elec": 2834,
+   "gas_type": {
+    "Detached": 17092,
+    "Semi detached": 12697,
+    "Mid terrace": 9058,
+    "End terrace": 10784,
+    "Bungalow": 13137,
+    "Converted flat": 7106,
+    "Purpose built flat": 6124
+   },
+   "elec_type": {
+    "Detached": 3571,
+    "Semi detached": 3104,
+    "Mid terrace": 2684,
+    "End terrace": 2928,
+    "Bungalow": 2787,
+    "Converted flat": 2632,
+    "Purpose built flat": 2101
+   }
+  },
+  "E07000214": {
+   "gas": 13174,
+   "elec": 3081,
+   "gas_type": {
+    "Detached": 17681,
+    "Semi detached": 11718,
+    "Mid terrace": 8780,
+    "End terrace": 10203,
+    "Bungalow": 14886,
+    "Converted flat": 8291,
+    "Purpose built flat": 5936
+   },
+   "elec_type": {
+    "Detached": 3823,
+    "Semi detached": 2952,
+    "Mid terrace": 2400,
+    "End terrace": 2650,
+    "Bungalow": 2992,
+    "Converted flat": 3017,
+    "Purpose built flat": 2168
+   }
+  },
+  "E07000215": {
+   "gas": 13097,
+   "elec": 3098,
+   "gas_type": {
+    "Detached": 19990,
+    "Semi detached": 13065,
+    "Mid terrace": 9434,
+    "End terrace": 10751,
+    "Bungalow": 15994,
+    "Converted flat": 9360,
+    "Purpose built flat": 6131
+   },
+   "elec_type": {
+    "Detached": 4364,
+    "Semi detached": 3186,
+    "Mid terrace": 2609,
+    "End terrace": 2910,
+    "Bungalow": 3198,
+    "Converted flat": 2162,
+    "Purpose built flat": 2017
+   }
+  },
+  "E07000216": {
+   "gas": 12562,
+   "elec": 3056,
+   "gas_type": {
+    "Detached": 18417,
+    "Semi detached": 11948,
+    "Mid terrace": 8613,
+    "End terrace": 9956,
+    "Bungalow": 13797,
+    "Converted flat": 8042,
+    "Purpose built flat": 6043
+   },
+   "elec_type": {
+    "Detached": 4064,
+    "Semi detached": 3039,
+    "Mid terrace": 2373,
+    "End terrace": 2588,
+    "Bungalow": 2913,
+    "Converted flat": 2390,
+    "Purpose built flat": 2028
+   }
+  },
+  "E07000217": {
+   "gas": 12045,
+   "elec": 3042,
+   "gas_type": {
+    "Detached": 18416,
+    "Semi detached": 11930,
+    "Mid terrace": 8511,
+    "End terrace": 9756,
+    "Bungalow": 12990,
+    "Converted flat": 7608,
+    "Purpose built flat": 5965
+   },
+   "elec_type": {
+    "Detached": 3914,
+    "Semi detached": 3092,
+    "Mid terrace": 2585,
+    "End terrace": 2721,
+    "Bungalow": 2709,
+    "Converted flat": 2356,
+    "Purpose built flat": 2594
+   }
+  },
+  "E07000223": {
+   "gas": 8904,
+   "elec": 2565,
+   "gas_type": {
+    "Detached": 14222,
+    "Semi detached": 9738,
+    "Mid terrace": 7473,
+    "End terrace": 8583,
+    "Bungalow": 9612,
+    "Converted flat": 6253,
+    "Purpose built flat": 4930
+   },
+   "elec_type": {
+    "Detached": 3303,
+    "Semi detached": 2836,
+    "Mid terrace": 2473,
+    "End terrace": 2643,
+    "Bungalow": 2480,
+    "Converted flat": 2097,
+    "Purpose built flat": 2071
+   }
+  },
+  "E07000224": {
+   "gas": 9323,
+   "elec": 2519,
+   "gas_type": {
+    "Detached": 13778,
+    "Semi detached": 8980,
+    "Mid terrace": 7320,
+    "End terrace": 8091,
+    "Bungalow": 10464,
+    "Converted flat": 6631,
+    "Purpose built flat": 5251
+   },
+   "elec_type": {
+    "Detached": 3190,
+    "Semi detached": 2712,
+    "Mid terrace": 2340,
+    "End terrace": 2484,
+    "Bungalow": 2305,
+    "Converted flat": 2073,
+    "Purpose built flat": 1995
+   }
+  },
+  "E07000225": {
+   "gas": 9402,
+   "elec": 2745,
+   "gas_type": {
+    "Detached": 13797,
+    "Semi detached": 9441,
+    "Mid terrace": 7744,
+    "End terrace": 8432,
+    "Bungalow": 10169,
+    "Converted flat": 7458,
+    "Purpose built flat": 4856
+   },
+   "elec_type": {
+    "Detached": 3621,
+    "Semi detached": 2825,
+    "Mid terrace": 2304,
+    "End terrace": 2483,
+    "Bungalow": 2600,
+    "Converted flat": 1985,
+    "Purpose built flat": 2101
+   }
+  },
+  "E07000226": {
+   "gas": 9662,
+   "elec": 2531,
+   "gas_type": {
+    "Detached": 14495,
+    "Semi detached": 10667,
+    "Mid terrace": 9166,
+    "End terrace": 9967,
+    "Bungalow": 9524,
+    "Converted flat": 8271,
+    "Purpose built flat": 5925
+   },
+   "elec_type": {
+    "Detached": 3316,
+    "Semi detached": 2773,
+    "Mid terrace": 2557,
+    "End terrace": 2629,
+    "Bungalow": 2014,
+    "Converted flat": 3218,
+    "Purpose built flat": 1961
+   }
+  },
+  "E07000227": {
+   "gas": 10173,
+   "elec": 2846,
+   "gas_type": {
+    "Detached": 14510,
+    "Semi detached": 10138,
+    "Mid terrace": 7500,
+    "End terrace": 8525,
+    "Bungalow": 12470,
+    "Converted flat": 6876,
+    "Purpose built flat": 4993
+   },
+   "elec_type": {
+    "Detached": 3606,
+    "Semi detached": 2910,
+    "Mid terrace": 2347,
+    "End terrace": 2605,
+    "Bungalow": 2824,
+    "Converted flat": 2419,
+    "Purpose built flat": 1976
+   }
+  },
+  "E07000228": {
+   "gas": 10479,
+   "elec": 2764,
+   "gas_type": {
+    "Detached": 14871,
+    "Semi detached": 10412,
+    "Mid terrace": 7924,
+    "End terrace": 8884,
+    "Bungalow": 11721,
+    "Converted flat": 6463,
+    "Purpose built flat": 5292
+   },
+   "elec_type": {
+    "Detached": 3493,
+    "Semi detached": 2874,
+    "Mid terrace": 2364,
+    "End terrace": 2577,
+    "Bungalow": 2602,
+    "Converted flat": 2334,
+    "Purpose built flat": 1931
+   }
+  },
+  "E07000229": {
+   "gas": 9165,
+   "elec": 2502,
+   "gas_type": {
+    "Detached": 14735,
+    "Semi detached": 10206,
+    "Mid terrace": 7939,
+    "End terrace": 8735,
+    "Bungalow": 10413,
+    "Converted flat": 6086,
+    "Purpose built flat": 5403
+   },
+   "elec_type": {
+    "Detached": 3300,
+    "Semi detached": 2853,
+    "Mid terrace": 2381,
+    "End terrace": 2643,
+    "Bungalow": 2375,
+    "Converted flat": 2006,
+    "Purpose built flat": 2021
+   }
+  },
+  "E06000022": {
+   "gas": 9783,
+   "elec": 2653,
+   "gas_type": {
+    "Detached": 13791,
+    "Semi detached": 10425,
+    "Mid terrace": 8697,
+    "End terrace": 9315,
+    "Bungalow": 10389,
+    "Converted flat": 6846,
+    "Purpose built flat": 4780
+   },
+   "elec_type": {
+    "Detached": 3424,
+    "Semi detached": 2848,
+    "Mid terrace": 2441,
+    "End terrace": 2624,
+    "Bungalow": 2448,
+    "Converted flat": 2250,
+    "Purpose built flat": 1918
+   }
+  },
+  "E06000058": {
+   "gas": 9521,
+   "elec": 2492,
+   "gas_type": {
+    "Detached": 13672,
+    "Semi detached": 9072,
+    "Mid terrace": 7251,
+    "End terrace": 7988,
+    "Bungalow": 10826,
+    "Converted flat": 7042,
+    "Purpose built flat": 5097
+   },
+   "elec_type": {
+    "Detached": 3220,
+    "Semi detached": 2720,
+    "Mid terrace": 2297,
+    "End terrace": 2403,
+    "Bungalow": 2469,
+    "Converted flat": 2020,
+    "Purpose built flat": 1859
+   }
+  },
+  "E06000023": {
+   "gas": 8934,
+   "elec": 2519,
+   "gas_type": {
+    "Detached": 13637,
+    "Semi detached": 10324,
+    "Mid terrace": 8845,
+    "End terrace": 9505,
+    "Bungalow": 8255,
+    "Converted flat": 5839,
+    "Purpose built flat": 5036
+   },
+   "elec_type": {
+    "Detached": 3200,
+    "Semi detached": 2868,
+    "Mid terrace": 2465,
+    "End terrace": 2700,
+    "Bungalow": 2202,
+    "Converted flat": 2143,
+    "Purpose built flat": 2081
+   }
+  },
+  "E06000052": {
+   "gas": 7146,
+   "elec": 2990,
+   "gas_type": {
+    "Detached": 10236,
+    "Semi detached": 6972,
+    "Mid terrace": 6055,
+    "End terrace": 6440,
+    "Bungalow": 8603,
+    "Converted flat": 5417,
+    "Purpose built flat": 3847
+   },
+   "elec_type": {
+    "Detached": 3642,
+    "Semi detached": 3115,
+    "Mid terrace": 2760,
+    "End terrace": 2927,
+    "Bungalow": 2965,
+    "Converted flat": 2511,
+    "Purpose built flat": 2017
+   }
+  },
+  "E06000059": {
+   "gas": 9051,
+   "elec": 2576,
+   "gas_type": {
+    "Detached": 12767,
+    "Semi detached": 8572,
+    "Mid terrace": 7004,
+    "End terrace": 7718,
+    "Bungalow": 10792,
+    "Converted flat": 6211,
+    "Purpose built flat": 4571
+   },
+   "elec_type": {
+    "Detached": 3210,
+    "Semi detached": 2714,
+    "Mid terrace": 2264,
+    "End terrace": 2432,
+    "Bungalow": 2535,
+    "Converted flat": 2025,
+    "Purpose built flat": 1800
+   }
+  },
+  "E06000053": {
+   "gas": null,
+   "elec": 6254,
+   "gas_type": {
+    "Detached": null,
+    "Semi detached": null,
+    "Mid terrace": null,
+    "End terrace": null,
+    "Bungalow": null,
+    "Converted flat": null,
+    "Purpose built flat": null
+   },
+   "elec_type": {
+    "Detached": 7788,
+    "Semi detached": 7126,
+    "Mid terrace": 6739,
+    "End terrace": 5773,
+    "Bungalow": 5732,
+    "Converted flat": 4818,
+    "Purpose built flat": 5127
+   }
+  },
+  "E06000024": {
+   "gas": 8942,
+   "elec": 2552,
+   "gas_type": {
+    "Detached": 11972,
+    "Semi detached": 8942,
+    "Mid terrace": 6932,
+    "End terrace": 7586,
+    "Bungalow": 9557,
+    "Converted flat": 6555,
+    "Purpose built flat": 4512
+   },
+   "elec_type": {
+    "Detached": 3132,
+    "Semi detached": 2670,
+    "Mid terrace": 2277,
+    "End terrace": 2422,
+    "Bungalow": 2293,
+    "Converted flat": 1978,
+    "Purpose built flat": 1948
+   }
+  },
+  "E06000026": {
+   "gas": 6896,
+   "elec": 2422,
+   "gas_type": {
+    "Detached": 10673,
+    "Semi detached": 7585,
+    "Mid terrace": 6760,
+    "End terrace": 6820,
+    "Bungalow": 7770,
+    "Converted flat": 5256,
+    "Purpose built flat": 3734
+   },
+   "elec_type": {
+    "Detached": 3014,
+    "Semi detached": 2663,
+    "Mid terrace": 2469,
+    "End terrace": 2548,
+    "Bungalow": 2032,
+    "Converted flat": 1948,
+    "Purpose built flat": 1947
+   }
+  },
+  "E06000066": {
+   "gas": 8157,
+   "elec": 2638,
+   "gas_type": {
+    "Detached": 11210,
+    "Semi detached": 8094,
+    "Mid terrace": 7059,
+    "End terrace": 7419,
+    "Bungalow": 8685,
+    "Converted flat": 5996,
+    "Purpose built flat": 4510
+   },
+   "elec_type": {
+    "Detached": 3206,
+    "Semi detached": 2714,
+    "Mid terrace": 2385,
+    "End terrace": 2523,
+    "Bungalow": 2435,
+    "Converted flat": 2206,
+    "Purpose built flat": 1992
+   }
+  },
+  "E06000025": {
+   "gas": 8936,
+   "elec": 2589,
+   "gas_type": {
+    "Detached": 11707,
+    "Semi detached": 9240,
+    "Mid terrace": 7389,
+    "End terrace": 8207,
+    "Bungalow": 9234,
+    "Converted flat": 5468,
+    "Purpose built flat": 4409
+   },
+   "elec_type": {
+    "Detached": 3120,
+    "Semi detached": 2674,
+    "Mid terrace": 2376,
+    "End terrace": 2460,
+    "Bungalow": 2267,
+    "Converted flat": 2073,
+    "Purpose built flat": 1968
+   }
+  },
+  "E06000030": {
+   "gas": 9568,
+   "elec": 2536,
+   "gas_type": {
+    "Detached": 12627,
+    "Semi detached": 9674,
+    "Mid terrace": 8570,
+    "End terrace": 8843,
+    "Bungalow": 9834,
+    "Converted flat": 6845,
+    "Purpose built flat": 5515
+   },
+   "elec_type": {
+    "Detached": 3098,
+    "Semi detached": 2609,
+    "Mid terrace": 2363,
+    "End terrace": 2487,
+    "Bungalow": 2118,
+    "Converted flat": 3679,
+    "Purpose built flat": 1918
+   }
+  },
+  "E06000027": {
+   "gas": 8247,
+   "elec": 2477,
+   "gas_type": {
+    "Detached": 12334,
+    "Semi detached": 8587,
+    "Mid terrace": 7216,
+    "End terrace": 7799,
+    "Bungalow": 9552,
+    "Converted flat": 5776,
+    "Purpose built flat": 4584
+   },
+   "elec_type": {
+    "Detached": 3090,
+    "Semi detached": 2700,
+    "Mid terrace": 2440,
+    "End terrace": 2582,
+    "Bungalow": 2345,
+    "Converted flat": 2101,
+    "Purpose built flat": 2045
+   }
+  },
+  "E06000054": {
+   "gas": 9178,
+   "elec": 2801,
+   "gas_type": {
+    "Detached": 12350,
+    "Semi detached": 9037,
+    "Mid terrace": 7484,
+    "End terrace": 8101,
+    "Bungalow": 10278,
+    "Converted flat": 6072,
+    "Purpose built flat": 4654
+   },
+   "elec_type": {
+    "Detached": 3365,
+    "Semi detached": 2816,
+    "Mid terrace": 2387,
+    "End terrace": 2583,
+    "Bungalow": 2782,
+    "Converted flat": 2449,
+    "Purpose built flat": 2036
+   }
+  },
+  "E07000040": {
+   "gas": 8391,
+   "elec": 2500,
+   "gas_type": {
+    "Detached": 11967,
+    "Semi detached": 8161,
+    "Mid terrace": 6658,
+    "End terrace": 7124,
+    "Bungalow": 9396,
+    "Converted flat": 6299,
+    "Purpose built flat": 4500
+   },
+   "elec_type": {
+    "Detached": 3088,
+    "Semi detached": 2662,
+    "Mid terrace": 2206,
+    "End terrace": 2378,
+    "Bungalow": 2370,
+    "Converted flat": 1985,
+    "Purpose built flat": 1766
+   }
+  },
+  "E07000041": {
+   "gas": 7598,
+   "elec": 2333,
+   "gas_type": {
+    "Detached": 11115,
+    "Semi detached": 8217,
+    "Mid terrace": 7327,
+    "End terrace": 7710,
+    "Bungalow": 8658,
+    "Converted flat": 5390,
+    "Purpose built flat": 4330
+   },
+   "elec_type": {
+    "Detached": 2832,
+    "Semi detached": 2528,
+    "Mid terrace": 2343,
+    "End terrace": 2424,
+    "Bungalow": 2085,
+    "Converted flat": 2018,
+    "Purpose built flat": 1845
+   }
+  },
+  "E07000042": {
+   "gas": 7579,
+   "elec": 2829,
+   "gas_type": {
+    "Detached": 10470,
+    "Semi detached": 7210,
+    "Mid terrace": 6528,
+    "End terrace": 6856,
+    "Bungalow": 8136,
+    "Converted flat": 5722,
+    "Purpose built flat": 3952
+   },
+   "elec_type": {
+    "Detached": 3499,
+    "Semi detached": 2886,
+    "Mid terrace": 2521,
+    "End terrace": 2670,
+    "Bungalow": 2580,
+    "Converted flat": 2522,
+    "Purpose built flat": 1805
+   }
+  },
+  "E07000043": {
+   "gas": 8025,
+   "elec": 2625,
+   "gas_type": {
+    "Detached": 10099,
+    "Semi detached": 7643,
+    "Mid terrace": 7030,
+    "End terrace": 7146,
+    "Bungalow": 9161,
+    "Converted flat": 5900,
+    "Purpose built flat": 3928
+   },
+   "elec_type": {
+    "Detached": 3127,
+    "Semi detached": 2751,
+    "Mid terrace": 2494,
+    "End terrace": 2645,
+    "Bungalow": 2426,
+    "Converted flat": 2126,
+    "Purpose built flat": 1732
+   }
+  },
+  "E07000044": {
+   "gas": 7848,
+   "elec": 2794,
+   "gas_type": {
+    "Detached": 10744,
+    "Semi detached": 7123,
+    "Mid terrace": 6296,
+    "End terrace": 6730,
+    "Bungalow": 9649,
+    "Converted flat": 6494,
+    "Purpose built flat": 4367
+   },
+   "elec_type": {
+    "Detached": 3397,
+    "Semi detached": 2758,
+    "Mid terrace": 2402,
+    "End terrace": 2570,
+    "Bungalow": 2906,
+    "Converted flat": 2382,
+    "Purpose built flat": 1813
+   }
+  },
+  "E07000045": {
+   "gas": 7926,
+   "elec": 2596,
+   "gas_type": {
+    "Detached": 10725,
+    "Semi detached": 7446,
+    "Mid terrace": 6313,
+    "End terrace": 6700,
+    "Bungalow": 9377,
+    "Converted flat": 5570,
+    "Purpose built flat": 3864
+   },
+   "elec_type": {
+    "Detached": 3146,
+    "Semi detached": 2680,
+    "Mid terrace": 2329,
+    "End terrace": 2517,
+    "Bungalow": 2483,
+    "Converted flat": 2193,
+    "Purpose built flat": 2008
+   }
+  },
+  "E07000046": {
+   "gas": 7370,
+   "elec": 2784,
+   "gas_type": {
+    "Detached": 9916,
+    "Semi detached": 6919,
+    "Mid terrace": 6455,
+    "End terrace": 6774,
+    "Bungalow": 8048,
+    "Converted flat": 5590,
+    "Purpose built flat": 4213
+   },
+   "elec_type": {
+    "Detached": 3396,
+    "Semi detached": 2867,
+    "Mid terrace": 2435,
+    "End terrace": 2706,
+    "Bungalow": 2652,
+    "Converted flat": 2322,
+    "Purpose built flat": 1870
+   }
+  },
+  "E07000047": {
+   "gas": 8339,
+   "elec": 2862,
+   "gas_type": {
+    "Detached": 11678,
+    "Semi detached": 7612,
+    "Mid terrace": 6795,
+    "End terrace": 7450,
+    "Bungalow": 10089,
+    "Converted flat": 6557,
+    "Purpose built flat": 4279
+   },
+   "elec_type": {
+    "Detached": 3521,
+    "Semi detached": 2749,
+    "Mid terrace": 2514,
+    "End terrace": 2640,
+    "Bungalow": 2762,
+    "Converted flat": 2587,
+    "Purpose built flat": 1911
+   }
+  },
+  "E07000078": {
+   "gas": 9461,
+   "elec": 2462,
+   "gas_type": {
+    "Detached": 14142,
+    "Semi detached": 10342,
+    "Mid terrace": 8313,
+    "End terrace": 8493,
+    "Bungalow": 9399,
+    "Converted flat": 6735,
+    "Purpose built flat": 4909
+   },
+   "elec_type": {
+    "Detached": 3207,
+    "Semi detached": 2735,
+    "Mid terrace": 2294,
+    "End terrace": 2416,
+    "Bungalow": 2137,
+    "Converted flat": 1932,
+    "Purpose built flat": 1903
+   }
+  },
+  "E07000079": {
+   "gas": 10140,
+   "elec": 3032,
+   "gas_type": {
+    "Detached": 14336,
+    "Semi detached": 9841,
+    "Mid terrace": 8010,
+    "End terrace": 8583,
+    "Bungalow": 10614,
+    "Converted flat": 8128,
+    "Purpose built flat": 4774
+   },
+   "elec_type": {
+    "Detached": 3849,
+    "Semi detached": 3013,
+    "Mid terrace": 2522,
+    "End terrace": 2677,
+    "Bungalow": 2753,
+    "Converted flat": 3222,
+    "Purpose built flat": 1786
+   }
+  },
+  "E07000080": {
+   "gas": 8881,
+   "elec": 2799,
+   "gas_type": {
+    "Detached": 11711,
+    "Semi detached": 8894,
+    "Mid terrace": 6859,
+    "End terrace": 7864,
+    "Bungalow": 8924,
+    "Converted flat": 6337,
+    "Purpose built flat": 4632
+   },
+   "elec_type": {
+    "Detached": 3376,
+    "Semi detached": 2817,
+    "Mid terrace": 2381,
+    "End terrace": 2513,
+    "Bungalow": 2442,
+    "Converted flat": 2313,
+    "Purpose built flat": 1841
+   }
+  },
+  "E07000081": {
+   "gas": 8947,
+   "elec": 2528,
+   "gas_type": {
+    "Detached": 11558,
+    "Semi detached": 9557,
+    "Mid terrace": 7251,
+    "End terrace": 7877,
+    "Bungalow": 8291,
+    "Converted flat": 6169,
+    "Purpose built flat": 5143
+   },
+   "elec_type": {
+    "Detached": 2993,
+    "Semi detached": 2692,
+    "Mid terrace": 2243,
+    "End terrace": 2395,
+    "Bungalow": 2019,
+    "Converted flat": 2533,
+    "Purpose built flat": 2113
+   }
+  },
+  "E07000082": {
+   "gas": 9263,
+   "elec": 2733,
+   "gas_type": {
+    "Detached": 12897,
+    "Semi detached": 8923,
+    "Mid terrace": 7160,
+    "End terrace": 8172,
+    "Bungalow": 9714,
+    "Converted flat": 6523,
+    "Purpose built flat": 4580
+   },
+   "elec_type": {
+    "Detached": 3382,
+    "Semi detached": 2676,
+    "Mid terrace": 2265,
+    "End terrace": 2504,
+    "Bungalow": 2440,
+    "Converted flat": 3122,
+    "Purpose built flat": 2162
+   }
+  },
+  "E07000083": {
+   "gas": 8700,
+   "elec": 2546,
+   "gas_type": {
+    "Detached": 11714,
+    "Semi detached": 8478,
+    "Mid terrace": 6452,
+    "End terrace": 7171,
+    "Bungalow": 9398,
+    "Converted flat": 7251,
+    "Purpose built flat": 4629
+   },
+   "elec_type": {
+    "Detached": 3148,
+    "Semi detached": 2568,
+    "Mid terrace": 2103,
+    "End terrace": 2293,
+    "Bungalow": 2327,
+    "Converted flat": 2704,
+    "Purpose built flat": 1748
+   }
+  },
+  "W06000001": {
+   "gas": 8069,
+   "elec": 2740,
+   "gas_type": {
+    "Detached": 11842,
+    "Semi detached": 8044,
+    "Mid terrace": 6817,
+    "End terrace": 7326,
+    "Bungalow": 9064,
+    "Converted flat": 5996,
+    "Purpose built flat": 3762
+   },
+   "elec_type": {
+    "Detached": 3296,
+    "Semi detached": 2800,
+    "Mid terrace": 2524,
+    "End terrace": 2737,
+    "Bungalow": 2635,
+    "Converted flat": 2244,
+    "Purpose built flat": 1600
+   }
+  },
+  "W06000002": {
+   "gas": 8198,
+   "elec": 2676,
+   "gas_type": {
+    "Detached": 12050,
+    "Semi detached": 8653,
+    "Mid terrace": 7363,
+    "End terrace": 8099,
+    "Bungalow": 8632,
+    "Converted flat": 6873,
+    "Purpose built flat": 4590
+   },
+   "elec_type": {
+    "Detached": 3393,
+    "Semi detached": 2794,
+    "Mid terrace": 2313,
+    "End terrace": 2669,
+    "Bungalow": 2731,
+    "Converted flat": 2246,
+    "Purpose built flat": 1796
+   }
+  },
+  "W06000003": {
+   "gas": 8914,
+   "elec": 2385,
+   "gas_type": {
+    "Detached": 12377,
+    "Semi detached": 9250,
+    "Mid terrace": 7102,
+    "End terrace": 8118,
+    "Bungalow": 9130,
+    "Converted flat": 6503,
+    "Purpose built flat": 4707
+   },
+   "elec_type": {
+    "Detached": 3102,
+    "Semi detached": 2617,
+    "Mid terrace": 2165,
+    "End terrace": 2435,
+    "Bungalow": 2132,
+    "Converted flat": 1945,
+    "Purpose built flat": 1711
+   }
+  },
+  "W06000004": {
+   "gas": 8994,
+   "elec": 2496,
+   "gas_type": {
+    "Detached": 11699,
+    "Semi detached": 9124,
+    "Mid terrace": 7482,
+    "End terrace": 8128,
+    "Bungalow": 9058,
+    "Converted flat": 5268,
+    "Purpose built flat": 4555
+   },
+   "elec_type": {
+    "Detached": 3304,
+    "Semi detached": 2673,
+    "Mid terrace": 2349,
+    "End terrace": 2549,
+    "Bungalow": 2155,
+    "Converted flat": 1966,
+    "Purpose built flat": 1576
+   }
+  },
+  "W06000005": {
+   "gas": 9308,
+   "elec": 2500,
+   "gas_type": {
+    "Detached": 11724,
+    "Semi detached": 8808,
+    "Mid terrace": 7431,
+    "End terrace": 8209,
+    "Bungalow": 9965,
+    "Converted flat": 5328,
+    "Purpose built flat": 4449
+   },
+   "elec_type": {
+    "Detached": 3066,
+    "Semi detached": 2520,
+    "Mid terrace": 2221,
+    "End terrace": 2427,
+    "Bungalow": 2258,
+    "Converted flat": 2074,
+    "Purpose built flat": 1402
+   }
+  },
+  "W06000006": {
+   "gas": 9093,
+   "elec": 2506,
+   "gas_type": {
+    "Detached": 11917,
+    "Semi detached": 9106,
+    "Mid terrace": 8078,
+    "End terrace": 8728,
+    "Bungalow": 9480,
+    "Converted flat": 6079,
+    "Purpose built flat": 4897
+   },
+   "elec_type": {
+    "Detached": 3106,
+    "Semi detached": 2569,
+    "Mid terrace": 2331,
+    "End terrace": 2476,
+    "Bungalow": 2092,
+    "Converted flat": 2009,
+    "Purpose built flat": 1717
+   }
+  },
+  "W06000023": {
+   "gas": 8608,
+   "elec": 2713,
+   "gas_type": {
+    "Detached": 12535,
+    "Semi detached": 8911,
+    "Mid terrace": 7493,
+    "End terrace": 8084,
+    "Bungalow": 9565,
+    "Converted flat": 6374,
+    "Purpose built flat": 4517
+   },
+   "elec_type": {
+    "Detached": 3509,
+    "Semi detached": 2684,
+    "Mid terrace": 2277,
+    "End terrace": 2494,
+    "Bungalow": 2528,
+    "Converted flat": 2287,
+    "Purpose built flat": 1564
+   }
+  },
+  "W06000008": {
+   "gas": 8326,
+   "elec": 3089,
+   "gas_type": {
+    "Detached": 12155,
+    "Semi detached": 8420,
+    "Mid terrace": 8220,
+    "End terrace": 8002,
+    "Bungalow": 8685,
+    "Converted flat": 5402,
+    "Purpose built flat": 3881
+   },
+   "elec_type": {
+    "Detached": 3663,
+    "Semi detached": 3097,
+    "Mid terrace": 2723,
+    "End terrace": 2893,
+    "Bungalow": 2947,
+    "Converted flat": 2565,
+    "Purpose built flat": 1999
+   }
+  },
+  "W06000009": {
+   "gas": 8323,
+   "elec": 2585,
+   "gas_type": {
+    "Detached": 11977,
+    "Semi detached": 7812,
+    "Mid terrace": 7954,
+    "End terrace": 8374,
+    "Bungalow": 9208,
+    "Converted flat": 6187,
+    "Purpose built flat": 4168
+   },
+   "elec_type": {
+    "Detached": 3395,
+    "Semi detached": 2664,
+    "Mid terrace": 2317,
+    "End terrace": 2495,
+    "Bungalow": 2436,
+    "Converted flat": 2071,
+    "Purpose built flat": 1628
+   }
+  },
+  "W06000010": {
+   "gas": 9194,
+   "elec": 2573,
+   "gas_type": {
+    "Detached": 11922,
+    "Semi detached": 9108,
+    "Mid terrace": 8269,
+    "End terrace": 8670,
+    "Bungalow": 9505,
+    "Converted flat": 6086,
+    "Purpose built flat": 4256
+   },
+   "elec_type": {
+    "Detached": 3321,
+    "Semi detached": 2517,
+    "Mid terrace": 2272,
+    "End terrace": 2384,
+    "Bungalow": 2362,
+    "Converted flat": 2114,
+    "Purpose built flat": 1602
+   }
+  },
+  "W06000011": {
+   "gas": 9539,
+   "elec": 2346,
+   "gas_type": {
+    "Detached": 13261,
+    "Semi detached": 9785,
+    "Mid terrace": 8667,
+    "End terrace": 9080,
+    "Bungalow": 10296,
+    "Converted flat": 6176,
+    "Purpose built flat": 4456
+   },
+   "elec_type": {
+    "Detached": 3033,
+    "Semi detached": 2475,
+    "Mid terrace": 2203,
+    "End terrace": 2316,
+    "Bungalow": 2142,
+    "Converted flat": 1942,
+    "Purpose built flat": 1607
+   }
+  },
+  "W06000012": {
+   "gas": 9360,
+   "elec": 2362,
+   "gas_type": {
+    "Detached": 12576,
+    "Semi detached": 9501,
+    "Mid terrace": 8590,
+    "End terrace": 9061,
+    "Bungalow": 9767,
+    "Converted flat": 5518,
+    "Purpose built flat": 4845
+   },
+   "elec_type": {
+    "Detached": 3050,
+    "Semi detached": 2460,
+    "Mid terrace": 2175,
+    "End terrace": 2334,
+    "Bungalow": 2100,
+    "Converted flat": 2008,
+    "Purpose built flat": 1619
+   }
+  },
+  "W06000013": {
+   "gas": 9505,
+   "elec": 2395,
+   "gas_type": {
+    "Detached": 11749,
+    "Semi detached": 9475,
+    "Mid terrace": 8888,
+    "End terrace": 9102,
+    "Bungalow": 10190,
+    "Converted flat": 6174,
+    "Purpose built flat": 5241
+   },
+   "elec_type": {
+    "Detached": 2988,
+    "Semi detached": 2482,
+    "Mid terrace": 2195,
+    "End terrace": 2372,
+    "Bungalow": 2159,
+    "Converted flat": 1740,
+    "Purpose built flat": 1694
+   }
+  },
+  "W06000014": {
+   "gas": 9138,
+   "elec": 2529,
+   "gas_type": {
+    "Detached": 12479,
+    "Semi detached": 9341,
+    "Mid terrace": 8024,
+    "End terrace": 8434,
+    "Bungalow": 10681,
+    "Converted flat": 6639,
+    "Purpose built flat": 4330
+   },
+   "elec_type": {
+    "Detached": 3179,
+    "Semi detached": 2651,
+    "Mid terrace": 2326,
+    "End terrace": 2447,
+    "Bungalow": 2397,
+    "Converted flat": 1980,
+    "Purpose built flat": 1666
+   }
+  },
+  "W06000015": {
+   "gas": 9356,
+   "elec": 2501,
+   "gas_type": {
+    "Detached": 13506,
+    "Semi detached": 10329,
+    "Mid terrace": 8912,
+    "End terrace": 9072,
+    "Bungalow": 10694,
+    "Converted flat": 5811,
+    "Purpose built flat": 4782
+   },
+   "elec_type": {
+    "Detached": 3133,
+    "Semi detached": 2682,
+    "Mid terrace": 2412,
+    "End terrace": 2516,
+    "Bungalow": 2141,
+    "Converted flat": 2095,
+    "Purpose built flat": 2083
+   }
+  },
+  "W06000016": {
+   "gas": 10227,
+   "elec": 2339,
+   "gas_type": {
+    "Detached": 12817,
+    "Semi detached": 10244,
+    "Mid terrace": 9878,
+    "End terrace": 10741,
+    "Bungalow": 11010,
+    "Converted flat": 6029,
+    "Purpose built flat": 5412
+   },
+   "elec_type": {
+    "Detached": 3069,
+    "Semi detached": 2529,
+    "Mid terrace": 2179,
+    "End terrace": 2399,
+    "Bungalow": 2220,
+    "Converted flat": 1832,
+    "Purpose built flat": 1534
+   }
+  },
+  "W06000024": {
+   "gas": 11003,
+   "elec": 2347,
+   "gas_type": {
+    "Detached": 14205,
+    "Semi detached": 11331,
+    "Mid terrace": 10444,
+    "End terrace": 11654,
+    "Bungalow": 10894,
+    "Converted flat": 6953,
+    "Purpose built flat": 5100
+   },
+   "elec_type": {
+    "Detached": 3106,
+    "Semi detached": 2544,
+    "Mid terrace": 2227,
+    "End terrace": 2328,
+    "Bungalow": 2121,
+    "Converted flat": 2098,
+    "Purpose built flat": 1405
+   }
+  },
+  "W06000018": {
+   "gas": 10167,
+   "elec": 2381,
+   "gas_type": {
+    "Detached": 13033,
+    "Semi detached": 10307,
+    "Mid terrace": 9699,
+    "End terrace": 10255,
+    "Bungalow": 10440,
+    "Converted flat": 6247,
+    "Purpose built flat": 5713
+   },
+   "elec_type": {
+    "Detached": 3087,
+    "Semi detached": 2505,
+    "Mid terrace": 2282,
+    "End terrace": 2434,
+    "Bungalow": 2062,
+    "Converted flat": 1710,
+    "Purpose built flat": 1582
+   }
+  },
+  "W06000019": {
+   "gas": 10657,
+   "elec": 2300,
+   "gas_type": {
+    "Detached": 14573,
+    "Semi detached": 11456,
+    "Mid terrace": 10220,
+    "End terrace": 11300,
+    "Bungalow": 10492,
+    "Converted flat": 6256,
+    "Purpose built flat": 6460
+   },
+   "elec_type": {
+    "Detached": 3100,
+    "Semi detached": 2546,
+    "Mid terrace": 2226,
+    "End terrace": 2440,
+    "Bungalow": 2065,
+    "Converted flat": 1779,
+    "Purpose built flat": 1512
+   }
+  },
+  "W06000020": {
+   "gas": 9139,
+   "elec": 2350,
+   "gas_type": {
+    "Detached": 12232,
+    "Semi detached": 9628,
+    "Mid terrace": 8535,
+    "End terrace": 9334,
+    "Bungalow": 9882,
+    "Converted flat": 6488,
+    "Purpose built flat": 5054
+   },
+   "elec_type": {
+    "Detached": 2957,
+    "Semi detached": 2498,
+    "Mid terrace": 2269,
+    "End terrace": 2452,
+    "Bungalow": 2117,
+    "Converted flat": 2158,
+    "Purpose built flat": 1537
+   }
+  },
+  "W06000021": {
+   "gas": 9412,
+   "elec": 2585,
+   "gas_type": {
+    "Detached": 12291,
+    "Semi detached": 9034,
+    "Mid terrace": 7437,
+    "End terrace": 8145,
+    "Bungalow": 9748,
+    "Converted flat": 6058,
+    "Purpose built flat": 4593
+   },
+   "elec_type": {
+    "Detached": 3201,
+    "Semi detached": 2550,
+    "Mid terrace": 2150,
+    "End terrace": 2281,
+    "Bungalow": 2323,
+    "Converted flat": 2053,
+    "Purpose built flat": 1608
+   }
+  },
+  "W06000022": {
+   "gas": 9034,
+   "elec": 2419,
+   "gas_type": {
+    "Detached": 12138,
+    "Semi detached": 9653,
+    "Mid terrace": 8408,
+    "End terrace": 8775,
+    "Bungalow": 8822,
+    "Converted flat": 6643,
+    "Purpose built flat": 5055
+   },
+   "elec_type": {
+    "Detached": 3163,
+    "Semi detached": 2527,
+    "Mid terrace": 2362,
+    "End terrace": 2508,
+    "Bungalow": 2036,
+    "Converted flat": 2102,
+    "Purpose built flat": 1636
+   }
+  }
+ },
+ "regions": {
+  "E12000001": {
+   "name": "North East",
+   "gas": 10345,
+   "elec": 2246
+  },
+  "E12000002": {
+   "name": "North West",
+   "gas": 9867,
+   "elec": 2497
+  },
+  "E12000003": {
+   "name": "Yorkshire and The Humber",
+   "gas": 10281,
+   "elec": 2418
+  },
+  "E12000004": {
+   "name": "East Midlands",
+   "gas": 10153,
+   "elec": 2512
+  },
+  "E12000005": {
+   "name": "West Midlands",
+   "gas": 10231,
+   "elec": 2579
+  },
+  "E12000006": {
+   "name": "East",
+   "gas": 10066,
+   "elec": 2661
+  },
+  "E12000007": {
+   "name": "London",
+   "gas": 10817,
+   "elec": 2466
+  },
+  "E12000008": {
+   "name": "South East",
+   "gas": 10178,
+   "elec": 2699
+  },
+  "E12000009": {
+   "name": "South West",
+   "gas": 8603,
+   "elec": 2629
+  },
+  "W92000004": {
+   "name": "Wales",
+   "gas": 9409,
+   "elec": 2468
+  }
+ },
+ "ew": {
+  "gas": 10012,
+  "elec": 2538,
+  "gas_type": {
+   "Detached": 13771,
+   "Semi detached": 10574,
+   "Mid terrace": 9092,
+   "End terrace": 9631,
+   "Bungalow": 10229,
+   "Converted flat": 7141,
+   "Purpose built flat": 5704
+  },
+  "elec_type": {
+   "Detached": 3320,
+   "Semi detached": 2673,
+   "Mid terrace": 2383,
+   "End terrace": 2549,
+   "Bungalow": 2271,
+   "Converted flat": 2136,
+   "Purpose built flat": 1947
+  }
+ }
+}

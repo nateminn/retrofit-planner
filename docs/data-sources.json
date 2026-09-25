@@ -27,6 +27,19 @@
    ]
   },
   {
+   "name": "NEED consumption data tables 2026: local authority tables, 2024",
+   "publisher": "Department for Energy Security and Net Zero",
+   "url": "https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026",
+   "govuk": "government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026",
+   "use": "How much gas and electricity the median home uses in every council in England and Wales, and by home type",
+   "published": "11 June 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/energy-councils.json",
+    "\"gas\": 14234"
+   ]
+  },
+  {
    "name": "NEED impact of measures data tables 2026",
    "publisher": "Department for Energy Security and Net Zero",
    "url": "https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026",

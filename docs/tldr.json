@@ -3174,5 +3174,34 @@
     "Frequently asked questions"
    ]
   ]
+ },
+ "guides/energy-use-by-council": {
+  "points": [
+   "**10,012 kWh** of gas and **2,538 kWh** of electricity a year for the median home in England and Wales, about **£1,774** at the October 2026 cap",
+   "**Harrow** uses the most gas, 14,234 kWh; the **City of London** the least, 5,091 kWh",
+   "**The South West** uses the least gas of any region, London the most"
+  ],
+  "jumps": [
+   [
+    "Most gas",
+    "#gas-most"
+   ],
+   [
+    "Least gas",
+    "#gas-least"
+   ],
+   [
+    "Electricity",
+    "#elec"
+   ],
+   [
+    "Regions",
+    "#regions"
+   ],
+   [
+    "Every council",
+    "#all"
+   ]
+  ]
  }
 }

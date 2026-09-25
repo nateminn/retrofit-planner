@@ -781,6 +781,7 @@ def hp_council_detail(code):
     ew_growth = D['ew_years'][-1] / D['ew_years'][1]
     grow_txt = ('%s had %s grants paid in 2025/26 against %s in 2023/24, the first full year: %.1f times as many, against %.1f times across England and Wales.'
                 % (name, fmt(yrs[-1]), fmt(yrs[1]), growth, ew_growth)) if growth else ''
+    energy = energy_section(code, name)
     welsh = code.startswith('W')
     local = ('Your council can refer low income households to ECO4 Flex until 31 December 2026. Wales has its own Warm Homes Nest scheme.' if welsh else
              'In England, ask your council whether it has Warm Homes: Local Grant funding, which can pay for insulation and a heat pump for households on lower incomes.')
@@ -813,6 +814,7 @@ def hp_council_detail(code):
 <p class="answer"><strong>The councils either side of {html.escape(name)} in {html.escape(rthe)}.</strong></p>
 {near}
 
+{energy}
 <h2 id="yours">Getting a heat pump in {html.escape(name)}</h2>
 <p class="answer"><strong>£7,500 off, or £9,000 replacing oil or LPG until 31 March 2027.</strong> A typical 3 bed semi costs £11,000 to £15,500 installed before the grant.</p>
 <p>{local} See what a heat pump would cost and save in your home with the <a href="/heat-pump-calculator/">heat pump calculator</a>, and what it costs to run with the <a href="/heat-pump-running-cost-calculator/">running cost calculator</a>.</p>
@@ -831,7 +833,35 @@ def hp_council_detail(code):
                 h1='Heat pumps in %s' % name, crumb='Heat pumps in %s' % name, faq=faq, body=body,
                 sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables Q1.2 and A1.7. Source: Ofgem.',
                          'Office for National Statistics, Census 2021, <a href="https://www.nomisweb.co.uk/datasets/c2021ts041" target="_blank" rel="noopener">TS041 number of households</a>.',
+                         'Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>, local authority tables 2024.',
                          'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
+def energy_section(code, name):
+    """'Energy use in <council>': median gas and electricity per home against England and Wales, by home type."""
+    N = json.loads((ROOT / 'docs' / 'energy-councils.json').read_text())
+    e, ew = N['councils'][code], N['ew']
+    fmt = lambda x: f'{x:,}' if x else 'no data'
+    nm = html.escape(name)
+    def vs(a, b):
+        d = (a - b) / b * 100
+        return 'close to' if abs(d) < 3 else '%d%% %s' % (round(abs(d)), 'above' if d > 0 else 'below')
+    if e['gas']:
+        cost = gas_bill(e['gas']) + elec_bill(e['elec'])
+        ans = ('<strong>%s kWh of gas and %s kWh of electricity a year</strong> for the median home, about %s at the October 2026 price cap. '
+               'Gas use is %s the England and Wales median of %s kWh.' % (fmt(e['gas']), fmt(e['elec']), gbp(cost), vs(e['gas'], ew['gas']), fmt(ew['gas'])))
+    else:
+        ans = '<strong>%s kWh of electricity a year</strong> for the median home. There is no mains gas.' % fmt(e['elec'])
+    rows = [['<strong>All homes</strong>', fmt(e['gas']), fmt(ew['gas']), fmt(e['elec']), fmt(ew['elec'])]]
+    for t, lab in TYPE_LABEL.items():
+        if e['gas_type'].get(t) or e['elec_type'].get(t):
+            rows.append([lab, fmt(e['gas_type'].get(t)), fmt(ew['gas_type'][t]), fmt(e['elec_type'].get(t)), fmt(ew['elec_type'][t])])
+    tbl = table('Median energy use per home a year in %s, kWh' % name, ['Home', 'Gas, ' + nm, 'Gas, England and Wales', 'Electricity, ' + nm, 'Electricity, England and Wales'], rows)
+    return f"""<h2 id="energy">Energy use in {nm}</h2>
+<p class="answer">{ans}</p>
+{tbl}
+<p class="note">Medians from 2024 meter readings (DESNZ NEED local authority tables 2024, LA1, LA2, LA5 and LA6). Gas covers homes with a gas meter. Costs use the Ofgem cap for October to December 2026, with standing charges. <a href="/guides/energy-use-by-council/">Energy use in every council on one map</a>.</p>
+"""
 
 
 def ordinal(k):
@@ -1035,13 +1065,158 @@ def epc_age_hub():
                          'Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>.'])
 
 
+# ------------------------------------------------------------------ energy use by council
+# docs/energy-councils.json from need_councils.py: DESNZ NEED local authority tables 2024.
+EN_BINS = {'gas': [8500, 9500, 10500, 11500], 'elec': [2300, 2500, 2700, 2900]}
+EN_COLS = ['#fdf1dc', '#f5d49a', '#e6ad5c', '#c7852b', '#8f5710']
+EN_LABELS = {'gas': ['Under 8,500 kWh', '8,500 to 9,500', '9,500 to 10,500', '10,500 to 11,500', '11,500 kWh or more'],
+             'elec': ['Under 2,300 kWh', '2,300 to 2,500', '2,500 to 2,700', '2,700 to 2,900', '2,900 kWh or more']}
+TYPE_LABEL = {'Detached': 'Detached house', 'Semi detached': 'Semi-detached house', 'Mid terrace': 'Mid-terrace house', 'End terrace': 'End-terrace house',
+              'Bungalow': 'Bungalow', 'Converted flat': 'Converted flat', 'Purpose built flat': 'Purpose built flat'}
+
+
+def en_bin(kind, v):
+    return None if v is None else sum(v >= b for b in EN_BINS[kind])
+
+
+def gas_bill(k):
+    return k * RG + SCG
+
+
+def elec_bill(k):
+    return k * RE + 200.13
+
+
+def energy_council_page():
+    N = json.loads((ROOT / 'docs' / 'energy-councils.json').read_text())
+    B = json.loads((ROOT / 'docs' / 'bus-councils.json').read_text())
+    MP = json.loads((ROOT / 'docs' / 'maps' / 'lad-2025-ew.json').read_text())
+    C, BC = N['councils'], B['councils']
+    fmt = lambda x: f'{x:,}'
+    nm = lambda c: council_name(BC[c]['name'])
+    pages = set(B.get('pages', []))
+    link = lambda c: ('<a href="/guides/%s/">%s</a>' % (council_slug(BC[c]['name']), html.escape(nm(c)))) if c in pages else html.escape(nm(c))
+
+    def svg(mp, cls, label):
+        out = []
+        for c, d in mp['paths'].items():
+            gb, eb = en_bin('gas', C[c]['gas']), en_bin('elec', C[c]['elec'])
+            fill = EN_COLS[gb] if gb is not None else '#e4e2dc'
+            out.append('<path d="%s" fill="%s" data-c="%s" data-g="%s" data-e="%s"><title>%s</title></path>'
+                       % (d, fill, c, '' if gb is None else gb, '' if eb is None else eb, html.escape(nm(c))))
+        return '<svg class="%s" viewBox="0 0 %d %d" role="img" aria-label="%s">%s</svg>' % (cls, mp['w'], mp['h'], label, ''.join(out))
+
+    legend = lambda kind: '<ul class="hp-legend" data-kind="%s"%s>%s</ul>' % (kind, '' if kind == 'gas' else ' hidden', ''.join(
+        '<li><span style="background:%s"></span>%s</li>' % (EN_COLS[i], EN_LABELS[kind][i]) for i in range(5)))
+    gas_rank = sorted([c for c in C if C[c]['gas']], key=lambda c: -C[c]['gas'])
+    el_rank = sorted([c for c in C if C[c]['elec']], key=lambda c: -C[c]['elec'])
+    head = ['Council', 'Region', 'Median a year', 'Typical cost a year']
+    row_g = lambda c: [link(c), BC[c]['region'], fmt(C[c]['gas']) + ' kWh', gbp(gas_bill(C[c]['gas']))]
+    row_e = lambda c: [link(c), BC[c]['region'], fmt(C[c]['elec']) + ' kWh', gbp(elec_bill(C[c]['elec']))]
+    regs = sorted(N['regions'].values(), key=lambda r: -r['gas'])
+    reg_name = lambda n: {'East': 'East of England', 'Yorkshire and The Humber': 'Yorkshire and the Humber'}.get(n, n)
+    reg_rows = [[reg_name(r['name']),
+                 fmt(r['gas']) + ' kWh', fmt(r['elec']) + ' kWh', gbp(gas_bill(r['gas']) + elec_bill(r['elec']))] for r in regs]
+    all_rows = [[link(c), BC[c]['region'], (fmt(C[c]['gas']) + ' kWh') if C[c]['gas'] else 'no mains gas', fmt(C[c]['elec']) + ' kWh'] for c in sorted(C, key=lambda c: nm(c))]
+    ew = N['ew']
+    data = {c: [nm(c), C[c]['gas'], C[c]['elec'], (gas_rank.index(c) + 1) if C[c]['gas'] else None, el_rank.index(c) + 1, BC[c]['region']]
+            + (['/guides/%s/' % council_slug(BC[c]['name'])] if c in pages else []) for c in C}
+    names = ''.join('<option value="%s">' % html.escape(nm(c)) for c in sorted(C, key=nm))
+    ew_total = gas_bill(ew['gas']) + elec_bill(ew['elec'])
+    faq = [('How much gas does a typical home use?',
+            'A median %s kWh a year across England and Wales, among homes with a gas meter, and %s kWh of electricity, from 2024 meter readings. At the October to December 2026 price cap that is about %s for gas and %s for electricity, including standing charges.'
+            % (fmt(ew['gas']), fmt(ew['elec']), gbp(gas_bill(ew['gas'])), gbp(elec_bill(ew['elec'])))),
+           ('Which council uses the most gas?',
+            '%s, where the median home with gas uses %s kWh a year, followed by %s and %s.'
+            % (nm(gas_rank[0]), fmt(C[gas_rank[0]]['gas']), nm(gas_rank[1]), nm(gas_rank[2]))),
+           ('Why is gas use low in Cornwall?',
+            'Many homes in Cornwall are not on the gas grid, and the gas figure covers only the homes that are. Cornwall also has the %s highest rate of Boiler Upgrade Scheme heat pumps per household of any council. Low gas use there does not mean low energy bills.' % ordinal(BC['E06000052']['rank']))]
+    body = f"""
+<p class="lead">A typical home in England and Wales uses <strong>{fmt(ew['gas'])} kWh</strong> of gas and <strong>{fmt(ew['elec'])} kWh</strong> of electricity a year, about <strong>{gbp(ew_total)}</strong> at the October 2026 price cap. Here is how much homes use in every council, from the government's 2024 meter readings.</p>
+
+<div class="en-toggle" role="group" aria-label="Show on the map"><button type="button" data-kind="gas" aria-pressed="true">Gas</button><button type="button" data-kind="elec" aria-pressed="false">Electricity</button></div>
+<div class="hp-map-wrap">
+<figure class="hp-map">{svg(MP['main'], 'hp-main', 'Map of England and Wales by council, shaded by median energy use per home')}
+<figcaption>Median use per home a year, by council.{legend('gas')}{legend('elec')}</figcaption></figure>
+<div class="hp-side">
+<label for="councilSearch">Find your council</label>
+<input id="councilSearch" list="councilNames" autocomplete="off" placeholder="e.g. Leeds"><datalist id="councilNames">{names}</datalist>
+<div class="hp-panel" id="councilPanel" aria-live="polite"><p class="rp-hint">Search for a council, or hover over the map.</p></div>
+<figure class="hp-london">{svg(MP['london'], 'hp-ldn', 'London boroughs, shaded by median energy use per home')}<figcaption>London, enlarged</figcaption></figure>
+</div>
+</div>
+
+<h2 id="gas-most">Where homes use the most gas</h2>
+<p class="answer"><strong>Outer London and Surrey.</strong> The median home with gas in {html.escape(nm(gas_rank[0]))} uses {fmt(C[gas_rank[0]]['gas'])} kWh.</p>
+{table('Councils where homes use the most gas', head, [row_g(c) for c in gas_rank[:10]])}
+
+<h2 id="gas-least">Where homes use the least gas</h2>
+<p class="answer"><strong>Inner London and the South West.</strong> Where many homes are off the gas grid, the figure covers only those on it.</p>
+{table('Councils where homes use the least gas', head, [row_g(c) for c in gas_rank[-10:]])}
+
+<h2 id="elec">Electricity</h2>
+<p class="answer"><strong>Highest in Surrey and off-grid areas, lowest in inner London.</strong> The Isles of Scilly, with no mains gas, top the table at {fmt(C['E06000053']['elec'])} kWh.</p>
+{table('Councils where homes use the most electricity', head, [row_e(c) for c in el_rank[:10]])}
+
+<h2 id="regions">By region</h2>
+<p class="answer"><strong>The South West uses the least gas, London the most.</strong></p>
+{table('Median energy use by region', ['Region', 'Gas', 'Electricity', 'Typical cost of both a year'], reg_rows)}
+
+<h2 id="all">Every council</h2>
+<p class="answer"><strong>All {len(C)} councils in England and Wales.</strong></p>
+<details class="more"><summary>Show every council</summary>
+{table('Median energy use in every council', ['Council', 'Region', 'Gas', 'Electricity'], all_rows)}
+</details>
+<p class="note">Median gas and electricity per home from the NEED local authority tables 2024 (DESNZ, published {long_date_str(N['published'])}): the gas year runs mid-May 2024 to mid-May 2025 and covers homes with a gas meter; the electricity year runs February 2024 to January 2025. Typical costs are the medians priced at the Ofgem cap for October to December 2026, with standing charges. Compare your own bill with the <a href="/energy-bill-calculator/">energy bill calculator</a>.</p>
+<script>
+(function () {{
+    var D = {json.dumps(data, ensure_ascii=False, separators=(',', ':'))};
+    var COLS = {json.dumps(EN_COLS)}, kind = 'gas';
+    var byName = {{}}; Object.keys(D).forEach(function (c) {{ byName[D[c][0].toLowerCase()] = c; }});
+    var panel = document.getElementById('councilPanel'), input = document.getElementById('councilSearch');
+    var gp = {RG}, gs = {SCG}, ep = {RE}, es = 200.13, ewg = {ew['gas']}, ewe = {ew['elec']};
+    function money(v) {{ return '£' + Math.round(v).toLocaleString('en-GB'); }}
+    function show(c) {{
+        var d = D[c]; if (!d) {{ return; }}
+        var g = d[1] ? '<p><strong>' + d[1].toLocaleString('en-GB') + ' kWh</strong> of gas, about ' + money(d[1] * gp + gs) + ' a year, ' + (d[1] > ewg ? 'above' : 'below') + ' the England and Wales median of ' + ewg.toLocaleString('en-GB') + '.</p>' : '<p>No mains gas.</p>';
+        panel.innerHTML = '<h3>' + d[0] + '</h3>' + g + '<p><strong>' + d[2].toLocaleString('en-GB') + ' kWh</strong> of electricity, about ' + money(d[2] * ep + es) + ' a year.</p><p>' + d[5] + '.</p>'
+            + (d[6] ? '<p><a href="' + d[6] + '">More on ' + d[0] + '</a></p>' : '');
+        document.querySelectorAll('.hp-map-wrap path.on').forEach(function (p) {{ p.classList.remove('on'); }});
+        document.querySelectorAll('.hp-map-wrap path[data-c="' + c + '"]').forEach(function (p) {{ p.classList.add('on'); }});
+    }}
+    function paint(k) {{
+        kind = k;
+        document.querySelectorAll('.hp-map-wrap path[data-c]').forEach(function (p) {{
+            var b = p.getAttribute(k === 'gas' ? 'data-g' : 'data-e');
+            p.setAttribute('fill', b === '' ? '#e4e2dc' : COLS[+b]);
+        }});
+        document.querySelectorAll('.hp-legend').forEach(function (l) {{ l.hidden = l.getAttribute('data-kind') !== k; }});
+        document.querySelectorAll('.en-toggle button').forEach(function (b) {{ b.setAttribute('aria-pressed', b.getAttribute('data-kind') === k ? 'true' : 'false'); }});
+    }}
+    document.querySelectorAll('.en-toggle button').forEach(function (b) {{ b.addEventListener('click', function () {{ paint(b.getAttribute('data-kind')); }}); }});
+    document.querySelectorAll('.hp-map-wrap svg').forEach(function (svg) {{
+        svg.addEventListener('mouseover', function (e) {{ var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (c) {{ show(c); }} }});
+    }});
+    function find() {{ var c = byName[input.value.trim().toLowerCase()]; if (c) {{ show(c); }} }}
+    input.addEventListener('change', find); input.addEventListener('input', find);
+}})();
+</script>
+"""
+    return dict(slug='energy-use-by-council', kind='none', title='Energy Use by Council: Gas and Electricity Mapped, 2026',
+                description='How much gas and electricity a typical home uses in every council in England and Wales, and what it costs, on a map. Find your council.',
+                h1='Energy use by council', crumb='Energy use by council', faq=faq, body=body,
+                sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>, local authority tables 2024, LA1 and LA2.',
+                         'Ofgem energy price cap, October to December 2026.',
+                         'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
 _BUS = json.loads((ROOT / 'docs' / 'bus-councils.json').read_text())
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
          'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
          'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
          'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
-         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page, 'epc-rating-by-house-age': epc_age_hub,
+         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page, 'energy-use-by-council': energy_council_page, 'epc-rating-by-house-age': epc_age_hub,
          **{AGE_ERAS[i]['slug']: (lambda i=i: epc_age_page(i)) for i in range(len(AGE_ERAS))},
          **{council_slug(_BUS['councils'][c]['name']): (lambda c=c: hp_council_detail(c)) for c in _BUS['pages']},
          **{REGION[k]['slug']: (lambda k=k: solar_region_page(k)) for k in REGION}}

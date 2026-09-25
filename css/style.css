@@ -1176,3 +1176,8 @@ details.faq-item>p{margin:0 0 14px}
 .ab-t{background:var(--color-surface-alt);border-radius:4px;height:14px;overflow:hidden}
 .ab-f{display:block;height:100%;background:var(--color-accent);border-radius:4px}
 .ab-v{text-align:right;font-weight:600}
+.en-toggle{display:inline-flex;border:1px solid var(--color-border);border-radius:999px;overflow:hidden;margin:16px 0 4px}
+.en-toggle button{border:0;background:var(--color-surface);padding:8px 18px;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;color:var(--color-text)}
+.en-toggle button[aria-pressed="true"]{background:var(--color-accent);color:#fff}
+.en-toggle button:focus-visible{outline:3px solid var(--color-accent);outline-offset:-3px}
+.hp-legend[hidden]{display:none}
