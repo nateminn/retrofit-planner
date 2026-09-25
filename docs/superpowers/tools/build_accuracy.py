@@ -11,7 +11,9 @@ Usage: python3 docs/superpowers/tools/build_accuracy.py
 import json, re, subprocess, pathlib, html
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
-GAS_P, ELEC_P, HPT_P = 0.0797, 0.2632, 0.18
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import prices as _prices
+GAS_P, ELEC_P, HPT_P = _prices.GAS, _prices.ELEC, _prices.HPT
 
 # Boiler Upgrade Scheme statistics, August 2026 release, Table A1.3A: 2025/26 median
 # installed cost of air source heat pumps by capacity band, with the number of installs.
@@ -104,6 +106,10 @@ def main():
         eff_rows=eff_rows, cost_rows=cost_rows, ins_rows=ins_rows,
         hp_before=gbp(hp_before * ELEC_P), hp_after=gbp(hp_after * ELEC_P),
         hpt_before=gbp(hp_before * HPT_P), hpt_after=gbp(hp_after * HPT_P),
+        tp=('%.1f' % (HPT_P * 100)).rstrip('0').rstrip('.') + 'p', oil_p=('%.1f' % (_prices.OIL * 100)) + 'p',
+        semi_oil=gbp(semi_new['heat'] / 0.85 * _prices.OIL), semi_hpt=gbp(hp_after * HPT_P),
+        semi_save_gas=gbp(semi_new['gas'] * GAS_P - hp_after * HPT_P),
+        semi_save_oil=gbp(semi_new['heat'] / 0.85 * _prices.OIL - hp_after * HPT_P),
         gap_lo=gbp(min(gaps)), gap_hi=gbp(max(gaps)),
         semi_old_install=gbp(semi_old['install']), semi_new_install=gbp(semi_new['install']),
         semi_old_after=gbp(max(0, semi_old['install'] - 7500)), semi_new_after=gbp(max(0, semi_new['install'] - 7500)),
@@ -161,7 +167,7 @@ TEMPLATE = '''<body>
 <main id="main" tabindex="-1" class="guide-content">
 <div class="breadcrumbs"><a href="/">Home</a><span>/</span>How accurate are our figures?</div>
 <h1>How accurate are our figures?</h1>
-<p class="lead">Every figure on this site comes from one published model. On 24 September 2026 we tested that model against the largest sets of measured data available for UK homes. Two parts of it were wrong, and a third, our insulation savings, was far more optimistic than what homes actually saw. We changed all three. This page shows what we tested, what we found and what we changed.</p>
+<p class="lead">Every heat demand and heat pump figure on this site comes from one published model. On 24 September 2026 we tested that model against the largest sets of measured data available for UK homes. Two parts of it were wrong, and a third, our insulation savings, was far more optimistic than what homes actually saw. We changed all three. This page shows what we tested, what we found and what we changed.</p>
 
 <div class="verdict">
 <h2>The short version</h2>
@@ -181,7 +187,7 @@ TEMPLATE = '''<body>
 <h2 id="efficiency">Heat pump efficiency</h2>
 <p>A heat pump's running cost depends on its seasonal efficiency: how many units of heat it delivers for each unit of electricity over a year. We had assumed 2.6 to 3.4 depending on how well the home is insulated. The government funded Electrification of Heat trial measured {eoh_n} air source heat pumps in real homes over a full year. Measured across the whole system, including the immersion heater, backup heater and pumps, which is what a household pays for, the median was {eoh_median}, and the middle half of homes sat between {eoh_q1} and {eoh_q3}.</p>
 <div class="tblwrap" tabindex="0" role="region" aria-label="Heat pump efficiency, before and after"><table class="data-table"><thead><tr><th scope="col">Insulation</th><th scope="col">We used</th><th scope="col">We now use</th><th scope="col">Measured position</th></tr></thead><tbody>{eff_rows}</tbody></table></div>
-<p>For a 3 bed semi with average insulation, that moves the yearly heat pump running cost from {hp_before} to {hp_after} on a standard tariff, and from {hpt_before} to {hpt_after} on an 18p heat pump tariff. An independent analysis of Ofgem's heat pump data, cited in the same report, found a median of 2.74 on the same measure for heat pumps installed from 2022 onwards.</p>
+<p>For a 3 bed semi with average insulation, that moves the yearly heat pump running cost from {hp_before} to {hp_after} on a standard tariff, and from {hpt_before} to {hpt_after} on a {tp} heat pump tariff. An independent analysis of Ofgem's heat pump data, cited in the same report, found a median of 2.74 on the same measure for heat pumps installed from 2022 onwards.</p>
 
 <h2 id="cost">Heat pump installed cost</h2>
 <p>Every grant funded heat pump in England and Wales is recorded with the price the installer charged. The government publishes the median by size of heat pump: {bus_all} across {bus_n} air source heat pumps in 2025/26, including the system, labour and VAT, before the grant. We compared our figure for each home with the median for a heat pump of the size our model gives it.</p>
@@ -193,6 +199,16 @@ TEMPLATE = '''<body>
 <p>NEED also measures what homes saved after insulation, by comparing their gas use before and after against similar homes that had nothing done. Those measured savings are much lower than the modelled figures most calculators use, including ours, because many homes were under-heated before and take part of the gain as warmth rather than a lower bill.</p>
 <div class="tblwrap" tabindex="0" role="region" aria-label="Insulation savings for a 3 bed semi on gas, before and after"><table class="data-table"><thead><tr><th scope="col">Measure, 3 bed semi on gas</th><th scope="col">We showed</th><th scope="col">Measured median saving</th></tr></thead><tbody>{ins_rows}</tbody></table></div>
 <p>The insulation calculator now shows what homes like yours typically saved, and says plainly that a home heated the same way before and after can save more. Its installation costs now follow the Energy Saving Trust's 2026 figures, which were well above ours.</p>
+
+<h2 id="prices">Prices brought up to date on 25 September 2026</h2>
+<p>The next day we replaced three prices that were our own assumptions with figures we can source. Each one changes what the calculators say, so here is what moved.</p>
+<div class="tblwrap" tabindex="0" role="region" aria-label="Prices changed on 25 September 2026"><table class="data-table"><thead><tr><th scope="col">Price</th><th scope="col">We used</th><th scope="col">We now use</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row">Heating oil</th><td>9.0p per kWh</td><td>{oil_p} per kWh</td><td>BoilerJuice UK average of 116.20p a litre including VAT on 25 September 2026, at 10.294 kWh a litre (DESNZ 2026 conversion factors)</td></tr>
+<tr><th scope="row">Heat pump tariff</th><td>18p per kWh</td><td>{tp} per kWh</td><td>Cosy Octopus at October 2026 rates, with 60 per cent of heating in the cheap hours and 10 per cent in the 4pm to 7pm peak, as costed in our <a href="/guides/best-heat-pump-tariffs/">tariff guide</a></td></tr>
+<tr><th scope="row">New gas boiler</th><td>£2,500 for a 3 bed home</td><td>£3,500 for a 3 bed home</td><td>DESNZ average of about £3,500 including VAT (Boiler Upgrade Scheme 2026 to 2030 summary business case)</td></tr>
+</tbody></table></div>
+<p>For a 3 bed semi with average insulation, heating with oil now costs {semi_oil} a year instead of £1,048, and a heat pump on a heat pump tariff costs {semi_hpt} instead of £641. So a heat pump saves {semi_save_gas} a year against gas on a heat pump tariff, down from £236, and {semi_save_oil} against oil, up from £407.</p>
+<p>The heat pump tariff change also means the heat pump calculator offers installer quotes to fewer homes on mains gas: in 32 of its 120 gas combinations with no bill entered, down from 67. The dearer boiler works the other way in the boiler comparison, which now holds the quote form back in 37 of its 120 combinations at a £900 gas bill, against 35 before. We would rather offer fewer quotes than overstate a saving.</p>
 
 <h2 id="untested">What we have not tested yet</h2>
 <ul>

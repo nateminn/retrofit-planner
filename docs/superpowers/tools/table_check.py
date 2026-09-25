@@ -24,7 +24,9 @@ import json, re, subprocess, sys, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 
-GAS_P, ELEC_P, HPT_P = 0.0797, 0.2632, 0.18
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import prices as _prices
+GAS_P, ELEC_P, HPT_P = _prices.GAS, _prices.ELEC, _prices.HPT
 GAS_STANDING, ELEC_STANDING = 108.33, 200.13
 
 M = json.loads(subprocess.run(

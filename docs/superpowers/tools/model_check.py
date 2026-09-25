@@ -8,7 +8,9 @@ ended up with three different answers for the same house.
 """
 import io, re, sys, glob, json, subprocess
 
-GAS, ELEC, HPT, OIL, BOILER = 0.0797, 0.2632, 0.18, 0.090, 0.90
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import prices as _prices
+GAS, ELEC, HPT, OIL, BOILER = _prices.GAS, _prices.ELEC, _prices.HPT, _prices.OIL, 0.90
 
 M = json.loads(subprocess.run(
     ['node', '-e', "global.window={};require('./js/heat-model.js');"

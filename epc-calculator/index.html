@@ -379,9 +379,9 @@
     // band and the other steps add points for each feature. For context, the English Housing
     // Survey puts the mean SAP rating for English dwellings at 68 points in 2024. The steps
     // have not been fitted to lodged certificates, so the page never quotes an accuracy.
-    // The heating steps follow the order of retail fuel prices on this site (gas 7.97p, oil
-    // 9.0p, LPG 9.5p per kWh). A real EPC prices fuel with the fixed RdSAP tables instead, so
-    // the estimate is least reliable for oil, LPG and electric heating, and the note says so.
+    // The heating steps are our rough ordering of running cost by fuel, not the fixed RdSAP
+    // fuel price tables a real EPC uses, so the estimate is least reliable for oil, LPG and
+    // electric heating, and the note says so.
     // embed/epc-calculator/index.html carries an identical copy of these tables and of the
     // plan logic below. Change both together.
     const EST = {
@@ -402,8 +402,8 @@
     }
     // Typical cost of each measure in pounds, used to rank and total the plan. Insulation is
     // the Energy Saving Trust 2026 figure (270mm in a bare loft £750, cavity wall about
-    // £2,700, internal solid wall about £12,000 for a typical 3 bed semi). The boiler is the
-    // middle of the £1,500 to £3,500 the site quotes and solar the middle of £5,000 to £7,000
+    // £2,700, internal solid wall about £12,000 for a typical 3 bed semi). The boiler is
+    // DESNZ's average of about £3,500 including VAT for a new gas boiler, and solar the middle of £5,000 to £7,000
     // for 4 kW, as the solar calculator. Glazing is the Energy Saving Trust figure for A-rated
     // windows in a semi (about £4,800, May 2026), and half that for the remaining windows.
     // LED and controls are typical installed prices. Points are replaced at run time by the
@@ -415,7 +415,7 @@
         { id: 'controls', name: 'Smart heating controls', points: 3, cost: 275, requires: null, grantEligible: false, link: null },
         { id: 'glazing', name: 'Double glazing', points: 6, cost: 4800, requires: 'glazing-single', grantEligible: false, link: null },
         { id: 'glazing-partial', name: 'Replace remaining single glazing', points: 3, cost: 2400, requires: 'glazing-partial', grantEligible: false, link: null },
-        { id: 'boiler', group: 'heating', name: 'New condensing gas boiler', points: 8, cost: 2500, requires: 'heating-old-gas', grantEligible: false, link: '/boiler-vs-heat-pump/' },
+        { id: 'boiler', group: 'heating', name: 'New condensing gas boiler', points: 8, cost: 3500, requires: 'heating-old-gas', grantEligible: false, link: '/boiler-vs-heat-pump/' },
         { id: 'heatpump', group: 'heating', name: 'Air source heat pump', points: 12, cost: 12700, requires: 'heating-notHP', grantEligible: false, grantValue: 7500, link: '/heat-pump-calculator/' },
         { id: 'solar', name: 'Solar PV panels (4kW)', points: 8, cost: 6000, requires: 'solar-no', grantEligible: false, link: '/solar-calculator/' },
         { id: 'solidwall', name: 'Solid wall insulation (internal)', points: 10, cost: 12000, requires: 'wall-solid-no', grantEligible: true, link: '/insulation-calculator/' },

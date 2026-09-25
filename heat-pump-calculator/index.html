@@ -303,7 +303,7 @@
 
     <script>
     const DATA = {
-        energyPrices: { electricity: 0.2632, gas: 0.0797, oil: 0.090, lpg: 0.095 }, // Ofgem cap Oct to Dec 2026; oil and LPG are our assumptions (see methodology)
+        energyPrices: { electricity: 0.2632, gas: 0.0797, oil: 0.113, lpg: 0.095 }, // as RP_HEAT.prices: Ofgem cap Oct to Dec 2026, oil at 25 Sep 2026 market, LPG our assumption
         fuelType: { 'gas-boiler': 'gas', 'oil-boiler': 'oil', 'lpg-boiler': 'lpg', 'electric-storage': 'electricity', 'electric-direct': 'electricity' },
         co2Factors: { 'gas': 0.182, 'oil': 0.247, 'lpg': 0.214, 'electricity': 0.14395 }, // DESNZ 2026: generation 0.13096 plus transmission and distribution 0.01299
         gasStanding: 108.33 // a year, Ofgem cap October to December 2026
@@ -350,9 +350,9 @@
         const grant = RP_HEAT.busGrant(heating);
         const afterGrant = installCost - grant;
         const annualSaving = currentCost - hpRunningCost;
-        // On a heat pump tariff (18p blended), which is how most owners run one and what the
+        // On a heat pump tariff (19.8p blended), which is how most owners run one and what the
         // site recommends; switching is free, so it decides whether quotes are worth getting.
-        const hpTariffCost = (heatDemand / cop) * 0.18;
+        const hpTariffCost = (heatDemand / cop) * RP_HEAT.prices.hpTariff;
         const annualSavingT = currentCost - hpTariffCost;
         const paybackYears = annualSaving > 0 ? afterGrant / annualSaving : null;
         const currentCO2 = (heatDemand / boilerEff) * DATA.co2Factors[fuelType];
@@ -380,9 +380,6 @@
         } else {
             document.getElementById('annualSaving').textContent = '£' + gapT.toLocaleString('en-GB') + ' more';
             document.getElementById('savingDetail').textContent = 'a year than your ' + fuelLabel + ', even on a heat pump tariff';
-        }
-        if (fuelType === 'oil') {
-            document.getElementById('savingDetail').textContent += '. Oil is priced at 9.0p per kWh, below September 2026 prices, so your saving is likely higher';
         }
         const paybackT = annualSavingT > 0 ? afterGrant / annualSavingT : null;
         /* Quotes only where the heat pump pays back within 25 years on a heat pump tariff: the
@@ -435,7 +432,7 @@
         document.getElementById('gasCost').textContent = '£' + Math.round(currentCost).toLocaleString('en-GB') + '/yr';
         document.getElementById('hpCost').textContent = '£' + Math.round(hpRunningCost).toLocaleString('en-GB') + '/yr';
         document.getElementById('co2Saving').textContent = Math.round(co2Saving).toLocaleString('en-GB');
-        const tariffLine = ' On an 18p heat pump tariff the heat pump would cost £' + Math.round(hpTariffCost).toLocaleString('en-GB') + ' a year to run.';
+        const tariffLine = ' On a 19.8p heat pump tariff the heat pump would cost £' + Math.round(hpTariffCost).toLocaleString('en-GB') + ' a year to run.';
         document.getElementById('costNote').textContent = (billNote ? billNote + ' ' : '')
             + (fuelType === 'gas'
                 ? 'Both figures are the energy you use, based on ' + (annualBillInput !== null && !billNote ? 'your bill' : 'the model for your home')

@@ -22,8 +22,8 @@
 (function () {
     'use strict';
 
-    var PRICE = { gas: 0.0797, oil: 0.090, lpg: 0.095, electric: 0.2632 };   // pounds per kWh, Ofgem cap Oct to Dec 2026; oil and LPG are our assumptions (see methodology)
-    var HP_TARIFF = 0.18;                                                     // pounds per kWh on a heat pump tariff
+    var PRICE = { gas: 0.0797, oil: 0.113, lpg: 0.095, electric: 0.2632 };   // pounds per kWh, as RP_HEAT.prices
+    var HP_TARIFF = 0.198;                                                     // pounds per kWh on a heat pump tariff
     var FUEL_NAME = { gas: 'mains gas', oil: 'heating oil', lpg: 'LPG', electric: 'electric heating' };
 
     var MEASURES = {
@@ -136,7 +136,7 @@
             h += '<div class="rp-figs">';
             h += '<div><span class="rp-l">Cost</span><span class="rp-v">' + gbp(s.cost) + '</span><span class="rp-d">' + s.costNote + '</span></div>';
             if (s.kind === 'heatpump') {
-                h += '<div><span class="rp-l">Yearly saving</span><span class="rp-v">' + (s.saving > 0 ? gbp(s.saving) : 'None') + '</span><span class="rp-d">On an 18p heat pump tariff. '
+                h += '<div><span class="rp-l">Yearly saving</span><span class="rp-v">' + (s.saving > 0 ? gbp(s.saving) : 'None') + '</span><span class="rp-d">On a 19.8p heat pump tariff. '
                     + (s.savingStandard > 0 ? gbp(s.savingStandard) + ' on a standard tariff' : gbp(-s.savingStandard) + ' a year more on a standard tariff') + '</span></div>';
             } else {
                 h += '<div><span class="rp-l">Yearly saving</span><span class="rp-v">' + gbp(s.saving) + '</span><span class="rp-d">' + s.measured + '</span></div>';
@@ -161,7 +161,7 @@
             + (fabricSteps > 1 ? 'Where the plan has more than one insulation measure, each saving is taken from what is left after the one before; homes that had two measures at once measured less than that, so treat the combined figure as an upper guide. ' : '')
             + 'Costs are typical figures, and grants can cover some or all of the insulation. '
             + (r.inputs.fuel === 'oil'
-                ? 'Prices: electricity at the Ofgem cap for October to December 2026; heating oil at 9.0p per kWh. Kerosene cost more than this in September 2026, about 11p, so your current bill and the saving from switching may both be higher. '
+                ? 'Prices: electricity at the Ofgem cap for October to December 2026; heating oil at 11.3p per kWh, the UK average on 25 September 2026. Oil prices move, so your own bill may differ. '
                 : r.inputs.fuel === 'lpg'
                 ? 'Prices: electricity at the Ofgem cap for October to December 2026; LPG at 9.5p per kWh, which varies by supplier and contract. '
                 : 'Prices: Ofgem cap for October to December 2026, energy only' + (r.inputs.fuel === 'gas' ? '; gas also carries a £108 a year standing charge, which you save if you cap the supply after switching. ' : '. '))

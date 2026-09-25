@@ -112,7 +112,8 @@ def canonical(cap, out='docs/superpowers/canonical-figures.md'):
         ['node', '-e', "global.window={};require('./js/heat-model.js');"
                        "console.log(JSON.stringify(window.RP_HEAT.model));"],
         capture_output=True, text=True).stdout)
-    GAS, ELEC, HPT, BOILER = cap['gas'] / 100, cap['elec'] / 100, 0.18, 0.90
+    import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__))); import prices as _prices
+    GAS, ELEC, HPT, BOILER = cap['gas'] / 100, cap['elec'] / 100, _prices.HPT, 0.90
     LABEL = {'detached': 'Detached', 'semi': 'Semi-detached', 'end-terrace': 'End terrace',
              'mid-terrace': 'Mid terrace', 'bungalow': 'Bungalow', 'flat': 'Flat'}
     lines = [f"# Canonical heating figures", "",

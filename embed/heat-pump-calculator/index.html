@@ -92,7 +92,7 @@ button:hover{background:#245741}
 /* The calculation is the shared model in /js/heat-model.js, the same file the full
    calculator loads, so the two cannot give different answers. This page used to carry its
    own copy of the tables, which drifted: old costs, old efficiencies and one grant for all. */
-var PRICE={electricity:0.2632,gas:0.0797,oil:0.090,lpg:0.095}, TARIFF=0.18, GAS_STANDING=108.33;
+var PRICE={electricity:0.2632,gas:0.0797,oil:0.113,lpg:0.095}, TARIFF=0.198, GAS_STANDING=108.33;   // as RP_HEAT.prices
 var FUEL={'gas-boiler':'gas','oil-boiler':'oil','lpg-boiler':'lpg','electric-storage':'electricity','electric-direct':'electricity'};
 var LABEL={'gas-boiler':'gas boiler','oil-boiler':'oil boiler','lpg-boiler':'LPG boiler','electric-storage':'storage heaters','electric-direct':'electric heating'};
 function v(id){return document.getElementById(id).value}
@@ -117,7 +117,6 @@ function calc(){
   if(Math.abs(saveTar)<=60){ document.getElementById('annualSaving').textContent='About the same'; document.getElementById('savingDetail').textContent='as your '+LABEL[heat]+'; '+std; }
   else if(saveTar>0){ document.getElementById('annualSaving').textContent=gbp(saveTar); document.getElementById('savingDetail').textContent='a year on a heat pump tariff; '+std; }
   else { document.getElementById('annualSaving').textContent=gbp(-saveTar)+' more'; document.getElementById('savingDetail').textContent='a year, even on a heat pump tariff'; }
-  if(fuel==='oil'){ document.getElementById('savingDetail').textContent+='. Oil is priced at 9.0p per kWh, below September 2026 prices, so the saving is likely higher'; }
   // Payback and the verdict on a heat pump tariff, as on the full calculator.
   var pay=saveTar>0?net/saveTar:null;
   document.getElementById('payback').textContent=!(saveTar>0)?'No payback':(net<=0?'Immediate':(pay<1?'Under a year':(pay>=50?'Over 50 years':Math.round(pay)+(Math.round(pay)===1?' year':' years'))));
@@ -131,7 +130,7 @@ function calc(){
   document.getElementById('hpCost').textContent=gbp(hp)+' a year';
   var rec;
   if(ins==='poor') rec='Insulate first. A leaky home needs a bigger, more expensive heat pump that runs less efficiently, so loft and wall insulation come before it.';
-  else if(save<=60) rec='On a heat pump tariff, which averages about 18p a kWh when most heating runs in the cheap hours, this home would pay '+gbp(hpTar)+' a year to heat, against '+gbp(cur)+' now.';
+  else if(save<=60) rec='On a heat pump tariff, which averages about 19.8p a kWh when most heating runs in the cheap hours, this home would pay '+gbp(hpTar)+' a year to heat, against '+gbp(cur)+' now.';
   else if(pt==='flat') rec='Flats usually need a compact, quieter unit, and you will need the freeholder’s agreement before any work starts.';
   else rec='An air source heat pump suits most homes of this type. The grant is paid to the installer, so you pay the net figure.';
   rec+=billNote;

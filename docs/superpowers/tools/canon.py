@@ -8,12 +8,17 @@ person, with the hub rows the guides quote. Pass --old <path to an earlier heat-
 to include that model's figures alongside, so a page still quoting an old number can be
 found and corrected.
 
-Usage: python3 docs/superpowers/tools/canon.py [--old path]
+Pass --prior <an earlier model-canon.json> to keep that file's figures alongside as "prior",
+which is how the 25 September 2026 price change (oil, heat pump tariff, boiler) was tracked.
+
+Usage: python3 docs/superpowers/tools/canon.py [--old path] [--prior path]
 """
 import json, subprocess, sys, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
-GAS_P, ELEC_P, HPT_P, OIL_P, LPG_P = 0.0797, 0.2632, 0.18, 0.090, 0.095
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import prices as _prices
+GAS_P, ELEC_P, HPT_P, OIL_P, LPG_P = _prices.GAS, _prices.ELEC, _prices.HPT, _prices.OIL, _prices.LPG
 GAS_SC = 108.33
 TYPES = ['detached', 'semi', 'mid-terrace', 'end-terrace', 'bungalow', 'flat']
 INS = ['poor', 'average', 'good', 'excellent']
@@ -58,7 +63,9 @@ def figures(c):
 
 def main():
     new = run(ROOT / 'js' / 'heat-model.js')
-    old = None
+    old = prior = None
+    if '--prior' in sys.argv:
+        prior = json.loads(pathlib.Path(sys.argv[sys.argv.index('--prior') + 1]).read_text())
     if '--old' in sys.argv:
         old = run(pathlib.Path(sys.argv[sys.argv.index('--old') + 1]).resolve())
     canon = {}
@@ -66,6 +73,8 @@ def main():
         canon[k] = {'new': figures(c)}
         if old:
             canon[k]['old'] = figures(old[k])
+        if prior:
+            canon[k]['prior'] = prior[k]['new']
     (ROOT / 'docs' / 'model-canon.json').write_text(json.dumps(canon, indent=1))
 
     # The rows the guides quote, at average insulation.
@@ -91,7 +100,7 @@ def main():
             os_ = [canon['%s|%d|average' % c]['old'] for c in cells]
             row += ' £%s | £%s | £%s |' % (f"{os_[-1]['install_median']:,}", f"{os_[-1]['hp_standard']:,}", f"{os_[-1]['hp_tariff']:,}")
         lines.append(row)
-    lines += ['', 'Efficiency (SPFH4) by insulation: poor 2.55, average 2.78, good 3.05, excellent 3.25. Prices: gas 7.97p, electricity 26.32p, heat pump tariff 18p, oil 9.0p, LPG 9.5p per kWh; gas standing charge £108.33 a year.',
+    lines += ['', 'Efficiency (SPFH4) by insulation: poor 2.55, average 2.78, good 3.05, excellent 3.25. Prices: gas %sp, electricity %sp, heat pump tariff %sp, oil %sp, LPG %sp per kWh; gas standing charge £108.33 a year.' % tuple(('%.2f' % (x * 100)).rstrip('0').rstrip('.') for x in (GAS_P, ELEC_P, HPT_P, OIL_P, LPG_P)),
               'Installed cost: median reported under the Boiler Upgrade Scheme in 2025/26 for a heat pump of that size (DESNZ, August 2026, Table A1.3A). Range: the scheme\'s Q2 2026 quartiles scaled to the median.']
     (ROOT / 'docs' / 'model-canon.md').write_text('\n'.join(lines) + '\n')
     print('\n'.join(lines))

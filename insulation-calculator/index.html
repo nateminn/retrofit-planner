@@ -347,7 +347,7 @@
        £2,700 (10 February 2026), solid wall about £12,000 internal and £15,000 external for
        a 3 bed semi (18 June 2026). Larger homes cost more; the page says so. */
     const DATA = {
-        fuelPrices: { gas: 0.0797, oil: 0.090, lpg: 0.095, electricity: 0.2632 }, // Ofgem cap Oct to Dec 2026; oil and LPG are our assumptions (see methodology)
+        fuelPrices: { gas: 0.0797, oil: 0.113, lpg: 0.095, electricity: 0.2632 }, // as RP_HEAT.prices
         saving: { loft: 0.0321, cavity: 0.1198, solid: 0.1728 },
         homes: { loft: 1486, cavity: 2191, solid: 2411 },
         cost: { loftNone: 750, loftTopUp: 600, cavity: 2700, solidInternal: 12000, solidExternal: 15000 },
@@ -446,7 +446,7 @@
                                : 'ECO4, which ends on 31 December 2026, and Warm Homes: Local Grants from councils in England fund insulation for many households on lower incomes. ')
                 + '<a href="/grants/">Check which grants you qualify for</a>.</div></div>';
         }
-        html += '<p style="font-size: 0.8rem; color: var(--color-text-tertiary); margin-top: 8px;">Savings are what homes like yours measurably saved, not the most you could save; a home heated the same way before and after can save more. ' + (fuel === 'oil' ? 'Heating oil is priced at 9.0p per kWh; kerosene cost more than this in September 2026, about 11p, so your saving may be higher.' : fuel === 'lpg' ? 'LPG is priced at 9.5p per kWh; prices vary by supplier and contract.' : 'Priced at the Ofgem cap for October to December 2026.') + fuelNote + ' <a href="/accuracy/">How accurate are these figures?</a></p>';
+        html += '<p style="font-size: 0.8rem; color: var(--color-text-tertiary); margin-top: 8px;">Savings are what homes like yours measurably saved, not the most you could save; a home heated the same way before and after can save more. ' + (fuel === 'oil' ? 'Heating oil is priced at 11.3p per kWh, the UK average on 25 September 2026; oil prices move, so your own saving may differ.' : fuel === 'lpg' ? 'LPG is priced at 9.5p per kWh; prices vary by supplier and contract.' : 'Priced at the Ofgem cap for October to December 2026.') + fuelNote + ' <a href="/accuracy/">How accurate are these figures?</a></p>';
 
         document.getElementById('resultsContent').innerHTML = html;
         document.getElementById('nextStep').innerHTML = rpPartnerBox('grants',

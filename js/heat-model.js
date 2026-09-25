@@ -103,8 +103,19 @@
         // Boiler Upgrade Scheme grant: 7,500, or 9,000 replacing oil or LPG (gov.uk, raised
         // 2026, available until March 2027).
         busGrant: 7500, busGrantOilLpg: 9000,
-        // A new condensing gas boiler, across the £1,500 to £3,500 range the site quotes.
-        boilerBase: 2500
+        // A new condensing gas boiler for a 3 bed home: DESNZ puts the average at about
+        // £3,500 including VAT (Boiler Upgrade Scheme 2026 to 2030 summary business case,
+        // footnote 8). Scaled by home size like everything else here, which is our assumption.
+        boilerBase: 3500,
+        // Energy prices every tool uses, in pounds per kWh. The single reference: gates.py
+        // (prices_check.py) fails if any page's own copy of these differs.
+        //   gas, electricity: Ofgem price cap, 1 October to 31 December 2026
+        //   oil: BoilerJuice UK average 116.20p a litre including VAT on 25 September 2026,
+        //        at 10.294 kWh a litre (DESNZ 2026 greenhouse gas conversion factors, gross)
+        //   lpg: our assumption for a typical bulk contract
+        //   hpTariff: Cosy Octopus at October 2026 rates with 60% of heating in the cheap
+        //        hours and 10% in the 4pm to 7pm peak, as costed in the tariff guide
+        prices: { gas: 0.0797, electricity: 0.2632, oil: 0.113, lpg: 0.095, hpTariff: 0.198 }
     };
 
     function clampBeds(b) {
@@ -184,13 +195,14 @@
             return [Math.round(c * MODEL.busSpread[0] / 500) * 500, Math.round(c * MODEL.busSpread[1] / 500) * 500];
         },
         /* The grant for the fuel being replaced. */
+        prices: MODEL.prices,
         busGrant: function (fuel) {
             return (fuel === 'oil' || fuel === 'lpg' || fuel === 'oil-boiler' || fuel === 'lpg-boiler')
                 ? MODEL.busGrantOilLpg : MODEL.busGrant;
         },
         boilerInstall: function (beds) {
-            var c = Math.round(MODEL.boilerBase * this.sizeFactor(beds) / 50) * 50;
-            return Math.max(1500, Math.min(c, 3500));
+            // about £2,950 for 1 bed to £4,050 for 5 bed
+            return Math.round(MODEL.boilerBase * this.sizeFactor(beds) / 50) * 50;
         }
     };
 })();

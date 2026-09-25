@@ -104,7 +104,10 @@ def bill_data():
     src = (ROOT / 'guides' / 'average-energy-bills-uk' / 'index.html').read_text()
     D = json.loads(re.search(r'var D=(\{.*?\});', src, re.S).group(1))
     return D
-RG, RE, ROIL, RLPG, SCG, HPT = 0.0797, 0.2632, 0.090, 0.095, 108.33, 0.18
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import prices as _prices
+RG, RE, ROIL, RLPG, SCG, HPT = _prices.GAS, _prices.ELEC, _prices.OIL, _prices.LPG, 108.33, _prices.HPT
+TP = ('%.1f' % (HPT * 100)).rstrip('0').rstrip('.') + 'p'   # the tariff as the pages write it, e.g. 19.8p
 INS = [('poor', 'Poorly insulated'), ('average', 'Average'), ('good', 'Well insulated'), ('excellent', 'Recently retrofitted')]
 
 
@@ -129,7 +132,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
     key, t, label, total, e = main
     ins_rows = [[iname, gbp(heating_cost(t, beds, i, 'gas') + e), gbp((heating_cost(t, beds, i, 'gas') + e) / 12)] for i, iname in INS]
     fuel_rows = []
-    for f, fname in [('gas', 'Mains gas boiler'), ('oil', 'Oil boiler'), ('lpg', 'LPG boiler'), ('electric', 'Electric heating, standard rate'), ('hp', 'Heat pump, standard rate'), ('hpt', 'Heat pump, 18p heat pump tariff')]:
+    for f, fname in [('gas', 'Mains gas boiler'), ('oil', 'Oil boiler'), ('lpg', 'LPG boiler'), ('electric', 'Electric heating, standard rate'), ('hp', 'Heat pump, standard rate'), ('hpt', 'Heat pump, %s heat pump tariff' % TP)]:
         yr = heating_cost(t, beds, 'average', f) + e
         fuel_rows.append([fname, gbp(yr), gbp(yr / 12)])
     tbl_types = table('Average energy bill by type of %d bed home' % beds, ['Home, average insulation, gas heating', 'A year', 'A month', 'Heating', 'Everything else'], rows)
@@ -189,7 +192,7 @@ def hp_house(slug, t, b, label, title_label, crumb, intro, extra_h2, extra_p, co
     for i, iname in INS:
         x = m(t, b, i)
         run.append([iname, gbp(x['gas'] * RG), gbp(x['heat'] / x['cop'] * RE), gbp(x['heat'] / x['cop'] * HPT)])
-    tbl_run = table('Running cost for a %s by insulation' % label, ['Insulation', 'Gas boiler', 'Heat pump, standard rate', 'Heat pump tariff, 18p'], run)
+    tbl_run = table('Running cost for a %s by insulation' % label, ['Insulation', 'Gas boiler', 'Heat pump, standard rate', 'Heat pump tariff, %s' % TP], run)
     comp = [[l, kw(m(tt, bb)['kw']), '%s to %s' % (gbp(m(tt, bb)['range'][0]), gbp(m(tt, bb)['range'][1])), gbp(m(tt, bb)['heat'] / m(tt, bb)['cop'] * HPT)] for tt, bb, l in compare]
     tbl_comp = table('%s compared with similar homes' % label.capitalize(), ['Home, average insulation', 'Typical size', 'Installed, middle half', 'Heat pump tariff running cost'], comp)
     lo, hi = c['range']
@@ -197,7 +200,7 @@ def hp_house(slug, t, b, label, title_label, crumb, intro, extra_h2, extra_p, co
         ('How much does a heat pump cost for a %s?' % label,
          'Typically %s to %s installed for a %s heat pump, with a median of %s, from what installers recorded under the Boiler Upgrade Scheme in 2025/26. After the £7,500 grant that is %s to %s, or %s to %s if you are replacing oil or LPG.' % (gbp(lo), gbp(hi), kw(c['kw']), gbp(c['install']), gbp(max(0, lo - 7500)), gbp(max(0, hi - 7500)), gbp(max(0, lo - 9000)), gbp(max(0, hi - 9000)))),
         ('Is a heat pump cheaper to run than gas in a %s?' % label,
-         'On an 18p heat pump tariff, yes: about %s a year against %s for gas with average insulation. On a standard electricity tariff it costs about %s, a little more than gas. Both figures are energy only; gas also carries a £108 a year standing charge you save if you cap the supply.' % (gbp(c['heat'] / c['cop'] * HPT), gbp(c['gas'] * RG), gbp(c['heat'] / c['cop'] * RE))),
+         'On a ' + TP + ' heat pump tariff, yes: about %s a year against %s for gas with average insulation. On a standard electricity tariff it costs about %s, a little more than gas. Both figures are energy only; gas also carries a £108 a year standing charge you save if you cap the supply.' % (gbp(c['heat'] / c['cop'] * HPT), gbp(c['gas'] * RG), gbp(c['heat'] / c['cop'] * RE))),
         ('What size heat pump does a %s need?' % label,
          'About %s with average insulation, and less once it is well insulated. The exact size comes from the room by room heat loss calculation an MCS installer must do. See our guide to heat pump sizes.' % kw(c['kw'])),
     ]

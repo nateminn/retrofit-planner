@@ -10,9 +10,14 @@ ranges and efficiencies, plus retired claims such as a non-existent insulation s
 Pages that deliberately quote the old figures to compare them (the accuracy page) and the
 methodology's one sentence about the old efficiency range are exempt.
 
+On 25 September 2026 the prices moved: heating oil to 11.3p, the heat pump tariff to
+19.8p and a new gas boiler to about £3,500. The canon keeps the figures from before that
+change as "prior", and this also flags any prior tariff or oil figure, or a saving worked
+out from one, that still sits near the word it belongs to.
+
 Usage: python3 docs/superpowers/tools/stale_check.py   (exit code 1 if anything is found)
 """
-import re, sys, pathlib
+import json, re, sys, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 EXEMPT = {'accuracy/index.html'}
@@ -34,10 +39,63 @@ BOILER_PHASE = re.compile(r'boilers?[^.<]{0,40}(?:being |be )?phased out', re.I)
 EFFICIENCY = re.compile(r'\b(?:COP|SCOP|efficiency|coefficient of performance)[^.<]{0,60}\b(2\.9|3\.4|2\.6 to 3\.4)\b', re.I)
 
 
+def price_tokens():
+    """Figures that only the pre 25 September 2026 prices produced, each with the words
+    that must be nearby for it to count, and none equal to any figure the model gives now."""
+    canon = json.loads((ROOT / 'docs' / 'model-canon.json').read_text())
+    now = set()
+    for c in canon.values():
+        n = c['new']
+        for v in n.values():
+            if isinstance(v, (int, float)):
+                now.add(round(v))
+        for a, b in (('gas_cost', 'hp_tariff'), ('oil_cost', 'hp_tariff'), ('lpg_cost', 'hp_tariff'),
+                     ('electric_boiler', 'hp_tariff'), ('oil_cost', 'hp_standard'), ('gas_cost', 'hp_standard'),
+                     ('hp_standard', 'hp_tariff')):
+            now.add(round(n[a] - n[b]))
+    toks = {}
+    for c in canon.values():
+        p, n = c.get('prior'), c['new']
+        if not p:
+            continue
+        cands = [(p['hp_tariff'], n['hp_tariff'], 'tariff'), (p['oil_cost'], n['oil_cost'], r'\boil\b|kerosene'),
+                 (p['gas_cost'] - p['hp_tariff'], n['gas_cost'] - n['hp_tariff'], 'tariff'),
+                 (p['oil_cost'] - p['hp_tariff'], n['oil_cost'] - n['hp_tariff'], r'\boil\b'),
+                 (p['oil_cost'] - p['hp_standard'], n['oil_cost'] - n['hp_standard'], r'\boil\b'),
+                 (p['electric_boiler'] - p['hp_tariff'], n['electric_boiler'] - n['hp_tariff'], 'tariff'),
+                 (p['lpg_cost'] - p['hp_tariff'], n['lpg_cost'] - n['hp_tariff'], 'tariff')]
+        for old, new, near in cands:
+            old = round(old)
+            if old != round(new) and old >= 100 and old not in now:
+                toks['£{:,}'.format(old)] = near
+    return toks
+
+
+PRICE_TEXT = [  # (pattern, words that must be near, or None)
+    (r'\b18p\b', r'heat pump tariff|tariff at|on an? 18p'),
+    (r'\b9\.0p\b', None),
+    (r'\b9p per kWh', r'\boil\b'),
+    (r'£1,500 to £3,500', r'boiler'),
+    (r'[Kk]erosene (cost|has been) (more|dearer)', None),
+    (r'below September 2026', None),
+]
+
+
 def visible(html):
     html = re.sub(r'<script(?![^>]*ld\+json).*?</script>', ' ', html, flags=re.S)
+    html = re.sub(r'<text class="tick"[^>]*>.*?</text>', ' ', html, flags=re.S)   # chart axis labels
     html = re.sub(r'<style.*?</style>', ' ', html, flags=re.S)
     return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html))
+
+
+PRICE_TOKENS = price_tokens()
+# The accuracy page reports what changed and when, so it may quote the old figures. The
+# pages build_new_pages.py writes take every figure from the model, so only their wording
+# is checked (PRICE_TEXT); their tables are full of monthly figures that match old ones by chance.
+PRICE_EXEMPT = {'accuracy/index.html'}
+GENERATED = {'guides/%s/index.html' % g for g in (
+    'what-size-heat-pump', 'energy-bills-1-bed-flat', 'energy-bills-2-bed-house', 'energy-bills-3-bed-house',
+    'energy-bills-4-bed-house', 'energy-bills-5-bed-house', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi')}
 
 
 def main():
@@ -57,6 +115,17 @@ def main():
                 found.append((rel, t, ctx.strip()))
         for m in BOILER_PHASE.finditer(text):
             found.append((rel, 'boilers phased out', text[max(0, m.start() - 40):m.end() + 30].strip()))
+        if rel not in PRICE_EXEMPT:
+            for tok, near in ({} if rel in GENERATED else PRICE_TOKENS).items():
+                for m in re.finditer(re.escape(tok) + r'(?![\d,])', text):
+                    win = text[max(0, m.start() - 160):m.end() + 100]
+                    if re.search(near, win, re.I):
+                        found.append((rel, tok + ' (before 25 Sep)', text[max(0, m.start() - 70):m.end() + 50].strip()))
+            for pat, near in PRICE_TEXT:
+                for m in re.finditer(pat, text):
+                    win = text[max(0, m.start() - 160):m.end() + 100]
+                    if near is None or re.search(near, win, re.I):
+                        found.append((rel, m.group(0) + ' (before 25 Sep)', text[max(0, m.start() - 70):m.end() + 50].strip()))
         for m in EFFICIENCY.finditer(text):
             ctx = text[max(0, m.start() - 30):m.end() + 40]
             if rel == 'methodology/index.html' and 'Until 24 September 2026' in text[max(0, m.start() - 200):m.end()]:
