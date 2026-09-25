@@ -149,7 +149,7 @@ HEAD = '''<!DOCTYPE html>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.retrofitplanner.co.uk/"}, {"@type": "ListItem", "position": 2, "name": "How accurate are our figures?", "item": "https://www.retrofitplanner.co.uk/accuracy/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How Accurate Are Our Figures? Tested Against Real Homes", "datePublished": "2026-09-25", "dateModified": "2026-09-25", "url": "https://www.retrofitplanner.co.uk/accuracy/", "author": {"@type": "Organization", "name": "Retrofit Planner"}, "publisher": {"@type": "Organization", "name": "Retrofit Planner"}}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QMWG6G2WL"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','G-4QMWG6G2WL');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','G-4QMWG6G2WL',{page_location:location.origin+location.pathname});</script>
 <link rel="preload" href="/fonts/fraunces-normal-2.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plus-jakarta-sans-normal-4.woff2" as="font" type="font/woff2" crossorigin>
 </head>

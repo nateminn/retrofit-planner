@@ -20,7 +20,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
     gtag('js', new Date());
-  gtag('config', 'G-4QMWG6G2WL');
+  gtag('config', 'G-4QMWG6G2WL', { page_location: location.origin + location.pathname });   // no query string: a shared result link carries calculator answers
 </script>
 <link rel="preload" href="/fonts/fraunces-normal-2.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plus-jakarta-sans-normal-4.woff2" as="font" type="font/woff2" crossorigin>
@@ -102,7 +102,7 @@
             <li>Energy prices change quarterly and we cannot predict future prices.</li>
             <li>EPC improvements depend on the specific property and assessor methodology.</li>
             <li>Grant eligibility rules change and may vary by local authority area.</li>
-            <li>All calculations run in your browser and we do not store the figures you enter. After you calculate, they are added to the page address so the result can be kept or shared; our <a href="/privacy/">privacy policy</a> explains what that means.</li>
+            <li>All calculations run in your browser, and the figures you enter are not stored or sent anywhere. Copy link puts them into a link you can keep or share; our <a href="/privacy/">privacy policy</a> explains what that means.</li>
         </ul>
         <p>Always obtain professional quotes and assessments before proceeding with any installation.</p>
 

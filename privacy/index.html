@@ -20,7 +20,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
     gtag('js', new Date());
-  gtag('config', 'G-4QMWG6G2WL');
+  gtag('config', 'G-4QMWG6G2WL', { page_location: location.origin + location.pathname });   // no query string: a shared result link carries calculator answers
 </script>
 <link rel="preload" href="/fonts/fraunces-normal-2.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plus-jakarta-sans-normal-4.woff2" as="font" type="font/woff2" crossorigin>
@@ -35,14 +35,14 @@
         <p class="lead">Last updated: 25 September 2026</p>
 
         <h2>The short version</h2>
-        <p>Retrofit Planner is a free UK home energy site. Our calculators run in your browser, and we never store the figures you type in. We use Google Analytics to see which pages are read. The site sets no cookies and shows no advertising. If you ask for quotes and tick the box to agree, we pass your details to up to three certified installers, who may pay us for the introduction. If you sign up for email updates, we use your address only to send them. We never share your details with anyone else.</p>
+        <p>Retrofit Planner is a free UK home energy site. Our calculators run in your browser, and the figures you type in are never stored or sent to us. We use Google Analytics to see which pages are read. The site sets no cookies and shows no advertising. If you ask for quotes and tick the box to agree, we pass your details to up to three certified installers, who may pay us for the introduction. If you sign up for email updates, we use your address only to send them. We never share your details with anyone else.</p>
 
         <h2>Who we are</h2>
         <p>Retrofit Planner is operated from the United Kingdom and is the data controller for any personal data collected through this site. You can reach us at <a href="mailto:hello@retrofitplanner.co.uk">hello@retrofitplanner.co.uk</a>.</p>
 
         <h2>What we collect and why</h2>
         <h3>Calculator inputs</h3>
-        <p>Everything you enter into a calculator (property type, bedrooms, heating system, bills and so on) is processed by JavaScript in your browser, and we do not store it. After you calculate, your answers are written into the page address so the result can be kept or shared. That address stays in your browser history, and if you reload the page, open the link or share it, it travels like any web address: our host Netlify records it in its access logs and Google Analytics records the page address. The answers describe a home, not a person, and we never combine them with anything that identifies you.</p>
+        <p>Everything you enter into a calculator (property type, bedrooms, heating system, bills and so on) is processed by JavaScript in your browser, and we do not store it or send it anywhere. If you press Copy link, your answers are put into that link so the result can be kept or shared; when someone opens it, our host Netlify records the address in its access logs like any other. Google Analytics is set to record only the page, never the answers in a link. The answers describe a home, not a person, and we never combine them with anything that identifies you.</p>
 
         <h3>Analytics</h3>
         <p>We use Google Analytics 4 to understand how the site is used: which pages are viewed, how visitors arrive, what device and browser they use and their approximate location. Google truncates IP addresses and we do not combine analytics data with anything that identifies you. Because no cookie or similar identifier is stored on your device, PECR's consent rule does not apply, and our lawful basis for the limited data Google does receive is our legitimate interest in understanding how the site performs. You can read how Google uses this data at <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>

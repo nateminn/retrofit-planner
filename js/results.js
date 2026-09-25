@@ -1,7 +1,8 @@
 /* Shareable and printable calculator results.
-   One script for every calculator on the site. It writes the inputs into the URL so a
-   result can be sent to someone or kept, reads them back when that link is opened, and
-   adds a copy-link and print row under the results. Configured per page with data
+   One script for every calculator on the site. It adds a copy-link and print row under
+   the results, builds a link carrying the inputs only when someone asks for one, and reads
+   the inputs back when such a link is opened. It never writes the inputs into the address
+   bar, so they stay out of browser history and page analytics unless a person shares them. Configured per page with data
    attributes on the script tag, so no page needs its own JavaScript.
 
    <script src="/js/results.js" data-fields="a,b,c" data-calc="calculate" defer></script>
@@ -108,10 +109,8 @@
 
     function afterCalc() {
       if (!box.classList.contains('visible')) return;      // validation failed, nothing to share
-      var u = currentUrl();
-      try { history.replaceState(null, '', u.replace(location.origin, '')); } catch (e) {}
       parts.head.querySelector('.ph-inputs').textContent = inputSummary();
-      parts.head.querySelector('.ph-url').textContent = u;
+      parts.head.querySelector('.ph-url').textContent = currentUrl();   // printed only
     }
 
     var original = window[CALC];
