@@ -98,7 +98,8 @@ INSULATION = ['insulation-calculator'] + ['guides/' + g for g in [
     'is-cavity-wall-insulation-worth-it', 'is-loft-insulation-worth-it', 'solid-wall-insulation-cost',
     'underfloor-insulation-cost', 'condensation-mould-guide', 'great-british-insulation-scheme', 'eco4-scheme-explained']]
 EPC = ['guides/epc-cost', 'guides/epc-rating-landlords']
-HOME = ['', 'guides', 'grants', 'epc-calculator', 'about', 'contact', 'retrofit-plan'] + ['guides/' + g for g in [
+# The home page has no quote form: Nathan asked for less clutter at its foot (25 Sep 2026).
+HOME = ['guides', 'grants', 'epc-calculator', 'about', 'contact', 'retrofit-plan'] + ['guides/' + g for g in [
     'energy-bills-3-bed-house', 'energy-bills-4-bed-house', 'energy-bills-1-bed-flat', 'energy-bills-2-bed-house', 'energy-bills-5-bed-house',
     'how-epc-points-are-calculated', 'how-to-improve-epc-rating', 'energy-bills-by-epc-rating',
     'average-energy-bills-uk', 'energy-bills-by-household-size', 'home-upgrade-grant',
