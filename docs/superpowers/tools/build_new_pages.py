@@ -278,9 +278,168 @@ def bills_5():
     return bills_page('energy-bills-5-bed-house', 5, [('det5', 'detached', '5 bed detached')], 'Energy bills, 5 bed house')
 
 
+
+# ------------------------------------------------------------------ insulation cost by house type
+# Costs: js/insulation-costs.js (Energy Saving Trust, May and June 2026). Savings: the median
+# fall in gas use measured after each measure (NEED Impact of Measures 2026, Table 1), applied
+# to the home's gas use from js/heat-model.js at the October 2026 cap, the same basis as the
+# cavity, loft and solid wall guides. Floors have no measured figure, so they carry the
+# Trust's own modelled saving, labelled as such.
+_INS_JS = """global.window={};require('./js/insulation-costs.js');console.log(JSON.stringify(window.RP_INS.costs));"""
+IC = json.loads(subprocess.run(['node', '-e', _INS_JS], capture_output=True, text=True, cwd=ROOT).stdout)
+PCT = {'loft': 0.0321, 'cavity': 0.1198, 'solid': 0.1728, 'loft+cavity': 0.0838}
+FLOOR_SAVING = {'detached': 85, 'semi': 55, 'mid-terrace': 40, 'bungalow': 100}   # Trust, GB, July 2026 prices
+EST_NAME = {'detached': 'detached house', 'semi': 'semi-detached house', 'mid-terrace': 'mid-terrace house',
+            'end-terrace': 'semi-detached house', 'bungalow': 'detached bungalow', 'flat': 'mid-floor flat'}
+
+
+def ins_saving(t, b, key):
+    return m(t, b)['gas'] * PCT[key] * RG
+
+
+def payback(cost, saving):
+    y = cost / saving
+    return 'Over 50 years' if y >= 50 else '%d years' % round(y)
+
+
+def ins_page(slug, t, beds, main_beds, label, plural, crumb, notes):
+    c = lambda k: IC[k][t]
+    main = '%d bed %s' % (main_beds, label)
+    sv = {k: ins_saving(t, main_beds, k) for k in ('loft', 'cavity', 'solid', 'loft+cavity')}
+    rows = []
+    loft_label = 'Loft insulation, bare loft to 270mm' + (' (top floor flat)' if t == 'flat' else '')
+    rows.append([loft_label, gbp(c('loftBare')), gbp(sv['loft']), payback(c('loftBare'), sv['loft'])])
+    rows.append(['Loft insulation, top-up from 120mm' + (' (top floor flat)' if t == 'flat' else ''), gbp(c('loftTopUp')), gbp(sv['loft']), payback(c('loftTopUp'), sv['loft'])])
+    rows.append(['Cavity wall insulation', gbp(c('cavity')), gbp(sv['cavity']), payback(c('cavity'), sv['cavity'])])
+    rows.append(['Solid wall insulation, internal', gbp(IC['solidInternal']), gbp(sv['solid']), payback(IC['solidInternal'], sv['solid'])])
+    rows.append(['Solid wall insulation, external', gbp(IC['solidExternal']), gbp(sv['solid']), payback(IC['solidExternal'], sv['solid'])])
+    fs = FLOOR_SAVING.get(t)
+    rows.append(['Suspended timber floor' + (' (ground floor flat)' if t == 'flat' else ''), '£1,400 to £2,500',
+                 ('About %s (Trust estimate)' % gbp(fs)) if fs else 'Not published', 'Decades' if fs else 'Not published'])
+    tbl = table('Insulation cost and saving for a %s' % main, ['Measure', 'Typical cost', 'Saving a year', 'Payback'], rows)
+    brow = [['%d bed %s' % (b, label), gbp(ins_saving(t, b, 'loft')), gbp(ins_saving(t, b, 'cavity')), gbp(ins_saving(t, b, 'solid'))] for b in beds]
+    tbl_beds = table('Measured saving a year by size of %s' % label, ['Home, heated by gas', 'Loft', 'Cavity walls', 'Solid walls'], brow)
+    k_avg, k_good = m(t, main_beds)['kw'], m(t, main_beds, 'good')['kw']
+    both = c('loftBare') + c('cavity')
+    note_costs = ('Costs: Energy Saving Trust, typical professional installation before any grant: loft and cavity figures for a %s (updated 8 May 2026), '
+                  'solid wall figures for a typical home (18 June 2026), suspended floors £1,400 to £2,500 depending on the house (19 May 2026). %s'
+                  'Savings: the median fall in gas use measured in real homes after each measure (DESNZ NEED Impact of Measures 2026, Table 1: loft 3.2%%, cavity wall 12.0%%, solid wall 17.3%%), '
+                  'applied to a %s with average insulation at the October 2026 cap price of 7.97p per kWh. Payback is cost divided by the yearly saving, at full price. '
+                  'Homes heated by oil, LPG or electricity save more in pounds.' % (EST_NAME[t], notes, main))
+    faq = [
+        ('How much does it cost to insulate a %s?' % label,
+         ('About %s for cavity wall insulation in a mid-floor flat, up to %s for internal solid wall insulation, at Energy Saving Trust prices before any grant. A top floor flat can top up its loft from about %s.'
+          % (gbp(c('cavity')), gbp(IC['solidInternal']), gbp(c('loftTopUp')))) if t == 'flat' else
+         ('From about %s to top up the loft to %s for internal solid wall insulation, at Energy Saving Trust prices before any grant. Cavity wall insulation costs about %s for a %s.'
+          % (gbp(c('loftTopUp')), gbp(IC['solidInternal']), gbp(c('cavity')), EST_NAME[t]))),
+        ('Is cavity wall insulation worth it for a %s?' % label,
+         'Homes measurably used 12.0%% less gas after it, about %s a year for a %s on gas, so at about %s it takes %s to pay back at full price. It is often free through a grant, and it also adds about 8 EPC points in our model.'
+         % (gbp(sv['cavity']), main, gbp(c('cavity')), payback(c('cavity'), sv['cavity']).lower())),
+        ('Can I get insulation for my %s free?' % label,
+         'Possibly. ECO4 funds insulation for households on qualifying benefits until 31 December 2026, in homes rated D to G if owned or E to G if privately rented, and in England a Warm Homes: Local Grant through the council can help households on lower incomes. Insulation carries 0% VAT until 31 March 2027.'),
+    ]
+    lead = (f"Insulating a flat costs about <strong>{gbp(c('cavity'))}</strong> for cavity walls, the Energy Saving Trust's figure for a mid-floor flat, up to <strong>{gbp(IC['solidInternal'])}</strong> or more for solid walls. A top floor flat can also insulate its loft from about {gbp(c('loftTopUp'))}, and homes measurably used 12.0% less gas after cavity wall insulation."
+            if t == 'flat' else
+            f"Insulating a {label} costs from about <strong>{gbp(c('loftTopUp'))}</strong> to top up the loft to <strong>{gbp(IC['solidInternal'])}</strong> or more for solid walls. Cavity wall insulation costs about <strong>{gbp(c('cavity'))}</strong>, the Energy Saving Trust's figure for a {EST_NAME[t]}, and homes like yours measurably used 12.0% less gas afterwards.")
+    body = f"""
+<p class="lead">{lead}</p>
+
+<h2 id="costs">What each measure costs</h2>
+<p class="answer"><strong>Loft first, then the walls.</strong> For a {main} on gas, cavity wall insulation saves about {gbp(sv['cavity'])} a year and pays back in {payback(c('cavity'), sv['cavity']).lower()}; solid walls save more but cost far more.</p>
+{tbl}
+<p class="note">{note_costs}</p>
+
+<h2 id="walls">Cavity or solid walls?</h2>
+<p class="answer"><strong>Check before you price anything.</strong> Homes built from the 1930s usually have cavity walls, which are far cheaper to insulate; brickwork showing the short ends of some bricks means solid walls. Your EPC records the wall type.</p>
+<p>Solid wall insulation costs about {gbp(IC['solidInternal'])} fitted inside or {gbp(IC['solidExternal'])} outside, and saves about {gbp(sv['solid'])} a year here, so at full price it only pays with a grant. Read <a href="/guides/is-cavity-wall-insulation-worth-it/">is cavity wall insulation worth it</a> and <a href="/guides/solid-wall-insulation-cost/">solid wall insulation cost</a>.</p>
+
+<h2 id="together">Loft and cavity together{' (top floor flat)' if t == 'flat' else ''}</h2>
+<p class="answer"><strong>About {gbp(both)} for both, saving about {gbp(sv['loft+cavity'])} a year.</strong> Homes that had loft and cavity wall insulation fitted together used a median 8.4% less gas, less than the two separate figures added up.</p>
+<p>In our EPC model the loft adds about 7 points and cavity walls about 8, often enough to lift a home a band. Insulating first also shrinks the heat pump a {main} needs, from {kw(k_avg)} at average insulation to {kw(k_good)} well insulated. Plan the whole job with the <a href="/retrofit-plan/">retrofit plan</a>, or check your own home in the <a href="/insulation-calculator/">insulation calculator</a>.</p>
+
+<h2 id="by-size">Savings by size of {label}</h2>
+<p class="answer"><strong>Bigger homes save more.</strong> These are the measured savings a year for homes heated by gas, with average insulation to start with.</p>
+{tbl_beds}
+<p>Compare other types of home in <a href="/guides/insulation-cost-by-house-type/">insulation cost by house type</a>.</p>
+
+<h2 id="grants">Grants that can pay for it</h2>
+<p class="answer"><strong>ECO4 until 31 December 2026, then council grants.</strong> ECO4 funds insulation for households on qualifying benefits, in homes rated D to G if owned or E to G if privately rented, and the work must be finished by then.</p>
+<p>In England a <a href="/grants/">Warm Homes: Local Grant</a> through your council can help households on lower incomes, and insulation carries 0% VAT until 31 March 2027. Landlords can check the 2030 band C rules with the <a href="/landlord-epc-calculator/">landlord EPC calculator</a>.</p>
+"""
+    return dict(slug=slug, kind='insulation',
+                title='Insulation Cost for %s UK 2026' % ('an ' + label.title() if label[0] in 'aeiou' else 'a ' + label.title()),
+                description='Loft %s to %s, cavity walls %s, solid walls £12,000 to £15,000: insulation costs and measured savings for a %s.'
+                            % (gbp(c('loftTopUp')), gbp(c('loftBare')), gbp(c('cavity')), label),
+                h1='How much does it cost to insulate a %s?' % label, crumb=crumb, faq=faq, body=body,
+                sources=['Energy Saving Trust, <a href="https://energysavingtrust.org.uk/advice/cavity-wall-insulation/" target="_blank" rel="noopener">cavity wall</a>, <a href="https://energysavingtrust.org.uk/advice/roof-and-loft-insulation/" target="_blank" rel="noopener">loft</a>, <a href="https://energysavingtrust.org.uk/advice/solid-wall-insulation/" target="_blank" rel="noopener">solid wall</a> and <a href="https://energysavingtrust.org.uk/advice/floor-insulation/" target="_blank" rel="noopener">floor insulation</a> advice, May and June 2026.',
+                         'DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026" target="_blank" rel="noopener">NEED Impact of Measures 2026</a>, 11 June 2026.',
+                         'Ofgem, <a href="https://www.ofgem.gov.uk/your-energy-supply/your-energy-bill/energy-price-cap-and-standing-charges-explained" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.'])
+
+
+INS_TYPES = [('insulation-cost-detached-house', 'detached', 4, 'Detached house'), ('insulation-cost-semi-detached-house', 'semi', 3, 'Semi-detached house'),
+             ('insulation-cost-terraced-house', 'mid-terrace', 3, 'Terraced house'), ('insulation-cost-bungalow', 'bungalow', 3, 'Bungalow'),
+             ('insulation-cost-flat', 'flat', 2, 'Flat')]
+
+
+def ins_hub():
+    rows = []
+    for slug, t, b, name in INS_TYPES:
+        sv = ins_saving(t, b, 'cavity')
+        rows.append(['<a href="/guides/%s/">%s</a>' % (slug, name), gbp(IC['loftTopUp'][t]) + ' to ' + gbp(IC['loftBare'][t]), gbp(IC['cavity'][t]), gbp(sv), payback(IC['cavity'][t], sv)])
+    tbl = table('Insulation cost by house type', ['Home', 'Loft', 'Cavity walls', 'Cavity saving a year', 'Cavity payback'], rows)
+    faq = [('How much does insulation cost for my type of house?',
+            'Cavity wall insulation costs about £950 for a flat, £1,100 for a mid-terrace, £1,700 for a detached bungalow, £2,200 for a semi and £3,900 for a detached house, at Energy Saving Trust prices. Loft insulation costs £500 to £1,200 and solid walls about £12,000 inside or £15,000 outside.'),
+           ('Which insulation pays back fastest?',
+            'Cavity wall insulation in a smaller home: about 12 years in a 3 bed mid-terrace and 14 in a 2 bed flat, on the gas savings homes measurably made. Solid wall insulation takes over 50 years at full price, so it pays best with a grant.')]
+    body = f"""
+<p class="lead">What loft, cavity wall, solid wall and floor insulation cost for each type of home, at Energy Saving Trust prices, and what homes like yours measurably saved on gas. Cavity wall insulation runs from <strong>£950</strong> for a flat to <strong>£3,900</strong> for a detached house.</p>
+
+<h2 id="compare">Insulation cost by house type</h2>
+<p class="answer"><strong>Cavity walls pay back fastest in smaller homes.</strong> A mid-terrace pays about £1,100 and saves about £94 a year; a detached house pays £3,900 and saves about £139.</p>
+{tbl}
+<p class="note">Costs: Energy Saving Trust, typical professional installation before any grant, updated 8 May 2026; the loft range runs from a top-up from 120mm to a bare loft, and a flat's loft figure is borrowed from the mid-terrace. Savings: the median 12.0% fall in gas use measured after cavity wall insulation (DESNZ NEED Impact of Measures 2026), for a 4 bed detached house, 3 bed semi, 3 bed mid-terrace, 3 bed bungalow and 2 bed flat on gas at the October 2026 cap. Solid wall insulation costs about £12,000 inside or £15,000 outside for any home, and a suspended timber floor £1,400 to £2,500.</p>
+
+<h2 id="choose">Your type of home</h2>
+<p class="answer"><strong>Pick your home for every measure, with savings by size and the grants.</strong></p>
+<ul>{''.join('<li><a href="/guides/%s/">Insulation cost for %s</a></li>' % (slug, ('an ' if n[0] in 'AEIOU' else 'a ') + n.lower()) for slug, t, b, n in INS_TYPES)}</ul>
+<p>Or work it out for your own home, with the insulation you have now, in the <a href="/insulation-calculator/">insulation calculator</a>.</p>
+"""
+    return dict(slug='insulation-cost-by-house-type', kind='insulation',
+                title='Insulation Cost by House Type UK 2026: Loft, Walls, Floor',
+                description='Cavity wall insulation from £950 for a flat to £3,900 for a detached house, loft and solid walls too, with measured savings and payback.',
+                h1='Insulation cost by house type', crumb='Insulation cost by house type', faq=faq, body=body,
+                sources=['Energy Saving Trust, <a href="https://energysavingtrust.org.uk/advice/cavity-wall-insulation/" target="_blank" rel="noopener">cavity wall</a> and <a href="https://energysavingtrust.org.uk/advice/roof-and-loft-insulation/" target="_blank" rel="noopener">loft insulation</a> advice, updated 8 May 2026.',
+                         'DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-impact-of-measures-data-tables-2026" target="_blank" rel="noopener">NEED Impact of Measures 2026</a>.'])
+
+
+def ins_semi():
+    return ins_page('insulation-cost-semi-detached-house', 'semi', [2, 3, 4], 3, 'semi-detached house', 'semis', 'Insulation cost, semi-detached house', '')
+
+
+def ins_detached():
+    return ins_page('insulation-cost-detached-house', 'detached', [3, 4, 5], 4, 'detached house', 'detached houses', 'Insulation cost, detached house', '')
+
+
+def ins_terrace():
+    return ins_page('insulation-cost-terraced-house', 'mid-terrace', [2, 3], 3, 'terraced house', 'terraces', 'Insulation cost, terraced house',
+                    'An end-terrace, which the Trust does not price, is closer to a semi-detached house: see our semi page. ')
+
+
+def ins_bungalow():
+    return ins_page('insulation-cost-bungalow', 'bungalow', [2, 3], 3, 'bungalow', 'bungalows', 'Insulation cost, bungalow', '')
+
+
+def ins_flat():
+    return ins_page('insulation-cost-flat', 'flat', [1, 2], 2, 'flat', 'flats', 'Insulation cost, flat',
+                    'The Trust prices no loft for a flat, so a top floor flat takes its mid-terrace loft figures. ')
+
+
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
          'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
-         'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s}
+         'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
+         'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
+         'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
+         'insulation-cost-by-house-type': ins_hub}
 
 
 def render(p):
@@ -303,7 +462,8 @@ def render(p):
           {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
               {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in p['faq']]}]
     head = head.replace('</style>', '</style>\n' + ''.join('<script type="application/ld+json">%s</script>\n' % json.dumps(x, ensure_ascii=False) for x in ld), 1)
-    faq_html = '\n'.join('<h3>%s</h3>\n<p>%s</p>' % (q, a) for q, a in p['faq'])
+    # questions open one at a time, as on the answer-first pages
+    faq_html = '\n'.join('<details class="faq-item" data-af><summary><h3>%s</h3></summary><p>%s</p></details>' % (q, a) for q, a in p['faq'])
     src_html = ''.join('<li>%s</li>' % s for s in p['sources'])
     nav = re.search(r'<nav class="nav">.*?</nav>', tpl, re.S).group(0).replace('<a href="/guides/">Guides</a>', '<a href="/guides/" class="active" aria-current="page">Guides</a>')
     page = head + '''</head>

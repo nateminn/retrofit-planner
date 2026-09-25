@@ -1077,7 +1077,7 @@ main .tldr h2{font-family:var(--font-display);font-size:1.05rem;font-weight:600;
 .cmp-table th,.cmp-table td,.cmp-table tbody th[scope="row"]{background:transparent}
 
 /* ===== ANSWER FIRST (answer_first.py): short answer, detail on request ===== */
-.content-section p.answer{font-size:1.05rem;line-height:1.6;margin:8px 0 14px;color:var(--color-text)}
+.content-section p.answer,.guide-content p.answer{font-size:1.05rem;line-height:1.6;margin:8px 0 14px;color:var(--color-text)}
 details.more{margin:10px 0 28px;border-top:1px solid var(--color-border)}
 details.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;padding:10px 0;font-weight:600;font-size:.92rem;color:var(--color-accent)}
 details.more>summary::-webkit-details-marker{display:none}

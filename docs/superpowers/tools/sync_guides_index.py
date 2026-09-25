@@ -24,6 +24,12 @@ NEW = {
     'energy-bills-3-bed-house': ('bills', 'Average Energy Bill for a 3 Bed House', 'average-energy-bills-uk', '<span class="gi-badge new">New</span>'),
     'energy-bills-4-bed-house': ('bills', 'Average Energy Bill for a 4 Bed House', 'average-energy-bills-uk', '<span class="gi-badge new">New</span>'),
     'energy-bills-5-bed-house': ('bills', 'Average Energy Bill for a 5 Bed House', 'average-energy-bills-uk', '<span class="gi-badge new">New</span>'),
+    'insulation-cost-by-house-type': ('insulation', 'Insulation Cost by House Type', 'insulation-calculator', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge landlord">For landlords</span><span class="gi-badge new">New</span>'),
+    'insulation-cost-semi-detached-house': ('insulation', 'Insulation Cost for a Semi-Detached House', 'is-cavity-wall-insulation-worth-it', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'insulation-cost-detached-house': ('insulation', 'Insulation Cost for a Detached House', 'solid-wall-insulation-cost', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'insulation-cost-terraced-house': ('insulation', 'Insulation Cost for a Terraced House', 'is-loft-insulation-worth-it', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge landlord">For landlords</span><span class="gi-badge new">New</span>'),
+    'insulation-cost-bungalow': ('insulation', 'Insulation Cost for a Bungalow', 'underfloor-insulation-cost', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'insulation-cost-flat': ('insulation', 'Insulation Cost for a Flat', 'how-long-loft-insulation-lasts', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
 }
 ARROW = '<div class="gi-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>'
 

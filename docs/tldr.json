@@ -1818,5 +1818,215 @@
     "Frequently asked questions"
    ]
   ]
+ },
+ "guides/insulation-cost-semi-detached-house": {
+  "points": [
+   "**£600 to £750** for loft insulation and **£2,200** for cavity walls in a semi, at Energy Saving Trust prices",
+   "**About £105 a year** saved by cavity wall insulation in a 3 bed semi on gas, a 21 year payback at full price",
+   "**£12,000 to £15,000** for solid walls, which pays best with a grant such as ECO4"
+  ],
+  "jumps": [
+   [
+    "Costs",
+    "What each measure costs"
+   ],
+   [
+    "Walls",
+    "Cavity or solid walls?"
+   ],
+   [
+    "Loft and cavity",
+    "#together"
+   ],
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Grants",
+    "Grants that can pay for it"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/insulation-cost-detached-house": {
+  "points": [
+   "**£800 to £1,100** for loft insulation and **£3,900** for cavity walls in a detached house",
+   "**About £139 a year** saved by cavity wall insulation in a 4 bed detached house on gas, a 28 year payback at full price",
+   "**£12,000 to £15,000** for solid walls, which pays best with a grant such as ECO4"
+  ],
+  "jumps": [
+   [
+    "Costs",
+    "What each measure costs"
+   ],
+   [
+    "Walls",
+    "Cavity or solid walls?"
+   ],
+   [
+    "Loft and cavity",
+    "#together"
+   ],
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Grants",
+    "Grants that can pay for it"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/insulation-cost-terraced-house": {
+  "points": [
+   "**£500 to £650** for loft insulation and **£1,100** for cavity walls in a mid-terrace",
+   "**About £94 a year** saved by cavity wall insulation in a 3 bed terrace on gas, a 12 year payback at full price",
+   "**£12,000 to £15,000** for solid walls, common in older terraces, which pays best with a grant"
+  ],
+  "jumps": [
+   [
+    "Costs",
+    "What each measure costs"
+   ],
+   [
+    "Walls",
+    "Cavity or solid walls?"
+   ],
+   [
+    "Loft and cavity",
+    "#together"
+   ],
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Grants",
+    "Grants that can pay for it"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/insulation-cost-bungalow": {
+  "points": [
+   "**£800 to £1,200** for loft insulation and **£1,700** for cavity walls in a bungalow",
+   "**About £110 a year** saved by cavity wall insulation in a 3 bed bungalow on gas, a 15 year payback at full price",
+   "**About £100 a year** saved by insulating a suspended timber floor, the Trust estimates"
+  ],
+  "jumps": [
+   [
+    "Costs",
+    "What each measure costs"
+   ],
+   [
+    "Walls",
+    "Cavity or solid walls?"
+   ],
+   [
+    "Loft and cavity",
+    "#together"
+   ],
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Grants",
+    "Grants that can pay for it"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/insulation-cost-flat": {
+  "points": [
+   "**£950** for cavity wall insulation in a mid-floor flat, at Energy Saving Trust prices",
+   "**About £68 a year** saved by it in a 2 bed flat on gas, a 14 year payback at full price",
+   "**£500 to £650** for loft insulation in a top floor flat"
+  ],
+  "jumps": [
+   [
+    "Costs",
+    "What each measure costs"
+   ],
+   [
+    "Walls",
+    "Cavity or solid walls?"
+   ],
+   [
+    "Loft and cavity",
+    "#together"
+   ],
+   [
+    "By size",
+    "#by-size"
+   ],
+   [
+    "Grants",
+    "Grants that can pay for it"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/insulation-cost-by-house-type": {
+  "points": [
+   "**£950 to £3,900** for cavity wall insulation, from a flat to a detached house",
+   "**£500 to £1,200** for loft insulation, and about **£12,000 to £15,000** for solid walls in any home",
+   "**About 12 years** to pay back cavity walls in a mid-terrace, against 28 in a 4 bed detached house"
+  ],
+  "jumps": [
+   [
+    "Compare",
+    "Insulation cost by house type"
+   ],
+   [
+    "Your home",
+    "Your type of home"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
  }
 }

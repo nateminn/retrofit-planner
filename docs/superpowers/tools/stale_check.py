@@ -99,7 +99,9 @@ PRICE_TOKENS = price_tokens()
 PRICE_EXEMPT = {'accuracy/index.html'}
 GENERATED = {'guides/%s/index.html' % g for g in (
     'what-size-heat-pump', 'energy-bills-1-bed-flat', 'energy-bills-2-bed-house', 'energy-bills-3-bed-house',
-    'energy-bills-4-bed-house', 'energy-bills-5-bed-house', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi')}
+    'energy-bills-4-bed-house', 'energy-bills-5-bed-house', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi',
+    'insulation-cost-by-house-type', 'insulation-cost-semi-detached-house', 'insulation-cost-detached-house',
+    'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat')}
 
 
 def main():

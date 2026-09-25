@@ -94,7 +94,9 @@ HEAT_PUMP = ['heat-pump-calculator', 'boiler-vs-heat-pump', 'heat-pump-running-c
     'what-size-heat-pump', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi',
     'boiler-upgrade-scheme-guide']]
 SOLAR = ['solar-calculator']
-INSULATION = ['insulation-calculator'] + ['guides/' + g for g in ['is-cavity-wall-insulation-worth-it', 'solid-wall-insulation-cost']]
+INSULATION = ['insulation-calculator'] + ['guides/' + g for g in ['is-cavity-wall-insulation-worth-it', 'solid-wall-insulation-cost',
+    'insulation-cost-by-house-type', 'insulation-cost-semi-detached-house', 'insulation-cost-detached-house',
+    'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat']]
 EPC = ['guides/epc-cost']
 # The home page has no quote form either: Nathan asked for less clutter at its foot.
 HOME = ['epc-calculator', 'retrofit-plan', 'landlord-epc-calculator']
