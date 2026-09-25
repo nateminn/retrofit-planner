@@ -1247,5 +1247,454 @@
    }
   ],
   "faq": true
+ },
+ "guides/heat-pump-noise": {
+  "sections": [
+   {
+    "h2": "What the 37 dB(A) limit means in practice",
+    "answer": "**It sets how far the unit must be from a neighbour's window.** A 60 dB(A) unit on the ground against one wall needs 8.0 m, or 2.5 m if a solid wall hides the window."
+   },
+   {
+    "h2": "Planning rules on noise",
+    "answer": "**The MCS 020(a) calculation must give 37.0 dB(A) or less 1 metre outside a neighbour's habitable room window or door.** If it fails, the unit is not permitted development and needs planning permission."
+   },
+   {
+    "h2": "What affects noise levels",
+    "answer": "**The model, how hard it works, where it sits and vibration.** Hard surfaces and corners raise the level, and more than three reflecting surfaces fails the calculation outright."
+   },
+   {
+    "h2": "How to reduce heat pump noise",
+    "answer": "**Choose a quieter unit, add distance, fit anti-vibration mounts and use a solid barrier.** Each doubling of distance cuts about 6 dB, and a qualifying wall or fence counts as 10 dB."
+   },
+   {
+    "h2": "Neighbour concerns",
+    "answer": "**Talk to neighbours early and show them the MCS 020(a) result for their window.** Even a compliant unit can be investigated by the council as a statutory nuisance."
+   },
+   {
+    "h2": "Indoor noise",
+    "answer": "**Most sound comes from the outdoor unit.** Indoors you may hear a circulating pump, or a hum if the unit is fixed without anti-vibration mounts."
+   },
+   {
+    "h2": "Noise and heat pump efficiency",
+    "answer": "**A heat pump is loudest in cold weather, when it is also least efficient.** In the Electrification of Heat trial the median unit fell from 3.37 at 10°C to 2.37 at minus 3°C, so insulate first."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**MCS standards, planning law and trial data.** MCS 020(a), MCS noise guidance, legislation.gov.uk, GOV.UK and the Electrification of Heat trial, all checked on 25 September 2026."
+   }
+  ],
+  "faq": true
+ },
+ "guides/solar-battery-storage-uk": {
+  "sections": [
+   {
+    "h2": "Cost and savings by battery size",
+    "answer": "**A 5 kWh battery costs around £4,600 and adds about £180 a year on a 4 kW system.** Bigger batteries add little more: 10 kWh gives £218, as there is rarely enough surplus to fill them."
+   },
+   {
+    "h2": "How batteries save money",
+    "answer": "**Only by the gap between buying and exporting.** Each stored kWh saves 26.32p minus your export rate, about 14p on a 12p tariff, so a 5 kWh battery is worth about £180 a year."
+   },
+   {
+    "h2": "Payback: solar only vs solar plus battery",
+    "answer": "**A battery roughly doubles payback on a flat rate tariff.** A 4 kW system alone pays back in 10.7 years, and in 20.6 years with a 5 kWh battery, counting one £4,600 replacement."
+   },
+   {
+    "h2": "When a battery is worth it",
+    "answer": "**When you are out by day, or have a heat pump, electric car or time of use tariff.** Out on weekdays, a battery adds about £185 a year on a 4 kW system, against £169 when home all day."
+   },
+   {
+    "h2": "When a battery is not worth it",
+    "answer": "**On a flat rate tariff you will not leave, or a tight budget.** A £4,600 battery earning about £180 a year takes about 26 years to pay back, more than twice its expected life."
+   },
+   {
+    "h2": "Battery lifespan and degradation",
+    "answer": "**About 10 to 12 years, so it needs replacing before the panels.** Panels last 25 years or more, and our payback figures price the replacement at today's £4,600."
+   },
+   {
+    "h2": "Combining batteries with heat pumps",
+    "answer": "**They pair well, especially with a time of use tariff.** A heat pump in a 3 bed semi costs about £937 a year on a standard tariff or £705 on a heat pump tariff."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**The Energy Saving Trust, MCS, Ofgem and PVGIS.** Export rates come from Octopus Energy and E.ON Next, checked 25 September 2026, and VAT from HMRC."
+   }
+  ],
+  "faq": true
+ },
+ "guides/solar-panel-payback-uk": {
+  "sections": [
+   {
+    "h2": "Payback summary",
+    "answer": "**About 10.7 years for 4 kW in southern England.** A £6,000 south facing system earns £559 a year; east or west roofs take 13.2 years and a battery stretches it to 20.6 years."
+   },
+   {
+    "h2": "Payback by region",
+    "answer": "**From 10.7 years in southern England to 12.3 years in Scotland, for 4 kW south facing.** Generation varies by roughly 15%, a gap of about 1.6 years, so solar works across Great Britain."
+   },
+   {
+    "h2": "Payback by roof direction",
+    "answer": "**South is best, and east or west adds about 2.5 years.** South-east and south-west add under a year (11.3 and 11.4 years), while north facing roofs push payback to about 17 to 18 years."
+   },
+   {
+    "h2": "With and without a battery",
+    "answer": "**A battery makes payback longer, not shorter.** A £4,600 battery adds about £180 a year, so a 4 kW system goes from 10.7 years to 20.6 years once the replacement battery is counted."
+   },
+   {
+    "h2": "Payback by system size",
+    "answer": "**For a medium user, 4 kW pays back fastest, at 10.7 years.** Payback stays close to 11 years from 3 kW to 5 kW and is 11.6 years at 6 kW; heat pump or EV homes can justify more."
+   },
+   {
+    "h2": "25-year profit projection",
+    "answer": "**About £7,200 net profit over 25 years without a battery, or about £2,200 with one.** That is for 4 kW south facing in southern England, before replacing the inverter after around 12 years."
+   },
+   {
+    "h2": "What speeds up payback",
+    "answer": "**A better export tariff, more daytime use, a south roof and 0% VAT.** On a 17.5p export rate a 4 kW system pays back in 8.2 years, against 10.7 years at 12p."
+   },
+   {
+    "h2": "What slows down payback",
+    "answer": "**Low self-use, a north facing or shaded roof and lower electricity prices.** Exported power earns 12p instead of saving 26.32p, and each 1p fall in the unit rate takes about £7 a year off."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**PVGIS, MCS, Ofgem and the Energy Saving Trust.** Export rates come from Octopus Energy and E.ON Next, checked 25 September 2026, and installed costs from DESNZ solar PV cost data."
+   }
+  ],
+  "faq": true
+ },
+ "guides/how-long-loft-insulation-lasts": {
+  "sections": [
+   {
+    "h2": "Lifespan by insulation type",
+    "answer": "**Around 40 years for mineral wool kept dry and uncompressed.** That is the Energy Saving Trust's figure; loose fill can settle, and spray foam does not settle but is hard to inspect or remove."
+   },
+   {
+    "h2": "Signs your loft insulation needs attention",
+    "answer": "**Look for depth below 270mm, compression, damp, pests and cold upstairs rooms.** Topping up is worth doing but modest: a median 3.2% less gas, about £30 a year for a 3 bed detached house."
+   },
+   {
+    "h2": "Topping up vs replacing loft insulation",
+    "answer": "**Top up if the old layer is dry, clean and under 270mm; replace it if wet, mouldy or pest-infested.** A professional top-up from 120mm costs about £600, or £750 from nothing."
+   },
+   {
+    "h2": "How much loft insulation saves by property type",
+    "answer": "**About £30 a year for a 3 bed detached house on gas, and £37 for a 4 bed detached.** That is a measured median 3.2% fall in gas use; homes on oil, LPG or electricity save more."
+   },
+   {
+    "h2": "Does old insulation contain asbestos?",
+    "answer": "**Glass wool, rock wool and cellulose do not, but some old vermiculite may.** You cannot tell by looking, so have old loose granules tested by an accredited laboratory before disturbing them."
+   },
+   {
+    "h2": "Spray foam insulation: a word of caution",
+    "answer": "**For energy savings alone, mineral wool is the safer, cheaper choice.** Spray foam can let roof timbers rot if the roof leaks or condensation forms, and some lenders and surveyors have been wary of it."
+   },
+   {
+    "h2": "Making your existing insulation last longer",
+    "answer": "**Keep the loft dry, ventilated and uncompressed.** Fix roof and plumbing leaks quickly, keep eaves vents clear, raise any boarding above the full 270mm and check the loft every autumn."
+   },
+   {
+    "h2": "When to upgrade your loft insulation",
+    "answer": "**Before fitting a heat pump or selling, or if your bills are higher than expected.** Better insulation means a smaller, cheaper heat pump, and loft insulation directly improves your EPC rating."
+   },
+   {
+    "keep": false,
+    "summary": "Show every source",
+    "h2": "Data sources",
+    "answer": "**Lifespan, depth and cost advice come from the Energy Saving Trust.** Measured savings come from the DESNZ NEED Impact of Measures, and energy prices from the Ofgem price cap."
+   }
+  ],
+  "faq": true
+ },
+ "guides/is-loft-insulation-worth-it": {
+  "sections": [
+   {
+    "h2": "Cost vs savings: the full breakdown",
+    "answer": "**A £600 top-up pays back in about 21 years for a 3 bed semi on gas.** That home saves a measured £28 a year; a £750 bare loft takes 27 years, though it usually saves more."
+   },
+   {
+    "h2": "What if you already have some insulation?",
+    "answer": "**Below 270mm, topping up is usually worth doing.** A cross layer on 100mm to 150mm costs about £600, or £750 from nothing; at 270mm or more there is little left to gain."
+   },
+   {
+    "h2": "Long-term value: the 40-year picture",
+    "answer": "**Over 40 years a 3 bed semi saves about £1,100 at today's prices.** That rises to about £2,100 if energy prices rise by 3% a year, two to three and a half times a £600 top-up."
+   },
+   {
+    "h2": "When loft insulation is not worth it",
+    "answer": "**When you already have 270mm or more, the loft is converted, or there is damp or asbestos.** Fix damp first, get suspected asbestos tested, and expect costlier rafter insulation in a converted loft."
+   },
+   {
+    "h2": "Free loft insulation: who qualifies?",
+    "answer": "**ECO4 funds it free if you receive a qualifying benefit, until 31 December 2026.** An owned home must be rated D to G and a rented one E to G; councils may refer low income households through ECO4 Flex."
+   },
+   {
+    "h2": "Loft insulation and your EPC rating",
+    "answer": "**It raises your EPC score and can lift a borderline home a band.** Where the loft is under-insulated it is one of the cheapest ways to gain points, which matters most for landlords and sellers."
+   },
+   {
+    "h2": "Loft insulation before a heat pump",
+    "answer": "**Insulate first: it is the cheapest step towards a smaller heat pump.** In our model a 3 bed semi needs about 10 kW with poor insulation and 7.5 kW with good, about £13,300 against £12,300 before the grant."
+   },
+   {
+    "h2": "How to get started",
+    "answer": "**Three routes: DIY, a professional install or a free grant.** An installer charges about £600 for a top-up or £750 for a bare loft; ECO4, which closes on 31 December 2026, pays if you qualify."
+   },
+   {
+    "keep": false,
+    "summary": "Show every source",
+    "h2": "Data sources",
+    "answer": "**Measured savings come from the DESNZ NEED Impact of Measures, and costs and lifespan from the Energy Saving Trust.** Energy prices come from the Ofgem price cap, and heat pump sizes from our heat model."
+   }
+  ],
+  "faq": true
+ },
+ "guides/how-to-improve-epc-rating": {
+  "sections": [
+   {
+    "h2": "Every EPC improvement ranked by cost-effectiveness",
+    "answer": "**LED lighting and smart heating controls give the most points per pound, at about £70 and £90 a point.** Loft insulation follows at about £110; double glazing and solid wall insulation cost the most per point."
+   },
+   {
+    "h2": "EPC requirements for landlords in 2026",
+    "answer": "**Band E now, and a band C equivalent standard from 1 October 2030.** The maximum fine rises from £5,000 to £30,000 per property per breach, and landlords will have to spend up to £10,000 per property."
+   },
+   {
+    "h2": "How to go from Band D to Band C",
+    "answer": "**You need 1 to 14 points, depending on where in Band D you sit.** Near the top, LED lighting or smart controls may do it; loft insulation, LEDs and controls add about 12 to 13 points for about £1,200."
+   },
+   {
+    "h2": "How to go from Band E to Band C",
+    "answer": "**You need 15 to 30 points.** Loft and cavity wall insulation plus LED lighting and heating controls add about 20 or 21 points for about £3,900, and ECO4 may fund the insulation until 31 December 2026."
+   },
+   {
+    "h2": "Free improvements you might qualify for",
+    "answer": "**ECO4, council Warm Homes: Local Grants, the Boiler Upgrade Scheme and 0% VAT.** ECO4 needs a means-tested benefit and a Band D to G home and ends on 31 December 2026; BUS gives £7,500 towards a heat pump."
+   },
+   {
+    "h2": "Improvements to avoid (poor value for EPC points)",
+    "answer": "**Double glazing or solar panels bought purely for points, and replacing a working boiler.** Double glazing costs about £4,800 for about 6 points, so spend the money on insulation instead."
+   },
+   {
+    "h2": "Getting a new EPC assessment",
+    "answer": "**Book a new EPC after the work: it costs £55 to £150 and takes under an hour.** A typical two or three bedroom house costs £65 to £95, and the certificate is valid for 10 years."
+   },
+   {
+    "keep": false,
+    "summary": "Show every source",
+    "h2": "Data sources",
+    "answer": "**EPC points come from our calculator's simple points model, not SAP.** Costs come from the Energy Saving Trust and DESNZ, landlord rules from the January 2026 government response, and grants from GOV.UK."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-vs-new-boiler": {
+  "sections": [
+   {
+    "h2": "The 15-year comparison at a glance",
+    "answer": "**The tariff decides it.** On a heat pump tariff the heat pump wins for a 3-bed semi by about £880 over 15 years; on a standard tariff the boiler is cheaper."
+   },
+   {
+    "h2": "What it costs to replace a gas boiler with a heat pump",
+    "answer": "**£11,000 to £15,500 installed for a 3-bed semi, or £3,500 to £8,000 after the £7,500 grant.** A new gas boiler is about £3,500, so the typical gap after the grant is about £1,700."
+   },
+   {
+    "h2": "Running cost comparison",
+    "answer": "**On a heat pump tariff a 3-bed semi saves £172 a year against gas.** On a standard tariff the heat pump costs more to run: £937 against £877 for the gas boiler."
+   },
+   {
+    "h2": "Maintenance and reliability",
+    "answer": "**Both need servicing, and our calculator allows £100 a year for either.** Lifespan and repair costs vary too much to put numbers on, so ask each installer about the warranty and servicing schedule."
+   },
+   {
+    "h2": "When the boiler wins",
+    "answer": "**If you will not switch to a heat pump tariff, need major preparation or will sell within a few years.** On the standard rate a heat pump costs about 7% more to run than gas."
+   },
+   {
+    "h2": "When the heat pump wins",
+    "answer": "**On a heat pump tariff, off the gas grid, or when your boiler has failed.** Running costs on a heat pump tariff are about 20% lower than gas, and the extra upfront cost pays back in about 10 years."
+   },
+   {
+    "h2": "The hybrid option",
+    "answer": "**A smaller heat pump paired with a gas boiler, but with no grant.** Hybrid heat pumps ran at a median 2.50, below the 2.78 of standalone air source heat pumps, and you service two systems."
+   },
+   {
+    "h2": "What to do if your boiler is still working",
+    "answer": "**Insulate now and fit the heat pump when the boiler needs replacing.** Measured gas savings were 3.2% for loft and 12.0% for cavity wall insulation, and a home needing less heat can use a smaller heat pump."
+   },
+   {
+    "keep": false,
+    "summary": "Show every source",
+    "h2": "Data sources",
+    "answer": "**Heat pump costs come from DESNZ Boiler Upgrade Scheme statistics, and efficiency from the Electrification of Heat trial.** Energy prices come from the Ofgem price cap, the boiler cost from DESNZ and oil prices from BoilerJuice."
+   }
+  ],
+  "faq": true
+ },
+ "guides/is-cavity-wall-insulation-worth-it": {
+  "sections": [
+   {
+    "h2": "Costs and savings by property type",
+    "answer": "**About £105 a year for a 3 bed semi on gas, a 26 year payback at £2,700.** Measured savings run from £139 for a 4 bed detached house to £68 for a 2 bed flat."
+   },
+   {
+    "h2": "How cavity wall insulation works",
+    "answer": "**Installers drill small holes in the outer wall, blow insulation into the cavity and fill the holes.** The cavity must be at least 50mm wide and clear of rubble, and a typical job takes about two hours."
+   },
+   {
+    "h2": "Do you have cavity walls?",
+    "answer": "**Probably, if every outside brick shows its long face and the house was built after the 1920s.** A brick wall 260mm to 350mm thick is likely to be cavity, and your EPC records the wall type."
+   },
+   {
+    "h2": "The damp question",
+    "answer": "**For most UK homes it does not cause damp, but on exposed sites facing driving rain the risk is real.** Narrow or rubble filled cavities, damaged brickwork and existing damp also raise it, so insist on a survey first."
+   },
+   {
+    "h2": "What if cavity wall insulation goes wrong?",
+    "answer": "**Call the installer first, and if they will not help, check your paperwork for a CIGA certificate.** Work should carry a 25 year CIGA or insurance backed guarantee, and fixes range from repointing to extracting the fill."
+   },
+   {
+    "h2": "Free cavity wall insulation through ECO4",
+    "answer": "**ECO4 funds it free for many households on qualifying benefits, in D to G homes if owned or E to G if privately rented.** ECO4 closes on 31 December 2026 and the work must be finished by then."
+   },
+   {
+    "h2": "Cavity wall insulation and your EPC",
+    "answer": "**Filling empty cavity walls is one of the bigger single gains on an EPC.** For landlords it can help a property reach the minimum rating needed to let it."
+   },
+   {
+    "h2": "Cavity wall insulation before a heat pump",
+    "answer": "**Insulate first: a well insulated 3 bed semi needs about a 7.5 kW heat pump against 9 kW at average insulation.** At median prices that is about £12,300 against £12,700 installed, before the grant."
+   },
+   {
+    "h2": "Next steps after cavity wall insulation",
+    "answer": "**Next come loft insulation if not already done, draught-proofing and heating improvements.** A thermal image taken on a cold day can show whether the fill is complete and even."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Measured savings come from DESNZ NEED Impact of Measures, 11 June 2026.** Costs and guidance come from the Energy Saving Trust, prices from the Ofgem price cap, VAT from HMRC and guarantees from CIGA."
+   }
+  ],
+  "faq": true
+ },
+ "guides/planning-permission-heat-pump": {
+  "sections": [
+   {
+    "h2": "Permitted development conditions",
+    "answer": "**In England you need no planning permission if the unit passes the 37 dB(A) noise test and the size, number and position rules.** Listed buildings are excluded, and there is no boundary distance rule since 29 May 2025."
+   },
+   {
+    "h2": "The noise condition",
+    "answer": "**The heat pump must come out at 37.0 dB(A) or less, 1 metre outside a neighbour's habitable room window or door, on the MCS 020(a) calculation.** If it fails, you can still apply for planning permission."
+   },
+   {
+    "h2": "Listed buildings",
+    "answer": "**In England you need planning permission, plus listed building consent for works that affect the building's character.** Working without consent is a criminal offence, so ask your council's conservation officer early."
+   },
+   {
+    "h2": "Conservation areas",
+    "answer": "**Permitted development still applies, but the unit cannot go on a wall or roof fronting a highway, or nearer the road than the house.** In practice that means a rear or side garden, or the side of the house."
+   },
+   {
+    "h2": "Flats and shared properties",
+    "answer": "**England allows only one air source heat pump per block of flats under permitted development, with an outdoor unit of up to 0.6 cubic metres.** You also need the freeholder's or management company's permission."
+   },
+   {
+    "h2": "Scotland, Wales, and Northern Ireland",
+    "answer": "**All three allow a heat pump without planning permission, within limits.** Wales has broadly matched England since 1 June 2026, Scotland allows one unit per home, and Northern Ireland one, at least 1 metre from a neighbour's boundary."
+   },
+   {
+    "h2": "What your installer should do",
+    "answer": "**Your MCS installer should check listed, conservation area and Article 4 status and run the MCS 020(a) sound calculation before quoting.** If your installer does not mention planning at all, ask specifically."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**The rules come from each nation's permitted development order, all checked on 25 September 2026.** The noise test is from MCS 020(a) Issue 1.1, and listed building consent from the 1990 Act and Historic England."
+   }
+  ],
+  "faq": true
+ },
+ "guides/are-solar-panels-worth-it-uk": {
+  "sections": [
+   {
+    "h2": "What do solar panels cost in 2026?",
+    "answer": "**A typical 4 kW system costs £5,000 to £7,000, at 0% VAT until 31 March 2027.** A 3 kW system costs £4,000 to £5,500 and a 6 kW one £8,500 to £10,000."
+   },
+   {
+    "h2": "How much will you actually save?",
+    "answer": "**About £559 a year for a 4 kW south facing system: £190 in bill savings plus £369 in export income.** A battery lifts that to £739, only £180 more, and does not pay for itself on solar alone."
+   },
+   {
+    "h2": "Payback period by scenario",
+    "answer": "**About 10.7 years for a 4 kW south facing system without a battery in southern England, or about 21 years with one.** Northern England takes 12.1 years, Scotland 12.3 and an east or west roof 13.2."
+   },
+   {
+    "h2": "The honest downsides",
+    "answer": "**The main drawbacks are the £4,000 to £10,000 upfront cost, roof dependency and low winter output.** East or west roofs produce about 20% less, and the inverter needs replacing after around 12 years."
+   },
+   {
+    "h2": "Is a battery worth adding?",
+    "answer": "**Rarely on solar alone: a 5 kWh battery costs around £4,600 and nets about £180 a year, about 26 years to pay back.** It suits evening users and time of use tariffs, and can be added later."
+   },
+   {
+    "h2": "Why your electricity bill might still be high with solar panels",
+    "answer": "**Usually timing: if you use most power in the evening, you export at 12p/kWh and buy back at 26.32p/kWh.** A battery, daytime timers or a time of use tariff with a cheap overnight rate help."
+   },
+   {
+    "h2": "Solar panels with a heat pump",
+    "answer": "**They work well together, but solar covers only part of a heat pump's demand because most falls in winter.** Insulate first, then fit the heat pump with its £7,500 grant (£9,000 replacing oil or LPG), then add solar."
+   },
+   {
+    "h2": "Effect on EPC rating",
+    "answer": "**In our EPC model, solar panels add about 8 points.** For landlords close to a band boundary, that can be the difference between meeting and missing minimum standards."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Generation comes from PVGIS and self-use from MCS MGD 003.** Rates come from Ofgem, Octopus Energy and E.ON Next, costs from DESNZ solar cost data, and battery and inverter figures from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/how-epc-points-are-calculated": {
+  "sections": [
+   {
+    "h2": "The EPC bands",
+    "answer": "**Band A is 92 to 100 and G is 1 to 20; the average home in England sits in band D.** Band C is the most common, and E is the lowest a home can be let in today."
+   },
+   {
+    "h2": "How SAP calculates your score",
+    "answer": "**SAP models your home's annual energy cost per square metre from its walls, roof, heating, windows, hot water, lighting and renewables, not your actual bills.** The lower the modelled cost, the higher the score."
+   },
+   {
+    "h2": "Which upgrades gain the most EPC points",
+    "answer": "**Per pound, LED lighting and heating controls come first, then loft insulation, then cavity wall insulation at about £340 a point.** A heat pump adds 4 to 20 points, depending on the heating it replaces."
+   },
+   {
+    "h2": "How an EPC assessment works",
+    "answer": "**An assessor visits for under an hour and enters the details into SAP software.** An EPC costs £55 to £150, or £65 to £95 for a typical two or three bedroom house, and is valid for 10 years."
+   },
+   {
+    "h2": "Common scoring mistakes",
+    "answer": "**Missed cavity insulation, patchy loft checks, uninsulated extensions and wrongly assumed boiler age can all lower your score.** A missed cavity fill costs about 8 points in our model, so show the guarantee certificate."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**The method comes from BRE's SAP and the GOV.UK EPC register.** Costs come from the Energy Saving Trust and DESNZ, bills by band from DESNZ NEED at the Ofgem price cap, and average ratings from the English Housing Survey."
+   }
+  ],
+  "faq": true
  }
 }
