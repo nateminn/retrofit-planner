@@ -1028,3 +1028,6 @@ main[tabindex="-1"]:focus{outline:none}
 main .toc h2, main .toc h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin: 0 0 12px; }
 main .callout h2, main .callout h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-accent); margin: 0 0 8px; }
 main .warning-callout h2, main .warning-callout h3 { color: var(--color-highlight); }
+
+/* The quote form's heading sits at the top of its card, not after article text */
+main .quote-form h2 { margin-top: 0; }

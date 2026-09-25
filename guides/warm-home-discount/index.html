@@ -100,33 +100,6 @@
 <a href="/guides/energy-bills-by-household-size/" class="related-link-card"><div class="rl-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="rl-text"><div class="rl-name">Bills by Household Size</div><div class="rl-desc">1 to 5+ person homes</div></div></a>
 </div>
 
-<!-- lead-form:home -->
-<section class="quote-form" id="quote">
-<h2>Get quotes to upgrade your home</h2>
-<p class="qf-sub">Tell us about your property and we will pass your request to up to three certified installers who cover your postcode and do the work you choose. It is free and there is no obligation to go ahead.</p>
-<ul class="qf-points"><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Certified installers only</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Heat pumps, solar and insulation</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Free, with no obligation</li></ul>
-<form name="home-upgrade-quote" method="POST" action="/quote-thanks/home/" data-netlify="true" netlify-honeypot="bot-field">
-<input type="hidden" name="form-name" value="home-upgrade-quote">
-<input type="hidden" name="source" value="/guides/warm-home-discount/">
-<input type="hidden" name="consent_version" value="intro-v2-2026-09-24-home">
-<input type="hidden" name="consent_text" value="I agree that Retrofit Planner may pass my details to up to three certified installers for the work I choose (MCS for heat pumps and solar, TrustMark for insulation) covering my postcode, who may contact me by email or phone about a quote. Installers may pay Retrofit Planner a fee for the introduction. I can withdraw my consent at any time by emailing hello@retrofitplanner.co.uk.">
-<p class="qf-hp" hidden><label>Do not fill this in: <input name="bot-field"></label></p>
-<div class="qf-grid">
-<div class="form-group"><label for="qf-postcode">Postcode</label><input type="text" id="qf-postcode" name="postcode" required autocomplete="postal-code" placeholder="e.g. SW1A 1AA" pattern="^[A-Za-z]{1,2}[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}$" title="A UK postcode, for example SW1A 1AA"></div>
-<div class="form-group"><label for="qf-property">Property type</label><select id="qf-property" name="property" required><option value="">Select</option><option>Flat</option><option>Terraced house</option><option>Semi-detached house</option><option>Detached house</option><option>Bungalow</option></select></div>
-<div class="form-group"><label for="qf-work">What do you want quotes for?</label><select id="qf-work" name="work" required><option value="">Select</option><option>Heat pump</option><option>Solar panels</option><option>Insulation</option><option>Several of these</option><option>Not sure yet</option></select></div>
-<div class="form-group"><label for="qf-heating">Current heating</label><select id="qf-heating" name="heating" required><option value="">Select</option><option>Gas boiler</option><option>Oil boiler</option><option>LPG boiler</option><option>Electric or storage heaters</option><option>Other or none</option></select></div>
-<div class="form-group"><label for="qf-when">When are you looking to start?</label><select id="qf-when" name="timing" required><option value="">Select</option><option>Within 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Just researching</option></select></div>
-<div class="form-group"><label for="qf-name">Name</label><input type="text" id="qf-name" name="name" required autocomplete="name"></div>
-<div class="form-group"><label for="qf-email">Email</label><input type="email" id="qf-email" name="email" required autocomplete="email"></div>
-<div class="form-group"><label for="qf-phone">Phone (optional)</label><input type="tel" id="qf-phone" name="phone" autocomplete="tel"></div>
-</div>
-<label class="qf-consent"><input type="checkbox" name="share_ok" value="yes" required> I agree that Retrofit Planner may pass my details to up to three certified installers for the work I choose (MCS for heat pumps and solar, TrustMark for insulation) covering my postcode, who may contact me by email or phone about a quote. Installers may pay Retrofit Planner a fee for the introduction. I can withdraw my consent at any time by emailing hello@retrofitplanner.co.uk.</label>
-<button type="submit" class="btn-calculate">Request my free quotes</button>
-<p class="qf-small">It costs you nothing and never changes any figure on this site. We keep your request and the wording you agreed to as a record of your consent, and delete both after 12 months. See our <a href="/privacy/#quotes">privacy policy</a>.</p>
-</form>
-</section>
-<!-- /lead-form -->
 <h2>Frequently asked questions</h2>
 
 <h3>How do I get the Warm Home Discount?</h3>

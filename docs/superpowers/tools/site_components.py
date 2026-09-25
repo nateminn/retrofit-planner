@@ -83,27 +83,21 @@ KINDS = {
 
 # Which form each page carries. Pages not listed carry none: legal and utility pages,
 # the methodology (kept clean for anyone auditing it), thank-you pages and embeds.
+# Quote forms go only where the reader is pricing a job (Nathan, 25 Sep 2026): the
+# calculators, the heat pump cost guides, and a few guides about paying for one measure.
+# Everything else (bills, explainers, schemes, the index, about, contact) has none.
 HEAT_PUMP = ['heat-pump-calculator', 'boiler-vs-heat-pump'] + ['guides/' + g for g in [
     'heat-pump-cost-by-house-type', 'heat-pump-cost-3-bed-semi', 'heat-pump-cost-2-bed-terrace',
     'heat-pump-cost-4-bed-house', 'heat-pump-victorian-terrace', 'heat-pump-cost-3-bed-detached',
     'heat-pump-cost-end-terrace', 'heat-pump-cost-5-bed-house', 'heat-pump-1960s-house',
-    'heat-pump-cost-2-bed-bungalow', 'heat-pump-cost-bungalow', 'heat-pump-flat', 'heat-pump-old-house',
-    'heat-pump-running-costs', 'heat-pump-vs-new-boiler', 'storage-heaters-vs-heat-pump',
-    'electric-boiler-vs-heat-pump', 'boiler-upgrade-scheme-guide', 'heat-pump-noise',
-    'radiator-sizing-heat-pump', 'planning-permission-heat-pump', 'best-heat-pump-tariffs',
-    'what-size-heat-pump', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi']]
-SOLAR = ['solar-calculator'] + ['guides/' + g for g in ['are-solar-panels-worth-it-uk', 'solar-battery-storage-uk', 'solar-panel-payback-uk']]
-INSULATION = ['insulation-calculator'] + ['guides/' + g for g in [
-    'diy-loft-insulation', 'draught-proofing-guide', 'free-loft-insulation-uk', 'how-long-loft-insulation-lasts',
-    'is-cavity-wall-insulation-worth-it', 'is-loft-insulation-worth-it', 'solid-wall-insulation-cost',
-    'underfloor-insulation-cost', 'condensation-mould-guide', 'great-british-insulation-scheme', 'eco4-scheme-explained']]
-EPC = ['guides/epc-cost', 'guides/epc-rating-landlords']
-# The home page has no quote form: Nathan asked for less clutter at its foot (25 Sep 2026).
-HOME = ['guides', 'grants', 'epc-calculator', 'about', 'contact', 'retrofit-plan'] + ['guides/' + g for g in [
-    'energy-bills-3-bed-house', 'energy-bills-4-bed-house', 'energy-bills-1-bed-flat', 'energy-bills-2-bed-house', 'energy-bills-5-bed-house',
-    'how-epc-points-are-calculated', 'how-to-improve-epc-rating', 'energy-bills-by-epc-rating',
-    'average-energy-bills-uk', 'energy-bills-by-household-size', 'home-upgrade-grant',
-    'warm-homes-plan-2026', 'warm-home-discount']]
+    'heat-pump-cost-2-bed-bungalow', 'heat-pump-cost-bungalow', 'heat-pump-old-house',
+    'what-size-heat-pump', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi',
+    'boiler-upgrade-scheme-guide']]
+SOLAR = ['solar-calculator']
+INSULATION = ['insulation-calculator'] + ['guides/' + g for g in ['is-cavity-wall-insulation-worth-it', 'solid-wall-insulation-cost']]
+EPC = ['guides/epc-cost']
+# The home page has no quote form either: Nathan asked for less clutter at its foot.
+HOME = ['epc-calculator', 'retrofit-plan']
 PAGE_KIND = {}
 for kind, pages in (('heat-pump', HEAT_PUMP), ('solar', SOLAR), ('insulation', INSULATION), ('epc', EPC), ('home', HOME)):
     for p in pages:
@@ -256,9 +250,19 @@ def process(f):
         notes.append('footer')
 
     kind = PAGE_KIND.get(key)
+    if not kind and LEAD_RE.search(t):
+        # A page that should not carry a quote form: take it out with the blank lines around it.
+        t = re.sub(r'\n?[ \t]*<!-- lead-form:[a-z-]+ -->.*?<!-- /lead-form -->[ \t]*\n?', '\n', t, count=1, flags=re.S)
+        notes.append('form removed')
     if kind:
         block = lead_form(kind, source)
-        if LEAD_RE.search(t):
+        if LEAD_RE.search(t) and key not in BANDED:
+            # Never mid text: the form always sits at the end of the article, before the FAQs.
+            t = re.sub(r'\n?[ \t]*<!-- lead-form:[a-z-]+ -->.*?<!-- /lead-form -->[ \t]*\n?', '\n', t, count=1, flags=re.S)
+            i = insert_point(t)
+            t = t[:i] + block + '\n' + t[i:]
+            notes.append('form placed at end of article')
+        elif LEAD_RE.search(t):
             t = LEAD_RE.sub(lambda _: block, t, count=1); notes.append('form refreshed')
         elif OLD_LEAD_RE.search(t):
             t = OLD_LEAD_RE.sub(lambda _: block, t, count=1); notes.append('form upgraded')
