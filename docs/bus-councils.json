@@ -4,12 +4,52 @@
  "published": "2026-09-24",
  "total": 86852,
  "households": 24783192,
+ "years": [
+  "2022/23",
+  "2023/24",
+  "2024/25",
+  "2025/26"
+ ],
+ "ew_years": [
+  9840,
+  13731,
+  25109,
+  30986
+ ],
+ "pages": [
+  "E08000025",
+  "E08000035",
+  "E06000065",
+  "E06000052",
+  "E06000066",
+  "E06000047",
+  "E08000039",
+  "E06000060",
+  "E06000054",
+  "E08000003",
+  "E08000032",
+  "E08000012",
+  "E06000023",
+  "E08000034",
+  "E06000049",
+  "E06000058",
+  "E06000062",
+  "E06000059",
+  "E06000050",
+  "E08000036"
+ ],
  "rate": 35.0,
  "councils": {
   "E06000047": {
    "name": "County Durham",
    "hp": 637,
    "region": "North East",
+   "years": [
+    58,
+    86,
+    178,
+    234
+   ],
    "households": 234761,
    "rate": 27.1,
    "rank": 175
@@ -18,6 +58,12 @@
    "name": "Darlington",
    "hp": 131,
    "region": "North East",
+   "years": [
+    7,
+    16,
+    50,
+    41
+   ],
    "households": 48918,
    "rate": 26.8,
    "rank": 177
@@ -26,6 +72,12 @@
    "name": "Hartlepool",
    "hp": 83,
    "region": "North East",
+   "years": [
+    5,
+    7,
+    22,
+    34
+   ],
    "households": 40930,
    "rate": 20.3,
    "rank": 212
@@ -34,6 +86,12 @@
    "name": "Middlesbrough",
    "hp": 89,
    "region": "North East",
+   "years": [
+    5,
+    8,
+    21,
+    35
+   ],
    "households": 60262,
    "rate": 14.8,
    "rank": 256
@@ -42,6 +100,12 @@
    "name": "Northumberland",
    "hp": 707,
    "region": "North East",
+   "years": [
+    100,
+    125,
+    196,
+    245
+   ],
    "households": 146922,
    "rate": 48.1,
    "rank": 96
@@ -50,6 +114,12 @@
    "name": "Redcar and Cleveland",
    "hp": 124,
    "region": "North East",
+   "years": [
+    15,
+    18,
+    34,
+    44
+   ],
    "households": 61636,
    "rate": 20.1,
    "rank": 216
@@ -58,6 +128,12 @@
    "name": "Stockton-on-Tees",
    "hp": 150,
    "region": "North East",
+   "years": [
+    11,
+    13,
+    55,
+    53
+   ],
    "households": 83757,
    "rate": 17.9,
    "rank": 227
@@ -66,6 +142,12 @@
    "name": "Gateshead",
    "hp": 117,
    "region": "North East",
+   "years": [
+    8,
+    13,
+    28,
+    54
+   ],
    "households": 88999,
    "rate": 13.1,
    "rank": 270
@@ -74,6 +156,12 @@
    "name": "Newcastle upon Tyne",
    "hp": 250,
    "region": "North East",
+   "years": [
+    18,
+    22,
+    65,
+    100
+   ],
    "households": 122797,
    "rate": 20.4,
    "rank": 211
@@ -82,6 +170,12 @@
    "name": "North Tyneside",
    "hp": 166,
    "region": "North East",
+   "years": [
+    18,
+    21,
+    50,
+    63
+   ],
    "households": 96232,
    "rate": 17.2,
    "rank": 229
@@ -90,6 +184,12 @@
    "name": "South Tyneside",
    "hp": 45,
    "region": "North East",
+   "years": [
+    6,
+    9,
+    15,
+    15
+   ],
    "households": 68287,
    "rate": 6.6,
    "rank": 312
@@ -98,6 +198,12 @@
    "name": "Sunderland",
    "hp": 140,
    "region": "North East",
+   "years": [
+    6,
+    22,
+    36,
+    62
+   ],
    "households": 122177,
    "rate": 11.5,
    "rank": 286
@@ -106,6 +212,12 @@
    "name": "Blackburn with Darwen",
    "hp": 83,
    "region": "North West",
+   "years": [
+    null,
+    8,
+    null,
+    31
+   ],
    "households": 58767,
    "rate": 14.1,
    "rank": 260
@@ -114,6 +226,12 @@
    "name": "Blackpool",
    "hp": 68,
    "region": "North West",
+   "years": [
+    null,
+    0,
+    null,
+    25
+   ],
    "households": 64789,
    "rate": 10.5,
    "rank": 290
@@ -122,6 +240,12 @@
    "name": "Cheshire East",
    "hp": 813,
    "region": "North West",
+   "years": [
+    109,
+    114,
+    245,
+    282
+   ],
    "households": 174856,
    "rate": 46.5,
    "rank": 100
@@ -130,6 +254,12 @@
    "name": "Cheshire West and Chester",
    "hp": 690,
    "region": "North West",
+   "years": [
+    103,
+    107,
+    196,
+    227
+   ],
    "households": 155156,
    "rate": 44.5,
    "rank": 104
@@ -138,6 +268,12 @@
    "name": "Cumberland",
    "hp": 418,
    "region": "North West",
+   "years": [
+    43,
+    80,
+    131,
+    135
+   ],
    "households": 125425,
    "rate": 33.3,
    "rank": 145
@@ -146,6 +282,12 @@
    "name": "Halton",
    "hp": 76,
    "region": "North West",
+   "years": [
+    7,
+    11,
+    25,
+    25
+   ],
    "households": 55951,
    "rate": 13.6,
    "rank": 263
@@ -154,6 +296,12 @@
    "name": "Warrington",
    "hp": 209,
    "region": "North West",
+   "years": [
+    22,
+    32,
+    70,
+    68
+   ],
    "households": 90538,
    "rate": 23.1,
    "rank": 202
@@ -162,6 +310,12 @@
    "name": "Westmorland and Furness",
    "hp": 795,
    "region": "North West",
+   "years": [
+    84,
+    126,
+    268,
+    262
+   ],
    "households": 103529,
    "rate": 76.8,
    "rank": 32
@@ -170,6 +324,12 @@
    "name": "Bolton",
    "hp": 151,
    "region": "North West",
+   "years": [
+    9,
+    32,
+    47,
+    43
+   ],
    "households": 118790,
    "rate": 12.7,
    "rank": 274
@@ -178,6 +338,12 @@
    "name": "Bury",
    "hp": 145,
    "region": "North West",
+   "years": [
+    15,
+    14,
+    40,
+    59
+   ],
    "households": 80696,
    "rate": 18.0,
    "rank": 226
@@ -186,6 +352,12 @@
    "name": "Manchester",
    "hp": 320,
    "region": "North West",
+   "years": [
+    24,
+    37,
+    103,
+    112
+   ],
    "households": 214732,
    "rate": 14.9,
    "rank": 255
@@ -194,6 +366,12 @@
    "name": "Oldham",
    "hp": 95,
    "region": "North West",
+   "years": [
+    11,
+    15,
+    29,
+    30
+   ],
    "households": 93140,
    "rate": 10.2,
    "rank": 291
@@ -202,6 +380,12 @@
    "name": "Rochdale",
    "hp": 120,
    "region": "North West",
+   "years": [
+    15,
+    15,
+    40,
+    40
+   ],
    "households": 90223,
    "rate": 13.3,
    "rank": 267
@@ -210,6 +394,12 @@
    "name": "Salford",
    "hp": 146,
    "region": "North West",
+   "years": [
+    9,
+    19,
+    45,
+    63
+   ],
    "households": 115116,
    "rate": 12.7,
    "rank": 275
@@ -218,6 +408,12 @@
    "name": "Stockport",
    "hp": 271,
    "region": "North West",
+   "years": [
+    30,
+    51,
+    79,
+    92
+   ],
    "households": 126648,
    "rate": 21.4,
    "rank": 206
@@ -226,6 +422,12 @@
    "name": "Tameside",
    "hp": 99,
    "region": "North West",
+   "years": [
+    6,
+    16,
+    31,
+    41
+   ],
    "households": 99527,
    "rate": 9.9,
    "rank": 294
@@ -234,6 +436,12 @@
    "name": "Trafford",
    "hp": 243,
    "region": "North West",
+   "years": [
+    23,
+    38,
+    53,
+    97
+   ],
    "households": 96269,
    "rate": 25.2,
    "rank": 189
@@ -242,6 +450,12 @@
    "name": "Wigan",
    "hp": 177,
    "region": "North West",
+   "years": [
+    11,
+    18,
+    67,
+    70
+   ],
    "households": 143105,
    "rate": 12.4,
    "rank": 278
@@ -250,6 +464,12 @@
    "name": "Burnley",
    "hp": 33,
    "region": "North West",
+   "years": [
+    null,
+    null,
+    15,
+    8
+   ],
    "households": 39872,
    "rate": 8.3,
    "rank": 305
@@ -258,6 +478,12 @@
    "name": "Chorley",
    "hp": 197,
    "region": "North West",
+   "years": [
+    20,
+    37,
+    60,
+    68
+   ],
    "households": 50132,
    "rate": 39.3,
    "rank": 121
@@ -266,6 +492,12 @@
    "name": "Fylde",
    "hp": 82,
    "region": "North West",
+   "years": [
+    10,
+    15,
+    23,
+    24
+   ],
    "households": 37606,
    "rate": 21.8,
    "rank": 205
@@ -274,6 +506,12 @@
    "name": "Hyndburn",
    "hp": 41,
    "region": "North West",
+   "years": [
+    null,
+    null,
+    15,
+    13
+   ],
    "households": 34790,
    "rate": 11.8,
    "rank": 282
@@ -282,6 +520,12 @@
    "name": "Lancaster",
    "hp": 207,
    "region": "North West",
+   "years": [
+    14,
+    26,
+    67,
+    83
+   ],
    "households": 59978,
    "rate": 34.5,
    "rank": 141
@@ -290,6 +534,12 @@
    "name": "Pendle",
    "hp": 65,
    "region": "North West",
+   "years": [
+    null,
+    null,
+    23,
+    20
+   ],
    "households": 38066,
    "rate": 17.1,
    "rank": 231
@@ -298,6 +548,12 @@
    "name": "Preston",
    "hp": 161,
    "region": "North West",
+   "years": [
+    13,
+    22,
+    43,
+    46
+   ],
    "households": 59607,
    "rate": 27.0,
    "rank": 176
@@ -306,6 +562,12 @@
    "name": "Ribble Valley",
    "hp": 143,
    "region": "North West",
+   "years": [
+    18,
+    22,
+    36,
+    54
+   ],
    "households": 26747,
    "rate": 53.5,
    "rank": 86
@@ -314,6 +576,12 @@
    "name": "Rossendale",
    "hp": 77,
    "region": "North West",
+   "years": [
+    7,
+    18,
+    22,
+    22
+   ],
    "households": 30561,
    "rate": 25.2,
    "rank": 190
@@ -322,6 +590,12 @@
    "name": "South Ribble",
    "hp": 160,
    "region": "North West",
+   "years": [
+    14,
+    34,
+    43,
+    62
+   ],
    "households": 48586,
    "rate": 32.9,
    "rank": 147
@@ -330,6 +604,12 @@
    "name": "West Lancashire",
    "hp": 165,
    "region": "North West",
+   "years": [
+    15,
+    16,
+    41,
+    79
+   ],
    "households": 48533,
    "rate": 34.0,
    "rank": 142
@@ -338,6 +618,12 @@
    "name": "Wyre",
    "hp": 130,
    "region": "North West",
+   "years": [
+    15,
+    20,
+    36,
+    51
+   ],
    "households": 50767,
    "rate": 25.6,
    "rank": 185
@@ -346,6 +632,12 @@
    "name": "Knowsley",
    "hp": 71,
    "region": "North West",
+   "years": [
+    7,
+    11,
+    20,
+    22
+   ],
    "households": 66073,
    "rate": 10.7,
    "rank": 288
@@ -354,6 +646,12 @@
    "name": "Liverpool",
    "hp": 159,
    "region": "North West",
+   "years": [
+    8,
+    10,
+    56,
+    67
+   ],
    "households": 207491,
    "rate": 7.7,
    "rank": 310
@@ -362,6 +660,12 @@
    "name": "Sefton",
    "hp": 161,
    "region": "North West",
+   "years": [
+    15,
+    25,
+    51,
+    58
+   ],
    "households": 123073,
    "rate": 13.1,
    "rank": 271
@@ -370,6 +674,12 @@
    "name": "St. Helens",
    "hp": 109,
    "region": "North West",
+   "years": [
+    8,
+    11,
+    40,
+    37
+   ],
    "households": 81011,
    "rate": 13.5,
    "rank": 265
@@ -378,6 +688,12 @@
    "name": "Wirral",
    "hp": 232,
    "region": "North West",
+   "years": [
+    29,
+    23,
+    65,
+    93
+   ],
    "households": 143252,
    "rate": 16.2,
    "rank": 239
@@ -386,6 +702,12 @@
    "name": "East Riding of Yorkshire",
    "hp": 763,
    "region": "Yorkshire and the Humber",
+   "years": [
+    107,
+    127,
+    242,
+    236
+   ],
    "households": 152066,
    "rate": 50.2,
    "rank": 90
@@ -394,6 +716,12 @@
    "name": "Kingston upon Hull, City of",
    "hp": 115,
    "region": "Yorkshire and the Humber",
+   "years": [
+    19,
+    21,
+    37,
+    35
+   ],
    "households": 115472,
    "rate": 10.0,
    "rank": 293
@@ -402,6 +730,12 @@
    "name": "North East Lincolnshire",
    "hp": 215,
    "region": "Yorkshire and the Humber",
+   "years": [
+    24,
+    38,
+    64,
+    73
+   ],
    "households": 69826,
    "rate": 30.8,
    "rank": 158
@@ -410,6 +744,12 @@
    "name": "North Lincolnshire",
    "hp": 305,
    "region": "Yorkshire and the Humber",
+   "years": [
+    40,
+    53,
+    89,
+    93
+   ],
    "households": 73173,
    "rate": 41.7,
    "rank": 112
@@ -418,6 +758,12 @@
    "name": "North Yorkshire",
    "hp": 2102,
    "region": "Yorkshire and the Humber",
+   "years": [
+    296,
+    381,
+    590,
+    659
+   ],
    "households": 274381,
    "rate": 76.6,
    "rank": 33
@@ -426,6 +772,12 @@
    "name": "York",
    "hp": 412,
    "region": "Yorkshire and the Humber",
+   "years": [
+    50,
+    77,
+    116,
+    132
+   ],
    "households": 85459,
    "rate": 48.2,
    "rank": 95
@@ -434,6 +786,12 @@
    "name": "Barnsley",
    "hp": 276,
    "region": "Yorkshire and the Humber",
+   "years": [
+    27,
+    30,
+    71,
+    119
+   ],
    "households": 108053,
    "rate": 25.5,
    "rank": 186
@@ -442,6 +800,12 @@
    "name": "Doncaster",
    "hp": 383,
    "region": "Yorkshire and the Humber",
+   "years": [
+    53,
+    54,
+    118,
+    127
+   ],
    "households": 133482,
    "rate": 28.7,
    "rank": 170
@@ -450,6 +814,12 @@
    "name": "Rotherham",
    "hp": 296,
    "region": "Yorkshire and the Humber",
+   "years": [
+    31,
+    47,
+    94,
+    95
+   ],
    "households": 113925,
    "rate": 26.0,
    "rank": 182
@@ -458,6 +828,12 @@
    "name": "Sheffield",
    "hp": 661,
    "region": "Yorkshire and the Humber",
+   "years": [
+    81,
+    116,
+    228,
+    192
+   ],
    "households": 231950,
    "rate": 28.5,
    "rank": 173
@@ -466,6 +842,12 @@
    "name": "Bradford",
    "hp": 509,
    "region": "Yorkshire and the Humber",
+   "years": [
+    64,
+    81,
+    113,
+    160
+   ],
    "households": 209867,
    "rate": 24.3,
    "rank": 193
@@ -474,6 +856,12 @@
    "name": "Calderdale",
    "hp": 280,
    "region": "Yorkshire and the Humber",
+   "years": [
+    37,
+    44,
+    76,
+    97
+   ],
    "households": 90476,
    "rate": 30.9,
    "rank": 156
@@ -482,6 +870,12 @@
    "name": "Kirklees",
    "hp": 510,
    "region": "Yorkshire and the Humber",
+   "years": [
+    70,
+    75,
+    155,
+    172
+   ],
    "households": 177989,
    "rate": 28.7,
    "rank": 171
@@ -490,6 +884,12 @@
    "name": "Leeds",
    "hp": 801,
    "region": "Yorkshire and the Humber",
+   "years": [
+    103,
+    114,
+    241,
+    269
+   ],
    "households": 341466,
    "rate": 23.5,
    "rank": 200
@@ -498,6 +898,12 @@
    "name": "Wakefield",
    "hp": 366,
    "region": "Yorkshire and the Humber",
+   "years": [
+    43,
+    44,
+    105,
+    137
+   ],
    "households": 153075,
    "rate": 23.9,
    "rank": 197
@@ -506,6 +912,12 @@
    "name": "Derby",
    "hp": 252,
    "region": "East Midlands",
+   "years": [
+    19,
+    27,
+    80,
+    100
+   ],
    "households": 105652,
    "rate": 23.9,
    "rank": 198
@@ -514,6 +926,12 @@
    "name": "Leicester",
    "hp": 158,
    "region": "East Midlands",
+   "years": [
+    14,
+    35,
+    37,
+    54
+   ],
    "households": 127387,
    "rate": 12.4,
    "rank": 279
@@ -522,6 +940,12 @@
    "name": "North Northamptonshire",
    "hp": 538,
    "region": "East Midlands",
+   "years": [
+    80,
+    84,
+    159,
+    181
+   ],
    "households": 148918,
    "rate": 36.1,
    "rank": 133
@@ -530,6 +954,12 @@
    "name": "Nottingham",
    "hp": 208,
    "region": "East Midlands",
+   "years": [
+    40,
+    43,
+    40,
+    74
+   ],
    "households": 124745,
    "rate": 16.7,
    "rank": 235
@@ -538,6 +968,12 @@
    "name": "Rutland",
    "hp": 121,
    "region": "East Midlands",
+   "years": [
+    16,
+    25,
+    27,
+    46
+   ],
    "households": 16694,
    "rate": 72.5,
    "rank": 46
@@ -546,6 +982,12 @@
    "name": "West Northamptonshire",
    "hp": 750,
    "region": "East Midlands",
+   "years": [
+    102,
+    116,
+    219,
+    254
+   ],
    "households": 172641,
    "rate": 43.4,
    "rank": 109
@@ -554,6 +996,12 @@
    "name": "Amber Valley",
    "hp": 255,
    "region": "East Midlands",
+   "years": [
+    30,
+    44,
+    69,
+    104
+   ],
    "households": 56277,
    "rate": 45.3,
    "rank": 102
@@ -562,6 +1010,12 @@
    "name": "Bolsover",
    "hp": 129,
    "region": "East Midlands",
+   "years": [
+    9,
+    24,
+    44,
+    43
+   ],
    "households": 35262,
    "rate": 36.6,
    "rank": 130
@@ -570,6 +1024,12 @@
    "name": "Chesterfield",
    "hp": 128,
    "region": "East Midlands",
+   "years": [
+    14,
+    13,
+    35,
+    49
+   ],
    "households": 48058,
    "rate": 26.6,
    "rank": 179
@@ -578,6 +1038,12 @@
    "name": "Derbyshire Dales",
    "hp": 334,
    "region": "East Midlands",
+   "years": [
+    42,
+    52,
+    99,
+    114
+   ],
    "households": 32283,
    "rate": 103.5,
    "rank": 8
@@ -586,6 +1052,12 @@
    "name": "Erewash",
    "hp": 133,
    "region": "East Midlands",
+   "years": [
+    17,
+    14,
+    42,
+    51
+   ],
    "households": 50334,
    "rate": 26.4,
    "rank": 180
@@ -594,6 +1066,12 @@
    "name": "High Peak",
    "hp": 192,
    "region": "East Midlands",
+   "years": [
+    23,
+    36,
+    61,
+    67
+   ],
    "households": 40772,
    "rate": 47.1,
    "rank": 99
@@ -602,6 +1080,12 @@
    "name": "North East Derbyshire",
    "hp": 213,
    "region": "East Midlands",
+   "years": [
+    24,
+    44,
+    58,
+    72
+   ],
    "households": 45987,
    "rate": 46.3,
    "rank": 101
@@ -610,6 +1094,12 @@
    "name": "South Derbyshire",
    "hp": 226,
    "region": "East Midlands",
+   "years": [
+    26,
+    32,
+    88,
+    64
+   ],
    "households": 45240,
    "rate": 50.0,
    "rank": 91
@@ -618,6 +1108,12 @@
    "name": "Blaby",
    "hp": 134,
    "region": "East Midlands",
+   "years": [
+    null,
+    null,
+    50,
+    41
+   ],
    "households": 42575,
    "rate": 31.5,
    "rank": 152
@@ -626,6 +1122,12 @@
    "name": "Charnwood",
    "hp": 257,
    "region": "East Midlands",
+   "years": [
+    31,
+    41,
+    74,
+    95
+   ],
    "households": 73785,
    "rate": 34.8,
    "rank": 138
@@ -634,6 +1136,12 @@
    "name": "Harborough",
    "hp": 266,
    "region": "East Midlands",
+   "years": [
+    26,
+    51,
+    78,
+    101
+   ],
    "households": 40413,
    "rate": 65.8,
    "rank": 57
@@ -642,6 +1150,12 @@
    "name": "Hinckley and Bosworth",
    "hp": 202,
    "region": "East Midlands",
+   "years": [
+    18,
+    29,
+    63,
+    81
+   ],
    "households": 49446,
    "rate": 40.9,
    "rank": 116
@@ -650,6 +1164,12 @@
    "name": "Melton",
    "hp": 166,
    "region": "East Midlands",
+   "years": [
+    19,
+    31,
+    43,
+    62
+   ],
    "households": 22599,
    "rate": 73.5,
    "rank": 43
@@ -658,6 +1178,12 @@
    "name": "North West Leicestershire",
    "hp": 224,
    "region": "East Midlands",
+   "years": [
+    14,
+    31,
+    73,
+    89
+   ],
    "households": 44973,
    "rate": 49.8,
    "rank": 92
@@ -666,6 +1192,12 @@
    "name": "Oadby and Wigston",
    "hp": 43,
    "region": "East Midlands",
+   "years": [
+    null,
+    null,
+    13,
+    17
+   ],
    "households": 22617,
    "rate": 19.0,
    "rank": 221
@@ -674,6 +1206,12 @@
    "name": "Boston",
    "hp": 91,
    "region": "East Midlands",
+   "years": [
+    11,
+    16,
+    23,
+    28
+   ],
    "households": 29404,
    "rate": 30.9,
    "rank": 157
@@ -682,6 +1220,12 @@
    "name": "East Lindsey",
    "hp": 499,
    "region": "East Midlands",
+   "years": [
+    68,
+    64,
+    153,
+    150
+   ],
    "households": 64754,
    "rate": 77.1,
    "rank": 31
@@ -690,6 +1234,12 @@
    "name": "Lincoln",
    "hp": 112,
    "region": "East Midlands",
+   "years": [
+    17,
+    14,
+    36,
+    35
+   ],
    "households": 42507,
    "rate": 26.3,
    "rank": 181
@@ -698,6 +1248,12 @@
    "name": "North Kesteven",
    "hp": 378,
    "region": "East Midlands",
+   "years": [
+    34,
+    66,
+    103,
+    152
+   ],
    "households": 50989,
    "rate": 74.1,
    "rank": 41
@@ -706,6 +1262,12 @@
    "name": "South Holland",
    "hp": 192,
    "region": "East Midlands",
+   "years": [
+    26,
+    35,
+    51,
+    62
+   ],
    "households": 40703,
    "rate": 47.2,
    "rank": 97
@@ -714,6 +1276,12 @@
    "name": "South Kesteven",
    "hp": 348,
    "region": "East Midlands",
+   "years": [
+    50,
+    53,
+    108,
+    111
+   ],
    "households": 62850,
    "rate": 55.4,
    "rank": 84
@@ -722,6 +1290,12 @@
    "name": "West Lindsey",
    "hp": 357,
    "region": "East Midlands",
+   "years": [
+    62,
+    49,
+    104,
+    117
+   ],
    "households": 42345,
    "rate": 84.3,
    "rank": 18
@@ -730,6 +1304,12 @@
    "name": "Ashfield",
    "hp": 156,
    "region": "East Midlands",
+   "years": [
+    20,
+    24,
+    55,
+    50
+   ],
    "households": 54508,
    "rate": 28.6,
    "rank": 172
@@ -738,6 +1318,12 @@
    "name": "Bassetlaw",
    "hp": 341,
    "region": "East Midlands",
+   "years": [
+    40,
+    48,
+    102,
+    124
+   ],
    "households": 51458,
    "rate": 66.3,
    "rank": 56
@@ -746,6 +1332,12 @@
    "name": "Broxtowe",
    "hp": 181,
    "region": "East Midlands",
+   "years": [
+    22,
+    19,
+    53,
+    75
+   ],
    "households": 48361,
    "rate": 37.4,
    "rank": 128
@@ -754,6 +1346,12 @@
    "name": "Gedling",
    "hp": 174,
    "region": "East Midlands",
+   "years": [
+    21,
+    32,
+    50,
+    54
+   ],
    "households": 51551,
    "rate": 33.8,
    "rank": 143
@@ -762,6 +1360,12 @@
    "name": "Mansfield",
    "hp": 97,
    "region": "East Midlands",
+   "years": [
+    10,
+    18,
+    23,
+    38
+   ],
    "households": 48030,
    "rate": 20.2,
    "rank": 214
@@ -770,6 +1374,12 @@
    "name": "Newark and Sherwood",
    "hp": 355,
    "region": "East Midlands",
+   "years": [
+    37,
+    64,
+    124,
+    99
+   ],
    "households": 53331,
    "rate": 66.6,
    "rank": 54
@@ -778,6 +1388,12 @@
    "name": "Rushcliffe",
    "hp": 302,
    "region": "East Midlands",
+   "years": [
+    36,
+    47,
+    85,
+    111
+   ],
    "households": 49883,
    "rate": 60.5,
    "rank": 69
@@ -786,6 +1402,12 @@
    "name": "Herefordshire, County of",
    "hp": 682,
    "region": "West Midlands",
+   "years": [
+    102,
+    145,
+    168,
+    221
+   ],
    "households": 82827,
    "rate": 82.3,
    "rank": 23
@@ -794,6 +1416,12 @@
    "name": "Shropshire",
    "hp": 987,
    "region": "West Midlands",
+   "years": [
+    135,
+    189,
+    284,
+    303
+   ],
    "households": 139579,
    "rate": 70.7,
    "rank": 47
@@ -802,6 +1430,12 @@
    "name": "Stoke-on-Trent",
    "hp": 128,
    "region": "West Midlands",
+   "years": [
+    12,
+    15,
+    51,
+    40
+   ],
    "households": 110399,
    "rate": 11.6,
    "rank": 284
@@ -810,6 +1444,12 @@
    "name": "Telford and Wrekin",
    "hp": 198,
    "region": "West Midlands",
+   "years": [
+    11,
+    26,
+    63,
+    77
+   ],
    "households": 76510,
    "rate": 25.9,
    "rank": 183
@@ -818,6 +1458,12 @@
    "name": "Cannock Chase",
    "hp": 65,
    "region": "West Midlands",
+   "years": [
+    8,
+    7,
+    12,
+    31
+   ],
    "households": 43457,
    "rate": 15.0,
    "rank": 252
@@ -826,6 +1472,12 @@
    "name": "East Staffordshire",
    "hp": 206,
    "region": "West Midlands",
+   "years": [
+    27,
+    36,
+    58,
+    70
+   ],
    "households": 51293,
    "rate": 40.2,
    "rank": 118
@@ -834,6 +1486,12 @@
    "name": "Lichfield",
    "hp": 175,
    "region": "West Midlands",
+   "years": [
+    19,
+    23,
+    48,
+    62
+   ],
    "households": 45630,
    "rate": 38.4,
    "rank": 123
@@ -842,6 +1500,12 @@
    "name": "Newcastle-under-Lyme",
    "hp": 160,
    "region": "West Midlands",
+   "years": [
+    14,
+    34,
+    49,
+    52
+   ],
    "households": 53423,
    "rate": 29.9,
    "rank": 163
@@ -850,6 +1514,12 @@
    "name": "South Staffordshire",
    "hp": 146,
    "region": "West Midlands",
+   "years": [
+    14,
+    36,
+    40,
+    46
+   ],
    "households": 46121,
    "rate": 31.7,
    "rank": 151
@@ -858,6 +1528,12 @@
    "name": "Stafford",
    "hp": 255,
    "region": "West Midlands",
+   "years": [
+    23,
+    42,
+    74,
+    97
+   ],
    "households": 60047,
    "rate": 42.5,
    "rank": 110
@@ -866,6 +1542,12 @@
    "name": "Staffordshire Moorlands",
    "hp": 169,
    "region": "West Midlands",
+   "years": [
+    26,
+    26,
+    52,
+    50
+   ],
    "households": 42355,
    "rate": 39.9,
    "rank": 119
@@ -874,6 +1556,12 @@
    "name": "Tamworth",
    "hp": 55,
    "region": "West Midlands",
+   "years": [
+    5,
+    10,
+    20,
+    16
+   ],
    "households": 32895,
    "rate": 16.7,
    "rank": 236
@@ -882,6 +1570,12 @@
    "name": "North Warwickshire",
    "hp": 85,
    "region": "West Midlands",
+   "years": [
+    15,
+    11,
+    28,
+    23
+   ],
    "households": 27580,
    "rate": 30.8,
    "rank": 159
@@ -890,6 +1584,12 @@
    "name": "Nuneaton and Bedworth",
    "hp": 98,
    "region": "West Midlands",
+   "years": [
+    8,
+    6,
+    41,
+    35
+   ],
    "households": 56586,
    "rate": 17.3,
    "rank": 228
@@ -898,6 +1598,12 @@
    "name": "Rugby",
    "hp": 193,
    "region": "West Midlands",
+   "years": [
+    12,
+    26,
+    61,
+    80
+   ],
    "households": 47013,
    "rate": 41.1,
    "rank": 115
@@ -906,6 +1612,12 @@
    "name": "Stratford-on-Avon",
    "hp": 468,
    "region": "West Midlands",
+   "years": [
+    67,
+    80,
+    129,
+    162
+   ],
    "households": 59464,
    "rate": 78.7,
    "rank": 29
@@ -914,6 +1626,12 @@
    "name": "Warwick",
    "hp": 277,
    "region": "West Midlands",
+   "years": [
+    25,
+    27,
+    81,
+    123
+   ],
    "households": 62619,
    "rate": 44.2,
    "rank": 105
@@ -922,6 +1640,12 @@
    "name": "Birmingham",
    "hp": 386,
    "region": "West Midlands",
+   "years": [
+    35,
+    68,
+    115,
+    127
+   ],
    "households": 423456,
    "rate": 9.1,
    "rank": 302
@@ -930,6 +1654,12 @@
    "name": "Coventry",
    "hp": 186,
    "region": "West Midlands",
+   "years": [
+    12,
+    23,
+    59,
+    85
+   ],
    "households": 134139,
    "rate": 13.9,
    "rank": 261
@@ -938,6 +1668,12 @@
    "name": "Dudley",
    "hp": 111,
    "region": "West Midlands",
+   "years": [
+    9,
+    13,
+    32,
+    48
+   ],
    "households": 137069,
    "rate": 8.1,
    "rank": 307
@@ -946,6 +1682,12 @@
    "name": "Sandwell",
    "hp": 105,
    "region": "West Midlands",
+   "years": [
+    8,
+    13,
+    41,
+    36
+   ],
    "households": 130246,
    "rate": 8.1,
    "rank": 308
@@ -954,6 +1696,12 @@
    "name": "Solihull",
    "hp": 180,
    "region": "West Midlands",
+   "years": [
+    15,
+    33,
+    49,
+    63
+   ],
    "households": 89483,
    "rate": 20.1,
    "rank": 217
@@ -962,6 +1710,12 @@
    "name": "Walsall",
    "hp": 100,
    "region": "West Midlands",
+   "years": [
+    11,
+    19,
+    29,
+    31
+   ],
    "households": 112226,
    "rate": 8.9,
    "rank": 303
@@ -970,6 +1724,12 @@
    "name": "Wolverhampton",
    "hp": 73,
    "region": "West Midlands",
+   "years": [
+    10,
+    13,
+    17,
+    24
+   ],
    "households": 105141,
    "rate": 6.9,
    "rank": 311
@@ -978,6 +1738,12 @@
    "name": "Bromsgrove",
    "hp": 124,
    "region": "West Midlands",
+   "years": [
+    9,
+    19,
+    49,
+    46
+   ],
    "households": 41266,
    "rate": 30.0,
    "rank": 162
@@ -986,6 +1752,12 @@
    "name": "Malvern Hills",
    "hp": 283,
    "region": "West Midlands",
+   "years": [
+    21,
+    42,
+    85,
+    113
+   ],
    "households": 34892,
    "rate": 81.1,
    "rank": 24
@@ -994,6 +1766,12 @@
    "name": "Redditch",
    "hp": 53,
    "region": "West Midlands",
+   "years": [
+    null,
+    null,
+    15,
+    24
+   ],
    "households": 36378,
    "rate": 14.6,
    "rank": 257
@@ -1002,6 +1780,12 @@
    "name": "Worcester",
    "hp": 105,
    "region": "West Midlands",
+   "years": [
+    null,
+    null,
+    43,
+    27
+   ],
    "households": 44722,
    "rate": 23.5,
    "rank": 201
@@ -1010,6 +1794,12 @@
    "name": "Wychavon",
    "hp": 350,
    "region": "West Midlands",
+   "years": [
+    30,
+    69,
+    111,
+    116
+   ],
    "households": 57356,
    "rate": 61.0,
    "rank": 67
@@ -1018,6 +1808,12 @@
    "name": "Wyre Forest",
    "hp": 85,
    "region": "West Midlands",
+   "years": [
+    15,
+    16,
+    21,
+    28
+   ],
    "households": 45320,
    "rate": 18.8,
    "rank": 222
@@ -1026,6 +1822,12 @@
    "name": "Bedford",
    "hp": 270,
    "region": "East",
+   "years": [
+    24,
+    42,
+    89,
+    100
+   ],
    "households": 74950,
    "rate": 36.0,
    "rank": 134
@@ -1034,6 +1836,12 @@
    "name": "Central Bedfordshire",
    "hp": 497,
    "region": "East",
+   "years": [
+    55,
+    70,
+    159,
+    174
+   ],
    "households": 120755,
    "rate": 41.2,
    "rank": 114
@@ -1042,6 +1850,12 @@
    "name": "Luton",
    "hp": 77,
    "region": "East",
+   "years": [
+    null,
+    null,
+    21,
+    37
+   ],
    "households": 78940,
    "rate": 9.8,
    "rank": 297
@@ -1050,6 +1864,12 @@
    "name": "Peterborough",
    "hp": 253,
    "region": "East",
+   "years": [
+    29,
+    41,
+    68,
+    98
+   ],
    "households": 84533,
    "rate": 29.9,
    "rank": 164
@@ -1058,6 +1878,12 @@
    "name": "Southend-on-Sea",
    "hp": 65,
    "region": "East",
+   "years": [
+    9,
+    8,
+    21,
+    19
+   ],
    "households": 78344,
    "rate": 8.3,
    "rank": 306
@@ -1066,6 +1892,12 @@
    "name": "Thurrock",
    "hp": 62,
    "region": "East",
+   "years": [
+    null,
+    null,
+    23,
+    26
+   ],
    "households": 66377,
    "rate": 9.3,
    "rank": 301
@@ -1074,6 +1906,12 @@
    "name": "Cambridge",
    "hp": 392,
    "region": "East",
+   "years": [
+    43,
+    62,
+    111,
+    143
+   ],
    "households": 52472,
    "rate": 74.7,
    "rank": 38
@@ -1082,6 +1920,12 @@
    "name": "East Cambridgeshire",
    "hp": 360,
    "region": "East",
+   "years": [
+    51,
+    66,
+    100,
+    126
+   ],
    "households": 37203,
    "rate": 96.8,
    "rank": 12
@@ -1090,6 +1934,12 @@
    "name": "Fenland",
    "hp": 183,
    "region": "East",
+   "years": [
+    19,
+    33,
+    49,
+    66
+   ],
    "households": 44083,
    "rate": 41.5,
    "rank": 113
@@ -1098,6 +1948,12 @@
    "name": "Huntingdonshire",
    "hp": 490,
    "region": "East",
+   "years": [
+    59,
+    82,
+    143,
+    181
+   ],
    "households": 76880,
    "rate": 63.7,
    "rank": 60
@@ -1106,6 +1962,12 @@
    "name": "South Cambridgeshire",
    "hp": 1038,
    "region": "East",
+   "years": [
+    159,
+    180,
+    295,
+    336
+   ],
    "households": 66996,
    "rate": 154.9,
    "rank": 1
@@ -1114,6 +1976,12 @@
    "name": "Basildon",
    "hp": 120,
    "region": "East",
+   "years": [
+    10,
+    14,
+    36,
+    41
+   ],
    "households": 76362,
    "rate": 15.7,
    "rank": 243
@@ -1122,6 +1990,12 @@
    "name": "Braintree",
    "hp": 249,
    "region": "East",
+   "years": [
+    26,
+    41,
+    80,
+    80
+   ],
    "households": 64986,
    "rate": 38.3,
    "rank": 124
@@ -1130,6 +2004,12 @@
    "name": "Brentwood",
    "hp": 99,
    "region": "East",
+   "years": [
+    11,
+    17,
+    24,
+    32
+   ],
    "households": 32342,
    "rate": 30.6,
    "rank": 160
@@ -1138,6 +2018,12 @@
    "name": "Castle Point",
    "hp": 57,
    "region": "East",
+   "years": [
+    null,
+    null,
+    18,
+    16
+   ],
    "households": 37389,
    "rate": 15.2,
    "rank": 248
@@ -1146,6 +2032,12 @@
    "name": "Chelmsford",
    "hp": 356,
    "region": "East",
+   "years": [
+    33,
+    51,
+    102,
+    139
+   ],
    "households": 75401,
    "rate": 47.2,
    "rank": 98
@@ -1154,6 +2046,12 @@
    "name": "Colchester",
    "hp": 315,
    "region": "East",
+   "years": [
+    33,
+    36,
+    103,
+    124
+   ],
    "households": 79710,
    "rate": 39.5,
    "rank": 120
@@ -1162,6 +2060,12 @@
    "name": "Epping Forest",
    "hp": 169,
    "region": "East",
+   "years": [
+    11,
+    28,
+    49,
+    68
+   ],
    "households": 54557,
    "rate": 31.0,
    "rank": 155
@@ -1170,6 +2074,12 @@
    "name": "Harlow",
    "hp": 44,
    "region": "East",
+   "years": [
+    null,
+    null,
+    6,
+    25
+   ],
    "households": 37857,
    "rate": 11.6,
    "rank": 285
@@ -1178,6 +2088,12 @@
    "name": "Maldon",
    "hp": 192,
    "region": "East",
+   "years": [
+    22,
+    26,
+    52,
+    75
+   ],
    "households": 27900,
    "rate": 68.8,
    "rank": 50
@@ -1186,6 +2102,12 @@
    "name": "Rochford",
    "hp": 65,
    "region": "East",
+   "years": [
+    7,
+    8,
+    19,
+    25
+   ],
    "households": 35557,
    "rate": 18.3,
    "rank": 224
@@ -1194,6 +2116,12 @@
    "name": "Tendring",
    "hp": 201,
    "region": "East",
+   "years": [
+    26,
+    20,
+    72,
+    67
+   ],
    "households": 67451,
    "rate": 29.8,
    "rank": 165
@@ -1202,6 +2130,12 @@
    "name": "Uttlesford",
    "hp": 310,
    "region": "East",
+   "years": [
+    34,
+    47,
+    100,
+    116
+   ],
    "households": 36958,
    "rate": 83.9,
    "rank": 20
@@ -1210,6 +2144,12 @@
    "name": "Broxbourne",
    "hp": 61,
    "region": "East",
+   "years": [
+    0,
+    13,
+    23,
+    21
+   ],
    "households": 39849,
    "rate": 15.3,
    "rank": 247
@@ -1218,6 +2158,12 @@
    "name": "Dacorum",
    "hp": 287,
    "region": "East",
+   "years": [
+    32,
+    53,
+    76,
+    108
+   ],
    "households": 63412,
    "rate": 45.3,
    "rank": 103
@@ -1226,6 +2172,12 @@
    "name": "East Hertfordshire",
    "hp": 333,
    "region": "East",
+   "years": [
+    40,
+    46,
+    90,
+    130
+   ],
    "households": 62021,
    "rate": 53.7,
    "rank": 85
@@ -1234,6 +2186,12 @@
    "name": "Hertsmere",
    "hp": 90,
    "region": "East",
+   "years": [
+    9,
+    15,
+    33,
+    24
+   ],
    "households": 42682,
    "rate": 21.1,
    "rank": 207
@@ -1242,6 +2200,12 @@
    "name": "North Hertfordshire",
    "hp": 299,
    "region": "East",
+   "years": [
+    41,
+    50,
+    98,
+    83
+   ],
    "households": 56732,
    "rate": 52.7,
    "rank": 88
@@ -1250,6 +2214,12 @@
    "name": "St Albans",
    "hp": 336,
    "region": "East",
+   "years": [
+    36,
+    45,
+    101,
+    131
+   ],
    "households": 58991,
    "rate": 57.0,
    "rank": 79
@@ -1258,6 +2228,12 @@
    "name": "Stevenage",
    "hp": 60,
    "region": "East",
+   "years": [
+    null,
+    null,
+    21,
+    26
+   ],
    "households": 36511,
    "rate": 16.4,
    "rank": 237
@@ -1266,6 +2242,12 @@
    "name": "Three Rivers",
    "hp": 138,
    "region": "East",
+   "years": [
+    12,
+    19,
+    41,
+    56
+   ],
    "households": 36858,
    "rate": 37.4,
    "rank": 129
@@ -1274,6 +2256,12 @@
    "name": "Watford",
    "hp": 58,
    "region": "East",
+   "years": [
+    null,
+    null,
+    22,
+    21
+   ],
    "households": 39628,
    "rate": 14.6,
    "rank": 258
@@ -1282,6 +2270,12 @@
    "name": "Welwyn Hatfield",
    "hp": 165,
    "region": "East",
+   "years": [
+    13,
+    24,
+    53,
+    60
+   ],
    "households": 46209,
    "rate": 35.7,
    "rank": 135
@@ -1290,6 +2284,12 @@
    "name": "Breckland",
    "hp": 351,
    "region": "East",
+   "years": [
+    42,
+    56,
+    96,
+    129
+   ],
    "households": 60359,
    "rate": 58.2,
    "rank": 77
@@ -1298,6 +2298,12 @@
    "name": "Broadland",
    "hp": 345,
    "region": "East",
+   "years": [
+    29,
+    50,
+    89,
+    141
+   ],
    "households": 57760,
    "rate": 59.7,
    "rank": 71
@@ -1306,6 +2312,12 @@
    "name": "Great Yarmouth",
    "hp": 134,
    "region": "East",
+   "years": [
+    12,
+    21,
+    30,
+    57
+   ],
    "households": 44544,
    "rate": 30.1,
    "rank": 161
@@ -1314,6 +2326,12 @@
    "name": "King’s Lynn and West Norfolk",
    "hp": 410,
    "region": "East",
+   "years": [
+    43,
+    50,
+    122,
+    165
+   ],
    "households": 67464,
    "rate": 60.8,
    "rank": 68
@@ -1322,6 +2340,12 @@
    "name": "North Norfolk",
    "hp": 416,
    "region": "East",
+   "years": [
+    53,
+    72,
+    103,
+    157
+   ],
    "households": 48374,
    "rate": 86.0,
    "rank": 17
@@ -1330,6 +2354,12 @@
    "name": "Norwich",
    "hp": 144,
    "region": "East",
+   "years": [
+    11,
+    16,
+    42,
+    62
+   ],
    "households": 64459,
    "rate": 22.3,
    "rank": 204
@@ -1338,6 +2368,12 @@
    "name": "South Norfolk",
    "hp": 557,
    "region": "East",
+   "years": [
+    58,
+    77,
+    179,
+    198
+   ],
    "households": 61381,
    "rate": 90.7,
    "rank": 15
@@ -1346,6 +2382,12 @@
    "name": "Babergh",
    "hp": 293,
    "region": "East",
+   "years": [
+    43,
+    49,
+    80,
+    102
+   ],
    "households": 40200,
    "rate": 72.9,
    "rank": 45
@@ -1354,6 +2396,12 @@
    "name": "East Suffolk",
    "hp": 699,
    "region": "East",
+   "years": [
+    80,
+    113,
+    177,
+    268
+   ],
    "households": 110747,
    "rate": 63.1,
    "rank": 61
@@ -1362,6 +2410,12 @@
    "name": "Ipswich",
    "hp": 89,
    "region": "East",
+   "years": [
+    7,
+    14,
+    29,
+    33
+   ],
    "households": 59507,
    "rate": 15.0,
    "rank": 253
@@ -1370,6 +2424,12 @@
    "name": "Mid Suffolk",
    "hp": 420,
    "region": "East",
+   "years": [
+    47,
+    67,
+    125,
+    148
+   ],
    "households": 44343,
    "rate": 94.7,
    "rank": 14
@@ -1378,6 +2438,12 @@
    "name": "West Suffolk",
    "hp": 384,
    "region": "East",
+   "years": [
+    42,
+    55,
+    114,
+    144
+   ],
    "households": 78746,
    "rate": 48.8,
    "rank": 94
@@ -1386,6 +2452,12 @@
    "name": "Camden",
    "hp": 140,
    "region": "London",
+   "years": [
+    13,
+    27,
+    41,
+    43
+   ],
    "households": 92759,
    "rate": 15.1,
    "rank": 250
@@ -1394,6 +2466,12 @@
    "name": "City of London",
    "hp": 0,
    "region": "London",
+   "years": [
+    0,
+    0,
+    0,
+    0
+   ],
    "households": 4914,
    "rate": 0.0,
    "rank": 318
@@ -1402,6 +2480,12 @@
    "name": "Hackney",
    "hp": 167,
    "region": "London",
+   "years": [
+    10,
+    35,
+    46,
+    60
+   ],
    "households": 106081,
    "rate": 15.7,
    "rank": 244
@@ -1410,6 +2494,12 @@
    "name": "Hammersmith and Fulham",
    "hp": 76,
    "region": "London",
+   "years": [
+    6,
+    10,
+    20,
+    28
+   ],
    "households": 81244,
    "rate": 9.4,
    "rank": 298
@@ -1418,6 +2508,12 @@
    "name": "Haringey",
    "hp": 219,
    "region": "London",
+   "years": [
+    19,
+    34,
+    62,
+    73
+   ],
    "households": 105092,
    "rate": 20.8,
    "rank": 208
@@ -1426,6 +2522,12 @@
    "name": "Islington",
    "hp": 121,
    "region": "London",
+   "years": [
+    5,
+    23,
+    36,
+    44
+   ],
    "households": 96496,
    "rate": 12.5,
    "rank": 276
@@ -1434,6 +2536,12 @@
    "name": "Kensington and Chelsea",
    "hp": 42,
    "region": "London",
+   "years": [
+    null,
+    null,
+    8,
+    21
+   ],
    "households": 66884,
    "rate": 6.3,
    "rank": 314
@@ -1442,6 +2550,12 @@
    "name": "Lambeth",
    "hp": 168,
    "region": "London",
+   "years": [
+    14,
+    19,
+    48,
+    71
+   ],
    "households": 134688,
    "rate": 12.5,
    "rank": 277
@@ -1450,6 +2564,12 @@
    "name": "Lewisham",
    "hp": 248,
    "region": "London",
+   "years": [
+    20,
+    36,
+    90,
+    76
+   ],
    "households": 122392,
    "rate": 20.3,
    "rank": 213
@@ -1458,6 +2578,12 @@
    "name": "Newham",
    "hp": 76,
    "region": "London",
+   "years": [
+    null,
+    null,
+    21,
+    32
+   ],
    "households": 115507,
    "rate": 6.6,
    "rank": 313
@@ -1466,6 +2592,12 @@
    "name": "Southwark",
    "hp": 213,
    "region": "London",
+   "years": [
+    24,
+    41,
+    48,
+    91
+   ],
    "households": 130818,
    "rate": 16.3,
    "rank": 238
@@ -1474,6 +2606,12 @@
    "name": "Tower Hamlets",
    "hp": 49,
    "region": "London",
+   "years": [
+    5,
+    5,
+    18,
+    20
+   ],
    "households": 120539,
    "rate": 4.1,
    "rank": 317
@@ -1482,6 +2620,12 @@
    "name": "Wandsworth",
    "hp": 185,
    "region": "London",
+   "years": [
+    13,
+    32,
+    55,
+    65
+   ],
    "households": 137393,
    "rate": 13.5,
    "rank": 266
@@ -1490,6 +2634,12 @@
    "name": "Westminster",
    "hp": 40,
    "region": "London",
+   "years": [
+    5,
+    13,
+    10,
+    10
+   ],
    "households": 94815,
    "rate": 4.2,
    "rank": 316
@@ -1498,6 +2648,12 @@
    "name": "Barking and Dagenham",
    "hp": 36,
    "region": "London",
+   "years": [
+    null,
+    null,
+    16,
+    7
+   ],
    "households": 73902,
    "rate": 4.9,
    "rank": 315
@@ -1506,6 +2662,12 @@
    "name": "Barnet",
    "hp": 234,
    "region": "London",
+   "years": [
+    17,
+    34,
+    67,
+    74
+   ],
    "households": 148917,
    "rate": 15.7,
    "rank": 245
@@ -1514,6 +2676,12 @@
    "name": "Bexley",
    "hp": 103,
    "region": "London",
+   "years": [
+    null,
+    null,
+    41,
+    35
+   ],
    "households": 95300,
    "rate": 10.8,
    "rank": 287
@@ -1522,6 +2690,12 @@
    "name": "Brent",
    "hp": 157,
    "region": "London",
+   "years": [
+    17,
+    22,
+    44,
+    55
+   ],
    "households": 118612,
    "rate": 13.2,
    "rank": 268
@@ -1530,6 +2704,12 @@
    "name": "Bromley",
    "hp": 333,
    "region": "London",
+   "years": [
+    28,
+    46,
+    88,
+    139
+   ],
    "households": 135827,
    "rate": 24.5,
    "rank": 192
@@ -1538,6 +2718,12 @@
    "name": "Croydon",
    "hp": 241,
    "region": "London",
+   "years": [
+    15,
+    31,
+    84,
+    87
+   ],
    "households": 152946,
    "rate": 15.8,
    "rank": 242
@@ -1546,6 +2732,12 @@
    "name": "Ealing",
    "hp": 182,
    "region": "London",
+   "years": [
+    15,
+    25,
+    49,
+    75
+   ],
    "households": 133659,
    "rate": 13.6,
    "rank": 264
@@ -1554,6 +2746,12 @@
    "name": "Enfield",
    "hp": 147,
    "region": "London",
+   "years": [
+    14,
+    25,
+    44,
+    47
+   ],
    "households": 120923,
    "rate": 12.2,
    "rank": 280
@@ -1562,6 +2760,12 @@
    "name": "Greenwich",
    "hp": 147,
    "region": "London",
+   "years": [
+    11,
+    17,
+    41,
+    62
+   ],
    "households": 114052,
    "rate": 12.9,
    "rank": 272
@@ -1570,6 +2774,12 @@
    "name": "Harrow",
    "hp": 174,
    "region": "London",
+   "years": [
+    12,
+    24,
+    54,
+    65
+   ],
    "households": 89642,
    "rate": 19.4,
    "rank": 219
@@ -1578,6 +2788,12 @@
    "name": "Havering",
    "hp": 95,
    "region": "London",
+   "years": [
+    7,
+    8,
+    32,
+    35
+   ],
    "households": 101277,
    "rate": 9.4,
    "rank": 299
@@ -1586,6 +2802,12 @@
    "name": "Hillingdon",
    "hp": 164,
    "region": "London",
+   "years": [
+    15,
+    22,
+    54,
+    62
+   ],
    "households": 109228,
    "rate": 15.0,
    "rank": 254
@@ -1594,6 +2816,12 @@
    "name": "Hounslow",
    "hp": 97,
    "region": "London",
+   "years": [
+    8,
+    17,
+    30,
+    36
+   ],
    "households": 102961,
    "rate": 9.4,
    "rank": 300
@@ -1602,6 +2830,12 @@
    "name": "Kingston upon Thames",
    "hp": 162,
    "region": "London",
+   "years": [
+    14,
+    22,
+    54,
+    62
+   ],
    "households": 65626,
    "rate": 24.7,
    "rank": 191
@@ -1610,6 +2844,12 @@
    "name": "Merton",
    "hp": 165,
    "region": "London",
+   "years": [
+    14,
+    28,
+    60,
+    54
+   ],
    "households": 81729,
    "rate": 20.2,
    "rank": 215
@@ -1618,6 +2858,12 @@
    "name": "Redbridge",
    "hp": 110,
    "region": "London",
+   "years": [
+    10,
+    18,
+    31,
+    39
+   ],
    "households": 103713,
    "rate": 10.6,
    "rank": 289
@@ -1626,6 +2872,12 @@
    "name": "Richmond upon Thames",
    "hp": 233,
    "region": "London",
+   "years": [
+    23,
+    43,
+    65,
+    89
+   ],
    "households": 80705,
    "rate": 28.9,
    "rank": 169
@@ -1634,6 +2886,12 @@
    "name": "Sutton",
    "hp": 140,
    "region": "London",
+   "years": [
+    6,
+    13,
+    51,
+    53
+   ],
    "households": 82348,
    "rate": 17.0,
    "rank": 232
@@ -1642,6 +2900,12 @@
    "name": "Waltham Forest",
    "hp": 199,
    "region": "London",
+   "years": [
+    21,
+    36,
+    51,
+    74
+   ],
    "households": 102901,
    "rate": 19.3,
    "rank": 220
@@ -1650,6 +2914,12 @@
    "name": "Bracknell Forest",
    "hp": 157,
    "region": "South East",
+   "years": [
+    8,
+    25,
+    45,
+    68
+   ],
    "households": 50248,
    "rate": 31.2,
    "rank": 154
@@ -1658,6 +2928,12 @@
    "name": "Brighton and Hove",
    "hp": 387,
    "region": "South East",
+   "years": [
+    49,
+    73,
+    93,
+    130
+   ],
    "households": 121402,
    "rate": 31.9,
    "rank": 150
@@ -1666,6 +2942,12 @@
    "name": "Buckinghamshire",
    "hp": 1288,
    "region": "South East",
+   "years": [
+    132,
+    241,
+    380,
+    443
+   ],
    "households": 220328,
    "rate": 58.5,
    "rank": 76
@@ -1674,6 +2956,12 @@
    "name": "Isle of Wight",
    "hp": 188,
    "region": "South East",
+   "years": [
+    11,
+    27,
+    58,
+    75
+   ],
    "households": 64775,
    "rate": 29.0,
    "rank": 168
@@ -1682,6 +2970,12 @@
    "name": "Medway",
    "hp": 169,
    "region": "South East",
+   "years": [
+    19,
+    25,
+    46,
+    69
+   ],
    "households": 111458,
    "rate": 15.2,
    "rank": 249
@@ -1690,6 +2984,12 @@
    "name": "Milton Keynes",
    "hp": 410,
    "region": "South East",
+   "years": [
+    31,
+    44,
+    136,
+    169
+   ],
    "households": 113102,
    "rate": 36.3,
    "rank": 131
@@ -1698,6 +2998,12 @@
    "name": "Portsmouth",
    "hp": 76,
    "region": "South East",
+   "years": [
+    null,
+    null,
+    28,
+    29
+   ],
    "households": 86155,
    "rate": 8.8,
    "rank": 304
@@ -1706,6 +3012,12 @@
    "name": "Reading",
    "hp": 164,
    "region": "South East",
+   "years": [
+    12,
+    24,
+    53,
+    58
+   ],
    "households": 67683,
    "rate": 24.2,
    "rank": 195
@@ -1714,6 +3026,12 @@
    "name": "Slough",
    "hp": 72,
    "region": "South East",
+   "years": [
+    null,
+    null,
+    26,
+    15
+   ],
    "households": 52423,
    "rate": 13.7,
    "rank": 262
@@ -1722,6 +3040,12 @@
    "name": "Southampton",
    "hp": 176,
    "region": "South East",
+   "years": [
+    17,
+    26,
+    48,
+    69
+   ],
    "households": 102291,
    "rate": 17.2,
    "rank": 230
@@ -1730,6 +3054,12 @@
    "name": "West Berkshire",
    "hp": 487,
    "region": "South East",
+   "years": [
+    65,
+    70,
+    135,
+    176
+   ],
    "households": 66658,
    "rate": 73.1,
    "rank": 44
@@ -1738,6 +3068,12 @@
    "name": "Windsor and Maidenhead",
    "hp": 301,
    "region": "South East",
+   "years": [
+    33,
+    52,
+    95,
+    94
+   ],
    "households": 60932,
    "rate": 49.4,
    "rank": 93
@@ -1746,6 +3082,12 @@
    "name": "Wokingham",
    "hp": 412,
    "region": "South East",
+   "years": [
+    32,
+    54,
+    133,
+    165
+   ],
    "households": 69164,
    "rate": 59.6,
    "rank": 72
@@ -1754,6 +3096,12 @@
    "name": "Eastbourne",
    "hp": 73,
    "region": "South East",
+   "years": [
+    9,
+    8,
+    20,
+    32
+   ],
    "households": 45610,
    "rate": 16.0,
    "rank": 241
@@ -1762,6 +3110,12 @@
    "name": "Hastings",
    "hp": 75,
    "region": "South East",
+   "years": [
+    5,
+    10,
+    23,
+    29
+   ],
    "households": 40453,
    "rate": 18.5,
    "rank": 223
@@ -1770,6 +3124,12 @@
    "name": "Lewes",
    "hp": 339,
    "region": "South East",
+   "years": [
+    45,
+    61,
+    81,
+    124
+   ],
    "households": 43688,
    "rate": 77.6,
    "rank": 30
@@ -1778,6 +3138,12 @@
    "name": "Rother",
    "hp": 249,
    "region": "South East",
+   "years": [
+    19,
+    51,
+    80,
+    81
+   ],
    "households": 42102,
    "rate": 59.1,
    "rank": 74
@@ -1786,6 +3152,12 @@
    "name": "Wealden",
    "hp": 545,
    "region": "South East",
+   "years": [
+    60,
+    92,
+    151,
+    196
+   ],
    "households": 68266,
    "rate": 79.8,
    "rank": 26
@@ -1794,6 +3166,12 @@
    "name": "Basingstoke and Deane",
    "hp": 435,
    "region": "South East",
+   "years": [
+    42,
+    68,
+    139,
+    160
+   ],
    "households": 76645,
    "rate": 56.8,
    "rank": 81
@@ -1802,6 +3180,12 @@
    "name": "East Hampshire",
    "hp": 444,
    "region": "South East",
+   "years": [
+    63,
+    70,
+    112,
+    177
+   ],
    "households": 52718,
    "rate": 84.2,
    "rank": 19
@@ -1810,6 +3194,12 @@
    "name": "Eastleigh",
    "hp": 188,
    "region": "South East",
+   "years": [
+    14,
+    29,
+    61,
+    75
+   ],
    "households": 56924,
    "rate": 33.0,
    "rank": 146
@@ -1818,6 +3208,12 @@
    "name": "Fareham",
    "hp": 206,
    "region": "South East",
+   "years": [
+    24,
+    25,
+    63,
+    74
+   ],
    "households": 48639,
    "rate": 42.4,
    "rank": 111
@@ -1826,6 +3222,12 @@
    "name": "Gosport",
    "hp": 61,
    "region": "South East",
+   "years": [
+    null,
+    null,
+    21,
+    24
+   ],
    "households": 35922,
    "rate": 17.0,
    "rank": 233
@@ -1834,6 +3236,12 @@
    "name": "Hart",
    "hp": 204,
    "region": "South East",
+   "years": [
+    20,
+    40,
+    59,
+    69
+   ],
    "households": 39964,
    "rate": 51.0,
    "rank": 89
@@ -1842,6 +3250,12 @@
    "name": "Havant",
    "hp": 138,
    "region": "South East",
+   "years": [
+    6,
+    16,
+    47,
+    57
+   ],
    "households": 53589,
    "rate": 25.8,
    "rank": 184
@@ -1850,6 +3264,12 @@
    "name": "New Forest",
    "hp": 498,
    "region": "South East",
+   "years": [
+    61,
+    74,
+    129,
+    190
+   ],
    "households": 77566,
    "rate": 64.2,
    "rank": 59
@@ -1858,6 +3278,12 @@
    "name": "Rushmoor",
    "hp": 100,
    "region": "South East",
+   "years": [
+    null,
+    null,
+    32,
+    48
+   ],
    "households": 39303,
    "rate": 25.4,
    "rank": 188
@@ -1866,6 +3292,12 @@
    "name": "Test Valley",
    "hp": 415,
    "region": "South East",
+   "years": [
+    44,
+    53,
+    140,
+    147
+   ],
    "households": 54708,
    "rate": 75.9,
    "rank": 35
@@ -1874,6 +3306,12 @@
    "name": "Winchester",
    "hp": 523,
    "region": "South East",
+   "years": [
+    70,
+    100,
+    144,
+    167
+   ],
    "households": 51715,
    "rate": 101.1,
    "rank": 9
@@ -1882,6 +3320,12 @@
    "name": "Ashford",
    "hp": 330,
    "region": "South East",
+   "years": [
+    26,
+    56,
+    116,
+    112
+   ],
    "households": 53583,
    "rate": 61.6,
    "rank": 64
@@ -1890,6 +3334,12 @@
    "name": "Canterbury",
    "hp": 280,
    "region": "South East",
+   "years": [
+    27,
+    31,
+    93,
+    103
+   ],
    "households": 63792,
    "rate": 43.9,
    "rank": 107
@@ -1898,6 +3348,12 @@
    "name": "Dartford",
    "hp": 94,
    "region": "South East",
+   "years": [
+    6,
+    9,
+    32,
+    40
+   ],
    "households": 45696,
    "rate": 20.6,
    "rank": 210
@@ -1906,6 +3362,12 @@
    "name": "Dover",
    "hp": 175,
    "region": "South East",
+   "years": [
+    22,
+    33,
+    51,
+    54
+   ],
    "households": 50548,
    "rate": 34.6,
    "rank": 140
@@ -1914,6 +3376,12 @@
    "name": "Folkestone and Hythe",
    "hp": 184,
    "region": "South East",
+   "years": [
+    25,
+    26,
+    57,
+    66
+   ],
    "households": 48338,
    "rate": 38.1,
    "rank": 125
@@ -1922,6 +3390,12 @@
    "name": "Gravesham",
    "hp": 67,
    "region": "South East",
+   "years": [
+    8,
+    9,
+    20,
+    26
+   ],
    "households": 41724,
    "rate": 16.1,
    "rank": 240
@@ -1930,6 +3404,12 @@
    "name": "Maidstone",
    "hp": 310,
    "region": "South East",
+   "years": [
+    32,
+    49,
+    84,
+    118
+   ],
    "households": 71208,
    "rate": 43.5,
    "rank": 108
@@ -1938,6 +3418,12 @@
    "name": "Sevenoaks",
    "hp": 339,
    "region": "South East",
+   "years": [
+    40,
+    71,
+    94,
+    102
+   ],
    "households": 49013,
    "rate": 69.2,
    "rank": 48
@@ -1946,6 +3432,12 @@
    "name": "Swale",
    "hp": 162,
    "region": "South East",
+   "years": [
+    8,
+    24,
+    59,
+    50
+   ],
    "households": 60495,
    "rate": 26.8,
    "rank": 178
@@ -1954,6 +3446,12 @@
    "name": "Thanet",
    "hp": 151,
    "region": "South East",
+   "years": [
+    17,
+    24,
+    53,
+    44
+   ],
    "households": 62200,
    "rate": 24.3,
    "rank": 194
@@ -1962,6 +3460,12 @@
    "name": "Tonbridge and Malling",
    "hp": 217,
    "region": "South East",
+   "years": [
+    22,
+    40,
+    73,
+    63
+   ],
    "households": 53573,
    "rate": 40.5,
    "rank": 117
@@ -1970,6 +3474,12 @@
    "name": "Tunbridge Wells",
    "hp": 297,
    "region": "South East",
+   "years": [
+    29,
+    55,
+    84,
+    102
+   ],
    "households": 48223,
    "rate": 61.6,
    "rank": 65
@@ -1978,6 +3488,12 @@
    "name": "Cherwell",
    "hp": 404,
    "region": "South East",
+   "years": [
+    52,
+    77,
+    109,
+    133
+   ],
    "households": 65894,
    "rate": 61.3,
    "rank": 66
@@ -1986,6 +3502,12 @@
    "name": "Oxford",
    "hp": 315,
    "region": "South East",
+   "years": [
+    28,
+    54,
+    99,
+    104
+   ],
    "households": 55238,
    "rate": 57.0,
    "rank": 80
@@ -1994,6 +3516,12 @@
    "name": "South Oxfordshire",
    "hp": 661,
    "region": "South East",
+   "years": [
+    60,
+    112,
+    188,
+    254
+   ],
    "households": 61497,
    "rate": 107.5,
    "rank": 7
@@ -2002,6 +3530,12 @@
    "name": "Vale of White Horse",
    "hp": 480,
    "region": "South East",
+   "years": [
+    51,
+    98,
+    136,
+    158
+   ],
    "households": 57498,
    "rate": 83.5,
    "rank": 21
@@ -2010,6 +3544,12 @@
    "name": "West Oxfordshire",
    "hp": 356,
    "region": "South East",
+   "years": [
+    38,
+    59,
+    108,
+    123
+   ],
    "households": 47981,
    "rate": 74.2,
    "rank": 40
@@ -2018,6 +3558,12 @@
    "name": "Elmbridge",
    "hp": 214,
    "region": "South East",
+   "years": [
+    26,
+    38,
+    58,
+    71
+   ],
    "households": 55590,
    "rate": 38.5,
    "rank": 122
@@ -2026,6 +3572,12 @@
    "name": "Epsom and Ewell",
    "hp": 80,
    "region": "South East",
+   "years": [
+    7,
+    16,
+    19,
+    24
+   ],
    "households": 31321,
    "rate": 25.5,
    "rank": 187
@@ -2034,6 +3586,12 @@
    "name": "Guildford",
    "hp": 374,
    "region": "South East",
+   "years": [
+    34,
+    57,
+    114,
+    139
+   ],
    "households": 55760,
    "rate": 67.1,
    "rank": 52
@@ -2042,6 +3600,12 @@
    "name": "Mole Valley",
    "hp": 247,
    "region": "South East",
+   "years": [
+    30,
+    39,
+    71,
+    80
+   ],
    "households": 37139,
    "rate": 66.5,
    "rank": 55
@@ -2050,6 +3614,12 @@
    "name": "Reigate and Banstead",
    "hp": 197,
    "region": "South East",
+   "years": [
+    15,
+    29,
+    69,
+    70
+   ],
    "households": 59849,
    "rate": 32.9,
    "rank": 148
@@ -2058,6 +3628,12 @@
    "name": "Runnymede",
    "hp": 98,
    "region": "South East",
+   "years": [
+    9,
+    15,
+    34,
+    36
+   ],
    "households": 34838,
    "rate": 28.1,
    "rank": 174
@@ -2066,6 +3642,12 @@
    "name": "Spelthorne",
    "hp": 82,
    "region": "South East",
+   "years": [
+    9,
+    8,
+    29,
+    26
+   ],
    "households": 41805,
    "rate": 19.6,
    "rank": 218
@@ -2074,6 +3656,12 @@
    "name": "Surrey Heath",
    "hp": 137,
    "region": "South East",
+   "years": [
+    9,
+    19,
+    33,
+    54
+   ],
    "households": 36008,
    "rate": 38.0,
    "rank": 126
@@ -2082,6 +3670,12 @@
    "name": "Tandridge",
    "hp": 198,
    "region": "South East",
+   "years": [
+    26,
+    36,
+    57,
+    56
+   ],
    "households": 35623,
    "rate": 55.6,
    "rank": 83
@@ -2090,6 +3684,12 @@
    "name": "Waverley",
    "hp": 397,
    "region": "South East",
+   "years": [
+    37,
+    55,
+    119,
+    148
+   ],
    "households": 52448,
    "rate": 75.7,
    "rank": 36
@@ -2098,6 +3698,12 @@
    "name": "Woking",
    "hp": 144,
    "region": "South East",
+   "years": [
+    17,
+    18,
+    45,
+    53
+   ],
    "households": 41437,
    "rate": 34.8,
    "rank": 139
@@ -2106,6 +3712,12 @@
    "name": "Adur",
    "hp": 81,
    "region": "South East",
+   "years": [
+    null,
+    null,
+    27,
+    32
+   ],
    "households": 27678,
    "rate": 29.3,
    "rank": 167
@@ -2114,6 +3726,12 @@
    "name": "Arun",
    "hp": 216,
    "region": "South East",
+   "years": [
+    24,
+    28,
+    77,
+    70
+   ],
    "households": 72661,
    "rate": 29.7,
    "rank": 166
@@ -2122,6 +3740,12 @@
    "name": "Chichester",
    "hp": 431,
    "region": "South East",
+   "years": [
+    65,
+    78,
+    122,
+    136
+   ],
    "households": 54118,
    "rate": 79.6,
    "rank": 27
@@ -2130,6 +3754,12 @@
    "name": "Crawley",
    "hp": 60,
    "region": "South East",
+   "years": [
+    null,
+    null,
+    13,
+    34
+   ],
    "households": 45502,
    "rate": 13.2,
    "rank": 269
@@ -2138,6 +3768,12 @@
    "name": "Horsham",
    "hp": 409,
    "region": "South East",
+   "years": [
+    55,
+    60,
+    115,
+    158
+   ],
    "households": 62370,
    "rate": 65.6,
    "rank": 58
@@ -2146,6 +3782,12 @@
    "name": "Mid Sussex",
    "hp": 362,
    "region": "South East",
+   "years": [
+    45,
+    50,
+    109,
+    137
+   ],
    "households": 63349,
    "rate": 57.1,
    "rank": 78
@@ -2154,6 +3796,12 @@
    "name": "Worthing",
    "hp": 103,
    "region": "South East",
+   "years": [
+    7,
+    10,
+    37,
+    42
+   ],
    "households": 49538,
    "rate": 20.8,
    "rank": 209
@@ -2162,6 +3810,12 @@
    "name": "Bath and North East Somerset",
    "hp": 472,
    "region": "South West",
+   "years": [
+    52,
+    83,
+    115,
+    190
+   ],
    "households": 79250,
    "rate": 59.6,
    "rank": 73
@@ -2170,6 +3824,12 @@
    "name": "Bournemouth, Christchurch and Poole",
    "hp": 412,
    "region": "South West",
+   "years": [
+    38,
+    66,
+    123,
+    154
+   ],
    "households": 173842,
    "rate": 23.7,
    "rank": 199
@@ -2178,6 +3838,12 @@
    "name": "Bristol, City of",
    "hp": 643,
    "region": "South West",
+   "years": [
+    80,
+    87,
+    180,
+    245
+   ],
    "households": 191638,
    "rate": 33.6,
    "rank": 144
@@ -2186,6 +3852,12 @@
    "name": "Cornwall",
    "hp": 3145,
    "region": "South West",
+   "years": [
+    393,
+    536,
+    916,
+    1089
+   ],
    "households": 250535,
    "rate": 125.5,
    "rank": 3
@@ -2194,6 +3866,12 @@
    "name": "Dorset",
    "hp": 1263,
    "region": "South West",
+   "years": [
+    167,
+    239,
+    333,
+    431
+   ],
    "households": 169261,
    "rate": 74.6,
    "rank": 39
@@ -2202,6 +3880,12 @@
    "name": "Isles of Scilly",
    "hp": 11,
    "region": "South West",
+   "years": [
+    0,
+    null,
+    6,
+    null
+   ],
    "households": 942,
    "rate": 116.8,
    "rank": 5
@@ -2210,6 +3894,12 @@
    "name": "North Somerset",
    "hp": 527,
    "region": "South West",
+   "years": [
+    62,
+    88,
+    150,
+    186
+   ],
    "households": 94648,
    "rate": 55.7,
    "rank": 82
@@ -2218,6 +3908,12 @@
    "name": "Plymouth",
    "hp": 147,
    "region": "South West",
+   "years": [
+    7,
+    15,
+    45,
+    70
+   ],
    "households": 114558,
    "rate": 12.8,
    "rank": 273
@@ -2226,6 +3922,12 @@
    "name": "Somerset",
    "hp": 1556,
    "region": "South West",
+   "years": [
+    199,
+    233,
+    404,
+    595
+   ],
    "households": 250120,
    "rate": 62.2,
    "rank": 62
@@ -2234,6 +3936,12 @@
    "name": "South Gloucestershire",
    "hp": 627,
    "region": "South West",
+   "years": [
+    85,
+    93,
+    162,
+    239
+   ],
    "households": 118101,
    "rate": 53.1,
    "rank": 87
@@ -2242,6 +3950,12 @@
    "name": "Swindon",
    "hp": 232,
    "region": "South West",
+   "years": [
+    13,
+    27,
+    75,
+    93
+   ],
    "households": 95862,
    "rate": 24.2,
    "rank": 196
@@ -2250,6 +3964,12 @@
    "name": "Torbay",
    "hp": 107,
    "region": "South West",
+   "years": [
+    9,
+    null,
+    31,
+    null
+   ],
    "households": 62992,
    "rate": 17.0,
    "rank": 234
@@ -2258,6 +3978,12 @@
    "name": "Wiltshire",
    "hp": 1622,
    "region": "South West",
+   "years": [
+    216,
+    280,
+    424,
+    589
+   ],
    "households": 215081,
    "rate": 75.4,
    "rank": 37
@@ -2266,6 +3992,12 @@
    "name": "East Devon",
    "hp": 550,
    "region": "South West",
+   "years": [
+    69,
+    96,
+    148,
+    196
+   ],
    "households": 66788,
    "rate": 82.4,
    "rank": 22
@@ -2274,6 +4006,12 @@
    "name": "Exeter",
    "hp": 191,
    "region": "South West",
+   "years": [
+    16,
+    31,
+    61,
+    68
+   ],
    "households": 52554,
    "rate": 36.3,
    "rank": 132
@@ -2282,6 +4020,12 @@
    "name": "Mid Devon",
    "hp": 339,
    "region": "South West",
+   "years": [
+    54,
+    58,
+    89,
+    116
+   ],
    "households": 35633,
    "rate": 95.1,
    "rank": 13
@@ -2290,6 +4034,12 @@
    "name": "North Devon",
    "hp": 520,
    "region": "South West",
+   "years": [
+    65,
+    101,
+    150,
+    167
+   ],
    "households": 43197,
    "rate": 120.4,
    "rank": 4
@@ -2298,6 +4048,12 @@
    "name": "South Hams",
    "hp": 532,
    "region": "South West",
+   "years": [
+    57,
+    114,
+    131,
+    198
+   ],
    "households": 39335,
    "rate": 135.2,
    "rank": 2
@@ -2306,6 +4062,12 @@
    "name": "Teignbridge",
    "hp": 360,
    "region": "South West",
+   "years": [
+    45,
+    53,
+    90,
+    138
+   ],
    "households": 59838,
    "rate": 60.2,
    "rank": 70
@@ -2314,6 +4076,12 @@
    "name": "Torridge",
    "hp": 303,
    "region": "South West",
+   "years": [
+    30,
+    47,
+    98,
+    103
+   ],
    "households": 30457,
    "rate": 99.5,
    "rank": 10
@@ -2322,6 +4090,12 @@
    "name": "West Devon",
    "hp": 270,
    "region": "South West",
+   "years": [
+    34,
+    38,
+    88,
+    92
+   ],
    "households": 24818,
    "rate": 108.8,
    "rank": 6
@@ -2330,6 +4104,12 @@
    "name": "Cheltenham",
    "hp": 188,
    "region": "South West",
+   "years": [
+    19,
+    27,
+    47,
+    77
+   ],
    "households": 52899,
    "rate": 35.5,
    "rank": 136
@@ -2338,6 +4118,12 @@
    "name": "Cotswold",
    "hp": 320,
    "region": "South West",
+   "years": [
+    53,
+    53,
+    85,
+    110
+   ],
    "households": 40597,
    "rate": 78.8,
    "rank": 28
@@ -2346,6 +4132,12 @@
    "name": "Forest of Dean",
    "hp": 370,
    "region": "South West",
+   "years": [
+    49,
+    48,
+    100,
+    135
+   ],
    "households": 37217,
    "rate": 99.4,
    "rank": 11
@@ -2354,6 +4146,12 @@
    "name": "Gloucester",
    "hp": 86,
    "region": "South West",
+   "years": [
+    9,
+    7,
+    22,
+    36
+   ],
    "households": 55407,
    "rate": 15.5,
    "rank": 246
@@ -2362,6 +4160,12 @@
    "name": "Stroud",
    "hp": 462,
    "region": "South West",
+   "years": [
+    82,
+    77,
+    121,
+    148
+   ],
    "households": 52378,
    "rate": 88.2,
    "rank": 16
@@ -2370,6 +4174,12 @@
    "name": "Tewkesbury",
    "hp": 253,
    "region": "South West",
+   "years": [
+    20,
+    36,
+    65,
+    112
+   ],
    "households": 40931,
    "rate": 61.8,
    "rank": 63
@@ -2378,6 +4188,12 @@
    "name": "Isle of Anglesey",
    "hp": 213,
    "region": "Wales",
+   "years": [
+    31,
+    39,
+    44,
+    74
+   ],
    "households": 30822,
    "rate": 69.1,
    "rank": 49
@@ -2386,6 +4202,12 @@
    "name": "Gwynedd",
    "hp": 301,
    "region": "Wales",
+   "years": [
+    39,
+    46,
+    83,
+    101
+   ],
    "households": 51105,
    "rate": 58.9,
    "rank": 75
@@ -2394,6 +4216,12 @@
    "name": "Conwy",
    "hp": 196,
    "region": "Wales",
+   "years": [
+    24,
+    36,
+    33,
+    87
+   ],
    "households": 52235,
    "rate": 37.5,
    "rank": 127
@@ -2402,6 +4230,12 @@
    "name": "Denbighshire",
    "hp": 313,
    "region": "Wales",
+   "years": [
+    37,
+    30,
+    60,
+    162
+   ],
    "households": 42387,
    "rate": 73.8,
    "rank": 42
@@ -2410,6 +4244,12 @@
    "name": "Flintshire",
    "hp": 214,
    "region": "Wales",
+   "years": [
+    34,
+    22,
+    48,
+    90
+   ],
    "households": 66911,
    "rate": 32.0,
    "rank": 149
@@ -2418,6 +4258,12 @@
    "name": "Wrexham",
    "hp": 181,
    "region": "Wales",
+   "years": [
+    17,
+    29,
+    41,
+    73
+   ],
    "households": 57914,
    "rate": 31.3,
    "rank": 153
@@ -2426,6 +4272,12 @@
    "name": "Powys",
    "hp": 403,
    "region": "Wales",
+   "years": [
+    93,
+    76,
+    102,
+    103
+   ],
    "households": 60182,
    "rate": 67.0,
    "rank": 53
@@ -2434,6 +4286,12 @@
    "name": "Ceredigion",
    "hp": 235,
    "region": "Wales",
+   "years": [
+    36,
+    45,
+    52,
+    80
+   ],
    "households": 30893,
    "rate": 76.1,
    "rank": 34
@@ -2442,6 +4300,12 @@
    "name": "Pembrokeshire",
    "hp": 374,
    "region": "Wales",
+   "years": [
+    58,
+    65,
+    91,
+    128
+   ],
    "households": 55488,
    "rate": 67.4,
    "rank": 51
@@ -2450,6 +4314,12 @@
    "name": "Carmarthenshire",
    "hp": 360,
    "region": "Wales",
+   "years": [
+    53,
+    64,
+    88,
+    115
+   ],
    "households": 81759,
    "rate": 44.0,
    "rank": 106
@@ -2458,6 +4328,12 @@
    "name": "Swansea",
    "hp": 239,
    "region": "Wales",
+   "years": [
+    39,
+    43,
+    52,
+    85
+   ],
    "households": 104962,
    "rate": 22.8,
    "rank": 203
@@ -2466,6 +4342,12 @@
    "name": "Neath Port Talbot",
    "hp": 62,
    "region": "Wales",
+   "years": [
+    6,
+    12,
+    13,
+    25
+   ],
    "households": 62375,
    "rate": 9.9,
    "rank": 295
@@ -2474,6 +4356,12 @@
    "name": "Bridgend",
    "hp": 94,
    "region": "Wales",
+   "years": [
+    7,
+    10,
+    23,
+    42
+   ],
    "households": 62360,
    "rate": 15.1,
    "rank": 251
@@ -2482,6 +4370,12 @@
    "name": "Vale of Glamorgan",
    "hp": 203,
    "region": "Wales",
+   "years": [
+    19,
+    29,
+    41,
+    87
+   ],
    "households": 57450,
    "rate": 35.3,
    "rank": 137
@@ -2490,6 +4384,12 @@
    "name": "Cardiff",
    "hp": 267,
    "region": "Wales",
+   "years": [
+    18,
+    29,
+    63,
+    130
+   ],
    "households": 147333,
    "rate": 18.1,
    "rank": 225
@@ -2498,6 +4398,12 @@
    "name": "Rhondda Cynon Taf",
    "hp": 102,
    "region": "Wales",
+   "years": [
+    6,
+    15,
+    20,
+    51
+   ],
    "households": 103339,
    "rate": 9.9,
    "rank": 296
@@ -2506,6 +4412,12 @@
    "name": "Merthyr Tydfil",
    "hp": 26,
    "region": "Wales",
+   "years": [
+    null,
+    0,
+    null,
+    11
+   ],
    "households": 25783,
    "rate": 10.1,
    "rank": 292
@@ -2514,6 +4426,12 @@
    "name": "Caerphilly",
    "hp": 90,
    "region": "Wales",
+   "years": [
+    7,
+    17,
+    11,
+    46
+   ],
    "households": 76257,
    "rate": 11.8,
    "rank": 283
@@ -2522,6 +4440,12 @@
    "name": "Blaenau Gwent",
    "hp": 24,
    "region": "Wales",
+   "years": [
+    null,
+    null,
+    null,
+    16
+   ],
    "households": 30340,
    "rate": 7.9,
    "rank": 309
@@ -2530,6 +4454,12 @@
    "name": "Torfaen",
    "hp": 48,
    "region": "Wales",
+   "years": [
+    null,
+    null,
+    17,
+    21
+   ],
    "households": 40241,
    "rate": 11.9,
    "rank": 281
@@ -2538,6 +4468,12 @@
    "name": "Monmouthshire",
    "hp": 330,
    "region": "Wales",
+   "years": [
+    43,
+    71,
+    93,
+    103
+   ],
    "households": 40923,
    "rate": 80.6,
    "rank": 25
@@ -2546,6 +4482,12 @@
    "name": "Newport",
    "hp": 96,
    "region": "Wales",
+   "years": [
+    null,
+    null,
+    33,
+    37
+   ],
    "households": 66054,
    "rate": 14.5,
    "rank": 259

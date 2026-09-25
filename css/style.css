@@ -1161,3 +1161,10 @@ details.faq-item>p{margin:0 0 14px}
 .hp-ldn{display:block;width:100%;height:auto}
 .hp-london figcaption{font-size:.78rem;color:var(--color-text-tertiary)}
 @media (max-width:760px){.hp-map-wrap{grid-template-columns:1fr}.hp-main{max-width:360px;margin:0 auto}.hp-london{max-width:260px}}
+.hp-council-cmp{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start}
+.hp-region-fig{margin:0}
+.hp-region{display:block;width:100%;height:auto}
+.hp-region path{stroke:#fff;stroke-width:.35;stroke-linejoin:round}
+.hp-region path.on{stroke:var(--color-text);stroke-width:1.6}
+.hp-region-fig figcaption{font-size:.78rem;color:var(--color-text-tertiary);line-height:1.4;margin-top:4px}
+@media (max-width:700px){.hp-council-cmp{grid-template-columns:1fr}.hp-region-fig{max-width:240px;margin:0 auto}}

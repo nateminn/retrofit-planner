@@ -53,7 +53,16 @@ def bus_table():
             name = (r[3] or r[2]).split(' [')[0].split(' / ')[0].strip()
             out[code] = {'name': name, 'hp': int(r[4]), 'region': region if code[0] == 'E' else 'Wales'}
     total = next(r[4] for r in rows if r[0] == 'K04000001')
-    return title, url, out, regions, total, d['public_updated_at'][:10]
+    # Table A1.7: the same count by financial year (2022/23 starts on 23 May 2022, when the scheme opened)
+    yrows = [r for r in wb['A1.7'].iter_rows(values_only=True)]
+    head = next(r for r in yrows if r[0] == 'Area Codes')
+    years = [str(h).split(':')[0] for h in head[4:8]]
+    for r in yrows:
+        if r[0] in out:
+            out[r[0]]['years'] = [v if isinstance(v, int) else None for v in r[4:8]]
+        if r[0] == 'K04000001':
+            ew_years = list(r[4:8])
+    return title, url, out, regions, total, d['public_updated_at'][:10], years, ew_years
 
 
 def households():
@@ -112,7 +121,7 @@ def paths(features, eps, min_area, box=None, width=440):
 
 def main():
     sys.setrecursionlimit(20000)
-    title, url, bus, regions, total, published = bus_table()
+    title, url, bus, regions, total, published, years, ew_years = bus_table()
     hh = households()
     missing = [c for c in bus if c not in hh]
     if missing:
@@ -132,7 +141,10 @@ def main():
         r['hp'] += v['hp']; r['households'] += v['households']
     for r in reg.values():
         r['rate'] = round(r['hp'] / r['households'] * 10000, 1)
+    # council pages for the 20 councils with the most households, the largest audiences
+    pages = sorted(bus, key=lambda c: -bus[c]['households'])[:20]
     data = {'title': title, 'source_url': url, 'published': published, 'total': total, 'households': all_hh,
+            'years': years, 'ew_years': ew_years, 'pages': pages,
             'rate': round(total / all_hh * 10000, 1), 'councils': bus, 'regions': reg}
     (ROOT / 'docs' / 'bus-councils.json').write_text(json.dumps(data, indent=1, ensure_ascii=False))
     feats = [f for f in json.loads(get(LAD))['features'] if f['properties']['LAD25CD'] in bus]

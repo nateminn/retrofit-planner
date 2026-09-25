@@ -88,6 +88,7 @@ KINDS = {
 # Everything else (bills, explainers, schemes, the index, about, contact) has none.
 HEAT_PUMP = ['heat-pump-calculator', 'boiler-vs-heat-pump', 'heat-pump-running-cost-calculator'] + ['guides/' + g for g in [
     'heat-pumps-by-council',
+    'heat-pumps-in-birmingham', 'heat-pumps-in-leeds', 'heat-pumps-in-north-yorkshire', 'heat-pumps-in-cornwall', 'heat-pumps-in-somerset', 'heat-pumps-in-county-durham', 'heat-pumps-in-sheffield', 'heat-pumps-in-buckinghamshire', 'heat-pumps-in-wiltshire', 'heat-pumps-in-manchester', 'heat-pumps-in-bradford', 'heat-pumps-in-liverpool', 'heat-pumps-in-bristol', 'heat-pumps-in-kirklees', 'heat-pumps-in-cheshire-east', 'heat-pumps-in-bournemouth-christchurch-and-poole', 'heat-pumps-in-west-northamptonshire', 'heat-pumps-in-dorset', 'heat-pumps-in-cheshire-west-and-chester', 'heat-pumps-in-wakefield',
     'heat-pump-cost-by-house-type', 'heat-pump-cost-3-bed-semi', 'heat-pump-cost-2-bed-terrace',
     'heat-pump-cost-4-bed-house', 'heat-pump-victorian-terrace', 'heat-pump-cost-3-bed-detached',
     'heat-pump-cost-end-terrace', 'heat-pump-cost-5-bed-house', 'heat-pump-1960s-house',

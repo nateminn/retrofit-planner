@@ -629,16 +629,18 @@ def hp_council_page():
         return '<svg class="%s" viewBox="0 0 %d %d" role="img" aria-label="%s">%s</svg>' % (cls, mp['w'], mp['h'], label, paths)
 
     legend = '<ul class="hp-legend">%s</ul>' % ''.join('<li><span style="background:%s"></span>%s</li>' % (HP_COLS[i], HP_LABELS[i]) for i in range(5))
-    top = [['%s' % html.escape(C[c]['name']), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[:10]]
-    bottom = [['%s' % html.escape(C[c]['name']), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[-10:]]
+    pages = set(D.get('pages', []))
+    cname = lambda c: ('<a href="/guides/%s/">%s</a>' % (council_slug(C[c]['name']), html.escape(council_name(C[c]['name'])))) if c in pages else html.escape(C[c]['name'])
+    top = [[cname(c), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[:10]]
+    bottom = [[cname(c), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[-10:]]
     head = ['Council', 'Region', 'Heat pumps', 'Per 10,000 households']
     regions = sorted(D['regions'].items(), key=lambda kv: -kv[1]['rate'])
     reg_rows = [[k, fmt(v['hp']), fmt(v['households']), one(v['rate'])] for k, v in regions]
-    all_rows = [[str(C[c]['rank']), html.escape(C[c]['name']), C[c]['region'], fmt(C[c]['hp']), fmt(C[c]['households']), one(C[c]['rate'])] for c in order]
+    all_rows = [[str(C[c]['rank']), cname(c), C[c]['region'], fmt(C[c]['hp']), fmt(C[c]['households']), one(C[c]['rate'])] for c in order]
     most = max(C, key=lambda c: C[c]['hp'])
     first, last = C[order[0]], C[order[-1]]
     lowest5 = [C[c] for c in order if C[c]['rate'] < 5]
-    data = {c: [v['name'], v['hp'], v['households'], v['rate'], v['rank'], v['region']] for c, v in C.items()}
+    data = {c: [v['name'], v['hp'], v['households'], v['rate'], v['rank'], v['region']] + (['/guides/%s/' % council_slug(v['name'])] if c in pages else []) for c, v in C.items()}
     names = ''.join('<option value="%s">' % html.escape(C[c]['name']) for c in sorted(C, key=lambda c: C[c]['name']))
     faq = [('Which council has the most heat pumps?',
             '%s has the most heat pump grants paid of any council in England and Wales, %s. Per household, %s leads with %s for every 10,000 households, more than four times the England and Wales figure of %s.'
@@ -691,7 +693,7 @@ def hp_council_page():
     function show(c) {{
         var d = D[c]; if (!d) {{ return; }}
         var cmp = d[3] >= ew ? (d[3] / ew).toFixed(1) + ' times the England and Wales figure' : 'below the England and Wales figure of ' + ew.toFixed(1);
-        panel.innerHTML = '<h3>' + d[0] + '</h3><p><strong>' + d[1].toLocaleString('en-GB') + '</strong> heat pumps with a grant, <strong>' + d[3].toFixed(1) + '</strong> for every 10,000 households, ' + cmp + '.</p><p>Ranked ' + d[4] + ' of ' + n + ' councils. ' + d[5] + '.</p>';
+        panel.innerHTML = '<h3>' + d[0] + '</h3><p><strong>' + d[1].toLocaleString('en-GB') + '</strong> heat pumps with a grant, <strong>' + d[3].toFixed(1) + '</strong> for every 10,000 households, ' + cmp + '.</p><p>Ranked ' + d[4] + ' of ' + n + ' councils. ' + d[5] + '.</p>' + (d[6] ? '<p><a href="' + d[6] + '">More on heat pumps in ' + d[0].replace(/, City of$/, '') + '</a></p>' : '');
         document.querySelectorAll('.hp-map-wrap path.on').forEach(function (p) {{ p.classList.remove('on'); }});
         document.querySelectorAll('.hp-map-wrap path[data-c="' + c + '"]').forEach(function (p) {{ p.classList.add('on'); }});
     }}
@@ -711,18 +713,146 @@ def hp_council_page():
                          'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
 
 
+REGION_THE = {'North East': 'the North East', 'North West': 'the North West', 'East Midlands': 'the East Midlands',
+              'West Midlands': 'the West Midlands', 'East': 'the East of England', 'South East': 'the South East',
+              'South West': 'the South West'}
+
+
+def council_slug(name):
+    return 'heat-pumps-in-' + re.sub(r'[^a-z0-9]+', '-', council_name(name).lower()).strip('-')
+
+
+def council_name(name):
+    # 'Bristol, City of' reads as 'Bristol'; 'Kingston upon Hull, City of' as 'Kingston upon Hull'
+    return re.sub(r', City of$', '', name).strip()
+
+
+def region_svg(D, MP, code):
+    """The council's region from the main map, cropped to the region, with the council marked."""
+    C = D['councils']
+    region = C[code]['region']
+    col = lambda r: HP_COLS[sum(r >= b for b in HP_BINS)]
+    mine = {c: d for c, d in MP['main']['paths'].items() if C[c]['region'] == region}
+    nums = [float(x) for d in mine.values() for x in re.findall(r'-?\d+\.?\d*', d)]
+    xs, ys = nums[0::2], nums[1::2]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+    pad = 4
+    body = ''.join('<path d="%s" fill="%s"%s><title>%s: %s per 10,000 households</title></path>'
+                   % (d, col(C[c]['rate']), ' class="on"' if c == code else '', html.escape(council_name(C[c]['name'])), '%.1f' % C[c]['rate'])
+                   for c, d in sorted(mine.items(), key=lambda kv: kv[0] == code))
+    return ('<svg class="hp-region" viewBox="%.1f %.1f %.1f %.1f" role="img" aria-label="%s, with %s outlined">%s</svg>'
+            % (x0 - pad, y0 - pad, x1 - x0 + 2 * pad, y1 - y0 + 2 * pad, html.escape(region), html.escape(council_name(C[code]['name'])), body))
+
+
+def hp_council_detail(code):
+    D = json.loads((ROOT / 'docs' / 'bus-councils.json').read_text())
+    MP = json.loads((ROOT / 'docs' / 'maps' / 'lad-2025-ew.json').read_text())
+    C, v = D['councils'], D['councils'][code]
+    name = council_name(v['name'])
+    region = v['region']
+    rthe = REGION_THE.get(region, region)
+    R = D['regions'][region]
+    n = len(C)
+    fmt = lambda x: f'{x:,}'
+    one = lambda x: '%.1f' % x
+    ew = D['rate']
+    times = v['rate'] / ew
+    cmp = ('%.1f times the England and Wales figure of %s' % (times, one(ew))) if times >= 1.15 else \
+          ('close to the England and Wales figure of %s' % one(ew)) if times > 0.87 else \
+          ('below the England and Wales figure of %s' % one(ew))
+    reg_list = sorted([c for c in C if C[c]['region'] == region], key=lambda c: C[c]['rank'])
+    pos = reg_list.index(code)
+    win = reg_list[max(0, pos - 4): pos + 5]
+    pages = set(D['pages'])
+    def cell_name(c):
+        nm = html.escape(council_name(C[c]['name']))
+        if c == code:
+            return '<strong>%s</strong>' % nm
+        return '<a href="/guides/%s/">%s</a>' % (council_slug(C[c]['name']), nm) if c in pages else nm
+    near = table('%s councils around %s' % (region, name), ['Rank in region', 'Council', 'Heat pumps', 'Per 10,000 households'],
+                 [[str(reg_list.index(c) + 1), cell_name(c), fmt(C[c]['hp']), one(C[c]['rate'])] for c in win])
+    cmp_tbl = table('%s compared' % name, ['Area', 'Heat pumps', 'Per 10,000 households'],
+                    [['<strong>%s</strong>' % html.escape(name), fmt(v['hp']), one(v['rate'])], [html.escape(region), fmt(R['hp']), one(R['rate'])],
+                     ['England and Wales', fmt(D['total']), one(ew)]])
+    yrs = v['years']
+    year_rows = [[D['years'][i] + (' (from 23 May)' if i == 0 else ''), fmt(yrs[i]), fmt(D['ew_years'][i])] for i in range(len(yrs))]
+    tbl_years = table('Heat pump grants a year in %s' % name, ['Financial year', name, 'England and Wales'], year_rows)
+    growth = yrs[-1] / yrs[1] if yrs[1] else None
+    ew_growth = D['ew_years'][-1] / D['ew_years'][1]
+    grow_txt = ('%s had %s grants paid in 2025/26 against %s in 2023/24, the first full year: %.1f times as many, against %.1f times across England and Wales.'
+                % (name, fmt(yrs[-1]), fmt(yrs[1]), growth, ew_growth)) if growth else ''
+    welsh = code.startswith('W')
+    local = ('Your council can refer low income households to ECO4 Flex until 31 December 2026. Wales has its own Warm Homes Nest scheme.' if welsh else
+             'In England, ask your council whether it has Warm Homes: Local Grant funding, which can pay for insulation and a heat pump for households on lower incomes.')
+    faq = [('How many heat pumps are there in %s?' % name,
+            '%s heat pumps have been installed in %s with a Boiler Upgrade Scheme grant since the scheme opened in May 2022, to the end of June 2026. That is %s for every 10,000 households.'
+            % (fmt(v['hp']), name, one(v['rate']))),
+           ('How does %s compare with the rest of the country?' % name,
+            '%s ranks %s of %d councils in England and Wales for heat pump grants per household, %s. Across %s the figure is %s.'
+            % (name, ordinal(v['rank']), n, cmp, rthe, one(R['rate']))),
+           ('Can I get a heat pump grant in %s?' % name,
+            'Yes, if you own the home and are replacing fossil fuel or electric heating: the Boiler Upgrade Scheme gives £7,500 off a heat pump, or £9,000 replacing oil or LPG until 31 March 2027. Your MCS installer applies for it. ' + local)]
+    body = f"""
+<p class="lead"><strong>{fmt(v['hp'])}</strong> heat pumps have been installed in {html.escape(name)} with a Boiler Upgrade Scheme grant since May 2022, <strong>{one(v['rate'])}</strong> for every 10,000 households. That ranks {html.escape(name)} <strong>{ordinal(v['rank'])} of {n}</strong> councils in England and Wales, {cmp}.</p>
+
+<h2 id="compare">How {html.escape(name)} compares</h2>
+<div class="hp-council-cmp">
+<div>
+<p class="answer"><strong>{ordinal(pos + 1)} of {len(reg_list)} councils in {html.escape(rthe)}.</strong> The region as a whole has {one(R['rate'])} heat pumps for every 10,000 households.</p>
+{cmp_tbl}
+</div>
+<figure class="hp-region-fig">{region_svg(D, MP, code)}<figcaption>{html.escape(region)}, {html.escape(name)} outlined. <a href="/guides/heat-pumps-by-council/">Every council on one map</a>.</figcaption></figure>
+</div>
+
+<h2 id="years">Year by year</h2>
+<p class="answer"><strong>{fmt(yrs[-1])} grants in 2025/26.</strong> {grow_txt}</p>
+{tbl_years}
+<p class="note">Financial years run April to March. The first year starts on 23 May 2022, when the scheme opened, and April to June 2026 is in the total but not yet in a year, so the years add up to less than the total.</p>
+
+<h2 id="nearby">Nearby in the rankings</h2>
+<p class="answer"><strong>The councils either side of {html.escape(name)} in {html.escape(rthe)}.</strong></p>
+{near}
+
+<h2 id="yours">Getting a heat pump in {html.escape(name)}</h2>
+<p class="answer"><strong>£7,500 off, or £9,000 replacing oil or LPG until 31 March 2027.</strong> A typical 3 bed semi costs £11,000 to £15,500 installed before the grant.</p>
+<p>{local} See what a heat pump would cost and save in your home with the <a href="/heat-pump-calculator/">heat pump calculator</a>, and what it costs to run with the <a href="/heat-pump-running-cost-calculator/">running cost calculator</a>.</p>
+<p class="note">Heat pumps are Boiler Upgrade Scheme grants paid from 23 May 2022 to 30 June 2026 (DESNZ Boiler Upgrade Scheme statistics, August 2026, Tables Q1.2 and A1.7), counting air and ground source heat pumps. Heat pumps installed without the grant, such as in most new build and social homes, are not counted. Households are the Census 2021 count for {html.escape(name)}: {fmt(v['households'])}.</p>
+"""
+    title = 'Heat Pumps in %s: %s Grants Paid, 2026' % (name, fmt(v['hp']))
+    if len(title) > 60:
+        title = 'Heat Pumps in %s: %s Grants' % (name, fmt(v['hp']))
+    if len(title) > 60:
+        title = 'Heat Pumps in %s, 2026' % name
+    desc = ('%s heat pumps installed in %s with a government grant, %s per 10,000 households: ranked %s of %d councils. By year and against %s.'
+            % (fmt(v['hp']), name, one(v['rate']), ordinal(v['rank']), n, rthe))
+    if len(desc) > 155:
+        desc = '%s heat pumps installed in %s with a government grant, %s per 10,000 households, ranked %s of %d councils.' % (fmt(v['hp']), name, one(v['rate']), ordinal(v['rank']), n)
+    return dict(slug=council_slug(v['name']), kind='heat-pump', title=title, description=desc,
+                h1='Heat pumps in %s' % name, crumb='Heat pumps in %s' % name, faq=faq, body=body,
+                sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables Q1.2 and A1.7. Source: Ofgem.',
+                         'Office for National Statistics, Census 2021, <a href="https://www.nomisweb.co.uk/datasets/c2021ts041" target="_blank" rel="noopener">TS041 number of households</a>.',
+                         'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
+def ordinal(k):
+    return '%d%s' % (k, 'th' if 10 <= k % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(k % 10, 'th'))
+
+
 def long_date_str(iso):
     import datetime
     d = datetime.date.fromisoformat(iso)
     return '%d %s %d' % (d.day, d.strftime('%B'), d.year)
 
 
+
+_BUS = json.loads((ROOT / 'docs' / 'bus-councils.json').read_text())
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
          'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
          'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
          'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
          'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page,
+         **{council_slug(_BUS['councils'][c]['name']): (lambda c=c: hp_council_detail(c)) for c in _BUS['pages']},
          **{REGION[k]['slug']: (lambda k=k: solar_region_page(k)) for k in REGION}}
 
 
