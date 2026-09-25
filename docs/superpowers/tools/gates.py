@@ -145,7 +145,11 @@ for _tool in ('model_check.py', 'table_check.py', 'stale_check.py', 'faq_parity.
 _here = os.path.dirname(os.path.abspath(__file__))
 for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.join(_here, 'epc_parity.js')]),
                      ('heat pump widget matches the heat pump calculator', [sys.executable, os.path.join(_here, 'hp_parity.py')]),
-                     ('solar pages quote what the solar calculator gives', [sys.executable, os.path.join(_here, 'solar_check.py')])):
+                     ('solar pages quote what the solar calculator gives', [sys.executable, os.path.join(_here, 'solar_check.py')]),
+                     ('every whole-bill figure matches js/bills.js', ['node', os.path.join(_here, 'bills_check.js')]),
+                     # a regenerated page loses its short answer box, and a changed figure can leave
+                     # the box quoting a number the page no longer says; tldr.py catches both
+                     ('short answer boxes are in place and match their pages', [sys.executable, os.path.join(_here, 'tldr.py')])):
     _r = _sp.run(_cmd, capture_output=True, text=True, cwd=os.getcwd())
     _tail = [l for l in (_r.stdout + _r.stderr).strip().split('\n') if l.strip()]
     check(_label, _r.returncode == 0, '\n        '.join(_tail[-6:]))

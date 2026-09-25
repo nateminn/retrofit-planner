@@ -104,6 +104,19 @@ def bill_data():
     src = (ROOT / 'guides' / 'average-energy-bills-uk' / 'index.html').read_text()
     D = json.loads(re.search(r'var D=(\{.*?\});', src, re.S).group(1))
     return D
+
+
+# Electricity for lighting, appliances and cooking: the 2024 NEED median by bedrooms, read
+# from js/bills.js so the energy bill calculator and these pages share one table.
+def elec_bill(beds):
+    js = (ROOT / 'js' / 'bills.js').read_text()
+    kwh = dict((int(k), int(v)) for k, v in re.findall(r'(\d): (\d{4})', re.search(r'var ELEC_KWH = \{([^}]*)\}', js).group(1)))
+    return kwh[min(5, beds)] * RE + 200.13
+
+
+def elec_kwh(beds):
+    js = (ROOT / 'js' / 'bills.js').read_text()
+    return int(re.search(r'%d: (\d{4})' % min(5, beds), re.search(r'var ELEC_KWH = \{([^}]*)\}', js).group(1)).group(1))
 import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import prices as _prices
 RG, RE, ROIL, RLPG, SCG, HPT = _prices.GAS, _prices.ELEC, _prices.OIL, _prices.LPG, 108.33, _prices.HPT
@@ -125,7 +138,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
     D = bill_data()
     rows, main = [], None
     for key, t, label in homes:
-        e = D[key]['e']
+        e = elec_bill(beds)
         g = heating_cost(t, beds, 'average', 'gas') + e
         rows.append([label, gbp(g), gbp(g / 12), gbp(heating_cost(t, beds, 'average', 'gas')), gbp(e)])
         main = main or (key, t, label, g, e)
@@ -151,7 +164,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
 <p class="lead">A {label} with average insulation and gas central heating costs about <strong>{gbp(total)} a year</strong>, or <strong>{gbp(total / 12)} a month</strong>, at the Ofgem price cap for October to December 2026. That is about {gbp(total - e)} for gas and {gbp(e)} for electricity, both including their standing charges.</p>
 
 <h2 id="by-type">Average bill by type of {beds} bed home</h2>
-<p>{'Gas is the larger part of the bill' if (total - e) > e else 'Electricity is the larger part of the bill in a home this size'}, and gas use depends on the size and type of the home. Heating use comes from government meter data for 39,502 gas heated homes; electricity for lights, appliances and cooking is scaled by home size from Ofgem's typical consumption figures.</p>
+<p>{'Gas is the larger part of the bill' if (total - e) > e else 'Electricity is the larger part of the bill in a home this size'}, and gas use depends on the size and type of the home. Heating use comes from government meter data for 39,502 gas heated homes; electricity for lights, appliances and cooking is the 2024 median for homes with {beds} bedroom{'s' if beds > 1 else ''}, {elec_kwh(beds):,} kWh a year, from the same government data.</p>
 {tbl_types}
 
 <h2 id="insulation">How insulation changes it</h2>
@@ -164,7 +177,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
 <p class="note">Gas bills include the £108.33 a year gas standing charge; homes without gas do not pay it. Electricity includes the £200.13 standing charge in every row. Oil is {ROIL * 100:.1f}p per kWh, the BoilerJuice UK average of 116.20p a litre on 25 September 2026, and oil prices move; LPG is {RLPG * 100:.1f}p per kWh, our assumption for a typical bulk contract.</p>
 
 <h2 id="check">Check your own bill</h2>
-<p>Put your own annual bill into the <a href="/guides/average-energy-bills-uk/#bill-checker">bill checker</a> to see how far it sits from a home like yours, or see <a href="/guides/energy-bills-by-household-size/">bills by number of people</a> and <a href="/guides/energy-bills-by-epc-rating/">bills by EPC rating</a>. To cut the bill, the <a href="/retrofit-plan/">retrofit plan</a> puts the upgrades for your home in order, with what each saves.</p>
+<p>Put your own annual bill into the <a href="/energy-bill-calculator/">energy bill calculator</a> to see how far it sits from a home like yours, or see <a href="/guides/energy-bills-by-household-size/">bills by number of people</a> and <a href="/guides/energy-bills-by-epc-rating/">bills by EPC rating</a>. To cut the bill, the <a href="/retrofit-plan/">retrofit plan</a> puts the upgrades for your home in order, with what each saves.</p>
 """
     return dict(slug=slug, kind='home',
                 title='Average Energy Bill for a %d Bed %s UK 2026: %s a Month' % (beds, noun.capitalize(), gbp(total / 12)),

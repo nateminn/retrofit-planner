@@ -3,3 +3,7 @@
 guides/heat-pump-vs-new-boiler/index.html	£880	15 year heat pump advantage for a 3 bed semi on a heat pump tariff: £18,155 minus £17,275 from the boiler comparison, 25 Sep 2026
 guides/storage-heaters-vs-heat-pump/index.html	£1,750	storage heaters on Economy 7 for a 3 bed semi; no tariff or oil price in it
 guides/index.html	£1,750	the storage heaters card, taken from that guide's description
+energy-bill-calculator/index.html	£1,193	1 bed flat whole bill from js/bills.js (NEED 2024 electricity by bedrooms), 25 Sep 2026
+guides/average-energy-bills-uk/index.html	£1,193	1 bed flat whole bill from js/bills.js (NEED 2024 electricity by bedrooms), 25 Sep 2026
+guides/energy-bills-1-bed-flat/index.html	£1,193	1 bed flat whole bill from js/bills.js (NEED 2024 electricity by bedrooms), 25 Sep 2026
+guides/index.html	£1,193	1 bed flat whole bill from js/bills.js (NEED 2024 electricity by bedrooms), 25 Sep 2026
