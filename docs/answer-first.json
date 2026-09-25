@@ -775,5 +775,477 @@
    }
   ],
   "faq": true
+ },
+ "guides/epc-rating-landlords": {
+  "sections": [
+   {
+    "h2": "Current rules: what landlords must do",
+    "answer": "**Band E is the legal minimum to let.** Properties rated F or G cannot be let unless an exemption is registered, and fines reach a maximum of £5,000 per property."
+   },
+   {
+    "h2": "How much does it cost to improve your EPC?",
+    "answer": "**About £1,200 is often enough to move from F to E.** That covers loft insulation, heating controls and LED lighting; reaching C usually needs wall insulation or a heating upgrade, with spending capped at £10,000 under the 2030 rules."
+   },
+   {
+    "h2": "Cheapest upgrades to reach Band E",
+    "answer": "**Start with loft insulation, then cavity walls, heating controls, LEDs and draught-proofing.** An F home needs between 1 and 18 more points to reach E at 39, and a bare loft costs about £750 to insulate."
+   },
+   {
+    "h2": "Preparing for a minimum of C",
+    "answer": "**Every privately rented home must meet a band C equivalent standard by 1 October 2030.** Landlords must spend up to £10,000 per property including VAT, and the maximum fine rises to £30,000 per property per breach."
+   },
+   {
+    "h2": "Exemptions from MEES",
+    "answer": "**Register an exemption if E is out of reach.** Exemptions last 5 years; the cost cap exemption applies when the remaining improvements would cost more than £3,500 including VAT, rising to £10,000 under the 2030 rules."
+   },
+   {
+    "h2": "Grants available to landlords",
+    "answer": "**Some, but fewer than owner-occupiers get.** The £7,500 Boiler Upgrade Scheme grant applies when replacing fossil fuel heating, 0% VAT applies to rental homes, and ECO4 can help if the tenant gets a qualifying benefit."
+   },
+   {
+    "h2": "Tax treatment of EPC improvements",
+    "answer": "**Improvement costs can be offset for tax.** Like-for-like replacements such as a new boiler are allowable expenses in the year, while new capital improvements such as insulation or solar count against Capital Gains Tax on sale."
+   },
+   {
+    "h2": "EPC ratings and property value",
+    "answer": "**A better rating helps letting because tenants notice bills.** The median band E home costs about £479 a year more to run than the median band C home at October 2026 prices."
+   },
+   {
+    "h2": "Getting a new EPC",
+    "answer": "**£55 to £150, and usually under an hour.** A typical two or three bedroom house costs £65 to £95; give the assessor loft access and invoices for any improvements to get the best rating."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Rules and penalties come from GOV.UK and the government response of 21 January 2026**, costs from the Energy Saving Trust and DESNZ, band shares from the English Housing Survey and running costs from DESNZ NEED."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-running-costs": {
+  "sections": [
+   {
+    "h2": "Heat pump vs gas boiler running costs by property type",
+    "answer": "**The tariff decides it.** A 3 bed semi costs £877 a year with gas, £937 with a heat pump on a standard tariff and £705 on a 19.8p heat pump tariff."
+   },
+   {
+    "h2": "Understanding the maths",
+    "answer": "**Divide heat demand by the COP, then multiply by the electricity price.** At 26.32p and a COP of 2.78, heat costs 9.5p per kWh against 8.9p for gas, or 7.1p on a heat pump tariff."
+   },
+   {
+    "h2": "What is COP and why it matters",
+    "answer": "**COP is heat out per unit of electricity in, so higher means cheaper.** The median trial home got 2.78 over a year, giving heat at 9.5p per kWh on a standard tariff against 8.9p for gas."
+   },
+   {
+    "h2": "How to reduce your heat pump running costs",
+    "answer": "**Switch to a heat pump tariff first.** Cosy Octopus works out at about 19.8p per kWh against the 26.32p cap rate; then insulate, run at low flow temperatures and hold a steady temperature."
+   },
+   {
+    "h2": "Heat pumps vs oil and LPG",
+    "answer": "**A heat pump is cheaper even on a standard tariff.** It cuts the cost of heat by about 29% against oil and 15% against LPG, or 46% and 36% on a heat pump tariff."
+   },
+   {
+    "h2": "Monitoring your actual costs",
+    "answer": "**Check the efficiency your system reports over a season.** Below about 2.5 puts it in the bottom quarter of trial homes, so ask your installer to check flow temperature, refrigerant charge and radiator sizing."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Prices come from the Ofgem price cap for October to December 2026**, efficiency from the Electrification of Heat trial, oil from BoilerJuice, the tariff from Cosy Octopus and heat demand and insulation savings from DESNZ NEED."
+   }
+  ],
+  "faq": true
+ },
+ "guides/diy-loft-insulation": {
+  "sections": [
+   {
+    "h2": "Before you start: is DIY right for your loft?",
+    "answer": "**Yes, if the loft is easy to reach, dry and has visible joists.** Call a professional for damp, a flat roof, a converted room, suspected asbestos or lots of wiring, and check for free ECO4 insulation first."
+   },
+   {
+    "h2": "What you need",
+    "answer": "**100mm rolls between the joists and 170mm rolls across them, to reach 270mm.** Add eaves trays, pipe lagging, a tank jacket, hatch insulation and safety kit: an FFP2 or FFP3 mask, goggles and gloves."
+   },
+   {
+    "h2": "Step-by-step installation",
+    "answer": "**Clear the loft, fit eaves trays, lay 100mm between the joists, then 170mm across them.** Lag pipes, jacket the tank sides and top, keep cables on top and never lay boards directly on the insulation."
+   },
+   {
+    "h2": "Common mistakes to avoid",
+    "answer": "**The worst mistake is blocking eaves ventilation, which causes condensation and rot.** Also avoid compressing the wool, leaving gaps, insulating under the tank, burying cables and covering downlights without fire-rated caps."
+   },
+   {
+    "h2": "DIY cost vs professional installation",
+    "answer": "**DIY costs only materials.** A professional charges about £600 to top up from 120mm or £750 from nothing, and a grant can make it free if you are eligible."
+   },
+   {
+    "h2": "Savings and payback by property type",
+    "answer": "**The measured saving is modest, a median 3.2% less gas.** That is £28 a year for a 3 bed semi, a 21 year payback on a £600 professional top-up; DIY pays back sooner."
+   },
+   {
+    "h2": "What to do after insulating",
+    "answer": "**Next, draught-proof, look at wall insulation and then your heating.** Insulating first means a new heat pump or boiler is sized correctly, and a new EPC will show the improvement."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Suitability, depth and cost come from the Energy Saving Trust**, measured savings from the DESNZ NEED Impact of Measures report and energy prices from the Ofgem price cap for October to December 2026."
+   }
+  ],
+  "faq": true
+ },
+ "guides/boiler-upgrade-scheme-guide": {
+  "sections": [
+   {
+    "h2": "How much is the grant?",
+    "answer": "**£7,500 for a heat pump, or £9,000 when replacing oil or LPG.** The £9,000 rate runs until 31 March 2027, and a typical 3-bed semi at £11,000 to £15,500 comes down to £3,500 to £8,000."
+   },
+   {
+    "h2": "Who is eligible?",
+    "answer": "**Owners in England and Wales replacing fossil fuel or electric heating.** The installer must be MCS certified; landlords qualify, social housing and most new builds do not, and since 28 April 2026 you no longer need a valid EPC."
+   },
+   {
+    "h2": "How to apply",
+    "answer": "**Your MCS installer applies, not you.** Get three quotes, agree one, confirm your consent when Ofgem contacts you, then pay only the balance after the grant."
+   },
+   {
+    "h2": "What does the grant cover?",
+    "answer": "**It is a fixed sum off the quote for the whole job.** Recorded costs cover the system, labour and VAT; ask whether the cylinder and radiator upgrades are included, and budget separately for insulation."
+   },
+   {
+    "h2": "Cost breakdown with the BUS grant",
+    "answer": "**£3,500 to £8,000 out of pocket for a 3-bed semi.** The whole job is £11,000 to £15,500 before the £7,500 grant, or £2,000 to £6,500 with the £9,000 oil or LPG grant."
+   },
+   {
+    "h2": "Running costs after switching",
+    "answer": "**Cheaper than gas only on a heat pump tariff.** A 3-bed semi costs £705 a year on a 19.8p heat pump tariff against £877 for gas, but £937 on a standard tariff."
+   },
+   {
+    "h2": "Combining BUS with other grants",
+    "answer": "**Stack them where you qualify.** Eligible households can get ECO4 insulation until 31 December 2026, and 0% VAT until 31 March 2027 is worth about £550 to £780 on an £11,000 to £15,500 job."
+   },
+   {
+    "h2": "Common questions and concerns",
+    "answer": "**A correctly designed heat pump keeps the whole home at 21°C.** Most installs fall under permitted development, and the extra £1,500 for oil and LPG homes ends on 31 March 2027, so there is no advantage in waiting."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Grant rules come from GOV.UK, the 2026 amendment regulations and Ofgem**, installed costs from the Boiler Upgrade Scheme statistics for August 2026, efficiency from the Electrification of Heat trial and prices from the Ofgem price cap."
+   }
+  ],
+  "faq": true
+ },
+ "guides/eco4-scheme-explained": {
+  "sections": [
+   {
+    "h2": "What is ECO4?",
+    "answer": "**A scheme where energy suppliers fund upgrades for low income homes.** Ofgem runs it in Great Britain, it puts insulation before heating, and it runs until 31 December 2026."
+   },
+   {
+    "h2": "Who qualifies for ECO4?",
+    "answer": "**Owners of homes rated D to G, or private tenants in E to G homes, where someone claims a qualifying benefit.** Social housing rated E to G qualifies on the property alone, and councils can refer households below £31,000."
+   },
+   {
+    "h2": "What measures does ECO4 cover?",
+    "answer": "**Insulation first, then heating, as a whole house package.** It covers loft, cavity and solid wall insulation, boilers, heating controls and, in some homes, heat pumps and solar panels; windows and doors are rarely funded."
+   },
+   {
+    "h2": "How much can you save?",
+    "answer": "**Up to £151 a year for a 3-bed semi.** Measured savings run from £20 for a condensing boiler to £151 for solid wall insulation, and several measures together do not simply add up."
+   },
+   {
+    "h2": "How to apply for ECO4",
+    "answer": "**Through your council or a participating energy supplier, as there is no government form.** An assessor surveys the home, the installer does the work, and you should never pay an upfront fee."
+   },
+   {
+    "h2": "ECO4 for landlords",
+    "answer": "**Yes, if the home is rated E, F or G and the tenant qualifies.** The tenant needs a qualifying benefit or a council referral, and the landlord must consent and may be asked to contribute."
+   },
+   {
+    "h2": "ECO4 Flex: the council referral route",
+    "answer": "**Your council can refer you without a qualifying benefit.** The most common route is a gross household income below £31,000; the others are low income proxies, a health referral and council targeting."
+   },
+   {
+    "h2": "Quality standards and what to expect",
+    "answer": "**All work must meet PAS 2035 and use TrustMark registered installers.** Quality still varies, so check that damp and ventilation are assessed, and take unresolved problems to TrustMark's dispute resolution service."
+   },
+   {
+    "h2": "What happens after ECO4 ends?",
+    "answer": "**There will be no ECO5.** ECO4 closes on 31 December 2026 and support moves to council run grants, so apply now: the work must be installed by then, not just approved."
+   },
+   {
+    "h2": "Other grants and funding",
+    "answer": "**The Boiler Upgrade Scheme, 0% VAT and the Warm Home Discount are also available.** BUS gives £7,500 towards a heat pump, or £9,000 for oil or LPG homes until 31 March 2027, and the discount is £150."
+   },
+   {
+    "h2": "Making the most of ECO4 improvements",
+    "answer": "**Get a new EPC, learn your heating controls and check your bills.** Cheap DIY extras such as draught-proofing and secondary glazing tackle the heat loss ECO4 did not cover."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Eligibility comes from GOV.UK and the ECO4 Order 2022, and scheme rules from Ofgem.** Measures and savings come from DESNZ statistics, and costs from the Energy Saving Trust."
+   }
+  ],
+  "faq": true
+ },
+ "guides/solid-wall-insulation-cost": {
+  "sections": [
+   {
+    "h2": "How much does solid wall insulation cost?",
+    "answer": "**About £12,000 inside or about £15,000 outside for a typical 3 bed semi.** A terrace costs less and a detached house more, and repairs needed before external work are extra."
+   },
+   {
+    "h2": "Annual savings from solid wall insulation",
+    "answer": "**About £151 a year for a 3 bed semi on gas.** That comes from a measured 17.3% fall in gas use; savings run from £98 for a 2 bed flat to £201 for a 4 bed detached house."
+   },
+   {
+    "h2": "Payback periods",
+    "answer": "**Over 50 years at full price.** With a £151 yearly saving, £12,000 or £15,000 of work does not pay back on bills alone, so check for ECO4 funding first, which can cover the entire cost."
+   },
+   {
+    "h2": "Internal vs external: which should you choose?",
+    "answer": "**Internal is cheaper; external performs better.** Internal leaves the outside unchanged but takes room space, while external keeps room sizes and avoids cold spots but needs scaffolding and may need planning permission."
+   },
+   {
+    "h2": "What about damp?",
+    "answer": "**Done well it works for decades; done badly, internal insulation can trap moisture.** Fix existing damp first, use materials that suit the wall, keep ventilation working and insist on a 25 year guarantee."
+   },
+   {
+    "h2": "Grants and funding for solid wall insulation",
+    "answer": "**ECO4 can fund it for eligible households until 31 December 2026.** ECO4 Flex and council Warm Homes: Local Grants help some low income homes, and installation carries 0% VAT until 31 March 2027."
+   },
+   {
+    "h2": "How solid wall insulation affects your EPC",
+    "answer": "**It is one of the most effective ways to improve an EPC rating.** For a home on the edge of a band it can be enough to move it up one, which matters most for landlords."
+   },
+   {
+    "h2": "The installation process",
+    "answer": "**Internal insulation goes in room by room; external needs scaffolding for the whole job.** Inside, fittings come off, go back on and rooms need redecorating; outside, boards are fixed, meshed and rendered."
+   },
+   {
+    "h2": "Combining solid wall insulation with other upgrades",
+    "answer": "**Insulate first, then fit a smaller heat pump.** The usual order is loft insulation, solid wall insulation, draught-proofing, then a heat pump sized to the improved home, with solar panels on top."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Savings come from DESNZ NEED Impact of Measures and costs from the Energy Saving Trust.** Energy prices come from the Ofgem price cap, heating oil from BoilerJuice and VAT from HMRC."
+   }
+  ],
+  "faq": true
+ },
+ "guides/best-heat-pump-tariffs": {
+  "sections": [
+   {
+    "h2": "Heat pump tariffs open in September 2026",
+    "answer": "**They charge less in set hours of the day, and all need a smart meter.** Cosy Octopus is about 13p off-peak against the 26.32p standard cap rate, and rates vary by region."
+   },
+   {
+    "h2": "Our recommendation",
+    "answer": "**Cosy Octopus for most homes, EDF Heat Pump Tracker if you want no peak.** Cosy gives eight cheap hours in three windows with no exit fee, but its 4pm to 7pm peak costs extra."
+   },
+   {
+    "h2": "How much each tariff saves",
+    "answer": "**Cosy Octopus saves most, £232 (25%) a year on a 3-bed semi.** It costs £705 against £937 on the standard rate; the other tariffs save £109 to £178, and Agile with no controls saves only £7."
+   },
+   {
+    "h2": "What changed in 2026",
+    "answer": "**OVO Heat Pump Plus closed and Cosy Octopus added a 12 month fix.** Electricity carries no VAT from 1 October 2026 to 31 March 2027, so compare tariffs on their October prices."
+   },
+   {
+    "h2": "How to shift heating to off-peak",
+    "answer": "**Heat in the cheap windows and coast through the peak.** Warm the house from 4am, heat the cylinder in the afternoon window, and let a smart thermostat schedule it, which is the only sensible way on Agile."
+   },
+   {
+    "h2": "Standing charges and exit fees",
+    "answer": "**No exit fee on Cosy, EDF or E.ON, but standing charges vary.** EDF Heat Pump Tracker and E.ON Next Pumped charge 42.92p a day in London up to 67.66p in North Wales and Merseyside."
+   },
+   {
+    "h2": "Switching tariff",
+    "answer": "**Octopus, EDF and ScottishPower make you join a standard tariff first.** You move across once the smart meter connects, usually around 14 days, while E.ON Next lets you sign up directly."
+   },
+   {
+    "h2": "Combining a heat pump tariff with solar panels",
+    "answer": "**Solar covers spring and summer days and the tariff covers winter.** The 1pm to 4pm windows on Cosy and EDF overlap the sunniest hours, and a battery lets you run the evening peak on stored power."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Rates come from the suppliers' own pages and price feeds, checked on 25 September 2026.** Standard rates come from the Ofgem price cap and heat pump efficiency from the Electrification of Heat trial."
+   }
+  ],
+  "faq": true
+ },
+ "guides/epc-cost": {
+  "sections": [
+   {
+    "h2": "EPC cost by property size",
+    "answer": "**£55 to £150, and £65 to £95 for a 2 or 3-bed terrace or semi.** Bigger, more complex homes take longer to survey and cost more, but the certificate is identical whoever you book."
+   },
+   {
+    "h2": "EPC prices by region",
+    "answer": "**There is no regional price scale.** Assessors set their own fees and London prices sit inside the national range; size, remote rural travel and rush bookings are what add to the price."
+   },
+   {
+    "h2": "Check the free register first",
+    "answer": "**Most homes already have a certificate you can download free.** One lodged less than ten years ago is still valid, but it will not show improvements made since the visit."
+   },
+   {
+    "h2": "What the assessor does on the visit",
+    "answer": "**An accredited assessor measures the home and records what they can see or be shown.** Under RdSAP 10 anything unevidenced gets a default that is usually worse, so find your paperwork before the visit."
+   },
+   {
+    "h2": "When you need an EPC, and the £200 penalty",
+    "answer": "**You need one before marketing a home to sell or let.** Trading standards can charge £200 per breach; renewing a tenancy with the same tenant or improving your own home needs none."
+   },
+   {
+    "h2": "Which homes are exempt",
+    "answer": "**Only a few narrow cases are exempt.** They include some listed buildings, places of worship, temporary buildings, standalone buildings under 50 square metres, homes due for demolition and some holiday lets."
+   },
+   {
+    "h2": "How to pay less, and what a free EPC really is",
+    "answer": "**Check the register first and book a local assessor directly.** An estate agent's free EPC is genuine but serves the marketing, and a £65 to £95 reassessment after improvement work is the cheapest part of the project."
+   },
+   {
+    "h2": "Lifting the score before the assessor arrives",
+    "answer": "**Find your paperwork first: it costs £0.** Evidence of cavity insulation, the boiler model and loft depth avoids worse defaults, and topping the loft up to 270 mm adds about 7 points in our model."
+   },
+   {
+    "h2": "The certificate is being redesigned",
+    "answer": "**New certificates with four headline metrics are due in the second half of 2027, with no firm date yet.** Existing certificates keep their ten years, so one lodged today runs for ten years."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Prices come from assessor and provider price lists checked in September 2026, as there is no official list.** Rules come from the 2012 regulations, the RdSAP 10 approval and GOV.UK guidance."
+   }
+  ],
+  "faq": true
+ },
+ "guides/heat-pump-flat": {
+  "sections": [
+   {
+    "h2": "What a heat pump costs in a flat",
+    "answer": "**£11,500 to £12,200 at the median, or £4,000 to £4,700 after the £7,500 grant.** A 2 bed flat costs £455 a year to heat on a heat pump tariff, against £566 on gas and £605 on standard electricity."
+   },
+   {
+    "h2": "Getting freeholder permission",
+    "answer": "**It is the biggest hurdle.** The outdoor unit needs freeholder or management company approval, so check your lease first, and in England permitted development covers only one air source heat pump per block of flats."
+   },
+   {
+    "h2": "Where to put the outdoor unit",
+    "answer": "**On an external wall, a balcony or at ground level.** A wall must take about 100 kg for a small unit, a balcony needs clearance and a weight check, and a ground floor pad is simplest."
+   },
+   {
+    "h2": "Noise considerations for flats",
+    "answer": "**Small units can stay inside the 37 dB limit**, even with the other flats counting as neighbours. Grant's 4 kW Aerona 290 works out at about 31 dB(A) three metres from a window; anti-vibration mounts are essential."
+   },
+   {
+    "h2": "Alternatives if a heat pump is not possible",
+    "answer": "**An air-to-air heat pump, electric radiators or infrared panels.** Air-to-air units have had a £2,500 grant since April 2026 but do not heat water; the electric options need no outdoor unit but cost more to run."
+   },
+   {
+    "h2": "Insulation matters even more in flats",
+    "answer": "**Insulate first.** On our model insulation moves the running cost more than flat size: a well insulated 2 bed flat costs £469 a year on standard electricity against £481 on gas."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Costs come from the DESNZ Boiler Upgrade Scheme statistics, August 2026.** Efficiency comes from the Electrification of Heat trial, prices from the Ofgem price cap and Cosy Octopus, and planning and noise rules from legislation.gov.uk and MCS 020(a)."
+   }
+  ],
+  "faq": true
+ },
+ "guides/energy-bills-by-epc-rating": {
+  "sections": [
+   {
+    "h2": "Bills by EPC band, every band",
+    "answer": "**A typical band D home pays £1,834 a year, band C £1,591.** The spread is smaller than most people expect: a band F home pays about £763 a year more than a band B home."
+   },
+   {
+    "h2": "Monthly cost by band at a glance",
+    "answer": "**From £124 a month in band B to £187 in band F**, with band D at £153 and band C at £133. These are medians, so half of homes in each band pay less."
+   },
+   {
+    "h2": "Why band A is not the cheapest on the meter",
+    "answer": "**Around three in ten band A homes have no gas**, so more of their heating is billed at 26.32p per kWh for electricity, not 7.97p for gas. Treat bands A and G as indicative: both are small groups."
+   },
+   {
+    "h2": "What the certificate says you should pay",
+    "answer": "**More than homes really pay, and the gap widens as the band worsens.** A band E home is modelled at £3,011 a year but pays £2,070; to heat E, F or G properly, budget from the modelled figure."
+   },
+   {
+    "h2": "What moving up one band saves",
+    "answer": "**About £242 a year from D to C**, the biggest step, followed by E to D at £237. Loft and cavity wall insulation together can make the D to C jump for about £3,450, often less with a grant."
+   },
+   {
+    "h2": "Landlords, tenants and band C",
+    "answer": "**Band C from 1 October 2030.** Every privately rented home must meet a band C equivalent standard, up from band E now, and a band E rental costs the tenant about £479 a year more than band C."
+   },
+   {
+    "h2": "Heat pumps and your band",
+    "answer": "**It depends more on your tariff than your band.** A well insulated 3 bed semi on a heat pump tariff spends about £200 a year less on heating than on gas, and about the same on a standard tariff."
+   },
+   {
+    "h2": "Data sources",
+    "keep": false,
+    "summary": "Show every source",
+    "answer": "**Consumption comes from the DESNZ National Energy Efficiency Data-Framework, 2024 meter readings.** Modelled costs come from the DESNZ fuel poverty tables, band boundaries from BRE SAP 10.2 and prices from the Ofgem price cap."
+   }
+  ],
+  "faq": true
+ },
+ "grants": {
+  "sections": [
+   {
+    "h2": "Every UK energy grant and whether it is open today",
+    "answer": "**Most are open; the Great British Insulation Scheme and HUG2 have closed.** The £7,500 Boiler Upgrade Scheme is funded to 2030, ECO4 closes on 31 December 2026 and 0% VAT ends on 31 March 2027."
+   },
+   {
+    "h2": "The four things that decide your answer",
+    "answer": "**Your nation, benefits or income, EPC band and whether you own the home.** Nation rules out the most people: the Boiler Upgrade Scheme is England and Wales only, and the Warm Homes: Local Grant England only."
+   },
+   {
+    "h2": "Scheme by scheme",
+    "answer": "**£7,500 for a heat pump under the Boiler Upgrade Scheme**, or £9,000 for off grid oil or LPG homes until 31 March 2027. If you qualify for ECO4, chase it first: measures must be installed by 31 December 2026."
+   },
+   {
+    "h2": "What comes after ECO4",
+    "answer": "**The Warm Homes Plan, worth £15 billion.** For a low income household in England, the practical route after ECO4 closes is the Warm Homes: Local Grant through the council; a single low income scheme is planned from 2027/28."
+   }
+  ],
+  "faq": true
+ },
+ "epc-calculator": {
+  "sections": [
+   {
+    "h2": "How is an EPC calculated?",
+    "answer": "**It is a model, not a reading of your bills.** An assessor records the home and the government's SAP model turns its modelled running cost per square metre into a score from 1 to 100, banded A to G."
+   },
+   {
+    "h2": "How to improve your EPC rating in 2026",
+    "answer": "**Start with what your home lacks.** With under 100mm in the loft, insulating it costs about £750 for about 7 points; with good insulation and an old gas boiler, a heat pump adds about 12."
+   },
+   {
+    "h2": "EPC improvements ranked by cost-effectiveness",
+    "answer": "**Cheapest per point: LED lighting and smart controls.** Loft insulation in a bare loft costs about £750 for about 7 points, cavity walls about £2,700 for about 8, and solid wall insulation is the dearest per point."
+   },
+   {
+    "h2": "EPC requirements for landlords",
+    "answer": "**Band E today, a new standard from 1 October 2030.** The maximum fine then rises to £30,000 per property per breach, and landlords must spend up to £10,000 per property on qualifying improvements."
+   }
+  ],
+  "faq": true
  }
 }

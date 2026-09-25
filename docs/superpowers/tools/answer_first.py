@@ -47,6 +47,32 @@ def element_end(s, start):
     raise ValueError('unbalanced <%s> at %d' % (tag, start))
 
 
+VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr',
+        'path', 'circle', 'rect', 'line', 'polyline', 'polygon', 'ellipse', 'stop', 'use'}
+
+
+def balanced_stop(body):
+    """Where the section must end so it never takes a closing tag that belongs to something
+    opened before it: </main>, or the end of a box the heading sits in. Folding past that
+    point leaves the page's nesting broken, which browsers repair silently."""
+    open_ = []
+    for m in re.finditer(r'<(/?)([a-zA-Z][a-zA-Z0-9]*)\b[^>]*?(/?)>', body):
+        tag = m.group(2).lower()
+        if tag in VOID or m.group(3):
+            continue
+        if not m.group(1):
+            open_.append(tag)
+        elif open_ and open_[-1] == tag:
+            open_.pop()
+        elif tag in open_:
+            while open_[-1] != tag:   # implied ends, such as an unclosed <p>
+                open_.pop()
+            open_.pop()
+        else:
+            return m.start()
+    return len(body)
+
+
 def slug(t):
     return re.sub(r'[^a-z0-9]+', '-', html.unescape(t).lower()).strip('-')[:48].rstrip('-')
 
@@ -79,6 +105,7 @@ def process(page, spec):
             k = s.find(marker, h_end, stop)
             if k != -1:
                 stop = k
+        stop = h_end + balanced_stop(s[h_end:stop])
         body = s[h_end:stop]
         words = len(re.sub(r'\*\*', '', sec['answer']).split())
         if words > 45:
