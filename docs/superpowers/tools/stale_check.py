@@ -49,10 +49,10 @@ def price_tokens():
         for v in n.values():
             if isinstance(v, (int, float)):
                 now.add(round(v))
-        for a, b in (('gas_cost', 'hp_tariff'), ('oil_cost', 'hp_tariff'), ('lpg_cost', 'hp_tariff'),
-                     ('electric_boiler', 'hp_tariff'), ('oil_cost', 'hp_standard'), ('gas_cost', 'hp_standard'),
-                     ('hp_standard', 'hp_tariff')):
-            now.add(round(n[a] - n[b]))
+        costs = ('gas_cost', 'gas_cost_with_standing', 'oil_cost', 'lpg_cost', 'electric_boiler', 'hp_standard', 'hp_tariff')
+        for a in costs:
+            for b in costs:
+                now.add(abs(round(n[a] - n[b])))   # any difference between two of today's running costs
     toks = {}
     for c in canon.values():
         p, n = c.get('prior'), c['new']
@@ -82,6 +82,10 @@ PRICE_TEXT = [  # (pattern, words that must be near, or None)
 
 
 def visible(html):
+    # Titles and meta, og and twitter descriptions are what searchers see first, so they count.
+    heads = ' '.join(re.findall(r'<title>(.*?)</title>', html) +
+                     re.findall(r'<meta (?:name|property)="(?:description|og:title|og:description|twitter:title|twitter:description)" content="([^"]*)"', html))
+    html = heads + ' . ' + html
     html = re.sub(r'<script(?![^>]*ld\+json).*?</script>', ' ', html, flags=re.S)
     html = re.sub(r'<text class="tick"[^>]*>.*?</text>', ' ', html, flags=re.S)   # chart axis labels
     html = re.sub(r'<style.*?</style>', ' ', html, flags=re.S)
@@ -131,6 +135,14 @@ def main():
             if rel == 'methodology/index.html' and 'Until 24 September 2026' in text[max(0, m.start() - 200):m.end()]:
                 continue
             found.append((rel, m.group(1), ctx.strip()))
+    allow = set()
+    af = ROOT / 'docs' / 'superpowers' / 'tools' / 'stale_allow.txt'
+    if af.exists():
+        for line in af.read_text().splitlines():
+            if line.strip() and not line.startswith('#'):
+                page, tok = line.split('\t')[:2]
+                allow.add((page, tok))
+    found = [(r, t, c) for r, t, c in found if (r, t.replace(' (before 25 Sep)', '')) not in allow]
     for rel, t, ctx in found:
         print('  %-48s %-22s ...%s...' % (rel[:48], t, ctx[:150]))
     pages = len(set(r for r, _, _ in found))

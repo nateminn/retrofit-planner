@@ -1,0 +1,5 @@
+# Figures stale_check.py flags that are verified as current: a coincidence with an old value.
+# One per line: page<TAB>token as the report prints it (without "(before 25 Sep)")<TAB>why it is current.
+guides/heat-pump-vs-new-boiler/index.html	£880	15 year heat pump advantage for a 3 bed semi on a heat pump tariff: £18,155 minus £17,275 from the boiler comparison, 25 Sep 2026
+guides/storage-heaters-vs-heat-pump/index.html	£1,750	storage heaters on Economy 7 for a 3 bed semi; no tariff or oil price in it
+guides/index.html	£1,750	the storage heaters card, taken from that guide's description

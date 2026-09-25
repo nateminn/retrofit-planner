@@ -289,7 +289,7 @@
         html += '<div class="result-item"><div class="label">Gas boiler upfront</div><div class="value">' + gbp(boilerInstall) + '</div><div class="detail">New condensing boiler installed</div></div>';
         html += '<div class="result-item highlight"><div class="label">Heat pump upfront</div><div class="value">' + gbp(hpAfterGrant) + '</div><div class="detail">' + gbp(hpInstall) + ' installed, less the £7,500 grant</div></div>';
         html += '<div class="result-item"><div class="label">Gas running cost</div><div class="value">' + gbp(annualGasCost) + '/yr</div><div class="detail">' + (gasBill > 0 && !billNote ? 'From your bill, less the standing charge' : 'Energy only, Ofgem cap Oct to Dec 2026') + '</div></div>';
-        html += '<div class="result-item ' + (annualHPTariff < annualGasCost ? 'highlight' : '') + '"><div class="label">Heat pump running cost</div><div class="value">' + gbp(annualHPTariff) + '/yr</div><div class="detail">On an 18p heat pump tariff; ' + gbp(annualHPCost) + ' on a standard tariff</div></div>';
+        html += '<div class="result-item ' + (annualHPTariff < annualGasCost ? 'highlight' : '') + '"><div class="label">Heat pump running cost</div><div class="value">' + gbp(annualHPTariff) + '/yr</div><div class="detail">On a 19.8p heat pump tariff; ' + gbp(annualHPCost) + ' on a standard tariff</div></div>';
         html += '</div>';
 
         html += '<div class="result-full"><div class="label">Yearly heating cost</div>'
