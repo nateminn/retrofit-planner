@@ -73,6 +73,7 @@ def main():
         if a not in new:
             raise SystemExit('accuracy/index.html has no %s marker' % a)
         new = re.sub(re.escape(a) + '.*?' + re.escape(b), lambda m: a + block + b, new, flags=re.S)
+    new = re.sub(r'<strong>\d+ sources, with their dates\.</strong>', '<strong>%d sources, with their dates.</strong>' % len(reg['sources']), new)
     if '--apply' in sys.argv:
         PAGE.write_text(new)
         print('APPLIED: %d sources' % len(reg['sources']))

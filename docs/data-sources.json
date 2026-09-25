@@ -56,7 +56,7 @@
    "publisher": "Department for Energy Security and Net Zero",
    "url": "https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026",
    "govuk": "government/statistics/boiler-upgrade-scheme-statistics-august-2026",
-   "use": "What installers charged for heat pumps of each size, before the grant",
+   "use": "What installers charged for heat pumps of each size, and how many heat pump grants each council has had",
    "published": "24 September 2026",
    "checked": "25 September 2026",
    "probe": [
@@ -235,6 +235,30 @@
    "probe": [
     "docs/maps/itl1-2025.json",
     "Northern Ireland"
+   ]
+  },
+  {
+   "name": "Census 2021: number of households (TS041)",
+   "publisher": "Office for National Statistics, through Nomis",
+   "url": "https://www.nomisweb.co.uk/datasets/c2021ts041",
+   "use": "Households in each council, to show heat pumps per 10,000 households",
+   "published": "Census 2021",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/bus-councils.json",
+    "\"households\""
+   ]
+  },
+  {
+   "name": "Local Authority Districts boundaries, May 2025",
+   "publisher": "Office for National Statistics",
+   "url": "https://geoportal.statistics.gov.uk/",
+   "use": "The council map",
+   "published": "May 2025",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/maps/lad-2025-ew.json",
+    "Local Authority Districts (May 2025)"
    ]
   }
  ],

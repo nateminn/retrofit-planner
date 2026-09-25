@@ -1140,3 +1140,24 @@ details.faq-item>p{margin:0 0 14px}
 .ds-dates{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;font-size:.8rem}
 .ds-dates dt{color:var(--color-text-tertiary);font-weight:500}
 .ds-dates dd{margin:0;font-weight:600;color:var(--color-text)}
+
+/* ===== HEAT PUMPS BY COUNCIL MAP (bus_councils.py) ===== */
+.hp-map-wrap{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;align-items:start;margin:20px 0 8px}
+.hp-map{margin:0}
+.hp-main{display:block;width:100%;height:auto;max-width:440px}
+.hp-map-wrap path{stroke:#fff;stroke-width:.35;stroke-linejoin:round}
+.hp-map-wrap path:hover,.hp-map-wrap path.on{stroke:var(--color-text);stroke-width:1.4}
+.hp-map figcaption{font-size:.82rem;color:var(--color-text-secondary);margin-top:6px}
+.hp-legend{list-style:none;display:flex;flex-wrap:wrap;gap:4px 12px;padding:0;margin:6px 0 0}
+.hp-legend li{display:flex;align-items:center;gap:6px;font-size:.8rem}
+.hp-legend span{width:14px;height:14px;border-radius:3px;border:1px solid var(--color-border)}
+.hp-side label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+.hp-side input{width:100%;padding:10px 12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-size:16px;font-family:inherit}
+.hp-side input:focus{outline:2px solid var(--color-accent);outline-offset:1px}
+.hp-panel{background:var(--color-surface-alt);border-radius:var(--radius-sm);padding:14px 16px;margin:12px 0}
+.hp-panel h3{margin:0 0 6px;font-family:var(--font-display);font-size:1.05rem}
+.hp-panel p{margin:4px 0;font-size:.9rem}
+.hp-london{margin:0}
+.hp-ldn{display:block;width:100%;height:auto}
+.hp-london figcaption{font-size:.78rem;color:var(--color-text-tertiary)}
+@media (max-width:760px){.hp-map-wrap{grid-template-columns:1fr}.hp-main{max-width:360px;margin:0 auto}.hp-london{max-width:260px}}

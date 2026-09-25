@@ -2254,5 +2254,38 @@
     "Frequently asked questions"
    ]
   ]
+ },
+ "guides/heat-pumps-by-council": {
+  "points": [
+   "**86,852** heat pumps installed with a grant in England and Wales since May 2022, about **35.0** for every 10,000 households",
+   "**South Cambridgeshire** leads with 154.9 per 10,000 households; the South West has the most of any region",
+   "**14.2** per 10,000 households in London, the fewest of any region"
+  ],
+  "jumps": [
+   [
+    "Most",
+    "#most"
+   ],
+   [
+    "Least",
+    "#least"
+   ],
+   [
+    "Regions",
+    "#regions"
+   ],
+   [
+    "Every council",
+    "#all"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
  }
 }

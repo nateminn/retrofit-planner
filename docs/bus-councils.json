@@ -1,0 +1,2606 @@
+{
+ "title": "Table Q1.2 - Number of redemptions paid by Local Authority, England and Wales, May 2022 to June 2026",
+ "source_url": "https://assets.publishing.service.gov.uk/media/6ab10b644c0f475de0a66aa4/Boiler_Upgrade_Scheme_BUS_Statistics_August_2026.xlsx",
+ "published": "2026-09-24",
+ "total": 86852,
+ "households": 24783192,
+ "rate": 35.0,
+ "councils": {
+  "E06000047": {
+   "name": "County Durham",
+   "hp": 637,
+   "region": "North East",
+   "households": 234761,
+   "rate": 27.1,
+   "rank": 175
+  },
+  "E06000005": {
+   "name": "Darlington",
+   "hp": 131,
+   "region": "North East",
+   "households": 48918,
+   "rate": 26.8,
+   "rank": 177
+  },
+  "E06000001": {
+   "name": "Hartlepool",
+   "hp": 83,
+   "region": "North East",
+   "households": 40930,
+   "rate": 20.3,
+   "rank": 212
+  },
+  "E06000002": {
+   "name": "Middlesbrough",
+   "hp": 89,
+   "region": "North East",
+   "households": 60262,
+   "rate": 14.8,
+   "rank": 256
+  },
+  "E06000057": {
+   "name": "Northumberland",
+   "hp": 707,
+   "region": "North East",
+   "households": 146922,
+   "rate": 48.1,
+   "rank": 96
+  },
+  "E06000003": {
+   "name": "Redcar and Cleveland",
+   "hp": 124,
+   "region": "North East",
+   "households": 61636,
+   "rate": 20.1,
+   "rank": 216
+  },
+  "E06000004": {
+   "name": "Stockton-on-Tees",
+   "hp": 150,
+   "region": "North East",
+   "households": 83757,
+   "rate": 17.9,
+   "rank": 227
+  },
+  "E08000037": {
+   "name": "Gateshead",
+   "hp": 117,
+   "region": "North East",
+   "households": 88999,
+   "rate": 13.1,
+   "rank": 270
+  },
+  "E08000021": {
+   "name": "Newcastle upon Tyne",
+   "hp": 250,
+   "region": "North East",
+   "households": 122797,
+   "rate": 20.4,
+   "rank": 211
+  },
+  "E08000022": {
+   "name": "North Tyneside",
+   "hp": 166,
+   "region": "North East",
+   "households": 96232,
+   "rate": 17.2,
+   "rank": 229
+  },
+  "E08000023": {
+   "name": "South Tyneside",
+   "hp": 45,
+   "region": "North East",
+   "households": 68287,
+   "rate": 6.6,
+   "rank": 312
+  },
+  "E08000024": {
+   "name": "Sunderland",
+   "hp": 140,
+   "region": "North East",
+   "households": 122177,
+   "rate": 11.5,
+   "rank": 286
+  },
+  "E06000008": {
+   "name": "Blackburn with Darwen",
+   "hp": 83,
+   "region": "North West",
+   "households": 58767,
+   "rate": 14.1,
+   "rank": 260
+  },
+  "E06000009": {
+   "name": "Blackpool",
+   "hp": 68,
+   "region": "North West",
+   "households": 64789,
+   "rate": 10.5,
+   "rank": 290
+  },
+  "E06000049": {
+   "name": "Cheshire East",
+   "hp": 813,
+   "region": "North West",
+   "households": 174856,
+   "rate": 46.5,
+   "rank": 100
+  },
+  "E06000050": {
+   "name": "Cheshire West and Chester",
+   "hp": 690,
+   "region": "North West",
+   "households": 155156,
+   "rate": 44.5,
+   "rank": 104
+  },
+  "E06000063": {
+   "name": "Cumberland",
+   "hp": 418,
+   "region": "North West",
+   "households": 125425,
+   "rate": 33.3,
+   "rank": 145
+  },
+  "E06000006": {
+   "name": "Halton",
+   "hp": 76,
+   "region": "North West",
+   "households": 55951,
+   "rate": 13.6,
+   "rank": 263
+  },
+  "E06000007": {
+   "name": "Warrington",
+   "hp": 209,
+   "region": "North West",
+   "households": 90538,
+   "rate": 23.1,
+   "rank": 202
+  },
+  "E06000064": {
+   "name": "Westmorland and Furness",
+   "hp": 795,
+   "region": "North West",
+   "households": 103529,
+   "rate": 76.8,
+   "rank": 32
+  },
+  "E08000001": {
+   "name": "Bolton",
+   "hp": 151,
+   "region": "North West",
+   "households": 118790,
+   "rate": 12.7,
+   "rank": 274
+  },
+  "E08000002": {
+   "name": "Bury",
+   "hp": 145,
+   "region": "North West",
+   "households": 80696,
+   "rate": 18.0,
+   "rank": 226
+  },
+  "E08000003": {
+   "name": "Manchester",
+   "hp": 320,
+   "region": "North West",
+   "households": 214732,
+   "rate": 14.9,
+   "rank": 255
+  },
+  "E08000004": {
+   "name": "Oldham",
+   "hp": 95,
+   "region": "North West",
+   "households": 93140,
+   "rate": 10.2,
+   "rank": 291
+  },
+  "E08000005": {
+   "name": "Rochdale",
+   "hp": 120,
+   "region": "North West",
+   "households": 90223,
+   "rate": 13.3,
+   "rank": 267
+  },
+  "E08000006": {
+   "name": "Salford",
+   "hp": 146,
+   "region": "North West",
+   "households": 115116,
+   "rate": 12.7,
+   "rank": 275
+  },
+  "E08000007": {
+   "name": "Stockport",
+   "hp": 271,
+   "region": "North West",
+   "households": 126648,
+   "rate": 21.4,
+   "rank": 206
+  },
+  "E08000008": {
+   "name": "Tameside",
+   "hp": 99,
+   "region": "North West",
+   "households": 99527,
+   "rate": 9.9,
+   "rank": 294
+  },
+  "E08000009": {
+   "name": "Trafford",
+   "hp": 243,
+   "region": "North West",
+   "households": 96269,
+   "rate": 25.2,
+   "rank": 189
+  },
+  "E08000010": {
+   "name": "Wigan",
+   "hp": 177,
+   "region": "North West",
+   "households": 143105,
+   "rate": 12.4,
+   "rank": 278
+  },
+  "E07000117": {
+   "name": "Burnley",
+   "hp": 33,
+   "region": "North West",
+   "households": 39872,
+   "rate": 8.3,
+   "rank": 305
+  },
+  "E07000118": {
+   "name": "Chorley",
+   "hp": 197,
+   "region": "North West",
+   "households": 50132,
+   "rate": 39.3,
+   "rank": 121
+  },
+  "E07000119": {
+   "name": "Fylde",
+   "hp": 82,
+   "region": "North West",
+   "households": 37606,
+   "rate": 21.8,
+   "rank": 205
+  },
+  "E07000120": {
+   "name": "Hyndburn",
+   "hp": 41,
+   "region": "North West",
+   "households": 34790,
+   "rate": 11.8,
+   "rank": 282
+  },
+  "E07000121": {
+   "name": "Lancaster",
+   "hp": 207,
+   "region": "North West",
+   "households": 59978,
+   "rate": 34.5,
+   "rank": 141
+  },
+  "E07000122": {
+   "name": "Pendle",
+   "hp": 65,
+   "region": "North West",
+   "households": 38066,
+   "rate": 17.1,
+   "rank": 231
+  },
+  "E07000123": {
+   "name": "Preston",
+   "hp": 161,
+   "region": "North West",
+   "households": 59607,
+   "rate": 27.0,
+   "rank": 176
+  },
+  "E07000124": {
+   "name": "Ribble Valley",
+   "hp": 143,
+   "region": "North West",
+   "households": 26747,
+   "rate": 53.5,
+   "rank": 86
+  },
+  "E07000125": {
+   "name": "Rossendale",
+   "hp": 77,
+   "region": "North West",
+   "households": 30561,
+   "rate": 25.2,
+   "rank": 190
+  },
+  "E07000126": {
+   "name": "South Ribble",
+   "hp": 160,
+   "region": "North West",
+   "households": 48586,
+   "rate": 32.9,
+   "rank": 147
+  },
+  "E07000127": {
+   "name": "West Lancashire",
+   "hp": 165,
+   "region": "North West",
+   "households": 48533,
+   "rate": 34.0,
+   "rank": 142
+  },
+  "E07000128": {
+   "name": "Wyre",
+   "hp": 130,
+   "region": "North West",
+   "households": 50767,
+   "rate": 25.6,
+   "rank": 185
+  },
+  "E08000011": {
+   "name": "Knowsley",
+   "hp": 71,
+   "region": "North West",
+   "households": 66073,
+   "rate": 10.7,
+   "rank": 288
+  },
+  "E08000012": {
+   "name": "Liverpool",
+   "hp": 159,
+   "region": "North West",
+   "households": 207491,
+   "rate": 7.7,
+   "rank": 310
+  },
+  "E08000014": {
+   "name": "Sefton",
+   "hp": 161,
+   "region": "North West",
+   "households": 123073,
+   "rate": 13.1,
+   "rank": 271
+  },
+  "E08000013": {
+   "name": "St. Helens",
+   "hp": 109,
+   "region": "North West",
+   "households": 81011,
+   "rate": 13.5,
+   "rank": 265
+  },
+  "E08000015": {
+   "name": "Wirral",
+   "hp": 232,
+   "region": "North West",
+   "households": 143252,
+   "rate": 16.2,
+   "rank": 239
+  },
+  "E06000011": {
+   "name": "East Riding of Yorkshire",
+   "hp": 763,
+   "region": "Yorkshire and the Humber",
+   "households": 152066,
+   "rate": 50.2,
+   "rank": 90
+  },
+  "E06000010": {
+   "name": "Kingston upon Hull, City of",
+   "hp": 115,
+   "region": "Yorkshire and the Humber",
+   "households": 115472,
+   "rate": 10.0,
+   "rank": 293
+  },
+  "E06000012": {
+   "name": "North East Lincolnshire",
+   "hp": 215,
+   "region": "Yorkshire and the Humber",
+   "households": 69826,
+   "rate": 30.8,
+   "rank": 158
+  },
+  "E06000013": {
+   "name": "North Lincolnshire",
+   "hp": 305,
+   "region": "Yorkshire and the Humber",
+   "households": 73173,
+   "rate": 41.7,
+   "rank": 112
+  },
+  "E06000065": {
+   "name": "North Yorkshire",
+   "hp": 2102,
+   "region": "Yorkshire and the Humber",
+   "households": 274381,
+   "rate": 76.6,
+   "rank": 33
+  },
+  "E06000014": {
+   "name": "York",
+   "hp": 412,
+   "region": "Yorkshire and the Humber",
+   "households": 85459,
+   "rate": 48.2,
+   "rank": 95
+  },
+  "E08000038": {
+   "name": "Barnsley",
+   "hp": 276,
+   "region": "Yorkshire and the Humber",
+   "households": 108053,
+   "rate": 25.5,
+   "rank": 186
+  },
+  "E08000017": {
+   "name": "Doncaster",
+   "hp": 383,
+   "region": "Yorkshire and the Humber",
+   "households": 133482,
+   "rate": 28.7,
+   "rank": 170
+  },
+  "E08000018": {
+   "name": "Rotherham",
+   "hp": 296,
+   "region": "Yorkshire and the Humber",
+   "households": 113925,
+   "rate": 26.0,
+   "rank": 182
+  },
+  "E08000039": {
+   "name": "Sheffield",
+   "hp": 661,
+   "region": "Yorkshire and the Humber",
+   "households": 231950,
+   "rate": 28.5,
+   "rank": 173
+  },
+  "E08000032": {
+   "name": "Bradford",
+   "hp": 509,
+   "region": "Yorkshire and the Humber",
+   "households": 209867,
+   "rate": 24.3,
+   "rank": 193
+  },
+  "E08000033": {
+   "name": "Calderdale",
+   "hp": 280,
+   "region": "Yorkshire and the Humber",
+   "households": 90476,
+   "rate": 30.9,
+   "rank": 156
+  },
+  "E08000034": {
+   "name": "Kirklees",
+   "hp": 510,
+   "region": "Yorkshire and the Humber",
+   "households": 177989,
+   "rate": 28.7,
+   "rank": 171
+  },
+  "E08000035": {
+   "name": "Leeds",
+   "hp": 801,
+   "region": "Yorkshire and the Humber",
+   "households": 341466,
+   "rate": 23.5,
+   "rank": 200
+  },
+  "E08000036": {
+   "name": "Wakefield",
+   "hp": 366,
+   "region": "Yorkshire and the Humber",
+   "households": 153075,
+   "rate": 23.9,
+   "rank": 197
+  },
+  "E06000015": {
+   "name": "Derby",
+   "hp": 252,
+   "region": "East Midlands",
+   "households": 105652,
+   "rate": 23.9,
+   "rank": 198
+  },
+  "E06000016": {
+   "name": "Leicester",
+   "hp": 158,
+   "region": "East Midlands",
+   "households": 127387,
+   "rate": 12.4,
+   "rank": 279
+  },
+  "E06000061": {
+   "name": "North Northamptonshire",
+   "hp": 538,
+   "region": "East Midlands",
+   "households": 148918,
+   "rate": 36.1,
+   "rank": 133
+  },
+  "E06000018": {
+   "name": "Nottingham",
+   "hp": 208,
+   "region": "East Midlands",
+   "households": 124745,
+   "rate": 16.7,
+   "rank": 235
+  },
+  "E06000017": {
+   "name": "Rutland",
+   "hp": 121,
+   "region": "East Midlands",
+   "households": 16694,
+   "rate": 72.5,
+   "rank": 46
+  },
+  "E06000062": {
+   "name": "West Northamptonshire",
+   "hp": 750,
+   "region": "East Midlands",
+   "households": 172641,
+   "rate": 43.4,
+   "rank": 109
+  },
+  "E07000032": {
+   "name": "Amber Valley",
+   "hp": 255,
+   "region": "East Midlands",
+   "households": 56277,
+   "rate": 45.3,
+   "rank": 102
+  },
+  "E07000033": {
+   "name": "Bolsover",
+   "hp": 129,
+   "region": "East Midlands",
+   "households": 35262,
+   "rate": 36.6,
+   "rank": 130
+  },
+  "E07000034": {
+   "name": "Chesterfield",
+   "hp": 128,
+   "region": "East Midlands",
+   "households": 48058,
+   "rate": 26.6,
+   "rank": 179
+  },
+  "E07000035": {
+   "name": "Derbyshire Dales",
+   "hp": 334,
+   "region": "East Midlands",
+   "households": 32283,
+   "rate": 103.5,
+   "rank": 8
+  },
+  "E07000036": {
+   "name": "Erewash",
+   "hp": 133,
+   "region": "East Midlands",
+   "households": 50334,
+   "rate": 26.4,
+   "rank": 180
+  },
+  "E07000037": {
+   "name": "High Peak",
+   "hp": 192,
+   "region": "East Midlands",
+   "households": 40772,
+   "rate": 47.1,
+   "rank": 99
+  },
+  "E07000038": {
+   "name": "North East Derbyshire",
+   "hp": 213,
+   "region": "East Midlands",
+   "households": 45987,
+   "rate": 46.3,
+   "rank": 101
+  },
+  "E07000039": {
+   "name": "South Derbyshire",
+   "hp": 226,
+   "region": "East Midlands",
+   "households": 45240,
+   "rate": 50.0,
+   "rank": 91
+  },
+  "E07000129": {
+   "name": "Blaby",
+   "hp": 134,
+   "region": "East Midlands",
+   "households": 42575,
+   "rate": 31.5,
+   "rank": 152
+  },
+  "E07000130": {
+   "name": "Charnwood",
+   "hp": 257,
+   "region": "East Midlands",
+   "households": 73785,
+   "rate": 34.8,
+   "rank": 138
+  },
+  "E07000131": {
+   "name": "Harborough",
+   "hp": 266,
+   "region": "East Midlands",
+   "households": 40413,
+   "rate": 65.8,
+   "rank": 57
+  },
+  "E07000132": {
+   "name": "Hinckley and Bosworth",
+   "hp": 202,
+   "region": "East Midlands",
+   "households": 49446,
+   "rate": 40.9,
+   "rank": 116
+  },
+  "E07000133": {
+   "name": "Melton",
+   "hp": 166,
+   "region": "East Midlands",
+   "households": 22599,
+   "rate": 73.5,
+   "rank": 43
+  },
+  "E07000134": {
+   "name": "North West Leicestershire",
+   "hp": 224,
+   "region": "East Midlands",
+   "households": 44973,
+   "rate": 49.8,
+   "rank": 92
+  },
+  "E07000135": {
+   "name": "Oadby and Wigston",
+   "hp": 43,
+   "region": "East Midlands",
+   "households": 22617,
+   "rate": 19.0,
+   "rank": 221
+  },
+  "E07000136": {
+   "name": "Boston",
+   "hp": 91,
+   "region": "East Midlands",
+   "households": 29404,
+   "rate": 30.9,
+   "rank": 157
+  },
+  "E07000137": {
+   "name": "East Lindsey",
+   "hp": 499,
+   "region": "East Midlands",
+   "households": 64754,
+   "rate": 77.1,
+   "rank": 31
+  },
+  "E07000138": {
+   "name": "Lincoln",
+   "hp": 112,
+   "region": "East Midlands",
+   "households": 42507,
+   "rate": 26.3,
+   "rank": 181
+  },
+  "E07000139": {
+   "name": "North Kesteven",
+   "hp": 378,
+   "region": "East Midlands",
+   "households": 50989,
+   "rate": 74.1,
+   "rank": 41
+  },
+  "E07000140": {
+   "name": "South Holland",
+   "hp": 192,
+   "region": "East Midlands",
+   "households": 40703,
+   "rate": 47.2,
+   "rank": 97
+  },
+  "E07000141": {
+   "name": "South Kesteven",
+   "hp": 348,
+   "region": "East Midlands",
+   "households": 62850,
+   "rate": 55.4,
+   "rank": 84
+  },
+  "E07000142": {
+   "name": "West Lindsey",
+   "hp": 357,
+   "region": "East Midlands",
+   "households": 42345,
+   "rate": 84.3,
+   "rank": 18
+  },
+  "E07000170": {
+   "name": "Ashfield",
+   "hp": 156,
+   "region": "East Midlands",
+   "households": 54508,
+   "rate": 28.6,
+   "rank": 172
+  },
+  "E07000171": {
+   "name": "Bassetlaw",
+   "hp": 341,
+   "region": "East Midlands",
+   "households": 51458,
+   "rate": 66.3,
+   "rank": 56
+  },
+  "E07000172": {
+   "name": "Broxtowe",
+   "hp": 181,
+   "region": "East Midlands",
+   "households": 48361,
+   "rate": 37.4,
+   "rank": 128
+  },
+  "E07000173": {
+   "name": "Gedling",
+   "hp": 174,
+   "region": "East Midlands",
+   "households": 51551,
+   "rate": 33.8,
+   "rank": 143
+  },
+  "E07000174": {
+   "name": "Mansfield",
+   "hp": 97,
+   "region": "East Midlands",
+   "households": 48030,
+   "rate": 20.2,
+   "rank": 214
+  },
+  "E07000175": {
+   "name": "Newark and Sherwood",
+   "hp": 355,
+   "region": "East Midlands",
+   "households": 53331,
+   "rate": 66.6,
+   "rank": 54
+  },
+  "E07000176": {
+   "name": "Rushcliffe",
+   "hp": 302,
+   "region": "East Midlands",
+   "households": 49883,
+   "rate": 60.5,
+   "rank": 69
+  },
+  "E06000019": {
+   "name": "Herefordshire, County of",
+   "hp": 682,
+   "region": "West Midlands",
+   "households": 82827,
+   "rate": 82.3,
+   "rank": 23
+  },
+  "E06000051": {
+   "name": "Shropshire",
+   "hp": 987,
+   "region": "West Midlands",
+   "households": 139579,
+   "rate": 70.7,
+   "rank": 47
+  },
+  "E06000021": {
+   "name": "Stoke-on-Trent",
+   "hp": 128,
+   "region": "West Midlands",
+   "households": 110399,
+   "rate": 11.6,
+   "rank": 284
+  },
+  "E06000020": {
+   "name": "Telford and Wrekin",
+   "hp": 198,
+   "region": "West Midlands",
+   "households": 76510,
+   "rate": 25.9,
+   "rank": 183
+  },
+  "E07000192": {
+   "name": "Cannock Chase",
+   "hp": 65,
+   "region": "West Midlands",
+   "households": 43457,
+   "rate": 15.0,
+   "rank": 252
+  },
+  "E07000193": {
+   "name": "East Staffordshire",
+   "hp": 206,
+   "region": "West Midlands",
+   "households": 51293,
+   "rate": 40.2,
+   "rank": 118
+  },
+  "E07000194": {
+   "name": "Lichfield",
+   "hp": 175,
+   "region": "West Midlands",
+   "households": 45630,
+   "rate": 38.4,
+   "rank": 123
+  },
+  "E07000195": {
+   "name": "Newcastle-under-Lyme",
+   "hp": 160,
+   "region": "West Midlands",
+   "households": 53423,
+   "rate": 29.9,
+   "rank": 163
+  },
+  "E07000196": {
+   "name": "South Staffordshire",
+   "hp": 146,
+   "region": "West Midlands",
+   "households": 46121,
+   "rate": 31.7,
+   "rank": 151
+  },
+  "E07000197": {
+   "name": "Stafford",
+   "hp": 255,
+   "region": "West Midlands",
+   "households": 60047,
+   "rate": 42.5,
+   "rank": 110
+  },
+  "E07000198": {
+   "name": "Staffordshire Moorlands",
+   "hp": 169,
+   "region": "West Midlands",
+   "households": 42355,
+   "rate": 39.9,
+   "rank": 119
+  },
+  "E07000199": {
+   "name": "Tamworth",
+   "hp": 55,
+   "region": "West Midlands",
+   "households": 32895,
+   "rate": 16.7,
+   "rank": 236
+  },
+  "E07000218": {
+   "name": "North Warwickshire",
+   "hp": 85,
+   "region": "West Midlands",
+   "households": 27580,
+   "rate": 30.8,
+   "rank": 159
+  },
+  "E07000219": {
+   "name": "Nuneaton and Bedworth",
+   "hp": 98,
+   "region": "West Midlands",
+   "households": 56586,
+   "rate": 17.3,
+   "rank": 228
+  },
+  "E07000220": {
+   "name": "Rugby",
+   "hp": 193,
+   "region": "West Midlands",
+   "households": 47013,
+   "rate": 41.1,
+   "rank": 115
+  },
+  "E07000221": {
+   "name": "Stratford-on-Avon",
+   "hp": 468,
+   "region": "West Midlands",
+   "households": 59464,
+   "rate": 78.7,
+   "rank": 29
+  },
+  "E07000222": {
+   "name": "Warwick",
+   "hp": 277,
+   "region": "West Midlands",
+   "households": 62619,
+   "rate": 44.2,
+   "rank": 105
+  },
+  "E08000025": {
+   "name": "Birmingham",
+   "hp": 386,
+   "region": "West Midlands",
+   "households": 423456,
+   "rate": 9.1,
+   "rank": 302
+  },
+  "E08000026": {
+   "name": "Coventry",
+   "hp": 186,
+   "region": "West Midlands",
+   "households": 134139,
+   "rate": 13.9,
+   "rank": 261
+  },
+  "E08000027": {
+   "name": "Dudley",
+   "hp": 111,
+   "region": "West Midlands",
+   "households": 137069,
+   "rate": 8.1,
+   "rank": 307
+  },
+  "E08000028": {
+   "name": "Sandwell",
+   "hp": 105,
+   "region": "West Midlands",
+   "households": 130246,
+   "rate": 8.1,
+   "rank": 308
+  },
+  "E08000029": {
+   "name": "Solihull",
+   "hp": 180,
+   "region": "West Midlands",
+   "households": 89483,
+   "rate": 20.1,
+   "rank": 217
+  },
+  "E08000030": {
+   "name": "Walsall",
+   "hp": 100,
+   "region": "West Midlands",
+   "households": 112226,
+   "rate": 8.9,
+   "rank": 303
+  },
+  "E08000031": {
+   "name": "Wolverhampton",
+   "hp": 73,
+   "region": "West Midlands",
+   "households": 105141,
+   "rate": 6.9,
+   "rank": 311
+  },
+  "E07000234": {
+   "name": "Bromsgrove",
+   "hp": 124,
+   "region": "West Midlands",
+   "households": 41266,
+   "rate": 30.0,
+   "rank": 162
+  },
+  "E07000235": {
+   "name": "Malvern Hills",
+   "hp": 283,
+   "region": "West Midlands",
+   "households": 34892,
+   "rate": 81.1,
+   "rank": 24
+  },
+  "E07000236": {
+   "name": "Redditch",
+   "hp": 53,
+   "region": "West Midlands",
+   "households": 36378,
+   "rate": 14.6,
+   "rank": 257
+  },
+  "E07000237": {
+   "name": "Worcester",
+   "hp": 105,
+   "region": "West Midlands",
+   "households": 44722,
+   "rate": 23.5,
+   "rank": 201
+  },
+  "E07000238": {
+   "name": "Wychavon",
+   "hp": 350,
+   "region": "West Midlands",
+   "households": 57356,
+   "rate": 61.0,
+   "rank": 67
+  },
+  "E07000239": {
+   "name": "Wyre Forest",
+   "hp": 85,
+   "region": "West Midlands",
+   "households": 45320,
+   "rate": 18.8,
+   "rank": 222
+  },
+  "E06000055": {
+   "name": "Bedford",
+   "hp": 270,
+   "region": "East",
+   "households": 74950,
+   "rate": 36.0,
+   "rank": 134
+  },
+  "E06000056": {
+   "name": "Central Bedfordshire",
+   "hp": 497,
+   "region": "East",
+   "households": 120755,
+   "rate": 41.2,
+   "rank": 114
+  },
+  "E06000032": {
+   "name": "Luton",
+   "hp": 77,
+   "region": "East",
+   "households": 78940,
+   "rate": 9.8,
+   "rank": 297
+  },
+  "E06000031": {
+   "name": "Peterborough",
+   "hp": 253,
+   "region": "East",
+   "households": 84533,
+   "rate": 29.9,
+   "rank": 164
+  },
+  "E06000033": {
+   "name": "Southend-on-Sea",
+   "hp": 65,
+   "region": "East",
+   "households": 78344,
+   "rate": 8.3,
+   "rank": 306
+  },
+  "E06000034": {
+   "name": "Thurrock",
+   "hp": 62,
+   "region": "East",
+   "households": 66377,
+   "rate": 9.3,
+   "rank": 301
+  },
+  "E07000008": {
+   "name": "Cambridge",
+   "hp": 392,
+   "region": "East",
+   "households": 52472,
+   "rate": 74.7,
+   "rank": 38
+  },
+  "E07000009": {
+   "name": "East Cambridgeshire",
+   "hp": 360,
+   "region": "East",
+   "households": 37203,
+   "rate": 96.8,
+   "rank": 12
+  },
+  "E07000010": {
+   "name": "Fenland",
+   "hp": 183,
+   "region": "East",
+   "households": 44083,
+   "rate": 41.5,
+   "rank": 113
+  },
+  "E07000011": {
+   "name": "Huntingdonshire",
+   "hp": 490,
+   "region": "East",
+   "households": 76880,
+   "rate": 63.7,
+   "rank": 60
+  },
+  "E07000012": {
+   "name": "South Cambridgeshire",
+   "hp": 1038,
+   "region": "East",
+   "households": 66996,
+   "rate": 154.9,
+   "rank": 1
+  },
+  "E07000066": {
+   "name": "Basildon",
+   "hp": 120,
+   "region": "East",
+   "households": 76362,
+   "rate": 15.7,
+   "rank": 243
+  },
+  "E07000067": {
+   "name": "Braintree",
+   "hp": 249,
+   "region": "East",
+   "households": 64986,
+   "rate": 38.3,
+   "rank": 124
+  },
+  "E07000068": {
+   "name": "Brentwood",
+   "hp": 99,
+   "region": "East",
+   "households": 32342,
+   "rate": 30.6,
+   "rank": 160
+  },
+  "E07000069": {
+   "name": "Castle Point",
+   "hp": 57,
+   "region": "East",
+   "households": 37389,
+   "rate": 15.2,
+   "rank": 248
+  },
+  "E07000070": {
+   "name": "Chelmsford",
+   "hp": 356,
+   "region": "East",
+   "households": 75401,
+   "rate": 47.2,
+   "rank": 98
+  },
+  "E07000071": {
+   "name": "Colchester",
+   "hp": 315,
+   "region": "East",
+   "households": 79710,
+   "rate": 39.5,
+   "rank": 120
+  },
+  "E07000072": {
+   "name": "Epping Forest",
+   "hp": 169,
+   "region": "East",
+   "households": 54557,
+   "rate": 31.0,
+   "rank": 155
+  },
+  "E07000073": {
+   "name": "Harlow",
+   "hp": 44,
+   "region": "East",
+   "households": 37857,
+   "rate": 11.6,
+   "rank": 285
+  },
+  "E07000074": {
+   "name": "Maldon",
+   "hp": 192,
+   "region": "East",
+   "households": 27900,
+   "rate": 68.8,
+   "rank": 50
+  },
+  "E07000075": {
+   "name": "Rochford",
+   "hp": 65,
+   "region": "East",
+   "households": 35557,
+   "rate": 18.3,
+   "rank": 224
+  },
+  "E07000076": {
+   "name": "Tendring",
+   "hp": 201,
+   "region": "East",
+   "households": 67451,
+   "rate": 29.8,
+   "rank": 165
+  },
+  "E07000077": {
+   "name": "Uttlesford",
+   "hp": 310,
+   "region": "East",
+   "households": 36958,
+   "rate": 83.9,
+   "rank": 20
+  },
+  "E07000095": {
+   "name": "Broxbourne",
+   "hp": 61,
+   "region": "East",
+   "households": 39849,
+   "rate": 15.3,
+   "rank": 247
+  },
+  "E07000096": {
+   "name": "Dacorum",
+   "hp": 287,
+   "region": "East",
+   "households": 63412,
+   "rate": 45.3,
+   "rank": 103
+  },
+  "E07000242": {
+   "name": "East Hertfordshire",
+   "hp": 333,
+   "region": "East",
+   "households": 62021,
+   "rate": 53.7,
+   "rank": 85
+  },
+  "E07000098": {
+   "name": "Hertsmere",
+   "hp": 90,
+   "region": "East",
+   "households": 42682,
+   "rate": 21.1,
+   "rank": 207
+  },
+  "E07000099": {
+   "name": "North Hertfordshire",
+   "hp": 299,
+   "region": "East",
+   "households": 56732,
+   "rate": 52.7,
+   "rank": 88
+  },
+  "E07000240": {
+   "name": "St Albans",
+   "hp": 336,
+   "region": "East",
+   "households": 58991,
+   "rate": 57.0,
+   "rank": 79
+  },
+  "E07000243": {
+   "name": "Stevenage",
+   "hp": 60,
+   "region": "East",
+   "households": 36511,
+   "rate": 16.4,
+   "rank": 237
+  },
+  "E07000102": {
+   "name": "Three Rivers",
+   "hp": 138,
+   "region": "East",
+   "households": 36858,
+   "rate": 37.4,
+   "rank": 129
+  },
+  "E07000103": {
+   "name": "Watford",
+   "hp": 58,
+   "region": "East",
+   "households": 39628,
+   "rate": 14.6,
+   "rank": 258
+  },
+  "E07000241": {
+   "name": "Welwyn Hatfield",
+   "hp": 165,
+   "region": "East",
+   "households": 46209,
+   "rate": 35.7,
+   "rank": 135
+  },
+  "E07000143": {
+   "name": "Breckland",
+   "hp": 351,
+   "region": "East",
+   "households": 60359,
+   "rate": 58.2,
+   "rank": 77
+  },
+  "E07000144": {
+   "name": "Broadland",
+   "hp": 345,
+   "region": "East",
+   "households": 57760,
+   "rate": 59.7,
+   "rank": 71
+  },
+  "E07000145": {
+   "name": "Great Yarmouth",
+   "hp": 134,
+   "region": "East",
+   "households": 44544,
+   "rate": 30.1,
+   "rank": 161
+  },
+  "E07000146": {
+   "name": "King’s Lynn and West Norfolk",
+   "hp": 410,
+   "region": "East",
+   "households": 67464,
+   "rate": 60.8,
+   "rank": 68
+  },
+  "E07000147": {
+   "name": "North Norfolk",
+   "hp": 416,
+   "region": "East",
+   "households": 48374,
+   "rate": 86.0,
+   "rank": 17
+  },
+  "E07000148": {
+   "name": "Norwich",
+   "hp": 144,
+   "region": "East",
+   "households": 64459,
+   "rate": 22.3,
+   "rank": 204
+  },
+  "E07000149": {
+   "name": "South Norfolk",
+   "hp": 557,
+   "region": "East",
+   "households": 61381,
+   "rate": 90.7,
+   "rank": 15
+  },
+  "E07000200": {
+   "name": "Babergh",
+   "hp": 293,
+   "region": "East",
+   "households": 40200,
+   "rate": 72.9,
+   "rank": 45
+  },
+  "E07000244": {
+   "name": "East Suffolk",
+   "hp": 699,
+   "region": "East",
+   "households": 110747,
+   "rate": 63.1,
+   "rank": 61
+  },
+  "E07000202": {
+   "name": "Ipswich",
+   "hp": 89,
+   "region": "East",
+   "households": 59507,
+   "rate": 15.0,
+   "rank": 253
+  },
+  "E07000203": {
+   "name": "Mid Suffolk",
+   "hp": 420,
+   "region": "East",
+   "households": 44343,
+   "rate": 94.7,
+   "rank": 14
+  },
+  "E07000245": {
+   "name": "West Suffolk",
+   "hp": 384,
+   "region": "East",
+   "households": 78746,
+   "rate": 48.8,
+   "rank": 94
+  },
+  "E09000007": {
+   "name": "Camden",
+   "hp": 140,
+   "region": "London",
+   "households": 92759,
+   "rate": 15.1,
+   "rank": 250
+  },
+  "E09000001": {
+   "name": "City of London",
+   "hp": 0,
+   "region": "London",
+   "households": 4914,
+   "rate": 0.0,
+   "rank": 318
+  },
+  "E09000012": {
+   "name": "Hackney",
+   "hp": 167,
+   "region": "London",
+   "households": 106081,
+   "rate": 15.7,
+   "rank": 244
+  },
+  "E09000013": {
+   "name": "Hammersmith and Fulham",
+   "hp": 76,
+   "region": "London",
+   "households": 81244,
+   "rate": 9.4,
+   "rank": 298
+  },
+  "E09000014": {
+   "name": "Haringey",
+   "hp": 219,
+   "region": "London",
+   "households": 105092,
+   "rate": 20.8,
+   "rank": 208
+  },
+  "E09000019": {
+   "name": "Islington",
+   "hp": 121,
+   "region": "London",
+   "households": 96496,
+   "rate": 12.5,
+   "rank": 276
+  },
+  "E09000020": {
+   "name": "Kensington and Chelsea",
+   "hp": 42,
+   "region": "London",
+   "households": 66884,
+   "rate": 6.3,
+   "rank": 314
+  },
+  "E09000022": {
+   "name": "Lambeth",
+   "hp": 168,
+   "region": "London",
+   "households": 134688,
+   "rate": 12.5,
+   "rank": 277
+  },
+  "E09000023": {
+   "name": "Lewisham",
+   "hp": 248,
+   "region": "London",
+   "households": 122392,
+   "rate": 20.3,
+   "rank": 213
+  },
+  "E09000025": {
+   "name": "Newham",
+   "hp": 76,
+   "region": "London",
+   "households": 115507,
+   "rate": 6.6,
+   "rank": 313
+  },
+  "E09000028": {
+   "name": "Southwark",
+   "hp": 213,
+   "region": "London",
+   "households": 130818,
+   "rate": 16.3,
+   "rank": 238
+  },
+  "E09000030": {
+   "name": "Tower Hamlets",
+   "hp": 49,
+   "region": "London",
+   "households": 120539,
+   "rate": 4.1,
+   "rank": 317
+  },
+  "E09000032": {
+   "name": "Wandsworth",
+   "hp": 185,
+   "region": "London",
+   "households": 137393,
+   "rate": 13.5,
+   "rank": 266
+  },
+  "E09000033": {
+   "name": "Westminster",
+   "hp": 40,
+   "region": "London",
+   "households": 94815,
+   "rate": 4.2,
+   "rank": 316
+  },
+  "E09000002": {
+   "name": "Barking and Dagenham",
+   "hp": 36,
+   "region": "London",
+   "households": 73902,
+   "rate": 4.9,
+   "rank": 315
+  },
+  "E09000003": {
+   "name": "Barnet",
+   "hp": 234,
+   "region": "London",
+   "households": 148917,
+   "rate": 15.7,
+   "rank": 245
+  },
+  "E09000004": {
+   "name": "Bexley",
+   "hp": 103,
+   "region": "London",
+   "households": 95300,
+   "rate": 10.8,
+   "rank": 287
+  },
+  "E09000005": {
+   "name": "Brent",
+   "hp": 157,
+   "region": "London",
+   "households": 118612,
+   "rate": 13.2,
+   "rank": 268
+  },
+  "E09000006": {
+   "name": "Bromley",
+   "hp": 333,
+   "region": "London",
+   "households": 135827,
+   "rate": 24.5,
+   "rank": 192
+  },
+  "E09000008": {
+   "name": "Croydon",
+   "hp": 241,
+   "region": "London",
+   "households": 152946,
+   "rate": 15.8,
+   "rank": 242
+  },
+  "E09000009": {
+   "name": "Ealing",
+   "hp": 182,
+   "region": "London",
+   "households": 133659,
+   "rate": 13.6,
+   "rank": 264
+  },
+  "E09000010": {
+   "name": "Enfield",
+   "hp": 147,
+   "region": "London",
+   "households": 120923,
+   "rate": 12.2,
+   "rank": 280
+  },
+  "E09000011": {
+   "name": "Greenwich",
+   "hp": 147,
+   "region": "London",
+   "households": 114052,
+   "rate": 12.9,
+   "rank": 272
+  },
+  "E09000015": {
+   "name": "Harrow",
+   "hp": 174,
+   "region": "London",
+   "households": 89642,
+   "rate": 19.4,
+   "rank": 219
+  },
+  "E09000016": {
+   "name": "Havering",
+   "hp": 95,
+   "region": "London",
+   "households": 101277,
+   "rate": 9.4,
+   "rank": 299
+  },
+  "E09000017": {
+   "name": "Hillingdon",
+   "hp": 164,
+   "region": "London",
+   "households": 109228,
+   "rate": 15.0,
+   "rank": 254
+  },
+  "E09000018": {
+   "name": "Hounslow",
+   "hp": 97,
+   "region": "London",
+   "households": 102961,
+   "rate": 9.4,
+   "rank": 300
+  },
+  "E09000021": {
+   "name": "Kingston upon Thames",
+   "hp": 162,
+   "region": "London",
+   "households": 65626,
+   "rate": 24.7,
+   "rank": 191
+  },
+  "E09000024": {
+   "name": "Merton",
+   "hp": 165,
+   "region": "London",
+   "households": 81729,
+   "rate": 20.2,
+   "rank": 215
+  },
+  "E09000026": {
+   "name": "Redbridge",
+   "hp": 110,
+   "region": "London",
+   "households": 103713,
+   "rate": 10.6,
+   "rank": 289
+  },
+  "E09000027": {
+   "name": "Richmond upon Thames",
+   "hp": 233,
+   "region": "London",
+   "households": 80705,
+   "rate": 28.9,
+   "rank": 169
+  },
+  "E09000029": {
+   "name": "Sutton",
+   "hp": 140,
+   "region": "London",
+   "households": 82348,
+   "rate": 17.0,
+   "rank": 232
+  },
+  "E09000031": {
+   "name": "Waltham Forest",
+   "hp": 199,
+   "region": "London",
+   "households": 102901,
+   "rate": 19.3,
+   "rank": 220
+  },
+  "E06000036": {
+   "name": "Bracknell Forest",
+   "hp": 157,
+   "region": "South East",
+   "households": 50248,
+   "rate": 31.2,
+   "rank": 154
+  },
+  "E06000043": {
+   "name": "Brighton and Hove",
+   "hp": 387,
+   "region": "South East",
+   "households": 121402,
+   "rate": 31.9,
+   "rank": 150
+  },
+  "E06000060": {
+   "name": "Buckinghamshire",
+   "hp": 1288,
+   "region": "South East",
+   "households": 220328,
+   "rate": 58.5,
+   "rank": 76
+  },
+  "E06000046": {
+   "name": "Isle of Wight",
+   "hp": 188,
+   "region": "South East",
+   "households": 64775,
+   "rate": 29.0,
+   "rank": 168
+  },
+  "E06000035": {
+   "name": "Medway",
+   "hp": 169,
+   "region": "South East",
+   "households": 111458,
+   "rate": 15.2,
+   "rank": 249
+  },
+  "E06000042": {
+   "name": "Milton Keynes",
+   "hp": 410,
+   "region": "South East",
+   "households": 113102,
+   "rate": 36.3,
+   "rank": 131
+  },
+  "E06000044": {
+   "name": "Portsmouth",
+   "hp": 76,
+   "region": "South East",
+   "households": 86155,
+   "rate": 8.8,
+   "rank": 304
+  },
+  "E06000038": {
+   "name": "Reading",
+   "hp": 164,
+   "region": "South East",
+   "households": 67683,
+   "rate": 24.2,
+   "rank": 195
+  },
+  "E06000039": {
+   "name": "Slough",
+   "hp": 72,
+   "region": "South East",
+   "households": 52423,
+   "rate": 13.7,
+   "rank": 262
+  },
+  "E06000045": {
+   "name": "Southampton",
+   "hp": 176,
+   "region": "South East",
+   "households": 102291,
+   "rate": 17.2,
+   "rank": 230
+  },
+  "E06000037": {
+   "name": "West Berkshire",
+   "hp": 487,
+   "region": "South East",
+   "households": 66658,
+   "rate": 73.1,
+   "rank": 44
+  },
+  "E06000040": {
+   "name": "Windsor and Maidenhead",
+   "hp": 301,
+   "region": "South East",
+   "households": 60932,
+   "rate": 49.4,
+   "rank": 93
+  },
+  "E06000041": {
+   "name": "Wokingham",
+   "hp": 412,
+   "region": "South East",
+   "households": 69164,
+   "rate": 59.6,
+   "rank": 72
+  },
+  "E07000061": {
+   "name": "Eastbourne",
+   "hp": 73,
+   "region": "South East",
+   "households": 45610,
+   "rate": 16.0,
+   "rank": 241
+  },
+  "E07000062": {
+   "name": "Hastings",
+   "hp": 75,
+   "region": "South East",
+   "households": 40453,
+   "rate": 18.5,
+   "rank": 223
+  },
+  "E07000063": {
+   "name": "Lewes",
+   "hp": 339,
+   "region": "South East",
+   "households": 43688,
+   "rate": 77.6,
+   "rank": 30
+  },
+  "E07000064": {
+   "name": "Rother",
+   "hp": 249,
+   "region": "South East",
+   "households": 42102,
+   "rate": 59.1,
+   "rank": 74
+  },
+  "E07000065": {
+   "name": "Wealden",
+   "hp": 545,
+   "region": "South East",
+   "households": 68266,
+   "rate": 79.8,
+   "rank": 26
+  },
+  "E07000084": {
+   "name": "Basingstoke and Deane",
+   "hp": 435,
+   "region": "South East",
+   "households": 76645,
+   "rate": 56.8,
+   "rank": 81
+  },
+  "E07000085": {
+   "name": "East Hampshire",
+   "hp": 444,
+   "region": "South East",
+   "households": 52718,
+   "rate": 84.2,
+   "rank": 19
+  },
+  "E07000086": {
+   "name": "Eastleigh",
+   "hp": 188,
+   "region": "South East",
+   "households": 56924,
+   "rate": 33.0,
+   "rank": 146
+  },
+  "E07000087": {
+   "name": "Fareham",
+   "hp": 206,
+   "region": "South East",
+   "households": 48639,
+   "rate": 42.4,
+   "rank": 111
+  },
+  "E07000088": {
+   "name": "Gosport",
+   "hp": 61,
+   "region": "South East",
+   "households": 35922,
+   "rate": 17.0,
+   "rank": 233
+  },
+  "E07000089": {
+   "name": "Hart",
+   "hp": 204,
+   "region": "South East",
+   "households": 39964,
+   "rate": 51.0,
+   "rank": 89
+  },
+  "E07000090": {
+   "name": "Havant",
+   "hp": 138,
+   "region": "South East",
+   "households": 53589,
+   "rate": 25.8,
+   "rank": 184
+  },
+  "E07000091": {
+   "name": "New Forest",
+   "hp": 498,
+   "region": "South East",
+   "households": 77566,
+   "rate": 64.2,
+   "rank": 59
+  },
+  "E07000092": {
+   "name": "Rushmoor",
+   "hp": 100,
+   "region": "South East",
+   "households": 39303,
+   "rate": 25.4,
+   "rank": 188
+  },
+  "E07000093": {
+   "name": "Test Valley",
+   "hp": 415,
+   "region": "South East",
+   "households": 54708,
+   "rate": 75.9,
+   "rank": 35
+  },
+  "E07000094": {
+   "name": "Winchester",
+   "hp": 523,
+   "region": "South East",
+   "households": 51715,
+   "rate": 101.1,
+   "rank": 9
+  },
+  "E07000105": {
+   "name": "Ashford",
+   "hp": 330,
+   "region": "South East",
+   "households": 53583,
+   "rate": 61.6,
+   "rank": 64
+  },
+  "E07000106": {
+   "name": "Canterbury",
+   "hp": 280,
+   "region": "South East",
+   "households": 63792,
+   "rate": 43.9,
+   "rank": 107
+  },
+  "E07000107": {
+   "name": "Dartford",
+   "hp": 94,
+   "region": "South East",
+   "households": 45696,
+   "rate": 20.6,
+   "rank": 210
+  },
+  "E07000108": {
+   "name": "Dover",
+   "hp": 175,
+   "region": "South East",
+   "households": 50548,
+   "rate": 34.6,
+   "rank": 140
+  },
+  "E07000112": {
+   "name": "Folkestone and Hythe",
+   "hp": 184,
+   "region": "South East",
+   "households": 48338,
+   "rate": 38.1,
+   "rank": 125
+  },
+  "E07000109": {
+   "name": "Gravesham",
+   "hp": 67,
+   "region": "South East",
+   "households": 41724,
+   "rate": 16.1,
+   "rank": 240
+  },
+  "E07000110": {
+   "name": "Maidstone",
+   "hp": 310,
+   "region": "South East",
+   "households": 71208,
+   "rate": 43.5,
+   "rank": 108
+  },
+  "E07000111": {
+   "name": "Sevenoaks",
+   "hp": 339,
+   "region": "South East",
+   "households": 49013,
+   "rate": 69.2,
+   "rank": 48
+  },
+  "E07000113": {
+   "name": "Swale",
+   "hp": 162,
+   "region": "South East",
+   "households": 60495,
+   "rate": 26.8,
+   "rank": 178
+  },
+  "E07000114": {
+   "name": "Thanet",
+   "hp": 151,
+   "region": "South East",
+   "households": 62200,
+   "rate": 24.3,
+   "rank": 194
+  },
+  "E07000115": {
+   "name": "Tonbridge and Malling",
+   "hp": 217,
+   "region": "South East",
+   "households": 53573,
+   "rate": 40.5,
+   "rank": 117
+  },
+  "E07000116": {
+   "name": "Tunbridge Wells",
+   "hp": 297,
+   "region": "South East",
+   "households": 48223,
+   "rate": 61.6,
+   "rank": 65
+  },
+  "E07000177": {
+   "name": "Cherwell",
+   "hp": 404,
+   "region": "South East",
+   "households": 65894,
+   "rate": 61.3,
+   "rank": 66
+  },
+  "E07000178": {
+   "name": "Oxford",
+   "hp": 315,
+   "region": "South East",
+   "households": 55238,
+   "rate": 57.0,
+   "rank": 80
+  },
+  "E07000179": {
+   "name": "South Oxfordshire",
+   "hp": 661,
+   "region": "South East",
+   "households": 61497,
+   "rate": 107.5,
+   "rank": 7
+  },
+  "E07000180": {
+   "name": "Vale of White Horse",
+   "hp": 480,
+   "region": "South East",
+   "households": 57498,
+   "rate": 83.5,
+   "rank": 21
+  },
+  "E07000181": {
+   "name": "West Oxfordshire",
+   "hp": 356,
+   "region": "South East",
+   "households": 47981,
+   "rate": 74.2,
+   "rank": 40
+  },
+  "E07000207": {
+   "name": "Elmbridge",
+   "hp": 214,
+   "region": "South East",
+   "households": 55590,
+   "rate": 38.5,
+   "rank": 122
+  },
+  "E07000208": {
+   "name": "Epsom and Ewell",
+   "hp": 80,
+   "region": "South East",
+   "households": 31321,
+   "rate": 25.5,
+   "rank": 187
+  },
+  "E07000209": {
+   "name": "Guildford",
+   "hp": 374,
+   "region": "South East",
+   "households": 55760,
+   "rate": 67.1,
+   "rank": 52
+  },
+  "E07000210": {
+   "name": "Mole Valley",
+   "hp": 247,
+   "region": "South East",
+   "households": 37139,
+   "rate": 66.5,
+   "rank": 55
+  },
+  "E07000211": {
+   "name": "Reigate and Banstead",
+   "hp": 197,
+   "region": "South East",
+   "households": 59849,
+   "rate": 32.9,
+   "rank": 148
+  },
+  "E07000212": {
+   "name": "Runnymede",
+   "hp": 98,
+   "region": "South East",
+   "households": 34838,
+   "rate": 28.1,
+   "rank": 174
+  },
+  "E07000213": {
+   "name": "Spelthorne",
+   "hp": 82,
+   "region": "South East",
+   "households": 41805,
+   "rate": 19.6,
+   "rank": 218
+  },
+  "E07000214": {
+   "name": "Surrey Heath",
+   "hp": 137,
+   "region": "South East",
+   "households": 36008,
+   "rate": 38.0,
+   "rank": 126
+  },
+  "E07000215": {
+   "name": "Tandridge",
+   "hp": 198,
+   "region": "South East",
+   "households": 35623,
+   "rate": 55.6,
+   "rank": 83
+  },
+  "E07000216": {
+   "name": "Waverley",
+   "hp": 397,
+   "region": "South East",
+   "households": 52448,
+   "rate": 75.7,
+   "rank": 36
+  },
+  "E07000217": {
+   "name": "Woking",
+   "hp": 144,
+   "region": "South East",
+   "households": 41437,
+   "rate": 34.8,
+   "rank": 139
+  },
+  "E07000223": {
+   "name": "Adur",
+   "hp": 81,
+   "region": "South East",
+   "households": 27678,
+   "rate": 29.3,
+   "rank": 167
+  },
+  "E07000224": {
+   "name": "Arun",
+   "hp": 216,
+   "region": "South East",
+   "households": 72661,
+   "rate": 29.7,
+   "rank": 166
+  },
+  "E07000225": {
+   "name": "Chichester",
+   "hp": 431,
+   "region": "South East",
+   "households": 54118,
+   "rate": 79.6,
+   "rank": 27
+  },
+  "E07000226": {
+   "name": "Crawley",
+   "hp": 60,
+   "region": "South East",
+   "households": 45502,
+   "rate": 13.2,
+   "rank": 269
+  },
+  "E07000227": {
+   "name": "Horsham",
+   "hp": 409,
+   "region": "South East",
+   "households": 62370,
+   "rate": 65.6,
+   "rank": 58
+  },
+  "E07000228": {
+   "name": "Mid Sussex",
+   "hp": 362,
+   "region": "South East",
+   "households": 63349,
+   "rate": 57.1,
+   "rank": 78
+  },
+  "E07000229": {
+   "name": "Worthing",
+   "hp": 103,
+   "region": "South East",
+   "households": 49538,
+   "rate": 20.8,
+   "rank": 209
+  },
+  "E06000022": {
+   "name": "Bath and North East Somerset",
+   "hp": 472,
+   "region": "South West",
+   "households": 79250,
+   "rate": 59.6,
+   "rank": 73
+  },
+  "E06000058": {
+   "name": "Bournemouth, Christchurch and Poole",
+   "hp": 412,
+   "region": "South West",
+   "households": 173842,
+   "rate": 23.7,
+   "rank": 199
+  },
+  "E06000023": {
+   "name": "Bristol, City of",
+   "hp": 643,
+   "region": "South West",
+   "households": 191638,
+   "rate": 33.6,
+   "rank": 144
+  },
+  "E06000052": {
+   "name": "Cornwall",
+   "hp": 3145,
+   "region": "South West",
+   "households": 250535,
+   "rate": 125.5,
+   "rank": 3
+  },
+  "E06000059": {
+   "name": "Dorset",
+   "hp": 1263,
+   "region": "South West",
+   "households": 169261,
+   "rate": 74.6,
+   "rank": 39
+  },
+  "E06000053": {
+   "name": "Isles of Scilly",
+   "hp": 11,
+   "region": "South West",
+   "households": 942,
+   "rate": 116.8,
+   "rank": 5
+  },
+  "E06000024": {
+   "name": "North Somerset",
+   "hp": 527,
+   "region": "South West",
+   "households": 94648,
+   "rate": 55.7,
+   "rank": 82
+  },
+  "E06000026": {
+   "name": "Plymouth",
+   "hp": 147,
+   "region": "South West",
+   "households": 114558,
+   "rate": 12.8,
+   "rank": 273
+  },
+  "E06000066": {
+   "name": "Somerset",
+   "hp": 1556,
+   "region": "South West",
+   "households": 250120,
+   "rate": 62.2,
+   "rank": 62
+  },
+  "E06000025": {
+   "name": "South Gloucestershire",
+   "hp": 627,
+   "region": "South West",
+   "households": 118101,
+   "rate": 53.1,
+   "rank": 87
+  },
+  "E06000030": {
+   "name": "Swindon",
+   "hp": 232,
+   "region": "South West",
+   "households": 95862,
+   "rate": 24.2,
+   "rank": 196
+  },
+  "E06000027": {
+   "name": "Torbay",
+   "hp": 107,
+   "region": "South West",
+   "households": 62992,
+   "rate": 17.0,
+   "rank": 234
+  },
+  "E06000054": {
+   "name": "Wiltshire",
+   "hp": 1622,
+   "region": "South West",
+   "households": 215081,
+   "rate": 75.4,
+   "rank": 37
+  },
+  "E07000040": {
+   "name": "East Devon",
+   "hp": 550,
+   "region": "South West",
+   "households": 66788,
+   "rate": 82.4,
+   "rank": 22
+  },
+  "E07000041": {
+   "name": "Exeter",
+   "hp": 191,
+   "region": "South West",
+   "households": 52554,
+   "rate": 36.3,
+   "rank": 132
+  },
+  "E07000042": {
+   "name": "Mid Devon",
+   "hp": 339,
+   "region": "South West",
+   "households": 35633,
+   "rate": 95.1,
+   "rank": 13
+  },
+  "E07000043": {
+   "name": "North Devon",
+   "hp": 520,
+   "region": "South West",
+   "households": 43197,
+   "rate": 120.4,
+   "rank": 4
+  },
+  "E07000044": {
+   "name": "South Hams",
+   "hp": 532,
+   "region": "South West",
+   "households": 39335,
+   "rate": 135.2,
+   "rank": 2
+  },
+  "E07000045": {
+   "name": "Teignbridge",
+   "hp": 360,
+   "region": "South West",
+   "households": 59838,
+   "rate": 60.2,
+   "rank": 70
+  },
+  "E07000046": {
+   "name": "Torridge",
+   "hp": 303,
+   "region": "South West",
+   "households": 30457,
+   "rate": 99.5,
+   "rank": 10
+  },
+  "E07000047": {
+   "name": "West Devon",
+   "hp": 270,
+   "region": "South West",
+   "households": 24818,
+   "rate": 108.8,
+   "rank": 6
+  },
+  "E07000078": {
+   "name": "Cheltenham",
+   "hp": 188,
+   "region": "South West",
+   "households": 52899,
+   "rate": 35.5,
+   "rank": 136
+  },
+  "E07000079": {
+   "name": "Cotswold",
+   "hp": 320,
+   "region": "South West",
+   "households": 40597,
+   "rate": 78.8,
+   "rank": 28
+  },
+  "E07000080": {
+   "name": "Forest of Dean",
+   "hp": 370,
+   "region": "South West",
+   "households": 37217,
+   "rate": 99.4,
+   "rank": 11
+  },
+  "E07000081": {
+   "name": "Gloucester",
+   "hp": 86,
+   "region": "South West",
+   "households": 55407,
+   "rate": 15.5,
+   "rank": 246
+  },
+  "E07000082": {
+   "name": "Stroud",
+   "hp": 462,
+   "region": "South West",
+   "households": 52378,
+   "rate": 88.2,
+   "rank": 16
+  },
+  "E07000083": {
+   "name": "Tewkesbury",
+   "hp": 253,
+   "region": "South West",
+   "households": 40931,
+   "rate": 61.8,
+   "rank": 63
+  },
+  "W06000001": {
+   "name": "Isle of Anglesey",
+   "hp": 213,
+   "region": "Wales",
+   "households": 30822,
+   "rate": 69.1,
+   "rank": 49
+  },
+  "W06000002": {
+   "name": "Gwynedd",
+   "hp": 301,
+   "region": "Wales",
+   "households": 51105,
+   "rate": 58.9,
+   "rank": 75
+  },
+  "W06000003": {
+   "name": "Conwy",
+   "hp": 196,
+   "region": "Wales",
+   "households": 52235,
+   "rate": 37.5,
+   "rank": 127
+  },
+  "W06000004": {
+   "name": "Denbighshire",
+   "hp": 313,
+   "region": "Wales",
+   "households": 42387,
+   "rate": 73.8,
+   "rank": 42
+  },
+  "W06000005": {
+   "name": "Flintshire",
+   "hp": 214,
+   "region": "Wales",
+   "households": 66911,
+   "rate": 32.0,
+   "rank": 149
+  },
+  "W06000006": {
+   "name": "Wrexham",
+   "hp": 181,
+   "region": "Wales",
+   "households": 57914,
+   "rate": 31.3,
+   "rank": 153
+  },
+  "W06000023": {
+   "name": "Powys",
+   "hp": 403,
+   "region": "Wales",
+   "households": 60182,
+   "rate": 67.0,
+   "rank": 53
+  },
+  "W06000008": {
+   "name": "Ceredigion",
+   "hp": 235,
+   "region": "Wales",
+   "households": 30893,
+   "rate": 76.1,
+   "rank": 34
+  },
+  "W06000009": {
+   "name": "Pembrokeshire",
+   "hp": 374,
+   "region": "Wales",
+   "households": 55488,
+   "rate": 67.4,
+   "rank": 51
+  },
+  "W06000010": {
+   "name": "Carmarthenshire",
+   "hp": 360,
+   "region": "Wales",
+   "households": 81759,
+   "rate": 44.0,
+   "rank": 106
+  },
+  "W06000011": {
+   "name": "Swansea",
+   "hp": 239,
+   "region": "Wales",
+   "households": 104962,
+   "rate": 22.8,
+   "rank": 203
+  },
+  "W06000012": {
+   "name": "Neath Port Talbot",
+   "hp": 62,
+   "region": "Wales",
+   "households": 62375,
+   "rate": 9.9,
+   "rank": 295
+  },
+  "W06000013": {
+   "name": "Bridgend",
+   "hp": 94,
+   "region": "Wales",
+   "households": 62360,
+   "rate": 15.1,
+   "rank": 251
+  },
+  "W06000014": {
+   "name": "Vale of Glamorgan",
+   "hp": 203,
+   "region": "Wales",
+   "households": 57450,
+   "rate": 35.3,
+   "rank": 137
+  },
+  "W06000015": {
+   "name": "Cardiff",
+   "hp": 267,
+   "region": "Wales",
+   "households": 147333,
+   "rate": 18.1,
+   "rank": 225
+  },
+  "W06000016": {
+   "name": "Rhondda Cynon Taf",
+   "hp": 102,
+   "region": "Wales",
+   "households": 103339,
+   "rate": 9.9,
+   "rank": 296
+  },
+  "W06000024": {
+   "name": "Merthyr Tydfil",
+   "hp": 26,
+   "region": "Wales",
+   "households": 25783,
+   "rate": 10.1,
+   "rank": 292
+  },
+  "W06000018": {
+   "name": "Caerphilly",
+   "hp": 90,
+   "region": "Wales",
+   "households": 76257,
+   "rate": 11.8,
+   "rank": 283
+  },
+  "W06000019": {
+   "name": "Blaenau Gwent",
+   "hp": 24,
+   "region": "Wales",
+   "households": 30340,
+   "rate": 7.9,
+   "rank": 309
+  },
+  "W06000020": {
+   "name": "Torfaen",
+   "hp": 48,
+   "region": "Wales",
+   "households": 40241,
+   "rate": 11.9,
+   "rank": 281
+  },
+  "W06000021": {
+   "name": "Monmouthshire",
+   "hp": 330,
+   "region": "Wales",
+   "households": 40923,
+   "rate": 80.6,
+   "rank": 25
+  },
+  "W06000022": {
+   "name": "Newport",
+   "hp": 96,
+   "region": "Wales",
+   "households": 66054,
+   "rate": 14.5,
+   "rank": 259
+  }
+ },
+ "regions": {
+  "North East": {
+   "hp": 2639,
+   "households": 1175678,
+   "rate": 22.4
+  },
+  "North West": {
+   "hp": 7112,
+   "households": 3153402,
+   "rate": 22.6
+  },
+  "Yorkshire and the Humber": {
+   "hp": 7994,
+   "households": 2330660,
+   "rate": 34.3
+  },
+  "East Midlands": {
+   "hp": 8512,
+   "households": 2037332,
+   "rate": 41.8
+  },
+  "West Midlands": {
+   "hp": 6488,
+   "households": 2429492,
+   "rate": 26.7
+  },
+  "East": {
+   "hp": 11933,
+   "households": 2628780,
+   "rate": 45.4
+  },
+  "London": {
+   "hp": 4863,
+   "households": 3423890,
+   "rate": 14.2
+  },
+  "South East": {
+   "hp": 17432,
+   "households": 3807966,
+   "rate": 45.8
+  },
+  "South West": {
+   "hp": 15508,
+   "households": 2448879,
+   "rate": 63.3
+  },
+  "Wales": {
+   "hp": 4371,
+   "households": 1347113,
+   "rate": 32.4
+  }
+ }
+}

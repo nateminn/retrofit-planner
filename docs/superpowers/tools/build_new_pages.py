@@ -604,12 +604,125 @@ def solar_hub():
                          'Map: Office for National Statistics, ITL1 boundaries January 2025, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
 
 
+
+# ------------------------------------------------------------------ heat pumps by council
+# docs/bus-councils.json and docs/maps/lad-2025-ew.json come from bus_councils.py: DESNZ
+# Boiler Upgrade Scheme Table Q1.2, Census 2021 households (Nomis) and ONS May 2025 boundaries.
+HP_BINS = [20, 35, 50, 75]
+HP_COLS = ['#e8f1ec', '#b9d9c6', '#7fb897', '#4a936c', '#23603f']
+HP_LABELS = ['Under 20', '20 to 35', '35 to 50', '50 to 75', '75 or more']
+
+
+def hp_council_page():
+    D = json.loads((ROOT / 'docs' / 'bus-councils.json').read_text())
+    MP = json.loads((ROOT / 'docs' / 'maps' / 'lad-2025-ew.json').read_text())
+    C = D['councils']
+    col = lambda r: HP_COLS[sum(r >= b for b in HP_BINS)]
+    order = sorted(C, key=lambda c: C[c]['rank'])
+    n = len(order)
+    fmt = lambda v: f'{v:,}'
+    one = lambda v: ('%.1f' % v)
+
+    def svg(mp, cls, label):
+        paths = ''.join('<path d="%s" fill="%s" data-c="%s"><title>%s: %s per 10,000 households</title></path>'
+                        % (d, col(C[c]['rate']), c, html.escape(C[c]['name']), one(C[c]['rate'])) for c, d in mp['paths'].items())
+        return '<svg class="%s" viewBox="0 0 %d %d" role="img" aria-label="%s">%s</svg>' % (cls, mp['w'], mp['h'], label, paths)
+
+    legend = '<ul class="hp-legend">%s</ul>' % ''.join('<li><span style="background:%s"></span>%s</li>' % (HP_COLS[i], HP_LABELS[i]) for i in range(5))
+    top = [['%s' % html.escape(C[c]['name']), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[:10]]
+    bottom = [['%s' % html.escape(C[c]['name']), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[-10:]]
+    head = ['Council', 'Region', 'Heat pumps', 'Per 10,000 households']
+    regions = sorted(D['regions'].items(), key=lambda kv: -kv[1]['rate'])
+    reg_rows = [[k, fmt(v['hp']), fmt(v['households']), one(v['rate'])] for k, v in regions]
+    all_rows = [[str(C[c]['rank']), html.escape(C[c]['name']), C[c]['region'], fmt(C[c]['hp']), fmt(C[c]['households']), one(C[c]['rate'])] for c in order]
+    most = max(C, key=lambda c: C[c]['hp'])
+    first, last = C[order[0]], C[order[-1]]
+    lowest5 = [C[c] for c in order if C[c]['rate'] < 5]
+    data = {c: [v['name'], v['hp'], v['households'], v['rate'], v['rank'], v['region']] for c, v in C.items()}
+    names = ''.join('<option value="%s">' % html.escape(C[c]['name']) for c in sorted(C, key=lambda c: C[c]['name']))
+    faq = [('Which council has the most heat pumps?',
+            '%s has the most heat pump grants paid of any council in England and Wales, %s. Per household, %s leads with %s for every 10,000 households, more than four times the England and Wales figure of %s.'
+            % (C[most]['name'], fmt(C[most]['hp']), first['name'], one(first['rate']), one(D['rate']))),
+           ('How many heat pumps are there in my area?',
+            'Search for your council above. The figures count heat pumps paid for with a Boiler Upgrade Scheme grant from May 2022 to June 2026, so they leave out heat pumps installed without the grant, for example in new build homes.'),
+           ('Why are there so few heat pumps in London?',
+            'London has %s heat pump grants for every 10,000 households, the lowest of any region. Much of the scheme has gone to rural homes and homes off the gas grid: in the same statistics, 48%% of the air to water heat pumps paid for were in rural homes and 37%% in homes off the gas grid.' % one(D['regions']['London']['rate']))]
+    body = f"""
+<p class="lead"><strong>{fmt(D['total'])}</strong> heat pumps have been installed with a Boiler Upgrade Scheme grant in England and Wales since the scheme opened in May 2022, about <strong>{one(D['rate'])}</strong> for every 10,000 households. {html.escape(first['name'])} leads with {one(first['rate'])}; parts of inner London have fewer than 5.</p>
+
+<div class="hp-map-wrap">
+<figure class="hp-map">{svg(MP['main'], 'hp-main', 'Map of England and Wales by council, shaded by heat pump grants per 10,000 households')}
+<figcaption>Heat pumps per 10,000 households, by council.{legend}</figcaption></figure>
+<div class="hp-side">
+<label for="councilSearch">Find your council</label>
+<input id="councilSearch" list="councilNames" autocomplete="off" placeholder="e.g. Leeds"><datalist id="councilNames">{names}</datalist>
+<div class="hp-panel" id="councilPanel" aria-live="polite"><p class="rp-hint">Search for a council, or hover over the map.</p></div>
+<figure class="hp-london">{svg(MP['london'], 'hp-ldn', 'London boroughs, shaded by heat pump grants per 10,000 households')}<figcaption>London, enlarged</figcaption></figure>
+</div>
+</div>
+
+<h2 id="most">Where heat pumps are most common</h2>
+<p class="answer"><strong>Rural councils in the South West and the East lead.</strong> The top ten all have more than twice the England and Wales figure of {one(D['rate'])} per 10,000 households.</p>
+{table('Councils with the most heat pump grants per household', head, top)}
+
+<h2 id="least">Where they are least common</h2>
+<p class="answer"><strong>Inner London and the big cities.</strong> In the same statistics, 48% of the air to water heat pumps paid for went to rural homes and 37% to homes off the gas grid.</p>
+{table('Councils with the fewest heat pump grants per household', head, bottom)}
+
+<h2 id="regions">By region</h2>
+<p class="answer"><strong>The South West has the most per household, London the fewest.</strong></p>
+{table('Heat pump grants by region', ['Region', 'Heat pumps', 'Households', 'Per 10,000 households'], reg_rows)}
+
+<h2 id="all">Every council</h2>
+<p class="answer"><strong>All {n} councils in England and Wales, ranked.</strong></p>
+<details class="more"><summary>Show every council</summary>
+{table('Heat pump grants in every council, ranked', ['Rank', 'Council', 'Region', 'Heat pumps', 'Households', 'Per 10,000 households'], all_rows)}
+</details>
+<p class="note">Heat pumps are Boiler Upgrade Scheme grants paid from 23 May 2022 to 30 June 2026 (DESNZ, {html.escape(D['title'].split(' - ')[0])}, published {long_date_str(D['published'])}), counting air and ground source heat pumps. Households are the Census 2021 count for each council. The scheme covers England and Wales; Scotland and Northern Ireland have their own. Heat pumps installed without the grant, such as in most new build and social homes, are not counted.</p>
+
+<h2 id="yours">Thinking about one?</h2>
+<p class="answer"><strong>The grant is £7,500, or £9,000 replacing oil or LPG until 31 March 2027.</strong> See what one would cost and save in your home with the <a href="/heat-pump-calculator/">heat pump calculator</a>, or read the <a href="/guides/boiler-upgrade-scheme-guide/">Boiler Upgrade Scheme guide</a>.</p>
+<script>
+(function () {{
+    var D = {json.dumps(data, ensure_ascii=False, separators=(',', ':'))};
+    var byName = {{}}; Object.keys(D).forEach(function (c) {{ byName[D[c][0].toLowerCase()] = c; }});
+    var panel = document.getElementById('councilPanel'), input = document.getElementById('councilSearch');
+    var ew = {D['rate']}, n = {n};
+    function show(c) {{
+        var d = D[c]; if (!d) {{ return; }}
+        var cmp = d[3] >= ew ? (d[3] / ew).toFixed(1) + ' times the England and Wales figure' : 'below the England and Wales figure of ' + ew.toFixed(1);
+        panel.innerHTML = '<h3>' + d[0] + '</h3><p><strong>' + d[1].toLocaleString('en-GB') + '</strong> heat pumps with a grant, <strong>' + d[3].toFixed(1) + '</strong> for every 10,000 households, ' + cmp + '.</p><p>Ranked ' + d[4] + ' of ' + n + ' councils. ' + d[5] + '.</p>';
+        document.querySelectorAll('.hp-map-wrap path.on').forEach(function (p) {{ p.classList.remove('on'); }});
+        document.querySelectorAll('.hp-map-wrap path[data-c="' + c + '"]').forEach(function (p) {{ p.classList.add('on'); }});
+    }}
+    document.querySelectorAll('.hp-map-wrap svg').forEach(function (svg) {{
+        svg.addEventListener('mouseover', function (e) {{ var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (c) {{ show(c); }} }});
+    }});
+    function find() {{ var c = byName[input.value.trim().toLowerCase()]; if (c) {{ show(c); }} }}
+    input.addEventListener('change', find); input.addEventListener('input', find);
+}})();
+</script>
+"""
+    return dict(slug='heat-pumps-by-council', kind='heat-pump', title='Heat Pumps by Council: Grants in Every Area Mapped 2026',
+                description='How many heat pump grants have been paid in every council area of England and Wales, per 10,000 households, on a map. Find your council.',
+                h1='Heat pumps by council', crumb='Heat pumps by council', faq=faq, body=body,
+                sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables Q1.2, 1.5 and 1.6. Source: Ofgem.',
+                         'Office for National Statistics, Census 2021, <a href="https://www.nomisweb.co.uk/datasets/c2021ts041" target="_blank" rel="noopener">TS041 number of households</a>, by local authority.',
+                         'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
+def long_date_str(iso):
+    import datetime
+    d = datetime.date.fromisoformat(iso)
+    return '%d %s %d' % (d.day, d.strftime('%B'), d.year)
+
+
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
          'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
          'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
          'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
-         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub,
+         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page,
          **{REGION[k]['slug']: (lambda k=k: solar_region_page(k)) for k in REGION}}
 
 

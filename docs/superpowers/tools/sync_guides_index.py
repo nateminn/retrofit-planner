@@ -24,6 +24,7 @@ NEW = {
     'energy-bills-3-bed-house': ('bills', 'Average Energy Bill for a 3 Bed House', 'average-energy-bills-uk', '<span class="gi-badge new">New</span>'),
     'energy-bills-4-bed-house': ('bills', 'Average Energy Bill for a 4 Bed House', 'average-energy-bills-uk', '<span class="gi-badge new">New</span>'),
     'energy-bills-5-bed-house': ('bills', 'Average Energy Bill for a 5 Bed House', 'average-energy-bills-uk', '<span class="gi-badge new">New</span>'),
+    'heat-pumps-by-council': ('heat-pumps', 'Heat Pumps by Council', 'boiler-upgrade-scheme-guide', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'insulation-cost-by-house-type': ('insulation', 'Insulation Cost by House Type', 'insulation-calculator', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge landlord">For landlords</span><span class="gi-badge new">New</span>'),
     'insulation-cost-semi-detached-house': ('insulation', 'Insulation Cost for a Semi-Detached House', 'is-cavity-wall-insulation-worth-it', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'insulation-cost-detached-house': ('insulation', 'Insulation Cost for a Detached House', 'solid-wall-insulation-cost', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),

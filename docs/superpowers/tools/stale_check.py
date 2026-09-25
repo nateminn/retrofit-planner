@@ -102,7 +102,7 @@ GENERATED = {'guides/%s/index.html' % g for g in (
     'energy-bills-4-bed-house', 'energy-bills-5-bed-house', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi',
     'insulation-cost-by-house-type', 'insulation-cost-semi-detached-house', 'insulation-cost-detached-house',
     'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat',
-    'solar-panel-payback-by-region', 'solar-panel-payback-south-england', 'solar-panel-payback-midlands', 'solar-panel-payback-north-england', 'solar-panel-payback-wales', 'solar-panel-payback-scotland')}
+    'solar-panel-payback-by-region', 'solar-panel-payback-south-england', 'solar-panel-payback-midlands', 'solar-panel-payback-north-england', 'solar-panel-payback-wales', 'solar-panel-payback-scotland', 'heat-pumps-by-council')}
 
 
 def main():

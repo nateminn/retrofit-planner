@@ -87,6 +87,7 @@ KINDS = {
 # calculators, the heat pump cost guides, and a few guides about paying for one measure.
 # Everything else (bills, explainers, schemes, the index, about, contact) has none.
 HEAT_PUMP = ['heat-pump-calculator', 'boiler-vs-heat-pump', 'heat-pump-running-cost-calculator'] + ['guides/' + g for g in [
+    'heat-pumps-by-council',
     'heat-pump-cost-by-house-type', 'heat-pump-cost-3-bed-semi', 'heat-pump-cost-2-bed-terrace',
     'heat-pump-cost-4-bed-house', 'heat-pump-victorian-terrace', 'heat-pump-cost-3-bed-detached',
     'heat-pump-cost-end-terrace', 'heat-pump-cost-5-bed-house', 'heat-pump-1960s-house',
