@@ -102,7 +102,8 @@ GENERATED = {'guides/%s/index.html' % g for g in (
     'energy-bills-4-bed-house', 'energy-bills-5-bed-house', 'heat-pump-cost-3-bed-mid-terrace', 'heat-pump-1930s-semi',
     'insulation-cost-by-house-type', 'insulation-cost-semi-detached-house', 'insulation-cost-detached-house',
     'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat',
-    'solar-panel-payback-by-region', 'solar-panel-payback-south-england', 'solar-panel-payback-midlands', 'solar-panel-payback-north-england', 'solar-panel-payback-wales', 'solar-panel-payback-scotland', 'heat-pumps-by-council',
+    'solar-panel-payback-by-region', 'solar-panel-payback-south-england', 'solar-panel-payback-midlands', 'solar-panel-payback-north-england', 'solar-panel-payback-wales', 'solar-panel-payback-scotland', 'epc-rating-by-house-age', 'epc-rating-victorian-house', 'epc-rating-1930s-house', 'epc-rating-1950s-house', 'epc-rating-1970s-house', 'epc-rating-1980s-1990s-house', 'epc-rating-new-build-house',
+    'heat-pumps-by-council',
     'heat-pumps-in-birmingham', 'heat-pumps-in-leeds', 'heat-pumps-in-north-yorkshire', 'heat-pumps-in-cornwall', 'heat-pumps-in-somerset', 'heat-pumps-in-county-durham', 'heat-pumps-in-sheffield', 'heat-pumps-in-buckinghamshire', 'heat-pumps-in-wiltshire', 'heat-pumps-in-manchester', 'heat-pumps-in-bradford', 'heat-pumps-in-liverpool', 'heat-pumps-in-bristol', 'heat-pumps-in-kirklees', 'heat-pumps-in-cheshire-east', 'heat-pumps-in-bournemouth-christchurch-and-poole', 'heat-pumps-in-west-northamptonshire', 'heat-pumps-in-dorset', 'heat-pumps-in-cheshire-west-and-chester', 'heat-pumps-in-wakefield')}
 
 

@@ -262,7 +262,7 @@ def semi_1930s():
                     'Heat Pump for a 1930s Semi UK 2026: Cost and Running Costs', 'Heat pump, 1930s semi',
                     'A typical 1930s semi is a 3 bed house, and many were built with cavity walls that have since been filled. With average insulation, a 1930s semi typically needs a heat pump of about %s, falling to about %s once it is well insulated.' % (kw(c['kw']), kw(g['kw'])),
                     ('before', 'What to check in a 1930s semi first'),
-                    '<p>Three things decide how well a heat pump works in a house of this age. First, the walls: if the cavity has never been filled, filling it is one of the biggest cuts in heat loss you can make, a median 12.0 per cent less gas in homes the government measured. Second, the floor: many 1930s houses have suspended timber floors that are draughty, which <a href="/guides/underfloor-insulation-cost/">underfloor insulation</a> and draught-proofing address. Third, the radiators: rooms such as a bay-fronted lounge may need a larger radiator to stay warm at the lower flow temperatures heat pumps run at. An MCS installer\'s room by room heat loss survey shows which rooms need what.</p>',
+                    '<p>Three things decide how well a heat pump works in a house of this age. First, the walls: if the cavity has never been filled, filling it is one of the biggest cuts in heat loss you can make, a median 12.0 per cent less gas in homes the government measured. Second, the floor: many 1930s houses have suspended timber floors that are draughty, which <a href="/guides/underfloor-insulation-cost/">underfloor insulation</a> and draught-proofing address. Third, the radiators: rooms such as a bay-fronted lounge may need a larger radiator to stay warm at the lower flow temperatures heat pumps run at. An MCS installer\'s room by room heat loss survey shows which rooms need what.</p><p>See also <a href="/guides/epc-rating-1930s-house/">the EPC rating of a 1930s house</a>.</p>',
                     [('semi', 3, '3 bed semi'), ('end-terrace', 3, '3 bed end-terrace'), ('mid-terrace', 3, '3 bed mid-terrace'), ('detached', 3, '3 bed detached')])
 
 
@@ -845,13 +845,204 @@ def long_date_str(iso):
 
 
 
+# ------------------------------------------------------------------ EPC rating by house age
+# docs/epc-by-age.json comes from epc_by_age.py (English Housing Survey 2024 live tables and NEED
+# 2026). The routes to band C are js/epc-plan.js, the EPC calculator's own model, run in node.
+AGE_ERAS = [
+    dict(slug='epc-rating-victorian-house', tname='Victorian House', short='Victorian and Edwardian', period='before 1919', ehs=['pre-1919'], need=['Pre 1919'],
+         examples=[('pre1919', 'mid-terrace', 'solid-no', 'a Victorian mid-terrace with solid walls')], target='C',
+         links=[('/guides/heat-pump-victorian-terrace/', 'heat pumps in a Victorian terrace'), ('/guides/solid-wall-insulation-cost/', 'solid wall insulation cost'), ('/guides/heat-pump-old-house/', 'heat pumps in an old house')]),
+    dict(slug='epc-rating-1930s-house', tname='1930s House', short='1920s and 1930s', period='between 1919 and 1944', ehs=['1919-44'], need=['1919 - 1944'],
+         examples=[('1919', 'semi', 'cavity-no', 'a 1930s semi with unfilled cavity walls'), ('1919', 'semi', 'solid-no', 'a 1930s semi with solid walls')], target='C',
+         links=[('/guides/heat-pump-1930s-semi/', 'heat pumps in a 1930s semi'), ('/guides/is-cavity-wall-insulation-worth-it/', 'is cavity wall insulation worth it'), ('/guides/solid-wall-insulation-cost/', 'solid wall insulation cost')]),
+    dict(slug='epc-rating-1950s-house', tname='1950s House', short='1950s and early 1960s', period='between 1945 and 1964', ehs=['1945-64'], need=['1945 - 1964'],
+         examples=[('1945', 'semi', 'cavity-no', 'a 1950s semi with unfilled cavity walls')], target='C',
+         links=[('/guides/heat-pump-1960s-house/', 'heat pumps in a 1960s house'), ('/guides/is-cavity-wall-insulation-worth-it/', 'is cavity wall insulation worth it')]),
+    dict(slug='epc-rating-1970s-house', tname='1970s House', short='late 1960s and 1970s', period='between 1965 and 1980', ehs=['1965-80'], need=['1965 - 1982'],
+         examples=[('1965', 'semi', 'cavity-no', 'a 1970s semi with unfilled cavity walls')], target='C',
+         links=[('/guides/heat-pump-1960s-house/', 'heat pumps in a 1960s house'), ('/guides/is-cavity-wall-insulation-worth-it/', 'is cavity wall insulation worth it')]),
+    dict(slug='epc-rating-1980s-1990s-house', tname='1980s or 1990s House', short='1980s and 1990s', period='between 1981 and 2002', ehs=['1981-90', '1991-2002'], need=['1983 - 1992', '1993 - 1999'],
+         examples=[('1981', 'semi', 'cavity-no', 'a 1980s semi with unfilled cavity walls'), ('1991', 'semi', 'cavity-no', 'a 1990s semi with unfilled cavity walls')], target='C',
+         links=[('/guides/is-cavity-wall-insulation-worth-it/', 'is cavity wall insulation worth it'), ('/guides/how-to-improve-epc-rating/', 'how to improve an EPC rating')]),
+    dict(slug='epc-rating-new-build-house', tname='New Build House', short='new build', period='since 2003', ehs=['2003-2013', 'post-2013'], need=['2000 - 2011', '2012 onwards'],
+         examples=[('2003', 'semi', 'cavity-yes', 'a 2000s semi'), ('2012', 'semi', 'cavity-yes', 'a home built since 2012')], target='B',
+         links=[('/guides/how-to-improve-epc-rating/', 'how to improve an EPC rating'), ('/solar-calculator/', 'the solar panel calculator')]),
+]
+AGE_LABEL = {'pre-1919': 'Before 1919', '1919-44': '1919 to 1944', '1945-64': '1945 to 1964', '1965-80': '1965 to 1980', '1981-90': '1981 to 1990',
+             '1991-2002': '1991 to 2002', '2003-2013': '2003 to 2013', 'post-2013': 'After 2013', 'all dwellings': 'All homes'}
+NEED_LABEL = {'Pre 1919': 'Before 1919', '1919 - 1944': '1919 to 1944', '1945 - 1964': '1945 to 1964', '1965 - 1982': '1965 to 1982',
+              '1983 - 1992': '1983 to 1992', '1993 - 1999': '1993 to 1999', '2000 - 2011': '2000 to 2011', '2012 onwards': '2012 onwards', 'All dwellings': 'All homes'}
+
+
+def epc_plans(cases):
+    js = ('global.window={};require("./js/epc-plan.js");const E=window.RP_EPC;const out=[];'
+          'for(const c of %s){const p=E.plan({currentBand:"estimate",propAge:c[0],propType:c[1],wall:c[2],loft:"good",glazing:"double",'
+          'heating:"new-gas",solar:"no",lighting:"mixed"},c[3]);out.push(p);}console.log(JSON.stringify(out));' % json.dumps(cases))
+    return json.loads(subprocess.run(['node', '-e', js], capture_output=True, text=True, cwd=ROOT).stdout)
+
+
+def band_of(sap):
+    return 'A' if sap >= 92 else 'B' if sap >= 81 else 'C' if sap >= 69 else 'D' if sap >= 55 else 'E' if sap >= 39 else 'F' if sap >= 21 else 'G'
+
+
+def pct(v):
+    return 'too few to show' if v is None else ('under 1%' if v < 1 else '%d%%' % round(v))
+
+
+def epc_age_page(i):
+    E = AGE_ERAS[i]
+    A = json.loads((ROOT / 'docs' / 'epc-by-age.json').read_text())
+    ages, allh = A['ages'], A['ages']['all dwellings']
+    rows = E['ehs']
+    homes = sum(ages[r]['homes_000'] for r in rows)
+    abc = sum(ages[r]['bands']['A/B/C'] * ages[r]['homes_000'] for r in rows) / homes
+    efg = sum(ages[r]['bands']['E/F/G'] * ages[r]['homes_000'] for r in rows) / homes
+    sap = sum(ages[r]['bands']['SAP'] * ages[r]['homes_000'] for r in rows) / homes
+    cols = rows + ['all dwellings']
+    bands_tbl = table('EPC bands of homes built %s' % E['period'], ['EPC band'] + [AGE_LABEL[c] for c in cols],
+                      [[b] + [pct(ages[c]['bands'][b]) for c in cols] for b in ('A/B', 'C', 'D', 'E', 'F', 'G')]
+                      + [['Average rating'] + ['%d (band %s)' % (round(ages[c]['bands']['SAP']), band_of(ages[c]['bands']['SAP'])) for c in cols]])
+    w = lambda c: ages[c]['walls']
+    feat = [['Solid walls, not insulated'] + [pct(w(c)['solid uninsulated']) for c in cols],
+            ['Solid walls, insulated'] + [pct(w(c)['solid insulated']) for c in cols],
+            ['Cavity walls, not insulated'] + [pct(w(c)['cavity uninsulated']) for c in cols],
+            ['Cavity walls, insulated'] + [pct((w(c)['cavity insulated'] or 0) + (w(c)['cavity insulated as built'] or 0)) for c in cols],
+            ['Loft insulation 150mm or more'] + [pct(ages[c]['loft']['150mm or more']) for c in cols],
+            ['Loft insulation under 100mm, or none'] + [pct((ages[c]['loft']['under 100mm'] or 0) + (ages[c]['loft']['none'] or 0)) for c in cols],
+            ['Double glazing throughout'] + [pct(ages[c]['glazing_all']) for c in cols],
+            ['Heated by mains gas'] + [pct(ages[c]['gas']) for c in cols],
+            ['Heat pump'] + [pct(ages[c]['heat_pump']) for c in cols]]
+    feat_tbl = table('What homes built %s are like' % E['period'], ['Feature'] + [AGE_LABEL[c] for c in cols], feat)
+    main = ages[rows[0]]
+    wshare = dict(main['walls'])
+    wshare['cavity insulated'] = (wshare['cavity insulated'] or 0) + (wshare['cavity insulated as built'] or 0)   # built insulated counts as filled
+    top_wall = max(['solid uninsulated', 'solid insulated', 'cavity uninsulated', 'cavity insulated'], key=lambda k: wshare[k] or 0)
+    share = wshare[top_wall] or 0
+    lead_word = 'most have' if share >= 50 else 'the most common is'
+    wall_txt = {'solid uninsulated': 'solid walls with no insulation', 'solid insulated': 'insulated solid walls',
+                'cavity uninsulated': 'cavity walls that are still unfilled', 'cavity insulated': 'filled cavity walls'}[top_wall]
+    wall_txt = '%s %s, %s' % (lead_word, wall_txt, pct(share)) if share < 50 else '%s %s (%s)' % (lead_word, wall_txt, pct(share))
+    ng = A['need_gas_median']; nm = A['need_gas_per_m2_houses']
+    gas_cols = E['need'] + ['All dwellings']
+    gas_tbl = table('Gas use of homes built %s' % E['period'], ['Built'] + ['Median gas a year', 'Median gas per square metre (houses)'],
+                    [[NEED_LABEL[k], f"{ng[k]:,} kWh", ('%d kWh' % nm[k]) if k in nm else 'not published for this band'] for k in gas_cols])
+    plans = epc_plans([[a, t, wl, E['target']] for a, t, wl, _ in E['examples']])
+    plan_html, plan_answer = '', ''
+    for (age, t, wl, label), p in zip(E['examples'], plans):
+        link = ('/epc-calculator/?currentBand=estimate&targetBand=%s&propType=%s&propAge=%s&lighting=mixed&hasLoft=good&hasWall=%s&hasDoubleGlazing=double&heating=new-gas&hasSolar=no&tenure=owner'
+                % (E['target'], t, age, wl))
+        if p.get('met'):
+            txt = 'Our model puts %s at about %d points, band %s: already band %s or better.' % (label, p['currentScore'], p['currentBand'], E['target'])
+            plan_html += '<p>%s <a href="%s">Check your own home</a>.</p>' % (txt[0].upper() + txt[1:], html.escape(link, quote=True))
+            plan_answer = plan_answer or txt
+            continue
+        rows_ = [[m['name'], '+%d' % m['points'], gbp(m['netCost']), 'Band ' + m['runBand']] for m in p['measures']]
+        plan_html += ('<h3>%s</h3><p>Our model starts it at about %d points, band %s. The cheapest route to band %s costs about %s:</p>%s<p><a href="%s">Check your own home in the EPC calculator</a>.</p>'
+                      % (label[0].upper() + label[1:], p['currentScore'], p['currentBand'], E['target'], gbp(p['cost']),
+                         table('Route to band %s for %s' % (E['target'], label), ['Upgrade, cheapest per point first', 'Points', 'Cost', 'Reaches'], rows_), html.escape(link, quote=True)))
+        plan_answer = plan_answer or ('For %s, about %s in our model, starting from band %s.' % (label, gbp(p['cost']), p['currentBand']))
+    starts = [p['currentScore'] for p in plans]
+    calib = ('Our model starts %s at %d points' % (E['examples'][0][3], starts[0])) + (' and %s at %d' % (E['examples'][1][3], starts[1]) if len(starts) > 1 else '')
+    period_cap = E['period'][0].upper() + E['period'][1:]
+    faq = [('What EPC rating does a %s home usually have?' % E['short'],
+            'Band %s on average: homes built %s average %d points in the English Housing Survey 2024, against %d for all homes. About %s are band C or better, and %s are band E or worse.'
+            % (band_of(sap), E['period'], round(sap), round(allh['bands']['SAP']), pct(abc), pct(efg))),
+           ('Can a %s home reach EPC band %s?' % (E['short'], E['target']),
+            ('Yes: %s of homes built %s are already band C or better. ' % (pct(abc), E['period'])) + plan_answer),
+           ('Why do older homes have lower EPC ratings?',
+            'Mostly the walls. The rating models what a home costs to heat per square metre, and solid walls lose far more heat than filled cavity walls; %s of homes built before 1919 have solid walls with no insulation.' % pct(ages['pre-1919']['walls']['solid uninsulated']))]
+    body = f"""
+<p class="lead"><strong>{pct(abc)}</strong> of homes in England built {E['period']} are EPC band C or better, against {pct(allh['bands']['A/B/C'])} of all homes. Their average rating is <strong>{round(sap)} points, band {band_of(sap)}</strong>, and {pct(efg)} are band E or worse.</p>
+
+<h2 id="bands">How {E['short']} homes rate</h2>
+<p class="answer"><strong>Mostly band {band_of(sap)}.</strong> There are about {homes / 1000:.1f} million of these homes in England; the table shows how their EPC bands compare with all homes.</p>
+{bands_tbl}
+
+<h2 id="features">What these homes are like</h2>
+<p class="answer"><strong>The walls decide most of it: {wall_txt}.</strong> Loft insulation and double glazing are common in homes of every age.</p>
+{feat_tbl}
+
+<h2 id="gas">How much gas they use</h2>
+<p class="answer"><strong>A median {ng[E['need'][0]]:,} kWh of gas a year</strong> for homes built {E['period'] if len(E['need']) == 1 else 'in the earlier part of this period'}, against {ng['All dwellings']:,} kWh for all homes, from meter readings.</p>
+{gas_tbl}
+
+<h2 id="route">Getting to band {E['target']}</h2>
+<p class="answer"><strong>{plan_answer}</strong> {calib}; the survey average for these homes is {round(sap)}.</p>
+{plan_html}
+
+<h2 id="help">Rules and grants</h2>
+<p class="answer"><strong>Landlords need band C by 1 October 2030.</strong> Check a rented home with the <a href="/landlord-epc-calculator/">landlord EPC calculator</a>.</p>
+<p>ECO4 can fund insulation for households on qualifying benefits until 31 December 2026, and the Boiler Upgrade Scheme gives £7,500 off a heat pump. Read more about {', '.join('<a href="%s">%s</a>' % l for l in E['links'])}, or see <a href="/guides/epc-rating-by-house-age/">EPC ratings for every age of home</a>.</p>
+<p class="note">EPC bands and home features: English Housing Survey 2024, live tables DA7101, DA6201 and DA6101 (MHCLG, updated {long_date_str(A['ehs_published'])}), England. Gas use: NEED consumption tables 2026 (DESNZ), 2024 meter readings, England and Wales, whose age bands differ slightly from the survey's. The routes to band {E['target']} are our simple EPC points model, the same as our EPC calculator, not the government's SAP software, for a home with loft insulation, double glazing and a gas boiler under 15 years old.</p>
+"""
+    title = 'EPC Rating for a %s: Band %s on Average' % (E['tname'], band_of(sap))
+    if len(title) > 60:
+        title = 'EPC Rating for a %s, 2026' % E['tname']
+    return dict(slug=E['slug'], kind='home', title=title,
+                description=('%s of homes built %s are EPC band C or better; the average is band %s. What they are like, their gas use and the route to band %s.'
+                             % (pct(abc).capitalize(), E['period'], band_of(sap), E['target']))[:155],
+                h1='EPC rating for a %s home' % E['short'], crumb='EPC rating, %s homes' % E['short'], faq=faq, body=body,
+                sources=['Ministry of Housing, Communities and Local Government, <a href="https://www.gov.uk/government/statistical-data-sets/energy-performance" target="_blank" rel="noopener">English Housing Survey live tables on energy performance</a>, DA7101, DA6201 and DA6101, 2024.',
+                         'Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>, headline Table 7 and gas per square metre Table 4.2.',
+                         'Our <a href="/epc-calculator/">EPC calculator</a> points model, <a href="/js/epc-plan.js">js/epc-plan.js</a>.'])
+
+
+def epc_age_hub():
+    A = json.loads((ROOT / 'docs' / 'epc-by-age.json').read_text())
+    ages = A['ages']
+    order = ['pre-1919', '1919-44', '1945-64', '1965-80', '1981-90', '1991-2002', '2003-2013', 'post-2013', 'all dwellings']
+    page_for = {}
+    for E in AGE_ERAS:
+        for r in E['ehs']:
+            page_for[r] = E['slug']
+    name = lambda k: ('<a href="/guides/%s/">%s</a>' % (page_for[k], AGE_LABEL[k])) if k in page_for else AGE_LABEL[k]
+    rows = [[name(k), '%.1f million' % (ages[k]['homes_000'] / 1000), pct(ages[k]['bands']['A/B/C']), pct(ages[k]['bands']['E/F/G']),
+             '%d (band %s)' % (round(ages[k]['bands']['SAP']), band_of(ages[k]['bands']['SAP']))] for k in order]
+    tbl = table('EPC rating by age of home', ['Built', 'Homes in England', 'Band C or better', 'Band E or worse', 'Average rating'], rows)
+    bars = ''.join('<div class="age-bar"><span class="ab-l">%s</span><span class="ab-t"><span class="ab-f" style="width:%d%%"></span></span><span class="ab-v">%s</span></div>'
+                   % (AGE_LABEL[k], round(ages[k]['bands']['A/B/C']), pct(ages[k]['bands']['A/B/C'])) for k in order[:-1])
+    ng, nm = A['need_gas_median'], A['need_gas_per_m2_houses']
+    gas_tbl = table('Gas use by age of home', ['Built', 'Median gas a year', 'Median gas per square metre (houses)'],
+                    [[NEED_LABEL[k], f"{ng[k]:,} kWh", ('%d kWh' % nm[k]) if k in nm else 'not published'] for k in ['Pre 1919', '1919 - 1944', '1945 - 1964', '1965 - 1982', '1983 - 1992', '1993 - 1999', '2000 - 2011', '2012 onwards', 'All dwellings']])
+    faq = [('Do older houses have worse EPC ratings?',
+            'Yes. In the English Housing Survey 2024, %s of homes built before 1919 are band C or better, against %s of homes built after 2013. The average rating rises from %d points for the oldest homes to %d for the newest.'
+            % (pct(ages['pre-1919']['bands']['A/B/C']), pct(ages['post-2013']['bands']['A/B/C']), round(ages['pre-1919']['bands']['SAP']), round(ages['post-2013']['bands']['SAP']))),
+           ('Which homes use the most gas?',
+            'Homes built between 1919 and 1944, a median %s kWh a year and %d kWh per square metre in houses, slightly more than homes built before 1919 (%s kWh and %d kWh). Homes built since 2012 use a median %s kWh.'
+            % (f"{ng['1919 - 1944']:,}", nm['1919 - 1944'], f"{ng['Pre 1919']:,}", nm['Pre 1919'], f"{ng['2012 onwards']:,}"))]
+    body = f"""
+<p class="lead">The older the home, the lower its EPC rating: <strong>{pct(ages['pre-1919']['bands']['A/B/C'])}</strong> of homes built before 1919 are band C or better, against <strong>{pct(ages['post-2013']['bands']['A/B/C'])}</strong> of homes built after 2013. Choose your home's age for what it is typically like and the route to band C.</p>
+<div class="age-bars" aria-hidden="true"><p class="ab-h">Share of homes at band C or better</p>{bars}</div>
+
+<h2 id="by-age">EPC rating by age of home</h2>
+<p class="answer"><strong>Walls explain most of the gap.</strong> Older homes mostly have solid walls, which lose far more heat than the filled cavity walls of later homes.</p>
+{tbl}
+
+<h2 id="gas">Gas use by age of home</h2>
+<p class="answer"><strong>Homes built between the wars use the most.</strong> Per square metre, a house built before 1919 uses a median {nm['Pre 1919']} kWh of gas a year and one built since 2000 uses {nm['2000 onwards']}.</p>
+{gas_tbl}
+
+<h2 id="yours">Your home's age</h2>
+<ul>{''.join('<li><a href="/guides/%s/">EPC rating for a %s home</a>, built %s</li>' % (E['slug'], E['short'], E['period']) for E in AGE_ERAS)}</ul>
+<p>Or estimate your own home's rating and the cheapest route to band C in the <a href="/epc-calculator/">EPC calculator</a>.</p>
+<p class="note">English Housing Survey 2024, live tables DA7101 (MHCLG, updated {long_date_str(A['ehs_published'])}), England. Gas use: NEED consumption tables 2026 (DESNZ), 2024 meter readings, England and Wales.</p>
+"""
+    return dict(slug='epc-rating-by-house-age', kind='home', title='EPC Rating by House Age: Victorian to New Build, 2026',
+                description='How EPC ratings change with the age of a home, from %s at band C or better before 1919 to %s after 2013, with gas use and the route to band C.'
+                            % (pct(ages['pre-1919']['bands']['A/B/C']), pct(ages['post-2013']['bands']['A/B/C'])),
+                h1='EPC rating by house age', crumb='EPC rating by house age', faq=faq, body=body,
+                sources=['Ministry of Housing, Communities and Local Government, <a href="https://www.gov.uk/government/statistical-data-sets/energy-performance" target="_blank" rel="noopener">English Housing Survey live tables on energy performance</a>, DA7101, 2024.',
+                         'Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>.'])
+
+
 _BUS = json.loads((ROOT / 'docs' / 'bus-councils.json').read_text())
 PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 'energy-bills-4-bed-house': bills_4,
          'energy-bills-1-bed-flat': bills_1, 'energy-bills-2-bed-house': bills_2, 'energy-bills-5-bed-house': bills_5,
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
          'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
          'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
-         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page,
+         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page, 'epc-rating-by-house-age': epc_age_hub,
+         **{AGE_ERAS[i]['slug']: (lambda i=i: epc_age_page(i)) for i in range(len(AGE_ERAS))},
          **{council_slug(_BUS['councils'][c]['name']): (lambda c=c: hp_council_detail(c)) for c in _BUS['pages']},
          **{REGION[k]['slug']: (lambda k=k: solar_region_page(k)) for k in REGION}}
 

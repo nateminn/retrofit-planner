@@ -18,7 +18,7 @@
    "publisher": "Department for Energy Security and Net Zero",
    "url": "https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026",
    "govuk": "government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026",
-   "use": "How much gas homes of each type, size and EPC band use; electricity by number of bedrooms; bills by EPC band and household size",
+   "use": "How much gas homes of each type, size, age and EPC band use; electricity by number of bedrooms; bills by EPC band and household size",
    "published": "11 June 2026",
    "checked": "25 September 2026",
    "probe": [
@@ -37,6 +37,19 @@
    "probe": [
     "js/retrofit-plan.js",
     "saving: 0.1198"
+   ]
+  },
+  {
+   "name": "English Housing Survey 2024: energy performance, insulation and heating live tables",
+   "publisher": "Ministry of Housing, Communities and Local Government",
+   "url": "https://www.gov.uk/government/statistical-data-sets/energy-performance",
+   "govuk": "government/statistical-data-sets/energy-performance",
+   "use": "EPC bands, average ratings, walls, lofts, glazing and heating by age of home",
+   "published": "9 July 2026",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/epc-by-age.json",
+    "\"SAP\""
    ]
   },
   {

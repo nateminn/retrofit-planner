@@ -2947,5 +2947,232 @@
     "Frequently asked questions"
    ]
   ]
+ },
+ "guides/epc-rating-victorian-house": {
+  "points": [
+   "**27%** of homes built before 1919 are EPC band C or better, against 56% of all homes",
+   "**60 points** on average, band D",
+   "Landlords need **band C by 1 October 2030**"
+  ],
+  "jumps": [
+   [
+    "Bands",
+    "#bands"
+   ],
+   [
+    "What they are like",
+    "#features"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Route to C",
+    "#route"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/epc-rating-1930s-house": {
+  "points": [
+   "**40%** of homes built between 1919 and 1944 are EPC band C or better, against 56% of all homes",
+   "**65 points** on average, band D",
+   "Landlords need **band C by 1 October 2030**"
+  ],
+  "jumps": [
+   [
+    "Bands",
+    "#bands"
+   ],
+   [
+    "What they are like",
+    "#features"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Route to C",
+    "#route"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/epc-rating-1950s-house": {
+  "points": [
+   "**55%** of homes built between 1945 and 1964 are EPC band C or better, against 56% of all homes",
+   "**67 points** on average, band D",
+   "Landlords need **band C by 1 October 2030**"
+  ],
+  "jumps": [
+   [
+    "Bands",
+    "#bands"
+   ],
+   [
+    "What they are like",
+    "#features"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Route to C",
+    "#route"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/epc-rating-1970s-house": {
+  "points": [
+   "**62%** of homes built between 1965 and 1980 are EPC band C or better, against 56% of all homes",
+   "**68 points** on average, band D",
+   "Landlords need **band C by 1 October 2030**"
+  ],
+  "jumps": [
+   [
+    "Bands",
+    "#bands"
+   ],
+   [
+    "What they are like",
+    "#features"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Route to C",
+    "#route"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/epc-rating-1980s-1990s-house": {
+  "points": [
+   "**74%** of homes built between 1981 and 2002 are EPC band C or better, against 56% of all homes",
+   "**70 points** on average, band C",
+   "Landlords need **band C by 1 October 2030**"
+  ],
+  "jumps": [
+   [
+    "Bands",
+    "#bands"
+   ],
+   [
+    "What they are like",
+    "#features"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Route to C",
+    "#route"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/epc-rating-new-build-house": {
+  "points": [
+   "**92%** of homes built since 2003 are EPC band C or better, against 56% of all homes",
+   "**77 points** on average, band C",
+   "Landlords need **band C by 1 October 2030**"
+  ],
+  "jumps": [
+   [
+    "Bands",
+    "#bands"
+   ],
+   [
+    "What they are like",
+    "#features"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Route to B",
+    "#route"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
+ },
+ "guides/epc-rating-by-house-age": {
+  "points": [
+   "**27%** of homes built before 1919 are band C or better, against **94%** built after 2013",
+   "Average ratings rise from **60 points** for the oldest homes to **78** for the newest",
+   "Homes built between the wars use the most gas"
+  ],
+  "jumps": [
+   [
+    "By age",
+    "#by-age"
+   ],
+   [
+    "Gas use",
+    "#gas"
+   ],
+   [
+    "Your home",
+    "#yours"
+   ],
+   [
+    "Get quotes",
+    "#quote"
+   ],
+   [
+    "FAQs",
+    "Frequently asked questions"
+   ]
+  ]
  }
 }

@@ -101,7 +101,7 @@ INSULATION = ['insulation-calculator'] + ['guides/' + g for g in ['is-cavity-wal
     'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat']]
 EPC = ['guides/epc-cost']
 # The home page has no quote form either: Nathan asked for less clutter at its foot.
-HOME = ['epc-calculator', 'retrofit-plan', 'landlord-epc-calculator']
+HOME = ['epc-calculator', 'retrofit-plan', 'landlord-epc-calculator'] + ['guides/' + g for g in ['epc-rating-by-house-age', 'epc-rating-victorian-house', 'epc-rating-1930s-house', 'epc-rating-1950s-house', 'epc-rating-1970s-house', 'epc-rating-1980s-1990s-house', 'epc-rating-new-build-house']]
 PAGE_KIND = {}
 for kind, pages in (('heat-pump', HEAT_PUMP), ('solar', SOLAR), ('insulation', INSULATION), ('epc', EPC), ('home', HOME)):
     for p in pages:
