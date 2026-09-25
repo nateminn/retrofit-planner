@@ -308,14 +308,14 @@ def ins_page(slug, t, beds, main_beds, label, plural, crumb, notes):
     sv = {k: ins_saving(t, main_beds, k) for k in ('loft', 'cavity', 'solid', 'loft+cavity')}
     rows = []
     loft_label = 'Loft insulation, bare loft to 270mm' + (' (top floor flat)' if t == 'flat' else '')
-    rows.append([loft_label, gbp(c('loftBare')), gbp(sv['loft']), payback(c('loftBare'), sv['loft'])])
+    rows.append([loft_label, gbp(c('loftBare')), 'More than ' + gbp(sv['loft']), 'Under ' + payback(c('loftBare'), sv['loft']).lower()])
     rows.append(['Loft insulation, top-up from 120mm' + (' (top floor flat)' if t == 'flat' else ''), gbp(c('loftTopUp')), gbp(sv['loft']), payback(c('loftTopUp'), sv['loft'])])
     rows.append(['Cavity wall insulation', gbp(c('cavity')), gbp(sv['cavity']), payback(c('cavity'), sv['cavity'])])
     rows.append(['Solid wall insulation, internal', gbp(IC['solidInternal']), gbp(sv['solid']), payback(IC['solidInternal'], sv['solid'])])
     rows.append(['Solid wall insulation, external', gbp(IC['solidExternal']), gbp(sv['solid']), payback(IC['solidExternal'], sv['solid'])])
     fs = FLOOR_SAVING.get(t)
     rows.append(['Suspended timber floor' + (' (ground floor flat)' if t == 'flat' else ''), '£1,400 to £2,500',
-                 ('About %s (Trust estimate)' % gbp(fs)) if fs else 'Not published', 'Decades' if fs else 'Not published'])
+                 ('About %s (Trust estimate)' % gbp(fs)) if fs else 'Not published', ('%d to %d years' % (round(1400 / fs), round(2500 / fs))) if fs else 'Not published'])
     tbl = table('Insulation cost and saving for a %s' % main, ['Measure', 'Typical cost', 'Saving a year', 'Payback'], rows)
     brow = [['%d bed %s' % (b, label), gbp(ins_saving(t, b, 'loft')), gbp(ins_saving(t, b, 'cavity')), gbp(ins_saving(t, b, 'solid'))] for b in beds]
     tbl_beds = table('Measured saving a year by size of %s' % label, ['Home, heated by gas', 'Loft', 'Cavity walls', 'Solid walls'], brow)
@@ -324,7 +324,7 @@ def ins_page(slug, t, beds, main_beds, label, plural, crumb, notes):
     note_costs = ('Costs: Energy Saving Trust, typical professional installation before any grant: loft and cavity figures for a %s (updated 8 May 2026), '
                   'solid wall figures for a typical home (18 June 2026), suspended floors £1,400 to £2,500 depending on the house (19 May 2026). %s'
                   'Savings: the median fall in gas use measured in real homes after each measure (DESNZ NEED Impact of Measures 2026, Table 1: loft 3.2%%, cavity wall 12.0%%, solid wall 17.3%%), '
-                  'applied to a %s with average insulation at the October 2026 cap price of 7.97p per kWh. Payback is cost divided by the yearly saving, at full price. '
+                  'applied to a %s with average insulation at the October 2026 cap price of 7.97p per kWh. The loft figure is the median across all loft jobs, most of them top-ups, so insulating a bare loft saves more. Floor savings are the Trust\'s own estimates. Payback is cost divided by the yearly saving, at full price. '
                   'Homes heated by oil, LPG or electricity save more in pounds.' % (EST_NAME[t], notes, main))
     faq = [
         ('How much does it cost to insulate a %s?' % label,
@@ -333,14 +333,14 @@ def ins_page(slug, t, beds, main_beds, label, plural, crumb, notes):
          ('From about %s to top up the loft to %s for internal solid wall insulation, at Energy Saving Trust prices before any grant. Cavity wall insulation costs about %s for a %s.'
           % (gbp(c('loftTopUp')), gbp(IC['solidInternal']), gbp(c('cavity')), EST_NAME[t]))),
         ('Is cavity wall insulation worth it for a %s?' % label,
-         'Homes measurably used 12.0%% less gas after it, about %s a year for a %s on gas, so at about %s it takes %s to pay back at full price. It is often free through a grant, and it also adds about 8 EPC points in our model.'
+         'Homes that had it fitted used a median 12.0%% less gas, about %s a year for a %s on gas, so at about %s it takes %s to pay back at full price. It can be free through ECO4 for households on qualifying benefits, and it adds about 8 EPC points in our model.'
          % (gbp(sv['cavity']), main, gbp(c('cavity')), payback(c('cavity'), sv['cavity']).lower())),
         ('Can I get insulation for my %s free?' % label,
          'Possibly. ECO4 funds insulation for households on qualifying benefits until 31 December 2026, in homes rated D to G if owned or E to G if privately rented, and in England a Warm Homes: Local Grant through the council can help households on lower incomes. Insulation carries 0% VAT until 31 March 2027.'),
     ]
-    lead = (f"Insulating a flat costs about <strong>{gbp(c('cavity'))}</strong> for cavity walls, the Energy Saving Trust's figure for a mid-floor flat, up to <strong>{gbp(IC['solidInternal'])}</strong> or more for solid walls. A top floor flat can also insulate its loft from about {gbp(c('loftTopUp'))}, and homes measurably used 12.0% less gas after cavity wall insulation."
+    lead = (f"Insulating a flat costs about <strong>{gbp(c('cavity'))}</strong> for cavity walls, the Energy Saving Trust's figure for a mid-floor flat, up to <strong>{gbp(IC['solidInternal'])}</strong> or more for solid walls. A top floor flat can also insulate its loft from about {gbp(c('loftTopUp'))}, and homes that had cavity wall insulation fitted used a median 12.0% less gas."
             if t == 'flat' else
-            f"Insulating a {label} costs from about <strong>{gbp(c('loftTopUp'))}</strong> to top up the loft to <strong>{gbp(IC['solidInternal'])}</strong> or more for solid walls. Cavity wall insulation costs about <strong>{gbp(c('cavity'))}</strong>, the Energy Saving Trust's figure for a {EST_NAME[t]}, and homes like yours measurably used 12.0% less gas afterwards.")
+            f"Insulating a {label} costs from about <strong>{gbp(c('loftTopUp'))}</strong> to top up the loft to <strong>{gbp(IC['solidInternal'])}</strong> or more for solid walls. Cavity wall insulation costs about <strong>{gbp(c('cavity'))}</strong>, the Energy Saving Trust's figure for a {EST_NAME[t]}, and homes that had it fitted used a median 12.0% less gas afterwards.")
     body = f"""
 <p class="lead">{lead}</p>
 
@@ -354,7 +354,7 @@ def ins_page(slug, t, beds, main_beds, label, plural, crumb, notes):
 <p>Solid wall insulation costs about {gbp(IC['solidInternal'])} fitted inside or {gbp(IC['solidExternal'])} outside, and saves about {gbp(sv['solid'])} a year here, so at full price it only pays with a grant. Read <a href="/guides/is-cavity-wall-insulation-worth-it/">is cavity wall insulation worth it</a> and <a href="/guides/solid-wall-insulation-cost/">solid wall insulation cost</a>.</p>
 
 <h2 id="together">Loft and cavity together{' (top floor flat)' if t == 'flat' else ''}</h2>
-<p class="answer"><strong>About {gbp(both)} for both, saving about {gbp(sv['loft+cavity'])} a year.</strong> Homes that had loft and cavity wall insulation fitted together used a median 8.4% less gas, less than the two separate figures added up.</p>
+<p class="answer"><strong>About {gbp(both)} for both.</strong> Homes that had loft and cavity wall insulation fitted together used a median 8.4% less gas, about {gbp(sv['loft+cavity'])} a year here; that is a different group of homes from the single-measure figures, so the two cannot be compared directly.</p>
 <p>In our EPC model the loft adds about 7 points and cavity walls about 8, often enough to lift a home a band. Insulating first also shrinks the heat pump a {main} needs, from {kw(k_avg)} at average insulation to {kw(k_good)} well insulated. Plan the whole job with the <a href="/retrofit-plan/">retrofit plan</a>, or check your own home in the <a href="/insulation-calculator/">insulation calculator</a>.</p>
 
 <h2 id="by-size">Savings by size of {label}</h2>
@@ -390,9 +390,9 @@ def ins_hub():
     faq = [('How much does insulation cost for my type of house?',
             'Cavity wall insulation costs about £950 for a flat, £1,100 for a mid-terrace, £1,700 for a detached bungalow, £2,200 for a semi and £3,900 for a detached house, at Energy Saving Trust prices. Loft insulation costs £500 to £1,200 and solid walls about £12,000 inside or £15,000 outside.'),
            ('Which insulation pays back fastest?',
-            'Cavity wall insulation in a smaller home: about 12 years in a 3 bed mid-terrace and 14 in a 2 bed flat, on the gas savings homes measurably made. Solid wall insulation takes over 50 years at full price, so it pays best with a grant.')]
+            'Cavity wall insulation in a smaller home: about 12 years in a 3 bed mid-terrace and 14 in a 2 bed flat, on the measured gas savings. Solid wall insulation takes over 50 years at full price, so it pays best with a grant.')]
     body = f"""
-<p class="lead">What loft, cavity wall, solid wall and floor insulation cost for each type of home, at Energy Saving Trust prices, and what homes like yours measurably saved on gas. Cavity wall insulation runs from <strong>£950</strong> for a flat to <strong>£3,900</strong> for a detached house.</p>
+<p class="lead">What loft, cavity wall, solid wall and floor insulation cost for each type of home, at Energy Saving Trust prices, and what homes that had it fitted saved on gas. Cavity wall insulation runs from <strong>£950</strong> for a flat to <strong>£3,900</strong> for a detached house.</p>
 
 <h2 id="compare">Insulation cost by house type</h2>
 <p class="answer"><strong>Cavity walls pay back fastest in smaller homes.</strong> A mid-terrace pays about £1,100 and saves about £94 a year; a detached house pays £3,900 and saves about £139.</p>
@@ -463,6 +463,11 @@ MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augus
 ROOF_NAME = {'south-east': 'South-east', 'south-west': 'South-west', 'east': 'East', 'west': 'West', 'north': 'North'}
 
 
+def rcap(k):
+    n = REGION[k]['name']
+    return n[0].upper() + n[1:]
+
+
 def region_of(itl_name):
     return next((k for k, v in REGION.items() if itl_name in v['itl']), None)
 
@@ -478,9 +483,9 @@ def region_map(highlight=None, links=True):
             continue
         fill = shades[r] if (highlight is None or highlight == r) else '#d7e3dc'
         cls = 'rm-r' + (' rm-on' if highlight == r else '')
-        path = '<path d="%s" fill="%s" class="%s" data-region="%s"><title>%s: %s</title></path>' % (d, fill, cls, r, REGION[r]['name'].capitalize() if r != 'midlands' else 'The Midlands', SOLAR_R[r]['sizes']['4']['payback'])
+        path = '<path d="%s" fill="%s" class="%s" data-region="%s"><title>%s: %s</title></path>' % (d, fill, cls, r, rcap(r), SOLAR_R[r]['sizes']['4']['payback'])
         if links and highlight != r:
-            nm = REGION[r]['name'].capitalize() if r != 'midlands' else 'The Midlands'
+            nm = rcap(r)
             path = '<a href="/guides/%s/" data-region="%s" aria-label="%s: solar payback %s">%s</a>' % (REGION[r]['slug'], r, nm, SOLAR_R[r]['sizes']['4']['payback'], path)
         out.append(path)
     # a map with links is a group of links, not an image: links inside role="img" are unreachable
@@ -507,7 +512,7 @@ def solar_region_page(key):
     mo = s4['months']
     tbl_month = table('Monthly output of a 4 kW system in %s' % R['short'], ['Month', 'kWh'], [[MONTHS[i], str(mo[i])] for i in range(12)])
     ratio = max(mo) / mo[11]
-    others = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands') if k != key else '<strong>%s</strong>' % (REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands'),
+    others = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], rcap(k)) if k != key else '<strong>%s</strong>' % rcap(k),
                f"{int(SOLAR_R[k]['sizes']['4']['gen']):,} kWh", gbp(SOLAR_R[k]['sizes']['4']['benefit']), SOLAR_R[k]['sizes']['4']['payback']] for k in REGION]
     tbl_others = table('4 kW solar payback in each region', ['Region', 'Generation a year', 'Saving and export a year', 'Payback'], others)
     city = ', '.join('%s %s' % (c, f'{v:,}') for c, v in R['cities'])
@@ -526,7 +531,7 @@ def solar_region_page(key):
 <figure class="region-fig">{region_map(highlight=key)}<figcaption>{name_cap} is highlighted. <a href="/guides/solar-panel-payback-by-region/">Compare every region</a>.</figcaption></figure></div>
 
 <h2 id="by-size">Payback by system size</h2>
-<p class="answer"><strong>About {s4['payback']} for 4 kW.</strong> Bigger systems earn more over 25 years but pay back a little more slowly, because more of their output is exported at 12p rather than used at 26.32p.</p>
+<p class="answer"><strong>About {s4['payback']} for 4 kW.</strong> Systems above 4 kW earn more over 25 years but pay back more slowly, because more of their output is exported at 12p rather than used at 26.32p.</p>
 {tbl_size}
 <p class="note">South facing roof at a typical pitch, a household using 2,500 kWh a year (a bill of about £860) that is out for about half the day, no battery, 12p export on Outgoing Octopus. Payback uses the middle of each cost range; 0% VAT until 31 March 2027. The 25 year figure allows for the panels losing 0.5% of their output a year.</p>
 
@@ -543,7 +548,7 @@ def solar_region_page(key):
 {tbl_seg}
 
 <h2 id="months">Month by month</h2>
-<p class="answer"><strong>{MONTHS[mo.index(max(mo))]} makes about {ratio:.1f} times as much as December.</strong> April to September carries most of the year's output, so no home battery covers a {R['short'] if key != 'south' else 'southern'} winter.</p>
+<p class="answer"><strong>{MONTHS[mo.index(max(mo))]} makes about {ratio:.1f} times as much as December.</strong> April to September carries most of the year's output, so no home battery covers a winter in {R['short']}.</p>
 {tbl_month}
 
 <h2 id="compare">Compared with other regions</h2>
@@ -562,7 +567,7 @@ def solar_region_page(key):
 
 
 def solar_hub():
-    rows = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands'),
+    rows = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], rcap(k)),
              f"{int(SOLAR_R[k]['sizes']['4']['gen']):,} kWh", gbp(SOLAR_R[k]['sizes']['4']['benefit']), SOLAR_R[k]['sizes']['4']['payback'], gbp(SOLAR_R[k]['sizes']['4']['net25'])] for k in REGION]
     tbl = table('4 kW solar payback by region', ['Region', 'Generation a year', 'Saving and export a year', 'Payback', '25 years, after costs'], rows)
     lo, hi = SOLAR_R['south']['sizes']['4']['payback'], SOLAR_R['scotland']['sizes']['4']['payback']
@@ -584,7 +589,7 @@ def solar_hub():
 <p>Work out your own roof in the <a href="/solar-calculator/">solar panel calculator</a>, or read <a href="/guides/solar-panel-payback-uk/">solar panel payback in the UK</a>.</p>
 <script>
 (function () {{
-    var D = {json.dumps({k: {'name': (REGION[k]['name'].capitalize() if k != 'midlands' else 'The Midlands'), 'url': '/guides/%s/' % REGION[k]['slug'], 'gen': int(SOLAR_R[k]['sizes']['4']['gen']), 'benefit': int(SOLAR_R[k]['sizes']['4']['benefit']), 'payback': SOLAR_R[k]['sizes']['4']['payback']} for k in REGION})};
+    var D = {json.dumps({k: {'name': rcap(k), 'url': '/guides/%s/' % REGION[k]['slug'], 'gen': int(SOLAR_R[k]['sizes']['4']['gen']), 'benefit': int(SOLAR_R[k]['sizes']['4']['benefit']), 'payback': SOLAR_R[k]['sizes']['4']['payback']} for k in REGION})};
     var panel = document.getElementById('regionPanel');
     function show(k) {{
         var d = D[k]; if (!d) {{ return; }}
@@ -632,12 +637,15 @@ def hp_council_page():
     pages = set(D.get('pages', []))
     cname = lambda c: ('<a href="/guides/%s/">%s</a>' % (council_slug(C[c]['name']), html.escape(council_name(C[c]['name'])))) if c in pages else html.escape(C[c]['name'])
     top = [[cname(c), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[:10]]
-    bottom = [[cname(c), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in order[-10:]]
+    bottom = [[cname(c), C[c]['region'], fmt(C[c]['hp']), one(C[c]['rate'])] for c in reversed(order[-10:])]
     head = ['Council', 'Region', 'Heat pumps', 'Per 10,000 households']
     regions = sorted(D['regions'].items(), key=lambda kv: -kv[1]['rate'])
     reg_rows = [[k, fmt(v['hp']), fmt(v['households']), one(v['rate'])] for k, v in regions]
     all_rows = [[str(C[c]['rank']), cname(c), C[c]['region'], fmt(C[c]['hp']), fmt(C[c]['households']), one(C[c]['rate'])] for c in order]
     most = max(C, key=lambda c: C[c]['hp'])
+    from collections import Counter
+    lead_reg, lead_n = Counter(C[c]['region'] for c in order[:10]).most_common(1)[0]
+    top_where = ('mostly in %s' % REGION_THE.get(lead_reg, lead_reg)) if lead_n >= 5 else 'spread across England and Wales'
     first, last = C[order[0]], C[order[-1]]
     lowest5 = [C[c] for c in order if C[c]['rate'] < 5]
     data = {c: [v['name'], v['hp'], v['households'], v['rate'], v['rank'], v['region']] + (['/guides/%s/' % council_slug(v['name'])] if c in pages else []) for c, v in C.items()}
@@ -664,11 +672,11 @@ def hp_council_page():
 </div>
 
 <h2 id="most">Where heat pumps are most common</h2>
-<p class="answer"><strong>Rural councils in the South West and the East lead.</strong> The top ten all have more than twice the England and Wales figure of {one(D['rate'])} per 10,000 households.</p>
+<p class="answer"><strong>Rural councils, {top_where}, lead.</strong> The top ten all have more than twice the England and Wales figure of {one(D['rate'])} per 10,000 households.</p>
 {table('Councils with the most heat pump grants per household', head, top)}
 
 <h2 id="least">Where they are least common</h2>
-<p class="answer"><strong>Inner London and the big cities.</strong> In the same statistics, 48% of the air to water heat pumps paid for went to rural homes and 37% to homes off the gas grid.</p>
+<p class="answer"><strong>London boroughs and other urban areas.</strong> In the same statistics, 48% of the air to water heat pumps paid for went to rural homes and 37% to homes off the gas grid.</p>
 {table('Councils with the fewest heat pump grants per household', head, bottom)}
 
 <h2 id="regions">By region</h2>
@@ -683,7 +691,7 @@ def hp_council_page():
 <p class="note">Heat pumps are Boiler Upgrade Scheme grants paid from 23 May 2022 to 30 June 2026 (DESNZ, {html.escape(D['title'].split(' - ')[0])}, published {long_date_str(D['published'])}), counting air and ground source heat pumps. Households are the Census 2021 count for each council. The scheme covers England and Wales; Scotland and Northern Ireland have their own. Heat pumps installed without the grant, such as in most new build and social homes, are not counted.</p>
 
 <h2 id="yours">Thinking about one?</h2>
-<p class="answer"><strong>The grant is £7,500, or £9,000 replacing oil or LPG until 31 March 2027.</strong> See what one would cost and save in your home with the <a href="/heat-pump-calculator/">heat pump calculator</a>, or read the <a href="/guides/boiler-upgrade-scheme-guide/">Boiler Upgrade Scheme guide</a>.</p>
+<p class="answer"><strong>The grant is £7,500, or £9,000 replacing oil or LPG in a home with no mains gas, until 31 March 2027.</strong> See what one would cost and save in your home with the <a href="/heat-pump-calculator/">heat pump calculator</a>, or read the <a href="/guides/boiler-upgrade-scheme-guide/">Boiler Upgrade Scheme guide</a>.</p>
 <script>
 (function () {{
     var D = {json.dumps(data, ensure_ascii=False, separators=(',', ':'))};
@@ -705,7 +713,7 @@ def hp_council_page():
 }})();
 </script>
 """
-    return dict(slug='heat-pumps-by-council', kind='heat-pump', title='Heat Pumps by Council: Grants in Every Area Mapped 2026',
+    return dict(slug='heat-pumps-by-council', kind='heat-pump', provenance='official statistics', title='Heat Pumps by Council: Grants in Every Area Mapped 2026',
                 description='How many heat pump grants have been paid in every council area of England and Wales, per 10,000 households, on a map. Find your council.',
                 h1='Heat pumps by council', crumb='Heat pumps by council', faq=faq, body=body,
                 sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables Q1.2, 1.5 and 1.6. Source: Ofgem.',
@@ -724,7 +732,7 @@ def council_slug(name):
 
 def council_name(name):
     # 'Bristol, City of' reads as 'Bristol'; 'Kingston upon Hull, City of' as 'Kingston upon Hull'
-    return re.sub(r', City of$', '', name).strip()
+    return re.sub(r', (City|County) of$', '', name).strip()
 
 
 def region_svg(D, MP, code):
@@ -779,8 +787,13 @@ def hp_council_detail(code):
     tbl_years = table('Heat pump grants a year in %s' % name, ['Financial year', name, 'England and Wales'], year_rows)
     growth = yrs[-1] / yrs[1] if yrs[1] else None
     ew_growth = D['ew_years'][-1] / D['ew_years'][1]
-    grow_txt = ('%s had %s grants paid in 2025/26 against %s in 2023/24, the first full year: %.1f times as many, against %.1f times across England and Wales.'
-                % (name, fmt(yrs[-1]), fmt(yrs[1]), growth, ew_growth)) if growth else ''
+    if growth and yrs[1] >= 20:
+        grow_txt = ('%s had %s grants paid in 2025/26 against %s in 2023/24, the first full year: %.1f times as many, against %.1f times across England and Wales.'
+                    % (name, fmt(yrs[-1]), fmt(yrs[1]), growth, ew_growth))
+    else:
+        grow_txt = '%s had %s grants paid in 2025/26 against %s in 2023/24, the first full year.' % (name, fmt(yrs[-1]), fmt(yrs[1]))
+    if yrs[-1] < yrs[-2]:
+        grow_txt += ' That is down from %s in 2024/25.' % fmt(yrs[-2])
     energy = energy_section(code, name)
     welsh = code.startswith('W')
     local = ('Your council can refer low income households to ECO4 Flex until 31 December 2026. Wales has its own Warm Homes Nest scheme.' if welsh else
@@ -792,7 +805,7 @@ def hp_council_detail(code):
             '%s ranks %s of %d councils in England and Wales for heat pump grants per household, %s. Across %s the figure is %s.'
             % (name, ordinal(v['rank']), n, cmp, rthe, one(R['rate']))),
            ('Can I get a heat pump grant in %s?' % name,
-            'Yes, if you own the home and are replacing fossil fuel or electric heating: the Boiler Upgrade Scheme gives £7,500 off a heat pump, or £9,000 replacing oil or LPG until 31 March 2027. Your MCS installer applies for it. ' + local)]
+            'Yes, if you own the home and are replacing fossil fuel or electric heating: the Boiler Upgrade Scheme gives £7,500 off a heat pump, or £9,000 replacing oil or LPG in a home with no mains gas, until 31 March 2027. Your MCS installer applies for it. ' + local)]
     body = f"""
 <p class="lead"><strong>{fmt(v['hp'])}</strong> heat pumps have been installed in {html.escape(name)} with a Boiler Upgrade Scheme grant since May 2022, <strong>{one(v['rate'])}</strong> for every 10,000 households. That ranks {html.escape(name)} <strong>{ordinal(v['rank'])} of {n}</strong> councils in England and Wales, {cmp}.</p>
 
@@ -811,12 +824,12 @@ def hp_council_detail(code):
 <p class="note">Financial years run April to March. The first year starts on 23 May 2022, when the scheme opened, and April to June 2026 is in the total but not yet in a year, so the years add up to less than the total.</p>
 
 <h2 id="nearby">Nearby in the rankings</h2>
-<p class="answer"><strong>The councils either side of {html.escape(name)} in {html.escape(rthe)}.</strong></p>
+<p class="answer"><strong>Where {html.escape(name)} sits among the councils in {html.escape(rthe)}.</strong></p>
 {near}
 
 {energy}
 <h2 id="yours">Getting a heat pump in {html.escape(name)}</h2>
-<p class="answer"><strong>£7,500 off, or £9,000 replacing oil or LPG until 31 March 2027.</strong> A typical 3 bed semi costs £11,000 to £15,500 installed before the grant.</p>
+<p class="answer"><strong>£7,500 off, or £9,000 replacing oil or LPG in a home with no mains gas, until 31 March 2027.</strong> A typical 3 bed semi costs £11,000 to £15,500 installed before the grant.</p>
 <p>{local} See what a heat pump would cost and save in your home with the <a href="/heat-pump-calculator/">heat pump calculator</a>, and what it costs to run with the <a href="/heat-pump-running-cost-calculator/">running cost calculator</a>.</p>
 <p class="note">Heat pumps are Boiler Upgrade Scheme grants paid from 23 May 2022 to 30 June 2026 (DESNZ Boiler Upgrade Scheme statistics, August 2026, Tables Q1.2 and A1.7), counting air and ground source heat pumps. Heat pumps installed without the grant, such as in most new build and social homes, are not counted. Households are the Census 2021 count for {html.escape(name)}: {fmt(v['households'])}.</p>
 """
@@ -829,7 +842,7 @@ def hp_council_detail(code):
             % (fmt(v['hp']), name, one(v['rate']), ordinal(v['rank']), n, rthe))
     if len(desc) > 155:
         desc = '%s heat pumps installed in %s with a government grant, %s per 10,000 households, ranked %s of %d councils.' % (fmt(v['hp']), name, one(v['rate']), ordinal(v['rank']), n)
-    return dict(slug=council_slug(v['name']), kind='heat-pump', title=title, description=desc,
+    return dict(slug=council_slug(v['name']), kind='heat-pump', provenance='official statistics', title=title, description=desc,
                 h1='Heat pumps in %s' % name, crumb='Heat pumps in %s' % name, faq=faq, body=body,
                 sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables Q1.2 and A1.7. Source: Ofgem.',
                          'Office for National Statistics, Census 2021, <a href="https://www.nomisweb.co.uk/datasets/c2021ts041" target="_blank" rel="noopener">TS041 number of households</a>.',
@@ -847,7 +860,7 @@ def energy_section(code, name):
         d = (a - b) / b * 100
         return 'close to' if abs(d) < 3 else '%d%% %s' % (round(abs(d)), 'above' if d > 0 else 'below')
     if e['gas']:
-        cost = gas_bill(e['gas']) + elec_bill(e['elec'])
+        cost = gas_cost(e['gas']) + elec_cost(e['elec'])
         ans = ('<strong>%s kWh of gas and %s kWh of electricity a year</strong> for the median home, about %s at the October 2026 price cap. '
                'Gas use is %s the England and Wales median of %s kWh.' % (fmt(e['gas']), fmt(e['elec']), gbp(cost), vs(e['gas'], ew['gas']), fmt(ew['gas'])))
     else:
@@ -916,7 +929,21 @@ def band_of(sap):
 
 
 def pct(v):
-    return 'too few to show' if v is None else ('under 1%' if v < 1 else '%d%%' % round(v))
+    if v is None:
+        return 'too few to show'
+    if v == 0:
+        return '0%'
+    return 'under 1%' if v < 1 else 'over 99%' if 99 < v < 100 else '%d%%' % round(v)
+
+
+def need_period(k):
+    lab = NEED_LABEL[k]
+    if lab.startswith('Before'):
+        return lab.lower()
+    if lab.endswith('onwards'):
+        return 'since ' + lab.split()[0]
+    a, b = lab.split(' to ')
+    return 'between %s and %s' % (a, b)
 
 
 def epc_age_page(i):
@@ -929,6 +956,9 @@ def epc_age_page(i):
     efg = sum(ages[r]['bands']['E/F/G'] * ages[r]['homes_000'] for r in rows) / homes
     sap = sum(ages[r]['bands']['SAP'] * ages[r]['homes_000'] for r in rows) / homes
     cols = rows + ['all dwellings']
+    bshare = {b: sum((ages[r]['bands'][b] or 0) * ages[r]['homes_000'] for r in rows) / homes for b in ('A/B', 'C', 'D', 'E', 'F', 'G')}
+    top_band = max(bshare, key=bshare.get)
+    band_word = ('Mostly band %s' if bshare[top_band] > 50 else 'Most often band %s') % top_band + ', %s' % pct(bshare[top_band])
     bands_tbl = table('EPC bands of homes built %s' % E['period'], ['EPC band'] + [AGE_LABEL[c] for c in cols],
                       [[b] + [pct(ages[c]['bands'][b]) for c in cols] for b in ('A/B', 'C', 'D', 'E', 'F', 'G')]
                       + [['Average rating'] + ['%d (band %s)' % (round(ages[c]['bands']['SAP']), band_of(ages[c]['bands']['SAP'])) for c in cols]])
@@ -940,12 +970,12 @@ def epc_age_page(i):
             ['Loft insulation 150mm or more'] + [pct(ages[c]['loft']['150mm or more']) for c in cols],
             ['Loft insulation under 100mm, or none'] + [pct((ages[c]['loft']['under 100mm'] or 0) + (ages[c]['loft']['none'] or 0)) for c in cols],
             ['Double glazing throughout'] + [pct(ages[c]['glazing_all']) for c in cols],
-            ['Heated by mains gas'] + [pct(ages[c]['gas']) for c in cols],
+            ['Gas heating'] + [pct(ages[c]['gas']) for c in cols],
             ['Heat pump'] + [pct(ages[c]['heat_pump']) for c in cols]]
     feat_tbl = table('What homes built %s are like' % E['period'], ['Feature'] + [AGE_LABEL[c] for c in cols], feat)
-    main = ages[rows[0]]
-    wshare = dict(main['walls'])
-    wshare['cavity insulated'] = (wshare['cavity insulated'] or 0) + (wshare['cavity insulated as built'] or 0)   # built insulated counts as filled
+    wv = lambda r, k: ages[r]['walls'][k] or 0
+    wshare = {k: sum(wv(r, k) * ages[r]['homes_000'] for r in rows) / homes for k in ('solid uninsulated', 'solid insulated', 'cavity uninsulated')}
+    wshare['cavity insulated'] = sum((wv(r, 'cavity insulated') + wv(r, 'cavity insulated as built')) * ages[r]['homes_000'] for r in rows) / homes   # built insulated counts as filled
     top_wall = max(['solid uninsulated', 'solid insulated', 'cavity uninsulated', 'cavity insulated'], key=lambda k: wshare[k] or 0)
     share = wshare[top_wall] or 0
     lead_word = 'most have' if share >= 50 else 'the most common is'
@@ -978,22 +1008,22 @@ def epc_age_page(i):
             'Band %s on average: homes built %s average %d points in the English Housing Survey 2024, against %d for all homes. About %s are band C or better, and %s are band E or worse.'
             % (band_of(sap), E['period'], round(sap), round(allh['bands']['SAP']), pct(abc), pct(efg))),
            ('Can a %s home reach EPC band %s?' % (E['short'], E['target']),
-            ('Yes: %s of homes built %s are already band C or better. ' % (pct(abc), E['period'])) + plan_answer),
+            ('Yes: %s of homes built %s are already band %s or better. ' % (pct(abc if E['target'] == 'C' else bshare['A/B']), E['period'], E['target'])) + plan_answer),
            ('Why do older homes have lower EPC ratings?',
-            'Mostly the walls. The rating models what a home costs to heat per square metre, and solid walls lose far more heat than filled cavity walls; %s of homes built before 1919 have solid walls with no insulation.' % pct(ages['pre-1919']['walls']['solid uninsulated']))]
+            'Walls are a big part of it. The rating models what a home costs to heat per square metre, and solid walls lose far more heat than filled cavity walls; %s of homes built before 1919 have solid walls with no insulation.' % pct(ages['pre-1919']['walls']['solid uninsulated']))]
     body = f"""
 <p class="lead"><strong>{pct(abc)}</strong> of homes in England built {E['period']} are EPC band C or better, against {pct(allh['bands']['A/B/C'])} of all homes. Their average rating is <strong>{round(sap)} points, band {band_of(sap)}</strong>, and {pct(efg)} are band E or worse.</p>
 
 <h2 id="bands">How {E['short']} homes rate</h2>
-<p class="answer"><strong>Mostly band {band_of(sap)}.</strong> There are about {homes / 1000:.1f} million of these homes in England; the table shows how their EPC bands compare with all homes.</p>
+<p class="answer"><strong>{band_word}.</strong> There are about {homes / 1000:.1f} million of these homes in England; the table shows how their EPC bands compare with all homes.</p>
 {bands_tbl}
 
 <h2 id="features">What these homes are like</h2>
-<p class="answer"><strong>The walls decide most of it: {wall_txt}.</strong> Loft insulation and double glazing are common in homes of every age.</p>
+<p class="answer"><strong>Walls: {wall_txt}.</strong> Loft insulation and double glazing are common in homes of every age.</p>
 {feat_tbl}
 
 <h2 id="gas">How much gas they use</h2>
-<p class="answer"><strong>A median {ng[E['need'][0]]:,} kWh of gas a year</strong> for homes built {E['period'] if len(E['need']) == 1 else 'in the earlier part of this period'}, against {ng['All dwellings']:,} kWh for all homes, from meter readings.</p>
+<p class="answer"><strong>A median {ng[E['need'][0]]:,} kWh of gas a year</strong> for homes built {need_period(E['need'][0])}, against {ng['All dwellings']:,} kWh for all homes, from meter readings.</p>
 {gas_tbl}
 
 <h2 id="route">Getting to band {E['target']}</h2>
@@ -1008,9 +1038,9 @@ def epc_age_page(i):
     title = 'EPC Rating for a %s: Band %s on Average' % (E['tname'], band_of(sap))
     if len(title) > 60:
         title = 'EPC Rating for a %s, 2026' % E['tname']
-    return dict(slug=E['slug'], kind='home', title=title,
-                description=('%s of homes built %s are EPC band C or better; the average is band %s. What they are like, their gas use and the route to band %s.'
-                             % (pct(abc).capitalize(), E['period'], band_of(sap), E['target']))[:155],
+    return dict(slug=E['slug'], kind='home', provenance='official statistics and our published model', title=title,
+                description=('%s of homes built %s are EPC band C or better; the average is band %s. What they are like, their gas use and %s band %s.'
+                             % (pct(abc).capitalize(), E['period'], band_of(sap), 'how close they are to' if all(p.get('met') for p in plans) else 'the route to', E['target']))[:155],
                 h1='EPC rating for a %s home' % E['short'], crumb='EPC rating, %s homes' % E['short'], faq=faq, body=body,
                 sources=['Ministry of Housing, Communities and Local Government, <a href="https://www.gov.uk/government/statistical-data-sets/energy-performance" target="_blank" rel="noopener">English Housing Survey live tables on energy performance</a>, DA7101, DA6201 and DA6101, 2024.',
                          'Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>, headline Table 7 and gas per square metre Table 4.2.',
@@ -1032,6 +1062,7 @@ def epc_age_hub():
     bars = ''.join('<div class="age-bar"><span class="ab-l">%s</span><span class="ab-t"><span class="ab-f" style="width:%d%%"></span></span><span class="ab-v">%s</span></div>'
                    % (AGE_LABEL[k], round(ages[k]['bands']['A/B/C']), pct(ages[k]['bands']['A/B/C'])) for k in order[:-1])
     ng, nm = A['need_gas_median'], A['need_gas_per_m2_houses']
+    solid = lambda k: (ages[k]['walls']['solid uninsulated'] or 0) + (ages[k]['walls']['solid insulated'] or 0)
     gas_tbl = table('Gas use by age of home', ['Built', 'Median gas a year', 'Median gas per square metre (houses)'],
                     [[NEED_LABEL[k], f"{ng[k]:,} kWh", ('%d kWh' % nm[k]) if k in nm else 'not published'] for k in ['Pre 1919', '1919 - 1944', '1945 - 1964', '1965 - 1982', '1983 - 1992', '1993 - 1999', '2000 - 2011', '2012 onwards', 'All dwellings']])
     faq = [('Do older houses have worse EPC ratings?',
@@ -1045,7 +1076,7 @@ def epc_age_hub():
 <div class="age-bars" aria-hidden="true"><p class="ab-h">Share of homes at band C or better</p>{bars}</div>
 
 <h2 id="by-age">EPC rating by age of home</h2>
-<p class="answer"><strong>Walls explain most of the gap.</strong> Older homes mostly have solid walls, which lose far more heat than the filled cavity walls of later homes.</p>
+<p class="answer"><strong>Older homes are far more likely to have solid walls.</strong> {pct(solid('pre-1919'))} of homes built before 1919 have them and {pct(solid('1919-44'))} of those built 1919 to 1944; solid walls lose far more heat than filled cavity walls.</p>
 {tbl}
 
 <h2 id="gas">Gas use by age of home</h2>
@@ -1057,7 +1088,7 @@ def epc_age_hub():
 <p>Or estimate your own home's rating and the cheapest route to band C in the <a href="/epc-calculator/">EPC calculator</a>.</p>
 <p class="note">English Housing Survey 2024, live tables DA7101 (MHCLG, updated {long_date_str(A['ehs_published'])}), England. Gas use: NEED consumption tables 2026 (DESNZ), 2024 meter readings, England and Wales.</p>
 """
-    return dict(slug='epc-rating-by-house-age', kind='home', title='EPC Rating by House Age: Victorian to New Build, 2026',
+    return dict(slug='epc-rating-by-house-age', kind='home', provenance='official statistics and our published model', title='EPC Rating by House Age: Victorian to New Build, 2026',
                 description='How EPC ratings change with the age of a home, from %s at band C or better before 1919 to %s after 2013, with gas use and the route to band C.'
                             % (pct(ages['pre-1919']['bands']['A/B/C']), pct(ages['post-2013']['bands']['A/B/C'])),
                 h1='EPC rating by house age', crumb='EPC rating by house age', faq=faq, body=body,
@@ -1079,11 +1110,11 @@ def en_bin(kind, v):
     return None if v is None else sum(v >= b for b in EN_BINS[kind])
 
 
-def gas_bill(k):
+def gas_cost(k):
     return k * RG + SCG
 
 
-def elec_bill(k):
+def elec_cost(k):
     return k * RE + 200.13
 
 
@@ -1111,26 +1142,26 @@ def energy_council_page():
     gas_rank = sorted([c for c in C if C[c]['gas']], key=lambda c: -C[c]['gas'])
     el_rank = sorted([c for c in C if C[c]['elec']], key=lambda c: -C[c]['elec'])
     head = ['Council', 'Region', 'Median a year', 'Typical cost a year']
-    row_g = lambda c: [link(c), BC[c]['region'], fmt(C[c]['gas']) + ' kWh', gbp(gas_bill(C[c]['gas']))]
-    row_e = lambda c: [link(c), BC[c]['region'], fmt(C[c]['elec']) + ' kWh', gbp(elec_bill(C[c]['elec']))]
+    row_g = lambda c: [link(c), BC[c]['region'], fmt(C[c]['gas']) + ' kWh', gbp(gas_cost(C[c]['gas']))]
+    row_e = lambda c: [link(c), BC[c]['region'], fmt(C[c]['elec']) + ' kWh', gbp(elec_cost(C[c]['elec']))]
     regs = sorted(N['regions'].values(), key=lambda r: -r['gas'])
     reg_name = lambda n: {'East': 'East of England', 'Yorkshire and The Humber': 'Yorkshire and the Humber'}.get(n, n)
     reg_rows = [[reg_name(r['name']),
-                 fmt(r['gas']) + ' kWh', fmt(r['elec']) + ' kWh', gbp(gas_bill(r['gas']) + elec_bill(r['elec']))] for r in regs]
+                 fmt(r['gas']) + ' kWh', fmt(r['elec']) + ' kWh', gbp(gas_cost(r['gas']) + elec_cost(r['elec']))] for r in regs]
     all_rows = [[link(c), BC[c]['region'], (fmt(C[c]['gas']) + ' kWh') if C[c]['gas'] else 'no mains gas', fmt(C[c]['elec']) + ' kWh'] for c in sorted(C, key=lambda c: nm(c))]
     ew = N['ew']
     data = {c: [nm(c), C[c]['gas'], C[c]['elec'], (gas_rank.index(c) + 1) if C[c]['gas'] else None, el_rank.index(c) + 1, BC[c]['region']]
             + (['/guides/%s/' % council_slug(BC[c]['name'])] if c in pages else []) for c in C}
     names = ''.join('<option value="%s">' % html.escape(nm(c)) for c in sorted(C, key=nm))
-    ew_total = gas_bill(ew['gas']) + elec_bill(ew['elec'])
+    ew_total = gas_cost(ew['gas']) + elec_cost(ew['elec'])
     faq = [('How much gas does a typical home use?',
             'A median %s kWh a year across England and Wales, among homes with a gas meter, and %s kWh of electricity, from 2024 meter readings. At the October to December 2026 price cap that is about %s for gas and %s for electricity, including standing charges.'
-            % (fmt(ew['gas']), fmt(ew['elec']), gbp(gas_bill(ew['gas'])), gbp(elec_bill(ew['elec'])))),
+            % (fmt(ew['gas']), fmt(ew['elec']), gbp(gas_cost(ew['gas'])), gbp(elec_cost(ew['elec'])))),
            ('Which council uses the most gas?',
             '%s, where the median home with gas uses %s kWh a year, followed by %s and %s.'
             % (nm(gas_rank[0]), fmt(C[gas_rank[0]]['gas']), nm(gas_rank[1]), nm(gas_rank[2]))),
            ('Why is gas use low in Cornwall?',
-            'Many homes in Cornwall are not on the gas grid, and the gas figure covers only the homes that are. Cornwall also has the %s highest rate of Boiler Upgrade Scheme heat pumps per household of any council. Low gas use there does not mean low energy bills.' % ordinal(BC['E06000052']['rank']))]
+            'Homes of every type in Cornwall use less gas than the England and Wales median: a semi-detached house %s kWh against %s. The figure covers only homes with a gas meter, and many Cornish homes are off the gas grid; Cornwall also has the %s highest rate of Boiler Upgrade Scheme heat pumps per household of any council.' % (fmt(C['E06000052']['gas_type']['Semi detached']), fmt(ew['gas_type']['Semi detached']), ordinal(BC['E06000052']['rank'])))]
     body = f"""
 <p class="lead">A typical home in England and Wales uses <strong>{fmt(ew['gas'])} kWh</strong> of gas and <strong>{fmt(ew['elec'])} kWh</strong> of electricity a year, about <strong>{gbp(ew_total)}</strong> at the October 2026 price cap. Here is how much homes use in every council, from the government's 2024 meter readings.</p>
 
@@ -1152,7 +1183,7 @@ def energy_council_page():
 
 <h2 id="gas-least">Where homes use the least gas</h2>
 <p class="answer"><strong>Inner London and the South West.</strong> Where many homes are off the gas grid, the figure covers only those on it.</p>
-{table('Councils where homes use the least gas', head, [row_g(c) for c in gas_rank[-10:]])}
+{table('Councils where homes use the least gas', head, [row_g(c) for c in reversed(gas_rank[-10:])])}
 
 <h2 id="elec">Electricity</h2>
 <p class="answer"><strong>Highest in Surrey and off-grid areas, lowest in inner London.</strong> The Isles of Scilly, with no mains gas, top the table at {fmt(C['E06000053']['elec'])} kWh.</p>
@@ -1202,11 +1233,146 @@ def energy_council_page():
 }})();
 </script>
 """
-    return dict(slug='energy-use-by-council', kind='none', title='Energy Use by Council: Gas and Electricity Mapped, 2026',
+    return dict(slug='energy-use-by-council', kind='none', provenance='official statistics', title='Energy Use by Council: Gas and Electricity Mapped, 2026',
                 description='How much gas and electricity a typical home uses in every council in England and Wales, and what it costs, on a map. Find your council.',
                 h1='Energy use by council', crumb='Energy use by council', faq=faq, body=body,
                 sources=['Department for Energy Security and Net Zero, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-consumption-data-tables-2026" target="_blank" rel="noopener">NEED consumption data tables 2026</a>, local authority tables 2024, LA1 and LA2.',
                          'Ofgem energy price cap, October to December 2026.',
+                         'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
+
+
+# ------------------------------------------------------------------ solar output by council
+# docs/solar-councils.json from pvgis_councils.py: PVGIS output averaged over up to 8 places
+# where people live in each council. The map is docs/maps/lad-2025-uk.json.
+SO_BINS = [900, 950, 1000, 1050]
+SO_COLS = ['#c3cedc', '#f6e3a1', '#f0c64f', '#e29a1f', '#b8650c']
+SO_LABELS = ['Under 900 kWh', '900 to 950', '950 to 1,000', '1,000 to 1,050', '1,050 kWh or more']
+CALC_REGION = {'London': 'south', 'South East': 'south', 'South West': 'south', 'East': 'south', 'East Midlands': 'midlands',
+               'West Midlands': 'midlands', 'North East': 'north', 'North West': 'north', 'Yorkshire and The Humber': 'north',
+               'Wales': 'wales', 'Scotland': 'scotland'}
+REGION_NAME = {'East': 'East of England', 'Yorkshire and The Humber': 'Yorkshire and the Humber'}
+
+
+def solar_council_page():
+    D = json.loads((ROOT / 'docs' / 'solar-councils.json').read_text())
+    MP = json.loads((ROOT / 'docs' / 'maps' / 'lad-2025-uk.json').read_text())
+    C = D['councils']
+    n, med = len(C), D['median']
+    fmt = lambda x: f'{x:,}'
+    rname = lambda r: REGION_NAME.get(r, r)
+    order = sorted(C, key=lambda c: C[c]['rank'])
+    top, bottom = order[0], order[-1]
+    kbin = lambda v: sum(v >= b for b in SO_BINS)
+    the = lambda c: ('the ' if C[c]['name'].endswith('Islands') else '') + C[c]['name']
+
+    def svg(mp, cls, label, shetland=False):
+        out = []
+        for c, d in mp['paths'].items():
+            out.append('<path d="%s" fill="%s" data-c="%s"><title>%s</title></path>' % (d, SO_COLS[kbin(C[c]['kwh'])], c, html.escape(C[c]['name'])))
+        if shetland and mp.get('shetland_box'):
+            x0, y0, x1, y1 = mp['shetland_box']
+            out.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="none" stroke="#8a8a80" stroke-width="0.8"/>' % (x0, y0, x1 - x0, y1 - y0))
+        return '<svg class="%s" viewBox="0 0 %d %d" role="img" aria-label="%s">%s</svg>' % (cls, mp['w'], mp['h'], label, ''.join(out))
+
+    legend = '<ul class="hp-legend">%s</ul>' % ''.join('<li><span style="background:%s"></span>%s</li>' % (SO_COLS[i], SO_LABELS[i]) for i in range(5))
+
+    def row(c):
+        return [html.escape(C[c]['name']), html.escape(rname(C[c]['region'])), fmt(C[c]['kwh']) + ' kWh', fmt(C[c]['kwh'] * 4) + ' kWh']
+    head = ['Council', 'Region', 'Per kW of panels', 'A 4 kW system']
+    regs = {}
+    for c in C:
+        regs.setdefault(C[c]['region'], []).append(C[c]['kwh'])
+    reg_order = sorted(regs, key=lambda r: -sum(regs[r]) / len(regs[r]))
+    reg_rows = []
+    for r in reg_order:
+        v = regs[r]
+        cell = html.escape(rname(r))
+        if r in CALC_REGION:
+            cell = '<a href="/guides/%s/">%s</a>' % (REGION[CALC_REGION[r]]['slug'], cell)
+        reg_rows.append([cell, fmt(round(sum(v) / len(v))) + ' kWh', '%s to %s kWh' % (fmt(min(v)), fmt(max(v)))])
+    vals = sorted(C[c]['kwh'] for c in C)
+    q1, q3 = vals[len(vals) // 4], vals[(3 * len(vals)) // 4]
+    within = round(max(med - q1, q3 - med) / med * 100)
+    scot = D['nations']['Scotland']['mean']
+    scot_pct = round((1 - scot / med) * 100)
+    data = {c: [C[c]['name'], C[c]['kwh'], C[c]['rank'], rname(C[c]['region'])]
+            + (['/guides/%s/' % REGION[CALC_REGION[C[c]['region']]]['slug'], REGION[CALC_REGION[C[c]['region']]]['name']] if C[c]['region'] in CALC_REGION else [])
+            for c in C}
+    names = ''.join('<option value="%s">' % html.escape(C[c]['name']) for c in sorted(C, key=lambda c: C[c]['name']))
+    all_rows = [[html.escape(C[c]['name']), html.escape(rname(C[c]['region'])), fmt(C[c]['kwh']) + ' kWh', str(C[c]['rank'])] for c in sorted(C, key=lambda c: C[c]['name'])]
+    faq = [('Which part of the UK gets the most solar power?',
+            'The south coast of England. %s tops the table at %s kWh a year for each kW of panels on a south facing roof, followed by %s and %s.'
+            % (C[top]['name'], fmt(C[top]['kwh']), C[order[1]]['name'], C[order[2]]['name'])),
+           ('Do solar panels work in Scotland?',
+            'Yes. A south facing roof in the average Scottish council makes %s kWh a year for each kW of panels, about %d%% less than the UK median of %s kWh. Payback takes longer; see <a href="/guides/solar-panel-payback-scotland/">solar payback in Scotland</a>.'
+            % (fmt(scot), scot_pct, fmt(med))),
+           ('How are these figures worked out?',
+            'We ran the European Commission\'s PVGIS model for up to %d places where people live in each council, and averaged them: 1 kW of panels facing due south at a 35 degree pitch with 14%% losses, on the SARAH3 sunshine record for 2005 to 2023.' % D['points_per_council'])]
+    body = f"""
+<p class="lead">In the median UK council, each kW of solar panels on a south facing roof makes <strong>{fmt(med)} kWh</strong> a year, about <strong>{fmt(med * 4)} kWh</strong> from a typical 4 kW system. That runs from {fmt(C[top]['kwh'])} kWh in {html.escape(the(top))} to {fmt(C[bottom]['kwh'])} kWh in {html.escape(the(bottom))}.</p>
+
+<div class="hp-map-wrap">
+<figure class="hp-map">{svg(MP['main'], 'hp-main', 'Map of the UK by council, shaded by solar output per kW of panels', True)}
+<figcaption>Output a year for each kW of panels on a clean south facing roof, by council. Shetland is shown in the box.{legend}</figcaption></figure>
+<div class="hp-side">
+<label for="councilSearch">Find your council</label>
+<input id="councilSearch" list="councilNames" autocomplete="off" placeholder="e.g. Bristol"><datalist id="councilNames">{names}</datalist>
+<div class="hp-panel" id="councilPanel" aria-live="polite"><p class="rp-hint">Search for a council, or hover over the map.</p></div>
+<figure class="hp-london">{svg(MP['london'], 'hp-ldn', 'London boroughs, shaded by solar output')}<figcaption>London, enlarged</figcaption></figure>
+</div>
+</div>
+
+<h2 id="most">The sunniest councils</h2>
+<p class="answer"><strong>The Sussex coast.</strong> {html.escape(C[top]['name'])} makes {fmt(C[top]['kwh'])} kWh a year for each kW of panels, {round((C[top]['kwh'] / med - 1) * 100)}% more than the UK median.</p>
+{table('Councils with the most solar output', head, [row(c) for c in order[:10]])}
+
+<h2 id="least">The least sunny councils</h2>
+<p class="answer"><strong>The Scottish Highlands and islands.</strong> {html.escape(the(bottom)[0].upper() + the(bottom)[1:])} make{'' if the(bottom).startswith('the ') else 's'} {fmt(C[bottom]['kwh'])} kWh, {round((1 - C[bottom]['kwh'] / med) * 100)}% less than the median, but panels still work there.</p>
+{table('Councils with the least solar output', head, [row(c) for c in order[-10:]])}
+
+<h2 id="regions">By region</h2>
+<p class="answer"><strong>{html.escape(rname(reg_order[0]))} leads and {html.escape(rname(reg_order[-1]))} trails.</strong> Each region links to what panels cost and save there.</p>
+{table('Solar output by region, per kW of panels', ['Region', 'Average council', 'Range'], reg_rows)}
+
+<h2 id="matter">How much does location matter?</h2>
+<p class="answer"><strong>Less than your roof.</strong> Half of all councils are within {within}% of the median; turning panels from south to east or west costs about 20%.</p>
+<p>Shading, roof direction and pitch usually matter more than which council you live in. The <a href="/solar-calculator/">solar calculator</a> takes your postcode, roof direction and pitch, and uses regional figures set a little below these to allow for shading and dirt on the panels.</p>
+
+<h2 id="all">Every council</h2>
+<p class="answer"><strong>All {n} councils in the UK, ranked.</strong></p>
+<details class="more"><summary>Show every council</summary>
+{table('Solar output in every council, per kW of panels', ['Council', 'Region', 'Per kW of panels', 'Rank'], all_rows)}
+</details>
+<p class="note">Modelled with PVGIS 5.3 (European Commission Joint Research Centre), PVGIS-SARAH3 database for 2005 to 2023: 1 kW of crystalline silicon panels, building mounted, facing due south at 35 degrees, 14% system losses, the same settings as the city table on our solar calculator. Each council's figure is the average over up to {D['points_per_council']} places where people live: ONS population weighted centres of MSOAs in England and Wales, Scottish Government Intermediate Zone centres in Scotland (weighted by households), and the largest town in each Northern Ireland council. Queried {long_date_str(D['queried'])}.</p>
+<script>
+(function () {{
+    var D = {json.dumps(data, ensure_ascii=False, separators=(',', ':'))};
+    var byName = {{}}; Object.keys(D).forEach(function (c) {{ byName[D[c][0].toLowerCase()] = c; }});
+    var panel = document.getElementById('councilPanel'), input = document.getElementById('councilSearch'), med = {med}, n = {n};
+    function f(v) {{ return v.toLocaleString('en-GB'); }}
+    function show(c) {{
+        var d = D[c]; if (!d) {{ return; }}
+        var pct = Math.round((d[1] / med - 1) * 100);
+        panel.innerHTML = '<h3>' + d[0] + '</h3><p><strong>' + f(d[1]) + ' kWh</strong> a year for each kW of panels, about ' + f(d[1] * 4) + ' kWh from a 4 kW system.</p>'
+            + '<p>Ranked ' + d[2] + ' of ' + n + ', ' + (pct === 0 ? 'the same as' : Math.abs(pct) + '% ' + (pct > 0 ? 'above' : 'below')) + ' the UK median.</p>'
+            + (d[4] ? '<p><a href="' + d[4] + '">What solar panels save in ' + d[5] + '</a></p>' : '<p><a href="/solar-calculator/">Try the solar calculator</a></p>');
+        document.querySelectorAll('.hp-map-wrap path.on').forEach(function (p) {{ p.classList.remove('on'); }});
+        document.querySelectorAll('.hp-map-wrap path[data-c="' + c + '"]').forEach(function (p) {{ p.classList.add('on'); }});
+    }}
+    document.querySelectorAll('.hp-map-wrap svg').forEach(function (svg) {{
+        svg.addEventListener('mouseover', function (e) {{ var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (c) {{ show(c); }} }});
+    }});
+    function find() {{ var c = byName[input.value.trim().toLowerCase()]; if (c) {{ show(c); }} }}
+    input.addEventListener('change', find); input.addEventListener('input', find);
+}})();
+</script>
+"""
+    return dict(slug='solar-output-by-council', kind='none', provenance="the European Commission's PVGIS model and official statistics", title='Solar Panel Output by Council: UK Map, 2026',
+                description='How much electricity solar panels make in every UK council, from the European Commission PVGIS model, on a map. Find your council.',
+                h1='Solar panel output by council', crumb='Solar output by council', faq=faq, body=body,
+                sources=['European Commission Joint Research Centre, <a href="https://re.jrc.ec.europa.eu/pvg_tools/en/" target="_blank" rel="noopener">PVGIS 5.3</a>, PVGIS-SARAH3 database.',
+                         'Office for National Statistics, <a href="https://geoportal.statistics.gov.uk/" target="_blank" rel="noopener">MSOA (December 2021) population weighted centroids</a>, Open Government Licence v3.0.',
+                         'Scottish Government, <a href="https://www.spatialdata.gov.scot/" target="_blank" rel="noopener">Intermediate Zone 2022 centroids</a>, Open Government Licence v3.0.',
                          'Map: Office for National Statistics, Local Authority Districts (May 2025) boundaries, Open Government Licence v3.0. Contains OS data &copy; Crown copyright and database right 2025.'])
 
 
@@ -1216,7 +1382,7 @@ PAGES = {'what-size-heat-pump': what_size, 'energy-bills-3-bed-house': bills_3, 
          'heat-pump-cost-3-bed-mid-terrace': mid_terrace_3, 'heat-pump-1930s-semi': semi_1930s,
          'insulation-cost-semi-detached-house': ins_semi, 'insulation-cost-detached-house': ins_detached,
          'insulation-cost-terraced-house': ins_terrace, 'insulation-cost-bungalow': ins_bungalow, 'insulation-cost-flat': ins_flat,
-         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page, 'energy-use-by-council': energy_council_page, 'epc-rating-by-house-age': epc_age_hub,
+         'insulation-cost-by-house-type': ins_hub, 'solar-panel-payback-by-region': solar_hub, 'heat-pumps-by-council': hp_council_page, 'energy-use-by-council': energy_council_page, 'solar-output-by-council': solar_council_page, 'epc-rating-by-house-age': epc_age_hub,
          **{AGE_ERAS[i]['slug']: (lambda i=i: epc_age_page(i)) for i in range(len(AGE_ERAS))},
          **{council_slug(_BUS['councils'][c]['name']): (lambda c=c: hp_council_detail(c)) for c in _BUS['pages']},
          **{REGION[k]['slug']: (lambda k=k: solar_region_page(k)) for k in REGION}}
@@ -1253,7 +1419,7 @@ def render(p):
 <main id="main" tabindex="-1" class="guide-content">
 <div class="breadcrumbs"><a href="/">Home</a><span>/</span><a href="/guides/">Guides</a><span>/</span>%s</div>
 <h1>%s</h1>
-<p class="note">Updated 25 September 2026. Every figure on this page comes from our published model; see <a href="/accuracy/">where our data comes from</a>.</p>
+<p class="note">Updated 25 September 2026. Every figure on this page comes from %s; see <a href="/accuracy/">where our data comes from</a>.</p>
 %s
 <h2 id="faq">Frequently asked questions</h2>
 %s
@@ -1264,7 +1430,7 @@ def render(p):
 <script src="/js/nav.js" defer></script>
 </body>
 </html>
-''' % (nav, p['crumb'], p['h1'], p['body'], faq_html, src_html)
+''' % (nav, p['crumb'], p['h1'], p.get('provenance', 'our published model'), p['body'], faq_html, src_html)
     out = ROOT / 'guides' / p['slug'] / 'index.html'
     out.parent.mkdir(parents=True, exist_ok=True)
     # 'a 8 kW' reads wrong; sizes that start with a vowel sound take 'an'

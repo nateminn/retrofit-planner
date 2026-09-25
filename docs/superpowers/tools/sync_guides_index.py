@@ -39,6 +39,7 @@ NEW = {
     'insulation-cost-terraced-house': ('insulation', 'Insulation Cost for a Terraced House', 'is-loft-insulation-worth-it', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge landlord">For landlords</span><span class="gi-badge new">New</span>'),
     'insulation-cost-bungalow': ('insulation', 'Insulation Cost for a Bungalow', 'underfloor-insulation-cost', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'insulation-cost-flat': ('insulation', 'Insulation Cost for a Flat', 'how-long-loft-insulation-lasts', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
+    'solar-output-by-council': ('solar', 'Solar Output by Council', 'solar-panel-payback-by-region', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'solar-panel-payback-by-region': ('solar', 'Solar Panel Payback by Region', 'solar-panel-payback-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'solar-panel-payback-south-england': ('solar', 'Solar Payback in South and East England', 'are-solar-panels-worth-it-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),
     'solar-panel-payback-midlands': ('solar', 'Solar Payback in the Midlands', 'solar-panel-payback-uk', '<span class="gi-badge homeowner">For homeowners</span><span class="gi-badge new">New</span>'),

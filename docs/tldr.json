@@ -3203,5 +3203,34 @@
     "#all"
    ]
   ]
+ },
+ "guides/solar-output-by-council": {
+  "points": [
+   "**981 kWh** a year for each kW of panels on a south facing roof in the median UK council, about **3,924 kWh** from a 4 kW system",
+   "**Eastbourne** makes the most, 1,136 kWh; the **Shetland Islands** the least, 752 kWh",
+   "**Your roof matters more:** half of all councils are within 6% of the median, while facing east or west costs about 20%"
+  ],
+  "jumps": [
+   [
+    "Sunniest",
+    "#most"
+   ],
+   [
+    "Least sunny",
+    "#least"
+   ],
+   [
+    "Regions",
+    "#regions"
+   ],
+   [
+    "Does it matter?",
+    "#matter"
+   ],
+   [
+    "Every council",
+    "#all"
+   ]
+  ]
  }
 }

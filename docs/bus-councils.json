@@ -290,7 +290,7 @@
    ],
    "households": 55951,
    "rate": 13.6,
-   "rank": 263
+   "rank": 264
   },
   "E06000007": {
    "name": "Warrington",
@@ -458,7 +458,7 @@
    ],
    "households": 143105,
    "rate": 12.4,
-   "rank": 278
+   "rank": 279
   },
   "E07000117": {
    "name": "Burnley",
@@ -472,7 +472,7 @@
    ],
    "households": 39872,
    "rate": 8.3,
-   "rank": 305
+   "rank": 306
   },
   "E07000118": {
    "name": "Chorley",
@@ -514,7 +514,7 @@
    ],
    "households": 34790,
    "rate": 11.8,
-   "rank": 282
+   "rank": 283
   },
   "E07000121": {
    "name": "Lancaster",
@@ -682,7 +682,7 @@
    ],
    "households": 81011,
    "rate": 13.5,
-   "rank": 265
+   "rank": 266
   },
   "E08000015": {
    "name": "Wirral",
@@ -738,7 +738,7 @@
    ],
    "households": 69826,
    "rate": 30.8,
-   "rank": 158
+   "rank": 159
   },
   "E06000013": {
    "name": "North Lincolnshire",
@@ -850,7 +850,7 @@
    ],
    "households": 209867,
    "rate": 24.3,
-   "rank": 193
+   "rank": 194
   },
   "E08000033": {
    "name": "Calderdale",
@@ -864,7 +864,7 @@
    ],
    "households": 90476,
    "rate": 30.9,
-   "rank": 156
+   "rank": 157
   },
   "E08000034": {
    "name": "Kirklees",
@@ -892,7 +892,7 @@
    ],
    "households": 341466,
    "rate": 23.5,
-   "rank": 200
+   "rank": 201
   },
   "E08000036": {
    "name": "Wakefield",
@@ -934,7 +934,7 @@
    ],
    "households": 127387,
    "rate": 12.4,
-   "rank": 279
+   "rank": 278
   },
   "E06000061": {
    "name": "North Northamptonshire",
@@ -962,7 +962,7 @@
    ],
    "households": 124745,
    "rate": 16.7,
-   "rank": 235
+   "rank": 236
   },
   "E06000017": {
    "name": "Rutland",
@@ -1214,7 +1214,7 @@
    ],
    "households": 29404,
    "rate": 30.9,
-   "rank": 157
+   "rank": 156
   },
   "E07000137": {
    "name": "East Lindsey",
@@ -1270,7 +1270,7 @@
    ],
    "households": 40703,
    "rate": 47.2,
-   "rank": 97
+   "rank": 98
   },
   "E07000141": {
    "name": "South Kesteven",
@@ -1340,7 +1340,7 @@
    ],
    "households": 48361,
    "rate": 37.4,
-   "rank": 128
+   "rank": 129
   },
   "E07000173": {
    "name": "Gedling",
@@ -1438,7 +1438,7 @@
    ],
    "households": 110399,
    "rate": 11.6,
-   "rank": 284
+   "rank": 285
   },
   "E06000020": {
    "name": "Telford and Wrekin",
@@ -1466,7 +1466,7 @@
    ],
    "households": 43457,
    "rate": 15.0,
-   "rank": 252
+   "rank": 253
   },
   "E07000193": {
    "name": "East Staffordshire",
@@ -1564,7 +1564,7 @@
    ],
    "households": 32895,
    "rate": 16.7,
-   "rank": 236
+   "rank": 235
   },
   "E07000218": {
    "name": "North Warwickshire",
@@ -1578,7 +1578,7 @@
    ],
    "households": 27580,
    "rate": 30.8,
-   "rank": 159
+   "rank": 158
   },
   "E07000219": {
    "name": "Nuneaton and Bedworth",
@@ -1774,7 +1774,7 @@
    ],
    "households": 36378,
    "rate": 14.6,
-   "rank": 257
+   "rank": 258
   },
   "E07000237": {
    "name": "Worcester",
@@ -1788,7 +1788,7 @@
    ],
    "households": 44722,
    "rate": 23.5,
-   "rank": 201
+   "rank": 200
   },
   "E07000238": {
    "name": "Wychavon",
@@ -1886,7 +1886,7 @@
    ],
    "households": 78344,
    "rate": 8.3,
-   "rank": 306
+   "rank": 305
   },
   "E06000034": {
    "name": "Thurrock",
@@ -1984,7 +1984,7 @@
    ],
    "households": 76362,
    "rate": 15.7,
-   "rank": 243
+   "rank": 244
   },
   "E07000067": {
    "name": "Braintree",
@@ -2040,7 +2040,7 @@
    ],
    "households": 75401,
    "rate": 47.2,
-   "rank": 98
+   "rank": 97
   },
   "E07000071": {
    "name": "Colchester",
@@ -2082,7 +2082,7 @@
    ],
    "households": 37857,
    "rate": 11.6,
-   "rank": 285
+   "rank": 284
   },
   "E07000074": {
    "name": "Maldon",
@@ -2222,7 +2222,7 @@
    ],
    "households": 58991,
    "rate": 57.0,
-   "rank": 79
+   "rank": 80
   },
   "E07000243": {
    "name": "Stevenage",
@@ -2250,7 +2250,7 @@
    ],
    "households": 36858,
    "rate": 37.4,
-   "rank": 129
+   "rank": 128
   },
   "E07000103": {
    "name": "Watford",
@@ -2264,7 +2264,7 @@
    ],
    "households": 39628,
    "rate": 14.6,
-   "rank": 258
+   "rank": 257
   },
   "E07000241": {
    "name": "Welwyn Hatfield",
@@ -2418,7 +2418,7 @@
    ],
    "households": 59507,
    "rate": 15.0,
-   "rank": 253
+   "rank": 254
   },
   "E07000203": {
    "name": "Mid Suffolk",
@@ -2488,7 +2488,7 @@
    ],
    "households": 106081,
    "rate": 15.7,
-   "rank": 244
+   "rank": 243
   },
   "E09000013": {
    "name": "Hammersmith and Fulham",
@@ -2502,7 +2502,7 @@
    ],
    "households": 81244,
    "rate": 9.4,
-   "rank": 298
+   "rank": 300
   },
   "E09000014": {
    "name": "Haringey",
@@ -2628,7 +2628,7 @@
    ],
    "households": 137393,
    "rate": 13.5,
-   "rank": 266
+   "rank": 265
   },
   "E09000033": {
    "name": "Westminster",
@@ -2740,7 +2740,7 @@
    ],
    "households": 133659,
    "rate": 13.6,
-   "rank": 264
+   "rank": 263
   },
   "E09000010": {
    "name": "Enfield",
@@ -2810,7 +2810,7 @@
    ],
    "households": 109228,
    "rate": 15.0,
-   "rank": 254
+   "rank": 252
   },
   "E09000018": {
    "name": "Hounslow",
@@ -2824,7 +2824,7 @@
    ],
    "households": 102961,
    "rate": 9.4,
-   "rank": 300
+   "rank": 298
   },
   "E09000021": {
    "name": "Kingston upon Thames",
@@ -2992,7 +2992,7 @@
    ],
    "households": 113102,
    "rate": 36.3,
-   "rank": 131
+   "rank": 132
   },
   "E06000044": {
    "name": "Portsmouth",
@@ -3230,7 +3230,7 @@
    ],
    "households": 35922,
    "rate": 17.0,
-   "rank": 233
+   "rank": 234
   },
   "E07000089": {
    "name": "Hart",
@@ -3328,7 +3328,7 @@
    ],
    "households": 53583,
    "rate": 61.6,
-   "rank": 64
+   "rank": 65
   },
   "E07000106": {
    "name": "Canterbury",
@@ -3454,7 +3454,7 @@
    ],
    "households": 62200,
    "rate": 24.3,
-   "rank": 194
+   "rank": 193
   },
   "E07000115": {
    "name": "Tonbridge and Malling",
@@ -3482,7 +3482,7 @@
    ],
    "households": 48223,
    "rate": 61.6,
-   "rank": 65
+   "rank": 64
   },
   "E07000177": {
    "name": "Cherwell",
@@ -3510,7 +3510,7 @@
    ],
    "households": 55238,
    "rate": 57.0,
-   "rank": 80
+   "rank": 79
   },
   "E07000179": {
    "name": "South Oxfordshire",
@@ -3972,7 +3972,7 @@
    ],
    "households": 62992,
    "rate": 17.0,
-   "rank": 234
+   "rank": 233
   },
   "E06000054": {
    "name": "Wiltshire",
@@ -4014,7 +4014,7 @@
    ],
    "households": 52554,
    "rate": 36.3,
-   "rank": 132
+   "rank": 131
   },
   "E07000042": {
    "name": "Mid Devon",
@@ -4434,7 +4434,7 @@
    ],
    "households": 76257,
    "rate": 11.8,
-   "rank": 283
+   "rank": 282
   },
   "W06000019": {
    "name": "Blaenau Gwent",

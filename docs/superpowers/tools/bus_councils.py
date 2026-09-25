@@ -131,7 +131,7 @@ def main():
     for c, v in bus.items():
         v['households'] = hh[c]
         v['rate'] = round(v['hp'] / hh[c] * 10000, 1)
-    order = sorted(bus, key=lambda c: -bus[c]['rate'])
+    order = sorted(bus, key=lambda c: -bus[c]['hp'] / bus[c]['households'])   # rank on the unrounded rate
     for i, c in enumerate(order):
         bus[c]['rank'] = i + 1
     all_hh = sum(v['households'] for v in bus.values())

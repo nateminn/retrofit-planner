@@ -142,7 +142,7 @@
    "name": "PVGIS 5.3, SARAH3 radiation data 2005 to 2023",
    "publisher": "European Commission Joint Research Centre",
    "url": "https://re.jrc.ec.europa.eu/pvg_tools/en/",
-   "use": "Solar generation by region, month, roof direction and pitch",
+   "use": "Solar generation by region, council, month, roof direction and pitch",
    "published": "Version 5.3",
    "checked": "25 September 2026",
    "probe": [
@@ -180,7 +180,7 @@
    "publisher": "Octopus Energy, E.ON Next, EDF, ScottishPower",
    "url": "https://octopus.energy/smart/cosy-octopus/",
    "use": "Export rates from 4.1p to 17.5p, and the 19.8p heat pump tariff cost",
-   "published": "Rates for October 2026",
+   "published": "Export rates as published on 25 September 2026; heat pump tariff estimated from September 2026 rates",
    "checked": "25 September 2026",
    "probe": [
     "js/heat-model.js",
@@ -279,12 +279,36 @@
    "name": "Local Authority Districts boundaries, May 2025",
    "publisher": "Office for National Statistics",
    "url": "https://geoportal.statistics.gov.uk/",
-   "use": "The council map",
+   "use": "The council maps",
    "published": "May 2025",
    "checked": "25 September 2026",
    "probe": [
     "docs/maps/lad-2025-ew.json",
     "Local Authority Districts (May 2025)"
+   ]
+  },
+  {
+   "name": "Population weighted centroids: MSOAs (December 2021), England and Wales",
+   "publisher": "Office for National Statistics",
+   "url": "https://geoportal.statistics.gov.uk/",
+   "use": "Where people live in each council, for solar output by council",
+   "published": "December 2021 boundaries",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/superpowers/tools/pvgis_councils.py",
+    "MSOA_December_2021_EW_PWC_V2"
+   ]
+  },
+  {
+   "name": "Intermediate Zone centroids, 2022",
+   "publisher": "Scottish Government",
+   "url": "https://www.spatialdata.gov.scot/",
+   "use": "Where people live in each Scottish council, for solar output by council",
+   "published": "2022 Census update",
+   "checked": "25 September 2026",
+   "probe": [
+    "docs/superpowers/tools/pvgis_councils.py",
+    "StatisticalUnits/MapServer/13"
    ]
   }
  ],
@@ -293,6 +317,9 @@
   "The EPC estimate is a simple points model, not the government's SAP software. For a typical home of each age it lands close to the English Housing Survey 2024 average rating, but it has not been checked home by home against lodged certificates.",
   "Solar generation for each region is set a little below the PVGIS figure for its sunniest city, to allow for shading and soiling on real roofs.",
   "Where the Energy Saving Trust publishes no figure we borrow the nearest home: an end-terrace takes the semi-detached cost, and a top floor flat's loft takes the mid-terrace cost.",
-  "The typical household bill of £1,723 is the price cap rates applied to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas."
+  "The typical household bill of £1,723 is the price cap rates applied to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas.",
+  "Heat pump efficiency by insulation: we use the trial's lower quartile (2.55) for poor insulation, its median (2.78) for average and its upper quartile (3.05) for good; 3.25 for excellent is our estimate near the top of the trial's range. The trial did not split results by insulation.",
+  "The heat pump tariff figure of 19.8p is our estimate for Cosy Octopus in October 2026, from its September rates; we will recheck it when Octopus publishes October rates.",
+  "Solar output by council averages PVGIS over up to 8 places where people live in each council; in Northern Ireland, where we have no small area centres, it uses the council's largest town."
  ]
 }
