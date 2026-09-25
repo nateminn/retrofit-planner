@@ -154,6 +154,12 @@ for _label, _cmd in (('EPC widget matches the EPC calculator', ['node', os.path.
     _tail = [l for l in (_r.stdout + _r.stderr).strip().split('\n') if l.strip()]
     check(_label, _r.returncode == 0, '\n        '.join(_tail[-6:]))
 
+# Long method notes sit behind a "The data behind this table" toggle. A regenerated page
+# (build_new_pages.py) comes back unfolded until notes_fold.py --apply is run on it.
+_r = _sp.run([sys.executable, os.path.join(_here, 'notes_fold.py')], capture_output=True, text=True, cwd=os.getcwd())
+check('long method notes are folded behind a toggle', 'would fold 0 notes' in _r.stdout,
+      'run: python3 docs/superpowers/tools/notes_fold.py --apply\n        ' + _r.stdout.strip())
+
 # The guides index copies each guide's description onto its card, so a card can fall behind
 # its guide (it showed an old heat pump tariff cost after the 25 September price change).
 _r = _sp.run([sys.executable, os.path.join(_here, 'sync_guides_index.py')], capture_output=True, text=True, cwd=os.getcwd())

@@ -14,6 +14,12 @@ import io, re, sys, glob
 
 MARK = 'data-scheme-note="eco4"'
 
+KEEP = {'grants', 'insulation-calculator'} | {'guides/' + g for g in (
+    'eco4-scheme-explained', 'free-loft-insulation-uk', 'diy-loft-insulation', 'how-long-loft-insulation-lasts',
+    'is-cavity-wall-insulation-worth-it', 'is-loft-insulation-worth-it', 'solid-wall-insulation-cost',
+    'underfloor-insulation-cost', 'home-upgrade-grant', 'warm-home-discount', 'boiler-upgrade-scheme-guide',
+    'great-british-insulation-scheme')}
+
 NOTICE = (
     '<aside class="scheme-note" ' + MARK + '>'
     '<p><strong>ECO4 closes on 31 December 2026.</strong> Work under the scheme has to be done '
@@ -75,6 +81,11 @@ if __name__ == '__main__':
     pages = sorted(set(glob.glob('index.html') + glob.glob('*/index.html')
                        + glob.glob('guides/*/index.html'))
                    - {'quote-thanks/index.html'})
+    # Only the grant, ECO4 and insulation pages carry the box (Nathan, 25 Sep 2026: a
+    # repeated notice floods word heavy pages). Everywhere else the date sits inline in the
+    # page's own mention of ECO4.
+    if not remove:
+        pages = [p for p in pages if p.rsplit('/index.html', 1)[0] in KEEP]
     done = []
     for p in pages:
         r = apply(p, remove, refresh)

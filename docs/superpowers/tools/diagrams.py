@@ -176,7 +176,7 @@ PLACEMENTS = [
  ('epc-bands', 'guides/epc-rating-landlords/index.html', 'first-h2'),
  ('solar', 'guides/are-solar-panels-worth-it-uk/index.html', 'first-h2'),
  ('solar', 'guides/solar-panel-payback-uk/index.html', 'first-h2'),
- ('solar', 'solar-calculator/index.html', 'first-h2'),
+ # ('solar', 'solar-calculator/index.html', 'first-h2'),   removed 25 Sep 2026 at Nathan's request: not useful at the top of the calculator
 ]
 
 if __name__ == '__main__':
