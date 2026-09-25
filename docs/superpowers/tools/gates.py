@@ -77,7 +77,7 @@ check('all JSON-LD parses', not bad, str(bad))
 
 footers = {}
 for f, s in contents.items():
-    m = re.search(r'<div class="footer-col">\s*<h4>Guides</h4>.*?</div>', s, re.S)
+    m = re.search(r'<div class="footer-col">\s*<h[34]>Guides</h[34]>.*?</div>', s, re.S)
     footers[f] = re.sub(r'\s+', '', m.group(0)) if m else None
 distinct = set(footers.values())
 check('footer Guides block identical on all pages', len(distinct) == 1 and None not in distinct,

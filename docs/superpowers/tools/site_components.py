@@ -26,6 +26,8 @@ CONTACT = 'hello@retrofitplanner.co.uk'
 # Each form's label ends in its kind (for example intro-v2-2026-09-24-solar), so the label alone
 # identifies which wording a person agreed to; the wording itself is stored too.
 CONSENT_VERSION = 'intro-v2-2026-09-24'
+# A kind whose wording has changed since v2 carries its own date.
+CONSENT_VERSION_BY_KIND = {'epc': 'intro-v3-2026-09-25'}
 NEWS_VERSION = 'newsletter-v3-2026-09-25'
 
 TICK = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
@@ -117,8 +119,9 @@ def esc(s):
 
 def consent_text(k):
     return ('I agree that Retrofit Planner may pass my details to up to three %s covering my postcode, '
-            'who may contact me by email or phone about a quote. Installers may pay Retrofit Planner a fee '
-            'for the introduction. I can withdraw my consent at any time by emailing %s.' % (k['who'], CONTACT))
+            'who may contact me by email or phone about a quote. %s may pay Retrofit Planner a fee '
+            'for the introduction. I can withdraw my consent at any time by emailing %s.'
+            % (k['who'], 'Assessors' if 'assessor' in k['who'] else 'Installers', CONTACT))
 
 
 def select(field, label, options, fid):
@@ -167,7 +170,7 @@ def lead_form(kind, source):
         '<p class="qf-small">It costs you nothing and never changes any figure on this site. We keep your request and the wording you agreed to as a record of your consent, and delete both after 12 months. See our <a href="/privacy/#quotes">privacy policy</a>.</p>\n'
         '</form>\n</section>\n<!-- /lead-form -->'
         % (kind, k['h2'], reach(k), points, k['form'], k['action'], k['form'], esc(source),
-           CONSENT_VERSION + '-' + kind, esc(ct), '\n'.join(fields), ct))
+           CONSENT_VERSION_BY_KIND.get(kind, CONSENT_VERSION) + '-' + kind, esc(ct), '\n'.join(fields), ct))
 
 
 # Shown under the button word for word, so the stored record is exactly what the person saw.
@@ -175,7 +178,7 @@ NEWS_TEXT = 'By pressing Keep me updated you agree to email updates about change
 
 FOOTER_COLS = '''<div class="footer-inner"><div><div class="footer-brand">Retrofit Planner</div><p class="footer-about">Free tools to help UK homeowners plan energy-efficient home improvements.</p></div><div class="footer-col"><h3>Calculators</h3><a href="/retrofit-plan/">Retrofit Plan</a><a href="/heat-pump-calculator/">Heat Pump Cost Calculator</a><a href="/insulation-calculator/">Insulation Savings Calculator</a><a href="/epc-calculator/">EPC Improvement Planner</a><a href="/solar-calculator/">Solar Panel Cost Calculator</a><a href="/boiler-vs-heat-pump/">Boiler vs Heat Pump</a><a href="/grants/">Grant Eligibility Checker</a></div><div class="footer-col"><h3>Guides</h3><a href="/guides/heat-pump-cost-4-bed-house/">Heat Pump Cost: 4-Bed House</a><a href="/guides/heat-pump-cost-by-house-type/">Costs by House Type</a><a href="/guides/heat-pump-running-costs/">Heat Pump Running Costs</a><a href="/guides/best-heat-pump-tariffs/">Best Heat Pump Tariffs</a><a href="/guides/boiler-upgrade-scheme-guide/">BUS Grant Guide</a><a href="/guides/how-epc-points-are-calculated/">How EPC Points Are Calculated</a></div><div class="footer-col"><h3>Company</h3><a href="/about/">About Us</a><a href="/methodology/">Our Methodology</a><a href="/accuracy/">How Accurate We Are</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/embed/">Embed Our Calculators</a><a href="/contact/">Contact</a></div></div>'''
 
-DEFAULT_ATTRIBUTION = ('Data from <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">Ofgem</a>, '
+DEFAULT_ATTRIBUTION = ('Data from <a href="https://www.ofgem.gov.uk/your-energy-supply/your-energy-bill/energy-price-cap-and-standing-charges-explained" target="_blank" rel="noopener">Ofgem</a>, '
                        '<a href="https://energysavingtrust.org.uk/" target="_blank" rel="noopener">Energy Saving Trust</a>, and '
                        '<a href="https://www.gov.uk/" target="_blank" rel="noopener">GOV.UK</a>.')
 

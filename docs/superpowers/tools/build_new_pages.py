@@ -168,7 +168,7 @@ def bills_page(slug, beds, homes, crumb, noun='house'):
                 description='A %d bed %s costs about %s a year, %s a month, in gas and electricity at the October 2026 price cap. By home type, insulation and heating fuel.' % (beds, noun, gbp(total), gbp(total / 12)),
                 h1='Average energy bill for a %d bed %s' % (beds, noun), crumb=crumb, faq=faq, body=body,
                 sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
-                         'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.',
+                         'Ofgem, <a href="https://www.ofgem.gov.uk/your-energy-supply/your-energy-bill/energy-price-cap-and-standing-charges-explained" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.',
                          'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat trial, heat pump performance report</a>, December 2024.'])
 
 
@@ -226,7 +226,7 @@ def hp_house(slug, t, b, label, title_label, crumb, intro, extra_h2, extra_p, co
                 sources=['DESNZ, <a href="https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-august-2026" target="_blank" rel="noopener">Boiler Upgrade Scheme statistics, August 2026</a>, Tables A1.3A and Q1.1A.',
                          'Energy Systems Catapult for DESNZ, <a href="https://esc-production-2021.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/12/18093557/EoH-Heat-Pump-Performance-Data-Analysis-Report.pdf" target="_blank" rel="noopener">Electrification of Heat trial, heat pump performance report</a>, December 2024.',
                          'DESNZ, <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-report-summary-of-analysis-2026" target="_blank" rel="noopener">National Energy Efficiency Data-Framework 2026</a>.',
-                         'Ofgem, <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.'])
+                         'Ofgem, <a href="https://www.ofgem.gov.uk/your-energy-supply/your-energy-bill/energy-price-cap-and-standing-charges-explained" target="_blank" rel="noopener">energy price cap</a>, October to December 2026.'])
 
 
 def mid_terrace_3():
