@@ -10,7 +10,7 @@ from playwright.sync_api import sync_playwright
 AXE = open(sys.argv[1]).read()
 BASE = 'http://localhost:8799/'
 pages = sorted(set(p[2:].replace('index.html', '') for p in glob.glob('./**/index.html', recursive=True) if not p.startswith('./docs'))) + ['404.html']
-CALC = {'heat-pump-calculator/', 'energy-bill-calculator/', 'retrofit-plan/', 'boiler-vs-heat-pump/', 'solar-calculator/', 'insulation-calculator/', 'epc-calculator/', 'grants/'}
+CALC = {'heat-pump-calculator/', 'energy-bill-calculator/', 'heat-pump-running-cost-calculator/', 'retrofit-plan/', 'boiler-vs-heat-pump/', 'solar-calculator/', 'insulation-calculator/', 'epc-calculator/', 'grants/'}
 out = []
 with sync_playwright() as p:
     b = p.chromium.launch()

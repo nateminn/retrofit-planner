@@ -112,11 +112,14 @@
         var min = node.hasAttribute('min') ? Number(node.getAttribute('min')) : -Infinity;
         var max = node.hasAttribute('max') ? Number(node.getAttribute('max')) : Infinity;
         var lo = min > 0 ? min : 1;
+        // data-unit="kWh" (or "litres", "p") words the message for fields that are not money
+        var unit = node.getAttribute('data-unit');
+        var amt = function (n) { return unit ? n.toLocaleString('en-GB') + (unit === 'p' ? 'p' : ' ' + unit) : '£' + n.toLocaleString('en-GB'); };
         if (!isFinite(v) || v < lo || v > max) {
-            markError(node, 'Enter an amount between £' + lo + ' and £' + max.toLocaleString()
-                            + ', or leave it blank and we will estimate it.');
-            say('Check ' + labelFor(node) + ': enter an amount between £' + lo
-                + ' and £' + max.toLocaleString() + ', or leave it blank.');
+            markError(node, 'Enter an amount between ' + amt(lo) + ' and ' + amt(max)
+                            + (node.hasAttribute('data-required') ? '.' : ', or leave it blank and we will estimate it.'));
+            say('Check ' + labelFor(node) + ': enter an amount between ' + amt(lo)
+                + ' and ' + amt(max) + (node.hasAttribute('data-required') ? '.' : ', or leave it blank.'));
             node.focus();
             return false;
         }
@@ -144,12 +147,19 @@
         '/grants/': { field: 'heating',
             map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heatpump' } },
         '/epc-calculator/': { field: 'heating',
-            map: { oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heat-pump' } }
+            map: { oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heat-pump' } },
+        '/energy-bill-calculator/': { field: 'heatingFuel',
+            map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electric', 'heat-pump': 'heatpump' } },
+        '/heat-pump-running-cost-calculator/': { field: 'currentHeating',
+            map: { gas: 'gas', oil: 'oil', lpg: 'lpg', electric: 'electric' } }
     };
     var TYPE_FIELD = { '/epc-calculator/': 'propType', '/boiler-vs-heat-pump/': 'propType',
-                       '/heat-pump-calculator/': 'propertyType', '/insulation-calculator/': 'propertyType' };
-    var TAKES_BEDS = { '/heat-pump-calculator/': 1, '/insulation-calculator/': 1, '/boiler-vs-heat-pump/': 1 };
-    var TAKES_INS  = { '/heat-pump-calculator/': 1, '/boiler-vs-heat-pump/': 1 };
+                       '/heat-pump-calculator/': 'propertyType', '/insulation-calculator/': 'propertyType',
+                       '/energy-bill-calculator/': 'propertyType', '/heat-pump-running-cost-calculator/': 'propertyType' };
+    var TAKES_BEDS = { '/heat-pump-calculator/': 1, '/insulation-calculator/': 1, '/boiler-vs-heat-pump/': 1,
+                       '/energy-bill-calculator/': 1, '/heat-pump-running-cost-calculator/': 1 };
+    var TAKES_INS  = { '/heat-pump-calculator/': 1, '/boiler-vs-heat-pump/': 1,
+                       '/energy-bill-calculator/': 1, '/heat-pump-running-cost-calculator/': 1 };
     var TAKES_TEN  = { '/epc-calculator/': 1, '/grants/': 1 };
 
     function val(id) {

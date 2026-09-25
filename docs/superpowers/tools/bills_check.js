@@ -13,7 +13,7 @@ const fs = require('fs'), path = require('path'), vm = require('vm');
 const ROOT = path.resolve(__dirname, '../../..');
 const ctx = { window: {} };
 vm.createContext(ctx);
-for (const f of ['js/heat-model.js', 'js/bills.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
+for (const f of ['js/heat-model.js', 'js/bills.js', 'js/running-cost.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
 const B = ctx.window.RP_BILLS;
 const gbp = v => '£' + Math.round(v).toLocaleString('en-GB');
 const bad = [];
@@ -78,6 +78,41 @@ for (const [slug, [beds, homes]] of Object.entries(PAGES)) {
     }
 }
 
+/* 4. The heat pump running cost calculator: its tables, sentences and FAQ */
+const R = ctx.window.RP_RUNNING, H = ctx.window.RP_HEAT;
+const run = read('heat-pump-running-cost-calculator/index.html');
+const RHOMES = { '2 bed flat': ['flat', 2], '2 bed mid-terrace': ['mid-terrace', 2], '2 bed bungalow': ['bungalow', 2],
+    '3 bed mid-terrace': ['mid-terrace', 3], '3 bed semi': ['semi', 3], '3 bed detached': ['detached', 3],
+    '4 bed detached': ['detached', 4], '5 bed detached': ['detached', 5] };
+const rc = (t, b, i, fuel, tariff) => R.cost({ type: t, beds: b, insulation: i, fuel: fuel, tariff: tariff });
+for (const r of rows(run, 'id="by-home"').slice(1)) {
+    const h = RHOMES[r[0]];
+    if (!h) { bad.push('heat-pump-running-cost-calculator: unknown row ' + r[0]); continue; }
+    const s = rc(h[0], h[1], 'average', 'gas', 'standard'), t = rc(h[0], h[1], 'average', 'gas', 'hp');
+    expect('heat-pump-running-cost-calculator ' + r[0], r.slice(1).join(' '),
+        [Math.round(t.heat).toLocaleString('en-GB'), gbp(t.nowCost), gbp(s.hpCost), gbp(t.hpCost), gbp(t.hpCost / 12)].join(' '));
+}
+const EFF = [2.55, 2.78, 3.05, 3.25], BFUEL = { 'Gas boiler': 'gas', 'Oil boiler': 'oil', 'LPG boiler': 'lpg' };
+for (const r of rows(run, 'id="break-even"').slice(1))
+    expect('heat-pump-running-cost-calculator break-even ' + r[0], r.slice(1).join(' '),
+        EFF.map(e => (R.cost({ type: 'semi', beds: 3, insulation: 'average', fuel: BFUEL[r[0]], tariff: 'hp', efficiency: e }).breakEven * 100).toFixed(1) + 'p').join(' '));
+const ri = run.match(/poor insulation (£[\d,]+) a year, average (£[\d,]+), good (£[\d,]+) and excellent (£[\d,]+)\. With good insulation .*?: (£[\d,]+) against (£[\d,]+)\./);
+if (!ri) bad.push('heat-pump-running-cost-calculator: insulation sentence not found');
+else {
+    ['poor', 'average', 'good', 'excellent'].forEach((i, k) => expect('heat-pump-running-cost-calculator insulation ' + i, ri[k + 1], gbp(rc('semi', 3, i, 'gas', 'hp').hpCost)));
+    const g = rc('semi', 3, 'good', 'gas', 'standard');
+    expect('heat-pump-running-cost-calculator good insulation, standard rate', ri[5] + ' ' + ri[6], gbp(g.hpCost) + ' ' + gbp(g.nowCost));
+}
+const semiT = rc('semi', 3, 'average', 'gas', 'hp'), semiS = rc('semi', 3, 'average', 'gas', 'standard');
+for (const [what, want] of [['£' + Math.round(semiT.hpCost / 12) + ' a month averaged over the year on a heat pump tariff', 1],
+                            ['or £' + Math.round(semiS.hpCost / 12) + ' a month on the standard price cap rate', 1],
+                            ['about ' + gbp(semiT.hpCost) + ' a year for a 3 bed semi against ' + gbp(semiT.nowCost) + ' with a gas boiler', 1],
+                            ['below about ' + (semiT.breakEven * 100).toFixed(1) + 'p per kWh', 1],
+                            ['it costs about £' + Math.round((semiS.hpCost - semiS.nowCost) / 10) * 10 + ' a year more', 1]]) {
+    n++;
+    if (!run.includes(what)) bad.push('heat-pump-running-cost-calculator: expected "' + what + '" in the FAQ');
+}
+
 for (const b of bad) console.log('  ' + b);
-console.log(`${bad.length ? 'FAIL' : 'PASS'}: ${n} bill figures checked against js/bills.js`);
+console.log(`${bad.length ? 'FAIL' : 'PASS'}: ${n} bill and running cost figures checked against js/bills.js and js/running-cost.js`);
 process.exit(bad.length ? 1 : 0);
