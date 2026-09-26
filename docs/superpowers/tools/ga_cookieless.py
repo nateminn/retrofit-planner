@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Run Google Analytics 4 without setting any cookies.
+"""RETIRED 26 September 2026: analytics now runs from js/analytics.js with cookies, under the
+UK statistical purposes exception, and no page carries an inline GA snippet any more.
+
+Run Google Analytics 4 without setting any cookies.
 
 WHY. GA4's default config writes _ga and _ga_<id> on arrival. Those are analytics
 cookies, not strictly necessary ones, so PECR reg 6 wants consent before they are set.

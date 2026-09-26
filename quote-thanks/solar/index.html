@@ -12,14 +12,7 @@
 <link rel="manifest" href="/site.webmanifest"><noscript></noscript>
 <link rel="stylesheet" href="/css/style.css">
 <!-- Google tag (gtag.js) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
-    gtag('js', new Date());
-  gtag('config', 'G-4QMWG6G2WL', { page_location: location.origin + location.pathname });   // no query string: a shared result link carries calculator answers
-  window.addEventListener('load', function () { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4QMWG6G2WL'; document.head.appendChild(s); });   // after the page has loaded, so it never delays the page
-</script>
+<script src="/js/analytics.js" defer></script>
 <script>window.addEventListener("load",function(){if(typeof gtag==="function"){gtag("event","generate_lead",{form:"solar-quote"});}});</script>
 <link rel="preload" href="/fonts/fraunces-normal-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plus-jakarta-sans-normal-5.woff2" as="font" type="font/woff2" crossorigin>

@@ -217,6 +217,8 @@
             : 'Your result is ready below.');
         // Answers already given travel to whatever the visitor opens next.
         try { window.rpCarry(); } catch (e) {}
+        // Count that a result was shown, naming the calculator only, never the answers (js/analytics.js).
+        try { if (typeof window.gtag === 'function') { window.gtag('event', 'calculate', { calculator: window.location.pathname }); } } catch (e) {}
         // focus() scrolls the element into view and carries the screen reader with it.
         box.focus();
     };

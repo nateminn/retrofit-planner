@@ -1186,3 +1186,8 @@ details.faq-item>p{margin:0 0 14px}
 .en-toggle button[aria-pressed="true"]{background:var(--color-accent);color:#fff}
 .en-toggle button:focus-visible{outline:3px solid var(--color-accent);outline-offset:-3px}
 .hp-legend[hidden]{display:none}
+.optout-box { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 16px 20px; margin: 16px 0 20px; background: var(--color-surface); }
+.optout-box p { margin: 0 0 12px; }
+.optout-btn { font: inherit; font-weight: 600; font-size: 0.9rem; padding: 10px 20px; border-radius: var(--radius-sm); border: 1px solid var(--color-accent); background: var(--color-surface); color: var(--color-accent); cursor: pointer; }
+.optout-btn:hover { background: var(--color-accent); color: #fff; }
+.optout-btn:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }

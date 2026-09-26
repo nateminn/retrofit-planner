@@ -22,14 +22,7 @@
     <link rel="canonical" href="https://www.retrofitplanner.co.uk/privacy/"><noscript></noscript>
     <link rel="stylesheet" href="/css/style.css">
 <!-- Google tag (gtag.js) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
-    gtag('js', new Date());
-  gtag('config', 'G-4QMWG6G2WL', { page_location: location.origin + location.pathname });   // no query string: a shared result link carries calculator answers
-  window.addEventListener('load', function () { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4QMWG6G2WL'; document.head.appendChild(s); });   // after the page has loaded, so it never delays the page
-</script>
+<script src="/js/analytics.js" defer></script>
 <link rel="preload" href="/fonts/fraunces-normal-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plus-jakarta-sans-normal-5.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -43,17 +36,18 @@
         <p class="lead">Last updated: 26 September 2026</p>
 
         <h2>The short version</h2>
-        <p>Retrofit Planner is a free UK home energy site. Our calculators run in your browser, and the figures you type in are never stored or sent to us. We use Google Analytics to see which pages are read. The site sets no cookies and shows no advertising. A few clearly marked links can earn us a commission. If you ask for quotes and tick the box to agree, we pass your details to up to three certified installers, who may pay us for the introduction. If you sign up for email updates, we use your address only to send them. We never share your details with anyone else.</p>
+        <p>Retrofit Planner is a free UK home energy site. Our calculators run in your browser, and the figures you type in are never stored or sent to us. We use Google Analytics to see which pages are read. It shows no advertising. Google Analytics sets two cookies to count visits, which you can turn off at any time (see <a href="#cookies">Cookies</a>). A few clearly marked links can earn us a commission. If you ask for quotes and tick the box to agree, we pass your details to up to three certified installers, who may pay us for the introduction. If you sign up for email updates, we use your address only to send them. We never share your details with anyone else.</p>
 
         <h2>Who we are</h2>
         <p>Retrofit Planner is operated from the United Kingdom and is the data controller for any personal data collected through this site. You can reach us at <a href="mailto:hello@retrofitplanner.co.uk">hello@retrofitplanner.co.uk</a>.</p>
 
         <h2>What we collect and why</h2>
         <h3>Calculator inputs</h3>
-        <p>Everything you enter into a calculator (property type, bedrooms, heating system, bills and so on) is processed by JavaScript in your browser, and we do not store it or send it anywhere. If you press Copy link, your answers are put into that link so the result can be kept or shared; when someone opens it, our host Netlify records the address in its access logs like any other. Google Analytics is set to record only the page, never the answers in a link. The answers describe a home, not a person, and we never combine them with anything that identifies you.</p>
+        <p>Everything you enter into a calculator (property type, bedrooms, heating system, bills and so on) is processed by JavaScript in your browser, and we do not store it or send it anywhere. If you press Copy link, your answers are put into that link so the result can be kept or shared; when someone opens it, our host Netlify records the address in its access logs like any other. Google Analytics is set to record only the page and any campaign tag in its address, never the answers in a link. The answers describe a home, not a person, and we never combine them with anything that identifies you.</p>
 
         <h3>Analytics</h3>
-        <p>We use Google Analytics 4 to understand how the site is used: which pages are viewed, how visitors arrive, what device and browser they use and their approximate location. Google truncates IP addresses and we do not combine analytics data with anything that identifies you. Because no cookie or similar identifier is stored on your device, PECR's consent rule does not apply, and our lawful basis for the limited data Google does receive is our legitimate interest in understanding how the site performs. You can read how Google uses this data at <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+        <p>We use Google Analytics 4 to understand how the site is used, so we can improve it: which pages are viewed, how visitors arrive, the type of device and browser, the country and region, and whether someone got a calculator result, asked for quotes or signed up for updates. It never receives your calculator answers or form details. Google truncates IP addresses, and we do not combine analytics data with anything that identifies you.</p>
+        <p>Google acts only as our processor. We have turned off every setting that would let Google use the data for its own purposes, Google signals and advertising features are off, and the account is not linked to any advertising service. Our lawful basis is our legitimate interest in understanding how the site is used so that we can improve it. You can turn analytics off at any time: see <a href="#cookies">Cookies</a>.</p>
 
         <h3>Advertising</h3>
             <p>We do not currently show any advertising. There are no ad scripts on this site and no advertising cookies are set. If that ever changes we will say so here before it does, and we would ask for your agreement first.</p>
@@ -73,11 +67,15 @@
         <p>We are a member of the Awin affiliate network. A few links, currently to Energy Performance Certificates for booking an EPC, can earn us a commission if you go on to order. Each one is marked as a paid link just before it, and marked as sponsored in the page code. It costs you nothing, and no personal data passes from us to them: Awin and the company you visit record the click on their own sites, under their own privacy policies.</p>
         <p>When you follow any link to another site, that site may set its own cookies, which we do not control. Links to government pages, regulators and certification bodies never earn us anything.</p>
 
-        <h2>Cookies</h2>
-        <p>This site sets no cookies at all. Not for analytics, not for advertising, and not to remember a cookie choice, because there is no choice to remember.</p>
-        <p>Google Analytics runs here, but it is configured with consent mode set to denied before it loads, which stops it writing anything to your browser. It counts page views, and when you send a form it records that a sign-up or quote request happened, without any of your details. It cannot tell that two page views came from the same person, it cannot follow you between visits, and it leaves no identifier behind. We also use no local storage and no session storage.</p>
-        <p>We chose this deliberately. Measuring which pages get read does not require knowing who read them, and it seemed better to collect less than to put a consent banner in front of every page.</p>
-        <p>You can still stop Google Analytics seeing your visit entirely, with Google's own opt-out add-on at tools.google.com/dlpage/gaoptout, with your browser's tracking protection, or with any content blocker.</p>
+        <h2 id="cookies">Cookies</h2>
+        <p>Google Analytics sets two cookies, <code>_ga</code> and <code>_ga_4QMWG6G2WL</code>, which let it count visits and tell a new visitor from a returning one. They expire after two years unless you come back or turn analytics off. No other cookies are set: nothing for advertising, and nothing shared with advertisers.</p>
+        <p>We use these cookies only to see how the site is used so that we can improve it. Under the Data (Use and Access) Act 2025, cookies used only for that can be set without asking first, provided we explain them, as here, and you can object simply and for free.</p>
+        <p>To object, use the button below. It stops Google Analytics on this site in this browser and deletes its cookies. If you press it, your browser stores a note of your choice so we can keep respecting it; that note is the only other thing this site stores.</p>
+        <div class="optout-box">
+            <p id="analyticsStatus" aria-live="polite">Analytics only runs with JavaScript on. With it off, nothing is measured.</p>
+            <button type="button" id="analyticsOptOut" class="optout-btn">Turn off analytics</button>
+        </div>
+        <p>You can also block Google Analytics on every site with Google's opt-out add-on at tools.google.com/dlpage/gaoptout, with your browser's tracking protection, or with a content blocker.</p>
 
         <h2>Third-party services</h2>
         <p>The site is hosted by Netlify, which keeps standard access logs (IP address, browser type, pages requested) for security and reliability. Fonts are served from this site, so no font provider sees your visit. Google Analytics is described above. We do not control how these providers process data beyond the settings we choose; their own privacy policies apply.</p>
