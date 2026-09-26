@@ -97,8 +97,8 @@
  "guides/are-solar-panels-worth-it-uk": {
   "points": [
    "**£5,000 to £7,000** for a typical 4 kW system, at 0% VAT until 31 March 2027",
-   "**About £490 to £560 a year** in bill savings and export payments on a south facing roof",
-   "**About 11 to 12 years** to pay for itself, or about 21 years with a battery"
+   "**About £480 to £560 a year** in bill savings and export payments on a south facing roof",
+   "**About 11 to 13 years** to pay for itself, or about 21 years with a battery"
   ],
   "jumps": [
    [
@@ -1718,9 +1718,9 @@
  },
  "guides/solar-panel-payback-uk": {
   "points": [
-   "**10.7 to 12.3 years** for a typical 4 kW system without a battery, depending on where you live",
+   "**10.8 to 12.6 years** for a typical 4 kW system without a battery, depending on where you live",
    "**About 21 years** with a 5 kWh battery, because the battery has to be replaced before the system pays back",
-   "**About £7,200** net profit over 25 years for a 4 kW south facing system in southern England"
+   "**About £7,100** net profit over 25 years for a 4 kW south facing system in southern England"
   ],
   "jumps": [
    [
@@ -2027,9 +2027,9 @@
  },
  "guides/solar-panel-payback-south-england": {
   "points": [
-   "**10.7 years** to pay back a typical 4 kW south facing system in South and East England, earning about £559 a year",
-   "**About £7,168** left over 25 years after the £6,000 cost, or about £2,208 with a battery",
-   "**13.2 years** on an east or west roof, and **8.2 years** on a 17.5p export rate"
+   "**10.8 years** to pay back a typical 4 kW south facing system in South and East England, earning about £556 a year",
+   "**About £7,097** left over 25 years after the £6,000 cost, or about £2,114 with a battery",
+   "**13.2 years** on an east or west roof, and **8.3 years** on a 17.5p export rate"
   ],
   "jumps": [
    [
@@ -2068,8 +2068,8 @@
  },
  "guides/solar-panel-payback-midlands": {
   "points": [
-   "**11.5 years** to pay back a typical 4 kW south facing system in the Midlands, earning about £523 a year",
-   "**About £6,320** left over 25 years after the £6,000 cost, or about £1,289 with a battery",
+   "**11.4 years** to pay back a typical 4 kW south facing system in the Midlands, earning about £526 a year",
+   "**About £6,390** left over 25 years after the £6,000 cost, or about £1,360 with a battery",
    "**13.9 years** on an east or west roof, and **8.8 years** on a 17.5p export rate"
   ],
   "jumps": [
@@ -2109,9 +2109,9 @@
  },
  "guides/solar-panel-payback-north-england": {
   "points": [
-   "**12.1 years** to pay back a typical 4 kW south facing system in northern England, earning about £494 a year",
-   "**About £5,637** left over 25 years after the £6,000 cost, or about £347 with a battery",
-   "**14.5 years** on an east or west roof, and **9.4 years** on a 17.5p export rate"
+   "**11.9 years** to pay back a typical 4 kW south facing system in northern England, earning about £505 a year",
+   "**About £5,896** left over 25 years after the £6,000 cost, or about £724 with a battery",
+   "**14.4 years** on an east or west roof, and **9.2 years** on a 17.5p export rate"
   ],
   "jumps": [
    [
@@ -2150,9 +2150,9 @@
  },
  "guides/solar-panel-payback-wales": {
   "points": [
-   "**11.6 years** to pay back a typical 4 kW south facing system in Wales, earning about £517 a year",
-   "**About £6,178** left over 25 years after the £6,000 cost, or about £1,101 with a battery",
-   "**14.1 years** on an east or west roof, and **9 years** on a 17.5p export rate"
+   "**11.4 years** to pay back a typical 4 kW south facing system in Wales, earning about £526 a year",
+   "**About £6,390** left over 25 years after the £6,000 cost, or about £1,360 with a battery",
+   "**13.9 years** on an east or west roof, and **8.8 years** on a 17.5p export rate"
   ],
   "jumps": [
    [
@@ -2191,9 +2191,9 @@
  },
  "guides/solar-panel-payback-scotland": {
   "points": [
-   "**12.3 years** to pay back a typical 4 kW south facing system in Scotland, earning about £486 a year",
-   "**About £5,448** left over 25 years after the £6,000 cost, or about £394 with a battery",
-   "**14.9 years** on an east or west roof, and **9.6 years** on a 17.5p export rate"
+   "**12.6 years** to pay back a typical 4 kW south facing system in Scotland, earning about £477 a year",
+   "**About £5,236** left over 25 years after the £6,000 cost, or about £111 with a battery",
+   "**15.2 years** on an east or west roof, and **9.7 years** on a 17.5p export rate"
   ],
   "jumps": [
    [
@@ -2232,8 +2232,8 @@
  },
  "guides/solar-panel-payback-by-region": {
   "points": [
-   "**10.7 years** to pay back a 4 kW system in South and East England, and **12.3 years** in Scotland",
-   "**£486 to £559** a year in bill savings and export payments across Great Britain",
+   "**10.8 years** to pay back a 4 kW system in South and East England, and **12.6 years** in Scotland",
+   "**£477 to £556** a year in bill savings and export payments across Great Britain",
    "Roof direction and the export tariff matter **more than the region**"
   ],
   "jumps": [

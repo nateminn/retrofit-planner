@@ -34,7 +34,8 @@ TOKENS = [
     'GB Energy Scheme', 'gas ban likely',
 ]
 # Generic ranges that other measures legitimately share only count near a heat pump.
-HEAT_PUMP_ONLY = {'£500 to £2,500', '£8,000 to £10,000', '£0 to £2,500'}
+HEAT_PUMP_ONLY = {'£500 to £2,500', '£8,000 to £10,000', '£0 to £2,500',
+                  '£397'}   # also a 3 kW solar benefit in northern England since 26 Sep 2026
 BOILER_PHASE = re.compile(r'boilers?[^.<]{0,40}(?:being |be )?phased out', re.I)
 EFFICIENCY = re.compile(r'\b(?:COP|SCOP|efficiency|coefficient of performance)[^.<]{0,60}\b(2\.9|3\.4|2\.6 to 3\.4)\b', re.I)
 

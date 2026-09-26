@@ -142,12 +142,24 @@
    "name": "PVGIS 5.3, SARAH3 radiation data 2005 to 2023",
    "publisher": "European Commission Joint Research Centre",
    "url": "https://re.jrc.ec.europa.eu/pvg_tools/en/",
-   "use": "Solar generation by region, council, month, roof direction and pitch",
+   "use": "Solar generation by postcode district, region, council, month, roof direction and pitch",
    "published": "Version 5.3",
    "checked": "25 September 2026",
    "probe": [
     "solar-calculator/index.html",
     "south:        { 20: 0.96, 35: 1.00, 45: 1.00 }"
+   ]
+  },
+  {
+   "name": "Code-Point Open",
+   "publisher": "Ordnance Survey",
+   "url": "https://www.ordnancesurvey.co.uk/products/code-point-open",
+   "use": "Where the homes in each postcode district are, for the solar calculator's area figures",
+   "published": "August 2026 edition",
+   "checked": "26 September 2026",
+   "probe": [
+    "docs/superpowers/tools/solar_districts.py",
+    "CodePointOpen"
    ]
   },
   {
@@ -315,7 +327,7 @@
  "assumptions": [
   "LPG at 9.5p per kWh is our own assumption for a typical bulk contract; there is no official average.",
   "The EPC estimate is a simple points model, not the government's SAP software. For a typical home of each age it lands close to the English Housing Survey 2024 average rating, but it has not been checked home by home against lodged certificates.",
-  "Solar generation for each region is set a little below the PVGIS figure for its sunniest city, to allow for shading and soiling on real roofs.",
+  "Solar generation is the PVGIS figure for the postcode district, at the centre of its homes, less 7% for shading and dirt on real roofs; the 7% is our allowance, chosen to match the cautious regional figures the calculator used before.",
   "Where the Energy Saving Trust publishes no figure we borrow the nearest home: an end-terrace takes the semi-detached cost, and a top floor flat's loft takes the mid-terrace cost.",
   "The typical household bill of £1,723 is the price cap rates applied to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas.",
   "Heat pump efficiency by insulation: we use the trial's lower quartile (2.55) for poor insulation, its median (2.78) for average and its upper quartile (3.05) for good; 3.25 for excellent is our estimate near the top of the trial's range. The trial did not split results by insulation.",

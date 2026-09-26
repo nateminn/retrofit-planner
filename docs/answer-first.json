@@ -3,7 +3,7 @@
   "sections": [
    {
     "h2": "Are solar panels worth it in the UK in 2026?",
-    "answer": "**For most homes, yes.** A typical 4 kW system costs £5,000 to £7,000 and pays for itself in about 11 to 12 years on our figures, then keeps working for 25 years or more. Your export tariff and how much you use at home matter more than where you live."
+    "answer": "**For most homes, yes.** A typical 4 kW system costs £5,000 to £7,000 and pays for itself in about 11 to 13 years on our figures, then keeps working for 25 years or more. Your export tariff and how much you use at home matter more than where you live."
    },
    {
     "h2": "What a solar system really costs in 2026",
@@ -46,7 +46,7 @@
    },
    {
     "h2": "How long do solar panels take to pay for themselves?",
-    "answer": "**About 11 to 12 years**: 10.7 years in the south to 12.3 in Scotland on our figures, and much longer on a 4p export tariff. The panels then keep producing for 25 years or more."
+    "answer": "**About 11 to 13 years**: 10.8 years in the south to 12.6 in Scotland on our figures, and much longer on a 4p export tariff. The panels then keep producing for 25 years or more."
    },
    {
     "h2": "Where these figures come from",
@@ -1291,7 +1291,7 @@
   "sections": [
    {
     "h2": "Cost and savings by battery size",
-    "answer": "**A 5 kWh battery costs around £4,600 and adds about £180 a year on a 4 kW system.** Bigger batteries add little more: 10 kWh gives £218, as there is rarely enough surplus to fill them."
+    "answer": "**A 5 kWh battery costs around £4,600 and adds about £180 a year on a 4 kW system.** Bigger batteries add little more: 10 kWh gives £217, as there is rarely enough surplus to fill them."
    },
    {
     "h2": "How batteries save money",
@@ -1299,7 +1299,7 @@
    },
    {
     "h2": "Payback: solar only vs solar plus battery",
-    "answer": "**A battery roughly doubles payback on a flat rate tariff.** A 4 kW system alone pays back in 10.7 years, and in 20.6 years with a 5 kWh battery, counting one £4,600 replacement."
+    "answer": "**A battery roughly doubles payback on a flat rate tariff.** A 4 kW system alone pays back in 10.8 years, and in 20.7 years with a 5 kWh battery, counting one £4,600 replacement."
    },
    {
     "h2": "When a battery is worth it",
@@ -1330,11 +1330,11 @@
   "sections": [
    {
     "h2": "Payback summary",
-    "answer": "**About 10.7 years for 4 kW in southern England.** A £6,000 south facing system earns £559 a year; east or west roofs take 13.2 years and a battery stretches it to 20.6 years."
+    "answer": "**About 10.8 years for 4 kW in southern England.** A £6,000 south facing system earns £556 a year; east or west roofs take 13.2 years and a battery stretches it to 20.7 years."
    },
    {
     "h2": "Payback by region",
-    "answer": "**From 10.7 years in southern England to 12.3 years in Scotland, for 4 kW south facing.** Generation varies by roughly 15%, a gap of about 1.6 years, so solar works across Great Britain."
+    "answer": "**From 10.8 years in southern England to 12.6 years in Scotland, for 4 kW south facing.** Generation varies by roughly 16%, a gap of about 1.8 years, so solar works across Great Britain."
    },
    {
     "h2": "Payback by roof direction",
@@ -1342,11 +1342,11 @@
    },
    {
     "h2": "With and without a battery",
-    "answer": "**A battery makes payback longer, not shorter.** A £4,600 battery adds about £180 a year, so a 4 kW system goes from 10.7 years to 20.6 years once the replacement battery is counted."
+    "answer": "**A battery makes payback longer, not shorter.** A £4,600 battery adds about £180 a year, so a 4 kW system goes from 10.8 years to 20.7 years once the replacement battery is counted."
    },
    {
     "h2": "Payback by system size",
-    "answer": "**For a medium user, 4 kW pays back fastest, at 10.7 years.** Payback stays close to 11 years from 3 kW to 5 kW and is 11.6 years at 6 kW; heat pump or EV homes can justify more."
+    "answer": "**For a medium user, 4 kW pays back fastest, at 10.8 years.** Payback stays close to 11 years from 3 kW to 5 kW and is 11.6 years at 6 kW; heat pump or EV homes can justify more."
    },
    {
     "h2": "25-year profit projection",
@@ -1354,7 +1354,7 @@
    },
    {
     "h2": "What speeds up payback",
-    "answer": "**A better export tariff, more daytime use, a south roof and 0% VAT.** On a 17.5p export rate a 4 kW system pays back in 8.2 years, against 10.7 years at 12p."
+    "answer": "**A better export tariff, more daytime use, a south roof and 0% VAT.** On a 17.5p export rate a 4 kW system pays back in 8.3 years, against 10.8 years at 12p."
    },
    {
     "h2": "What slows down payback",
@@ -1631,11 +1631,11 @@
    },
    {
     "h2": "How much will you actually save?",
-    "answer": "**About £559 a year for a 4 kW south facing system: £190 in bill savings plus £369 in export income.** A battery lifts that to £739, only £180 more, and does not pay for itself on solar alone."
+    "answer": "**About £556 a year for a 4 kW south facing system: £189 in bill savings plus £367 in export income.** A battery lifts that to £735, only £180 more, and does not pay for itself on solar alone."
    },
    {
     "h2": "Payback period by scenario",
-    "answer": "**About 10.7 years for a 4 kW south facing system without a battery in southern England, or about 21 years with one.** Northern England takes 12.1 years, Scotland 12.3 and an east or west roof 13.2."
+    "answer": "**About 10.8 years for a 4 kW south facing system without a battery in southern England, or about 21 years with one.** Northern England takes 11.9 years, Scotland 12.6 and an east or west roof 13.2."
    },
    {
     "h2": "The honest downsides",

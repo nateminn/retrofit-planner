@@ -442,20 +442,20 @@ def ins_flat():
 SOLAR_R = json.loads((ROOT / 'docs' / 'solar-regions.json').read_text())
 MAP = json.loads((ROOT / 'docs' / 'maps' / 'itl1-2025.json').read_text())
 REGION = {
-    'south': dict(slug='solar-panel-payback-south-england', name='South and East England', short='southern England', kwp=950,
+    'south': dict(slug='solar-panel-payback-south-england', name='South and East England', short='southern England', kwp=945,
                   itl=['London', 'South East (England)', 'South West (England)', 'East (England)'],
                   areas='London, the South East, the South West and the East of England', cities=[('London', 987), ('Bristol', 992)],
                   title='Solar Panel Payback, South and East England: %s'),
-    'midlands': dict(slug='solar-panel-payback-midlands', name='the Midlands', short='the Midlands', kwp=880,
+    'midlands': dict(slug='solar-panel-payback-midlands', name='the Midlands', short='the Midlands', kwp=885,
                      itl=['East Midlands (England)', 'West Midlands (England)'], areas='the East and West Midlands', cities=[('Birmingham', 940)],
                      title='Solar Panel Payback in the Midlands 2026: %s'),
-    'north': dict(slug='solar-panel-payback-north-england', name='North England', short='northern England', kwp=830,
+    'north': dict(slug='solar-panel-payback-north-england', name='North England', short='northern England', kwp=850,
                   itl=['North East (England)', 'North West (England)', 'Yorkshire and The Humber'],
                   areas='the North East, the North West and Yorkshire and the Humber', cities=[('Manchester', 861), ('Newcastle upon Tyne', 921)],
                   title='Solar Panel Payback in Northern England 2026: %s'),
-    'wales': dict(slug='solar-panel-payback-wales', name='Wales', short='Wales', kwp=870, itl=['Wales'], areas='all of Wales', cities=[('Cardiff', 1009)],
+    'wales': dict(slug='solar-panel-payback-wales', name='Wales', short='Wales', kwp=885, itl=['Wales'], areas='all of Wales', cities=[('Cardiff', 1009)],
                   title='Solar Panel Payback in Wales 2026: %s'),
-    'scotland': dict(slug='solar-panel-payback-scotland', name='Scotland', short='Scotland', kwp=810, itl=['Scotland'], areas='all of Scotland',
+    'scotland': dict(slug='solar-panel-payback-scotland', name='Scotland', short='Scotland', kwp=795, itl=['Scotland'], areas='all of Scotland',
                      cities=[('Edinburgh', 878)], title='Solar Panel Payback in Scotland 2026: %s'),
 }
 SIZE_COST = {'3': '£4,000 to £5,500', '4': '£5,000 to £7,000', '5': '£6,500 to £8,500', '6': '£8,500 to £10,000'}
@@ -515,7 +515,6 @@ def solar_region_page(key):
     others = [['<a href="/guides/%s/">%s</a>' % (REGION[k]['slug'], rcap(k)) if k != key else '<strong>%s</strong>' % rcap(k),
                f"{int(SOLAR_R[k]['sizes']['4']['gen']):,} kWh", gbp(SOLAR_R[k]['sizes']['4']['benefit']), SOLAR_R[k]['sizes']['4']['payback']] for k in REGION]
     tbl_others = table('4 kW solar payback in each region', ['Region', 'Generation a year', 'Saving and export a year', 'Payback'], others)
-    city = ', '.join('%s %s' % (c, f'{v:,}') for c, v in R['cities'])
     name_cap = R['name'][0].upper() + R['name'][1:]
     faq = [('How long do solar panels take to pay back in %s?' % R['short'],
             'About %s for a typical 4 kW south facing system costing £6,000, at the October 2026 price cap and a 12p export rate. It earns about %s a year and leaves about %s over 25 years.'
@@ -524,8 +523,8 @@ def solar_region_page(key):
             'On a reasonable roof, yes: a 4 kW system pays for itself in about %s, well inside a 25 year panel life. An east or west roof takes about %s, and a battery stretches it to %s.'
             % (s4['payback'], D['roofs']['east']['payback'], b['payback'])),
            ('How much electricity does a 4 kW solar system make in %s?' % R['short'],
-            'About %s kWh a year on a south facing roof, using %s kWh per kW, a cautious regional figure below the PVGIS result for the sunniest spots (%s kWh per kW). %s makes about %s times as much as December.'
-            % (f"{int(s4['gen']):,}", R['kwp'], city, MONTHS[mo.index(max(mo))], ('%.1f' % ratio)))]
+            'About %s kWh a year on a south facing roof, using %s kWh per kW: the PVGIS figure for homes across the region, less 7%% for shading and dirt. Enter your postcode in the solar calculator for your own area. %s makes about %s times as much as December.'
+            % (f"{int(s4['gen']):,}", R['kwp'], MONTHS[mo.index(max(mo))], ('%.1f' % ratio)))]
     body = f"""
 <div class="region-intro"><p class="lead">A typical 4 kW solar system in {R['short']} costs about £6,000, generates about <strong>{int(s4['gen']):,} kWh</strong> a year and brings in about <strong>{gbp(s4['benefit'])} a year</strong> in bill savings and export payments, so it pays for itself in about <strong>{s4['payback']}</strong>. These are the solar calculator's figures for {R['areas']}.</p>
 <figure class="region-fig">{region_map(highlight=key)}<figcaption>{name_cap} is highlighted. <a href="/guides/solar-panel-payback-by-region/">Compare every region</a>.</figcaption></figure></div>
@@ -1248,7 +1247,7 @@ SO_BINS = [900, 950, 1000, 1050]
 SO_COLS = ['#c3cedc', '#f6e3a1', '#f0c64f', '#e29a1f', '#b8650c']
 SO_LABELS = ['Under 900 kWh', '900 to 950', '950 to 1,000', '1,000 to 1,050', '1,050 kWh or more']
 CALC_REGION = {'London': 'south', 'South East': 'south', 'South West': 'south', 'East': 'south', 'East Midlands': 'midlands',
-               'West Midlands': 'midlands', 'North East': 'north', 'North West': 'north', 'Yorkshire and The Humber': 'north',
+               'West Midlands': 'midlands', 'North East': 'north', 'North West': 'north', 'Yorkshire and the Humber': 'north',
                'Wales': 'wales', 'Scotland': 'scotland'}
 REGION_NAME = {'East': 'East of England', 'Yorkshire and The Humber': 'Yorkshire and the Humber'}
 
@@ -1336,7 +1335,7 @@ def solar_council_page():
 
 <h2 id="matter">How much does location matter?</h2>
 <p class="answer"><strong>Less than your roof.</strong> Half of all councils are within {within}% of the median; turning panels from south to east or west costs about 20%.</p>
-<p>Shading, roof direction and pitch usually matter more than which council you live in. The <a href="/solar-calculator/">solar calculator</a> takes your postcode, roof direction and pitch, and uses regional figures set a little below these to allow for shading and dirt on the panels.</p>
+<p>Shading, roof direction and pitch usually matter more than which council you live in. The <a href="/solar-calculator/">solar calculator</a> takes your postcode, roof direction and pitch, and uses the PVGIS figure for your postcode district less 7% for shading and dirt on the panels.</p>
 
 <h2 id="all">Every council</h2>
 <p class="answer"><strong>All {n} councils in the UK, ranked.</strong></p>
