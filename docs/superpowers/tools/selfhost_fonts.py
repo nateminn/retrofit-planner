@@ -15,8 +15,8 @@ import pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 
 PRELOAD = (
-    '<link rel="preload" href="/fonts/fraunces-normal-2.woff2" as="font" type="font/woff2" crossorigin>\n'
-    '<link rel="preload" href="/fonts/plus-jakarta-sans-normal-4.woff2" as="font" type="font/woff2" crossorigin>'
+    '<link rel="preload" href="/fonts/fraunces-normal-3.woff2" as="font" type="font/woff2" crossorigin>\n'
+    '<link rel="preload" href="/fonts/plus-jakarta-sans-normal-5.woff2" as="font" type="font/woff2" crossorigin>'
 )
 PATTERNS = [
     re.compile(r'\s*<link[^>]*href="https://fonts\.googleapis\.com/css2[^"]*"[^>]*>'),
