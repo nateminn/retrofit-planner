@@ -1,11 +1,7 @@
-RetrofitPlanner.co.uk is an independent UK home energy site I run on my own. Editorial, UK organic search only.
+RetrofitPlanner.co.uk is an independent UK site that helps homeowners choose between a new boiler and a heat pump for their own home. UK organic search only.
 
-Clicks have grown from 39 in March to 331 in August, roughly 8x in five months. The 28 days to 20 September gave 413 clicks from 52,068 impressions.
+Who you would reach: homeowners ready to replace their heating. My boiler versus heat pump calculator compares installed cost, grants and running costs for their home, and it says plainly when a heat pump will not pay, which for many gas homes it will not. Those visitors want a new boiler and today I have nowhere to send them. The comparison drew 11,929 search impressions in 12 months, and heat pump and boiler costs are my biggest topic (94,563 impressions).
 
-Heat pumps and boilers are far my largest cluster: 94,563 impressions and 777 clicks in 12 months, from nine pages. The boiler comparison alone took 11,929 impressions at position 11.2.
+How I would promote you: as the next step on the calculator whenever a new boiler comes out ahead, and as a labelled link on my boiler versus heat pump guides. Your fast online quote suits people who have already decided.
 
-Heat demand is modelled from DESNZ NEED 2026 microdata rather than generic averages, method at /methodology/. It says plainly when a heat pump will not pay, and withholds both the quote link and the quote form when its own figures say so, which is why the recommendation carries weight when it does appear.
-
-One file holds the partner destination for every calculator, so this goes live the day it is approved, with rel="sponsored" and a disclosure above the link.
-
-Could you confirm per category rates, and whether commission is on sale or lead?
+Could you confirm your commission rate for boilers and heat pumps?

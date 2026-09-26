@@ -67,5 +67,6 @@ The visible disclosure must sit above the paid link, before the reader clicks.
 
 ## Status check, 26 September 2026 (Awin API)
 
-Pending: 13574 BOXT, 54765 E.ON Next. The five "to apply" merchants above do not appear as pending or
-rejected, so their applications were never submitted.
+Pending: 13574 BOXT, 54765 E.ON Next. The five "to apply" merchants were submitted on 26 September 2026
+with the rewritten messages in this folder (each under Awin's ~1,000 character limit); Awin API confirms
+all seven pending.

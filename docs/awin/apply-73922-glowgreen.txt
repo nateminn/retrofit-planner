@@ -1,11 +1,5 @@
-RetrofitPlanner.co.uk is an independent UK home energy site I run on my own. Editorial content, UK organic search only.
+RetrofitPlanner.co.uk is an independent UK site that helps homeowners work out whether a heat pump, solar panels or a new boiler suits their own home, before they speak to an installer. UK organic search only.
 
-Clicks have grown from 39 in March to 331 in August, roughly 8x in five months. The 28 days to 20 September gave 413 clicks from 52,068 impressions.
+Who you would reach: homeowners researching a specific job. Heat pump and boiler costs are my biggest topic (94,563 search impressions in 12 months). My calculators give each visitor an installed price, the £7,500 grant, running costs and payback from government data, so anyone who clicks through already knows roughly what the job costs and whether it pays. That should mean fewer surveys that go nowhere.
 
-Heat pumps and boilers are my largest cluster: 94,563 impressions and 777 clicks in 12 months, concentrated in nine pages. Solar is the unserved one: 13,191 impressions but only 32 clicks, because that page still ranks near position 22. Finishers go to the MCS directory, which earns nothing.
-
-Your range is why I am applying. Boilers, solar, heat pumps and battery cover four of my six tools, so one approval does the work of several.
-
-Heat demand is modelled from DESNZ NEED 2026 microdata, solar from the MCS MGD 003 tables, method at /methodology/. A partner link shows only where the tool's result says buying is the genuine next step.
-
-No brand bidding, no vouchers, no incentivised signups, no email drops.
+How I would promote you: as the next step on my heat pump, boiler and solar calculators, shown when the result says the upgrade pays, and as a labelled link on my house-type cost guides. Your range of boilers, heat pumps, solar and batteries lets one partner sit across the whole site.

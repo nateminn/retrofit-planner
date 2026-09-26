@@ -1,9 +1,5 @@
-RetrofitPlanner.co.uk is an independent UK home energy site I run on my own. Editorial content, UK organic search only.
+RetrofitPlanner.co.uk is an independent UK site that helps homeowners work out whether solar panels pay on their own roof, before they ask for a quote. UK organic search only.
 
-Clicks have grown from 39 in March to 331 in August, roughly 8x in five months. The 28 days to 20 September gave 413 clicks from 52,068 impressions.
+Who you would reach: homeowners who have already done the maths. My solar calculator takes their postcode, roof direction and pitch, and shows system size, cost, first-year saving, payback and whether a battery is worth adding. It is backed by solar payback pages for every UK region and a map of solar output for all 361 UK councils, built on PVGIS and government data. The calculator alone drew 13,191 search impressions in 12 months. Anyone who clicks through already knows what solar should save them, which suits a quote you can turn round quickly.
 
-I am applying for one slot: the results of my solar calculator. It took 13,191 impressions in 12 months and only 32 clicks, because it still ranks near position 22. That is real demand that has not surfaced yet, and it has no commercial partner at all. Finishers go to the MCS directory, which earns nothing.
-
-The calculator models generation from regional yield figures, self consumption from the MCS MGD 003 tables and payback against the Ofgem cap and a 12p SEG rate, so anyone reaching your quote form already has a system size and a payback figure.
-
-The link carries rel="sponsored" with a disclosure above it. No brand bidding, no vouchers, no incentivised signups, no email drops.
+How I would promote you: as the next step on my solar calculator, shown when the result says panels pay, and as a labelled link on my regional solar payback pages and solar guides.
