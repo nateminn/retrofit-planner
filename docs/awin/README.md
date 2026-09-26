@@ -2,12 +2,21 @@
 
 Publisher: Minnis and Company, ID 3103652. Promotional type: Editorial Content.
 
+## Live
+
+| ID | Merchant | Terms | Where |
+|----|----------|-------|-------|
+| 25022 | Energy Performance Certificates (EPCs, Gas Safety Certificates and Electrical Check) | 10% of the order, about £6.50 on a £65 EPC; validation about 38 days, payment about 70 (Awin API, 26 Sep 2026) | js/partners.js epc slot (EPC calculator result), /guides/epc-cost/ under the price table (replaced the EPC quote form), /landlord-epc-calculator/ under the result, /guides/epc-rating-landlords/ Getting a new EPC |
+
+Approved 26 September 2026. Every paid link carries a "Paid link" note before it and rel="sponsored".
+If the programme is suspended: set paid to false and href back to the GOV.UK register in js/partners.js, and
+replace the three static links.
+
 ## Already applied (pending)
 
 | ID | Merchant | Covers |
 |----|----------|--------|
 | 13574 | BOXT | boilers, heat pumps, solar, battery, EV |
-| 25022 | EPCs, Gas Safety and Electrical Check | the EPC slot |
 | 54765 | E.ON Next | the tariff slot |
 
 ## To apply (message file per merchant in this folder)
@@ -55,3 +64,8 @@ To bring Awin back after an approval, restore js/partners.js from commit 3be5248
 (git show 3be5248:js/partners.js) and re-add the disclosure wording to privacy/ and about/.
 The visible disclosure must sit above the paid link, before the reader clicks.
 
+
+## Status check, 26 September 2026 (Awin API)
+
+Pending: 13574 BOXT, 54765 E.ON Next. The five "to apply" merchants above do not appear as pending or
+rejected, so their applications were never submitted.

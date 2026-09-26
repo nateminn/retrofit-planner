@@ -8,11 +8,30 @@
 (function () {
     'use strict';
 
+    /* Awin publisher ID for Minnis and Company. This is NOT a secret: it appears in every
+       tracking link. The Awin API token IS a secret and must never appear in this file or
+       anywhere in the repo, because everything here ships to the browser. */
+    var AWIN_ID = '3103652';
+
+    /* An Awin deep link, in the format Awin's Link Builder produces. */
+    function awin(merchantId, destination) {
+        return 'https://www.awin1.com/cread.php?awinmid=' + merchantId
+             + '&awinaffid=' + AWIN_ID
+             + '&ued=' + encodeURIComponent(destination)
+             + '&platform=pl';
+    }
+
+    /* paid: true marks a link that can earn us a commission. The box then carries
+       rel="sponsored" and a disclosure ABOVE the link, before the reader clicks.
+       Programme 25022 (Energy Performance Certificates) approved 26 September 2026.
+       If it is ever suspended, set paid to false and href back to the government register. */
     var NEXT = {
         epc: {
-            href: 'https://www.gov.uk/get-new-energy-certificate',
-            cta: 'Book an accredited EPC assessment',
-            note: 'An assessor visits, lodges the certificate on the national register and it lasts ten years.'
+            href: awin('25022', 'https://energyperformancecertificates.co.uk/domestic-epc'),
+            paid: true,
+            cta: 'Book an EPC online',
+            note: 'An accredited assessor visits, lodges the certificate on the national register and it lasts ten years.',
+            alt: { href: 'https://www.gov.uk/get-new-energy-certificate', text: 'find any accredited assessor on the government register' }
         },
         heatpump: {
             href: 'https://mcscertified.com/find-an-installer/',
@@ -43,7 +62,7 @@
 
     function get(key) {
         var p = NEXT[key];
-        return p ? { href: p.href, cta: p.cta, note: p.note } : null;
+        return p ? { href: p.href, cta: p.cta, note: p.note, paid: !!p.paid, alt: p.alt || null } : null;
     }
 
     /* Builds a next step box. `key` picks the destination, `heading` and `body` carry the
@@ -55,7 +74,16 @@
         var html = '<div class="cta-box">';
         html += '<h3>' + heading + '</h3>';
         html += '<p>' + body + (p.note ? ' ' + p.note : '') + '</p>';
-        html += '<a href="' + p.href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '>' + p.cta + '</a>';
+        /* Above the link, not below it: a disclosure met after the click is not a disclosure. */
+        if (p.paid) {
+            html += '<p class="cta-disclosure">This is a paid link: we may earn a commission if you order through it. '
+                  + 'It costs you nothing and does not change any figure above.</p>';
+        }
+        var rel = external ? (p.paid ? ' target="_blank" rel="sponsored noopener"' : ' target="_blank" rel="noopener"') : '';
+        html += '<a href="' + p.href + '"' + rel + '>' + p.cta + '</a>';
+        if (p.alt) {
+            html += '<p class="cta-alt">Or <a href="' + p.alt.href + '" target="_blank" rel="noopener">' + p.alt.text + '</a>.</p>';
+        }
         html += '</div>';
         return html;
     };

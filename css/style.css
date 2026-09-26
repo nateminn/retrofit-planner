@@ -416,6 +416,11 @@ input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
     transition: transform 0.1s, box-shadow 0.2s;
 }
 .cta-box a:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.cta-box .cta-disclosure { font-size: 0.78rem; margin-bottom: 12px; }
+.cta-box .cta-alt { font-size: 0.82rem; margin: 12px 0 0; }
+.cta-box .cta-alt a { display: inline; background: none; color: inherit; padding: 0; font-size: inherit; font-weight: 500; text-decoration: underline; border-radius: 0; }
+.cta-box .cta-alt a:hover { transform: none; box-shadow: none; }
+.paid-note { font-size: 0.82rem; color: var(--color-text-secondary); margin-bottom: 4px; }
 
 /* ===== SIDEBAR ===== */
 .sidebar {

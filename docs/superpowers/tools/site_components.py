@@ -99,7 +99,7 @@ SOLAR = ['solar-calculator'] + ['guides/' + g for g in ['solar-panel-payback-by-
 INSULATION = ['insulation-calculator'] + ['guides/' + g for g in ['is-cavity-wall-insulation-worth-it', 'solid-wall-insulation-cost',
     'insulation-cost-by-house-type', 'insulation-cost-semi-detached-house', 'insulation-cost-detached-house',
     'insulation-cost-terraced-house', 'insulation-cost-bungalow', 'insulation-cost-flat']]
-EPC = ['guides/epc-cost']
+EPC = []   # the EPC quote form was replaced by a paid Awin link on 26 Sep 2026 (Nathan)
 # The home page has no quote form either: Nathan asked for less clutter at its foot.
 HOME = ['epc-calculator', 'retrofit-plan', 'landlord-epc-calculator'] + ['guides/' + g for g in ['epc-rating-by-house-age', 'epc-rating-victorian-house', 'epc-rating-1930s-house', 'epc-rating-1950s-house', 'epc-rating-1970s-house', 'epc-rating-1980s-1990s-house', 'epc-rating-new-build-house']]
 PAGE_KIND = {}

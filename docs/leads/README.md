@@ -35,8 +35,9 @@ Requests made before 24 September used the older optional box. Only pass those o
 share_ok is yes, and treat them under the wording they saw: "You may pass my details to
 up to three MCS-certified installers so they can contact me directly with a quote."
 
-Form names in Netlify: heat-pump-quote, solar-quote, insulation-quote, epc-quote,
-home-upgrade-quote, newsletter.
+Form names in Netlify: heat-pump-quote, solar-quote, insulation-quote, home-upgrade-quote,
+newsletter. epc-quote was retired on 26 September 2026 (replaced by a paid Awin link); any old
+submissions stay in Netlify under that name.
 
 ## The two working days rule
 
